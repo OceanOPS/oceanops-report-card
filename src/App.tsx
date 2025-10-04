@@ -18,7 +18,7 @@ function App() {
           {t('description')}
         </p>
 
-        <div className="flex gap-4 justify-center">
+        <div className="flex gap-4 justify-center flex-wrap">
           <button
             onClick={() => changeLanguage('en')}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
@@ -30,6 +30,12 @@ function App() {
             className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 font-medium"
           >
             {t('spanish')}
+          </button>
+          <button
+            onClick={() => changeLanguage('fr')}
+            className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+          >
+            {t('french')}
           </button>
         </div>
 

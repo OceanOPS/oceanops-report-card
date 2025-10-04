@@ -1,0 +1,8 @@
+{
+  "welcome": "Bienvenue à React + Vite!",
+  "description": "Ceci est une application React minimale avec TypeScript, Tailwind CSS et support i18n.",
+  "english": "Anglais",
+  "spanish": "Espagnol",
+  "french": "Français",
+  "current_language": "Langue actuelle"
+}
