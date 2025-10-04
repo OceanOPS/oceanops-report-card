@@ -1,0 +1,7 @@
+{
+  "welcome": "Welcome to React + Vite!",
+  "description": "This is a minimal React application with TypeScript, Tailwind CSS, and i18n support.",
+  "english": "English",
+  "spanish": "Spanish",
+  "current_language": "Current language"
+}
