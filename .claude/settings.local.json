@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git log:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []
