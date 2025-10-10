@@ -82,8 +82,9 @@ function App() {
           {t('content.section1.paragraph2')}
         </p>
 
-        {/* Quote Block with translations */}
+        {/* Quote Block with translations - variant 'quote' */}
         <QuoteBlock
+          variant="quote"
           quote={t('content.section1.quote.text')}
           authorName={t('content.section1.quote.authorName')}
           authorTitle={t('content.section1.quote.authorTitle')}
@@ -92,6 +93,14 @@ function App() {
           quoteColor="text-goos-blue-700"
           authorColor="text-goos-blue-700"
           iconColor="fill-goos-orange-500"
+        />
+
+        {/* Highlight variant - with left border */}
+        <QuoteBlock
+          variant="highlight"
+          quote={t('content.section1.quote.text')}
+          quoteColor="text-goos-blue-700"
+          borderColor="border-goos-orange-500"
         />
       </ContentModule>
     </div>
