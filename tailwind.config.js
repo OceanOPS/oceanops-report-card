@@ -6,7 +6,7 @@ export default {
   ],
   safelist: [
     // Safelist para colores dinámicos usados en props
-    { pattern: /^(text|bg|border)-(goos-(blue|cyan|orange|green|gray|white)(-[1-9]00)?)$/ },
+    { pattern: /^(text|bg|border|fill)-(goos-(blue|cyan|orange|green|gray|white)(-[1-9]00)?)$/ },
     // Safelist para grid columns dinámicos
     'grid-cols-1',
     'grid-cols-2',

@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next'
 import CoverModule from './components/CoverModule'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import ImageGrid from './components/ImageGrid'
+import ContentModule from './components/ContentModule'
+import QuoteBlock from './components/QuoteBlock'
 
 function App() {
   const { t } = useTranslation()
@@ -46,6 +48,52 @@ function App() {
         ]}
         columns={3}
       />
+
+      {/* Content Module Example - H3 with translations */}
+      <ContentModule
+        titleLevel="h2"
+        kicker={t('content.section1.kicker')}
+        title={t('content.section1.title')}
+        subtitle={t('content.section1.subtitle')}
+        introduction={t('content.section1.introduction')}
+        hasLine={true}
+        backgroundColor="bg-goos-white"
+        titleColor="text-goos-blue-700"
+        textColor="text-goos-gray-900"
+        lineColor="bg-goos-orange-500"
+      >
+        <h4 className="text-2xl font-extrabold text-goos-blue-700 leading-8">
+          {t('content.section1.heading')}
+        </h4>
+
+        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+          {t('content.section1.paragraph1')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+          {t('content.section1.paragraph2')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+          {t('content.section1.paragraph2')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+          {t('content.section1.paragraph2')}
+        </p>
+
+        {/* Quote Block with translations */}
+        <QuoteBlock
+          quote={t('content.section1.quote.text')}
+          authorName={t('content.section1.quote.authorName')}
+          authorTitle={t('content.section1.quote.authorTitle')}
+          logoSrc="/logos/oceanops.png"
+          logoAlt={t('content.section1.quote.logoAlt')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-orange-500"
+        />
+      </ContentModule>
     </div>
   )
 }

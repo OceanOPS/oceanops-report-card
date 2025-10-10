@@ -17,5 +17,22 @@
       "image2": "Skippers Argofloat by A. Auriol Malizia Seaexplorer",
       "image3": "Ocean research equipment"
     }
+  },
+  "content": {
+    "section1": {
+      "kicker": "Kicker line:",
+      "title": "This is the H2",
+      "subtitle": "Subhead",
+      "introduction": "Introduction Text",
+      "heading": "This is the H4",
+      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "paragraph2": "To highlight the status and development of this Global Ocean Observing System, the 2023 Ocean Observing System Report Card provides insight into the current status of the global observing networks.",
+      "quote": {
+        "text": "In the face of climate change, the global community must work together to improve the coverage, quality, and multidisciplinary nature of the observing system to meet vital forecasting services and societal needs. OceanOPS can help make these connections",
+        "authorName": "Mathieu Belbéoch",
+        "authorTitle": "OceanOPS Manager",
+        "logoAlt": "OceanOPS Logo"
+      }
+    }
   }
 }

@@ -17,5 +17,22 @@
       "image2": "Argofloat Skippers par A. Auriol Malizia Seaexplorer",
       "image3": "Équipement de recherche océanique"
     }
+  },
+  "content": {
+    "section1": {
+      "kicker": "Ligne d'accroche:",
+      "title": "Ceci est le H2",
+      "subtitle": "Sous-titre",
+      "introduction": "Texte d'introduction",
+      "heading": "Ceci est le H4",
+      "paragraph1": "Le Système mondial d'observation des océans (GOOS) observe notre océan à travers les \"yeux\" de milliers de plateformes d'observation océanique qui surveillent constamment l'océan pour capturer la signature de divers phénomènes océaniques.",
+      "paragraph2": "Pour mettre en évidence l'état et le développement de ce système mondial d'observation des océans, le rapport 2023 sur le système d'observation des océans donne un aperçu de l'état actuel des réseaux mondiaux d'observation.",
+      "quote": {
+        "text": "Face au changement climatique, la communauté mondiale doit travailler ensemble pour améliorer la couverture, la qualité et la nature multidisciplinaire du système d'observation afin de répondre aux services de prévision vitaux et aux besoins de la société. OceanOPS peut aider à établir ces connexions",
+        "authorName": "Mathieu Belbéoch",
+        "authorTitle": "Directeur d'OceanOPS",
+        "logoAlt": "Logo OceanOPS"
+      }
+    }
   }
 }
