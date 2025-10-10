@@ -4,6 +4,7 @@ import LanguageSwitcher from './components/LanguageSwitcher'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
+import Spacer from './components/Spacer'
 
 function App() {
   const { t } = useTranslation()
@@ -82,6 +83,9 @@ function App() {
           {t('content.section1.paragraph2')}
         </p>
 
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
         {/* Quote Block with translations - variant 'quote' */}
         <QuoteBlock
           variant="quote"
@@ -94,6 +98,9 @@ function App() {
           authorColor="text-goos-blue-700"
           iconColor="fill-goos-orange-500"
         />
+
+         {/* Spacer between modules */}
+         <Spacer size="sm" />
 
         {/* Highlight variant - with left border */}
         <QuoteBlock

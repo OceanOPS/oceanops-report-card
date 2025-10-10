@@ -14,6 +14,13 @@ export default {
     'grid-cols-4',
     'grid-cols-5',
     'grid-cols-6',
+    // Safelist para spacer heights
+    'h-4',
+    'h-8',
+    'h-16',
+    'h-24',
+    'h-32',
+    'h-40',
   ],
   theme: {
     extend: {
