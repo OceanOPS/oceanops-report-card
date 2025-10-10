@@ -28,20 +28,20 @@ function App() {
         backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
       />
 
-      {/* Image Grid */}
+      {/* Hero Image Grid */}
       <ImageGrid
         images={[
           {
             src: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=800&fit=crop',
-            alt: 'XBT launch by L. Fortunato Parthenope University (PNRA)',
+            alt: t('hero.images.image1'),
           },
           {
             src: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=800&fit=crop',
-            alt: 'Skippers Argofloat by A. Auriol Malizia Seaexplorer',
+            alt: t('hero.images.image2'),
           },
           {
             src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=800&fit=crop',
-            alt: 'Ocean research equipment',
+            alt: t('hero.images.image3'),
           },
         ]}
         columns={3}

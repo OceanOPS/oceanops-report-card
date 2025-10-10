@@ -10,5 +10,12 @@
       "unep": "ONU Medio Ambiente",
       "isc": "Consejo Científico Internacional"
     }
+  },
+  "hero": {
+    "images": {
+      "image1": "Lanzamiento de XBT por L. Fortunato Universidad Parthenope (PNRA)",
+      "image2": "Argofloat de Skippers por A. Auriol Malizia Seaexplorer",
+      "image3": "Equipo de investigación oceánica"
+    }
   }
 }

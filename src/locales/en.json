@@ -10,5 +10,12 @@
       "unep": "UN Environment",
       "isc": "International Science Council"
     }
+  },
+  "hero": {
+    "images": {
+      "image1": "XBT launch by L. Fortunato Parthenope University (PNRA)",
+      "image2": "Skippers Argofloat by A. Auriol Malizia Seaexplorer",
+      "image3": "Ocean research equipment"
+    }
   }
 }
