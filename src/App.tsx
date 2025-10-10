@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import CoverModule from './components/CoverModule'
 import LanguageSwitcher from './components/LanguageSwitcher'
+import ImageGrid from './components/ImageGrid'
 
 function App() {
   const { t } = useTranslation()
@@ -10,6 +11,7 @@ function App() {
       {/* Language Switcher - temporary fixed position */}
       <LanguageSwitcher className="fixed top-4 right-4 z-50" />
 
+      {/* Cover */}
       <CoverModule
         title={t('cover.title')}
         year={t('cover.year')}
@@ -24,6 +26,25 @@ function App() {
         // Background Image or Video
         mediaType="video"
         backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
+      />
+
+      {/* Image Grid */}
+      <ImageGrid
+        images={[
+          {
+            src: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=800&fit=crop',
+            alt: 'XBT launch by L. Fortunato Parthenope University (PNRA)',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=800&fit=crop',
+            alt: 'Skippers Argofloat by A. Auriol Malizia Seaexplorer',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=800&fit=crop',
+            alt: 'Ocean research equipment',
+          },
+        ]}
+        columns={3}
       />
     </div>
   )
