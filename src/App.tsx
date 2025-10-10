@@ -1,48 +1,29 @@
 import { useTranslation } from 'react-i18next'
+import CoverModule from './components/CoverModule'
+import LanguageSwitcher from './components/LanguageSwitcher'
 
 function App() {
-  const { t, i18n } = useTranslation()
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng)
-  }
+  const { t } = useTranslation()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-          {t('welcome')}
-        </h1>
+    <div>
+      {/* Language Switcher - temporary fixed position */}
+      <LanguageSwitcher className="fixed top-4 right-4 z-50" />
 
-        <p className="text-gray-600 mb-8 text-center">
-          {t('description')}
-        </p>
-
-        <div className="flex gap-4 justify-center flex-wrap">
-          <button
-            onClick={() => changeLanguage('en')}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
-          >
-            {t('english')}
-          </button>
-          <button
-            onClick={() => changeLanguage('es')}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 font-medium"
-          >
-            {t('spanish')}
-          </button>
-          <button
-            onClick={() => changeLanguage('fr')}
-            className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
-          >
-            {t('french')}
-          </button>
-        </div>
-
-        <div className="mt-8 text-center text-sm text-gray-500">
-          {t('current_language')}: <span className="font-semibold">{i18n.language}</span>
-        </div>
-      </div>
+      <CoverModule
+        title={t('cover.title')}
+        year={t('cover.year')}
+        yearColor="text-goos-orange-500"
+        backgroundColor="bg-goos-blue-900"
+        goosLogoVariant="white"
+        partnerLogosVariant="white"
+        // Background Media Options
+        backgroundOpacity={30}
+        backgroundSize="cover"
+        // Background Image or Video
+        mediaType="video"
+        backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
+      />
     </div>
   )
 }

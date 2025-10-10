@@ -1,8 +1,14 @@
 {
-  "welcome": "Welcome to React + Vite!",
-  "description": "This is a minimal React application with TypeScript, Tailwind CSS, and i18n support.",
-  "english": "English",
-  "spanish": "Spanish",
-  "french": "French",
-  "current_language": "Current language"
+  "cover": {
+    "title": "Global Ocean Observing System",
+    "year": "Status Report 2025",
+    "logos": {
+      "goos": "GOOS Logo",
+      "oceanops": "OceanOPS Logo",
+      "unesco": "UNESCO IOC",
+      "wmo": "WMO",
+      "unep": "UN Environment",
+      "isc": "International Science Council"
+    }
+  }
 }

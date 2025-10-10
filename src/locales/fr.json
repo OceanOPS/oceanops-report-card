@@ -1,8 +1,14 @@
 {
-  "welcome": "Bienvenue à React + Vite!",
-  "description": "Ceci est une application React minimale avec TypeScript, Tailwind CSS et support i18n.",
-  "english": "Anglais",
-  "spanish": "Espagnol",
-  "french": "Français",
-  "current_language": "Langue actuelle"
+  "cover": {
+    "title": "Rapport",
+    "year": "2025",
+    "logos": {
+      "goos": "Logo GOOS",
+      "oceanops": "Logo OceanOPS",
+      "unesco": "COI UNESCO",
+      "wmo": "OMM",
+      "unep": "ONU Environnement",
+      "isc": "Conseil International pour la Science"
+    }
+  }
 }
