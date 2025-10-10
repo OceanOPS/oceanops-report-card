@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git log:*)",
       "Bash(git reset:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

@@ -18,8 +18,15 @@ function App() {
         goosLogoVariant="white"
         partnerLogosVariant="white"
         // Background Media Options
-        backgroundOpacity={30}
+        backgroundOpacity={40}
         backgroundSize="cover"
+        // Blend Mode - uncomment to test different effects:
+        // backgroundBlendMode="multiply"     // Darker, multiplies colors
+        // backgroundBlendMode="screen"       // Lighter, inverted multiply
+        // backgroundBlendMode="overlay"      // Combines multiply and screen
+        backgroundBlendMode="luminosity"   // Uses luminosity of video with color of background
+        // backgroundBlendMode="color"        // Uses color of background with luminosity of video
+        // backgroundBlendMode="soft-light"   // Subtle lighting effect
         // Background Image or Video
         mediaType="video"
         backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"

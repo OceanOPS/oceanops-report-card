@@ -12,6 +12,7 @@
  * @param backgroundOpacity - Opacity of background media from 0-100 (default: 100)
  * @param backgroundPosition - CSS object-position: 'center' | 'top right' | '75% 50%' | etc. (default: 'center')
  * @param backgroundSize - CSS object-fit: 'cover' | 'contain' | 'fill' | '50%' | '80% auto' | etc. (default: 'cover')
+ * @param backgroundBlendMode - CSS mix-blend-mode for the background media: 'normal' | 'multiply' | 'screen' | 'overlay' | 'darken' | 'lighten' | 'color-dodge' | 'color-burn' | 'hard-light' | 'soft-light' | 'difference' | 'exclusion' | 'hue' | 'saturation' | 'color' | 'luminosity' (default: 'normal')
  * @param goosLogoVariant - Color variant for GOOS logo: 'white' or 'color' (default: 'white')
  * @param partnerLogosVariant - Color variant for partner logos: 'white' or 'color' (default: 'white')
  *
@@ -26,6 +27,7 @@
  *   backgroundOpacity={50}
  *   backgroundPosition="top right"
  *   backgroundSize="cover"
+ *   backgroundBlendMode="multiply"
  *   mediaType="image"
  *   goosLogoVariant="white"
  *   partnerLogosVariant="white"
@@ -35,6 +37,8 @@
 
 import PartnerLogos from './PartnerLogos'
 import GoosLogo from './GoosLogo'
+
+type BlendMode = 'normal' | 'multiply' | 'screen' | 'overlay' | 'darken' | 'lighten' | 'color-dodge' | 'color-burn' | 'hard-light' | 'soft-light' | 'difference' | 'exclusion' | 'hue' | 'saturation' | 'color' | 'luminosity'
 
 interface CoverModuleProps {
   title: string
@@ -46,6 +50,7 @@ interface CoverModuleProps {
   backgroundOpacity?: number
   backgroundPosition?: string
   backgroundSize?: string
+  backgroundBlendMode?: BlendMode
   goosLogoVariant?: 'white' | 'color'
   partnerLogosVariant?: 'white' | 'color'
 }
@@ -60,6 +65,7 @@ export default function CoverModule({
   backgroundOpacity = 100,
   backgroundPosition = 'center',
   backgroundSize = 'cover',
+  backgroundBlendMode = 'normal',
   goosLogoVariant = 'white',
   partnerLogosVariant = 'white',
 }: CoverModuleProps) {
@@ -71,6 +77,7 @@ export default function CoverModule({
         backgroundPosition: backgroundPosition,
         backgroundRepeat: 'no-repeat',
         opacity: backgroundOpacity / 100,
+        mixBlendMode: backgroundBlendMode,
       }
     : {}
 
@@ -78,6 +85,7 @@ export default function CoverModule({
     objectFit: backgroundSize as any,
     objectPosition: backgroundPosition,
     opacity: backgroundOpacity / 100,
+    mixBlendMode: backgroundBlendMode,
   }
 
   // Detectar el tipo de video por extensión
