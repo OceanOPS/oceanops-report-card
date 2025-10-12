@@ -8,6 +8,7 @@ import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
 import IconTable from './components/IconTable'
+import SpotifyEmbed from './components/SpotifyEmbed'
 
 function App() {
   const { t } = useTranslation()
@@ -220,6 +221,16 @@ function App() {
           headerTextColor="text-goos-blue-700"
           rowBgColor="bg-goos-white"
           rowTextColor="text-goos-blue-700"
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        {/* Spotify Podcast Embed */}
+        <SpotifyEmbed
+          spotifyId="3AjTpnz2G7RZofpSOtiDa1"
+          type="episode"
+          height={152}
         />
 
         {/* Spacer between modules */}
