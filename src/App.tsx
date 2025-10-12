@@ -12,6 +12,7 @@ import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
 import VideoModal from './components/VideoModal'
+import Button from './components/Button'
 
 function App() {
   const { t } = useTranslation()
@@ -57,13 +58,20 @@ function App() {
         columns={3}
       />
 
-      {/* Content Module Example - H3 with translations */}
+      {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
         titleLevel="h2"
         kicker={t('content.section1.kicker')}
         title={t('content.section1.title')}
         subtitle={t('content.section1.subtitle')}
         introduction={t('content.section1.introduction')}
+        button={{
+          type: 'link',
+          label: t('content.section1.buttons.externalLink'),
+          url: 'https://www.ocean-ops.org',
+          textColor: 'text-white',
+          bgColor: 'bg-goos-blue-700',
+        }}
         hasLine={true}
         backgroundColor="bg-goos-white"
         titleColor="text-goos-blue-700"
@@ -293,6 +301,247 @@ function App() {
           playButtonColor="bg-goos-orange-500"
           captionColor="text-goos-gray-800"
         />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+         {/* Video Modal - Local Video Example */}
+        <VideoModal
+          videoType="local"
+          videoId="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
+          previewImage="/images/content.jpg"
+          previewAlt={t('content.section1.video.previewAlt')}
+          caption={t('content.section1.video.caption')}
+          playButtonColor="bg-goos-orange-500"
+          captionColor="text-goos-gray-800"
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        <h4 className="text-2xl font-extrabold text-goos-blue-700 leading-8">
+          {t('content.section1.buttons.examplesTitle')}
+        </h4>
+
+        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+          {t('content.section1.buttons.examplesDescription')}
+        </p>
+
+        {/* Button Examples - External Link */}
+        <div className="flex">
+          <Button
+            variant="link"
+            label={t('content.section1.buttons.externalLink')}
+            url="https://www.ocean-ops.org"
+            textColor="text-white"
+            bgColor="bg-goos-blue-700"
+          />
+        </div>
+
+        {/* Button Examples - Video Modal */}
+        <div className="flex">
+          <Button
+            variant="video"
+            label={t('content.section1.buttons.watchVideo')}
+            videoType="youtube"
+            videoId="dQw4w9WgXcQ"
+            previewImage="/images/content.jpg"
+            textColor="text-white"
+            bgColor="bg-goos-orange-500"
+          />
+        </div>
+
+        {/* Button Examples - Content Modal with Multiple Components */}
+        <div className="flex gap-3">
+          {/* Modal 1 - Full featured with all components */}
+          <Button
+            variant="modal"
+            label={t('content.section1.buttons.learnMore')}
+            modalTitle={t('content.section1.modal.title')}
+            modalContent={
+              <div className="flex flex-col gap-5">
+                {/* Paragraphs with translations */}
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('content.section1.modal.paragraph1')}
+                </p>
+
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('content.section1.modal.paragraph2')}
+                </p>
+
+                {/* Heading */}
+                <h3 className="text-2xl font-extrabold text-goos-blue-700 leading-8 mt-2">
+                  {t('content.section1.modal.heading')}
+                </h3>
+
+                {/* List with translations */}
+                <ul className="list-disc list-inside text-xl text-goos-gray-800 space-y-2">
+                  <li>{t('content.section1.modal.listItems.item1')}</li>
+                  <li>{t('content.section1.modal.listItems.item2')}</li>
+                  <li>{t('content.section1.modal.listItems.item3')}</li>
+                  <li>{t('content.section1.modal.listItems.item4')}</li>
+                </ul>
+
+                {/* Spacer */}
+                <Spacer size="sm" />
+
+                {/* Image with Caption */}
+                <ImageCaption
+                  src="/images/content.jpg"
+                  alt={t('content.section1.image.alt')}
+                  caption={t('content.section1.image.caption')}
+                  aspectRatio="video"
+                  objectFit="cover"
+                  captionColor="text-goos-gray-800"
+                />
+
+                {/* Spacer */}
+                <Spacer size="sm" />
+
+                {/* Quote Block */}
+                <QuoteBlock
+                  variant="highlight"
+                  quote={t('content.section1.quote.text')}
+                  quoteColor="text-goos-blue-700"
+                  borderColor="border-goos-orange-500"
+                  authorName={t('content.section1.quote.authorName')}
+                  authorTitle={t('content.section1.quote.authorTitle')}
+                  authorColor="text-goos-blue-700"
+                />
+
+                {/* Spacer */}
+                <Spacer size="sm" />
+
+                {/* Stats Grid */}
+                <StatsGrid
+                  stats={[
+                    {
+                      number: t('content.section1.stats.stat1.number'),
+                      description: t('content.section1.stats.stat1.description'),
+                      linkText: t('content.section1.stats.stat1.linkText'),
+                      linkUrl: t('content.section1.stats.stat1.linkUrl'),
+                    },
+                    {
+                      number: t('content.section1.stats.stat2.number'),
+                      description: t('content.section1.stats.stat2.description'),
+                      linkText: t('content.section1.stats.stat2.linkText'),
+                      linkUrl: t('content.section1.stats.stat2.linkUrl'),
+                    },
+                  ]}
+                  numberColor="text-goos-blue-700"
+                  textColor="text-goos-gray-900"
+                  linkColor="text-goos-gray-900"
+                />
+
+                {/* Spacer */}
+                <Spacer size="sm" />
+
+                {/* Button inside modal */}
+                <div className="flex">
+                  <Button
+                    variant="link"
+                    label={t('content.section1.buttons.externalLink')}
+                    url="https://www.ocean-ops.org"
+                    textColor="text-white"
+                    bgColor="bg-goos-blue-700"
+                  />
+                </div>
+              </div>
+            }
+            modalMaxWidth="xl"
+            textColor="text-white"
+            bgColor="bg-goos-green-700"
+          />
+
+          {/* Modal 2 - Simple with just text and table */}
+          <Button
+            variant="modal"
+            label="Data Overview"
+            modalTitle="Platform Data Overview"
+            modalContent={
+              <div className="flex flex-col gap-5">
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('content.section1.paragraph1')}
+                </p>
+
+                <Spacer size="sm" />
+
+                <DataTable
+                  columns={4}
+                  headers={[
+                    t('content.section1.table.headers.col1'),
+                    t('content.section1.table.headers.col2'),
+                    t('content.section1.table.headers.col3'),
+                    t('content.section1.table.headers.col4'),
+                  ]}
+                  rows={[
+                    [
+                      t('content.section1.table.rows.row1.col1'),
+                      t('content.section1.table.rows.row1.col2'),
+                      t('content.section1.table.rows.row1.col3'),
+                      t('content.section1.table.rows.row1.col4'),
+                    ],
+                    [
+                      t('content.section1.table.rows.row2.col1'),
+                      t('content.section1.table.rows.row2.col2'),
+                      t('content.section1.table.rows.row2.col3'),
+                      t('content.section1.table.rows.row2.col4'),
+                    ],
+                  ]}
+                  firstColumnBold={true}
+                  borderColor="border-goos-white"
+                  headerBgColor="bg-goos-blue-700"
+                  headerTextColor="text-goos-white"
+                  rowBgColor="bg-goos-blue-700"
+                  rowTextColor="text-goos-white"
+                />
+              </div>
+            }
+            modalMaxWidth="lg"
+            textColor="text-white"
+            bgColor="bg-goos-cyan-700"
+          />
+
+          {/* Modal 3 - Gallery focused */}
+          <Button
+            variant="modal"
+            label="Image Gallery"
+            modalTitle="Ocean Observation Platforms"
+            modalContent={
+              <div className="flex flex-col gap-5">
+                <ImageGallery
+                  images={[
+                    {
+                      src: '/images/content.jpg',
+                      alt: t('content.section1.gallery.image1.alt'),
+                      caption: t('content.section1.gallery.image1.caption'),
+                    },
+                    {
+                      src: '/images/content2.jpg',
+                      alt: t('content.section1.gallery.image2.alt'),
+                      caption: t('content.section1.gallery.image2.caption'),
+                    },
+                    {
+                      src: '/images/content3.jpg',
+                      alt: t('content.section1.gallery.image3.alt'),
+                      caption: t('content.section1.gallery.image3.caption'),
+                    },
+                  ]}
+                  aspectRatio="video"
+                  objectFit="cover"
+                  captionColor="text-goos-gray-800"
+                  arrowColor="text-goos-white"
+                  arrowBgColor="bg-goos-orange-600"
+                  dotColor="bg-gray-200"
+                  activeDotColor="bg-goos-orange-600"
+                />
+              </div>
+            }
+            modalMaxWidth="2xl"
+            textColor="text-white"
+            bgColor="bg-goos-orange-600"
+          />
+        </div>
 
         {/* Spacer between modules */}
          <Spacer size="sm" />

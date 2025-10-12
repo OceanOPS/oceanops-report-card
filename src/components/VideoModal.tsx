@@ -48,6 +48,9 @@ interface VideoModalProps {
   playButtonColor?: string
   captionColor?: string
   className?: string
+  // Optional controlled mode
+  isOpen?: boolean
+  onClose?: () => void
 }
 
 export default function VideoModal({
@@ -60,8 +63,14 @@ export default function VideoModal({
   playButtonColor = 'bg-goos-orange-500',
   captionColor = 'text-goos-gray-800',
   className = '',
+  isOpen: controlledIsOpen,
+  onClose: controlledOnClose,
 }: VideoModalProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [internalIsOpen, setInternalIsOpen] = useState(false)
+
+  // Use controlled or internal state
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
+  const setIsOpen = controlledOnClose ? controlledOnClose : setInternalIsOpen
   const videoRef = useRef<HTMLVideoElement>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
@@ -76,12 +85,20 @@ export default function VideoModal({
 
   // Open modal
   const openModal = () => {
-    setIsOpen(true)
+    if (controlledOnClose) {
+      // Controlled mode - do nothing, parent handles it
+      return
+    }
+    setInternalIsOpen(true)
   }
 
   // Close modal and stop video
   const closeModal = () => {
-    setIsOpen(false)
+    if (controlledOnClose) {
+      controlledOnClose()
+    } else {
+      setInternalIsOpen(false)
+    }
 
     // Stop local video
     if (videoType === 'local' && videoRef.current) {
@@ -114,45 +131,47 @@ export default function VideoModal({
 
   return (
     <>
-      {/* Preview with Play Button */}
-      <div className={`w-full ${className}`}>
-        <div
-          className={`relative ${aspectClass} w-full bg-gray-200 flex items-center justify-center overflow-hidden cursor-pointer group`}
-          onClick={openModal}
-        >
-          {/* Preview Image */}
-          <img
-            src={previewImage}
-            alt={previewAlt}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+      {/* Preview with Play Button - Only show if not controlled */}
+      {controlledIsOpen === undefined && (
+        <div className={`w-full ${className}`}>
+          <div
+            className={`relative ${aspectClass} w-full bg-gray-200 flex items-center justify-center overflow-hidden cursor-pointer group`}
+            onClick={openModal}
+          >
+            {/* Preview Image */}
+            <img
+              src={previewImage}
+              alt={previewAlt}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
 
-          {/* Play Button Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className={`w-20 h-20 ${playButtonColor} rounded-full flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity`}
-            >
-              <svg
-                className="w-8 h-8 text-white ml-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div
+                className={`w-20 h-20 ${playButtonColor} rounded-full flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity`}
               >
-                <path d="M8 5v14l11-7z" />
-              </svg>
+                <svg
+                  className="w-8 h-8 text-white ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Caption */}
-        {caption && (
-          <p className={`text-sm ${captionColor} mt-2`}>{caption}</p>
-        )}
-      </div>
+          {/* Caption */}
+          {caption && (
+            <p className={`text-sm ${captionColor} mt-2`}>{caption}</p>
+          )}
+        </div>
+      )}
 
       {/* Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-80 p-4"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 p-4"
           onClick={closeModal}
         >
           <div

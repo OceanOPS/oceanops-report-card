@@ -138,6 +138,25 @@
       "video": {
         "previewAlt": "Watch: Ocean Observing Systems Overview",
         "caption": "Video: Global Ocean Observing System - A comprehensive overview"
+      },
+      "buttons": {
+        "externalLink": "View Full Report",
+        "watchVideo": "Watch Video",
+        "learnMore": "Learn More",
+        "examplesTitle": "Reusable Button Examples",
+        "examplesDescription": "The following are examples of reusable button components that can be used throughout the application:"
+      },
+      "modal": {
+        "title": "Additional Information",
+        "heading": "Key Resources",
+        "paragraph1": "This comprehensive section provides detailed information about ocean observation methodologies, data quality standards, and network coordination efforts.",
+        "paragraph2": "Access technical documentation, explore data collection procedures, and review quality control frameworks that ensure reliable ocean observations.",
+        "listItems": {
+          "item1": "Technical Documentation",
+          "item2": "Data Collection Methodologies",
+          "item3": "Quality Control Procedures",
+          "item4": "Network Status Reports"
+        }
       }
     }
   }

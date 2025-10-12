@@ -138,6 +138,25 @@
       "video": {
         "previewAlt": "Ver: Resumen de Sistemas de Observación Oceánica",
         "caption": "Video: Sistema Global de Observación del Océano - Una visión integral"
+      },
+      "buttons": {
+        "externalLink": "Ver Informe Completo",
+        "watchVideo": "Ver Video",
+        "learnMore": "Más Información",
+        "examplesTitle": "Ejemplos de Botones Reutilizables",
+        "examplesDescription": "Los siguientes son ejemplos de componentes de botones reutilizables que se pueden usar en toda la aplicación:"
+      },
+      "modal": {
+        "title": "Información Adicional",
+        "heading": "Recursos Clave",
+        "paragraph1": "Esta sección integral proporciona información detallada sobre metodologías de observación oceánica, estándares de calidad de datos y esfuerzos de coordinación de redes.",
+        "paragraph2": "Acceda a documentación técnica, explore procedimientos de recopilación de datos y revise marcos de control de calidad que garantizan observaciones oceánicas confiables.",
+        "listItems": {
+          "item1": "Documentación Técnica",
+          "item2": "Metodologías de Recopilación de Datos",
+          "item3": "Procedimientos de Control de Calidad",
+          "item4": "Informes de Estado de la Red"
+        }
       }
     }
   }

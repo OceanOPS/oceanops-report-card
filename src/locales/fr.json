@@ -138,6 +138,25 @@
       "video": {
         "previewAlt": "Regarder: Aperçu des Systèmes d'Observation Océanique",
         "caption": "Vidéo: Système Mondial d'Observation des Océans - Une vue d'ensemble complète"
+      },
+      "buttons": {
+        "externalLink": "Voir le Rapport Complet",
+        "watchVideo": "Regarder la Vidéo",
+        "learnMore": "En Savoir Plus",
+        "examplesTitle": "Exemples de Boutons Réutilisables",
+        "examplesDescription": "Voici des exemples de composants de boutons réutilisables qui peuvent être utilisés dans toute l'application:"
+      },
+      "modal": {
+        "title": "Informations Supplémentaires",
+        "heading": "Ressources Clés",
+        "paragraph1": "Cette section complète fournit des informations détaillées sur les méthodologies d'observation océanique, les normes de qualité des données et les efforts de coordination des réseaux.",
+        "paragraph2": "Accédez à la documentation technique, explorez les procédures de collecte de données et consultez les cadres de contrôle qualité qui garantissent des observations océaniques fiables.",
+        "listItems": {
+          "item1": "Documentation Technique",
+          "item2": "Méthodologies de Collecte de Données",
+          "item3": "Procédures de Contrôle Qualité",
+          "item4": "Rapports d'État du Réseau"
+        }
       }
     }
   }
