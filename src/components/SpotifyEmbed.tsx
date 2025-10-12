@@ -70,11 +70,10 @@ export default function SpotifyEmbed({
     <div className={`w-full ${className}`}>
       <iframe
         data-testid="embed-iframe"
-        style={{ borderRadius: '12px' }}
+        style={{ borderRadius: '12px', border: 0 }}
         src={embedUrl}
         width={width}
         height={height}
-        frameBorder="0"
         allowFullScreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"

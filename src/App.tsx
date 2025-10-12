@@ -9,6 +9,7 @@ import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
 import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
+import ImageCaption from './components/ImageCaption'
 
 function App() {
   const { t } = useTranslation()
@@ -231,6 +232,19 @@ function App() {
           spotifyId="3AjTpnz2G7RZofpSOtiDa1"
           type="episode"
           height={152}
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        {/* Image with Caption */}
+        <ImageCaption
+          src="/images/content.jpg"
+          alt={t('content.section1.image.alt')}
+          caption={t('content.section1.image.caption')}
+          aspectRatio="video"
+          objectFit="cover"
+          captionColor="text-goos-gray-800"
         />
 
         {/* Spacer between modules */}
