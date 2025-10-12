@@ -1,0 +1,212 @@
+/**
+ * VideoModal Component
+ *
+ * A video component that shows a preview image with play button.
+ * Clicking opens a modal with the video (YouTube or local file).
+ * Automatically stops video when modal is closed.
+ *
+ * @param videoType - Type of video: 'youtube' | 'local' (default: 'youtube')
+ * @param videoId - YouTube video ID (e.g., 'dQw4w9WgXcQ') or local video URL
+ * @param previewImage - Preview/thumbnail image URL (required)
+ * @param previewAlt - Alt text for preview image (required)
+ * @param caption - Optional caption below preview
+ * @param aspectRatio - Aspect ratio: 'video' | 'square' | 'portrait' (default: 'video')
+ * @param playButtonColor - Tailwind background color for play button (default: 'bg-goos-orange-500')
+ * @param captionColor - Tailwind text color for caption (default: 'text-goos-gray-800')
+ * @param className - Optional additional Tailwind classes
+ *
+ * @example
+ * ```tsx
+ * // YouTube video
+ * <VideoModal
+ *   videoType="youtube"
+ *   videoId="dQw4w9WgXcQ"
+ *   previewImage="/images/video-preview.jpg"
+ *   previewAlt="Video preview"
+ *   caption="Watch the full presentation"
+ * />
+ *
+ * // Local video file
+ * <VideoModal
+ *   videoType="local"
+ *   videoId="/videos/ocean-research.mp4"
+ *   previewImage="/images/preview.jpg"
+ *   previewAlt="Ocean research video"
+ * />
+ * ```
+ */
+
+import { useState, useEffect, useRef } from 'react'
+
+interface VideoModalProps {
+  videoType?: 'youtube' | 'local'
+  videoId: string
+  previewImage: string
+  previewAlt: string
+  caption?: string
+  aspectRatio?: 'video' | 'square' | 'portrait'
+  playButtonColor?: string
+  captionColor?: string
+  className?: string
+}
+
+export default function VideoModal({
+  videoType = 'youtube',
+  videoId,
+  previewImage,
+  previewAlt,
+  caption,
+  aspectRatio = 'video',
+  playButtonColor = 'bg-goos-orange-500',
+  captionColor = 'text-goos-gray-800',
+  className = '',
+}: VideoModalProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+
+  // Map aspect ratios
+  const aspectRatioMap = {
+    video: 'aspect-video',
+    square: 'aspect-square',
+    portrait: 'aspect-[3/4]',
+  }
+
+  const aspectClass = aspectRatioMap[aspectRatio]
+
+  // Open modal
+  const openModal = () => {
+    setIsOpen(true)
+  }
+
+  // Close modal and stop video
+  const closeModal = () => {
+    setIsOpen(false)
+
+    // Stop local video
+    if (videoType === 'local' && videoRef.current) {
+      videoRef.current.pause()
+      videoRef.current.currentTime = 0
+    }
+
+    // Stop YouTube video by reloading iframe
+    if (videoType === 'youtube' && iframeRef.current) {
+      const src = iframeRef.current.src
+      iframeRef.current.src = ''
+      iframeRef.current.src = src
+    }
+  }
+
+  // Close on ESC key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeModal()
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isOpen])
+
+  // Build YouTube embed URL
+  const youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`
+
+  return (
+    <>
+      {/* Preview with Play Button */}
+      <div className={`w-full ${className}`}>
+        <div
+          className={`relative ${aspectClass} w-full bg-gray-200 flex items-center justify-center overflow-hidden cursor-pointer group`}
+          onClick={openModal}
+        >
+          {/* Preview Image */}
+          <img
+            src={previewImage}
+            alt={previewAlt}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Play Button Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div
+              className={`w-20 h-20 ${playButtonColor} rounded-full flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity`}
+            >
+              <svg
+                className="w-8 h-8 text-white ml-1"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Caption */}
+        {caption && (
+          <p className={`text-sm ${captionColor} mt-2`}>{caption}</p>
+        )}
+      </div>
+
+      {/* Modal */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-80 p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+              aria-label="Close video"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-8 h-8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Video Container */}
+            <div className="aspect-video w-full bg-black">
+              {videoType === 'youtube' ? (
+                <iframe
+                  ref={iframeRef}
+                  src={youtubeEmbedUrl}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="YouTube video player"
+                />
+              ) : (
+                <video
+                  ref={videoRef}
+                  src={videoId}
+                  controls
+                  autoPlay
+                  className="w-full h-full"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}

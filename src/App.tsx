@@ -11,6 +11,7 @@ import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
+import VideoModal from './components/VideoModal'
 
 function App() {
   const { t } = useTranslation()
@@ -277,6 +278,20 @@ function App() {
           arrowBgColor="bg-goos-orange-600"
           dotColor="bg-gray-200"
           activeDotColor="bg-goos-orange-600"
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        {/* Video Modal - YouTube Example */}
+        <VideoModal
+          videoType="youtube"
+          videoId="dQw4w9WgXcQ"
+          previewImage="/images/content.jpg"
+          previewAlt={t('content.section1.video.previewAlt')}
+          caption={t('content.section1.video.caption')}
+          playButtonColor="bg-goos-orange-500"
+          captionColor="text-goos-gray-800"
         />
 
         {/* Spacer between modules */}
