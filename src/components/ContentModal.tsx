@@ -87,13 +87,13 @@ export default function ContentModal({
       onClick={onClose}
     >
       <div
-        className={`relative w-full ${maxWidthClass} bg-white shadow-xl max-h-[90vh] overflow-y-auto ${className}`}
+        className={`relative w-full ${maxWidthClass} bg-goos-white shadow-xl max-h-[90vh] overflow-y-auto ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with close button */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+        <div className="sticky top-0 bg-goos-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
           {title && (
-            <h2 className="text-2xl font-bold text-goos-blue-700">{title}</h2>
+            <h2 className="text-2xl font-extrabold text-goos-blue-700">{title}</h2>
           )}
           <button
             onClick={onClose}

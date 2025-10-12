@@ -548,6 +548,54 @@ function App() {
 
       </ContentModule>
 
+       <div className="px-16 bg-goos-white">
+        {/* Data Table */}
+        <DataTable
+          columns={4}
+          headers={[
+            t('content.section1.table.headers.col1'),
+            t('content.section1.table.headers.col2'),
+            t('content.section1.table.headers.col3'),
+            t('content.section1.table.headers.col4'),
+          ]}
+          rows={[
+            [
+              t('content.section1.table.rows.row1.col1'),
+              t('content.section1.table.rows.row1.col2'),
+              t('content.section1.table.rows.row1.col3'),
+              t('content.section1.table.rows.row1.col4'),
+            ],
+            [
+              t('content.section1.table.rows.row2.col1'),
+              t('content.section1.table.rows.row2.col2'),
+              t('content.section1.table.rows.row2.col3'),
+              t('content.section1.table.rows.row2.col4'),
+            ],
+            [
+              t('content.section1.table.rows.row3.col1'),
+              t('content.section1.table.rows.row3.col2'),
+              t('content.section1.table.rows.row3.col3'),
+              t('content.section1.table.rows.row3.col4'),
+            ],
+            [
+              t('content.section1.table.rows.row4.col1'),
+              t('content.section1.table.rows.row4.col2'),
+              t('content.section1.table.rows.row4.col3'),
+              t('content.section1.table.rows.row4.col4'),
+            ],
+          ]}
+          firstColumnBold={true}
+          borderColor="border-goos-white"
+          headerBgColor="bg-goos-blue-700"
+          headerTextColor="text-goos-white"
+          rowBgColor="bg-goos-blue-700"
+          rowTextColor="text-goos-white"
+        />
+         {/* Spacer between modules */}
+         <Spacer size="sm" />
+      </div>
+      
+
       {/* Content Module Example - Full Width Layout */}
       <ContentModule
         layout="full-width"
@@ -583,16 +631,38 @@ function App() {
 
         <Spacer size="sm" />
 
-        <QuoteBlock
-          variant="highlight"
-          quote={t('content.section1.quote.text')}
-          quoteColor="text-goos-blue-700"
-          borderColor="border-goos-orange-500"
-          authorName={t('content.section1.quote.authorName')}
-          authorTitle={t('content.section1.quote.authorTitle')}
-          authorColor="text-goos-blue-700"
-        />
       </ContentModule>
+ 
+ <div className="px-16 bg-goos-white">
+       {/* Image Gallery with Navigation */}
+        <ImageGallery
+          images={[
+            {
+              src: '/images/content.jpg',
+              alt: t('content.section1.gallery.image1.alt'),
+              caption: t('content.section1.gallery.image1.caption'),
+            },
+            {
+              src: '/images/content2.jpg',
+              alt: t('content.section1.gallery.image2.alt'),
+              caption: t('content.section1.gallery.image2.caption'),
+            },
+            {
+              src: '/images/content3.jpg',
+              alt: t('content.section1.gallery.image3.alt'),
+              caption: t('content.section1.gallery.image3.caption'),
+            },
+          ]}
+          aspectRatio="video"
+          objectFit="cover"
+          captionColor="text-goos-gray-800"
+          arrowColor="text-goos-white"
+          arrowBgColor="bg-goos-orange-600"
+          dotColor="bg-gray-200"
+          activeDotColor="bg-goos-orange-600"
+        />
+      </div>
+
     </div>
   )
 }

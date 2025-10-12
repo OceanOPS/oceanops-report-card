@@ -248,7 +248,7 @@ export default function ContentModule({
 
   // Render title section (reusable for both layouts)
   const renderTitleSection = () => (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 mb-24">
       {/* Decorative Line */}
       {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
 
@@ -318,12 +318,11 @@ export default function ContentModule({
         {/* Title Section - Full Width */}
         <div className="flex flex-col gap-5 max-w-2xl">
           <div className="h-8 w-5 opacity-75"></div>
-
           {renderTitleSection()}
         </div>
 
         {/* Content in 2 Columns */}
-        <div className="flex gap-5 flex-col lg:flex-row">
+        <div className="flex gap-5 flex-col lg:flex-row -mt-24">
           {/* Left Column */}
           <div className="lg:basis-1/2 flex flex-col gap-5">
             <div className="h-8 w-5 opacity-75"></div>
