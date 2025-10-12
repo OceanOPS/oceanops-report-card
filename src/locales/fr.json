@@ -120,6 +120,20 @@
       "image": {
         "alt": "Déploiement de plateforme d'observation océanique",
         "caption": "Photo par Équipe de Recherche / OceanOPS 2024"
+      },
+      "gallery": {
+        "image1": {
+          "alt": "Déploiement de flotteur Argo depuis navire de recherche",
+          "caption": "Déploiement de flotteur Argo - Photo par A. Auriol / Malizia Seaexplorer"
+        },
+        "image2": {
+          "alt": "Planeur océanique en préparation pour mission",
+          "caption": "Préparation de planeur océanique - Photo par Équipe de Recherche / OceanOPS"
+        },
+        "image3": {
+          "alt": "Bouée dérivante en pleine mer",
+          "caption": "Bouée dérivante de surface - Photo par L. Fortunato / Université Parthenope"
+        }
       }
     }
   }

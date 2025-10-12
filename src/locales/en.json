@@ -120,6 +120,20 @@
       "image": {
         "alt": "Ocean observation platform deployment",
         "caption": "Photo by Research Team / OceanOPS 2024"
+      },
+      "gallery": {
+        "image1": {
+          "alt": "Argo float deployment from research vessel",
+          "caption": "Argo float deployment - Photo by A. Auriol / Malizia Seaexplorer"
+        },
+        "image2": {
+          "alt": "Ocean glider being prepared for mission",
+          "caption": "Ocean glider preparation - Photo by Research Team / OceanOPS"
+        },
+        "image3": {
+          "alt": "Drifting buoy in open ocean",
+          "caption": "Surface drifting buoy - Photo by L. Fortunato / Parthenope University"
+        }
       }
     }
   }

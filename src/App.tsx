@@ -10,6 +10,7 @@ import DataTable from './components/DataTable'
 import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
+import ImageGallery from './components/ImageGallery'
 
 function App() {
   const { t } = useTranslation()
@@ -44,11 +45,11 @@ function App() {
             alt: t('hero.images.image1'),
           },
           {
-            src: '/images/content.jpg',
+            src: '/images/content2.jpg',
             alt: t('hero.images.image2'),
           },
           {
-            src: '/images/content.jpg',
+            src: '/images/content3.jpg',
             alt: t('hero.images.image3'),
           },
         ]}
@@ -245,6 +246,37 @@ function App() {
           aspectRatio="video"
           objectFit="cover"
           captionColor="text-goos-gray-800"
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        {/* Image Gallery with Navigation */}
+        <ImageGallery
+          images={[
+            {
+              src: '/images/content.jpg',
+              alt: t('content.section1.gallery.image1.alt'),
+              caption: t('content.section1.gallery.image1.caption'),
+            },
+            {
+              src: '/images/content2.jpg',
+              alt: t('content.section1.gallery.image2.alt'),
+              caption: t('content.section1.gallery.image2.caption'),
+            },
+            {
+              src: '/images/content3.jpg',
+              alt: t('content.section1.gallery.image3.alt'),
+              caption: t('content.section1.gallery.image3.caption'),
+            },
+          ]}
+          aspectRatio="video"
+          objectFit="cover"
+          captionColor="text-goos-gray-800"
+          arrowColor="text-goos-white"
+          arrowBgColor="bg-goos-orange-600"
+          dotColor="bg-gray-200"
+          activeDotColor="bg-goos-orange-600"
         />
 
         {/* Spacer between modules */}

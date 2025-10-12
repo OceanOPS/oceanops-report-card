@@ -120,6 +120,20 @@
       "image": {
         "alt": "Despliegue de plataforma de observación oceánica",
         "caption": "Foto por Equipo de Investigación / OceanOPS 2024"
+      },
+      "gallery": {
+        "image1": {
+          "alt": "Despliegue de flotador Argo desde buque de investigación",
+          "caption": "Despliegue de flotador Argo - Foto por A. Auriol / Malizia Seaexplorer"
+        },
+        "image2": {
+          "alt": "Planeador oceánico siendo preparado para misión",
+          "caption": "Preparación de planeador oceánico - Foto por Equipo de Investigación / OceanOPS"
+        },
+        "image3": {
+          "alt": "Boya derivante en mar abierto",
+          "caption": "Boya derivante de superficie - Foto por L. Fortunato / Universidad Parthenope"
+        }
       }
     }
   }
