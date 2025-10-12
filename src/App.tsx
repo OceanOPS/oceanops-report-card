@@ -547,6 +547,52 @@ function App() {
          <Spacer size="sm" />
 
       </ContentModule>
+
+      {/* Content Module Example - Full Width Layout */}
+      <ContentModule
+        layout="full-width"
+        titleLevel="h2"
+        kicker={t('content.section1.kicker')}
+        title="Full Width Layout Example"
+        subtitle="Content in Two Columns"
+        introduction="This layout displays the title at the top with content distributed in two columns below."
+        hasLine={true}
+        backgroundColor="bg-goos-white"
+        titleColor="text-goos-blue-700"
+        textColor="text-goos-gray-900"
+        lineColor="bg-goos-orange-500"
+        rightColumn={
+          <>
+            <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+              {t('content.section1.paragraph1')}
+            </p>
+
+            <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+              {t('content.section1.paragraph2')}
+            </p>
+          </>
+        }
+      >
+        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+          {t('content.section1.paragraph1')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+          {t('content.section1.paragraph2')}
+        </p>
+
+        <Spacer size="sm" />
+
+        <QuoteBlock
+          variant="highlight"
+          quote={t('content.section1.quote.text')}
+          quoteColor="text-goos-blue-700"
+          borderColor="border-goos-orange-500"
+          authorName={t('content.section1.quote.authorName')}
+          authorTitle={t('content.section1.quote.authorTitle')}
+          authorColor="text-goos-blue-700"
+        />
+      </ContentModule>
     </div>
   )
 }

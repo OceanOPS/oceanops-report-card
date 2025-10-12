@@ -1,10 +1,13 @@
 /**
  * ContentModule Component
  *
- * A flexible two-column content module with customizable title section and dynamic content blocks.
- * The left column displays a sticky title section with optional decorative line, kicker, title, subtitle, introduction, and button.
- * The right column contains dynamic content blocks (paragraphs, quotes, stats, etc).
+ * A flexible content module with two layout options and customizable title section.
  *
+ * Layout options:
+ * - 'split' (default): Two columns with sticky title on left, content on right
+ * - 'full-width': Title at top (not sticky), content in two columns below
+ *
+ * @param layout - Layout type: 'split' | 'full-width' (default: 'split')
  * @param titleLevel - Heading level: 'h2' or 'h3' (affects title size)
  * @param kicker - Optional kicker text above the main title
  * @param title - Main title text (required)
@@ -16,12 +19,35 @@
  * @param titleColor - Tailwind text color for titles (default: 'text-goos-blue-900')
  * @param textColor - Tailwind text color for body text (default: 'text-goos-gray-800')
  * @param lineColor - Tailwind background color for decorative line (default: 'bg-goos-orange-500')
- * @param children - Content blocks to display in the right column
+ * @param children - Content blocks to display
  * @param className - Optional additional Tailwind classes
  *
  * @example
  * ```tsx
- * // With external link button
+ * // Split layout (default) - Sticky title on left, content on right
+ * <ContentModule
+ *   layout="split"
+ *   title="Section Title"
+ * >
+ *   <p>Content in right column...</p>
+ * </ContentModule>
+ *
+ * // Full-width layout - Title at top, content in two columns below
+ * <ContentModule
+ *   layout="full-width"
+ *   title="Section Title"
+ *   rightColumn={
+ *     <>
+ *       <p>Content in right column...</p>
+ *       <p>More right column content...</p>
+ *     </>
+ *   }
+ * >
+ *   <p>Content in left column...</p>
+ *   <p>More left column content...</p>
+ * </ContentModule>
+ *
+ * // With button
  * <ContentModule
  *   title="Section Title"
  *   button={{
@@ -30,33 +56,6 @@
  *     url: 'https://example.com',
  *     textColor: 'text-white',
  *     bgColor: 'bg-goos-blue-700'
- *   }}
- * >
- *   <p>Content...</p>
- * </ContentModule>
- *
- * // With video modal button
- * <ContentModule
- *   title="Section Title"
- *   button={{
- *     type: 'video',
- *     label: 'Watch Video',
- *     videoType: 'youtube',
- *     videoId: 'dQw4w9WgXcQ',
- *     previewImage: '/images/preview.jpg'
- *   }}
- * >
- *   <p>Content...</p>
- * </ContentModule>
- *
- * // With content modal button
- * <ContentModule
- *   title="Section Title"
- *   button={{
- *     type: 'modal',
- *     label: 'Learn More',
- *     modalTitle: 'Additional Information',
- *     modalContent: <div>Your content here</div>
  *   }}
  * >
  *   <p>Content...</p>
@@ -98,6 +97,7 @@ type ButtonConfig =
     }
 
 interface ContentModuleProps {
+  layout?: 'split' | 'full-width'
   titleLevel: 'h2' | 'h3'
   kicker?: string
   title: string
@@ -110,10 +110,12 @@ interface ContentModuleProps {
   textColor?: string
   lineColor?: string
   children?: ReactNode
+  rightColumn?: ReactNode  // Only for full-width layout
   className?: string
 }
 
 export default function ContentModule({
+  layout = 'split',
   titleLevel = 'h2',
   kicker,
   title,
@@ -126,6 +128,7 @@ export default function ContentModule({
   textColor = 'text-goos-gray-800',
   lineColor = 'bg-goos-orange-500',
   children,
+  rightColumn,
   className = '',
 }: ContentModuleProps) {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -243,59 +246,100 @@ export default function ContentModule({
     return null
   }
 
+  // Render title section (reusable for both layouts)
+  const renderTitleSection = () => (
+    <div className="flex flex-col gap-6">
+      {/* Decorative Line */}
+      {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
+
+      {/* Titles */}
+      <div className="flex flex-col gap-1">
+        {kicker && (
+          <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
+            {kicker}
+          </p>
+        )}
+
+        <p className={`${sizes.main} font-extrabold ${titleColor} ${sizes.lineHeight}`}>
+          {title}
+        </p>
+
+        {subtitle && (
+          <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
+            {subtitle}
+          </p>
+        )}
+
+        {introduction && (
+          <p className={`text-xl font-semibold ${textColor} mt-1`}>
+            {introduction}
+          </p>
+        )}
+      </div>
+
+      {/* Optional Button */}
+      {button && <div className="mt-1">{renderButton()}</div>}
+    </div>
+  )
+
+  // Split layout (default): Sticky title on left, content on right
+  if (layout === 'split') {
+    return (
+      <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
+        <div className="mx-auto flex gap-5 flex-col lg:flex-row">
+          {/* Left Column - Sticky Title */}
+          <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-0 lg:self-start z-10">
+            {/* Top spacer */}
+            <div className="h-8 w-5 opacity-75"></div>
+
+            {renderTitleSection()}
+          </div>
+
+          {/* Right Column - Content */}
+          <div className="lg:basis-1/2 flex flex-col gap-5">
+            {/* Top spacer */}
+            <div className="h-8 w-5 opacity-75"></div>
+
+            {/* Dynamic content blocks */}
+            {children}
+
+            {/* Bottom spacer */}
+            <div className="h-8 w-5 opacity-75"></div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  // Full-width layout: Title at top, content in two columns below
   return (
     <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
-      <div className="mx-auto flex gap-5 flex-col lg:flex-row">
-        {/* Left Column - Sticky Title */}
-        <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-0 lg:self-start z-10">
-          {/* Top spacer */}
+      <div className="mx-auto flex flex-col gap-5">
+        {/* Title Section - Full Width */}
+        <div className="flex flex-col gap-5 max-w-2xl">
           <div className="h-8 w-5 opacity-75"></div>
 
-          <div className="flex flex-col gap-6">
-            {/* Decorative Line */}
-            {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
+          {renderTitleSection()}
+        </div>
 
-            {/* Titles */}
-            <div className="flex flex-col gap-1">
-              {kicker && (
-                <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
-                  {kicker}
-                </p>
-              )}
+        {/* Content in 2 Columns */}
+        <div className="flex gap-5 flex-col lg:flex-row">
+          {/* Left Column */}
+          <div className="lg:basis-1/2 flex flex-col gap-5">
+            <div className="h-8 w-5 opacity-75"></div>
 
-              <p className={`${sizes.main} font-extrabold ${titleColor} ${sizes.lineHeight}`}>
-                {title}
-              </p>
+            {children}
+          </div>
 
-              {subtitle && (
-                <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
-                  {subtitle}
-                </p>
-              )}
+          {/* Right Column */}
+          <div className="lg:basis-1/2 flex flex-col gap-5">
+            <div className="h-8 w-5 opacity-75"></div>
 
-              {introduction && (
-                <p className={`text-xl font-semibold ${textColor} mt-1`}>
-                  {introduction}
-                </p>
-              )}
-            </div>
-
-            {/* Optional Button */}
-            {button && <div className="mt-1">{renderButton()}</div>}
+            {rightColumn}
           </div>
         </div>
 
-        {/* Right Column - Content */}
-        <div className="lg:basis-1/2 flex flex-col gap-5">
-          {/* Top spacer */}
-          <div className="h-8 w-5 opacity-75"></div>
-
-          {/* Dynamic content blocks */}
-          {children}
-
-          {/* Bottom spacer */}
-          <div className="h-8 w-5 opacity-75"></div>
-        </div>
+        <div className="h-8 w-5 opacity-75"></div>
       </div>
     </section>
   )
