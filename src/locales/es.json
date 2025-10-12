@@ -92,6 +92,30 @@
             "col4": "En Expansión"
           }
         }
+      },
+      "iconTable": {
+        "headers": {
+          "col1": "Red",
+          "col2": "Tipo de Datos",
+          "col3": "Estado"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotadores Argo",
+            "col2": "Temperatura y Salinidad",
+            "col3": "Activo"
+          },
+          "row2": {
+            "col1": "Boyas Derivantes",
+            "col2": "TSM y Corrientes",
+            "col3": "Activo"
+          },
+          "row3": {
+            "col1": "Planeadores Oceánicos",
+            "col2": "Multi-parámetro",
+            "col3": "En Expansión"
+          }
+        }
       }
     }
   }

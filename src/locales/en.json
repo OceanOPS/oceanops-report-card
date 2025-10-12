@@ -92,6 +92,30 @@
             "col4": "Expanding"
           }
         }
+      },
+      "iconTable": {
+        "headers": {
+          "col1": "Network",
+          "col2": "Data Type",
+          "col3": "Status"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Argo Floats",
+            "col2": "Temperature & Salinity",
+            "col3": "Active"
+          },
+          "row2": {
+            "col1": "Surface Drifters",
+            "col2": "SST & Currents",
+            "col3": "Active"
+          },
+          "row3": {
+            "col1": "Ocean Gliders",
+            "col2": "Multi-parameter",
+            "col3": "Expanding"
+          }
+        }
       }
     }
   }

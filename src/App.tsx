@@ -7,6 +7,7 @@ import QuoteBlock from './components/QuoteBlock'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
+import IconTable from './components/IconTable'
 
 function App() {
   const { t } = useTranslation()
@@ -37,15 +38,15 @@ function App() {
       <ImageGrid
         images={[
           {
-            src: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=800&fit=crop',
+            src: '/images/content.jpg',
             alt: t('hero.images.image1'),
           },
           {
-            src: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=800&fit=crop',
+            src: '/images/content.jpg',
             alt: t('hero.images.image2'),
           },
           {
-            src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=800&fit=crop',
+            src: '/images/content.jpg',
             alt: t('hero.images.image3'),
           },
         ]}
@@ -195,6 +196,30 @@ function App() {
           headerTextColor="text-goos-white"
           rowBgColor="bg-goos-blue-700"
           rowTextColor="text-goos-white"
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        {/* Icon Table with images */}
+        <IconTable
+          columns={4}
+          headers={[
+            t('content.section1.iconTable.headers.col1'),
+          ]}
+          rows={[
+            [
+              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col1') },
+              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col2') },
+              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col3') },
+              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col3') },              
+            ],
+          ]}
+          borderColor="border-goos-blue-700"
+          headerBgColor="bg-goos-white"
+          headerTextColor="text-goos-blue-700"
+          rowBgColor="bg-goos-white"
+          rowTextColor="text-goos-blue-700"
         />
 
         {/* Spacer between modules */}

@@ -92,6 +92,30 @@
             "col4": "En Expansion"
           }
         }
+      },
+      "iconTable": {
+        "headers": {
+          "col1": "Réseau",
+          "col2": "Type de Données",
+          "col3": "Statut"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotteurs Argo",
+            "col2": "Température et Salinité",
+            "col3": "Actif"
+          },
+          "row2": {
+            "col1": "Bouées Dérivantes",
+            "col2": "TSM et Courants",
+            "col3": "Actif"
+          },
+          "row3": {
+            "col1": "Planeurs Océaniques",
+            "col2": "Multi-paramètre",
+            "col3": "En Expansion"
+          }
+        }
       }
     }
   }
