@@ -32,6 +32,66 @@
         "authorName": "Mathieu Belbéoch",
         "authorTitle": "Directeur d'OceanOPS",
         "logoAlt": "Logo OceanOPS"
+      },
+      "stats": {
+        "stat1": {
+          "number": "$45M",
+          "description": "Investissement annuel dans l'infrastructure et les opérations d'observation océanique mondiale",
+          "linkText": "Voir le Rapport",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat2": {
+          "number": "$400B",
+          "description": "Valeur économique des observations océaniques pour les prévisions météorologiques et les services climatiques",
+          "linkText": "En Savoir Plus",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat3": {
+          "number": "7,500+",
+          "description": "Plateformes actives d'observation océanique surveillées par OceanOPS dans le monde",
+          "linkText": "Voir le Tableau de Bord",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat4": {
+          "number": "100+",
+          "description": "Pays contribuant au système mondial d'observation des océans",
+          "linkText": "Explorer la Carte",
+          "linkUrl": "https://www.ocean-ops.org"
+        }
+      },
+      "table": {
+        "headers": {
+          "col1": "Type de Plateforme",
+          "col2": "Unités Actives",
+          "col3": "Couverture",
+          "col4": "Statut"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotteurs Argo",
+            "col2": "3,800",
+            "col3": "Mondiale",
+            "col4": "Opérationnel"
+          },
+          "row2": {
+            "col1": "Bouées Dérivantes",
+            "col2": "1,250",
+            "col3": "Mondiale",
+            "col4": "Opérationnel"
+          },
+          "row3": {
+            "col1": "Marégraphes",
+            "col2": "1,500",
+            "col3": "Côtière",
+            "col4": "Opérationnel"
+          },
+          "row4": {
+            "col1": "Planeurs",
+            "col2": "150",
+            "col3": "Régionale",
+            "col4": "En Expansion"
+          }
+        }
       }
     }
   }

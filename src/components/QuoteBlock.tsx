@@ -67,7 +67,7 @@ export default function QuoteBlock({
   return (
     <div
       className={`flex flex-col gap-5 max-w-xl ${
-        variant === 'highlight' ? `border-l-4 ${borderColor} pl-6` : ''
+        variant === 'highlight' ? `border-l-8 ${borderColor} pl-6` : ''
       } ${className}`}
     >
       {/* Quote Icon - only for 'quote' variant */}

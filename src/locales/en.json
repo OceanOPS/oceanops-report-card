@@ -32,6 +32,66 @@
         "authorName": "Mathieu Belbéoch",
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
+      },
+      "stats": {
+        "stat1": {
+          "number": "$45M",
+          "description": "Annual investment in global ocean observing infrastructure and operations",
+          "linkText": "View Report",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat2": {
+          "number": "$400B",
+          "description": "Economic value of ocean observations for weather forecasting and climate services",
+          "linkText": "Learn More",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat3": {
+          "number": "7,500+",
+          "description": "Active ocean observing platforms monitored by OceanOPS worldwide",
+          "linkText": "View Dashboard",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat4": {
+          "number": "100+",
+          "description": "Countries contributing to the global ocean observing system",
+          "linkText": "Explore Map",
+          "linkUrl": "https://www.ocean-ops.org"
+        }
+      },
+      "table": {
+        "headers": {
+          "col1": "Platform Type",
+          "col2": "Active Units",
+          "col3": "Coverage",
+          "col4": "Status"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Argo Floats",
+            "col2": "3,800",
+            "col3": "Global",
+            "col4": "Operational"
+          },
+          "row2": {
+            "col1": "Drifting Buoys",
+            "col2": "1,250",
+            "col3": "Global",
+            "col4": "Operational"
+          },
+          "row3": {
+            "col1": "Tide Gauges",
+            "col2": "1,500",
+            "col3": "Coastal",
+            "col4": "Operational"
+          },
+          "row4": {
+            "col1": "Gliders",
+            "col2": "150",
+            "col3": "Regional",
+            "col4": "Expanding"
+          }
+        }
       }
     }
   }

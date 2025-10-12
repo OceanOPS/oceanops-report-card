@@ -5,6 +5,8 @@ import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
 import Spacer from './components/Spacer'
+import StatsGrid from './components/StatsGrid'
+import DataTable from './components/DataTable'
 
 function App() {
   const { t } = useTranslation()
@@ -108,7 +110,96 @@ function App() {
           quote={t('content.section1.quote.text')}
           quoteColor="text-goos-blue-700"
           borderColor="border-goos-orange-500"
+          authorName={t('content.section1.quote.authorName')}
+          authorTitle={t('content.section1.quote.authorTitle')}
+          authorColor="text-goos-blue-700"
         />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        {/* Stats Grid 2x2 */}
+        <StatsGrid
+          stats={[
+            {
+              number: t('content.section1.stats.stat1.number'),
+              description: t('content.section1.stats.stat1.description'),
+              linkText: t('content.section1.stats.stat1.linkText'),
+              linkUrl: t('content.section1.stats.stat1.linkUrl'),
+            },
+            {
+              number: t('content.section1.stats.stat2.number'),
+              description: t('content.section1.stats.stat2.description'),
+              linkText: t('content.section1.stats.stat2.linkText'),
+              linkUrl: t('content.section1.stats.stat2.linkUrl'),
+            },
+            {
+              number: t('content.section1.stats.stat3.number'),
+              description: t('content.section1.stats.stat3.description'),
+              linkText: t('content.section1.stats.stat3.linkText'),
+              linkUrl: t('content.section1.stats.stat3.linkUrl'),
+            },
+            {
+              number: t('content.section1.stats.stat4.number'),
+              description: t('content.section1.stats.stat4.description'),
+              linkText: t('content.section1.stats.stat4.linkText'),
+              linkUrl: t('content.section1.stats.stat4.linkUrl'),
+            },
+          ]}
+          numberColor="text-goos-blue-700"
+          textColor="text-goos-gray-900"
+          linkColor="text-goos-gray-900"
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
+        {/* Data Table */}
+        <DataTable
+          columns={4}
+          headers={[
+            t('content.section1.table.headers.col1'),
+            t('content.section1.table.headers.col2'),
+            t('content.section1.table.headers.col3'),
+            t('content.section1.table.headers.col4'),
+          ]}
+          rows={[
+            [
+              t('content.section1.table.rows.row1.col1'),
+              t('content.section1.table.rows.row1.col2'),
+              t('content.section1.table.rows.row1.col3'),
+              t('content.section1.table.rows.row1.col4'),
+            ],
+            [
+              t('content.section1.table.rows.row2.col1'),
+              t('content.section1.table.rows.row2.col2'),
+              t('content.section1.table.rows.row2.col3'),
+              t('content.section1.table.rows.row2.col4'),
+            ],
+            [
+              t('content.section1.table.rows.row3.col1'),
+              t('content.section1.table.rows.row3.col2'),
+              t('content.section1.table.rows.row3.col3'),
+              t('content.section1.table.rows.row3.col4'),
+            ],
+            [
+              t('content.section1.table.rows.row4.col1'),
+              t('content.section1.table.rows.row4.col2'),
+              t('content.section1.table.rows.row4.col3'),
+              t('content.section1.table.rows.row4.col4'),
+            ],
+          ]}
+          firstColumnBold={true}
+          borderColor="border-goos-white"
+          headerBgColor="bg-goos-blue-700"
+          headerTextColor="text-goos-white"
+          rowBgColor="bg-goos-blue-700"
+          rowTextColor="text-goos-white"
+        />
+
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+
       </ContentModule>
     </div>
   )

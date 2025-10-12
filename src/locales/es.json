@@ -32,6 +32,66 @@
         "authorName": "Mathieu Belbéoch",
         "authorTitle": "Director de OceanOPS",
         "logoAlt": "Logo OceanOPS"
+      },
+      "stats": {
+        "stat1": {
+          "number": "$45M",
+          "description": "Inversión anual en infraestructura y operaciones de observación oceánica global",
+          "linkText": "Ver Informe",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat2": {
+          "number": "$400B",
+          "description": "Valor económico de las observaciones oceánicas para pronósticos meteorológicos y servicios climáticos",
+          "linkText": "Más Información",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat3": {
+          "number": "7,500+",
+          "description": "Plataformas activas de observación oceánica monitoreadas por OceanOPS en todo el mundo",
+          "linkText": "Ver Panel",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat4": {
+          "number": "100+",
+          "description": "Países que contribuyen al sistema global de observación del océano",
+          "linkText": "Explorar Mapa",
+          "linkUrl": "https://www.ocean-ops.org"
+        }
+      },
+      "table": {
+        "headers": {
+          "col1": "Tipo de Plataforma",
+          "col2": "Unidades Activas",
+          "col3": "Cobertura",
+          "col4": "Estado"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotadores Argo",
+            "col2": "3,800",
+            "col3": "Global",
+            "col4": "Operativo"
+          },
+          "row2": {
+            "col1": "Boyas Derivantes",
+            "col2": "1,250",
+            "col3": "Global",
+            "col4": "Operativo"
+          },
+          "row3": {
+            "col1": "Mareógrafos",
+            "col2": "1,500",
+            "col3": "Costero",
+            "col4": "Operativo"
+          },
+          "row4": {
+            "col1": "Planeadores",
+            "col2": "150",
+            "col3": "Regional",
+            "col4": "En Expansión"
+          }
+        }
       }
     }
   }
