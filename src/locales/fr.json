@@ -17,5 +17,147 @@
       "image2": "Argofloat Skippers par A. Auriol Malizia Seaexplorer",
       "image3": "Équipement de recherche océanique"
     }
+  },
+  "content": {
+    "section1": {
+      "kicker": "Ligne d'accroche:",
+      "title": "Ceci est le H2",
+      "subtitle": "Sous-titre",
+      "introduction": "Texte d'introduction",
+      "heading": "Ceci est le H4",
+      "paragraph1": "Le Système mondial d'observation des océans (GOOS) observe notre océan à travers les \"yeux\" de milliers de plateformes d'observation océanique qui surveillent constamment l'océan pour capturer la signature de divers phénomènes océaniques.",
+      "paragraph2": "Pour mettre en évidence l'état et le développement de ce système mondial d'observation des océans, le rapport 2023 sur le système d'observation des océans donne un aperçu de l'état actuel des réseaux mondiaux d'observation.",
+      "quote": {
+        "text": "Face au changement climatique, la communauté mondiale doit travailler ensemble pour améliorer la couverture, la qualité et la nature multidisciplinaire du système d'observation afin de répondre aux services de prévision vitaux et aux besoins de la société. OceanOPS peut aider à établir ces connexions",
+        "authorName": "Mathieu Belbéoch",
+        "authorTitle": "Directeur d'OceanOPS",
+        "logoAlt": "Logo OceanOPS"
+      },
+      "stats": {
+        "stat1": {
+          "number": "$45M",
+          "description": "Investissement annuel dans l'infrastructure et les opérations d'observation océanique mondiale",
+          "linkText": "Voir le Rapport",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat2": {
+          "number": "$400B",
+          "description": "Valeur économique des observations océaniques pour les prévisions météorologiques et les services climatiques",
+          "linkText": "En Savoir Plus",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat3": {
+          "number": "7,500+",
+          "description": "Plateformes actives d'observation océanique surveillées par OceanOPS dans le monde",
+          "linkText": "Voir le Tableau de Bord",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat4": {
+          "number": "100+",
+          "description": "Pays contribuant au système mondial d'observation des océans",
+          "linkText": "Explorer la Carte",
+          "linkUrl": "https://www.ocean-ops.org"
+        }
+      },
+      "table": {
+        "headers": {
+          "col1": "Type de Plateforme",
+          "col2": "Unités Actives",
+          "col3": "Couverture",
+          "col4": "Statut"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotteurs Argo",
+            "col2": "3,800",
+            "col3": "Mondiale",
+            "col4": "Opérationnel"
+          },
+          "row2": {
+            "col1": "Bouées Dérivantes",
+            "col2": "1,250",
+            "col3": "Mondiale",
+            "col4": "Opérationnel"
+          },
+          "row3": {
+            "col1": "Marégraphes",
+            "col2": "1,500",
+            "col3": "Côtière",
+            "col4": "Opérationnel"
+          },
+          "row4": {
+            "col1": "Planeurs",
+            "col2": "150",
+            "col3": "Régionale",
+            "col4": "En Expansion"
+          }
+        }
+      },
+      "iconTable": {
+        "headers": {
+          "col1": "Réseau",
+          "col2": "Type de Données",
+          "col3": "Statut"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotteurs Argo",
+            "col2": "Température et Salinité",
+            "col3": "Actif"
+          },
+          "row2": {
+            "col1": "Bouées Dérivantes",
+            "col2": "TSM et Courants",
+            "col3": "Actif"
+          },
+          "row3": {
+            "col1": "Planeurs Océaniques",
+            "col2": "Multi-paramètre",
+            "col3": "En Expansion"
+          }
+        }
+      },
+      "image": {
+        "alt": "Déploiement de plateforme d'observation océanique",
+        "caption": "Photo par Équipe de Recherche / OceanOPS 2024"
+      },
+      "gallery": {
+        "image1": {
+          "alt": "Déploiement de flotteur Argo depuis navire de recherche",
+          "caption": "Déploiement de flotteur Argo - Photo par A. Auriol / Malizia Seaexplorer"
+        },
+        "image2": {
+          "alt": "Planeur océanique en préparation pour mission",
+          "caption": "Préparation de planeur océanique - Photo par Équipe de Recherche / OceanOPS"
+        },
+        "image3": {
+          "alt": "Bouée dérivante en pleine mer",
+          "caption": "Bouée dérivante de surface - Photo par L. Fortunato / Université Parthenope"
+        }
+      },
+      "video": {
+        "previewAlt": "Regarder: Aperçu des Systèmes d'Observation Océanique",
+        "caption": "Vidéo: Système Mondial d'Observation des Océans - Une vue d'ensemble complète"
+      },
+      "buttons": {
+        "externalLink": "Voir le Rapport Complet",
+        "watchVideo": "Regarder la Vidéo",
+        "learnMore": "En Savoir Plus",
+        "examplesTitle": "Exemples de Boutons Réutilisables",
+        "examplesDescription": "Voici des exemples de composants de boutons réutilisables qui peuvent être utilisés dans toute l'application:"
+      },
+      "modal": {
+        "title": "Informations Supplémentaires",
+        "heading": "Ressources Clés",
+        "paragraph1": "Cette section complète fournit des informations détaillées sur les méthodologies d'observation océanique, les normes de qualité des données et les efforts de coordination des réseaux.",
+        "paragraph2": "Accédez à la documentation technique, explorez les procédures de collecte de données et consultez les cadres de contrôle qualité qui garantissent des observations océaniques fiables.",
+        "listItems": {
+          "item1": "Documentation Technique",
+          "item2": "Méthodologies de Collecte de Données",
+          "item3": "Procédures de Contrôle Qualité",
+          "item4": "Rapports d'État du Réseau"
+        }
+      }
+    }
   }
 }

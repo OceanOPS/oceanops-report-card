@@ -4,7 +4,9 @@
       "Bash(git log:*)",
       "Bash(git reset:*)",
       "Bash(mkdir:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run preview:*)"
     ],
     "deny": [],
     "ask": []

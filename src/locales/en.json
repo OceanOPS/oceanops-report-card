@@ -17,5 +17,147 @@
       "image2": "Skippers Argofloat by A. Auriol Malizia Seaexplorer",
       "image3": "Ocean research equipment"
     }
+  },
+  "content": {
+    "section1": {
+      "kicker": "Kicker line:",
+      "title": "This is the H2",
+      "subtitle": "Subhead",
+      "introduction": "Introduction Text",
+      "heading": "This is the H4",
+      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "paragraph2": "To highlight the status and development of this Global Ocean Observing System, the 2023 Ocean Observing System Report Card provides insight into the current status of the global observing networks.",
+      "quote": {
+        "text": "In the face of climate change, the global community must work together to improve the coverage, quality, and multidisciplinary nature of the observing system to meet vital forecasting services and societal needs. OceanOPS can help make these connections",
+        "authorName": "Mathieu Belbéoch",
+        "authorTitle": "OceanOPS Manager",
+        "logoAlt": "OceanOPS Logo"
+      },
+      "stats": {
+        "stat1": {
+          "number": "$45M",
+          "description": "Annual investment in global ocean observing infrastructure and operations",
+          "linkText": "View Report",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat2": {
+          "number": "$400B",
+          "description": "Economic value of ocean observations for weather forecasting and climate services",
+          "linkText": "Learn More",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat3": {
+          "number": "7,500+",
+          "description": "Active ocean observing platforms monitored by OceanOPS worldwide",
+          "linkText": "View Dashboard",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat4": {
+          "number": "100+",
+          "description": "Countries contributing to the global ocean observing system",
+          "linkText": "Explore Map",
+          "linkUrl": "https://www.ocean-ops.org"
+        }
+      },
+      "table": {
+        "headers": {
+          "col1": "Platform Type",
+          "col2": "Active Units",
+          "col3": "Coverage",
+          "col4": "Status"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Argo Floats",
+            "col2": "3,800",
+            "col3": "Global",
+            "col4": "Operational"
+          },
+          "row2": {
+            "col1": "Drifting Buoys",
+            "col2": "1,250",
+            "col3": "Global",
+            "col4": "Operational"
+          },
+          "row3": {
+            "col1": "Tide Gauges",
+            "col2": "1,500",
+            "col3": "Coastal",
+            "col4": "Operational"
+          },
+          "row4": {
+            "col1": "Gliders",
+            "col2": "150",
+            "col3": "Regional",
+            "col4": "Expanding"
+          }
+        }
+      },
+      "iconTable": {
+        "headers": {
+          "col1": "Network",
+          "col2": "Data Type",
+          "col3": "Status"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Argo Floats",
+            "col2": "Temperature & Salinity",
+            "col3": "Active"
+          },
+          "row2": {
+            "col1": "Surface Drifters",
+            "col2": "SST & Currents",
+            "col3": "Active"
+          },
+          "row3": {
+            "col1": "Ocean Gliders",
+            "col2": "Multi-parameter",
+            "col3": "Expanding"
+          }
+        }
+      },
+      "image": {
+        "alt": "Ocean observation platform deployment",
+        "caption": "Photo by Research Team / OceanOPS 2024"
+      },
+      "gallery": {
+        "image1": {
+          "alt": "Argo float deployment from research vessel",
+          "caption": "Argo float deployment - Photo by A. Auriol / Malizia Seaexplorer"
+        },
+        "image2": {
+          "alt": "Ocean glider being prepared for mission",
+          "caption": "Ocean glider preparation - Photo by Research Team / OceanOPS"
+        },
+        "image3": {
+          "alt": "Drifting buoy in open ocean",
+          "caption": "Surface drifting buoy - Photo by L. Fortunato / Parthenope University"
+        }
+      },
+      "video": {
+        "previewAlt": "Watch: Ocean Observing Systems Overview",
+        "caption": "Video: Global Ocean Observing System - A comprehensive overview"
+      },
+      "buttons": {
+        "externalLink": "View Full Report",
+        "watchVideo": "Watch Video",
+        "learnMore": "Learn More",
+        "examplesTitle": "Reusable Button Examples",
+        "examplesDescription": "The following are examples of reusable button components that can be used throughout the application:"
+      },
+      "modal": {
+        "title": "Additional Information",
+        "heading": "Key Resources",
+        "paragraph1": "This comprehensive section provides detailed information about ocean observation methodologies, data quality standards, and network coordination efforts.",
+        "paragraph2": "Access technical documentation, explore data collection procedures, and review quality control frameworks that ensure reliable ocean observations.",
+        "listItems": {
+          "item1": "Technical Documentation",
+          "item2": "Data Collection Methodologies",
+          "item3": "Quality Control Procedures",
+          "item4": "Network Status Reports"
+        }
+      }
+    }
   }
 }

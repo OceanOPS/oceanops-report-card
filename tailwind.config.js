@@ -6,7 +6,7 @@ export default {
   ],
   safelist: [
     // Safelist para colores dinámicos usados en props
-    { pattern: /^(text|bg|border)-(goos-(blue|cyan|orange|green|gray|white)(-[1-9]00)?)$/ },
+    { pattern: /^(text|bg|border|fill)-(goos-(blue|cyan|orange|green|gray|white)(-[1-9]00)?)$/ },
     // Safelist para grid columns dinámicos
     'grid-cols-1',
     'grid-cols-2',
@@ -14,6 +14,19 @@ export default {
     'grid-cols-4',
     'grid-cols-5',
     'grid-cols-6',
+    'grid-cols-7',
+    'grid-cols-8',
+    'grid-cols-9',
+    'grid-cols-10',
+    'grid-cols-11',
+    'grid-cols-12',
+    // Safelist para spacer heights
+    'h-4',
+    'h-8',
+    'h-16',
+    'h-24',
+    'h-32',
+    'h-40',
   ],
   theme: {
     extend: {
