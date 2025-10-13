@@ -2,12 +2,14 @@
  * Button Component
  *
  * A flexible button component with three variants: external link, video modal, and content modal.
- * Each variant displays a unique icon with circular background (inverted colors).
+ * Each variant displays a unique icon with circular background.
  *
  * @param variant - Button type: 'link' | 'video' | 'modal'
  * @param label - Button label text (required)
  * @param textColor - Tailwind text color class (default: 'text-white')
  * @param bgColor - Tailwind background color class (default: 'bg-goos-blue-700')
+ * @param iconColor - Tailwind text color class for the icon (default: inverted bgColor)
+ * @param iconBgColor - Tailwind background color class for the icon circle (default: inverted textColor)
  * @param url - External URL (required for 'link' variant)
  * @param videoType - Video type: 'youtube' | 'local' (required for 'video' variant)
  * @param videoId - YouTube video ID or local video URL (required for 'video' variant)
@@ -29,7 +31,7 @@
  *   bgColor="bg-goos-blue-700"
  * />
  *
- * // Video modal button
+ * // Video modal button with custom icon colors
  * <Button
  *   variant="video"
  *   label="Watch Video"
@@ -38,6 +40,8 @@
  *   previewImage="/images/preview.jpg"
  *   textColor="text-white"
  *   bgColor="bg-goos-orange-500"
+ *   iconColor="text-goos-blue-700"
+ *   iconBgColor="bg-white"
  * />
  *
  * // Content modal button
@@ -63,6 +67,8 @@ type ButtonProps =
       url: string
       textColor?: string
       bgColor?: string
+      iconColor?: string
+      iconBgColor?: string
       className?: string
     }
   | {
@@ -74,6 +80,8 @@ type ButtonProps =
       previewAlt?: string
       textColor?: string
       bgColor?: string
+      iconColor?: string
+      iconBgColor?: string
       className?: string
     }
   | {
@@ -84,6 +92,8 @@ type ButtonProps =
       modalMaxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
       textColor?: string
       bgColor?: string
+      iconColor?: string
+      iconBgColor?: string
       className?: string
     }
 
@@ -93,6 +103,10 @@ export default function Button(props: ButtonProps) {
 
   const defaultTextColor = props.textColor || 'text-white'
   const defaultBgColor = props.bgColor || 'bg-goos-blue-700'
+
+  // Icon colors: use custom colors if provided, otherwise invert button colors
+  const iconColor = props.iconColor || defaultBgColor.replace('bg-', 'text-')
+  const iconBgColor = props.iconBgColor || defaultTextColor.replace('text-', 'bg-')
 
   const baseClasses = `inline-flex items-center gap-2 px-5 py-2 ${defaultTextColor} ${defaultBgColor} font-roboto-condensed uppercase text-lg font-semibold hover:opacity-90 transition-opacity ${props.className || ''}`
 
@@ -106,10 +120,10 @@ export default function Button(props: ButtonProps) {
         className={baseClasses}
       >
         {props.label}
-        {/* Right arrow icon with circular background (inverted colors) */}
-        <div className={`w-5 h-5 ${defaultTextColor.replace('text-', 'bg-')} rounded-full flex items-center justify-center`}>
+        {/* Right arrow icon with circular background */}
+        <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
           <svg
-            className={`w-3 h-3 ${defaultBgColor.replace('bg-', 'text-')}`}
+            className={`w-3 h-3 ${iconColor}`}
             fill="currentColor"
             viewBox="0 0 24 24"
           >
@@ -126,10 +140,10 @@ export default function Button(props: ButtonProps) {
       <>
         <button onClick={() => setIsVideoModalOpen(true)} className={baseClasses}>
           {props.label}
-          {/* Play icon with circular background (inverted colors) */}
-          <div className={`w-5 h-5 ${defaultTextColor.replace('text-', 'bg-')} rounded-full flex items-center justify-center`}>
+          {/* Play icon with circular background */}
+          <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
             <svg
-              className={`w-3 h-3 ${defaultBgColor.replace('bg-', 'text-')}`}
+              className={`w-3 h-3 ${iconColor}`}
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -155,15 +169,15 @@ export default function Button(props: ButtonProps) {
       <>
         <button onClick={() => setIsContentModalOpen(true)} className={baseClasses}>
           {props.label}
-          {/* Plus icon with circular background (inverted colors) */}
-          <div className={`w-5 h-5 ${defaultTextColor.replace('text-', 'bg-')} rounded-full flex items-center justify-center`}>
+          {/* Plus icon with circular background */}
+          <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={2.5}
               stroke="currentColor"
-              className={`w-3 h-3 ${defaultBgColor.replace('bg-', 'text-')}`}
+              className={`w-3 h-3 ${iconColor}`}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>

@@ -335,6 +335,8 @@ function App() {
             url="https://www.ocean-ops.org"
             textColor="text-white"
             bgColor="bg-goos-blue-700"
+            iconColor="text-goos-blue-700"
+            iconBgColor="bg-white" 
           />
         </div>
 
@@ -347,7 +349,9 @@ function App() {
             videoId="dQw4w9WgXcQ"
             previewImage="/images/content.jpg"
             textColor="text-white"
-            bgColor="bg-goos-orange-500"
+            bgColor="bg-goos-orange-600"
+            iconColor="text-goos-orange-600"
+            iconBgColor="bg-white" 
           />
         </div>
 
@@ -452,6 +456,9 @@ function App() {
             modalMaxWidth="xl"
             textColor="text-white"
             bgColor="bg-goos-green-700"
+            bgColor="bg-goos-orange-600"
+            iconColor="text-goos-orange-600"
+            iconBgColor="bg-white" 
           />
 
           {/* Modal 2 - Simple with just text and table */}
@@ -501,6 +508,9 @@ function App() {
             modalMaxWidth="lg"
             textColor="text-white"
             bgColor="bg-goos-cyan-700"
+            bgColor="bg-goos-orange-600"
+            iconColor="text-goos-orange-600"
+            iconBgColor="bg-white" 
           />
 
           {/* Modal 3 - Gallery focused */}
@@ -541,6 +551,9 @@ function App() {
             modalMaxWidth="2xl"
             textColor="text-white"
             bgColor="bg-goos-orange-600"
+            bgColor="bg-goos-orange-600"
+            iconColor="text-goos-orange-600"
+            iconBgColor="bg-white" 
           />
         </div>
 
