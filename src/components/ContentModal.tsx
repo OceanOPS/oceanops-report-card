@@ -93,7 +93,7 @@ export default function ContentModal({
         {/* Header with close button */}
         <div className="sticky top-0 bg-goos-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
           {title && (
-            <h2 className="text-2xl font-extrabold text-goos-blue-700">{title}</h2>
+            <h2 className="text-lg font-extrabold text-goos-blue-700">{title}</h2>
           )}
           <button
             onClick={onClose}

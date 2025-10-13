@@ -241,7 +241,7 @@ function App() {
         <SpotifyEmbed
           spotifyId="3AjTpnz2G7RZofpSOtiDa1"
           type="episode"
-          height={152}
+          height={352}
         />
 
         {/* Spacer between modules */}
@@ -249,7 +249,7 @@ function App() {
 
         {/* Image with Caption */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/content3.jpg"
           alt={t('content.section1.image.alt')}
           caption={t('content.section1.image.caption')}
           aspectRatio="video"
@@ -295,7 +295,7 @@ function App() {
         <VideoModal
           videoType="youtube"
           videoId="dQw4w9WgXcQ"
-          previewImage="/images/content.jpg"
+          previewImage="/images/content2.jpg"
           previewAlt={t('content.section1.video.previewAlt')}
           caption={t('content.section1.video.caption')}
           playButtonColor="bg-goos-orange-500"
@@ -309,7 +309,7 @@ function App() {
         <VideoModal
           videoType="local"
           videoId="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
-          previewImage="/images/content.jpg"
+          previewImage="/images/content3.jpg"
           previewAlt={t('content.section1.video.previewAlt')}
           caption={t('content.section1.video.caption')}
           playButtonColor="bg-goos-orange-500"
@@ -360,6 +360,7 @@ function App() {
             modalTitle={t('content.section1.modal.title')}
             modalContent={
               <div className="flex flex-col gap-5">
+                <div className="text-5xl font-extrabold text-goos-blue-700">This is the title</div>
                 {/* Paragraphs with translations */}
                 <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
                   {t('content.section1.modal.paragraph1')}
@@ -661,6 +662,8 @@ function App() {
           dotColor="bg-gray-200"
           activeDotColor="bg-goos-orange-600"
         />
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
       </div>
 
     </div>
