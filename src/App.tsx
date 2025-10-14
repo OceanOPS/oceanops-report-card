@@ -114,7 +114,7 @@ function App() {
         lineColor="bg-goos-orange-500"
         cards={[
           {
-            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.argo.iconAlt',
             titleKey: 'networks.argo.title',
             networkUrl: 'https://argo.ucsd.edu',
@@ -130,7 +130,7 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.doos.iconAlt',
             titleKey: 'networks.doos.title',
             networkUrl: 'https://example.com',
@@ -146,7 +146,7 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.sot.iconAlt',
             titleKey: 'networks.sot.title',
             networkUrl: 'https://example.com',
@@ -162,7 +162,7 @@ function App() {
             deliveryAreas: ['climate'],
           },
           {
-            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.gliders.iconAlt',
             titleKey: 'networks.gliders.title',
             networkUrl: 'https://example.com',
@@ -178,7 +178,7 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.dbcp.iconAlt',
             titleKey: 'networks.dbcp.title',
             networkUrl: 'https://example.com',
