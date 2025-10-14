@@ -9,6 +9,7 @@ import InsightPanel from './components/InsightPanel'
 import InsightGrid from './components/InsightGrid'
 import MapStatsPanel from './components/MapStatsPanel'
 import LogoStrip from './components/LogoStrip'
+import NetworkCarousel from './components/NetworkCarousel'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
@@ -69,41 +70,137 @@ function App() {
         title="Global Ocean Observation Network"
         hasLine={true}
         lineColor="bg-goos-orange-500"
-      stats={[
+        stats={[
+            {
+              number: t('content.section1.stats.stat1.number'),
+              description: t('content.section1.stats.stat1.description'),
+              linkText: t('content.section1.stats.stat1.linkText'),
+              linkUrl: t('content.section1.stats.stat1.linkUrl'),
+            },
+            {
+              number: t('content.section1.stats.stat2.number'),
+              description: t('content.section1.stats.stat2.description'),
+              linkText: t('content.section1.stats.stat2.linkText'),
+              linkUrl: t('content.section1.stats.stat2.linkUrl'),
+            },
+            {
+              number: t('content.section1.stats.stat3.number'),
+              description: t('content.section1.stats.stat3.description'),
+              linkText: t('content.section1.stats.stat3.linkText'),
+              linkUrl: t('content.section1.stats.stat3.linkUrl'),
+            },
+            {
+              number: t('content.section1.stats.stat4.number'),
+              description: t('content.section1.stats.stat4.description'),
+              linkText: t('content.section1.stats.stat4.linkText'),
+              linkUrl: t('content.section1.stats.stat4.linkUrl'),
+            },
+          ]}
+          mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
+          mapAlt="Global platform distribution map"
+          mapType="iframe"
+          mapHeight="full"
+          backgroundColor="bg-goos-blue-700"
+          titleColor="text-white"
+          textColor="text-white"
+          numberColor="text-goos-orange-500"
+          linkColor="text-goos-orange-500"
+      />
+
+       {/* NetworkCarousel */}
+      <NetworkCarousel
+        title="networks.title"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        cards={[
           {
-            number: t('content.section1.stats.stat1.number'),
-            description: t('content.section1.stats.stat1.description'),
-            linkText: t('content.section1.stats.stat1.linkText'),
-            linkUrl: t('content.section1.stats.stat1.linkUrl'),
+            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconAlt: 'networks.argo.iconAlt',
+            titleKey: 'networks.argo.title',
+            networkUrl: 'https://argo.ucsd.edu',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 3,
+              realTime: 3,
+              archivedHighQuality: 3,
+              metadata: 2.5,
+              bestPractices: 2,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            number: t('content.section1.stats.stat2.number'),
-            description: t('content.section1.stats.stat2.description'),
-            linkText: t('content.section1.stats.stat2.linkText'),
-            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconAlt: 'networks.doos.iconAlt',
+            titleKey: 'networks.doos.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 2,
+              realTime: 2,
+              archivedHighQuality: 3,
+              metadata: 1,
+              bestPractices: 1,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            number: t('content.section1.stats.stat3.number'),
-            description: t('content.section1.stats.stat3.description'),
-            linkText: t('content.section1.stats.stat3.linkText'),
-            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconAlt: 'networks.sot.iconAlt',
+            titleKey: 'networks.sot.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 1,
+              realTime: 1,
+              archivedHighQuality: 3,
+              metadata: 1,
+              bestPractices: 0,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate'],
           },
           {
-            number: t('content.section1.stats.stat4.number'),
-            description: t('content.section1.stats.stat4.description'),
-            linkText: t('content.section1.stats.stat4.linkText'),
-            linkUrl: t('content.section1.stats.stat4.linkUrl'),
+            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconAlt: 'networks.gliders.iconAlt',
+            titleKey: 'networks.gliders.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 2,
+              realTime: 2,
+              archivedHighQuality: 2,
+              metadata: 2,
+              bestPractices: 1,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational'],
+          },
+          {
+            iconSrc: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=70&h=71&fit=crop',
+            iconAlt: 'networks.dbcp.iconAlt',
+            titleKey: 'networks.dbcp.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 3,
+              realTime: 2,
+              archivedHighQuality: 3,
+              metadata: 2,
+              bestPractices: 2,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
         ]}
-        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
-        mapAlt="Global platform distribution map"
-        mapType="iframe"
-        mapHeight="full"
         backgroundColor="bg-goos-blue-700"
         titleColor="text-white"
-        textColor="text-white"
-        numberColor="text-goos-orange-500"
-        linkColor="text-goos-orange-500"
+        cardBackgroundColor="bg-goos-blue-800"
+        cardTextColor="text-white"
+        cardAccentColor="text-goos-orange-500"
+        tooltipBgColor="bg-goos-white"
+        tooltipTextColor="text-blue-800"
       />
 
       {/* Content Module Example 1 - With External Link Button */}
