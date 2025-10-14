@@ -4,6 +4,7 @@ import LanguageSwitcher from './components/LanguageSwitcher'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
+import QuoteWithImage from './components/QuoteWithImage'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
@@ -678,6 +679,68 @@ function App() {
         {/* Spacer between modules */}
          <Spacer size="sm" />
       </div>
+
+      {/* QuoteWithImage Examples */}
+
+      {/* Example 1: Fullscreen with image on left (default) */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/content.jpg"
+        imageAlt="Ocean research professional"
+        logoSrc="/logos/oceanops.png"
+        logoAlt="OceanOPS Logo"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-cyan-200"
+        quoteColor="text-goos-blue-700"
+        authorColor="text-goos-blue-700"
+        iconColor="fill-goos-cyan-600"
+      />
+
+      {/* Example 2: Auto height with image on right */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/content2.jpg"
+        imageAlt="Marine scientist at work"
+        height="auto"
+        imagePosition="right"
+        backgroundColor="bg-goos-blue-900"
+        quoteColor="text-white"
+        authorColor="text-white"
+        iconColor="fill-goos-cyan-500"
+      />
+
+      {/* Example 3: Without logo, custom colors */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/content3.jpg"
+        imageAlt="Ocean waves"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-orange-500"
+        quoteColor="text-white"
+        authorColor="text-white"
+        iconColor="fill-white"
+      />
+
+      {/* Example 5: No image - full width quote */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        logoSrc="/logos/oceanops.png"
+        height="auto"
+        backgroundColor="bg-goos-blue-700"
+        quoteColor="text-white"
+        authorColor="text-white"
+        iconColor="fill-goos-orange-500"
+      />
 
     </div>
   )
