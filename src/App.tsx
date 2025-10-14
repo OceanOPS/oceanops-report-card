@@ -5,6 +5,8 @@ import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
+import InsightPanel from './components/InsightPanel'
+import InsightGrid from './components/InsightGrid'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
@@ -740,6 +742,250 @@ function App() {
         quoteColor="text-white"
         authorColor="text-white"
         iconColor="fill-goos-orange-500"
+      />
+
+      {/* InsightPanel Examples */}
+
+      {/* Example 1: Full featured with title, button, and 4 stats */}
+      <InsightPanel
+        title="Insight Panel Optional Heading"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        largeNumber="129"
+        largeNumberDescription="Lorem ipsum dolor sit amet aliqua."
+        button={{
+          variant: 'link',
+          label: 'VIEW FULL LIST',
+          url: 'https://www.ocean-ops.org',
+          textColor: 'text-white',
+          bgColor: 'bg-goos-blue-900',
+        }}
+        stats={[
+          {
+            number: '$45M',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '$400B',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '$400B',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '$45M',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+        ]}
+        backgroundColor="bg-goos-blue-700"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-white"
+        linkColor="text-white"
+      />
+
+      {/* Example 2: No title, no button, custom colors */}
+      <InsightPanel
+        largeNumber="2,847"
+        largeNumberDescription="Active ocean observation platforms worldwide"
+        stats={[
+          {
+            number: '1,234',
+            description: 'Argo floats providing temperature and salinity data.',
+          },
+          {
+            number: '567',
+            description: 'Surface drifters tracking ocean currents globally.',
+          },
+        ]}
+        backgroundColor="bg-goos-cyan-700"
+        textColor="text-white"
+        numberColor="text-white"
+        hasLine={false}
+      />
+
+      {/* Example 3: With translations */}
+      <InsightPanel
+        title={t('content.section1.heading')}
+        largeNumber={t('content.section1.stats.stat1.number')}
+        largeNumberDescription={t('content.section1.stats.stat1.description')}
+        button={{
+          variant: 'link',
+          label: 'LEARN MORE',
+          url: 'https://www.ocean-ops.org',
+          textColor: 'text-white',
+          bgColor: 'bg-goos-orange-500',
+        }}
+        stats={[
+          {
+            number: t('content.section1.stats.stat2.number'),
+            description: t('content.section1.stats.stat2.description'),
+            linkText: t('content.section1.stats.stat2.linkText'),
+            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat3.number'),
+            description: t('content.section1.stats.stat3.description'),
+            linkText: t('content.section1.stats.stat3.linkText'),
+            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat4.number'),
+            description: t('content.section1.stats.stat4.description'),
+            linkText: t('content.section1.stats.stat4.linkText'),
+            linkUrl: t('content.section1.stats.stat4.linkUrl'),
+          },
+        ]}
+        backgroundColor="bg-goos-blue-900"
+        lineColor="bg-goos-orange-500"
+        numberColor="text-goos-orange-500"
+      />
+
+      {/* InsightGrid Examples */}
+
+      {/* Example 1: 4 insights with title and links */}
+      <InsightGrid
+        title="Key Metrics Overview"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        insights={[
+          {
+            number: '2,847',
+            description: 'Active ocean observation platforms worldwide',
+            linkText: 'View Details',
+            linkUrl: 'https://www.ocean-ops.org',
+          },
+          {
+            number: '$45M',
+            description: 'Annual funding for ocean research programs',
+            linkText: 'Learn More',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '567',
+            description: 'Research publications based on ocean data',
+            linkText: 'Read Papers',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '98%',
+            description: 'Data accuracy rate across all platforms',
+            linkText: 'View Report',
+            linkUrl: 'https://example.com',
+          },
+        ]}
+        backgroundColor="bg-goos-blue-700"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-white"
+        linkColor="text-white"
+      />
+
+      {/* Example 2: 3 insights without title, no links */}
+      <InsightGrid
+        hasLine={false}
+        insights={[
+          {
+            number: '100',
+            description: 'Countries participating in ocean observation programs',
+          },
+          {
+            number: '15',
+            description: 'Years of continuous ocean monitoring',
+          },
+          {
+            number: '24/7',
+            description: 'Real-time data collection and analysis',
+          },
+        ]}
+        backgroundColor="bg-goos-cyan-700"
+        textColor="text-white"
+        numberColor="text-white"
+      />
+
+      {/* Example 3: Multiple rows - First row with title (4 insights max) */}
+      <InsightGrid
+        title="Global Ocean Impact"
+        insights={[
+          {
+            number: '1.2M',
+            description: 'Temperature readings collected daily',
+          },
+          {
+            number: '850K',
+            description: 'Salinity measurements per month',
+          },
+          {
+            number: '50+',
+            description: 'Partner institutions worldwide',
+          },
+          {
+            number: '$400B',
+            description: 'Economic value of ocean data',
+          },
+        ]}
+        backgroundColor="bg-goos-blue-900"
+        lineColor="bg-goos-cyan-500"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-goos-cyan-500"
+      />
+
+      {/* Second row without title - Continue with more insights */}
+      <InsightGrid
+        hasLine={false}
+        insights={[
+          {
+            number: '3.5B',
+            description: 'People directly benefiting from ocean insights',
+          },
+          {
+            number: '200+',
+            description: 'Data products available to researchers',
+          },
+        ]}
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-white"
+        numberColor="text-goos-cyan-500"
+      />
+
+      {/* Example 4: With translations */}
+      <InsightGrid
+        title={t('content.section1.heading')}
+        insights={[
+          {
+            number: t('content.section1.stats.stat1.number'),
+            description: t('content.section1.stats.stat1.description'),
+            linkText: t('content.section1.stats.stat1.linkText'),
+            linkUrl: t('content.section1.stats.stat1.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat2.number'),
+            description: t('content.section1.stats.stat2.description'),
+            linkText: t('content.section1.stats.stat2.linkText'),
+            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat3.number'),
+            description: t('content.section1.stats.stat3.description'),
+            linkText: t('content.section1.stats.stat3.linkText'),
+            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+          },
+        ]}
+        backgroundColor="bg-goos-orange-500"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-white"
+        linkColor="text-white"
       />
 
     </div>
