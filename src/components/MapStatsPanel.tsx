@@ -156,7 +156,7 @@ export default function MapStatsPanel({
         </div>
 
         {/* Right Column - Map (50% width) */}
-        <div className="lg:basis-1/2 flex items-stretch self-stretch min-h-0">
+        <div className="lg:basis-1/2 flex items-stretch self-stretch min-h-0 aspect-square lg:aspect-auto">
           {mapType === 'image' ? (
             <img
               src={mapSrc}

@@ -8,6 +8,7 @@ import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import InsightGrid from './components/InsightGrid'
 import MapStatsPanel from './components/MapStatsPanel'
+import LogoStrip from './components/LogoStrip'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
@@ -60,6 +61,49 @@ function App() {
           },
         ]}
         columns={3}
+      />
+
+
+      {/* Example 1: With interactive ArcGIS map - Full viewport height */}
+      <MapStatsPanel
+        title="Global Ocean Observation Network"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+      stats={[
+          {
+            number: t('content.section1.stats.stat1.number'),
+            description: t('content.section1.stats.stat1.description'),
+            linkText: t('content.section1.stats.stat1.linkText'),
+            linkUrl: t('content.section1.stats.stat1.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat2.number'),
+            description: t('content.section1.stats.stat2.description'),
+            linkText: t('content.section1.stats.stat2.linkText'),
+            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat3.number'),
+            description: t('content.section1.stats.stat3.description'),
+            linkText: t('content.section1.stats.stat3.linkText'),
+            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat4.number'),
+            description: t('content.section1.stats.stat4.description'),
+            linkText: t('content.section1.stats.stat4.linkText'),
+            linkUrl: t('content.section1.stats.stat4.linkUrl'),
+          },
+        ]}
+        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
+        mapAlt="Global platform distribution map"
+        mapType="iframe"
+        mapHeight="full"
+        backgroundColor="bg-goos-blue-700"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-goos-orange-500"
+        linkColor="text-goos-orange-500"
       />
 
       {/* Content Module Example 1 - With External Link Button */}
@@ -901,114 +945,22 @@ function App() {
         linkColor="text-white"
       />
 
-      {/* MapStatsPanel Examples */}
+      {/* LogoStrip Examples */}
 
-      {/* Example 1: With interactive ArcGIS map - Full viewport height */}
-      <MapStatsPanel
-        title="Global Ocean Observation Network"
-        hasLine={true}
-        lineColor="bg-goos-orange-500"
-        stats={[
-          {
-            number: '$45M',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://www.ocean-ops.org',
-          },
-          {
-            number: '$400B',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://example.com',
-          },
-          {
-            number: '234K',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://example.com',
-          },
-          {
-            number: '71%',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://example.com',
-          },
+      {/* Example 1: 9 logos with blue background */}
+      <LogoStrip
+        logos={[
+          { src: '/logos/oceanops-w.png', altKey: 'logos.oceanops', url: 'https://www.ocean-ops.org' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner1', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner2', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner3', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner4', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner5', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner6', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner7', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner8', url: 'https://example.com' },
         ]}
-        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
-        mapAlt="Global platform distribution map"
-        mapType="iframe"
-        mapHeight="full"
         backgroundColor="bg-goos-blue-700"
-        titleColor="text-white"
-        textColor="text-white"
-        numberColor="text-goos-orange-500"
-        linkColor="text-goos-orange-500"
-      />
-
-      {/* Example 2: Without title, custom colors */}
-      <MapStatsPanel
-        hasLine={false}
-        stats={[
-          {
-            number: '2,847',
-            description: 'Active ocean observation platforms worldwide',
-          },
-          {
-            number: '98%',
-            description: 'Data accuracy rate across all platforms',
-          },
-          {
-            number: '100',
-            description: 'Countries participating in the network',
-          },
-          {
-            number: '24/7',
-            description: 'Real-time data collection and monitoring',
-          },
-        ]}
-        mapSrc="/images/content2.jpg"
-        mapType="image"
-        mapHeight={600}
-        backgroundColor="bg-goos-blue-900"
-        textColor="text-white"
-        numberColor="text-goos-cyan-500"
-      />
-
-      {/* Example 3: With translations */}
-      <MapStatsPanel
-        title={t('content.section1.heading')}
-        stats={[
-          {
-            number: t('content.section1.stats.stat1.number'),
-            description: t('content.section1.stats.stat1.description'),
-            linkText: t('content.section1.stats.stat1.linkText'),
-            linkUrl: t('content.section1.stats.stat1.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat2.number'),
-            description: t('content.section1.stats.stat2.description'),
-            linkText: t('content.section1.stats.stat2.linkText'),
-            linkUrl: t('content.section1.stats.stat2.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat3.number'),
-            description: t('content.section1.stats.stat3.description'),
-            linkText: t('content.section1.stats.stat3.linkText'),
-            linkUrl: t('content.section1.stats.stat3.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat4.number'),
-            description: t('content.section1.stats.stat4.description'),
-            linkText: t('content.section1.stats.stat4.linkText'),
-            linkUrl: t('content.section1.stats.stat4.linkUrl'),
-          },
-        ]}
-        mapSrc="/images/content3.jpg"
-        mapType="image"
-        backgroundColor="bg-goos-cyan-700"
-        lineColor="bg-goos-orange-500"
-        numberColor="text-goos-orange-500"
-        linkColor="text-goos-orange-500"
       />
 
     </div>
