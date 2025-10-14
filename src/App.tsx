@@ -4,6 +4,11 @@ import LanguageSwitcher from './components/LanguageSwitcher'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
+import QuoteWithImage from './components/QuoteWithImage'
+import InsightPanel from './components/InsightPanel'
+import InsightGrid from './components/InsightGrid'
+import MapStatsPanel from './components/MapStatsPanel'
+import LogoStrip from './components/LogoStrip'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
@@ -56,6 +61,49 @@ function App() {
           },
         ]}
         columns={3}
+      />
+
+
+      {/* Example 1: With interactive ArcGIS map - Full viewport height */}
+      <MapStatsPanel
+        title="Global Ocean Observation Network"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+      stats={[
+          {
+            number: t('content.section1.stats.stat1.number'),
+            description: t('content.section1.stats.stat1.description'),
+            linkText: t('content.section1.stats.stat1.linkText'),
+            linkUrl: t('content.section1.stats.stat1.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat2.number'),
+            description: t('content.section1.stats.stat2.description'),
+            linkText: t('content.section1.stats.stat2.linkText'),
+            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat3.number'),
+            description: t('content.section1.stats.stat3.description'),
+            linkText: t('content.section1.stats.stat3.linkText'),
+            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat4.number'),
+            description: t('content.section1.stats.stat4.description'),
+            linkText: t('content.section1.stats.stat4.linkText'),
+            linkUrl: t('content.section1.stats.stat4.linkUrl'),
+          },
+        ]}
+        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
+        mapAlt="Global platform distribution map"
+        mapType="iframe"
+        mapHeight="full"
+        backgroundColor="bg-goos-blue-700"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-goos-orange-500"
+        linkColor="text-goos-orange-500"
       />
 
       {/* Content Module Example 1 - With External Link Button */}
@@ -678,6 +726,242 @@ function App() {
         {/* Spacer between modules */}
          <Spacer size="sm" />
       </div>
+
+      {/* QuoteWithImage Examples */}
+
+      {/* Example 1: Fullscreen with image on left (default) */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/content.jpg"
+        imageAlt="Ocean research professional"
+        logoSrc="/logos/oceanops.png"
+        logoAlt="OceanOPS Logo"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-cyan-200"
+        quoteColor="text-goos-blue-700"
+        authorColor="text-goos-blue-700"
+        iconColor="fill-goos-cyan-600"
+      />
+
+      {/* Example 2: Auto height with image on right */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/content2.jpg"
+        imageAlt="Marine scientist at work"
+        height="auto"
+        imagePosition="right"
+        backgroundColor="bg-goos-blue-900"
+        quoteColor="text-white"
+        authorColor="text-white"
+        iconColor="fill-goos-cyan-500"
+      />
+
+      {/* Example 3: Without logo, custom colors */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/content3.jpg"
+        imageAlt="Ocean waves"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-orange-500"
+        quoteColor="text-white"
+        authorColor="text-white"
+        iconColor="fill-white"
+      />
+
+      {/* Example 5: No image - full width quote */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        logoSrc="/logos/oceanops.png"
+        height="auto"
+        backgroundColor="bg-goos-blue-700"
+        quoteColor="text-white"
+        authorColor="text-white"
+        iconColor="fill-goos-orange-500"
+      />
+
+      {/* InsightPanel Examples */}
+
+      {/* Example 1: Full featured with title, button, and 4 stats */}
+      <InsightPanel
+        title="Insight Panel Optional Heading"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        largeNumber="129"
+        largeNumberDescription="Lorem ipsum dolor sit amet aliqua."
+        button={{
+          variant: 'link',
+          label: 'VIEW FULL LIST',
+          url: 'https://www.ocean-ops.org',
+          textColor: 'text-white',
+          bgColor: 'bg-goos-blue-900',
+        }}
+        stats={[
+          {
+            number: '$45M',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '$400B',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '$400B',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '$45M',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
+            linkText: 'External Link',
+            linkUrl: 'https://example.com',
+          },
+        ]}
+        backgroundColor="bg-goos-blue-700"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-white"
+        linkColor="text-white"
+      />
+
+      {/* Example 3: With translations */}
+      <InsightPanel
+        title={t('content.section1.heading')}
+        largeNumber={t('content.section1.stats.stat1.number')}
+        largeNumberDescription={t('content.section1.stats.stat1.description')}
+        button={{
+          variant: 'link',
+          label: 'LEARN MORE',
+          url: 'https://www.ocean-ops.org',
+          textColor: 'text-white',
+          bgColor: 'bg-goos-orange-500',
+        }}
+        stats={[
+          {
+            number: t('content.section1.stats.stat2.number'),
+            description: t('content.section1.stats.stat2.description'),
+            linkText: t('content.section1.stats.stat2.linkText'),
+            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat3.number'),
+            description: t('content.section1.stats.stat3.description'),
+            linkText: t('content.section1.stats.stat3.linkText'),
+            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat4.number'),
+            description: t('content.section1.stats.stat4.description'),
+            linkText: t('content.section1.stats.stat4.linkText'),
+            linkUrl: t('content.section1.stats.stat4.linkUrl'),
+          },
+        ]}
+        backgroundColor="bg-goos-blue-900"
+        lineColor="bg-goos-orange-500"
+        numberColor="text-goos-orange-500"
+      />
+
+      {/* InsightGrid Examples */}
+
+      {/* Example 1: 4 insights with title and links */}
+      <InsightGrid
+        title="Key Metrics Overview"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        insights={[
+          {
+            number: '2,847',
+            description: 'Active ocean observation platforms worldwide',
+            linkText: 'View Details',
+            linkUrl: 'https://www.ocean-ops.org',
+          },
+          {
+            number: '$45M',
+            description: 'Annual funding for ocean research programs',
+            linkText: 'Learn More',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '567',
+            description: 'Research publications based on ocean data',
+            linkText: 'Read Papers',
+            linkUrl: 'https://example.com',
+          },
+          {
+            number: '98%',
+            description: 'Data accuracy rate across all platforms',
+            linkText: 'View Report',
+            linkUrl: 'https://example.com',
+          },
+        ]}
+        backgroundColor="bg-goos-blue-700"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-white"
+        linkColor="text-white"
+      />
+
+      {/* Example 4: With translations */}
+      <InsightGrid
+        title={t('content.section1.heading')}
+        insights={[
+          {
+            number: t('content.section1.stats.stat1.number'),
+            description: t('content.section1.stats.stat1.description'),
+            linkText: t('content.section1.stats.stat1.linkText'),
+            linkUrl: t('content.section1.stats.stat1.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat2.number'),
+            description: t('content.section1.stats.stat2.description'),
+            linkText: t('content.section1.stats.stat2.linkText'),
+            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+          },
+          {
+            number: t('content.section1.stats.stat3.number'),
+            description: t('content.section1.stats.stat3.description'),
+            linkText: t('content.section1.stats.stat3.linkText'),
+            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+          },
+        ]}
+        backgroundColor="bg-goos-orange-500"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-white"
+        linkColor="text-white"
+      />
+
+      {/* LogoStrip Examples */}
+
+      {/* Example 1: 9 logos with blue background */}
+      <LogoStrip
+        logos={[
+          { src: '/logos/oceanops-w.png', altKey: 'logos.oceanops', url: 'https://www.ocean-ops.org' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner1', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner2', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner3', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner4', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner5', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner6', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner7', url: 'https://example.com' },
+          { src: '/logos/oceanops-w.png', altKey: 'logos.partner8', url: 'https://example.com' },
+        ]}
+        backgroundColor="bg-goos-blue-700"
+      />
 
     </div>
   )

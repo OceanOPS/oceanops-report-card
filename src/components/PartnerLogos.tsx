@@ -60,7 +60,7 @@ export default function PartnerLogos({ variant = 'white', className = '' }: Part
   const rightLogo = {
     src: `/logos/oceanops${logoSuffix}.png`,
     alt: t('cover.logos.oceanops'),
-    url: 'https://www.oceanops.org/',
+    url: 'https://www.ocean-ops.org/',
   }
 
   return (
