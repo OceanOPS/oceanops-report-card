@@ -207,5 +207,16 @@
       "title": "Data Buoy Cooperation Panel",
       "iconAlt": "DBCP Network - Coordinating global network of drifting and moored data buoys"
     }
+  },
+  "emerging": {
+    "title": "Emerging Networks",
+    "viewMore": "View More",
+    "watchVideo": "Watch Video",
+    "smartCables": {
+      "title": "SMART Cables",
+      "description": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "imageAlt": "SMART Cables undersea infrastructure",
+      "iconAlt": "SMART Cables Network Icon"
+    }
   }
 }

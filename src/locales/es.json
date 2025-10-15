@@ -207,5 +207,16 @@
       "title": "Panel de Cooperación de Boyas de Datos",
       "iconAlt": "Red DBCP - Coordinando red global de boyas de datos derivantes y ancladas"
     }
+  },
+  "emerging": {
+    "title": "Redes Emergentes",
+    "viewMore": "Ver Más",
+    "watchVideo": "Ver Video",
+    "smartCables": {
+      "title": "Cables SMART",
+      "description": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los \"ojos\" de miles de plataformas de observación oceánica que monitorean constantemente el océano para capturar la firma de varios fenómenos oceánicos.",
+      "imageAlt": "Infraestructura submarina de Cables SMART",
+      "iconAlt": "Icono de Red Cables SMART"
+    }
   }
 }

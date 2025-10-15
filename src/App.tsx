@@ -10,6 +10,7 @@ import InsightGrid from './components/InsightGrid'
 import MapStatsPanel from './components/MapStatsPanel'
 import LogoStrip from './components/LogoStrip'
 import NetworkCarousel from './components/NetworkCarousel'
+import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
@@ -194,13 +195,93 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
         ]}
-        backgroundColor="bg-goos-blue-700"
+        backgroundColor="bg-goos-blue-900"
         titleColor="text-white"
         cardBackgroundColor="bg-goos-blue-800"
         cardTextColor="text-white"
         cardAccentColor="text-goos-orange-500"
         tooltipBgColor="bg-goos-white"
         tooltipTextColor="text-blue-800"
+      />
+
+      {/* EmergingNetworkCarousel */}
+      <EmergingNetworkCarousel
+        title="emerging.title"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        cards={[
+          {
+            imageSrc: '/images/content.jpg',
+            imageAlt: 'emerging.smartCables.imageAlt',
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'emerging.smartCables.iconAlt',
+            titleKey: 'emerging.smartCables.title',
+            descriptionKey: 'emerging.smartCables.description',
+            modalTitle: 'emerging.smartCables.title',
+            modalContent: (
+              <div className="flex flex-col gap-5">
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('emerging.smartCables.description')}
+                </p>
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  Additional information about SMART Cables and their role in ocean observation networks.
+                </p>
+              </div>
+            ),
+            viewMoreTextKey: 'emerging.viewMore',
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+          },
+          {
+            imageSrc: '/images/content2.jpg',
+            imageAlt: 'emerging.smartCables.imageAlt',
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'emerging.smartCables.iconAlt',
+            titleKey: 'emerging.smartCables.title',
+            descriptionKey: 'emerging.smartCables.description',
+            modalTitle: 'emerging.smartCables.title',
+            modalContent: (
+              <div className="flex flex-col gap-5">
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('emerging.smartCables.description')}
+                </p>
+              </div>
+            ),
+            viewMoreTextKey: 'emerging.viewMore',
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational'],
+          },
+          {
+            imageSrc: '/images/content3.jpg',
+            imageAlt: 'emerging.smartCables.imageAlt',
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'emerging.smartCables.iconAlt',
+            titleKey: 'emerging.smartCables.title',
+            descriptionKey: 'emerging.smartCables.description',
+            modalTitle: 'emerging.smartCables.title',
+            modalContent: (
+              <div className="flex flex-col gap-5">
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('emerging.smartCables.description')}
+                </p>
+              </div>
+            ),
+            viewMoreTextKey: 'emerging.viewMore',
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate'],
+          },
+        ]}
+        backgroundColor="bg-goos-blue-900"
+        titleColor="text-white"
+        cardBackgroundColor="bg-goos-blue-800"
+        cardTextColor="text-white"
+        buttonBgColor="bg-goos-blue-900"
+        buttonTextColor="text-white"
+        buttonIconBgColor="bg-goos-white"
+        buttonIconColor="text-goos-blue-900"
+        tooltipBgColor="bg-goos-white"
+        tooltipTextColor="text-blue-800"
+        arrowColor="#F0F0F0"
       />
 
       {/* Content Module Example 1 - With External Link Button */}
