@@ -11,7 +11,7 @@
  * @param className - Optional additional Tailwind classes
  */
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface TooltipProps {

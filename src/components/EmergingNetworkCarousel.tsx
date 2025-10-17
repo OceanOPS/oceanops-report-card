@@ -54,12 +54,23 @@ import { useTranslation } from 'react-i18next'
 import { ReactNode } from 'react'
 import EmergingNetworkCard from './EmergingNetworkCard'
 import CarouselArrow from './CarouselArrow'
+import { GalleryImage } from './ImageGallery'
 
 type DeliveryAreaKey = 'climate' | 'operational' | 'oceanhealth'
 
 interface EmergingNetworkCardData {
-  imageSrc: string
-  imageAlt: string
+  // Media configuration
+  mediaType: 'image' | 'gallery' | 'video'
+  // For single image
+  imageSrc?: string
+  imageAlt?: string
+  // For gallery
+  images?: GalleryImage[]
+  // For video
+  videoType?: 'youtube' | 'local'
+  videoId?: string
+  previewImage?: string
+  // Common props
   iconSrc: string
   iconAlt: string
   titleKey: string
@@ -86,6 +97,7 @@ interface EmergingNetworkCarouselProps {
   buttonIconColor?: string
   tooltipBgColor?: string
   tooltipTextColor?: string
+  overlayIconColor?: string
   arrowColor?: string
   className?: string
 }
@@ -105,6 +117,7 @@ export default function EmergingNetworkCarousel({
   buttonIconColor = 'text-goos-white',
   tooltipBgColor = 'bg-goos-blue-900',
   tooltipTextColor = 'text-white',
+  overlayIconColor = 'bg-goos-orange-500',
   arrowColor = '#F0F0F0',
   className = '',
 }: EmergingNetworkCarouselProps) {
@@ -152,6 +165,7 @@ export default function EmergingNetworkCarousel({
               buttonIconColor={buttonIconColor}
               tooltipBgColor={tooltipBgColor}
               tooltipTextColor={tooltipTextColor}
+              overlayIconColor={overlayIconColor}
             />
           ))}
         </div>

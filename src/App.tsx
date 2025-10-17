@@ -117,6 +117,7 @@ function App() {
           {
             iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.argo.iconAlt',
+            iconBgColor: 'bg-goos-blue-100',
             titleKey: 'networks.argo.title',
             networkUrl: 'https://argo.ucsd.edu',
             networkLinkKey: 'networks.viewNetwork',
@@ -133,6 +134,7 @@ function App() {
           {
             iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.doos.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.doos.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -149,6 +151,7 @@ function App() {
           {
             iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.sot.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.sot.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -165,6 +168,7 @@ function App() {
           {
             iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.gliders.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.gliders.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -181,6 +185,7 @@ function App() {
           {
             iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'networks.dbcp.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.dbcp.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -204,13 +209,15 @@ function App() {
         tooltipTextColor="text-blue-800"
       />
 
-      {/* EmergingNetworkCarousel */}
+      {/* EmergingNetworkCarousel - Showcasing different media types */}
       <EmergingNetworkCarousel
         title="emerging.title"
         hasLine={true}
         lineColor="bg-goos-orange-500"
         cards={[
           {
+            // Example 1: Single image (no overlay)
+            mediaType: 'image',
             imageSrc: '/images/content.jpg',
             imageAlt: 'emerging.smartCables.imageAlt',
             iconSrc: 'public/icons/network/vos.svg',
@@ -233,8 +240,13 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            imageSrc: '/images/content2.jpg',
-            imageAlt: 'emerging.smartCables.imageAlt',
+            // Example 2: Image gallery (with gallery icon overlay)
+            mediaType: 'gallery',
+            images: [
+              { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
+              { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
+              { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
+            ],
             iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
@@ -242,9 +254,21 @@ function App() {
             modalTitle: 'emerging.smartCables.title',
             modalContent: (
               <div className="flex flex-col gap-5">
-                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-                  {t('emerging.smartCables.description')}
-                </p>
+                {/* Image Gallery */}
+                <ImageGallery
+                  images={[
+                    { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
+                    { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
+                    { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
+                  ]}
+                  aspectRatio="video"
+                  objectFit="cover"
+                  captionColor="text-goos-gray-800"
+                  arrowColor="text-goos-white"
+                  arrowBgColor="bg-goos-orange-500"
+                  dotColor="bg-gray-200"
+                  activeDotColor="bg-goos-orange-500"
+                />
               </div>
             ),
             viewMoreTextKey: 'emerging.viewMore',
@@ -252,8 +276,11 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            imageSrc: '/images/content3.jpg',
-            imageAlt: 'emerging.smartCables.imageAlt',
+            // Example 3: Video (with play icon overlay)
+            mediaType: 'video',
+            videoType: 'local',
+            videoId: '/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm',
+            previewImage: '/images/content3.jpg',
             iconSrc: 'public/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
@@ -281,6 +308,7 @@ function App() {
         buttonIconColor="text-goos-blue-900"
         tooltipBgColor="bg-goos-white"
         tooltipTextColor="text-blue-800"
+        overlayIconColor="bg-goos-orange-500"
         arrowColor="#F0F0F0"
       />
 
@@ -681,7 +709,6 @@ function App() {
             }
             modalMaxWidth="xl"
             textColor="text-white"
-            bgColor="bg-goos-green-700"
             bgColor="bg-goos-orange-600"
             iconColor="text-goos-orange-600"
             iconBgColor="bg-white" 
@@ -733,7 +760,6 @@ function App() {
             }
             modalMaxWidth="lg"
             textColor="text-white"
-            bgColor="bg-goos-cyan-700"
             bgColor="bg-goos-orange-600"
             iconColor="text-goos-orange-600"
             iconBgColor="bg-white" 
@@ -776,7 +802,6 @@ function App() {
             }
             modalMaxWidth="2xl"
             textColor="text-white"
-            bgColor="bg-goos-orange-600"
             bgColor="bg-goos-orange-600"
             iconColor="text-goos-orange-600"
             iconBgColor="bg-white" 

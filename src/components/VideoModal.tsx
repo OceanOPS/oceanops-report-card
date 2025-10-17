@@ -70,7 +70,6 @@ export default function VideoModal({
 
   // Use controlled or internal state
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
-  const setIsOpen = controlledOnClose ? controlledOnClose : setInternalIsOpen
   const videoRef = useRef<HTMLVideoElement>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
 

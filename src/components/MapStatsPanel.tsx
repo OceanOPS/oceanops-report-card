@@ -105,7 +105,6 @@ export default function MapStatsPanel({
   // Check if using full viewport height
   const isFullHeight = mapHeight === 'full'
   const sectionHeightClass = isFullHeight ? 'min-h-screen' : ''
-  const contentHeightClass = isFullHeight ? 'lg:h-screen' : ''
 
   return (
     <section className={`${backgroundColor} px-12 md:px-16 py-0 flex flex-col ${sectionHeightClass} ${className}`}>
