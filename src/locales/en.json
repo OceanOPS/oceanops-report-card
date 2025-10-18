@@ -219,6 +219,13 @@
       "iconAlt": "SMART Cables Network Icon"
     }
   },
+  "dataBlock": {
+    "introduction": {
+      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the eyes of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "paragraph2": "These platforms collect physical, biogeochemical and biological Essential Ocean and Climate Variables.",
+      "paragraph3": "These observations flow into data systems and are crucial for tracking, predicting and adapting to climate change, accurate weather and extreme event prediction, monitoring biodiversity for achieving key global targets, and informing sound decisions by local communities and national governments around sustainable development."
+    }
+  },
   "dataCards": {
     "card1": {
       "tag": "Programmes",

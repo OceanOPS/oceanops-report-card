@@ -160,6 +160,13 @@
       }
     }
   },
+  "dataBlock": {
+    "introduction": {
+      "paragraph1": "Le Système mondial d'observation de l'océan (GOOS) observe notre océan à travers les yeux de milliers de plateformes d'observation océanique qui surveillent constamment l'océan pour capturer la signature de divers phénomènes océaniques.",
+      "paragraph2": "Ces plateformes collectent des Variables océaniques et climatiques essentielles physiques, biogéochimiques et biologiques.",
+      "paragraph3": "Ces observations alimentent les systèmes de données et sont cruciales pour suivre, prédire et s'adapter au changement climatique, la prévision précise de la météo et des événements extrêmes, la surveillance de la biodiversité pour atteindre des objectifs mondiaux clés, et informer des décisions solides par les communautés locales et les gouvernements nationaux autour du développement durable."
+    }
+  },
   "dataCards": {
     "card1": {
       "tag": "Programmes",

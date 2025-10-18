@@ -219,6 +219,13 @@
       "iconAlt": "Icono de Red Cables SMART"
     }
   },
+  "dataBlock": {
+    "introduction": {
+      "paragraph1": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los ojos de miles de plataformas de observación oceánica que están constantemente monitoreando el océano para capturar la firma de varios fenómenos oceánicos.",
+      "paragraph2": "Estas plataformas recopilan Variables Oceánicas y Climáticas Esenciales físicas, biogeoquímicas y biológicas.",
+      "paragraph3": "Estas observaciones fluyen hacia sistemas de datos y son cruciales para rastrear, predecir y adaptarse al cambio climático, predicción precisa del clima y eventos extremos, monitoreo de la biodiversidad para alcanzar objetivos globales clave, e informar decisiones sólidas por parte de comunidades locales y gobiernos nacionales en torno al desarrollo sostenible."
+    }
+  },
   "dataCards": {
     "card1": {
       "tag": "Programas",
