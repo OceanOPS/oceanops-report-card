@@ -7,7 +7,7 @@
  * @param title - Optional panel title
  * @param hasLine - Show decorative line above title (default: true)
  * @param lineColor - Tailwind background color for decorative line (default: 'bg-goos-orange-500')
- * @param stats - Array of exactly 4 stat objects for the 2x2 grid (required)
+ * @param stats - Optional array of exactly 4 stat objects for the 2x2 grid. If not provided, map will be full-width
  * @param mapSrc - URL to map image or iframe src (required)
  * @param mapAlt - Alt text for map image (default: 'Map')
  * @param mapType - Type of map: 'image' | 'iframe' (default: 'image')
@@ -21,6 +21,7 @@
  *
  * @example
  * ```tsx
+ * // With stats panel (50/50 layout)
  * <MapStatsPanel
  *   title="Global Ocean Observation Network"
  *   stats={[
@@ -48,13 +49,12 @@
  *   backgroundColor="bg-goos-blue-700"
  * />
  *
- * // With iframe map (e.g., Mapbox, Google Maps)
+ * // Full-width map without stats panel
  * <MapStatsPanel
  *   title="Platform Distribution"
- *   stats={[...]}
  *   mapSrc="https://api.mapbox.com/..."
  *   mapType="iframe"
- *   mapHeight={600}
+ *   mapHeight="full"
  * />
  * ```
  */
@@ -70,7 +70,7 @@ interface MapStatsPanelProps {
   title?: string
   hasLine?: boolean
   lineColor?: string
-  stats: StatItem[]
+  stats?: StatItem[]
   mapSrc: string
   mapAlt?: string
   mapType?: 'image' | 'iframe'
@@ -99,8 +99,11 @@ export default function MapStatsPanel({
   linkColor = 'text-goos-orange-500',
   className = '',
 }: MapStatsPanelProps) {
+  // Check if stats panel should be shown
+  const hasStats = stats && stats.length > 0
+
   // Ensure exactly 4 stats (take first 4 if more provided)
-  const gridStats = stats.slice(0, 4)
+  const gridStats = hasStats ? stats.slice(0, 4) : []
 
   // Check if using full viewport height
   const isFullHeight = mapHeight === 'full'
@@ -127,35 +130,37 @@ export default function MapStatsPanel({
       <div className="h-8 w-5 opacity-75 flex-shrink-0"></div>
 
       {/* Content: Stats and Map - Takes remaining space and centers */}
-      <div className="flex gap-5 flex-col lg:flex-row flex-1 lg:items-center min-h-0">
-        {/* Left Column - Stats Grid 2x2 (50% width) */}
-        <div className="lg:basis-1/2 flex items-center">
-          <div className="grid grid-cols-2 gap-8 w-full">
-            {gridStats.map((stat, index) => (
-              <div key={index} className="flex flex-col gap-2">
-                <p className={`text-5xl font-light ${numberColor}`}>
-                  {stat.number}
-                </p>
-                <p className={`text-base font-normal ${textColor}`}>
-                  {stat.description}
-                </p>
-                {stat.linkText && stat.linkUrl && (
-                  <a
-                    href={stat.linkUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
-                  >
-                    {stat.linkText} <span className="text-xs">⧉</span>
-                  </a>
-                )}
-              </div>
-            ))}
+      <div className={`flex gap-5 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0`}>
+        {/* Left Column - Stats Grid 2x2 (50% width) - Only show if stats exist */}
+        {hasStats && (
+          <div className="lg:basis-1/2 flex items-center">
+            <div className="grid grid-cols-2 gap-8 w-full">
+              {gridStats.map((stat, index) => (
+                <div key={index} className="flex flex-col gap-2">
+                  <p className={`text-5xl font-light ${numberColor}`}>
+                    {stat.number}
+                  </p>
+                  <p className={`text-base font-normal ${textColor}`}>
+                    {stat.description}
+                  </p>
+                  {stat.linkText && stat.linkUrl && (
+                    <a
+                      href={stat.linkUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+                    >
+                      {stat.linkText} <span className="text-xs">⧉</span>
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Right Column - Map (50% width) */}
-        <div className="lg:basis-1/2 flex items-stretch self-stretch min-h-0 aspect-square lg:aspect-auto">
+        {/* Right Column - Map (50% width if stats, 100% width if no stats) */}
+        <div className={`${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : 'flex-1 h-full'} w-full self-stretch min-h-0`}>
           {mapType === 'image' ? (
             <img
               src={mapSrc}

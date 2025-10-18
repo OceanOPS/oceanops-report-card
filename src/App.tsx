@@ -71,41 +71,15 @@ function App() {
         title="Global Ocean Observation Network"
         hasLine={true}
         lineColor="bg-goos-orange-500"
-        stats={[
-            {
-              number: t('content.section1.stats.stat1.number'),
-              description: t('content.section1.stats.stat1.description'),
-              linkText: t('content.section1.stats.stat1.linkText'),
-              linkUrl: t('content.section1.stats.stat1.linkUrl'),
-            },
-            {
-              number: t('content.section1.stats.stat2.number'),
-              description: t('content.section1.stats.stat2.description'),
-              linkText: t('content.section1.stats.stat2.linkText'),
-              linkUrl: t('content.section1.stats.stat2.linkUrl'),
-            },
-            {
-              number: t('content.section1.stats.stat3.number'),
-              description: t('content.section1.stats.stat3.description'),
-              linkText: t('content.section1.stats.stat3.linkText'),
-              linkUrl: t('content.section1.stats.stat3.linkUrl'),
-            },
-            {
-              number: t('content.section1.stats.stat4.number'),
-              description: t('content.section1.stats.stat4.description'),
-              linkText: t('content.section1.stats.stat4.linkText'),
-              linkUrl: t('content.section1.stats.stat4.linkUrl'),
-            },
-          ]}
-          mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
-          mapAlt="Global platform distribution map"
-          mapType="iframe"
-          mapHeight="full"
-          backgroundColor="bg-goos-blue-700"
-          titleColor="text-white"
-          textColor="text-white"
-          numberColor="text-goos-orange-500"
-          linkColor="text-goos-orange-500"
+        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
+        mapAlt="Global platform distribution map"
+        mapType="iframe"
+        mapHeight="900"
+        backgroundColor="bg-goos-blue-700"
+        titleColor="text-white"
+        textColor="text-white"
+        numberColor="text-goos-orange-500"
+        linkColor="text-goos-orange-500"
       />
 
        {/* NetworkCarousel */}
