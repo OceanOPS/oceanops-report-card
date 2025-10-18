@@ -1,8 +1,222 @@
 {
-  "welcome": "¡Hola! a React + Vite!",
-  "description": "Esta es una aplicación React mínima con TypeScript, Tailwind CSS y soporte i18n.",
-  "english": "Inglés",
-  "spanish": "Español",
-  "french": "Francés",
-  "current_language": "Idioma actual"
+  "cover": {
+    "title": "Informe",
+    "year": "2025",
+    "logos": {
+      "goos": "Logo GOOS",
+      "oceanops": "Logo OceanOPS",
+      "unesco": "COI UNESCO",
+      "wmo": "OMM",
+      "unep": "ONU Medio Ambiente",
+      "isc": "Consejo Científico Internacional"
+    }
+  },
+  "hero": {
+    "images": {
+      "image1": "Lanzamiento de XBT por L. Fortunato Universidad Parthenope (PNRA)",
+      "image2": "Argofloat de Skippers por A. Auriol Malizia Seaexplorer",
+      "image3": "Equipo de investigación oceánica"
+    }
+  },
+  "content": {
+    "section1": {
+      "kicker": "Línea de presentación:",
+      "title": "Este es el H2",
+      "subtitle": "Subtítulo",
+      "introduction": "Texto de introducción",
+      "heading": "Este es el H4",
+      "paragraph1": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los \"ojos\" de miles de plataformas de observación oceánica que monitorean constantemente el océano para capturar la firma de varios fenómenos oceánicos.",
+      "paragraph2": "Para destacar el estado y desarrollo de este Sistema Global de Observación del Océano, el Informe 2023 del Sistema de Observación del Océano proporciona información sobre el estado actual de las redes globales de observación.",
+      "quote": {
+        "text": "Ante el cambio climático, la comunidad global debe trabajar junta para mejorar la cobertura, calidad y naturaleza multidisciplinaria del sistema de observación para satisfacer los servicios vitales de pronóstico y las necesidades de la sociedad. OceanOPS puede ayudar a hacer estas conexiones",
+        "authorName": "Mathieu Belbéoch",
+        "authorTitle": "Director de OceanOPS",
+        "logoAlt": "Logo OceanOPS"
+      },
+      "stats": {
+        "stat1": {
+          "number": "$45M",
+          "description": "Inversión anual en infraestructura y operaciones de observación oceánica global",
+          "linkText": "Ver Informe",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat2": {
+          "number": "$400B",
+          "description": "Valor económico de las observaciones oceánicas para pronósticos meteorológicos y servicios climáticos",
+          "linkText": "Más Información",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat3": {
+          "number": "7,500+",
+          "description": "Plataformas activas de observación oceánica monitoreadas por OceanOPS en todo el mundo",
+          "linkText": "Ver Panel",
+          "linkUrl": "https://www.ocean-ops.org"
+        },
+        "stat4": {
+          "number": "100+",
+          "description": "Países que contribuyen al sistema global de observación del océano",
+          "linkText": "Explorar Mapa",
+          "linkUrl": "https://www.ocean-ops.org"
+        }
+      },
+      "table": {
+        "headers": {
+          "col1": "Tipo de Plataforma",
+          "col2": "Unidades Activas",
+          "col3": "Cobertura",
+          "col4": "Estado"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotadores Argo",
+            "col2": "3,800",
+            "col3": "Global",
+            "col4": "Operativo"
+          },
+          "row2": {
+            "col1": "Boyas Derivantes",
+            "col2": "1,250",
+            "col3": "Global",
+            "col4": "Operativo"
+          },
+          "row3": {
+            "col1": "Mareógrafos",
+            "col2": "1,500",
+            "col3": "Costero",
+            "col4": "Operativo"
+          },
+          "row4": {
+            "col1": "Planeadores",
+            "col2": "150",
+            "col3": "Regional",
+            "col4": "En Expansión"
+          }
+        }
+      },
+      "iconTable": {
+        "headers": {
+          "col1": "Red",
+          "col2": "Tipo de Datos",
+          "col3": "Estado"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Flotadores Argo",
+            "col2": "Temperatura y Salinidad",
+            "col3": "Activo"
+          },
+          "row2": {
+            "col1": "Boyas Derivantes",
+            "col2": "TSM y Corrientes",
+            "col3": "Activo"
+          },
+          "row3": {
+            "col1": "Planeadores Oceánicos",
+            "col2": "Multi-parámetro",
+            "col3": "En Expansión"
+          }
+        }
+      },
+      "image": {
+        "alt": "Despliegue de plataforma de observación oceánica",
+        "caption": "Foto por Equipo de Investigación / OceanOPS 2024"
+      },
+      "gallery": {
+        "image1": {
+          "alt": "Despliegue de flotador Argo desde buque de investigación",
+          "caption": "Despliegue de flotador Argo - Foto por A. Auriol / Malizia Seaexplorer"
+        },
+        "image2": {
+          "alt": "Planeador oceánico siendo preparado para misión",
+          "caption": "Preparación de planeador oceánico - Foto por Equipo de Investigación / OceanOPS"
+        },
+        "image3": {
+          "alt": "Boya derivante en mar abierto",
+          "caption": "Boya derivante de superficie - Foto por L. Fortunato / Universidad Parthenope"
+        }
+      },
+      "video": {
+        "previewAlt": "Ver: Resumen de Sistemas de Observación Oceánica",
+        "caption": "Video: Sistema Global de Observación del Océano - Una visión integral"
+      },
+      "buttons": {
+        "externalLink": "Ver Informe Completo",
+        "watchVideo": "Ver Video",
+        "learnMore": "Más Información",
+        "examplesTitle": "Ejemplos de Botones Reutilizables",
+        "examplesDescription": "Los siguientes son ejemplos de componentes de botones reutilizables que se pueden usar en toda la aplicación:"
+      },
+      "modal": {
+        "title": "Información Adicional",
+        "heading": "Recursos Clave",
+        "paragraph1": "Esta sección integral proporciona información detallada sobre metodologías de observación oceánica, estándares de calidad de datos y esfuerzos de coordinación de redes.",
+        "paragraph2": "Acceda a documentación técnica, explore procedimientos de recopilación de datos y revise marcos de control de calidad que garantizan observaciones oceánicas confiables.",
+        "listItems": {
+          "item1": "Documentación Técnica",
+          "item2": "Metodologías de Recopilación de Datos",
+          "item3": "Procedimientos de Control de Calidad",
+          "item4": "Informes de Estado de la Red"
+        }
+      }
+    }
+  },
+  "logos": {
+    "oceanops": "OceanOPS",
+    "partner1": "Organización Asociada 1",
+    "partner2": "Organización Asociada 2",
+    "partner3": "Organización Asociada 3",
+    "partner4": "Organización Asociada 4",
+    "partner5": "Organización Asociada 5",
+    "partner6": "Organización Asociada 6",
+    "partner7": "Organización Asociada 7",
+    "partner8": "Organización Asociada 8"
+  },
+  "networks": {
+    "title": "Redes del Sistema Global de Observación del Océano",
+    "viewNetwork": "Ver Red",
+    "deliveryAreasLabel": "Áreas de entrega GOOS",
+    "deliveryAreas": {
+      "climate": "Clima",
+      "operational": "Servicios Operacionales",
+      "oceanhealth": "Salud del Océano"
+    },
+    "ratings": {
+      "implementationStatus": "Estado de Implementación",
+      "realTime": "Tiempo Real",
+      "archivedHighQuality": "Alta Calidad Archivada",
+      "metadata": "Metadatos",
+      "bestPractices": "Mejores Prácticas"
+    },
+    "argo": {
+      "title": "Argo",
+      "iconAlt": "Red Argo - Red global de flotadores perfiladores que miden temperatura y salinidad del océano"
+    },
+    "doos": {
+      "title": "Estrategia de Observación del Océano Profundo",
+      "iconAlt": "Red DOOS - Coordinando observaciones del océano profundo por debajo de 2000m"
+    },
+    "sot": {
+      "title": "Equipo de Observaciones de Barcos",
+      "iconAlt": "Red SOT - Coordinando observaciones meteorológicas y oceanográficas desde barcos"
+    },
+    "gliders": {
+      "title": "OceanGliders",
+      "iconAlt": "Red OceanGliders - Red global de planeadores submarinos autónomos"
+    },
+    "dbcp": {
+      "title": "Panel de Cooperación de Boyas de Datos",
+      "iconAlt": "Red DBCP - Coordinando red global de boyas de datos derivantes y ancladas"
+    }
+  },
+  "emerging": {
+    "title": "Redes Emergentes",
+    "viewMore": "Ver Más",
+    "watchVideo": "Ver Video",
+    "smartCables": {
+      "title": "Cables SMART",
+      "description": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los \"ojos\" de miles de plataformas de observación oceánica que monitorean constantemente el océano para capturar la firma de varios fenómenos oceánicos.",
+      "imageAlt": "Infraestructura submarina de Cables SMART",
+      "iconAlt": "Icono de Red Cables SMART"
+    }
+  }
 }
