@@ -159,5 +159,64 @@
         }
       }
     }
+  },
+  "logos": {
+    "oceanops": "OceanOPS",
+    "partner1": "Partner Organization 1",
+    "partner2": "Partner Organization 2",
+    "partner3": "Partner Organization 3",
+    "partner4": "Partner Organization 4",
+    "partner5": "Partner Organization 5",
+    "partner6": "Partner Organization 6",
+    "partner7": "Partner Organization 7",
+    "partner8": "Partner Organization 8"
+  },
+  "networks": {
+    "title": "Global Ocean Observing System Networks",
+    "viewNetwork": "View Network",
+    "deliveryAreasLabel": "GOOS delivery areas",
+    "deliveryAreas": {
+      "climate": "Climate",
+      "operational": "Operational Services",
+      "oceanhealth": "Ocean Health"
+    },
+    "ratings": {
+      "implementationStatus": "Implementation Status",
+      "realTime": "Real Time",
+      "archivedHighQuality": "Archived High Quality",
+      "metadata": "Metadata",
+      "bestPractices": "Best Practices"
+    },
+    "argo": {
+      "title": "Argo",
+      "iconAlt": "Argo Network - Global array of profiling floats measuring ocean temperature and salinity"
+    },
+    "doos": {
+      "title": "Deep Ocean Observing Strategy",
+      "iconAlt": "DOOS Network - Coordinating observations of the deep ocean below 2000m"
+    },
+    "sot": {
+      "title": "Ship Observations Team",
+      "iconAlt": "SOT Network - Coordinating meteorological and oceanographic observations from ships"
+    },
+    "gliders": {
+      "title": "OceanGliders",
+      "iconAlt": "OceanGliders Network - Global network of autonomous underwater gliders"
+    },
+    "dbcp": {
+      "title": "Data Buoy Cooperation Panel",
+      "iconAlt": "DBCP Network - Coordinating global network of drifting and moored data buoys"
+    }
+  },
+  "emerging": {
+    "title": "Emerging Networks",
+    "viewMore": "View More",
+    "watchVideo": "Watch Video",
+    "smartCables": {
+      "title": "SMART Cables",
+      "description": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "imageAlt": "SMART Cables undersea infrastructure",
+      "iconAlt": "SMART Cables Network Icon"
+    }
   }
 }

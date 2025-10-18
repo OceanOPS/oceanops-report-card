@@ -9,6 +9,8 @@ import InsightPanel from './components/InsightPanel'
 import InsightGrid from './components/InsightGrid'
 import MapStatsPanel from './components/MapStatsPanel'
 import LogoStrip from './components/LogoStrip'
+import NetworkCarousel from './components/NetworkCarousel'
+import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
 import DataTable from './components/DataTable'
@@ -69,41 +71,219 @@ function App() {
         title="Global Ocean Observation Network"
         hasLine={true}
         lineColor="bg-goos-orange-500"
-      stats={[
-          {
-            number: t('content.section1.stats.stat1.number'),
-            description: t('content.section1.stats.stat1.description'),
-            linkText: t('content.section1.stats.stat1.linkText'),
-            linkUrl: t('content.section1.stats.stat1.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat2.number'),
-            description: t('content.section1.stats.stat2.description'),
-            linkText: t('content.section1.stats.stat2.linkText'),
-            linkUrl: t('content.section1.stats.stat2.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat3.number'),
-            description: t('content.section1.stats.stat3.description'),
-            linkText: t('content.section1.stats.stat3.linkText'),
-            linkUrl: t('content.section1.stats.stat3.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat4.number'),
-            description: t('content.section1.stats.stat4.description'),
-            linkText: t('content.section1.stats.stat4.linkText'),
-            linkUrl: t('content.section1.stats.stat4.linkUrl'),
-          },
-        ]}
         mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
         mapAlt="Global platform distribution map"
         mapType="iframe"
-        mapHeight="full"
+        mapHeight="900"
         backgroundColor="bg-goos-blue-700"
         titleColor="text-white"
         textColor="text-white"
         numberColor="text-goos-orange-500"
         linkColor="text-goos-orange-500"
+      />
+
+       {/* NetworkCarousel */}
+      <NetworkCarousel
+        title="networks.title"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        cards={[
+          {
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'networks.argo.iconAlt',
+            iconBgColor: 'bg-goos-blue-100',
+            titleKey: 'networks.argo.title',
+            networkUrl: 'https://argo.ucsd.edu',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 3,
+              realTime: 3,
+              archivedHighQuality: 3,
+              metadata: 2.5,
+              bestPractices: 2,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+          },
+          {
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'networks.doos.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
+            titleKey: 'networks.doos.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 2,
+              realTime: 2,
+              archivedHighQuality: 3,
+              metadata: 1,
+              bestPractices: 1,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+          },
+          {
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'networks.sot.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
+            titleKey: 'networks.sot.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 1,
+              realTime: 1,
+              archivedHighQuality: 3,
+              metadata: 1,
+              bestPractices: 0,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate'],
+          },
+          {
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'networks.gliders.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
+            titleKey: 'networks.gliders.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 2,
+              realTime: 2,
+              archivedHighQuality: 2,
+              metadata: 2,
+              bestPractices: 1,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational'],
+          },
+          {
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'networks.dbcp.iconAlt',
+            iconBgColor: 'bg-goos-blue-200',
+            titleKey: 'networks.dbcp.title',
+            networkUrl: 'https://example.com',
+            networkLinkKey: 'networks.viewNetwork',
+            ratings: {
+              implementationStatus: 3,
+              realTime: 2,
+              archivedHighQuality: 3,
+              metadata: 2,
+              bestPractices: 2,
+            },
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+          },
+        ]}
+        backgroundColor="bg-goos-blue-900"
+        titleColor="text-white"
+        cardBackgroundColor="bg-goos-blue-800"
+        cardTextColor="text-white"
+        cardAccentColor="text-goos-orange-500"
+        tooltipBgColor="bg-goos-white"
+        tooltipTextColor="text-blue-800"
+      />
+
+      {/* EmergingNetworkCarousel - Showcasing different media types */}
+      <EmergingNetworkCarousel
+        title="emerging.title"
+        hasLine={true}
+        lineColor="bg-goos-orange-500"
+        cards={[
+          {
+            // Example 1: Single image (no overlay)
+            mediaType: 'image',
+            imageSrc: '/images/content.jpg',
+            imageAlt: 'emerging.smartCables.imageAlt',
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'emerging.smartCables.iconAlt',
+            titleKey: 'emerging.smartCables.title',
+            descriptionKey: 'emerging.smartCables.description',
+            modalTitle: 'emerging.smartCables.title',
+            modalContent: (
+              <div className="flex flex-col gap-5">
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('emerging.smartCables.description')}
+                </p>
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  Additional information about SMART Cables and their role in ocean observation networks.
+                </p>
+              </div>
+            ),
+            viewMoreTextKey: 'emerging.viewMore',
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+          },
+          {
+            // Example 2: Image gallery (with gallery icon overlay)
+            mediaType: 'gallery',
+            images: [
+              { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
+              { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
+              { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
+            ],
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'emerging.smartCables.iconAlt',
+            titleKey: 'emerging.smartCables.title',
+            descriptionKey: 'emerging.smartCables.description',
+            modalTitle: 'emerging.smartCables.title',
+            modalContent: (
+              <div className="flex flex-col gap-5">
+                {/* Image Gallery */}
+                <ImageGallery
+                  images={[
+                    { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
+                    { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
+                    { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
+                  ]}
+                  aspectRatio="video"
+                  objectFit="cover"
+                  captionColor="text-goos-gray-800"
+                  arrowColor="text-goos-white"
+                  arrowBgColor="bg-goos-orange-500"
+                  dotColor="bg-gray-200"
+                  activeDotColor="bg-goos-orange-500"
+                />
+              </div>
+            ),
+            viewMoreTextKey: 'emerging.viewMore',
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational'],
+          },
+          {
+            // Example 3: Video (with play icon overlay)
+            mediaType: 'video',
+            videoType: 'local',
+            videoId: '/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm',
+            previewImage: '/images/content3.jpg',
+            iconSrc: 'public/icons/network/vos.svg',
+            iconAlt: 'emerging.smartCables.iconAlt',
+            titleKey: 'emerging.smartCables.title',
+            descriptionKey: 'emerging.smartCables.description',
+            modalTitle: 'emerging.smartCables.title',
+            modalContent: (
+              <div className="flex flex-col gap-5">
+                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  {t('emerging.smartCables.description')}
+                </p>
+              </div>
+            ),
+            viewMoreTextKey: 'emerging.viewMore',
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate'],
+          },
+        ]}
+        backgroundColor="bg-goos-blue-900"
+        titleColor="text-white"
+        cardBackgroundColor="bg-goos-blue-800"
+        cardTextColor="text-white"
+        buttonBgColor="bg-goos-blue-900"
+        buttonTextColor="text-white"
+        buttonIconBgColor="bg-goos-white"
+        buttonIconColor="text-goos-blue-900"
+        tooltipBgColor="bg-goos-white"
+        tooltipTextColor="text-blue-800"
+        overlayIconColor="bg-goos-orange-500"
+        arrowColor="#F0F0F0"
       />
 
       {/* Content Module Example 1 - With External Link Button */}
@@ -503,7 +683,6 @@ function App() {
             }
             modalMaxWidth="xl"
             textColor="text-white"
-            bgColor="bg-goos-green-700"
             bgColor="bg-goos-orange-600"
             iconColor="text-goos-orange-600"
             iconBgColor="bg-white" 
@@ -555,7 +734,6 @@ function App() {
             }
             modalMaxWidth="lg"
             textColor="text-white"
-            bgColor="bg-goos-cyan-700"
             bgColor="bg-goos-orange-600"
             iconColor="text-goos-orange-600"
             iconBgColor="bg-white" 
@@ -598,7 +776,6 @@ function App() {
             }
             modalMaxWidth="2xl"
             textColor="text-white"
-            bgColor="bg-goos-orange-600"
             bgColor="bg-goos-orange-600"
             iconColor="text-goos-orange-600"
             iconBgColor="bg-white" 

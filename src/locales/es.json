@@ -159,5 +159,64 @@
         }
       }
     }
+  },
+  "logos": {
+    "oceanops": "OceanOPS",
+    "partner1": "Organización Asociada 1",
+    "partner2": "Organización Asociada 2",
+    "partner3": "Organización Asociada 3",
+    "partner4": "Organización Asociada 4",
+    "partner5": "Organización Asociada 5",
+    "partner6": "Organización Asociada 6",
+    "partner7": "Organización Asociada 7",
+    "partner8": "Organización Asociada 8"
+  },
+  "networks": {
+    "title": "Redes del Sistema Global de Observación del Océano",
+    "viewNetwork": "Ver Red",
+    "deliveryAreasLabel": "Áreas de entrega GOOS",
+    "deliveryAreas": {
+      "climate": "Clima",
+      "operational": "Servicios Operacionales",
+      "oceanhealth": "Salud del Océano"
+    },
+    "ratings": {
+      "implementationStatus": "Estado de Implementación",
+      "realTime": "Tiempo Real",
+      "archivedHighQuality": "Alta Calidad Archivada",
+      "metadata": "Metadatos",
+      "bestPractices": "Mejores Prácticas"
+    },
+    "argo": {
+      "title": "Argo",
+      "iconAlt": "Red Argo - Red global de flotadores perfiladores que miden temperatura y salinidad del océano"
+    },
+    "doos": {
+      "title": "Estrategia de Observación del Océano Profundo",
+      "iconAlt": "Red DOOS - Coordinando observaciones del océano profundo por debajo de 2000m"
+    },
+    "sot": {
+      "title": "Equipo de Observaciones de Barcos",
+      "iconAlt": "Red SOT - Coordinando observaciones meteorológicas y oceanográficas desde barcos"
+    },
+    "gliders": {
+      "title": "OceanGliders",
+      "iconAlt": "Red OceanGliders - Red global de planeadores submarinos autónomos"
+    },
+    "dbcp": {
+      "title": "Panel de Cooperación de Boyas de Datos",
+      "iconAlt": "Red DBCP - Coordinando red global de boyas de datos derivantes y ancladas"
+    }
+  },
+  "emerging": {
+    "title": "Redes Emergentes",
+    "viewMore": "Ver Más",
+    "watchVideo": "Ver Video",
+    "smartCables": {
+      "title": "Cables SMART",
+      "description": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los \"ojos\" de miles de plataformas de observación oceánica que monitorean constantemente el océano para capturar la firma de varios fenómenos oceánicos.",
+      "imageAlt": "Infraestructura submarina de Cables SMART",
+      "iconAlt": "Icono de Red Cables SMART"
+    }
   }
 }
