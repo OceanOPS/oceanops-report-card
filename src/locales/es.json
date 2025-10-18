@@ -218,5 +218,55 @@
       "imageAlt": "Infraestructura submarina de Cables SMART",
       "iconAlt": "Icono de Red Cables SMART"
     }
+  },
+  "dataCards": {
+    "card1": {
+      "tag": "Programas",
+      "title": "Abundancia y distribución de aves marinas"
+    },
+    "card2": {
+      "tag": "Plataformas",
+      "title": "Flotadores Argo activos"
+    },
+    "card3": {
+      "tag": "Redes",
+      "title": "Redes de observación oceánica"
+    },
+    "card4": {
+      "tag": "Países",
+      "title": "Naciones contribuyentes"
+    },
+    "card5": {
+      "tag": "Variables",
+      "title": "Variables oceánicas esenciales"
+    },
+    "card6": {
+      "tag": "Sensores",
+      "title": "Sensores oceánicos activos"
+    },
+    "card7": {
+      "tag": "Especies",
+      "title": "Especies marinas monitoreadas"
+    },
+    "card8": {
+      "tag": "Regiones",
+      "title": "Áreas de observación oceánica"
+    },
+    "card9": {
+      "tag": "Planeadores",
+      "title": "Planeadores submarinos autónomos"
+    },
+    "card10": {
+      "tag": "Amarres",
+      "title": "Amarres oceánicos fijos"
+    },
+    "card11": {
+      "tag": "Buques",
+      "title": "Buques de investigación activos"
+    },
+    "card12": {
+      "tag": "Datos",
+      "title": "Observaciones anuales recolectadas"
+    }
   }
 }

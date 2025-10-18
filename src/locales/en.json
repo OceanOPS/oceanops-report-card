@@ -218,5 +218,55 @@
       "imageAlt": "SMART Cables undersea infrastructure",
       "iconAlt": "SMART Cables Network Icon"
     }
+  },
+  "dataCards": {
+    "card1": {
+      "tag": "Programmes",
+      "title": "Marine birds abundance and distribution"
+    },
+    "card2": {
+      "tag": "Platforms",
+      "title": "Active Argo floats"
+    },
+    "card3": {
+      "tag": "Networks",
+      "title": "Ocean observing networks"
+    },
+    "card4": {
+      "tag": "Countries",
+      "title": "Contributing nations"
+    },
+    "card5": {
+      "tag": "Variables",
+      "title": "Essential ocean variables"
+    },
+    "card6": {
+      "tag": "Sensors",
+      "title": "Active ocean sensors"
+    },
+    "card7": {
+      "tag": "Species",
+      "title": "Marine species monitored"
+    },
+    "card8": {
+      "tag": "Regions",
+      "title": "Ocean observation areas"
+    },
+    "card9": {
+      "tag": "Gliders",
+      "title": "Autonomous underwater gliders"
+    },
+    "card10": {
+      "tag": "Moorings",
+      "title": "Fixed ocean moorings"
+    },
+    "card11": {
+      "tag": "Ships",
+      "title": "Research vessels active"
+    },
+    "card12": {
+      "tag": "Data Points",
+      "title": "Annual observations collected"
+    }
   }
 }

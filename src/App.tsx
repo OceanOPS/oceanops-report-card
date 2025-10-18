@@ -20,6 +20,7 @@ import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
 import VideoModal from './components/VideoModal'
 import Button from './components/Button'
+import DataCardGrid from './components/DataCardGrid'
 
 function App() {
   const { t } = useTranslation()
@@ -1121,6 +1122,111 @@ function App() {
         numberColor="text-white"
         linkColor="text-white"
       />
+
+      {/* DataCardGrid Example */}
+      <Spacer size="xl" />
+
+      <ContentModule
+        kicker="Data Visualization"
+        title="Ocean Observing System in Numbers"
+        titleLevel="h3"
+        titleColor="text-goos-white"
+        introduction="This layout displays the title at the top with content distributed in two columns below.sss"
+        layout="split"
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-goos-white"
+      >
+        <DataCardGrid
+          cards={[
+            {
+              number: "108",
+              tagKey: "dataCards.card1.tag",
+              iconSrc: "/icons/biology_and_ecosystems/Seabirds.png",
+              iconAlt: "Marine birds icon",
+              titleKey: "dataCards.card1.title",
+            },
+            {
+              number: "3,800",
+              tagKey: "dataCards.card2.tag",
+              iconSrc: "/icons/network/argo.svg",
+              iconAlt: "Argo icon",
+              titleKey: "dataCards.card2.title",
+            },
+            {
+              number: "25",
+              tagKey: "dataCards.card3.tag",
+              iconSrc: "/icons/network/ocean_sites.svg",
+              iconAlt: "Networks icon",
+              titleKey: "dataCards.card3.title",
+            },
+            {
+              number: "100+",
+              tagKey: "dataCards.card4.tag",
+              iconSrc: "/icons/climate.png",
+              iconAlt: "Countries icon",
+              titleKey: "dataCards.card4.title",
+            },
+            {
+              number: "54",
+              tagKey: "dataCards.card5.tag",
+              iconSrc: "/icons/physics/Surface-temperature.png",
+              iconAlt: "Variables icon",
+              titleKey: "dataCards.card5.title",
+            },
+            {
+              number: "7,500",
+              tagKey: "dataCards.card6.tag",
+              iconSrc: "/icons/biogeochemistry/Oxygen.png",
+              iconAlt: "Sensors icon",
+              titleKey: "dataCards.card6.title",
+            },
+            {
+              number: "200+",
+              tagKey: "dataCards.card7.tag",
+              iconSrc: "/icons/biology_and_ecosystems/Fish.png",
+              iconAlt: "Species icon",
+              titleKey: "dataCards.card7.title",
+            },
+            {
+              number: "12",
+              tagKey: "dataCards.card8.tag",
+              iconSrc: "/icons/operational_services.png",
+              iconAlt: "Regions icon",
+              titleKey: "dataCards.card8.title",
+            },
+            {
+              number: "150",
+              tagKey: "dataCards.card9.tag",
+              iconSrc: "/icons/network/ocean_gliders.svg",
+              iconAlt: "Gliders icon",
+              titleKey: "dataCards.card9.title",
+            },
+            {
+              number: "450",
+              tagKey: "dataCards.card10.tag",
+              iconSrc: "/icons/network/dbcp_moored.svg",
+              iconAlt: "Moorings icon",
+              titleKey: "dataCards.card10.title",
+            },
+            {
+              number: "75",
+              tagKey: "dataCards.card11.tag",
+              iconSrc: "/icons/network/go_ship.svg",
+              iconAlt: "Ships icon",
+              titleKey: "dataCards.card11.title",
+            },
+            {
+              number: "2.5M",
+              tagKey: "dataCards.card12.tag",
+              iconSrc: "/icons/cross_disciplinary/Ocean-colour.png",
+              iconAlt: "Data points icon",
+              titleKey: "dataCards.card12.title",
+            },
+          ]}
+        />
+          <Spacer size="sm" />
+      </ContentModule>
+
 
       {/* LogoStrip Examples */}
 

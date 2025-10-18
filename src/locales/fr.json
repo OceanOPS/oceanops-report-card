@@ -159,5 +159,55 @@
         }
       }
     }
+  },
+  "dataCards": {
+    "card1": {
+      "tag": "Programmes",
+      "title": "Abondance et distribution d'oiseaux marins"
+    },
+    "card2": {
+      "tag": "Plateformes",
+      "title": "Flotteurs Argo actifs"
+    },
+    "card3": {
+      "tag": "Réseaux",
+      "title": "Réseaux d'observation océanique"
+    },
+    "card4": {
+      "tag": "Pays",
+      "title": "Nations contributrices"
+    },
+    "card5": {
+      "tag": "Variables",
+      "title": "Variables océaniques essentielles"
+    },
+    "card6": {
+      "tag": "Capteurs",
+      "title": "Capteurs océaniques actifs"
+    },
+    "card7": {
+      "tag": "Espèces",
+      "title": "Espèces marines surveillées"
+    },
+    "card8": {
+      "tag": "Régions",
+      "title": "Zones d'observation océanique"
+    },
+    "card9": {
+      "tag": "Planeurs",
+      "title": "Planeurs sous-marins autonomes"
+    },
+    "card10": {
+      "tag": "Mouillages",
+      "title": "Mouillages océaniques fixes"
+    },
+    "card11": {
+      "tag": "Navires",
+      "title": "Navires de recherche actifs"
+    },
+    "card12": {
+      "tag": "Données",
+      "title": "Observations annuelles collectées"
+    }
   }
 }
