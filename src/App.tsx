@@ -75,7 +75,7 @@ function App() {
         mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
         mapAlt="Global platform distribution map"
         mapType="iframe"
-        mapHeight="900"
+        mapHeight={900}
         backgroundColor="bg-goos-blue-700"
         titleColor="text-white"
         textColor="text-white"
@@ -90,9 +90,8 @@ function App() {
         lineColor="bg-goos-orange-500"
         cards={[
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.argo.iconAlt',
-            iconBgColor: 'bg-goos-blue-100',
             titleKey: 'networks.argo.title',
             networkUrl: 'https://argo.ucsd.edu',
             networkLinkKey: 'networks.viewNetwork',
@@ -107,9 +106,8 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.doos.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.doos.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -124,9 +122,8 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.sot.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.sot.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -141,9 +138,8 @@ function App() {
             deliveryAreas: ['climate'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.gliders.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.gliders.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -158,9 +154,8 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.dbcp.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.dbcp.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -301,7 +296,7 @@ function App() {
             mediaType: 'image',
             imageSrc: '/images/content.jpg',
             imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -328,7 +323,7 @@ function App() {
               { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
               { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
             ],
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -362,7 +357,7 @@ function App() {
             videoType: 'local',
             videoId: '/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm',
             previewImage: '/images/content3.jpg',
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
