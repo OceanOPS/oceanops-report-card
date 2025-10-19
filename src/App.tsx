@@ -180,6 +180,78 @@ function App() {
         tooltipTextColor="text-blue-800"
       />
 
+      {/* Indicators Definition Button */}
+      <div className="flex justify-center py-8 bg-goos-blue-900">
+        <Button
+          variant="modal"
+          label={t('networks.indicatorsButton')}
+          modalTitle={t('networks.indicatorsModal.title')}
+          modalContent={
+            <div className="flex flex-col gap-6">
+              {/* Introduction */}
+              <p className="text-lg text-goos-gray-800 leading-relaxed">
+                {t('networks.indicatorsModal.intro')}
+              </p>
+
+              {/* Implementation Status */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.implementationStatus.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.implementationStatus.description')}
+                </p>
+              </div>
+
+              {/* Real Time */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.realTime.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.realTime.description')}
+                </p>
+              </div>
+
+              {/* Archived High Quality */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.archivedHighQuality.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.archivedHighQuality.description')}
+                </p>
+              </div>
+
+              {/* Metadata */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.metadata.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.metadata.description')}
+                </p>
+              </div>
+
+              {/* Best Practices */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.bestPractices.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.bestPractices.description')}
+                </p>
+              </div>
+            </div>
+          }
+          bgColor="bg-goos-orange-600"
+          textColor="text-white"
+          iconColor="text-goos-orange-600"
+          iconBgColor="bg-white"
+        />
+        
+      </div>
+
       {/* DataCardGrid Example */}
 
       <ContentModule

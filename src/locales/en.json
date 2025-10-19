@@ -187,6 +187,31 @@
       "metadata": "Metadata",
       "bestPractices": "Best Practices"
     },
+    "indicatorsButton": "ABOUT INDICATORS DEFINITIONS",
+    "indicatorsModal": {
+      "title": "Network Performance Indicators",
+      "intro": "Each network is evaluated across five key performance indicators, rated on a scale from 0 to 3 stars:",
+      "implementationStatus": {
+        "title": "Implementation Status",
+        "description": "Measures the network's operational maturity and geographic coverage. Higher ratings indicate broader global deployment and consistent data collection."
+      },
+      "realTime": {
+        "title": "Real Time Data Delivery",
+        "description": "Evaluates the timeliness of data transmission to operational centers. Networks with high ratings provide data within hours of collection, supporting immediate forecasting needs."
+      },
+      "archivedHighQuality": {
+        "title": "Archived High Quality Data",
+        "description": "Assesses the completeness and quality control of historical data archives. High ratings indicate rigorous quality assurance processes and comprehensive long-term records."
+      },
+      "metadata": {
+        "title": "Metadata Completeness",
+        "description": "Measures the documentation of observation methods, instruments, and data provenance. Complete metadata ensures data can be properly interpreted and reused by the scientific community."
+      },
+      "bestPractices": {
+        "title": "Best Practices Adoption",
+        "description": "Evaluates adherence to international standards for data collection, processing, and sharing. Networks following best practices ensure data interoperability across systems."
+      }
+    },
     "argo": {
       "title": "Argo",
       "iconAlt": "Argo Network - Global array of profiling floats measuring ocean temperature and salinity"
