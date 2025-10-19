@@ -21,6 +21,7 @@ import ImageGallery from './components/ImageGallery'
 import VideoModal from './components/VideoModal'
 import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
+import ContentBox from './components/ContentBox'
 
 function App() {
   const { t } = useTranslation()
@@ -887,7 +888,28 @@ function App() {
         {/* Spacer between modules */}
          <Spacer size="sm" />
 
+          {/* ContentBox Example - Simple container with title, paragraph, and Spotify embed */}
+      <ContentBox
+        titleKey="contentBox.example.title"
+        backgroundColor="bg-goos-blue-800"
+        textColor="text-white"
+        titleColor="text-white"
+        padding="p-8"
+      >
+        <p className="text-lg leading-relaxed">
+          {t('contentBox.example.paragraph')}
+        </p>
+
+            {/* Spotify Podcast Embed */}
+        <SpotifyEmbed
+          spotifyId="3AjTpnz2G7RZofpSOtiDa1"
+          type="episode"
+          height={252}
+        />
+      </ContentBox>
+
       </ContentModule>
+      
 
        <div className="px-16 bg-goos-white">
         {/* Data Table */}
@@ -1225,7 +1247,6 @@ function App() {
       />
 
       {/* LogoStrip Examples */}
-
       {/* Example 1: 9 logos with blue background */}
       <LogoStrip
         logos={[

@@ -275,5 +275,11 @@
       "tag": "Data Points",
       "title": "Annual observations collected"
     }
+  },
+  "contentBox": {
+    "example": {
+      "title": "Ocean Observations Podcast",
+      "paragraph": "Listen to the latest episode featuring experts discussing the future of ocean monitoring and the critical role of global observation networks in understanding climate change."
+    }
   }
 }

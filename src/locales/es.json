@@ -275,5 +275,11 @@
       "tag": "Datos",
       "title": "Observaciones anuales recolectadas"
     }
+  },
+  "contentBox": {
+    "example": {
+      "title": "Podcast de Observaciones Oceánicas",
+      "paragraph": "Escucha el último episodio con expertos que discuten el futuro del monitoreo oceánico y el papel crítico de las redes de observación globales en la comprensión del cambio climático."
+    }
   }
 }
