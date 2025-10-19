@@ -61,14 +61,14 @@ export default function DataCard({
 
   return (
     <div
-      className={`${backgroundColor} w-full h-[280px] p-4 flex flex-col justify-between ${className}`}
+      className={`${backgroundColor} w-full aspect-[7/8] p-4 flex flex-col justify-between ${className}`}
     >
       {/* Header Section - Number and Tag */}
       <div className="flex items-start justify-between">
-        <h1 className={`text-[72px] font-light leading-[72px] ${numberColor}`}>
+        <h1 className={`text-6xl font-light leading-[72px] ${numberColor}`}>
           {number}
         </h1>
-        <span className={`text-xs ${tagColor} mt-1`}>
+        <span className={`text-md ${tagColor} mt-1`}>
           {t(tagKey)}
         </span>
       </div>
@@ -85,7 +85,7 @@ export default function DataCard({
         </div>
 
         {/* Title */}
-        <p className={`text-sm font-semibold ${textColor} uppercase leading-5 tracking-wide`}>
+        <p className={`text-md font-roboto-condensed font-semibold ${textColor} uppercase leading-5 tracking-wide min-h-[60px]`}>
           {t(titleKey)}
         </p>
       </div>
