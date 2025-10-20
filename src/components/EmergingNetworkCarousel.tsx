@@ -205,7 +205,7 @@ export default function EmergingNetworkCarousel({
             <div
               key={index}
               className="flex-[0_0_auto] min-w-0 mr-12"
-              style={{ flexBasis: 'calc(100vw - 200px)' }}
+              style={{ flexBasis: '800px' }}
             >
               <EmergingNetworkCard
                 {...card}
