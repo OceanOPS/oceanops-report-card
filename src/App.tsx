@@ -31,13 +31,13 @@ function App() {
   useEffect(() => {
     const hash = window.location.hash.slice(1) // Remove the #
     if (hash) {
-      // Small delay to ensure DOM is fully rendered
+      // Delay to ensure DOM is fully rendered and page is ready
       setTimeout(() => {
         const element = document.getElementById(hash)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
-      }, 100)
+      }, 500)
     }
   }, [])
 

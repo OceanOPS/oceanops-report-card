@@ -96,16 +96,27 @@ export default function MenuSidebar({
   const handleMenuItemClick = (item: MenuItem) => {
     if (item.onClick) {
       item.onClick()
+      setIsOpen()
     } else if (item.id) {
-      // Update URL hash for deep linking
-      window.location.hash = item.id
-      // Scroll to section if ID is provided
-      const element = document.getElementById(item.id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
+      // Store ID in local variable for setTimeout closure
+      const sectionId = item.id
+
+      // Close menu first to see the scroll animation
+      setIsOpen()
+
+      // Small delay to let menu close animation start
+      setTimeout(() => {
+        // Update URL hash for deep linking
+        window.location.hash = sectionId
+        // Scroll to section if ID is provided
+        const element = document.getElementById(sectionId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 300) // Match menu transition duration
+    } else {
+      setIsOpen()
     }
-    setIsOpen()
   }
 
   const changeLanguage = (lang: string) => {
