@@ -64,6 +64,7 @@
  */
 
 import { ReactNode, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import VideoModal from './VideoModal'
 import ContentModal from './ContentModal'
 
@@ -103,6 +104,7 @@ interface ContentModuleProps {
   title: string
   subtitle?: string
   introduction?: string
+  introductionKeys?: string[]  // Array of translation keys for multiple paragraphs
   button?: ButtonConfig
   hasLine?: boolean
   backgroundColor?: string
@@ -121,6 +123,7 @@ export default function ContentModule({
   title,
   subtitle,
   introduction,
+  introductionKeys,
   button,
   hasLine = true,
   backgroundColor = 'bg-goos-white',
@@ -131,6 +134,7 @@ export default function ContentModule({
   rightColumn,
   className = '',
 }: ContentModuleProps) {
+  const { t } = useTranslation()
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const [isContentModalOpen, setIsContentModalOpen] = useState(false)
 
@@ -270,10 +274,22 @@ export default function ContentModule({
           </p>
         )}
 
-        {introduction && (
-          <p className={`text-xl font-semibold ${textColor} mt-1`}>
+        {/* Single introduction paragraph (legacy support) */}
+        {introduction && !introductionKeys && (
+          <p className={`text-xl font-normal ${textColor} mt-1`}>
             {introduction}
           </p>
+        )}
+
+        {/* Multiple introduction paragraphs from translation keys */}
+        {introductionKeys && introductionKeys.length > 0 && (
+          <div className="flex flex-col gap-4 mt-8">
+            {introductionKeys.map((key, index) => (
+              <p key={index} className={`text-xl font-normal ${textColor} leading-relaxed`}>
+                {t(key)}
+              </p>
+            ))}
+          </div>
         )}
       </div>
 
@@ -286,7 +302,7 @@ export default function ContentModule({
   if (layout === 'split') {
     return (
       <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
-        <div className="mx-auto flex gap-5 flex-col lg:flex-row">
+        <div className="mx-auto flex gap-16 flex-col lg:flex-row">
           {/* Left Column - Sticky Title */}
           <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-0 lg:self-start z-10">
             {/* Top spacer */}
@@ -322,7 +338,7 @@ export default function ContentModule({
         </div>
 
         {/* Content in 2 Columns */}
-        <div className="flex gap-5 flex-col lg:flex-row -mt-24">
+        <div className="flex gap-16 flex-col lg:flex-row -mt-24">
           {/* Left Column */}
           <div className="lg:basis-1/2 flex flex-col gap-5">
             <div className="h-8 w-5 opacity-75"></div>

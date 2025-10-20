@@ -187,6 +187,31 @@
       "metadata": "Metadata",
       "bestPractices": "Best Practices"
     },
+    "indicatorsButton": "ABOUT INDICATORS DEFINITIONS",
+    "indicatorsModal": {
+      "title": "Network Performance Indicators",
+      "intro": "Each network is evaluated across five key performance indicators, rated on a scale from 0 to 3 stars:",
+      "implementationStatus": {
+        "title": "Implementation Status",
+        "description": "Measures the network's operational maturity and geographic coverage. Higher ratings indicate broader global deployment and consistent data collection."
+      },
+      "realTime": {
+        "title": "Real Time Data Delivery",
+        "description": "Evaluates the timeliness of data transmission to operational centers. Networks with high ratings provide data within hours of collection, supporting immediate forecasting needs."
+      },
+      "archivedHighQuality": {
+        "title": "Archived High Quality Data",
+        "description": "Assesses the completeness and quality control of historical data archives. High ratings indicate rigorous quality assurance processes and comprehensive long-term records."
+      },
+      "metadata": {
+        "title": "Metadata Completeness",
+        "description": "Measures the documentation of observation methods, instruments, and data provenance. Complete metadata ensures data can be properly interpreted and reused by the scientific community."
+      },
+      "bestPractices": {
+        "title": "Best Practices Adoption",
+        "description": "Evaluates adherence to international standards for data collection, processing, and sharing. Networks following best practices ensure data interoperability across systems."
+      }
+    },
     "argo": {
       "title": "Argo",
       "iconAlt": "Argo Network - Global array of profiling floats measuring ocean temperature and salinity"
@@ -217,6 +242,69 @@
       "description": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
       "imageAlt": "SMART Cables undersea infrastructure",
       "iconAlt": "SMART Cables Network Icon"
+    }
+  },
+  "dataBlock": {
+    "introduction": {
+      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the eyes of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "paragraph2": "These platforms collect physical, biogeochemical and biological Essential Ocean and Climate Variables.",
+      "paragraph3": "These observations flow into data systems and are crucial for tracking, predicting and adapting to climate change, accurate weather and extreme event prediction, monitoring biodiversity for achieving key global targets, and informing sound decisions by local communities and national governments around sustainable development."
+    }
+  },
+  "dataCards": {
+    "card1": {
+      "tag": "Programmes",
+      "title": "Marine birds abundance and distribution"
+    },
+    "card2": {
+      "tag": "Platforms",
+      "title": "Active Argo floats"
+    },
+    "card3": {
+      "tag": "Networks",
+      "title": "Ocean observing networks"
+    },
+    "card4": {
+      "tag": "Countries",
+      "title": "Contributing nations"
+    },
+    "card5": {
+      "tag": "Variables",
+      "title": "Essential ocean variables"
+    },
+    "card6": {
+      "tag": "Sensors",
+      "title": "Active ocean sensors"
+    },
+    "card7": {
+      "tag": "Species",
+      "title": "Marine species monitored"
+    },
+    "card8": {
+      "tag": "Regions",
+      "title": "Ocean observation areas"
+    },
+    "card9": {
+      "tag": "Gliders",
+      "title": "Autonomous underwater gliders"
+    },
+    "card10": {
+      "tag": "Moorings",
+      "title": "Fixed ocean moorings"
+    },
+    "card11": {
+      "tag": "Ships",
+      "title": "Research vessels active"
+    },
+    "card12": {
+      "tag": "Data Points",
+      "title": "Annual observations collected"
+    }
+  },
+  "contentBox": {
+    "example": {
+      "title": "Ocean Observations Podcast",
+      "paragraph": "Listen to the latest episode featuring experts discussing the future of ocean monitoring and the critical role of global observation networks in understanding climate change."
     }
   }
 }

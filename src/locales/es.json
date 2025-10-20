@@ -187,6 +187,31 @@
       "metadata": "Metadatos",
       "bestPractices": "Mejores Prácticas"
     },
+    "indicatorsButton": "SOBRE DEFINICIONES DE INDICADORES",
+    "indicatorsModal": {
+      "title": "Indicadores de Rendimiento de Redes",
+      "intro": "Cada red es evaluada en cinco indicadores clave de rendimiento, calificados en una escala de 0 a 3 estrellas:",
+      "implementationStatus": {
+        "title": "Estado de Implementación",
+        "description": "Mide la madurez operacional de la red y su cobertura geográfica. Calificaciones más altas indican un despliegue global más amplio y una recolección de datos consistente."
+      },
+      "realTime": {
+        "title": "Entrega de Datos en Tiempo Real",
+        "description": "Evalúa la prontitud en la transmisión de datos a centros operacionales. Las redes con calificaciones altas proporcionan datos dentro de horas de su recolección, apoyando necesidades de pronóstico inmediato."
+      },
+      "archivedHighQuality": {
+        "title": "Datos Archivados de Alta Calidad",
+        "description": "Evalúa la completitud y el control de calidad de los archivos de datos históricos. Calificaciones altas indican procesos rigurosos de aseguramiento de calidad y registros completos a largo plazo."
+      },
+      "metadata": {
+        "title": "Completitud de Metadatos",
+        "description": "Mide la documentación de métodos de observación, instrumentos y proveniencia de datos. Los metadatos completos aseguran que los datos puedan ser interpretados y reutilizados adecuadamente por la comunidad científica."
+      },
+      "bestPractices": {
+        "title": "Adopción de Mejores Prácticas",
+        "description": "Evalúa la adherencia a estándares internacionales para la recolección, procesamiento e intercambio de datos. Las redes que siguen mejores prácticas aseguran la interoperabilidad de datos entre sistemas."
+      }
+    },
     "argo": {
       "title": "Argo",
       "iconAlt": "Red Argo - Red global de flotadores perfiladores que miden temperatura y salinidad del océano"
@@ -217,6 +242,69 @@
       "description": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los \"ojos\" de miles de plataformas de observación oceánica que monitorean constantemente el océano para capturar la firma de varios fenómenos oceánicos.",
       "imageAlt": "Infraestructura submarina de Cables SMART",
       "iconAlt": "Icono de Red Cables SMART"
+    }
+  },
+  "dataBlock": {
+    "introduction": {
+      "paragraph1": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los ojos de miles de plataformas de observación oceánica que están constantemente monitoreando el océano para capturar la firma de varios fenómenos oceánicos.",
+      "paragraph2": "Estas plataformas recopilan Variables Oceánicas y Climáticas Esenciales físicas, biogeoquímicas y biológicas.",
+      "paragraph3": "Estas observaciones fluyen hacia sistemas de datos y son cruciales para rastrear, predecir y adaptarse al cambio climático, predicción precisa del clima y eventos extremos, monitoreo de la biodiversidad para alcanzar objetivos globales clave, e informar decisiones sólidas por parte de comunidades locales y gobiernos nacionales en torno al desarrollo sostenible."
+    }
+  },
+  "dataCards": {
+    "card1": {
+      "tag": "Programas",
+      "title": "Abundancia y distribución de aves marinas"
+    },
+    "card2": {
+      "tag": "Plataformas",
+      "title": "Flotadores Argo activos"
+    },
+    "card3": {
+      "tag": "Redes",
+      "title": "Redes de observación oceánica"
+    },
+    "card4": {
+      "tag": "Países",
+      "title": "Naciones contribuyentes"
+    },
+    "card5": {
+      "tag": "Variables",
+      "title": "Variables oceánicas esenciales"
+    },
+    "card6": {
+      "tag": "Sensores",
+      "title": "Sensores oceánicos activos"
+    },
+    "card7": {
+      "tag": "Especies",
+      "title": "Especies marinas monitoreadas"
+    },
+    "card8": {
+      "tag": "Regiones",
+      "title": "Áreas de observación oceánica"
+    },
+    "card9": {
+      "tag": "Planeadores",
+      "title": "Planeadores submarinos autónomos"
+    },
+    "card10": {
+      "tag": "Amarres",
+      "title": "Amarres oceánicos fijos"
+    },
+    "card11": {
+      "tag": "Buques",
+      "title": "Buques de investigación activos"
+    },
+    "card12": {
+      "tag": "Datos",
+      "title": "Observaciones anuales recolectadas"
+    }
+  },
+  "contentBox": {
+    "example": {
+      "title": "Podcast de Observaciones Oceánicas",
+      "paragraph": "Escucha el último episodio con expertos que discuten el futuro del monitoreo oceánico y el papel crítico de las redes de observación globales en la comprensión del cambio climático."
     }
   }
 }

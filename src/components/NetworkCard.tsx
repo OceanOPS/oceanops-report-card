@@ -106,7 +106,7 @@ export default function NetworkCard({
   backgroundColor = 'bg-goos-blue-800',
   textColor = 'text-white',
   accentColor = 'text-goos-orange-500',
-  iconBgColor = 'bg-goos-light-blue-shade-200',
+  iconBgColor = 'bg-goos-cyan-200',
   iconTextColor = 'text-goos-deep-blue',
   tooltipBgColor = 'bg-goos-blue-900',
   tooltipTextColor = 'text-white',

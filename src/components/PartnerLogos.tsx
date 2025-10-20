@@ -84,19 +84,22 @@ export default function PartnerLogos({ variant = 'white', className = '' }: Part
         ))}
       </div>
 
-      {/* Right side logo - OceanOPS */}
-      <a
-        href={rightLogo.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="h-20 transition-opacity hover:opacity-70"
-      >
-        <img
-          src={rightLogo.src}
-          alt={rightLogo.alt}
-          className="h-full w-auto object-contain opacity-90"
-        />
-      </a>
+      {/* Right side logo - OceanOPS with "Powered by" */}
+      <div className="flex flex-col items-start gap-2">
+        <span className="text-sm text-white opacity-70 font-light">Powered by:</span>
+        <a
+          href={rightLogo.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="h-20 transition-opacity hover:opacity-70"
+        >
+          <img
+            src={rightLogo.src}
+            alt={rightLogo.alt}
+            className="h-full w-auto object-contain opacity-90"
+          />
+        </a>
+      </div>
     </div>
   )
 }

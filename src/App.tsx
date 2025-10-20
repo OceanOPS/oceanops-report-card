@@ -20,6 +20,8 @@ import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
 import VideoModal from './components/VideoModal'
 import Button from './components/Button'
+import DataCardGrid from './components/DataCardGrid'
+import ContentBox from './components/ContentBox'
 
 function App() {
   const { t } = useTranslation()
@@ -74,7 +76,7 @@ function App() {
         mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
         mapAlt="Global platform distribution map"
         mapType="iframe"
-        mapHeight="900"
+        mapHeight={900}
         backgroundColor="bg-goos-blue-700"
         titleColor="text-white"
         textColor="text-white"
@@ -89,9 +91,8 @@ function App() {
         lineColor="bg-goos-orange-500"
         cards={[
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.argo.iconAlt',
-            iconBgColor: 'bg-goos-blue-100',
             titleKey: 'networks.argo.title',
             networkUrl: 'https://argo.ucsd.edu',
             networkLinkKey: 'networks.viewNetwork',
@@ -106,9 +107,8 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.doos.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.doos.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -123,9 +123,8 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.sot.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.sot.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -140,9 +139,8 @@ function App() {
             deliveryAreas: ['climate'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.gliders.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.gliders.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -157,9 +155,8 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'networks.dbcp.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.dbcp.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -183,6 +180,186 @@ function App() {
         tooltipTextColor="text-blue-800"
       />
 
+      {/* Indicators Definition Button */}
+      <div className="flex justify-center py-8 bg-goos-blue-900">
+        <Button
+          variant="modal"
+          label={t('networks.indicatorsButton')}
+          modalTitle={t('networks.indicatorsModal.title')}
+          modalContent={
+            <div className="flex flex-col gap-6">
+              {/* Introduction */}
+              <p className="text-lg text-goos-gray-800 leading-relaxed">
+                {t('networks.indicatorsModal.intro')}
+              </p>
+
+              {/* Implementation Status */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.implementationStatus.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.implementationStatus.description')}
+                </p>
+              </div>
+
+              {/* Real Time */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.realTime.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.realTime.description')}
+                </p>
+              </div>
+
+              {/* Archived High Quality */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.archivedHighQuality.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.archivedHighQuality.description')}
+                </p>
+              </div>
+
+              {/* Metadata */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.metadata.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.metadata.description')}
+                </p>
+              </div>
+
+              {/* Best Practices */}
+              <div>
+                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                  {t('networks.indicatorsModal.bestPractices.title')}
+                </h3>
+                <p className="text-base text-goos-gray-800 leading-relaxed">
+                  {t('networks.indicatorsModal.bestPractices.description')}
+                </p>
+              </div>
+            </div>
+          }
+          bgColor="bg-goos-orange-600"
+          textColor="text-white"
+          iconColor="text-goos-orange-600"
+          iconBgColor="bg-white"
+        />
+        
+      </div>
+        <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
+
+      {/* DataCardGrid Example */}
+
+      <ContentModule
+        title="Ocean Observing System in Numbers"
+        titleLevel="h3"
+        titleColor="text-goos-white"
+        introductionKeys={[
+          'dataBlock.introduction.paragraph1',
+          'dataBlock.introduction.paragraph2',
+          'dataBlock.introduction.paragraph3'
+        ]}
+        layout="split"
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-goos-white"
+      >
+
+        <DataCardGrid
+          cards={[
+            {
+              number: "108",
+              tagKey: "dataCards.card1.tag",
+              iconSrc: "/icons/biology_and_ecosystems/Seabirds.png",
+              iconAlt: "Marine birds icon",
+              titleKey: "dataCards.card1.title",
+            },
+            {
+              number: "3,800",
+              tagKey: "dataCards.card2.tag",
+              iconSrc: "/icons/network/argo.svg",
+              iconAlt: "Argo icon",
+              titleKey: "dataCards.card2.title",
+            },
+            {
+              number: "25",
+              tagKey: "dataCards.card3.tag",
+              iconSrc: "/icons/network/ocean_sites.svg",
+              iconAlt: "Networks icon",
+              titleKey: "dataCards.card3.title",
+            },
+            {
+              number: "100+",
+              tagKey: "dataCards.card4.tag",
+              iconSrc: "/icons/climate.png",
+              iconAlt: "Countries icon",
+              titleKey: "dataCards.card4.title",
+            },
+            {
+              number: "54",
+              tagKey: "dataCards.card5.tag",
+              iconSrc: "/icons/physics/Surface-temperature.png",
+              iconAlt: "Variables icon",
+              titleKey: "dataCards.card5.title",
+            },
+            {
+              number: "7,500",
+              tagKey: "dataCards.card6.tag",
+              iconSrc: "/icons/biogeochemistry/Oxygen.png",
+              iconAlt: "Sensors icon",
+              titleKey: "dataCards.card6.title",
+            },
+            {
+              number: "200+",
+              tagKey: "dataCards.card7.tag",
+              iconSrc: "/icons/biology_and_ecosystems/Fish.png",
+              iconAlt: "Species icon",
+              titleKey: "dataCards.card7.title",
+            },
+            {
+              number: "12",
+              tagKey: "dataCards.card8.tag",
+              iconSrc: "/icons/operational_services.png",
+              iconAlt: "Regions icon",
+              titleKey: "dataCards.card8.title",
+            },
+            {
+              number: "150",
+              tagKey: "dataCards.card9.tag",
+              iconSrc: "/icons/network/ocean_gliders.svg",
+              iconAlt: "Gliders icon",
+              titleKey: "dataCards.card9.title",
+            },
+            {
+              number: "450",
+              tagKey: "dataCards.card10.tag",
+              iconSrc: "/icons/network/dbcp_moored.svg",
+              iconAlt: "Moorings icon",
+              titleKey: "dataCards.card10.title",
+            },
+            {
+              number: "75",
+              tagKey: "dataCards.card11.tag",
+              iconSrc: "/icons/network/go_ship.svg",
+              iconAlt: "Ships icon",
+              titleKey: "dataCards.card11.title",
+            },
+            {
+              number: "2.5M",
+              tagKey: "dataCards.card12.tag",
+              iconSrc: "/icons/cross_disciplinary/Ocean-colour.png",
+              iconAlt: "Data points icon",
+              titleKey: "dataCards.card12.title",
+            },
+          ]}
+        />
+          <Spacer size="sm" />
+      </ContentModule>
+
       {/* EmergingNetworkCarousel - Showcasing different media types */}
       <EmergingNetworkCarousel
         title="emerging.title"
@@ -194,7 +371,7 @@ function App() {
             mediaType: 'image',
             imageSrc: '/images/content.jpg',
             imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -221,7 +398,7 @@ function App() {
               { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
               { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
             ],
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -255,7 +432,7 @@ function App() {
             videoType: 'local',
             videoId: '/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm',
             previewImage: '/images/content3.jpg',
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: '/icons/network/vos.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -785,7 +962,28 @@ function App() {
         {/* Spacer between modules */}
          <Spacer size="sm" />
 
+          {/* ContentBox Example - Simple container with title, paragraph, and Spotify embed */}
+      <ContentBox
+        titleKey="contentBox.example.title"
+        backgroundColor="bg-goos-blue-800"
+        textColor="text-white"
+        titleColor="text-white"
+        padding="p-8"
+      >
+        <p className="text-lg leading-relaxed">
+          {t('contentBox.example.paragraph')}
+        </p>
+
+            {/* Spotify Podcast Embed */}
+        <SpotifyEmbed
+          spotifyId="3AjTpnz2G7RZofpSOtiDa1"
+          type="episode"
+          height={252}
+        />
+      </ContentBox>
+
       </ContentModule>
+      
 
        <div className="px-16 bg-goos-white">
         {/* Data Table */}
@@ -1123,7 +1321,6 @@ function App() {
       />
 
       {/* LogoStrip Examples */}
-
       {/* Example 1: 9 logos with blue background */}
       <LogoStrip
         logos={[

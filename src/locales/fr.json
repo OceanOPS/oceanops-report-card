@@ -159,5 +159,130 @@
         }
       }
     }
+  },
+  "dataBlock": {
+    "introduction": {
+      "paragraph1": "Le Système mondial d'observation de l'océan (GOOS) observe notre océan à travers les yeux de milliers de plateformes d'observation océanique qui surveillent constamment l'océan pour capturer la signature de divers phénomènes océaniques.",
+      "paragraph2": "Ces plateformes collectent des Variables océaniques et climatiques essentielles physiques, biogéochimiques et biologiques.",
+      "paragraph3": "Ces observations alimentent les systèmes de données et sont cruciales pour suivre, prédire et s'adapter au changement climatique, la prévision précise de la météo et des événements extrêmes, la surveillance de la biodiversité pour atteindre des objectifs mondiaux clés, et informer des décisions solides par les communautés locales et les gouvernements nationaux autour du développement durable."
+    }
+  },
+  "dataCards": {
+    "card1": {
+      "tag": "Programmes",
+      "title": "Abondance et distribution d'oiseaux marins"
+    },
+    "card2": {
+      "tag": "Plateformes",
+      "title": "Flotteurs Argo actifs"
+    },
+    "card3": {
+      "tag": "Réseaux",
+      "title": "Réseaux d'observation océanique"
+    },
+    "card4": {
+      "tag": "Pays",
+      "title": "Nations contributrices"
+    },
+    "card5": {
+      "tag": "Variables",
+      "title": "Variables océaniques essentielles"
+    },
+    "card6": {
+      "tag": "Capteurs",
+      "title": "Capteurs océaniques actifs"
+    },
+    "card7": {
+      "tag": "Espèces",
+      "title": "Espèces marines surveillées"
+    },
+    "card8": {
+      "tag": "Régions",
+      "title": "Zones d'observation océanique"
+    },
+    "card9": {
+      "tag": "Planeurs",
+      "title": "Planeurs sous-marins autonomes"
+    },
+    "card10": {
+      "tag": "Mouillages",
+      "title": "Mouillages océaniques fixes"
+    },
+    "card11": {
+      "tag": "Navires",
+      "title": "Navires de recherche actifs"
+    },
+    "card12": {
+      "tag": "Données",
+      "title": "Observations annuelles collectées"
+    }
+  },
+  "networks": {
+    "title": "Réseaux du Système Mondial d'Observation des Océans",
+    "viewNetwork": "Voir le Réseau",
+    "deliveryAreasLabel": "Domaines de livraison GOOS",
+    "deliveryAreas": {
+      "climate": "Climat",
+      "operational": "Services Opérationnels",
+      "oceanhealth": "Santé des Océans"
+    },
+    "ratings": {
+      "implementationStatus": "État de Mise en Œuvre",
+      "realTime": "Temps Réel",
+      "archivedHighQuality": "Haute Qualité Archivée",
+      "metadata": "Métadonnées",
+      "bestPractices": "Meilleures Pratiques"
+    },
+    "indicatorsButton": "À PROPOS DES DÉFINITIONS DES INDICATEURS",
+    "indicatorsModal": {
+      "title": "Indicateurs de Performance des Réseaux",
+      "intro": "Chaque réseau est évalué sur cinq indicateurs clés de performance, notés sur une échelle de 0 à 3 étoiles:",
+      "implementationStatus": {
+        "title": "État de Mise en Œuvre",
+        "description": "Mesure la maturité opérationnelle du réseau et sa couverture géographique. Des notes plus élevées indiquent un déploiement mondial plus large et une collecte de données cohérente."
+      },
+      "realTime": {
+        "title": "Livraison de Données en Temps Réel",
+        "description": "Évalue la rapidité de transmission des données aux centres opérationnels. Les réseaux avec des notes élevées fournissent des données dans les heures suivant la collecte, soutenant les besoins immédiats de prévision."
+      },
+      "archivedHighQuality": {
+        "title": "Données Archivées de Haute Qualité",
+        "description": "Évalue l'exhaustivité et le contrôle qualité des archives de données historiques. Des notes élevées indiquent des processus rigoureux d'assurance qualité et des enregistrements complets à long terme."
+      },
+      "metadata": {
+        "title": "Exhaustivité des Métadonnées",
+        "description": "Mesure la documentation des méthodes d'observation, des instruments et de la provenance des données. Des métadonnées complètes garantissent que les données peuvent être correctement interprétées et réutilisées par la communauté scientifique."
+      },
+      "bestPractices": {
+        "title": "Adoption des Meilleures Pratiques",
+        "description": "Évalue l'adhésion aux normes internationales pour la collecte, le traitement et le partage de données. Les réseaux suivant les meilleures pratiques assurent l'interopérabilité des données entre les systèmes."
+      }
+    },
+    "argo": {
+      "title": "Argo",
+      "iconAlt": "Réseau Argo - Réseau mondial de flotteurs profilants mesurant la température et la salinité de l'océan"
+    },
+    "doos": {
+      "title": "Stratégie d'Observation de l'Océan Profond",
+      "iconAlt": "Réseau DOOS - Coordination des observations de l'océan profond sous 2000m"
+    },
+    "sot": {
+      "title": "Équipe d'Observations par Navire",
+      "iconAlt": "Réseau SOT - Coordination des observations météorologiques et océanographiques depuis les navires"
+    },
+    "gliders": {
+      "title": "OceanGliders",
+      "iconAlt": "Réseau OceanGliders - Réseau mondial de planeurs sous-marins autonomes"
+    },
+    "dbcp": {
+      "title": "Panel de Coopération sur les Bouées de Données",
+      "iconAlt": "Réseau DBCP - Réseau mondial de bouées dérivantes et ancrées"
+    }
+  },
+  "contentBox": {
+    "example": {
+      "title": "Podcast sur les Observations Océaniques",
+      "paragraph": "Écoutez le dernier épisode avec des experts discutant de l'avenir de la surveillance océanique et du rôle essentiel des réseaux d'observation mondiaux dans la compréhension du changement climatique."
+    }
   }
 }

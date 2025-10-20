@@ -6,6 +6,7 @@
  *
  * @param size - Preset size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' (optional)
  * @param height - Custom height in pixels or Tailwind spacing (overrides size)
+ * @param backgroundColor - Tailwind background color class (default: transparent)
  * @param className - Optional additional Tailwind classes
  *
  * Preset sizes:
@@ -26,16 +27,20 @@
  *
  * // Using custom height with Tailwind spacing
  * <Spacer height="h-24" />
+ *
+ * // With background color to match surrounding modules
+ * <Spacer size="lg" backgroundColor="bg-goos-blue-900" />
  * ```
  */
 
 interface SpacerProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   height?: string
+  backgroundColor?: string
   className?: string
 }
 
-export default function Spacer({ size = 'md', height, className = '' }: SpacerProps) {
+export default function Spacer({ size = 'md', height, backgroundColor = '', className = '' }: SpacerProps) {
   // Preset size mappings
   const sizeMap = {
     xs: 'h-4',   // 1rem / 16px
@@ -50,5 +55,5 @@ export default function Spacer({ size = 'md', height, className = '' }: SpacerPr
   const heightClass = height ? (height.startsWith('h-') ? height : '') : sizeMap[size]
   const customStyle = height && !height.startsWith('h-') ? { height } : undefined
 
-  return <div className={`w-full ${heightClass} ${className}`} style={customStyle} />
+  return <div className={`w-full ${heightClass} ${backgroundColor} ${className}`} style={customStyle} />
 }
