@@ -306,5 +306,31 @@
       "title": "Ocean Observations Podcast",
       "paragraph": "Listen to the latest episode featuring experts discussing the future of ocean monitoring and the critical role of global observation networks in understanding climate change."
     }
+  },
+  "menu": {
+    "title": "Report Card",
+    "year": "2025",
+    "downloadPdf": "DOWNLOAD PDF",
+    "pastReports": "Past Reports",
+    "pastReportsLinks": {
+      "2024": "Report Card 2024",
+      "2023": "Report Card 2023",
+      "2022": "Report Card 2022",
+      "2021": "Report Card 2021"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://instagram.com/oceanops"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/company/oceanops"
+      },
+      "youtube": {
+        "label": "YouTube",
+        "url": "https://youtube.com/@oceanops"
+      }
+    }
   }
 }

@@ -284,5 +284,31 @@
       "title": "Podcast sur les Observations Océaniques",
       "paragraph": "Écoutez le dernier épisode avec des experts discutant de l'avenir de la surveillance océanique et du rôle essentiel des réseaux d'observation mondiaux dans la compréhension du changement climatique."
     }
+  },
+  "menu": {
+    "title": "Carte de Rapport",
+    "year": "2025",
+    "downloadPdf": "TÉLÉCHARGER PDF",
+    "pastReports": "Rapports Précédents",
+    "pastReportsLinks": {
+      "2024": "Carte de Rapport 2024",
+      "2023": "Carte de Rapport 2023",
+      "2022": "Carte de Rapport 2022",
+      "2021": "Carte de Rapport 2021"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://instagram.com/oceanops"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/company/oceanops"
+      },
+      "youtube": {
+        "label": "YouTube",
+        "url": "https://youtube.com/@oceanops"
+      }
+    }
   }
 }

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import CoverModule from './components/CoverModule'
-import LanguageSwitcher from './components/LanguageSwitcher'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
@@ -22,14 +21,22 @@ import VideoModal from './components/VideoModal'
 import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
+import MenuSidebar from './components/MenuSidebar'
 
 function App() {
   const { t } = useTranslation()
 
   return (
     <div>
-      {/* Language Switcher - temporary fixed position */}
-      <LanguageSwitcher className="fixed top-4 right-4 z-50" />
+      {/* MenuSidebar - Fixed Menu Button with Slide-in Sidebar */}
+      <MenuSidebar
+        menuItems={[
+          { titleKey: 'content.section1.title', accentColor: 'bg-goos-orange-500' },
+          { titleKey: 'networks.title', accentColor: 'bg-goos-cyan-500' },
+          { titleKey: 'emerging.title', accentColor: 'bg-goos-green-500' },
+          { titleKey: 'content.section1.stats.stat1.description', accentColor: 'bg-goos-blue-500' },
+        ]}
+      />
 
       {/* Cover */}
       <CoverModule
