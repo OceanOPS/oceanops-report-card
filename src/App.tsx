@@ -251,6 +251,7 @@ function App() {
         />
         
       </div>
+        <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
 
       {/* DataCardGrid Example */}
 
@@ -267,6 +268,7 @@ function App() {
         backgroundColor="bg-goos-blue-900"
         textColor="text-goos-white"
       >
+
         <DataCardGrid
           cards={[
             {

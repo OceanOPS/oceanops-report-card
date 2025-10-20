@@ -85,7 +85,7 @@ export default function DataCard({
         </div>
 
         {/* Title */}
-        <p className={`text-md font-roboto-condensed font-semibold ${textColor} uppercase leading-5 tracking-wide min-h-[60px]`}>
+        <p className={`text-md font-roboto-condensed font-semibold ${textColor} uppercase leading-5 tracking-wide min-h-[40px]`}>
           {t(titleKey)}
         </p>
       </div>
