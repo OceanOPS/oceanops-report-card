@@ -3,6 +3,7 @@
  *
  * A horizontal scrolling carousel that displays NetworkCard components.
  * Features optional title with decorative line and customizable colors.
+ * Uses Embla Carousel for smooth scrolling, drag support, and arrow navigation.
  *
  * @param title - Optional section title (translation key)
  * @param hasLine - Show decorative line above title (default: true)
@@ -56,6 +57,8 @@
  */
 
 import { useTranslation } from 'react-i18next'
+import { useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 import NetworkCard from './NetworkCard'
 import CarouselArrow from './CarouselArrow'
 
@@ -113,6 +116,22 @@ export default function NetworkCarousel({
 }: NetworkCarouselProps) {
   const { t } = useTranslation()
 
+  // Embla Carousel setup
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: true, // Infinite loop
+    slidesToScroll: 1, // Scroll one card at a time
+  })
+
+  // Arrow navigation handlers
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
   return (
     <section className={`${backgroundColor} py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
@@ -130,8 +149,16 @@ export default function NetworkCarousel({
                 </h3>
               </div>
               <div className="flex gap-4 mt-8">
-                <CarouselArrow direction="left" color={arrowColor} />
-                <CarouselArrow direction="right" color={arrowColor} />
+                <CarouselArrow
+                  direction="left"
+                  color={arrowColor}
+                  onClick={scrollPrev}
+                />
+                <CarouselArrow
+                  direction="right"
+                  color={arrowColor}
+                  onClick={scrollNext}
+                />
               </div>
             </div>
           </div>
@@ -140,19 +167,24 @@ export default function NetworkCarousel({
         <div className="h-8 w-5 opacity-75"></div>
       </div>
 
-      {/* Horizontal Scroll Container */}
-      <div className="overflow-x-auto pb-4 px-12 md:px-16">
-        <div className="flex gap-8 min-w-max items-stretch">
+      {/* Embla Carousel Container */}
+      <div className="overflow-hidden px-12 md:px-16 pb-4" ref={emblaRef}>
+        <div className="flex cursor-grab active:cursor-grabbing">
           {cards.map((card, index) => (
-            <NetworkCard
+            <div
               key={index}
-              {...card}
-              backgroundColor={cardBackgroundColor}
-              textColor={cardTextColor}
-              accentColor={cardAccentColor}
-              tooltipBgColor={tooltipBgColor}
-              tooltipTextColor={tooltipTextColor}
-            />
+              className="flex-[0_0_auto] min-w-0 mr-12"
+              style={{ flexBasis: '400px' }}
+            >
+              <NetworkCard
+                {...card}
+                backgroundColor={cardBackgroundColor}
+                textColor={cardTextColor}
+                accentColor={cardAccentColor}
+                tooltipBgColor={tooltipBgColor}
+                tooltipTextColor={tooltipTextColor}
+              />
+            </div>
           ))}
         </div>
       </div>
