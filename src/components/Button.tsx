@@ -57,6 +57,7 @@
  */
 
 import { ReactNode, useState } from 'react'
+import { createPortal } from 'react-dom'
 import VideoModal from './VideoModal'
 import ContentModal from './ContentModal'
 
@@ -151,14 +152,17 @@ export default function Button(props: ButtonProps) {
             </svg>
           </div>
         </button>
-        <VideoModal
-          videoType={props.videoType}
-          videoId={props.videoId}
-          previewImage={props.previewImage}
-          previewAlt={props.previewAlt || props.label}
-          isOpen={isVideoModalOpen}
-          onClose={() => setIsVideoModalOpen(false)}
-        />
+        {createPortal(
+          <VideoModal
+            videoType={props.videoType}
+            videoId={props.videoId}
+            previewImage={props.previewImage}
+            previewAlt={props.previewAlt || props.label}
+            isOpen={isVideoModalOpen}
+            onClose={() => setIsVideoModalOpen(false)}
+          />,
+          document.body
+        )}
       </>
     )
   }
@@ -183,14 +187,17 @@ export default function Button(props: ButtonProps) {
             </svg>
           </div>
         </button>
-        <ContentModal
-          isOpen={isContentModalOpen}
-          onClose={() => setIsContentModalOpen(false)}
-          title={props.modalTitle}
-          maxWidth={props.modalMaxWidth}
-        >
-          {props.modalContent}
-        </ContentModal>
+        {createPortal(
+          <ContentModal
+            isOpen={isContentModalOpen}
+            onClose={() => setIsContentModalOpen(false)}
+            title={props.modalTitle}
+            maxWidth={props.modalMaxWidth}
+          >
+            {props.modalContent}
+          </ContentModal>,
+          document.body
+        )}
       </>
     )
   }

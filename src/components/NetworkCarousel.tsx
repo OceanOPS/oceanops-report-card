@@ -57,7 +57,7 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import NetworkCard from './NetworkCard'
 import CarouselArrow from './CarouselArrow'
@@ -115,6 +115,7 @@ export default function NetworkCarousel({
   className = '',
 }: NetworkCarouselProps) {
   const { t } = useTranslation()
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   // Embla Carousel setup
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -123,6 +124,22 @@ export default function NetworkCarousel({
     slidesToScroll: 1, // Scroll one card at a time
   })
 
+  // Update selected index on slide change
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+    }
+
+    emblaApi.on('select', onSelect)
+    onSelect() // Set initial value
+
+    return () => {
+      emblaApi.off('select', onSelect)
+    }
+  }, [emblaApi])
+
   // Arrow navigation handlers
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -130,6 +147,11 @@ export default function NetworkCarousel({
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
+  // Scroll to specific index
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index)
   }, [emblaApi])
 
   return (
@@ -187,6 +209,22 @@ export default function NetworkCarousel({
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="flex justify-center gap-2 px-12 md:px-16 py-4">
+        {cards.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => scrollTo(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === selectedIndex
+                ? 'bg-white w-8'
+                : 'bg-white opacity-30 hover:opacity-50'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Bottom spacer */}

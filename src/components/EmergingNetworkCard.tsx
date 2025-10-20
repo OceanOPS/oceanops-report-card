@@ -165,7 +165,7 @@ export default function EmergingNetworkCard({
   }
 
   return (
-    <article className={`${backgroundColor} flex w-full max-w-6xl h-[542px] overflow-hidden ${className}`}>
+    <article className={`${backgroundColor} flex w-full h-[650px] overflow-hidden ${className}`}>
       {/* Left Section - Media */}
       <div className="flex-1 relative">
         {/* Preview Image */}
