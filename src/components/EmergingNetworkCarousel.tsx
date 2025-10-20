@@ -3,6 +3,7 @@
  *
  * A horizontal scrolling carousel that displays EmergingNetworkCard components.
  * Features optional title with decorative line, navigation arrows, and customizable colors.
+ * Uses Embla Carousel for smooth scrolling, drag support, and infinite loop.
  *
  * @param title - Optional section title (translation key)
  * @param hasLine - Show decorative line above title (default: true)
@@ -51,7 +52,8 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { ReactNode } from 'react'
+import { ReactNode, useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 import EmergingNetworkCard from './EmergingNetworkCard'
 import CarouselArrow from './CarouselArrow'
 import { GalleryImage } from './ImageGallery'
@@ -123,6 +125,22 @@ export default function EmergingNetworkCarousel({
 }: EmergingNetworkCarouselProps) {
   const { t } = useTranslation()
 
+  // Embla Carousel setup
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: true, // Infinite loop
+    slidesToScroll: 1, // Scroll one card at a time
+  })
+
+  // Arrow navigation handlers
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
   return (
     <section className={`${backgroundColor} py-12 ${className}`}>
       {/* Header Section */}
@@ -140,8 +158,16 @@ export default function EmergingNetworkCarousel({
                 </h3>
               </div>
               <div className="flex gap-4 mt-8">
-                <CarouselArrow direction="left" color={arrowColor} />
-                <CarouselArrow direction="right" color={arrowColor} />
+                <CarouselArrow
+                  direction="left"
+                  color={arrowColor}
+                  onClick={scrollPrev}
+                />
+                <CarouselArrow
+                  direction="right"
+                  color={arrowColor}
+                  onClick={scrollNext}
+                />
               </div>
             </div>
           </div>
@@ -150,23 +176,28 @@ export default function EmergingNetworkCarousel({
         <div className="h-8 w-5 opacity-75"></div>
       </div>
 
-      {/* Horizontal Scroll Container */}
-      <div className="overflow-x-auto px-12 md:px-16 pb-4">
-        <div className="flex gap-12 min-w-max">
+      {/* Embla Carousel Container */}
+      <div className="overflow-hidden px-12 md:px-16 pb-4" ref={emblaRef}>
+        <div className="flex cursor-grab active:cursor-grabbing">
           {cards.map((card, index) => (
-            <EmergingNetworkCard
+            <div
               key={index}
-              {...card}
-              backgroundColor={cardBackgroundColor}
-              textColor={cardTextColor}
-              buttonBgColor={buttonBgColor}
-              buttonTextColor={buttonTextColor}
-              buttonIconBgColor={buttonIconBgColor}
-              buttonIconColor={buttonIconColor}
-              tooltipBgColor={tooltipBgColor}
-              tooltipTextColor={tooltipTextColor}
-              overlayIconColor={overlayIconColor}
-            />
+              className="flex-[0_0_auto] min-w-0 mr-12"
+              style={{ flexBasis: '800px' }}
+            >
+              <EmergingNetworkCard
+                {...card}
+                backgroundColor={cardBackgroundColor}
+                textColor={cardTextColor}
+                buttonBgColor={buttonBgColor}
+                buttonTextColor={buttonTextColor}
+                buttonIconBgColor={buttonIconBgColor}
+                buttonIconColor={buttonIconColor}
+                tooltipBgColor={tooltipBgColor}
+                tooltipTextColor={tooltipTextColor}
+                overlayIconColor={overlayIconColor}
+              />
+            </div>
           ))}
         </div>
       </div>
