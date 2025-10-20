@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
+import { useEffect } from 'react'
 import CoverModule from './components/CoverModule'
-import LanguageSwitcher from './components/LanguageSwitcher'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
@@ -22,14 +22,86 @@ import VideoModal from './components/VideoModal'
 import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
+import MenuSidebar from './components/MenuSidebar'
 
 function App() {
   const { t } = useTranslation()
 
+  // Handle deep linking - scroll to section if hash is present in URL
+  useEffect(() => {
+    const hash = window.location.hash.slice(1) // Remove the #
+    if (hash) {
+      // Delay to ensure DOM is fully rendered and page is ready
+      setTimeout(() => {
+        (window as any).isScrollingProgrammatically = true
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+        // Reset flag after scroll animation completes
+        setTimeout(() => {
+          (window as any).isScrollingProgrammatically = false
+        }, 1000)
+      }, 500)
+    }
+  }, [])
+
+  // Scroll spy - update URL hash based on visible section
+  useEffect(() => {
+    const sections = [
+      'map-section',
+      'networks-section',
+      'emerging-section',
+      'data-section'
+    ]
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px', // Trigger when section is in the middle-upper part of viewport
+      threshold: 0
+    }
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // Don't update hash if we're scrolling programmatically (from menu click or deep link)
+      if ((window as any).isScrollingProgrammatically) return
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id
+          // Only update if hash is different to avoid unnecessary updates
+          if (window.location.hash !== `#${id}`) {
+            window.history.replaceState(null, '', `#${id}`)
+          }
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    // Observe all sections
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
   return (
     <div>
-      {/* Language Switcher - temporary fixed position */}
-      <LanguageSwitcher className="fixed top-4 right-4 z-50" />
+      {/* MenuSidebar - Fixed Menu Button with Slide-in Sidebar */}
+      <MenuSidebar
+        menuItems={[
+          { id: 'map-section', titleKey: 'content.section1.title', accentColor: 'bg-goos-orange-500' },
+          { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-cyan-500' },
+          { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-green-500' },
+          { id: 'data-section', titleKey: 'content.section1.stats.stat1.description', accentColor: 'bg-goos-blue-500' },
+        ]}
+      />
 
       {/* Cover */}
       <CoverModule
@@ -67,7 +139,7 @@ function App() {
         columns={3}
       />
 
-
+      <div id="map-section">
       {/* Example 1: With interactive ArcGIS map - Full viewport height */}
       <MapStatsPanel
         title="Global Ocean Observation Network"
@@ -83,12 +155,14 @@ function App() {
         numberColor="text-goos-orange-500"
         linkColor="text-goos-orange-500"
       />
+      </div>
 
-       {/* NetworkCarousel */}
-      <NetworkCarousel
-        title="networks.title"
-        hasLine={true}
-        lineColor="bg-goos-orange-500"
+      {/* NetworkCarousel */}
+      <div id="networks-section">
+        <NetworkCarousel
+          title="networks.title"
+          hasLine={true}
+          lineColor="bg-goos-orange-500"
         cards={[
           {
             iconSrc: '/icons/network/vos.svg',
@@ -179,6 +253,7 @@ function App() {
         tooltipBgColor="bg-goos-white"
         tooltipTextColor="text-blue-800"
       />
+      </div>
 
       {/* Indicators Definition Button */}
       <div className="flex justify-center py-8 bg-goos-blue-900">
@@ -254,9 +329,9 @@ function App() {
         <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
 
       {/* DataCardGrid Example */}
-
-      <ContentModule
-        title="Ocean Observing System in Numbers"
+      <div id="data-section">
+        <ContentModule
+          title="Ocean Observing System in Numbers"
         titleLevel="h3"
         titleColor="text-goos-white"
         introductionKeys={[
@@ -358,13 +433,15 @@ function App() {
           ]}
         />
           <Spacer size="sm" />
-      </ContentModule>
+        </ContentModule>
+      </div>
 
       {/* EmergingNetworkCarousel - Showcasing different media types */}
-      <EmergingNetworkCarousel
-        title="emerging.title"
-        hasLine={true}
-        lineColor="bg-goos-orange-500"
+      <div id="emerging-section">
+        <EmergingNetworkCarousel
+          title="emerging.title"
+          hasLine={true}
+          lineColor="bg-goos-orange-500"
         cards={[
           {
             // Example 1: Single image (no overlay)
@@ -462,6 +539,7 @@ function App() {
         overlayIconColor="bg-goos-orange-500"
         arrowColor="#F0F0F0"
       />
+      </div>
 
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule

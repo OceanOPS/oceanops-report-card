@@ -306,5 +306,31 @@
       "title": "Podcast de Observaciones Oceánicas",
       "paragraph": "Escucha el último episodio con expertos que discuten el futuro del monitoreo oceánico y el papel crítico de las redes de observación globales en la comprensión del cambio climático."
     }
+  },
+  "menu": {
+    "title": "Tarjeta de Reporte",
+    "year": "2025",
+    "downloadPdf": "DESCARGAR PDF",
+    "pastReports": "Reportes Anteriores",
+    "pastReportsLinks": {
+      "2024": "Tarjeta de Reporte 2024",
+      "2023": "Tarjeta de Reporte 2023",
+      "2022": "Tarjeta de Reporte 2022",
+      "2021": "Tarjeta de Reporte 2021"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://instagram.com/oceanops"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/company/oceanops"
+      },
+      "youtube": {
+        "label": "YouTube",
+        "url": "https://youtube.com/@oceanops"
+      }
+    }
   }
 }
