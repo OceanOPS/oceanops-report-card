@@ -23,6 +23,7 @@ import { useTranslation } from 'react-i18next'
  */
 
 export interface MenuItem {
+  id?: string // Section ID for smooth scrolling
   titleKey: string
   accentColor: string
   onClick?: () => void
@@ -95,6 +96,14 @@ export default function MenuSidebar({
   const handleMenuItemClick = (item: MenuItem) => {
     if (item.onClick) {
       item.onClick()
+    } else if (item.id) {
+      // Update URL hash for deep linking
+      window.location.hash = item.id
+      // Scroll to section if ID is provided
+      const element = document.getElementById(item.id)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
     setIsOpen()
   }
@@ -108,7 +117,7 @@ export default function MenuSidebar({
       {/* Hamburger Menu Button - Fixed Top Right */}
       <button
         onClick={() => externalIsOpen !== undefined ? onClose?.() : setInternalIsOpen(true)}
-        className="fixed top-6 right-6 z-50 w-12 h-12 bg-goos-blue-700 hover:bg-goos-blue-600 transition-colors flex flex-col items-center justify-center gap-1.5 rounded"
+        className="fixed top-6 right-6 z-50 w-12 h-12 bg-goos-blue-700 hover:bg-goos-blue-600 transition-colors flex flex-col items-center justify-center gap-1.5 rounded-full"
         aria-label="Open menu"
       >
         <span className="w-6 h-0.5 bg-goos-white"></span>
@@ -135,7 +144,7 @@ export default function MenuSidebar({
           {/* Close Button */}
           <button
             onClick={() => setIsOpen()}
-            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-goos-white hover:bg-goos-blue-800 rounded transition-colors"
+            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-goos-white hover:bg-goos-blue-800 rounded-full transition-colors"
             aria-label="Close menu"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
