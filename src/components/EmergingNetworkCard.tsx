@@ -64,6 +64,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { ReactNode, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Button from './Button'
 import Tooltip from './Tooltip'
 import { GalleryImage } from './ImageGallery'
@@ -285,7 +286,7 @@ export default function EmergingNetworkCard({
       </div>
 
       {/* Media Modal - Gallery uses ContentModal, Video uses simple modal */}
-      {mediaType === 'gallery' && (
+      {mediaType === 'gallery' && createPortal(
         <ContentModal
           isOpen={isMediaModalOpen}
           onClose={() => setIsMediaModalOpen(false)}
@@ -293,10 +294,11 @@ export default function EmergingNetworkCard({
           maxWidth="2xl"
         >
           {modalContent}
-        </ContentModal>
+        </ContentModal>,
+        document.body
       )}
 
-      {mediaType === 'video' && isMediaModalOpen && videoId && videoType && (
+      {mediaType === 'video' && isMediaModalOpen && videoId && videoType && createPortal(
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 p-4"
           onClick={() => setIsMediaModalOpen(false)}
@@ -349,7 +351,8 @@ export default function EmergingNetworkCard({
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </article>
   )
