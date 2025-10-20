@@ -33,11 +33,61 @@ function App() {
     if (hash) {
       // Delay to ensure DOM is fully rendered and page is ready
       setTimeout(() => {
+        (window as any).isScrollingProgrammatically = true
         const element = document.getElementById(hash)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
+        // Reset flag after scroll animation completes
+        setTimeout(() => {
+          (window as any).isScrollingProgrammatically = false
+        }, 1000)
       }, 500)
+    }
+  }, [])
+
+  // Scroll spy - update URL hash based on visible section
+  useEffect(() => {
+    const sections = [
+      'map-section',
+      'networks-section',
+      'emerging-section',
+      'data-section'
+    ]
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px', // Trigger when section is in the middle-upper part of viewport
+      threshold: 0
+    }
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // Don't update hash if we're scrolling programmatically (from menu click or deep link)
+      if ((window as any).isScrollingProgrammatically) return
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id
+          // Only update if hash is different to avoid unnecessary updates
+          if (window.location.hash !== `#${id}`) {
+            window.history.replaceState(null, '', `#${id}`)
+          }
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    // Observe all sections
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => {
+      observer.disconnect()
     }
   }, [])
 

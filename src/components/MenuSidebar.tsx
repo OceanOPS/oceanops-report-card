@@ -106,13 +106,22 @@ export default function MenuSidebar({
 
       // Small delay to let menu close animation start
       setTimeout(() => {
-        // Update URL hash for deep linking
-        window.location.hash = sectionId
+        // Mark that we're scrolling programmatically to prevent scroll spy from updating hash
+        (window as any).isScrollingProgrammatically = true
+
+        // Update URL hash for deep linking using replaceState to avoid history clutter
+        window.history.replaceState(null, '', `#${sectionId}`)
+
         // Scroll to section if ID is provided
         const element = document.getElementById(sectionId)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
+
+        // Reset flag after scroll animation completes
+        setTimeout(() => {
+          (window as any).isScrollingProgrammatically = false
+        }, 1000)
       }, 300) // Match menu transition duration
     } else {
       setIsOpen()
