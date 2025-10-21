@@ -1416,6 +1416,7 @@ function App() {
         isOpen={isPartnerModalOpen}
         onClose={() => setIsPartnerModalOpen(false)}
         countries={partnerCountries}
+        showFlags={true}
       />
 
       {/* LogoStrip Examples */}

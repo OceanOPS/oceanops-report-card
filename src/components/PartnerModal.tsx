@@ -85,6 +85,7 @@ interface CountryNetworks {
 
 interface CountryData {
   name: string
+  countryCode?: string // ISO 3166-1 alpha-2 code for flag display
   description?: string
   networks: CountryNetworks
 }
@@ -94,6 +95,7 @@ interface PartnerModalProps {
   onClose: () => void
   countries: CountryData[]
   titleKey?: string
+  showFlags?: boolean // Show country flags (default: false)
 }
 
 export default function PartnerModal({
@@ -101,6 +103,7 @@ export default function PartnerModal({
   onClose,
   countries,
   titleKey = 'partners.title',
+  showFlags = false,
 }: PartnerModalProps) {
   const { t } = useTranslation()
   const [expandedCountry, setExpandedCountry] = useState<string | null>(null)
@@ -205,7 +208,16 @@ export default function PartnerModal({
                       onClick={() => setExpandedCountry(null)}
                       className="flex items-center justify-between animate-fadeInDown cursor-pointer hover:opacity-90 transition-opacity"
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
+                        {showFlags && country.countryCode && (
+                          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-goos-blue-700 flex-shrink-0">
+                            <img
+                              src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
+                              alt={`${country.name} flag`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        )}
                         <h2 className="text-4xl text-goos-blue-700 font-normal">{country.name}</h2>
                         <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold">
                           {activeNetworks} {t('partners.networksLabel')}
@@ -274,7 +286,16 @@ export default function PartnerModal({
                     className="bg-goos-blue-800 py-4 px-8 animate-fadeIn cursor-pointer hover:opacity-90 transition-opacity"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
+                        {showFlags && country.countryCode && (
+                          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-goos-white flex-shrink-0">
+                            <img
+                              src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
+                              alt={`${country.name} flag`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        )}
                         <h3 className="text-4xl text-goos-white font-normal">{country.name}</h3>
                         <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold">
                           {activeNetworks} {t('partners.networksLabel')}
