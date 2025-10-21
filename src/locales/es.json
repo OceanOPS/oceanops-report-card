@@ -332,5 +332,26 @@
         "url": "https://youtube.com/@oceanops"
       }
     }
+  },
+  "partners": {
+    "title": "Nuestros Socios",
+    "networksLabel": "Redes",
+    "platformsLabel": "Plataformas",
+    "networks": {
+      "driftingBuoys": "Boyas a la deriva - DBCP",
+      "argo": "Flotadores perfiladores - Argo",
+      "oceanGliders": "OceanGliders",
+      "aniBOS": "Sensores en animales - AniBOS",
+      "fvon": "Sondas en barcos pesqueros - FVON",
+      "sotVos": "Meteorológico basado en barcos - SOT/VOS",
+      "sotAsap": "Meteorológico basado en barcos - SOT/ASAP",
+      "sot": "Oceanográfico basado en barcos - SOT",
+      "goShip": "Transectos repetidos - GO-SHIP",
+      "gloss": "Mareógrafos - GLOSS",
+      "oceanSites": "Sitios de series temporales - OceanSITES",
+      "mooredBuoys": "Boyas fondeadas - DBCP",
+      "tsunamiBuoys": "Boyas de tsunami - DBCP",
+      "hfRadars": "Radares HF"
+    }
   }
 }

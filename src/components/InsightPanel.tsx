@@ -88,6 +88,15 @@ type ButtonConfig =
       iconColor?: string
       iconBgColor?: string
     }
+  | {
+      variant: 'action'
+      label: string
+      onClick: () => void
+      textColor?: string
+      bgColor?: string
+      iconColor?: string
+      iconBgColor?: string
+    }
 
 interface StatItem {
   number: string

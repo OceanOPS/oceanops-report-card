@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import CoverModule from './components/CoverModule'
+import PartnerModal from './components/PartnerModal'
+import { partnerCountries } from './data/partnerCountries'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
@@ -26,6 +28,7 @@ import MenuSidebar from './components/MenuSidebar'
 
 function App() {
   const { t } = useTranslation()
+  const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
 
   // Handle deep linking - scroll to section if hash is present in URL
   useEffect(() => {
@@ -1252,9 +1255,9 @@ function App() {
         largeNumber="129"
         largeNumberDescription="Lorem ipsum dolor sit amet aliqua."
         button={{
-          variant: 'link',
+          variant: 'action',
           label: 'VIEW FULL LIST',
-          url: 'https://www.ocean-ops.org',
+          onClick: () => setIsPartnerModalOpen(true),
           textColor: 'text-white',
           bgColor: 'bg-goos-blue-900',
         }}
@@ -1396,6 +1399,23 @@ function App() {
         textColor="text-white"
         numberColor="text-white"
         linkColor="text-white"
+      />
+
+      {/* Partner Modal Example - View Full List Button */}
+      <div className="bg-goos-blue-700 py-12 px-12 flex justify-center">
+        <button
+          onClick={() => setIsPartnerModalOpen(true)}
+          className="bg-goos-orange-500 hover:bg-goos-orange-600 text-white font-bold py-4 px-8 rounded-lg text-xl transition-colors"
+        >
+          View Full Partner List
+        </button>
+      </div>
+
+      {/* Partner Modal Component */}
+      <PartnerModal
+        isOpen={isPartnerModalOpen}
+        onClose={() => setIsPartnerModalOpen(false)}
+        countries={partnerCountries}
       />
 
       {/* LogoStrip Examples */}

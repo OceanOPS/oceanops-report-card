@@ -332,5 +332,26 @@
         "url": "https://youtube.com/@oceanops"
       }
     }
+  },
+  "partners": {
+    "title": "Our Partners",
+    "networksLabel": "Networks",
+    "platformsLabel": "Platforms",
+    "networks": {
+      "driftingBuoys": "Drifting buoys - DBCP",
+      "argo": "Profiling floats - Argo",
+      "oceanGliders": "OceanGliders",
+      "aniBOS": "Animal borne sensors - AniBOS",
+      "fvon": "Fishing vessel probes - FVON",
+      "sotVos": "Ship based meteorological - SOT/VOS",
+      "sotAsap": "Ship based meteorological - SOT/ASAP",
+      "sot": "Ship based oceanographic - SOT",
+      "goShip": "Repeated transects - GO-SHIP",
+      "gloss": "Sea level gauges - GLOSS",
+      "oceanSites": "Time series sites - OceanSITES",
+      "mooredBuoys": "Moored Buoys - DBCP",
+      "tsunamiBuoys": "Tsunami Buoys - DBCP",
+      "hfRadars": "HF radars"
+    }
   }
 }
