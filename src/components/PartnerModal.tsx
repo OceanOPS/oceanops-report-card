@@ -173,23 +173,36 @@ export default function PartnerModal({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-7xl bg-goos-blue-900 shadow-xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-7xl bg-goos-white shadow-xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-goos-blue-900 border-b border-goos-blue-800 px-12 py-6 flex items-center justify-between z-10">
-          <h1 className="text-2xl font-extrabold text-goos-white">{t(titleKey)}</h1>
+        <div className="sticky top-0 bg-goos-white border-b border-gray-200 px-8 py-4 flex items-center justify-between z-10">
+          <h2 className="text-lg font-extrabold text-goos-blue-700">{t(titleKey)}</h2>
           <button
             onClick={onClose}
-            className="w-10 h-10 rounded-full bg-goos-white flex items-center justify-center hover:bg-gray-200 transition-colors"
+            className="ml-auto text-gray-500 hover:text-gray-700 transition-colors"
             aria-label="Close modal"
           >
-            <span className="text-goos-blue-900 text-2xl leading-none">×</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </div>
 
         {/* Content */}
-        <div className="px-12 py-6 space-y-2">
+        <div className="px-0 py-0 space-y-0">
           {countries.map((country) => {
             const { activeNetworks, totalPlatforms } = getCountryTotals(country.networks)
             const isExpanded = expandedCountry === country.name
@@ -202,7 +215,7 @@ export default function PartnerModal({
               >
                 {isExpanded ? (
                   // Expanded Card
-                  <div className="bg-goos-white p-8 space-y-8 animate-expandIn">
+                  <div className="bg-goos-white border-t border-goos-gray-400 px-8 py-8 space-y-8 animate-expandIn">
                     {/* Country Header - Entire header is clickable */}
                     <div
                       onClick={() => setExpandedCountry(null)}
@@ -226,9 +239,9 @@ export default function PartnerModal({
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
                       </div>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M19 13H5v-2h14v2z" fill="#184596" />
+                          <path d="M19 13H5v-2h14v2z" fill="#f0f0f0" />
                         </svg>
                       </div>
                     </div>
@@ -283,7 +296,7 @@ export default function PartnerModal({
                   // Collapsed Card - Entire card is clickable
                   <div
                     onClick={() => handleExpand(country.name)}
-                    className="bg-goos-blue-800 py-4 px-8 animate-fadeIn cursor-pointer hover:opacity-90 transition-opacity"
+                    className="bg-goos-white border-t border-goos-gray-400 px-8 py-8 animate-fadeIn cursor-pointer hover:opacity-90 transition-opacity"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -296,7 +309,7 @@ export default function PartnerModal({
                             />
                           </div>
                         )}
-                        <h3 className="text-4xl text-goos-white font-normal">{country.name}</h3>
+                        <h3 className="text-4xl text-goos-gray-800 font-normal">{country.name}</h3>
                         <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold">
                           {activeNetworks} {t('partners.networksLabel')}
                         </span>
@@ -304,7 +317,7 @@ export default function PartnerModal({
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
                       </div>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#f0f0f0" />
                         </svg>
