@@ -163,25 +163,11 @@ export default function NetworkCarousel({
         {/* Title Section */}
         {title && (
           <div className="px-12 md:px-16">
-            <div className="flex justify-between items-start gap-8">
-              <div className="flex flex-col gap-6">
-                {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
-                <h3 className={`text-4xl font-extrabold ${titleColor} leading-10`}>
-                  {t(title)}
-                </h3>
-              </div>
-              <div className="flex gap-4 mt-8">
-                <CarouselArrow
-                  direction="left"
-                  color={arrowColor}
-                  onClick={scrollPrev}
-                />
-                <CarouselArrow
-                  direction="right"
-                  color={arrowColor}
-                  onClick={scrollNext}
-                />
-              </div>
+            <div className="flex flex-col gap-6">
+              {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
+              <h3 className={`text-4xl font-extrabold ${titleColor} leading-10`}>
+                {t(title)}
+              </h3>
             </div>
           </div>
         )}
@@ -195,7 +181,7 @@ export default function NetworkCarousel({
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex-[0_0_auto] min-w-0 mr-12"
+              className="flex-[0_0_auto] min-w-0 mr-16"
               style={{ flexBasis: '400px' }}
             >
               <NetworkCard
@@ -211,20 +197,37 @@ export default function NetworkCarousel({
         </div>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="flex justify-center gap-2 px-12 md:px-16 py-4">
-        {cards.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollTo(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === selectedIndex
-                ? 'bg-white w-8'
-                : 'bg-white opacity-30 hover:opacity-50'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
+      {/* Navigation Controls: Dots (left) + Arrows (right) */}
+      <div className="flex justify-between items-center px-12 md:px-16 py-4">
+        {/* Pagination Dots - Left aligned */}
+        <div className="flex gap-2">
+          {cards.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === selectedIndex
+                  ? 'bg-white w-8'
+                  : 'bg-white opacity-30 hover:opacity-50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Navigation Arrows - Right aligned */}
+        <div className="flex gap-4">
+          <CarouselArrow
+            direction="left"
+            color={arrowColor}
+            onClick={scrollPrev}
           />
-        ))}
+          <CarouselArrow
+            direction="right"
+            color={arrowColor}
+            onClick={scrollNext}
+          />
+        </div>
       </div>
 
       {/* Bottom spacer */}

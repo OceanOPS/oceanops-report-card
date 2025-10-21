@@ -137,12 +137,12 @@ export default function MenuSidebar({
       {/* Hamburger Menu Button - Fixed Top Right */}
       <button
         onClick={() => externalIsOpen !== undefined ? onClose?.() : setInternalIsOpen(true)}
-        className="fixed top-6 right-6 z-50 w-12 h-12 bg-goos-blue-700 hover:bg-goos-blue-600 transition-colors flex flex-col items-center justify-center gap-1.5 rounded-full"
+        className="fixed top-16 right-16 z-50 w-16 h-16 bg-goos-blue-700 hover:bg-goos-blue-600 transition-colors flex flex-col items-center justify-center gap-2 rounded-full"
         aria-label="Open menu"
       >
-        <span className="w-6 h-0.5 bg-goos-white"></span>
-        <span className="w-6 h-0.5 bg-goos-white"></span>
-        <span className="w-6 h-0.5 bg-goos-white"></span>
+        <span className="w-8 h-0.5 bg-goos-white"></span>
+        <span className="w-8 h-0.5 bg-goos-white"></span>
+        <span className="w-8 h-0.5 bg-goos-white"></span>
       </button>
 
       {/* Overlay */}
