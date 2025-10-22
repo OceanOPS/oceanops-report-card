@@ -177,11 +177,11 @@ export default function PartnerModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-goos-white border-b border-gray-200 px-8 py-4 flex items-center justify-between z-10">
-          <h2 className="text-lg font-extrabold text-goos-blue-700">{t(titleKey)}</h2>
+        <div className="sticky top-0 bg-goos-blue-900 border-b border-blue-900 px-8 py-8 flex items-center justify-between z-10">
+          <h2 className="text-lg font-extrabold text-goos-white">{t(titleKey)}</h2>
           <button
             onClick={onClose}
-            className="ml-auto text-gray-500 hover:text-gray-700 transition-colors"
+            className="ml-auto text-white hover:text-gray-200 transition-colors"
             aria-label="Close modal"
           >
             <svg
@@ -202,7 +202,7 @@ export default function PartnerModal({
         </div>
 
         {/* Content */}
-        <div className="px-0 py-0 space-y-0">
+        <div className="px-8 py-8 space-y-1 bg-goos-blue-900">
           {countries.map((country) => {
             const { activeNetworks, totalPlatforms } = getCountryTotals(country.networks)
             const isExpanded = expandedCountry === country.name
@@ -296,7 +296,7 @@ export default function PartnerModal({
                   // Collapsed Card - Entire card is clickable
                   <div
                     onClick={() => handleExpand(country.name)}
-                    className="bg-goos-white border-t border-goos-gray-400 px-8 py-8 animate-fadeIn cursor-pointer hover:opacity-90 transition-opacity"
+                    className="bg-goos-blue-800 px-8 py-8 animate-fadeIn cursor-pointer hover:opacity-90 transition-opacity"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -309,7 +309,7 @@ export default function PartnerModal({
                             />
                           </div>
                         )}
-                        <h3 className="text-4xl text-goos-gray-800 font-normal">{country.name}</h3>
+                        <h3 className="text-4xl text-goos-white font-normal">{country.name}</h3>
                         <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold">
                           {activeNetworks} {t('partners.networksLabel')}
                         </span>
