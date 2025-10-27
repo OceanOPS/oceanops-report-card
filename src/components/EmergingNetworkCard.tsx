@@ -68,19 +68,20 @@ import Button from './Button'
 import Tooltip from './Tooltip'
 import { GalleryImage } from './ImageGallery'
 import ContentModal from './ContentModal'
+import { asset } from '../utils/assets'
 
 // Reuse the same delivery areas configuration from NetworkCard
 const DELIVERY_AREAS_CONFIG = {
   climate: {
-    icon: '/icons/climate.png',
+    icon: asset('/icons/climate.png'),
     labelKey: 'networks.deliveryAreas.climate',
   },
   operational: {
-    icon: '/icons/operational_services.png',
+    icon: asset('/icons/operational_services.png'),
     labelKey: 'networks.deliveryAreas.operational',
   },
   oceanhealth: {
-    icon: '/icons/ocean_health.png',
+    icon: asset('/icons/ocean_health.png'),
     labelKey: 'networks.deliveryAreas.oceanhealth',
   },
 } as const

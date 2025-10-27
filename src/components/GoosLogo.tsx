@@ -20,6 +20,7 @@
  */
 
 import { useTranslation } from 'react-i18next'
+import { asset } from '../utils/assets'
 
 interface GoosLogoProps {
   variant?: 'white' | 'color'
@@ -30,7 +31,7 @@ export default function GoosLogo({ variant = 'white', className = '' }: GoosLogo
   const { t } = useTranslation()
 
   const logoSuffix = variant === 'white' ? '-w' : ''
-  const logoSrc = `/logos/goos-logo${logoSuffix}.png`
+  const logoSrc = asset(`/logos/goos-logo${logoSuffix}.png`)
 
   return (
     <div className={`h-28 ${className}`}>

@@ -20,6 +20,7 @@ import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
 import VideoModal from './components/VideoModal'
 import Button from './components/Button'
+import { asset } from './utils/assets'
 
 function App() {
   const { t } = useTranslation()
@@ -43,22 +44,22 @@ function App() {
         backgroundBlendMode="luminosity"   // Uses luminosity of video with color of background
         // Background Image or Video
         mediaType="video"
-        backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
+        backgroundMedia={asset("/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm")}
       />
 
       {/* Hero Image Grid */}
       <ImageGrid
         images={[
           {
-            src: '/images/content.jpg',
+            src: asset('/images/content.jpg'),
             alt: t('hero.images.image1'),
           },
           {
-            src: '/images/content2.jpg',
+            src: asset('/images/content2.jpg'),
             alt: t('hero.images.image2'),
           },
           {
-            src: '/images/content3.jpg',
+            src: asset('/images/content3.jpg'),
             alt: t('hero.images.image3'),
           },
         ]}
@@ -74,7 +75,7 @@ function App() {
         mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
         mapAlt="Global platform distribution map"
         mapType="iframe"
-        mapHeight="900"
+        mapHeight={900}
         backgroundColor="bg-goos-blue-700"
         titleColor="text-white"
         textColor="text-white"
@@ -89,9 +90,9 @@ function App() {
         lineColor="bg-goos-orange-500"
         cards={[
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'networks.argo.iconAlt',
-            iconBgColor: 'bg-goos-blue-100',
+            // iconBgColor: 'bg-goos-blue-100',
             titleKey: 'networks.argo.title',
             networkUrl: 'https://argo.ucsd.edu',
             networkLinkKey: 'networks.viewNetwork',
@@ -106,9 +107,9 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'networks.doos.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
+            // iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.doos.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -123,9 +124,9 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'networks.sot.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
+            // iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.sot.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -140,9 +141,9 @@ function App() {
             deliveryAreas: ['climate'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: asset('icons/network/vos.svg'),
             iconAlt: 'networks.gliders.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
+            // iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.gliders.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -157,9 +158,9 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'networks.dbcp.iconAlt',
-            iconBgColor: 'bg-goos-blue-200',
+            // iconBgColor: 'bg-goos-blue-200',
             titleKey: 'networks.dbcp.title',
             networkUrl: 'https://example.com',
             networkLinkKey: 'networks.viewNetwork',
@@ -192,9 +193,9 @@ function App() {
           {
             // Example 1: Single image (no overlay)
             mediaType: 'image',
-            imageSrc: '/images/content.jpg',
+            imageSrc: asset('/images/content.jpg'),
             imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -217,11 +218,11 @@ function App() {
             // Example 2: Image gallery (with gallery icon overlay)
             mediaType: 'gallery',
             images: [
-              { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
-              { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
-              { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
+              { src: asset('/images/content.jpg'), alt: 'Gallery image 1', caption: 'First image caption' },
+              { src: asset('/images/content2.jpg'), alt: 'Gallery image 2', caption: 'Second image caption' },
+              { src: asset('/images/content3.jpg'), alt: 'Gallery image 3', caption: 'Third image caption' },
             ],
-            iconSrc: 'public/icons/network/vos.svg',
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -231,9 +232,9 @@ function App() {
                 {/* Image Gallery */}
                 <ImageGallery
                   images={[
-                    { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
-                    { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
-                    { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
+                    { src: asset('/images/content.jpg'), alt: 'Gallery image 1', caption: 'First image caption' },
+                    { src: asset('/images/content2.jpg'), alt: 'Gallery image 2', caption: 'Second image caption' },
+                    { src: asset('/images/content3.jpg'), alt: 'Gallery image 3', caption: 'Third image caption' },
                   ]}
                   aspectRatio="video"
                   objectFit="cover"
@@ -253,9 +254,9 @@ function App() {
             // Example 3: Video (with play icon overlay)
             mediaType: 'video',
             videoType: 'local',
-            videoId: '/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm',
-            previewImage: '/images/content3.jpg',
-            iconSrc: 'public/icons/network/vos.svg',
+            videoId: asset('/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm'),
+            previewImage: asset('/images/content3.jpg'),
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             descriptionKey: 'emerging.smartCables.description',
@@ -335,7 +336,7 @@ function App() {
           quote={t('content.section1.quote.text')}
           authorName={t('content.section1.quote.authorName')}
           authorTitle={t('content.section1.quote.authorTitle')}
-          logoSrc="/logos/oceanops.png"
+          logoSrc={asset("/logos/oceanops.png")}
           logoAlt={t('content.section1.quote.logoAlt')}
           quoteColor="text-goos-blue-700"
           authorColor="text-goos-blue-700"
@@ -449,10 +450,10 @@ function App() {
           ]}
           rows={[
             [
-              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col1') },
-              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col2') },
-              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col3') },
-              { icon: '/images/surface-temperature.png', iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col3') },              
+              { icon: asset('/images/surface-temperature.png'), iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col1') },
+              { icon: asset('/images/surface-temperature.png'), iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col2') },
+              { icon: asset('/images/surface-temperature.png'), iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col3') },
+              { icon: asset('/images/surface-temperature.png'), iconSize: 'h-16', legend: t('content.section1.iconTable.rows.row1.col3') },              
             ],
           ]}
           borderColor="border-goos-blue-700"
@@ -477,7 +478,7 @@ function App() {
 
         {/* Image with Caption */}
         <ImageCaption
-          src="/images/content3.jpg"
+          src={asset("/images/content3.jpg")}
           alt={t('content.section1.image.alt')}
           caption={t('content.section1.image.caption')}
           aspectRatio="video"
@@ -492,17 +493,17 @@ function App() {
         <ImageGallery
           images={[
             {
-              src: '/images/content.jpg',
+              src: asset('/images/content.jpg'),
               alt: t('content.section1.gallery.image1.alt'),
               caption: t('content.section1.gallery.image1.caption'),
             },
             {
-              src: '/images/content2.jpg',
+              src: asset('/images/content2.jpg'),
               alt: t('content.section1.gallery.image2.alt'),
               caption: t('content.section1.gallery.image2.caption'),
             },
             {
-              src: '/images/content3.jpg',
+              src: asset('/images/content3.jpg'),
               alt: t('content.section1.gallery.image3.alt'),
               caption: t('content.section1.gallery.image3.caption'),
             },
@@ -523,7 +524,7 @@ function App() {
         <VideoModal
           videoType="youtube"
           videoId="dQw4w9WgXcQ"
-          previewImage="/images/content2.jpg"
+          previewImage={asset("/images/content2.jpg")}
           previewAlt={t('content.section1.video.previewAlt')}
           caption={t('content.section1.video.caption')}
           playButtonColor="bg-goos-orange-500"
@@ -536,8 +537,8 @@ function App() {
          {/* Video Modal - Local Video Example */}
         <VideoModal
           videoType="local"
-          videoId="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
-          previewImage="/images/content3.jpg"
+          videoId={asset("/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm")}
+          previewImage={asset("/images/content3.jpg")}
           previewAlt={t('content.section1.video.previewAlt')}
           caption={t('content.section1.video.caption')}
           playButtonColor="bg-goos-orange-500"
@@ -575,7 +576,7 @@ function App() {
             label={t('content.section1.buttons.watchVideo')}
             videoType="youtube"
             videoId="dQw4w9WgXcQ"
-            previewImage="/images/content.jpg"
+            previewImage={asset("/images/content.jpg")}
             textColor="text-white"
             bgColor="bg-goos-orange-600"
             iconColor="text-goos-orange-600"
@@ -620,7 +621,7 @@ function App() {
 
                 {/* Image with Caption */}
                 <ImageCaption
-                  src="/images/content.jpg"
+                  src={asset("/images/content.jpg")}
                   alt={t('content.section1.image.alt')}
                   caption={t('content.section1.image.caption')}
                   aspectRatio="video"
@@ -749,17 +750,17 @@ function App() {
                 <ImageGallery
                   images={[
                     {
-                      src: '/images/content.jpg',
+                      src: asset('/images/content.jpg'),
                       alt: t('content.section1.gallery.image1.alt'),
                       caption: t('content.section1.gallery.image1.caption'),
                     },
                     {
-                      src: '/images/content2.jpg',
+                      src: asset('/images/content2.jpg'),
                       alt: t('content.section1.gallery.image2.alt'),
                       caption: t('content.section1.gallery.image2.caption'),
                     },
                     {
-                      src: '/images/content3.jpg',
+                      src: asset('/images/content3.jpg'),
                       alt: t('content.section1.gallery.image3.alt'),
                       caption: t('content.section1.gallery.image3.caption'),
                     },
@@ -877,17 +878,17 @@ function App() {
         <ImageGallery
           images={[
             {
-              src: '/images/content.jpg',
+              src: asset('/images/content.jpg'),
               alt: t('content.section1.gallery.image1.alt'),
               caption: t('content.section1.gallery.image1.caption'),
             },
             {
-              src: '/images/content2.jpg',
+              src: asset('/images/content2.jpg'),
               alt: t('content.section1.gallery.image2.alt'),
               caption: t('content.section1.gallery.image2.caption'),
             },
             {
-              src: '/images/content3.jpg',
+              src: asset('/images/content3.jpg'),
               alt: t('content.section1.gallery.image3.alt'),
               caption: t('content.section1.gallery.image3.caption'),
             },
@@ -911,9 +912,9 @@ function App() {
         quote={t('content.section1.quote.text')}
         authorName={t('content.section1.quote.authorName')}
         authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/content.jpg"
+        imageSrc={asset("/images/content.jpg")}
         imageAlt="Ocean research professional"
-        logoSrc="/logos/oceanops.png"
+        logoSrc={asset("/logos/oceanops.png")}
         logoAlt="OceanOPS Logo"
         height="fullscreen"
         imagePosition="left"
@@ -928,7 +929,7 @@ function App() {
         quote={t('content.section1.quote.text')}
         authorName={t('content.section1.quote.authorName')}
         authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/content2.jpg"
+        imageSrc={asset("/images/content2.jpg")}
         imageAlt="Marine scientist at work"
         height="auto"
         imagePosition="right"
@@ -943,7 +944,7 @@ function App() {
         quote={t('content.section1.quote.text')}
         authorName={t('content.section1.quote.authorName')}
         authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/content3.jpg"
+        imageSrc={asset("/images/content3.jpg")}
         imageAlt="Ocean waves"
         height="fullscreen"
         imagePosition="left"
@@ -958,7 +959,7 @@ function App() {
         quote={t('content.section1.quote.text')}
         authorName={t('content.section1.quote.authorName')}
         authorTitle={t('content.section1.quote.authorTitle')}
-        logoSrc="/logos/oceanops.png"
+        logoSrc={asset("/logos/oceanops.png")}
         height="auto"
         backgroundColor="bg-goos-blue-700"
         quoteColor="text-white"
@@ -1127,15 +1128,15 @@ function App() {
       {/* Example 1: 9 logos with blue background */}
       <LogoStrip
         logos={[
-          { src: '/logos/oceanops-w.png', altKey: 'logos.oceanops', url: 'https://www.ocean-ops.org' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner1', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner2', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner3', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner4', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner5', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner6', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner7', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner8', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.oceanops', url: 'https://www.ocean-ops.org' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner1', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner2', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner3', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner4', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner5', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner6', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner7', url: 'https://example.com' },
+          { src: asset('/logos/oceanops-w.png'), altKey: 'logos.partner8', url: 'https://example.com' },
         ]}
         backgroundColor="bg-goos-blue-700"
       />
