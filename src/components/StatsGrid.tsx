@@ -1,10 +1,15 @@
 /**
  * StatsGrid Component
  *
- * A 2x2 grid of statistics, each with a number, description, and optional link.
+ * A flexible grid of statistics, each with a number, description, and optional link.
  * Designed to be used within ContentModule or other content sections.
  *
  * @param stats - Array of stat objects (required, 1-4 items)
+ * @param columns - Number of columns (2 or 4, default: 2)
+ * @param title - Optional title text
+ * @param hasLine - Show decorative line above title (default: false)
+ * @param lineColor - Tailwind background color for decorative line (default: 'bg-goos-orange-500')
+ * @param titleColor - Tailwind text color for title (default: 'text-goos-blue-700')
  * @param numberColor - Tailwind text color for the numbers (default: 'text-goos-blue-700')
  * @param textColor - Tailwind text color for descriptions (default: 'text-goos-gray-800')
  * @param linkColor - Tailwind text color for links (default: 'text-goos-gray-800')
@@ -13,6 +18,9 @@
  * @example
  * ```tsx
  * <StatsGrid
+ *   title="Networks by the numbers"
+ *   hasLine={true}
+ *   lineColor="bg-goos-orange-500"
  *   stats={[
  *     {
  *       number: '$45M',
@@ -25,6 +33,7 @@
  *       description: 'Another stat description'
  *     }
  *   ]}
+ *   columns={4}
  *   numberColor="text-goos-blue-700"
  * />
  * ```
@@ -39,6 +48,11 @@ export interface StatItem {
 
 interface StatsGridProps {
   stats: StatItem[]
+  columns?: 2 | 4
+  title?: string
+  hasLine?: boolean
+  lineColor?: string
+  titleColor?: string
   numberColor?: string
   textColor?: string
   linkColor?: string
@@ -47,13 +61,32 @@ interface StatsGridProps {
 
 export default function StatsGrid({
   stats,
+  columns = 2,
+  title,
+  hasLine = false,
+  lineColor = 'bg-goos-orange-500',
+  titleColor = 'text-goos-blue-700',
   numberColor = 'text-goos-blue-700',
   textColor = 'text-goos-gray-800',
   linkColor = 'text-goos-gray-800',
   className = '',
 }: StatsGridProps) {
+  const gridColsClass = columns === 4 ? 'grid-cols-4' : 'grid-cols-2'
+
   return (
-    <div className={`grid grid-cols-2 gap-8 ${className}`}>
+    <div className={className}>
+      {/* Optional decorative line */}
+      {hasLine && <div className={`${lineColor} h-2 w-32 mb-6`}></div>}
+
+      {/* Optional title */}
+      {title && (
+        <h3 className={`text-4xl font-extrabold ${titleColor} leading-10 mb-16`}>
+          {title}
+        </h3>
+      )}
+
+      {/* Stats Grid */}
+      <div className={`grid ${gridColsClass} gap-8`}>
       {stats.map((stat, index) => (
         <div key={index} className="flex flex-col gap-2">
           {/* Stat Number */}
@@ -79,6 +112,7 @@ export default function StatsGrid({
           )}
         </div>
       ))}
+      </div>
     </div>
   )
 }

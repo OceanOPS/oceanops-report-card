@@ -49,30 +49,23 @@
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
       },
+      "statsTitle": "Networks by the numbers",
       "stats": {
         "stat1": {
-          "number": "$45M",
-          "description": "Annual investment in global ocean observing infrastructure and operations",
-          "linkText": "View Report",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "64",
+          "description": "contributing countries"
         },
         "stat2": {
-          "number": "$400B",
-          "description": "Economic value of ocean observations for weather forecasting and climate services",
-          "linkText": "Learn More",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "13",
+          "description": "global ocean observing networks (+4 emerging)"
         },
         "stat3": {
-          "number": "7,500+",
-          "description": "Active ocean observing platforms monitored by OceanOPS worldwide",
-          "linkText": "View Dashboard",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "9,897",
+          "description": "ocean observing platforms"
         },
         "stat4": {
-          "number": "100+",
-          "description": "Countries contributing to the global ocean observing system",
-          "linkText": "Explore Map",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "120,000+",
+          "description": "ocean observations per day"
         }
       },
       "table": {

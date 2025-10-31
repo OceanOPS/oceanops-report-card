@@ -238,6 +238,38 @@ function App() {
         />
       </ContentModule>
 
+      {/* Stats Grid - 4x1 */}
+      <div className="bg-goos-blue-900 px-12 md:px-16 py-16">
+        <StatsGrid
+          title={t('content.section1.statsTitle')}
+          hasLine={true}
+          lineColor="bg-goos-orange-600"
+          titleColor="text-goos-white"
+          columns={4}
+          stats={[
+            {
+              number: t('content.section1.stats.stat1.number'),
+              description: t('content.section1.stats.stat1.description'),
+            },
+            {
+              number: t('content.section1.stats.stat2.number'),
+              description: t('content.section1.stats.stat2.description'),
+            },
+            {
+              number: t('content.section1.stats.stat3.number'),
+              description: t('content.section1.stats.stat3.description'),
+            },
+            {
+              number: t('content.section1.stats.stat4.number'),
+              description: t('content.section1.stats.stat4.description'),
+            },
+          ]}
+          numberColor="text-goos-orange-500"
+          textColor="text-goos-white"
+          linkColor="text-goos-white"
+        />
+      </div>
+
       <div id="map-section">
       {/* Example 1: With interactive ArcGIS map - Full viewport height */}
       <MapStatsPanel

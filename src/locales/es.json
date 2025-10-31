@@ -49,30 +49,23 @@
         "authorTitle": "Director de OceanOPS",
         "logoAlt": "Logo OceanOPS"
       },
+      "statsTitle": "Las redes en números",
       "stats": {
         "stat1": {
-          "number": "$45M",
-          "description": "Inversión anual en infraestructura y operaciones de observación oceánica global",
-          "linkText": "Ver Informe",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "64",
+          "description": "países contribuyentes"
         },
         "stat2": {
-          "number": "$400B",
-          "description": "Valor económico de las observaciones oceánicas para pronósticos meteorológicos y servicios climáticos",
-          "linkText": "Más Información",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "13",
+          "description": "redes globales de observación del océano (+4 emergentes)"
         },
         "stat3": {
-          "number": "7,500+",
-          "description": "Plataformas activas de observación oceánica monitoreadas por OceanOPS en todo el mundo",
-          "linkText": "Ver Panel",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "9,897",
+          "description": "plataformas de observación del océano"
         },
         "stat4": {
-          "number": "100+",
-          "description": "Países que contribuyen al sistema global de observación del océano",
-          "linkText": "Explorar Mapa",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "120,000+",
+          "description": "observaciones oceánicas por día"
         }
       },
       "table": {
