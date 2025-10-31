@@ -286,10 +286,9 @@
     }
   },
   "dataBlock": {
+    "title": "Biological and Ecosystem Observations",
     "introduction": {
-      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the eyes of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
-      "paragraph2": "These platforms collect physical, biogeochemical and biological Essential Ocean and Climate Variables.",
-      "paragraph3": "These observations flow into data systems and are crucial for tracking, predicting and adapting to climate change, accurate weather and extreme event prediction, monitoring biodiversity for achieving key global targets, and informing sound decisions by local communities and national governments around sustainable development."
+      "paragraph1": "GOOS biological and ecosystem observations, coordinated by the GOOS Biology and Ecosystems Expert Panel, are organized differently from those for ocean physics and biogeochemistry because of the distinct nature of the communities and complexity of the information needs. These observations are carried out by observing communities collecting data on the 12 biological and ecological Essential Ocean Variables (EOVs). These EOV communities bring together numerous independent monitoring initiatives worldwide to deliver the complex data vital to evaluate the status of marine life."
     }
   },
   "dataCards": {
@@ -298,48 +297,48 @@
       "title": "Marine birds abundance and distribution"
     },
     "card2": {
-      "tag": "Platforms",
-      "title": "Active Argo floats"
+      "tag": "Programmes",
+      "title": "Fish abundance and distribution"
     },
     "card3": {
-      "tag": "Networks",
-      "title": "Ocean observing networks"
+      "tag": "Programmes",
+      "title": "Hard coral cover and composition"
     },
     "card4": {
-      "tag": "Countries",
-      "title": "Contributing nations"
+      "tag": "Programmes",
+      "title": "Invertebrate abundance and distribution"
     },
     "card5": {
-      "tag": "Variables",
-      "title": "Essential ocean variables"
+      "tag": "Programmes",
+      "title": "Macroalgal canopy cover and composition"
     },
     "card6": {
-      "tag": "Sensors",
-      "title": "Active ocean sensors"
+      "tag": "Programmes",
+      "title": "Marine mammals abundance and distribution"
     },
     "card7": {
-      "tag": "Species",
-      "title": "Marine species monitored"
+      "tag": "Programmes",
+      "title": "Mangrove cover and composition"
     },
     "card8": {
-      "tag": "Regions",
-      "title": "Ocean observation areas"
+      "tag": "Programmes",
+      "title": "Microbe biomass and diversity"
     },
     "card9": {
-      "tag": "Gliders",
-      "title": "Autonomous underwater gliders"
+      "tag": "Programmes",
+      "title": "Phytoplankton biomass and diversity"
     },
     "card10": {
-      "tag": "Moorings",
-      "title": "Fixed ocean moorings"
+      "tag": "Programmes",
+      "title": "Seagrass cover and composition"
     },
     "card11": {
-      "tag": "Ships",
-      "title": "Research vessels active"
+      "tag": "Programmes",
+      "title": "Marine turtles abundance and distribution"
     },
     "card12": {
-      "tag": "Data Points",
-      "title": "Annual observations collected"
+      "tag": "Programmes",
+      "title": "Zooplankton biomass and diversity"
     }
   },
   "contentBox": {

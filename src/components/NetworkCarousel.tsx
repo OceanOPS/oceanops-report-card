@@ -63,11 +63,11 @@ import NetworkCard from './NetworkCard'
 import CarouselArrow from './CarouselArrow'
 
 interface NetworkRatings {
-  implementationStatus: number
-  realTime: number
-  archivedHighQuality: number
-  metadata: number
-  bestPractices: number
+  implementationStatus: number | string
+  realTime: number | string
+  archivedHighQuality: number | string
+  metadata: number | string
+  bestPractices: number | string
 }
 
 type DeliveryAreaKey = 'climate' | 'operational' | 'oceanhealth'

@@ -170,10 +170,9 @@
     }
   },
   "dataBlock": {
+    "title": "Observations Biologiques et des Écosystèmes",
     "introduction": {
-      "paragraph1": "Le Système mondial d'observation de l'océan (GOOS) observe notre océan à travers les yeux de milliers de plateformes d'observation océanique qui surveillent constamment l'océan pour capturer la signature de divers phénomènes océaniques.",
-      "paragraph2": "Ces plateformes collectent des Variables océaniques et climatiques essentielles physiques, biogéochimiques et biologiques.",
-      "paragraph3": "Ces observations alimentent les systèmes de données et sont cruciales pour suivre, prédire et s'adapter au changement climatique, la prévision précise de la météo et des événements extrêmes, la surveillance de la biodiversité pour atteindre des objectifs mondiaux clés, et informer des décisions solides par les communautés locales et les gouvernements nationaux autour du développement durable."
+      "paragraph1": "Les observations biologiques et écosystémiques du GOOS, coordonnées par le Panel d'Experts en Biologie et Écosystèmes du GOOS, sont organisées différemment de celles de la physique et de la biogéochimie océaniques en raison de la nature distincte des communautés et de la complexité des besoins en information. Ces observations sont réalisées par des communautés d'observation collectant des données sur les 12 Variables Océaniques Essentielles (EOV) biologiques et écologiques. Ces communautés d'EOV rassemblent de nombreuses initiatives de surveillance indépendantes dans le monde entier pour fournir les données complexes vitales pour évaluer l'état de la vie marine."
     }
   },
   "dataCards": {
