@@ -267,7 +267,59 @@
         "description": "Évalue l'adhésion aux normes internationales pour la collecte, le traitement et le partage de données. Les réseaux suivant les meilleures pratiques assurent l'interopérabilité des données entre les systèmes."
       }
     },
+    "sotVos": {
+      "title": "Météorologique basé sur navires – SOT/VOS",
+      "iconAlt": "Réseau SOT/VOS - Observations météorologiques depuis navires volontaires"
+    },
+    "sotXbt": {
+      "title": "Océanographique basé sur navires – SOT/XBT-SOOP",
+      "iconAlt": "Réseau SOT/XBT-SOOP - Profils de température de l'océan depuis lignes de navires"
+    },
+    "sotAsap": {
+      "title": "Paramètres air-mer basés sur navires – SOT/ASAP",
+      "iconAlt": "Réseau SOT/ASAP - Paramètres air-mer depuis navires automatisés"
+    },
+    "goShip": {
+      "title": "GO-SHIP",
+      "iconAlt": "Réseau GO-SHIP - Sections hydrographiques globales répétées"
+    },
+    "gloss": {
+      "title": "Niveau de la Mer GLOSS",
+      "iconAlt": "Réseau GLOSS - Système mondial d'observation du niveau de la mer"
+    },
+    "oceanSites": {
+      "title": "OceanSITES",
+      "iconAlt": "Réseau OceanSITES - Réseau mondial de sites de séries temporelles de référence"
+    },
+    "dbcpMoored": {
+      "title": "Bouées Ancrées DBCP",
+      "iconAlt": "Réseau DBCP Bouées Ancrées - Bouées météorologiques et océanographiques ancrées"
+    },
+    "dbcpTsunami": {
+      "title": "Bouées Tsunami DBCP",
+      "iconAlt": "Réseau DBCP Bouées Tsunami - Système de détection et d'alerte aux tsunamis"
+    },
+    "hfRadar": {
+      "title": "Radar HF",
+      "iconAlt": "Réseau Radar HF - Radars côtiers haute fréquence pour courants de surface"
+    },
+    "dbcpDrifting": {
+      "title": "Bouées Dérivantes DBCP",
+      "iconAlt": "Réseau DBCP Bouées Dérivantes - Réseau mondial de bouées dérivantes de surface"
+    },
     "argo": {
+      "title": "Argo",
+      "iconAlt": "Réseau Argo - Réseau mondial de flotteurs profilants mesurant la température et la salinité de l'océan"
+    },
+    "gliders": {
+      "title": "OceanGliders",
+      "iconAlt": "Réseau OceanGliders - Planeurs sous-marins autonomes pour observations haute résolution"
+    },
+    "anibos": {
+      "title": "AniBOS",
+      "iconAlt": "Réseau AniBOS - Capteurs océaniques embarqués sur animaux marins"
+    },
+    "argoLegacy": {
       "title": "Argo",
       "iconAlt": "Réseau Argo - Réseau mondial de flotteurs profilants mesurant la température et la salinité de l'océan"
     },

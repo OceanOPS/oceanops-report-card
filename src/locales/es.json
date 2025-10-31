@@ -221,7 +221,59 @@
         "description": "Evalúa la adherencia a estándares internacionales para la recolección, procesamiento e intercambio de datos. Las redes que siguen mejores prácticas aseguran la interoperabilidad de datos entre sistemas."
       }
     },
+    "sotVos": {
+      "title": "Meteorológico basado en barcos – SOT/VOS",
+      "iconAlt": "Red SOT/VOS - Observaciones meteorológicas desde barcos voluntarios"
+    },
+    "sotXbt": {
+      "title": "Oceanográfico basado en barcos – SOT/XBT-SOOP",
+      "iconAlt": "Red SOT/XBT-SOOP - Perfiles de temperatura del océano desde líneas de barcos"
+    },
+    "sotAsap": {
+      "title": "Parámetros aire-mar basados en barcos – SOT/ASAP",
+      "iconAlt": "Red SOT/ASAP - Parámetros aire-mar desde barcos automatizados"
+    },
+    "goShip": {
+      "title": "GO-SHIP",
+      "iconAlt": "Red GO-SHIP - Secciones hidrográficas globales repetidas"
+    },
+    "gloss": {
+      "title": "Nivel del Mar GLOSS",
+      "iconAlt": "Red GLOSS - Sistema global de observación del nivel del mar"
+    },
+    "oceanSites": {
+      "title": "OceanSITES",
+      "iconAlt": "Red OceanSITES - Red global de sitios de series temporales de referencia"
+    },
+    "dbcpMoored": {
+      "title": "Boyas Fondeadas DBCP",
+      "iconAlt": "Red DBCP Boyas Fondeadas - Boyas meteorológicas y oceanográficas fondeadas"
+    },
+    "dbcpTsunami": {
+      "title": "Boyas de Tsunami DBCP",
+      "iconAlt": "Red DBCP Boyas de Tsunami - Sistema de detección y alerta de tsunamis"
+    },
+    "hfRadar": {
+      "title": "Radar HF",
+      "iconAlt": "Red Radar HF - Radares costeros de alta frecuencia para corrientes superficiales"
+    },
+    "dbcpDrifting": {
+      "title": "Boyas a la Deriva DBCP",
+      "iconAlt": "Red DBCP Boyas a la Deriva - Red global de boyas derivantes de superficie"
+    },
     "argo": {
+      "title": "Argo",
+      "iconAlt": "Red Argo - Red global de flotadores perfiladores que miden temperatura y salinidad del océano"
+    },
+    "gliders": {
+      "title": "OceanGliders",
+      "iconAlt": "Red OceanGliders - Planeadores submarinos autónomos para observaciones de alta resolución"
+    },
+    "anibos": {
+      "title": "AniBOS",
+      "iconAlt": "Red AniBOS - Sensores oceánicos transportados por animales marinos"
+    },
+    "argoLegacy": {
       "title": "Argo",
       "iconAlt": "Red Argo - Red global de flotadores perfiladores que miden temperatura y salinidad del océano"
     },

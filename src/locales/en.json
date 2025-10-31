@@ -221,25 +221,57 @@
         "description": "Evaluates adherence to international standards for data collection, processing, and sharing. Networks following best practices ensure data interoperability across systems."
       }
     },
+    "sotVos": {
+      "title": "Ship based meteorological – SOT/VOS",
+      "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
+    },
+    "sotXbt": {
+      "title": "Ship based oceanographic – SOT/XBT-SOOP",
+      "iconAlt": "SOT/XBT-SOOP Network - Ship of Opportunity Programme with XBT temperature profiling"
+    },
+    "sotAsap": {
+      "title": "Ship based aerological – SOT/ASAP",
+      "iconAlt": "SOT/ASAP Network - Automated Shipboard Aerological Programme"
+    },
+    "goShip": {
+      "title": "Repeated transects - GO-SHIP",
+      "iconAlt": "GO-SHIP Network - Global Ocean Ship-based Hydrographic Investigations Program"
+    },
+    "gloss": {
+      "title": "Sea level gauges - GLOSS",
+      "iconAlt": "GLOSS Network - Global Sea Level Observing System"
+    },
+    "oceanSites": {
+      "title": "Time series sites - OceanSITES",
+      "iconAlt": "OceanSITES Network - Global network of long-term ocean reference stations"
+    },
+    "dbcpMoored": {
+      "title": "Moored buoys - DBCP",
+      "iconAlt": "DBCP Moored Buoys - Data Buoy Cooperation Panel moored buoy network"
+    },
+    "dbcpTsunami": {
+      "title": "Tsunami buoys - DBCP",
+      "iconAlt": "DBCP Tsunami Buoys - Tsunami detection and reporting buoys"
+    },
+    "hfRadar": {
+      "title": "HF radars - HF",
+      "iconAlt": "HF Radar Network - High Frequency radar coastal current mapping"
+    },
+    "dbcpDrifting": {
+      "title": "Drifting buoys - DBCP",
+      "iconAlt": "DBCP Drifting Buoys - Surface drifting buoy network"
+    },
     "argo": {
-      "title": "Argo",
+      "title": "Profiling floats - Argo",
       "iconAlt": "Argo Network - Global array of profiling floats measuring ocean temperature and salinity"
     },
-    "doos": {
-      "title": "Deep Ocean Observing Strategy",
-      "iconAlt": "DOOS Network - Coordinating observations of the deep ocean below 2000m"
-    },
-    "sot": {
-      "title": "Ship Observations Team",
-      "iconAlt": "SOT Network - Coordinating meteorological and oceanographic observations from ships"
-    },
     "gliders": {
-      "title": "OceanGliders",
+      "title": "Gliders - OceanGliders",
       "iconAlt": "OceanGliders Network - Global network of autonomous underwater gliders"
     },
-    "dbcp": {
-      "title": "Data Buoy Cooperation Panel",
-      "iconAlt": "DBCP Network - Coordinating global network of drifting and moored data buoys"
+    "anibos": {
+      "title": "Animal borne sensors - AniBOS",
+      "iconAlt": "AniBOS Network - Animal-borne ocean sensors collecting data from marine mammals"
     }
   },
   "emerging": {
