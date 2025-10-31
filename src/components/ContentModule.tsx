@@ -99,9 +99,9 @@ type ButtonConfig =
 
 interface ContentModuleProps {
   layout?: 'split' | 'full-width'
-  titleLevel: 'h2' | 'h3'
+  titleLevel?: 'h2' | 'h3'
   kicker?: string
-  title: string
+  title?: string
   subtitle?: string
   introduction?: string
   introductionKeys?: string[]  // Array of translation keys for multiple paragraphs
@@ -250,69 +250,80 @@ export default function ContentModule({
     return null
   }
 
+  // Check if there's any title content to render
+  const hasTitleContent = title || kicker || subtitle || introduction || introductionKeys || button
+
   // Render title section (reusable for both layouts)
-  const renderTitleSection = () => (
-    <div className="flex flex-col gap-6 mb-24">
-      {/* Decorative Line */}
-      {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
+  const renderTitleSection = () => {
+    if (!hasTitleContent) return null
 
-      {/* Titles */}
-      <div className="flex flex-col gap-1">
-        {kicker && (
-          <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
-            {kicker}
-          </p>
-        )}
+    return (
+      <div className="flex flex-col gap-6 mb-24">
+        {/* Decorative Line */}
+        {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
 
-        <p className={`${sizes.main} font-extrabold ${titleColor} ${sizes.lineHeight}`}>
-          {title}
-        </p>
+        {/* Titles */}
+        <div className="flex flex-col gap-1">
+          {kicker && (
+            <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
+              {kicker}
+            </p>
+          )}
 
-        {subtitle && (
-          <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
-            {subtitle}
-          </p>
-        )}
+          {title && (
+            <p className={`${sizes.main} font-extrabold ${titleColor} ${sizes.lineHeight}`}>
+              {title}
+            </p>
+          )}
 
-        {/* Single introduction paragraph (legacy support) */}
-        {introduction && !introductionKeys && (
-          <p className={`text-xl font-normal ${textColor} mt-1`}>
-            {introduction}
-          </p>
-        )}
+          {subtitle && (
+            <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
+              {subtitle}
+            </p>
+          )}
 
-        {/* Multiple introduction paragraphs from translation keys */}
-        {introductionKeys && introductionKeys.length > 0 && (
-          <div className="flex flex-col gap-4 mt-8">
-            {introductionKeys.map((key, index) => (
-              <p key={index} className={`text-xl font-normal ${textColor} leading-relaxed`}>
-                {t(key)}
-              </p>
-            ))}
-          </div>
-        )}
+          {/* Single introduction paragraph (legacy support) */}
+          {introduction && !introductionKeys && (
+            <p className={`text-xl font-normal ${textColor} mt-1`}>
+              {introduction}
+            </p>
+          )}
+
+          {/* Multiple introduction paragraphs from translation keys */}
+          {introductionKeys && introductionKeys.length > 0 && (
+            <div className="flex flex-col gap-4 mt-8">
+              {introductionKeys.map((key, index) => (
+                <p key={index} className={`text-xl font-normal ${textColor} leading-relaxed`}>
+                  {t(key)}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Optional Button */}
+        {button && <div className="mt-1">{renderButton()}</div>}
       </div>
-
-      {/* Optional Button */}
-      {button && <div className="mt-1">{renderButton()}</div>}
-    </div>
-  )
+    )
+  }
 
   // Split layout (default): Sticky title on left, content on right
   if (layout === 'split') {
     return (
       <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
         <div className="mx-auto flex gap-16 flex-col lg:flex-row">
-          {/* Left Column - Sticky Title */}
-          <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-0 lg:self-start z-10">
-            {/* Top spacer */}
-            <div className="h-8 w-5 opacity-75"></div>
+          {/* Left Column - Sticky Title (only if has title content) */}
+          {hasTitleContent && (
+            <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-0 lg:self-start z-10">
+              {/* Top spacer */}
+              <div className="h-8 w-5 opacity-75"></div>
 
-            {renderTitleSection()}
-          </div>
+              {renderTitleSection()}
+            </div>
+          )}
 
           {/* Right Column - Content */}
-          <div className="lg:basis-1/2 flex flex-col gap-5">
+          <div className={`${hasTitleContent ? 'lg:basis-1/2' : 'w-full'} flex flex-col gap-5`}>
             {/* Top spacer */}
             <div className="h-8 w-5 opacity-75"></div>
 
@@ -331,24 +342,26 @@ export default function ContentModule({
   return (
     <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
-        {/* Title Section - Full Width */}
-        <div className="flex flex-col gap-5 max-w-2xl">
-          <div className="h-8 w-5 opacity-75"></div>
-          {renderTitleSection()}
-        </div>
+        {/* Title Section - Full Width (only if has title content) */}
+        {hasTitleContent && (
+          <div className="flex flex-col gap-5 max-w-2xl">
+            <div className="h-8 w-5 opacity-75"></div>
+            {renderTitleSection()}
+          </div>
+        )}
 
         {/* Content in 2 Columns */}
-        <div className="flex gap-16 flex-col lg:flex-row -mt-24">
+        <div className={`flex gap-16 flex-col lg:flex-row ${hasTitleContent ? '-mt-24' : ''}`}>
           {/* Left Column */}
           <div className="lg:basis-1/2 flex flex-col gap-5">
-            <div className="h-8 w-5 opacity-75"></div>
+            {!hasTitleContent && <div className="h-8 w-5 opacity-75"></div>}
 
             {children}
           </div>
 
           {/* Right Column */}
           <div className="lg:basis-1/2 flex flex-col gap-5">
-            <div className="h-8 w-5 opacity-75"></div>
+            {!hasTitleContent && <div className="h-8 w-5 opacity-75"></div>}
 
             {rightColumn}
           </div>

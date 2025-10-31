@@ -18,18 +18,34 @@
       "image3": "Équipement de recherche océanique"
     }
   },
+  "intro": {
+    "paragraph1": "Le Rapport d'État du Système mondial d'observation des océans (GOOS) 2025 met en lumière l'état des réseaux d'observation du GOOS, ainsi que les progrès réalisés dans le renforcement de la capacité mondiale à surveiller l'océan, à comprendre et s'adapter au changement climatique, à améliorer les services opérationnels et à protéger la santé des océans — tous ces éléments soutiennent les économies océaniques durables et la sécurité et le bien-être des sociétés dans le monde entier.",
+    "paragraph2": "Ce qui a commencé en 2016 comme la Carte de Rapport du Système d'Observation des Océans — dirigée par OceanOPS, le centre de surveillance et de soutien opérationnel du GOOS — a maintenant évolué vers un Rapport d'État du GOOS 2025 complet, offrant une vue interactive du système mondial d'observation des océans.",
+    "paragraph3": "Dans cette nouvelle édition numérique, explorez les dernières mises à jour, histoires et perspectives en faisant défiler ou en utilisant le menu sur la droite."
+  },
   "content": {
     "section1": {
-      "kicker": "Ligne d'accroche:",
-      "title": "Ceci est le H2",
-      "subtitle": "Sous-titre",
-      "introduction": "Texte d'introduction",
-      "heading": "Ceci est le H4",
-      "paragraph1": "Le Système mondial d'observation des océans (GOOS) observe notre océan à travers les \"yeux\" de milliers de plateformes d'observation océanique qui surveillent constamment l'océan pour capturer la signature de divers phénomènes océaniques.",
-      "paragraph2": "Pour mettre en évidence l'état et le développement de ce système mondial d'observation des océans, le rapport 2023 sur le système d'observation des océans donne un aperçu de l'état actuel des réseaux mondiaux d'observation.",
+      "kicker": "",
+      "title": "État et mises à jour du système d'observation in situ",
+      "subtitle": "",
+      "introduction": "",
+      "paragraph1": "En 2025, le GOOS est heureux d'annoncer que la composante in situ des réseaux mondiaux d'observation des océans, surveillée en temps réel par OceanOPS, a connu une expansion constante au cours des deux dernières années, continuant à fournir des observations océaniques de haute qualité et quasi temps réel qui soutiennent les sociétés du monde entier.",
+      "paragraph2": "Cette tendance positive a été principalement portée par une augmentation des réseaux autonomes tels que les flotteurs profileurs Argo. Cette augmentation a permis de compenser les baisses d'autres réseaux, notamment les bouées dérivantes, en particulier dans l'océan Indien, et les observations océanographiques basées sur les navires, qui font face à des contraintes budgétaires mondiales pouvant réduire la collecte d'ensembles de données de référence à long terme.",
+      "paragraph3": "Des progrès supplémentaires ont été réalisés avec l'inclusion de quatre réseaux d'observation émergents dans le GOOS : câbles sous-marins SMART, véhicules de surface non habités, observations de navires de pêche et réseau de surveillance du carbone de surface.",
+      "paragraph4a": "Le réseau Argo a maintenant dépassé les 4 000 flotteurs actifs, bénéficiant de l'innovation technologique et d'une fiabilité améliorée des instruments. Le programme a atteint 55% de son objectif de mise en œuvre",
+      "paragraph4b": "global, pleine profondeur et vision multidisciplinaire, avec une croissance portée par l'expansion des missions biogéochimiques et un doublement des déploiements européens depuis 2021. Maintenir ces progrès nécessitera un financement stable à long terme et une couverture équilibrée dans tous les bassins océaniques, en particulier dans l'hémisphère sud.",
+      "paragraph5": "Les navires d'observation volontaires (VOS), composante clé des observations météorologiques basées sur les navires, ont atteint un record de 4,5 millions d'observations en 2024, soutenues par une augmentation de l'automatisation — mais le nombre de navires impliqués diminue. De nouveaux partenariats public-privé sont également en cours de développement via le GOOS, comme l'initiative 10 000 navires pour l'océan, qui montre comment l'engagement de l'industrie peut étendre la capacité mondiale d'observation basée sur les navires.",
+      "paragraph6": "Dans l'ensemble, la disponibilité et la qualité des données et métadonnées en temps réel ont augmenté, reflétant l'engagement fort des réseaux mondiaux d'observation, de leurs opérateurs nationaux et des institutions contributrices.",
+      "heading1": "Évolution Technologique et Expansion du Champ d'Application",
+      "paragraph7": "Ces dernières années, le système d'observation a considérablement évolué grâce à l'utilisation d'instruments autonomes et de stations météorologiques automatiques, d'une collaboration internationale renforcée, y compris avec le secteur privé. L'investissement continu dans la surveillance du carbone océanique soutenu par des projets européens renforcera le Réseau d'observation du CO2 de l'océan de surface (SOCONET), en particulier dans l'océan Austral.",
+      "paragraph8": "Le GOOS progresse également dans l'intégration des observations biologiques et écosystémiques dans le système mondial. Cela repose sur l'observation d'un ensemble de variables océaniques essentielles (EOV) biologiques et écosystémiques, et le travail dans ce domaine se concentre maintenant sur l'expansion des capacités d'observation à l'échelle mondiale, et la promotion d'un accès ouvert à des données standardisées et interopérables, pour mieux surveiller et comprendre les changements dans les écosystèmes et ressources marines.",
+      "heading2": "Défis Régionaux et Systémiques",
+      "paragraph9": "Malgré les progrès, le système d'observation des océans reste sous-critique, avec une résilience limitée aux perturbations financières ou géopolitiques. Il dépend encore fortement de quelques contributeurs majeurs et manque de redondance suffisante pour assurer la stabilité à long terme. Renforcer la résilience nécessitera une participation internationale plus large et l'implication de partenaires au-delà des secteurs académique et public, y compris les acteurs de l'industrie et du secteur privé.",
+      "paragraph10": "L'océan Austral reste la région la plus sous-échantillonnée en raison de son éloignement et de ses conditions difficiles. Néanmoins, le réseau de capteurs océaniques portés par des animaux (AniBOS) apporte des données précieuses depuis cette région difficile, aidant à combler les lacunes critiques.",
+      "paragraph11": "La nature sous-critique du GOOS s'étend également à la chaîne d'approvisionnement et de production, y compris les fabricants d'instruments et les prestataires de services. Une capacité limitée de recherche et développement, couplée à des pressions économiques et logistiques, pose des défis supplémentaires à la durabilité à long terme de l'approvisionnement en instruments.",
       "quote": {
-        "text": "Face au changement climatique, la communauté mondiale doit travailler ensemble pour améliorer la couverture, la qualité et la nature multidisciplinaire du système d'observation afin de répondre aux services de prévision vitaux et aux besoins de la société. OceanOPS peut aider à établir ces connexions",
-        "authorName": "Mathieu Belbéoch",
+        "text": "Face à la fragilité du système d'observation et aux contraintes de budgets en baisse, nous devons innover par des partenariats plus forts. C'est pourquoi nous approfondissons notre collaboration avec l'industrie maritime - pour exploiter le potentiel de ces nouveaux partenaires et étendre l'automatisation des observations basées sur les navires.",
+        "authorName": "M. Belbéoch",
         "authorTitle": "Directeur d'OceanOPS",
         "logoAlt": "Logo OceanOPS"
       },

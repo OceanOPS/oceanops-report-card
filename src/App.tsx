@@ -123,24 +123,120 @@ function App() {
         backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
       />
 
-      {/* Hero Image Grid */}
-      <ImageGrid
-        images={[
-          {
-            src: '/images/content.jpg',
-            alt: t('hero.images.image1'),
-          },
-          {
-            src: '/images/content2.jpg',
-            alt: t('hero.images.image2'),
-          },
-          {
-            src: '/images/content3.jpg',
-            alt: t('hero.images.image3'),
-          },
-        ]}
-        columns={3}
-      />
+      {/* Spacer */}
+      <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
+
+
+      {/* Intro */}
+      <ContentModule
+        layout="full-width"
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-goos-gray-900"
+        rightColumn={
+          <>
+            <p className="text-xl font-normal text-goos-white leading-[1.5]">
+              {t('intro.paragraph2')}
+            </p>
+            <p className="text-xl font-normal text-goos-white leading-[1.5]">
+              {t('intro.paragraph3')}
+            </p>
+          </>
+        }
+      >
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('intro.paragraph1')}
+        </p>
+      </ContentModule>
+
+      {/* In situ observing system status and updates */}
+      <ContentModule
+        titleLevel="h2"
+        title={t('content.section1.title')}
+        hasLine={true}
+        backgroundColor="bg-goos-blue-900"
+        titleColor="text-goos-white"
+        textColor="text-goos-white"
+        lineColor="bg-goos-orange-600"
+        layout="split"
+      >
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph1')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph2')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph3')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph4a')}{' '}
+          <a
+            href="https://drive.google.com/file/d/1QgcsBXR3AImNOtGtH30SGwyx4gWkvLOP/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-goos-orange-500 underline hover:text-goos-orange-400 transition-colors"
+          >
+            OneArgo
+          </a>{' '}
+          {t('content.section1.paragraph4b')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph5')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph6')}
+        </p>
+
+        <Spacer size="sm" />
+
+        <h4 className="text-2xl font-extrabold text-goos-white leading-8">
+          {t('content.section1.heading1')}
+        </h4>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph7')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph8')}
+        </p>
+
+        <Spacer size="sm" />
+
+        <h4 className="text-2xl font-extrabold text-goos-white leading-8">
+          {t('content.section1.heading2')}
+        </h4>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph9')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph10')}
+        </p>
+
+        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+          {t('content.section1.paragraph11')}
+        </p>
+
+        <Spacer size="sm" />
+
+        {/* Quote Block */}
+        <QuoteBlock
+          variant="quote"
+          quote={t('content.section1.quote.text')}
+          quoteColor="text-goos-white"
+          borderColor="border-goos-orange-600"
+          authorName={t('content.section1.quote.authorName')}
+          authorTitle={t('content.section1.quote.authorTitle')}
+          authorColor="text-goos-white"
+        />
+      </ContentModule>
 
       <div id="map-section">
       {/* Example 1: With interactive ArcGIS map - Full viewport height */}
@@ -1434,6 +1530,25 @@ function App() {
           { src: '/logos/oceanops-w.png', altKey: 'logos.partner8', url: 'https://example.com' },
         ]}
         backgroundColor="bg-goos-blue-700"
+      />
+
+            {/* Hero Image Grid */}
+      <ImageGrid
+        images={[
+          {
+            src: '/images/content.jpg',
+            alt: t('hero.images.image1'),
+          },
+          {
+            src: '/images/content2.jpg',
+            alt: t('hero.images.image2'),
+          },
+          {
+            src: '/images/content3.jpg',
+            alt: t('hero.images.image3'),
+          },
+        ]}
+        columns={3}
       />
 
     </div>

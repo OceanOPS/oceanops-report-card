@@ -18,18 +18,34 @@
       "image3": "Ocean research equipment"
     }
   },
+  "intro": {
+    "paragraph1": "The Global Ocean Observing System (GOOS) Status Report 2025 highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.",
+    "paragraph2": "What began in 2016 as the Ocean Observing System Report Card — led by OceanOPS, the operational monitoring and support centre of GOOS — has now evolved into a comprehensive GOOS Status Report 2025, offering an interactive view of the global ocean observing system.",
+    "paragraph3": "In this new digital edition, explore the latest updates, stories, and insights by scrolling or using the menu on the right."
+  },
   "content": {
     "section1": {
-      "kicker": "Kicker line:",
-      "title": "This is the H2",
-      "subtitle": "Subhead",
-      "introduction": "Introduction Text",
-      "heading": "This is the H4",
-      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
-      "paragraph2": "To highlight the status and development of this Global Ocean Observing System, the 2023 Ocean Observing System Report Card provides insight into the current status of the global observing networks.",
+      "kicker": "",
+      "title": "In situ observing system status and updates",
+      "subtitle": "",
+      "introduction": "",
+      "paragraph1": "In 2025, GOOS is pleased to report that the in situ component of the global ocean observing networks, monitored in real time by OceanOPS, has experienced a steady expansion over the past two years, continuing to deliver high-quality, near real-time ocean observations that support society worldwide.",
+      "paragraph2": "This positive trend has been primarily driven by an increase in autonomous networks such as Argo profiling floats. This increase has helped offset declines in other networks — notably drifting buoys, particularly in the Indian Ocean, and ship-based oceanographic observations, which are facing global budget constraints that may reduce the collection of long-term reference data sets.",
+      "paragraph3": "Further progress has been achieved with the inclusion of four emerging observing networks into GOOS: SMART subsea cables, uncrewed surface vehicles, fishing vessel observations, and a surface carbon monitoring network.",
+      "paragraph4a": "The Argo array has now surpassed 4,000 active floats, benefiting from technological innovation and improved instrument reliability. The program has reached 55% of its",
+      "paragraph4b": "implementation target global, full-depth and multidisciplinary vision, with growth driven by the expansion of biogeochemical missions and a twofold increase in European deployments since 2021. Maintaining this progress will require stable, long-term funding and balanced coverage across all ocean basins, particularly in the Southern Hemisphere.",
+      "paragraph5": "The Voluntary Observing Ships (VOS), a key component of ship-based meteorological observations, achieved a record 4,5 million observations in 2024, supported by an increase in automation — but the number of ships involved is decreasing. New public–private partnerships are also being developed through GOOS, such as the 10,000 Ships for the Ocean initiative, which shows how industry engagement can expand the global ship-based observing capacity.",
+      "paragraph6": "Overall, the availability and quality of real-time data and metadata have increased, reflecting the strong commitment of the global observing networks, their national operators and contributing institutions.",
+      "heading1": "Technological Evolution and Expansion of Scope",
+      "paragraph7": "In recent years, the observing system has evolved significantly through use of autonomous instruments and automatic weather stations, stronger international collaboration, including with the private sector. Continued investment in ocean carbon monitoring supported by European Projects will strengthen the Surface Ocean CO2 Observing Network (SOCONET), in particular in the Southern Ocean.",
+      "paragraph8": "GOOS is also advancing the integration of biological and ecosystem observations into the global system. This is built on observing a set of biological and ecosystem Essential Ocean Variables (EOVs), and work in this area now focuses on expanding observing capabilities globally, and promoting open access to standardized and interoperable data, to better monitor and understand changes in marine ecosystems and resources.",
+      "heading2": "Regional and Systemic Challenges",
+      "paragraph9": "Despite advances, the ocean observing system remains subcritical, with limited resilience to financial or geopolitical disruptions. It still depends heavily on a few major contributors and lacks sufficient redundancy to ensure long-term stability. Strengthening resilience will require broader international participation and the involvement of partners beyond the academic and public sectors, including industry and private sector actors.",
+      "paragraph10": "The Southern Ocean remains the most under-sampled region due to its remoteness and harsh conditions. Nevertheless, the Animal borne ocean sensors (AniBOS) network is contributing valuable data from this challenging region, helping to fill critical gaps.",
+      "paragraph11": "The subcritical nature of GOOS also extends to the supply and production chain, including instrument manufacturers and service providers. Limited research and development capacity, coupled with economic and logistical pressures, poses additional challenges to long-term sustainability of instrument supply.",
       "quote": {
-        "text": "In the face of climate change, the global community must work together to improve the coverage, quality, and multidisciplinary nature of the observing system to meet vital forecasting services and societal needs. OceanOPS can help make these connections",
-        "authorName": "Mathieu Belbéoch",
+        "text": "Faced with the fragility of the observing system and the constraints of decreasing budgets, we must innovate through stronger partnerships. This is why we are deepening our collaboration with the shipping industry - to harness the potential of these new partners and expand the automation of ship-based observations.",
+        "authorName": "M. Belbéoch",
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
       },
