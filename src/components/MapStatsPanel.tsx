@@ -12,6 +12,7 @@
  * @param mapAlt - Alt text for map image (default: 'Map')
  * @param mapType - Type of map: 'image' | 'iframe' (default: 'image')
  * @param mapHeight - Height of map in pixels or 'full' for viewport height (default: 500)
+ * @param fullWidth - Remove horizontal padding for edge-to-edge display (default: false)
  * @param backgroundColor - Tailwind background color (default: 'bg-goos-blue-700')
  * @param titleColor - Tailwind text color for title (default: 'text-white')
  * @param textColor - Tailwind text color for body text (default: 'text-white')
@@ -75,6 +76,7 @@ interface MapStatsPanelProps {
   mapAlt?: string
   mapType?: 'image' | 'iframe'
   mapHeight?: number | 'full'
+  fullWidth?: boolean
   backgroundColor?: string
   titleColor?: string
   textColor?: string
@@ -92,6 +94,7 @@ export default function MapStatsPanel({
   mapAlt = 'Map',
   mapType = 'image',
   mapHeight = 500,
+  fullWidth = false,
   backgroundColor = 'bg-goos-blue-700',
   titleColor = 'text-white',
   textColor = 'text-white',
@@ -109,8 +112,11 @@ export default function MapStatsPanel({
   const isFullHeight = mapHeight === 'full'
   const sectionHeightClass = isFullHeight ? 'min-h-screen' : ''
 
+  // Padding classes based on fullWidth prop
+  const paddingClass = fullWidth ? '' : 'px-12 md:px-16'
+
   return (
-    <section className={`${backgroundColor} px-12 md:px-16 py-0 flex flex-col ${sectionHeightClass} ${className}`}>
+    <section className={`${backgroundColor} ${paddingClass} py-0 flex flex-col ${sectionHeightClass} ${className}`}>
       {/* Header Section */}
       <div className="flex flex-col gap-5 flex-shrink-0">
         <div className="h-8 w-5 opacity-75"></div>
@@ -127,7 +133,7 @@ export default function MapStatsPanel({
       </div>
 
       {/* Spacer */}
-      <div className="h-8 w-5 opacity-75 flex-shrink-0"></div>
+      {/* <div className="h-8 w-5 opacity-75 flex-shrink-0"></div> */}
 
       {/* Content: Stats and Map - Takes remaining space and centers */}
       <div className={`flex gap-5 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0`}>

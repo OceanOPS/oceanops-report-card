@@ -271,20 +271,14 @@ function App() {
       </div>
 
       <div id="map-section">
-      {/* Example 1: With interactive ArcGIS map - Full viewport height */}
+      {/* Interactive ArcGIS map - Full width */}
       <MapStatsPanel
-        title="Global Ocean Observation Network"
-        hasLine={true}
-        lineColor="bg-goos-orange-500"
         mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
         mapAlt="Global platform distribution map"
         mapType="iframe"
-        mapHeight={900}
-        backgroundColor="bg-goos-blue-700"
-        titleColor="text-white"
-        textColor="text-white"
-        numberColor="text-goos-orange-500"
-        linkColor="text-goos-orange-500"
+        mapHeight={1000}
+        fullWidth={true}
+        backgroundColor="bg-goos-blue-900"
       />
       </div>
 
