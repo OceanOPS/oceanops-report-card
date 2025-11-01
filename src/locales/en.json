@@ -278,11 +278,37 @@
     "title": "Emerging Networks",
     "viewMore": "View More",
     "watchVideo": "Watch Video",
+    "fvon": {
+      "title": "Fishing Vessel Ocean Observing Network (FVON)",
+      "paragraph1": "With over four million fishing vessels operating worldwide, fishers are vital partners in complementing existing GOOS coverage and expanding ocean knowledge in under-observed geographies. \"Fishing for data\" in coastal, shelf, and other data-sparse waters is an opportunity to provide insights at a resolution and scale never seen before.",
+      "paragraph2": "FVON's mission is to enable the transformation of fishing vessels into a collaborative fleet for inclusive and participatory data collection, worldwide. By connecting local fishing communities with global science, policy, and industry, FVON democratizes ocean observing and creates outcomes that matter: sustainable fisheries, accurate ocean forecasts, and robust coastal community resilience, supporting a data-driven ocean economy — where the benefits of ocean data are sustained and shared by all.",
+      "imageAlt": "Fishing vessel with ocean observation equipment",
+      "iconAlt": "FVON Network Icon",
+      "link": "https://www.fvon.org/",
+      "videoId": "-MKKMU3_siw"
+    },
     "smartCables": {
-      "title": "SMART Cables",
-      "description": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "title": "Science Monitoring And Reliable Telecommunications Subsea Cables (SMART Cables)",
+      "paragraph1": "Since the mid-19th century, subsea telecommunications cables have connected the world, enabling international calls, data transfer, and high-speed internet between countries. Today, the emerging SMART Cables network seeks to enhance this same infrastructure with a dual purpose — connecting people while advancing climate monitoring and strengthening earthquake and tsunami early warning systems worldwide.",
+      "paragraph2": "By integrating temperature, bottom pressure, and seismic motion sensors into telecommunication cables, SMART Cables will enhance GOOS by closing critical deep-ocean observation gaps. This new generation of cables will provide reliable, real-time, long-term data, delivering novel insights into the state of the ocean and essential information for operational centers to save lives and monitor climate change.",
       "imageAlt": "SMART Cables undersea infrastructure",
-      "iconAlt": "SMART Cables Network Icon"
+      "iconAlt": "SMART Cables Network Icon",
+      "link": "https://www.smartcables.org/",
+      "videoId": "NoEK7XwOMeU"
+    },
+    "soconet": {
+      "title": "Surface Ocean CO₂ Observing Network (SOCONET)",
+      "paragraph1": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (Global Carbon Budget, 2024). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
+      "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms (see image gallery) to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations.",
+      "imageAlt": "Ocean CO₂ monitoring equipment and platforms",
+      "iconAlt": "SOCONET Network Icon"
+    },
+    "sunFleet": {
+      "title": "Surface UNcrewed Fleet (SUN Fleet)",
+      "paragraph1": "Observing the ocean surface is essential for understanding air-sea exchanges, climate regulation, and the health of marine ecosystems. Yet collecting this vital data remains a major challenge, particularly in remote areas and harsh weather conditions.",
+      "paragraph2": "SUN Fleet, the most recent addition to the GOOS observing networks, brings together uncrewed surface vehicles (USVs) to help close these observation gaps. By coordinating different USV operators, SUN Fleet will strengthen GOOS's ability to autonomously monitor numerous Essential Ocean Variables (such as ..) underobserved areas, ultimately leading to improved forecasts and actionable insights into the state of the ocean worldwide.",
+      "imageAlt": "Uncrewed surface vehicle monitoring the ocean",
+      "iconAlt": "SUN Fleet Network Icon"
     }
   },
   "dataBlock": {

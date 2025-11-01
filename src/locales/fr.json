@@ -339,6 +339,43 @@
       "iconAlt": "Réseau DBCP - Réseau mondial de bouées dérivantes et ancrées"
     }
   },
+  "emerging": {
+    "title": "Réseaux Émergents",
+    "viewMore": "Voir Plus",
+    "watchVideo": "Regarder la Vidéo",
+    "fvon": {
+      "title": "Réseau d'Observation Océanique des Navires de Pêche (FVON)",
+      "paragraph1": "Avec plus de quatre millions de navires de pêche en activité dans le monde, les pêcheurs sont des partenaires essentiels pour compléter la couverture existante du GOOS et élargir les connaissances océaniques dans les géographies sous-observées. \"Pêcher des données\" dans les eaux côtières, de plateau et d'autres zones pauvres en données est une opportunité de fournir des informations à une résolution et une échelle jamais vues auparavant.",
+      "paragraph2": "La mission de FVON est de permettre la transformation des navires de pêche en une flotte collaborative pour une collecte de données inclusive et participative, dans le monde entier. En connectant les communautés de pêcheurs locales avec la science, la politique et l'industrie mondiales, FVON démocratise l'observation océanique et crée des résultats qui comptent : pêcheries durables, prévisions océaniques précises et résilience robuste des communautés côtières, soutenant une économie océanique basée sur les données — où les bénéfices des données océaniques sont durables et partagés par tous.",
+      "imageAlt": "Navire de pêche avec équipement d'observation océanique",
+      "iconAlt": "Icône du Réseau FVON",
+      "link": "https://www.fvon.org/",
+      "videoId": "-MKKMU3_siw"
+    },
+    "smartCables": {
+      "title": "Câbles Sous-marins de Surveillance Scientifique et Télécommunications Fiables (Câbles SMART)",
+      "paragraph1": "Depuis le milieu du XIXe siècle, les câbles de télécommunications sous-marins ont connecté le monde, permettant les appels internationaux, le transfert de données et l'internet à haut débit entre les pays. Aujourd'hui, le réseau émergent de Câbles SMART cherche à améliorer cette même infrastructure avec un double objectif : connecter les personnes tout en faisant progresser la surveillance du climat et en renforçant les systèmes d'alerte précoce aux tremblements de terre et aux tsunamis dans le monde entier.",
+      "paragraph2": "En intégrant des capteurs de température, de pression du fond et de mouvement sismique dans les câbles de télécommunications, les Câbles SMART amélioreront le GOOS en comblant les lacunes critiques d'observation de l'océan profond. Cette nouvelle génération de câbles fournira des données fiables, en temps réel et à long terme, offrant des perspectives nouvelles sur l'état de l'océan et des informations essentielles pour que les centres opérationnels sauvent des vies et surveillent le changement climatique.",
+      "imageAlt": "Infrastructure sous-marine des Câbles SMART",
+      "iconAlt": "Icône du Réseau Câbles SMART",
+      "link": "https://www.smartcables.org/",
+      "videoId": "NoEK7XwOMeU"
+    },
+    "soconet": {
+      "title": "Réseau d'Observation du CO₂ de l'Océan de Surface (SOCONET)",
+      "paragraph1": "Au cours de la dernière décennie, l'océan a absorbé environ 26% des émissions annuelles de dioxyde de carbone (CO₂) d'origine humaine, contribuant à limiter le changement climatique (Budget Carbone Mondial, 2024). Cependant, l'absorption du CO₂ océanique varie considérablement dans le temps et selon les régions, et des informations robustes sur ces changements font encore défaut.",
+      "paragraph2": "SOCONET, un nouvel ajout aux réseaux d'observation du GOOS, utilisera une large gamme de plateformes d'observation (voir galerie d'images) pour étendre le nombre de mesures de CO₂ en eau de surface de haute qualité. Ces observations sont essentielles pour évaluer la santé des océans et quantifier le rôle de l'océan dans l'atténuation de l'augmentation des concentrations de dioxyde de carbone atmosphérique.",
+      "imageAlt": "Équipement et plateformes de surveillance du CO₂ océanique",
+      "iconAlt": "Icône du Réseau SOCONET"
+    },
+    "sunFleet": {
+      "title": "Flotte de Surface Non Habitée (Flotte SUN)",
+      "paragraph1": "L'observation de la surface de l'océan est essentielle pour comprendre les échanges air-mer, la régulation climatique et la santé des écosystèmes marins. Cependant, la collecte de ces données vitales reste un défi majeur, particulièrement dans les zones reculées et les conditions météorologiques difficiles.",
+      "paragraph2": "La Flotte SUN, l'ajout le plus récent aux réseaux d'observation du GOOS, rassemble des véhicules de surface non habités (USVs) pour aider à combler ces lacunes d'observation. En coordonnant différents opérateurs d'USVs, la Flotte SUN renforcera la capacité du GOOS à surveiller de manière autonome de nombreuses Variables Océaniques Essentielles (telles que ..) dans des zones sous-observées, conduisant finalement à des prévisions améliorées et à des informations exploitables sur l'état de l'océan dans le monde entier.",
+      "imageAlt": "Véhicule de surface non habité surveillant l'océan",
+      "iconAlt": "Icône du Réseau Flotte SUN"
+    }
+  },
   "contentBox": {
     "example": {
       "title": "Podcast sur les Observations Océaniques",

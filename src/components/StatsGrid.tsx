@@ -90,7 +90,7 @@ export default function StatsGrid({
       {stats.map((stat, index) => (
         <div key={index} className="flex flex-col gap-2">
           {/* Stat Number */}
-          <p className={`text-5xl font-light ${numberColor}`}>
+          <p className={`text-6xl font-light ${numberColor}`}>
             {stat.number}
           </p>
 

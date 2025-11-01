@@ -298,11 +298,37 @@
     "title": "Redes Emergentes",
     "viewMore": "Ver Más",
     "watchVideo": "Ver Video",
+    "fvon": {
+      "title": "Red de Observación Oceánica de Embarcaciones Pesqueras (FVON)",
+      "paragraph1": "Con más de cuatro millones de embarcaciones pesqueras operando en todo el mundo, los pescadores son socios vitales para complementar la cobertura existente de GOOS y expandir el conocimiento oceánico en geografías poco observadas. \"Pescar datos\" en aguas costeras, de plataforma y otras áreas escasas de datos es una oportunidad para proporcionar información a una resolución y escala nunca antes vista.",
+      "paragraph2": "La misión de FVON es permitir la transformación de embarcaciones pesqueras en una flota colaborativa para la recolección de datos inclusiva y participativa, en todo el mundo. Al conectar comunidades pesqueras locales con la ciencia, política e industria global, FVON democratiza la observación oceánica y crea resultados que importan: pesquerías sostenibles, pronósticos oceánicos precisos y resiliencia robusta de comunidades costeras, apoyando una economía oceánica basada en datos — donde los beneficios de los datos oceánicos son sostenidos y compartidos por todos.",
+      "imageAlt": "Embarcación pesquera con equipo de observación oceánica",
+      "iconAlt": "Icono de Red FVON",
+      "link": "https://www.fvon.org/",
+      "videoId": "-MKKMU3_siw"
+    },
     "smartCables": {
-      "title": "Cables SMART",
-      "description": "El Sistema Global de Observación del Océano (GOOS) observa nuestro océano a través de los \"ojos\" de miles de plataformas de observación oceánica que monitorean constantemente el océano para capturar la firma de varios fenómenos oceánicos.",
+      "title": "Cables Submarinos de Monitoreo Científico y Telecomunicaciones Confiables (Cables SMART)",
+      "paragraph1": "Desde mediados del siglo XIX, los cables de telecomunicaciones submarinos han conectado al mundo, permitiendo llamadas internacionales, transferencia de datos e internet de alta velocidad entre países. Hoy, la red emergente de Cables SMART busca mejorar esta misma infraestructura con un doble propósito: conectar personas mientras se avanza en el monitoreo climático y se fortalecen los sistemas de alerta temprana de terremotos y tsunamis en todo el mundo.",
+      "paragraph2": "Al integrar sensores de temperatura, presión del fondo y movimiento sísmico en los cables de telecomunicaciones, los Cables SMART mejorarán el GOOS al cerrar brechas críticas de observación del océano profundo. Esta nueva generación de cables proporcionará datos confiables, en tiempo real y a largo plazo, entregando conocimientos novedosos sobre el estado del océano e información esencial para que los centros operacionales salven vidas y monitoreen el cambio climático.",
       "imageAlt": "Infraestructura submarina de Cables SMART",
-      "iconAlt": "Icono de Red Cables SMART"
+      "iconAlt": "Icono de Red Cables SMART",
+      "link": "https://www.smartcables.org/",
+      "videoId": "NoEK7XwOMeU"
+    },
+    "soconet": {
+      "title": "Red de Observación de CO₂ del Océano Superficial (SOCONET)",
+      "paragraph1": "Durante la última década, el océano ha absorbido aproximadamente el 26% de las emisiones anuales de dióxido de carbono (CO₂) humano, ayudando a limitar el cambio climático (Presupuesto Global de Carbono, 2024). Sin embargo, la absorción de CO₂ oceánico varía enormemente a lo largo del tiempo y las regiones, y aún falta información robusta sobre estos cambios.",
+      "paragraph2": "SOCONET, una nueva incorporación a las redes de observación del GOOS, utilizará una amplia gama de plataformas de observación (ver galería de imágenes) para expandir el número de mediciones de CO₂ de agua superficial de alta calidad. Estas observaciones son críticas para evaluar la salud del océano y cuantificar el papel del océano en la mitigación del aumento de las concentraciones de dióxido de carbono atmosférico.",
+      "imageAlt": "Equipo y plataformas de monitoreo de CO₂ oceánico",
+      "iconAlt": "Icono de Red SOCONET"
+    },
+    "sunFleet": {
+      "title": "Flota de Superficie No Tripulada (Flota SUN)",
+      "paragraph1": "Observar la superficie del océano es esencial para comprender los intercambios aire-mar, la regulación climática y la salud de los ecosistemas marinos. Sin embargo, recopilar estos datos vitales sigue siendo un desafío importante, particularmente en áreas remotas y condiciones climáticas adversas.",
+      "paragraph2": "La Flota SUN, la incorporación más reciente a las redes de observación del GOOS, reúne vehículos de superficie no tripulados (USVs) para ayudar a cerrar estas brechas de observación. Al coordinar diferentes operadores de USVs, la Flota SUN fortalecerá la capacidad del GOOS para monitorear autónomamente numerosas Variables Oceánicas Esenciales (como ..) en áreas poco observadas, lo que finalmente conducirá a mejores pronósticos y conocimientos prácticos sobre el estado del océano en todo el mundo.",
+      "imageAlt": "Vehículo de superficie no tripulado monitoreando el océano",
+      "iconAlt": "Icono de Red Flota SUN"
     }
   },
   "dataBlock": {

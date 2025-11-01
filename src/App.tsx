@@ -687,7 +687,7 @@ function App() {
         </ContentModule>
       </div>
 
-      {/* EmergingNetworkCarousel - Showcasing different media types */}
+      {/* EmergingNetworkCarousel - Emerging GOOS Networks */}
       <div id="emerging-section">
         <EmergingNetworkCarousel
           title="emerging.title"
@@ -695,86 +695,60 @@ function App() {
           lineColor="bg-goos-orange-500"
         cards={[
           {
-            // Example 1: Single image (no overlay)
-            mediaType: 'image',
+            // FVON - First
             imageSrc: '/images/content.jpg',
-            imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: '/icons/network/vos.svg',
-            iconAlt: 'emerging.smartCables.iconAlt',
-            titleKey: 'emerging.smartCables.title',
-            descriptionKey: 'emerging.smartCables.description',
-            modalTitle: 'emerging.smartCables.title',
-            modalContent: (
-              <div className="flex flex-col gap-5">
-                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-                  {t('emerging.smartCables.description')}
-                </p>
-                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-                  Additional information about SMART Cables and their role in ocean observation networks.
-                </p>
-              </div>
-            ),
-            viewMoreTextKey: 'emerging.viewMore',
+            imageAlt: 'emerging.fvon.imageAlt',
+            iconSrc: '/icons/network/fvon.svg',
+            iconAlt: 'emerging.fvon.iconAlt',
+            titleKey: 'emerging.fvon.title',
+            paragraph1Key: 'emerging.fvon.paragraph1',
+            paragraph2Key: 'emerging.fvon.paragraph2',
+            externalLinkUrl: 'https://www.fvon.org/',
+            externalLinkTextKey: 'networks.viewNetwork',
+            youtubeVideoId: '-MKKMU3_siw',
+            videoButtonTextKey: 'emerging.watchVideo',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+            deliveryAreas: ['operational', 'climate'],
           },
           {
-            // Example 2: Image gallery (with gallery icon overlay)
-            mediaType: 'gallery',
-            images: [
-              { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
-              { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
-              { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
-            ],
-            iconSrc: '/icons/network/vos.svg',
+            // SMART Cables - Second
+            imageSrc: '/images/content.jpg',
+            imageAlt: 'emerging.smartCables.imageAlt',
+            iconSrc: '/icons/network/smart_cables.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
-            descriptionKey: 'emerging.smartCables.description',
-            modalTitle: 'emerging.smartCables.title',
-            modalContent: (
-              <div className="flex flex-col gap-5">
-                {/* Image Gallery */}
-                <ImageGallery
-                  images={[
-                    { src: '/images/content.jpg', alt: 'Gallery image 1', caption: 'First image caption' },
-                    { src: '/images/content2.jpg', alt: 'Gallery image 2', caption: 'Second image caption' },
-                    { src: '/images/content3.jpg', alt: 'Gallery image 3', caption: 'Third image caption' },
-                  ]}
-                  aspectRatio="video"
-                  objectFit="cover"
-                  captionColor="text-goos-gray-800"
-                  arrowColor="text-goos-white"
-                  arrowBgColor="bg-goos-orange-500"
-                  dotColor="bg-gray-200"
-                  activeDotColor="bg-goos-orange-500"
-                />
-              </div>
-            ),
-            viewMoreTextKey: 'emerging.viewMore',
+            paragraph1Key: 'emerging.smartCables.paragraph1',
+            paragraph2Key: 'emerging.smartCables.paragraph2',
+            externalLinkUrl: 'https://www.smartcables.org/',
+            externalLinkTextKey: 'networks.viewNetwork',
+            youtubeVideoId: 'NoEK7XwOMeU',
+            videoButtonTextKey: 'emerging.watchVideo',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            // Example 3: Video (with play icon overlay)
-            mediaType: 'video',
-            videoType: 'local',
-            videoId: '/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm',
-            previewImage: '/images/content3.jpg',
-            iconSrc: '/icons/network/vos.svg',
-            iconAlt: 'emerging.smartCables.iconAlt',
-            titleKey: 'emerging.smartCables.title',
-            descriptionKey: 'emerging.smartCables.description',
-            modalTitle: 'emerging.smartCables.title',
-            modalContent: (
-              <div className="flex flex-col gap-5">
-                <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-                  {t('emerging.smartCables.description')}
-                </p>
-              </div>
-            ),
-            viewMoreTextKey: 'emerging.viewMore',
+            // SOCONET - Third
+            imageSrc: '/images/content.jpg',
+            imageAlt: 'emerging.soconet.imageAlt',
+            iconSrc: '/icons/network/soconet.svg',
+            iconAlt: 'emerging.soconet.iconAlt',
+            titleKey: 'emerging.soconet.title',
+            paragraph1Key: 'emerging.soconet.paragraph1',
+            paragraph2Key: 'emerging.soconet.paragraph2',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate'],
+            deliveryAreas: ['climate', 'oceanhealth'],
+          },
+          {
+            // SUN Fleet - Fourth
+            imageSrc: '/images/content.jpg',
+            imageAlt: 'emerging.sunFleet.imageAlt',
+            iconSrc: '/icons/network/sun_fleet.svg',
+            iconAlt: 'emerging.sunFleet.iconAlt',
+            titleKey: 'emerging.sunFleet.title',
+            paragraph1Key: 'emerging.sunFleet.paragraph1',
+            paragraph2Key: 'emerging.sunFleet.paragraph2',
+            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
         ]}
         backgroundColor="bg-goos-blue-900"
@@ -787,7 +761,6 @@ function App() {
         buttonIconColor="text-goos-blue-900"
         tooltipBgColor="bg-goos-white"
         tooltipTextColor="text-blue-800"
-        overlayIconColor="bg-goos-orange-500"
         arrowColor="#F0F0F0"
       />
       </div>
