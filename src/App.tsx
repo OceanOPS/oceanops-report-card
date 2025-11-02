@@ -911,7 +911,7 @@ function App() {
           objectFit="cover"
         />
 
-        <Spacer size="sm" />
+        <Spacer size="xs" />
 
         {/* Learn More Content Box */}
         <ContentBox
@@ -919,6 +919,12 @@ function App() {
           backgroundColor="bg-goos-blue-700"
           textColor="text-goos-white"
           titleColor="text-goos-white"
+          collapsible={true}
+          defaultCollapsed={true}
+          buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonBorderColor="border-goos-blue-700" 
         >
           <div className="italic mb-6">
             <p className="text-lg leading-relaxed mb-4">
@@ -1064,6 +1070,12 @@ function App() {
           backgroundColor="bg-goos-blue-700"
           textColor="text-goos-white"
           titleColor="text-goos-white"
+          collapsible={true}
+          defaultCollapsed={true}
+          buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonBorderColor="border-goos-blue-700" 
         >
           <div className="italic mb-6">
             <p className="text-lg leading-relaxed mb-4">
@@ -1281,14 +1293,18 @@ function App() {
           />
         </div>
 
-        <Spacer size="sm" />
-
         {/* Learn More Content Box */}
         <ContentBox
           titleKey="oceanHealth.learnMore.title"
           backgroundColor="bg-goos-blue-700"
           textColor="text-goos-white"
           titleColor="text-goos-white"
+          collapsible={true}
+          defaultCollapsed={true}
+           buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonBorderColor="border-goos-blue-700" 
         >
           <div className="italic mb-6">
             <p className="text-lg leading-relaxed mb-4">
