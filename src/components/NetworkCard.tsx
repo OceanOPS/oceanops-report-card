@@ -184,7 +184,7 @@ export default function NetworkCard({
   }
 
   return (
-    <article className={`${backgroundColor} p-6 flex flex-col gap-6 w-[420px] ${className}`}>
+    <article className={`${backgroundColor} p-6 flex flex-col gap-6 w-full h-full ${className}`}>
       {/* Icon and Title */}
       <div className="flex flex-col gap-4 min-h-[88px]">
         <div className="h-[71px] w-[70px]">

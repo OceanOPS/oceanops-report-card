@@ -177,11 +177,11 @@ export default function NetworkCarousel({
 
       {/* Embla Carousel Container */}
       <div className="overflow-hidden px-12 md:px-16 pb-4" ref={emblaRef}>
-        <div className="flex cursor-grab active:cursor-grabbing">
+        <div className="flex cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex-[0_0_auto] min-w-0 mr-16"
+              className="flex-[0_0_auto] min-w-0 mr-16 flex"
               style={{ flexBasis: '400px' }}
             >
               <NetworkCard
