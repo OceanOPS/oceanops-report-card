@@ -170,7 +170,7 @@ export default function EmergingNetworkCard({
   }
 
   return (
-    <article className={`${backgroundColor} flex w-full min-h-[650px] overflow-hidden ${className}`}>
+    <article className={`${backgroundColor} flex w-full h-full overflow-hidden ${className}`}>
       {/* Left Section - Media */}
       <div className="flex-1 relative">
         {/* Preview Image */}
@@ -225,7 +225,7 @@ export default function EmergingNetworkCard({
           {/* Header Section */}
           <div className="space-y-5">
             {/* Network Icon */}
-            <div className="w-[90px] h-[72px]">
+            <div className="w-[85px] h-[72px]">
               <img
                 src={iconSrc}
                 alt={t(iconAlt)}
@@ -234,7 +234,7 @@ export default function EmergingNetworkCard({
             </div>
 
             {/* Title */}
-            <h2 className={`${textColor} text-xl font-extrabold leading-9`}>
+            <h2 className={`${textColor} text-2xl font-extrabold leading-9`}>
               {t(titleKey)}
             </h2>
           </div>

@@ -187,12 +187,12 @@ export default function EmergingNetworkCarousel({
 
       {/* Embla Carousel Container */}
       <div className="overflow-hidden px-12 md:px-16 pb-4" ref={emblaRef}>
-        <div className="flex cursor-grab active:cursor-grabbing">
+        <div className="flex cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex-[0_0_auto] min-w-0 mr-12"
-              style={{ flexBasis: 'calc(100vw - 200px)' }}
+              className="flex-[0_0_auto] min-w-0 mr-12 flex"
+              style={{ flexBasis: 'calc(100vw - 150px)' }}
             >
               <EmergingNetworkCard
                 {...card}
