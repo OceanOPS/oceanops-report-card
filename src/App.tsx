@@ -848,6 +848,169 @@ function App() {
         </p>
       </ContentModule>
 
+      {/* AMOC Climate Story */}
+      <ContentModule
+        kicker={t('amoc.kicker')}
+        title={t('amoc.title')}
+        titleLevel="h3"
+        introduction={t('amoc.contributors')}
+        layout="split"
+        backgroundColor="bg-goos-white"
+        titleColor="text-goos-blue-700"
+        textColor="text-goos-gray-800"
+        lineColor="bg-goos-cyan-600"
+      >
+        {/* Quick Summary */}
+        <div className="space-y-4 mb-8">
+          <h3 className="text-2xl font-bold text-goos-blue-700">{t('amoc.quickSummary.title')}</h3>
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
+        </div>
+
+        {/* Main paragraphs */}
+        <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph1')}</p>
+        <p className="text-xl leading-relaxed mb-8">{t('amoc.paragraph2')}</p>
+
+        {/* Observations & Benefits */}
+        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('amoc.observationsTitle')}</h3>
+        <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph3')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph4')}</p>
+        <p className="text-xl leading-relaxed mb-6">{t('amoc.paragraph5')}</p>
+
+        {/* Image 1 - AMOC time series */}
+        <ImageCaption
+          src="/images/content.jpg"
+          alt={t('amoc.imageCaption')}
+          caption={t('amoc.imageCaption')}
+          aspectRatio="video"
+          objectFit="cover"
+        />
+
+        <Spacer size="sm" />
+
+        {/* Quote 1 */}
+        <QuoteBlock
+          variant="quote"
+          quote={t('amoc.quote1.text')}
+          authorName={t('amoc.quote1.author')}
+          authorTitle={t('amoc.quote1.position')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-cyan-600"
+        />
+
+        <Spacer size="sm" />
+
+        {/* Image 2 - RAPID buoy */}
+        <ImageCaption
+          src="/images/content.jpg"
+          alt={t('amoc.imageCaption2')}
+          caption={t('amoc.imageCaption2')}
+          aspectRatio="video"
+          objectFit="cover"
+        />
+
+        <Spacer size="sm" />
+
+        {/* Learn More Content Box */}
+        <ContentBox
+          titleKey="amoc.learnMore.title"
+          backgroundColor="bg-goos-blue-700"
+          textColor="text-goos-white"
+          titleColor="text-goos-white"
+        >
+          <div className="italic mb-6">
+            <p className="text-lg leading-relaxed mb-4">
+              "{t('amoc.learnMore.content1')}
+            </p>
+            <p className="text-lg leading-relaxed">
+              {t('amoc.learnMore.content2')}"
+            </p>
+          </div>
+          <div className="pt-4 border-t border-white/50">
+            <p className="text-base font-semibold text-goos-white">
+              {t('amoc.learnMore.authorName')}
+            </p>
+            <p className="text-sm opacity-90">
+              {t('amoc.learnMore.authorPosition')}
+            </p>
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
+
+        {/* EOV Table */}
+        <div className="mb-6">
+          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('amoc.eovTable.title')}</h4>
+
+          {/* Physics Table */}
+          <IconTable
+            columns={4}
+            headers={[t('amoc.eovTable.physicsTitle')]}
+            rows={[
+              [
+                { icon: '/icons/physics/Surface-temperature.png', legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-temperature.png', legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Surface-currents.png', legend: 'Surface currents', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-currents.png', legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
+              ],
+              [
+                { icon: '/icons/physics/Surface-salinity.png', legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-salinity.png', legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Surface-height.png', legend: 'Sea surface height', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Surface-heat-flux.png', legend: 'Surface heat flux', iconSize: 'w-16 h-16' },
+              ]
+            ]}
+            borderColor="border-goos-blue-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-blue-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-gray-800"
+          />
+
+          <Spacer size="sm" />
+
+          {/* Additional Variables Section */}
+           <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('amoc.eovTable.additionalTitle')}</h4>
+
+          {/* Biogeochemistry Table */}
+          <IconTable
+            columns={4}
+            headers={[t('amoc.eovTable.biogeochemistryTitle')]}
+            rows={[
+              [
+                { icon: '/icons/biogeochemistry/Oxygen.png', legend: 'Oxygen', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biogeochemistry/Inorganic-carbon.png', legend: 'Inorganic carbon', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biogeochemistry/Dissolved-organic-carbon.png', legend: 'Dissolved organic carbon', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biogeochemistry/Nutrients.png', legend: 'Nutrients', iconSize: 'w-16 h-16' },
+              ]
+            ]}
+            borderColor="border-goos-orange-600"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-orange-600"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-orange-600"
+          />
+        </div>
+
+        {/* What's Next */}
+        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('amoc.whatsNext.title')}</h3>
+        <p className="text-xl leading-relaxed mb-4">{t('amoc.whatsNext.paragraph1')}</p>
+        <p className="text-xl leading-relaxed mb-6">{t('amoc.whatsNext.paragraph2')}</p>
+
+        {/* Quote 2 */}
+        <QuoteBlock
+          variant="highlight"
+          quote={t('amoc.quote2.text')}
+          authorName={t('amoc.quote2.author')}
+          authorTitle={t('amoc.quote2.position')}
+          quoteColor="text-goos-gray-800"
+          authorColor="text-goos-blue-700"
+          borderColor="border-goos-cyan-600"
+        />
+      </ContentModule>
+
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
         titleLevel="h3"

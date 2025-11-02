@@ -27,6 +27,54 @@
     "title": "Value of ocean observations",
     "content": "Sustained ocean observations are essential to the wellbeing, safety, and prosperity of all nations. In this year's report, the three stories under the GOOS delivery areas of Climate, Operational Services, and Ocean Health reflect some of the major challenges and changes shaping our ocean today — and the vital role of observations in guiding science, policy, and response."
   },
+  "amoc": {
+    "kicker": "Climate",
+    "title": "Is the ocean current system that shapes Europe's climate slowing down?",
+    "contributors": "Contributors: Eleanor Frajka-Williams, Yao Fu, Severine Fournier, Sreelekha Jarugula",
+    "quickSummary": {
+      "title": "Quick summary:",
+      "climateStability": "<strong>Climate Stability:</strong> The Atlantic meridional overturning circulation, or AMOC, helps regulate heat, rainfall, and sea level across Europe and the Atlantic basin.",
+      "predictingFuture": "<strong>Predicting the Future:</strong> Combining existing physical observations with new deep ocean and biogeochemical observations is key to understanding whether the Atlantic current system is slowing and what that means for societies and economies.",
+      "globalPreparedness": "<strong>Global Preparedness:</strong> Investing in sustained, coordinated ocean observation is essential for understanding ocean circulation, accurately projecting climate, preparing for disasters, and safeguarding long-term security."
+    },
+    "paragraph1": "The Atlantic meridional overturning circulation, or AMOC, is one of the most important ocean current systems on Earth. Since the end of the last Ice Age, more than 10,000 years ago, the AMOC has helped keep northwestern Europe's climate significantly milder than it would otherwise be, creating conditions that supported the rise of agriculture and human societies in the region.",
+    "paragraph2": "Recent headlines warn that this key Atlantic current system could soon slow or even collapse, with major consequences for climate, rainfall, and sea level in Europe and beyond. Experts caution, however, that the picture is more complex: different models actually give conflicting results, and data coverage remains limited to support any long-term trends. What is clear is that without more robust, sustained ocean observations, the future of the AMOC — and the climate system it supports — will remain uncertain.",
+    "observationsTitle": "Observations & Benefits",
+    "paragraph3": "Direct ocean observations of physical Essential Ocean Variables, extending deep into the water column, are the foundation for understanding AMOC variability. Much of our current knowledge comes from the time series data of moored buoy arrays, such as RAPID and OSNAP, which contribute to the OceanSITES network, alongside profiling Argo floats — all coordinated globally through GOOS.",
+    "paragraph4": "Satellite observations complement these in-situ measurements by capturing the surface expression of deep-ocean processes. Long-term records of sea surface height, temperature, salinity, and winds help estimate AMOC strength and variability, and reveal how heat and freshwater are redistributed across the Atlantic. Sustained satellite measurements over multiple decades are therefore essential to track both short-term fluctuations and longer-term trends in the circulation.",
+    "paragraph5": "These combined observations already reveal strong short-term fluctuations in the AMOC's strength: the system speeds up and slows down, carrying different amounts of heat and water from one year to the next. Yet the AMOC spans almost the entire Atlantic, and large parts remain unobserved — especially in the deep, dense water layers, which may be indicators of long-term changes in the climate system.",
+    "imageCaption": "AMOC strength time series from RAPID observations (orange) at 26°N and OSNAP observations (blue) in the subpolar North Atlantic (~60°N). The thick lines show 1-year lowpass filtered time series based on their respective original time series (thin lines).",
+    "quote1": {
+      "text": "From what we see, it looks like AMOC has changed significantly in the past, and that has been associated with glacial-interglacial cycles. The potential that it could change today would have widespread consequences for human life on this planet — and that's one of the reasons why we need more ocean observations to understand it.",
+      "author": "Dr. Eleanor Frajka-Williams",
+      "position": "professor at University of Hamburg"
+    },
+    "imageCaption2": "RAPID moored buoy deployment. Credit: Peter Brown",
+    "learnMore": {
+      "buttonText": "LEARN MORE: What affects the speed of the AMOC?",
+      "title": "Learn More: What affects the speed of the AMOC?",
+      "content1": "The strength of the AMOC is set by both wind and north-south differences in seawater density, which depend on temperature and salinity. In the high-latitude North Atlantic, cold, salty water sinks to the deep ocean, pushing the deep water southward. In the Southern Ocean, strong winds bring deep water to the ocean surface, pulling the water flow northward. Together, these two processes set the circulation in motion.",
+      "content2": "In a warmer climate, more freshwater is expected to enter the ocean from glacial and sea ice melting, rainfall and rivers. This can result in less dense surface waters, reducing deep-water formation in the North Atlantic and potentially slowing the circulation.",
+      "authorName": "Dr. Yao Fu",
+      "authorPosition": "assistant professor at University of South Florida"
+    },
+    "eovTable": {
+      "title": "GOOS Essential Ocean Variables for AMOC research:",
+      "physicsTitle": "Physics",
+      "additionalTitle": "Additional variables to observe impacts:",
+      "biogeochemistryTitle": "Biogeochemistry"
+    },
+    "whatsNext": {
+      "title": "What's next?",
+      "paragraph1": "Without expanded and sustained ocean observation coverage, detecting long-term trends or drawing firm conclusions about the AMOC's future will remain a challenge. It is vital to keep optimizing the established observing networks with reliable instruments and methodology, supplemented with new technologies including Deep Argo, which can autonomously measure temperature and salinity down to 6 kilometres. By observing the deep ocean, where vast amounts of heat and carbon are stored, Deep Argo can reveal changes that traditional measurements miss.",
+      "paragraph2": "Equipping underwater gliders — autonomous robots that collect data as they move through the water column — with additional sensors that measure biogeochemical Essential Ocean Variables can also help scientists understand how changes in the AMOC influence ocean carbon storage and oxygen levels, which are vital for global climate regulation and marine life."
+    },
+    "quote2": {
+      "text": "Sustained ocean observation is essential infrastructure for understanding the global climate, ensuring food security, disaster preparedness and economic stability. Which means that investing in ocean observation today is a very important step towards the future, to safeguard our planet and the future generations.",
+      "author": "Dr. Yao Fu",
+      "position": "assistant professor at University of South Florida"
+    }
+  },
   "content": {
     "section1": {
       "kicker": "",
