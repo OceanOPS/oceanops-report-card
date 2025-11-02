@@ -15,7 +15,6 @@ import NetworkCarousel from './components/NetworkCarousel'
 import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
 import StatsGrid from './components/StatsGrid'
-import DataTable from './components/DataTable'
 import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
@@ -131,10 +130,14 @@ function App() {
       <ContentModule
         layout="full-width"
         backgroundColor="bg-goos-blue-900"
-        textColor="text-goos-gray-900"
+        titleColor="text-goos-white"
+        textColor="text-goos-white"
+        lineColor="bg-goos-orange-600"
+         titleLevel="h2"
+        title={t('Overview')}
         rightColumn={
           <>
-            <p className="text-xl font-normal text-goos-white leading-[1.5]">
+            <p className="text-xl font-normal text-goos-white leading-[1.5] mt-4">
               {t('intro.paragraph2')}
             </p>
             <p className="text-xl font-normal text-goos-white leading-[1.5]">
@@ -143,10 +146,12 @@ function App() {
           </>
         }
       >
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-xl font-normal text-goos-white leading-[1.5] mt-4">
           {t('intro.paragraph1')}
         </p>
       </ContentModule>
+
+              <Spacer size="sm" backgroundColor="bg-goos-blue-900" />
 
       {/* In situ observing system status and updates */}
       <ContentModule
