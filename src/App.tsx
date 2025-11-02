@@ -831,20 +831,26 @@ function App() {
       />
       </div>
 
+        <Spacer size="sm" backgroundColor="bg-goos-white"/>
+
       {/* Value of Ocean Observations */}
       <ContentModule
         title={t('valueOfObservations.title')}
         titleLevel="h2"
-        titleColor="text-goos-white"
-        introduction={t('valueOfObservations.introduction')}
+        titleColor="text-goos-blue-700"
         layout="full-width"
-        backgroundColor="bg-goos-blue-900"
-        textColor="text-goos-white"
-      />
+        backgroundColor="bg-goos-white"
+        textColor="text-goos-black"
+        lineColor="bg-goos-cyan-600"
+      >
+        <p className="text-goos-black text-xl leading-relaxed">
+          {t('valueOfObservations.content')}
+        </p>
+      </ContentModule>
 
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
-        titleLevel="h2"
+        titleLevel="h3"
         kicker={t('content.section1.kicker')}
         title={t('content.section1.title')}
         subtitle={t('content.section1.subtitle')}
