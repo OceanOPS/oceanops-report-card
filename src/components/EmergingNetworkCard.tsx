@@ -221,11 +221,11 @@ export default function EmergingNetworkCard({
 
       {/* Right Section - Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <div className="px-[53px] py-8 space-y-8">
+        <div className="px-12 py-16 space-y-8">
           {/* Header Section */}
           <div className="space-y-5">
             {/* Network Icon */}
-            <div className="w-[90px] h-[92px]">
+            <div className="w-[90px] h-[72px]">
               <img
                 src={iconSrc}
                 alt={t(iconAlt)}
@@ -234,7 +234,7 @@ export default function EmergingNetworkCard({
             </div>
 
             {/* Title */}
-            <h2 className={`${textColor} text-3xl font-extrabold leading-9`}>
+            <h2 className={`${textColor} text-xl font-extrabold leading-9`}>
               {t(titleKey)}
             </h2>
           </div>
@@ -269,7 +269,7 @@ export default function EmergingNetworkCard({
           )}
 
           {/* GOOS Delivery Areas */}
-          <div className="space-y-4">
+          <div className="space-y-4 hidden">
             <p className={`${textColor} text-sm`}>{t(deliveryAreasLabelKey)}:</p>
 
             <div className="flex gap-4">
