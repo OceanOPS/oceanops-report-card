@@ -118,6 +118,11 @@
     "whatsNext": {
       "title": "¿Qué sigue?",
       "paragraph": "El Niño es un fenómeno complejo que requiere observación continua de numerosas variables oceánicas y atmosféricas para predicciones precisas, especialmente bajo un clima cambiante. Si bien ya se están recopilando datos oceánicos vitales gracias al trabajo de varias redes de observación oceánica, aún se necesitan mejoras en la cobertura del Océano Pacífico. Esto incluye apoyar la continuidad de observación, así como la estandarización de la recopilación de datos en la región y a nivel mundial."
+    },
+    "quote3": {
+      "text": "Algunos países solo pueden monitorear estas variables una vez al mes, mientras que nosotros podemos proporcionar resolución de un minuto. Avanzar hacia una recopilación de datos al menos por hora requerirá cooperación y acuerdos internacionales, pero espero que veamos progreso en los próximos años.",
+      "author": "Monica Alvarado Niño",
+      "position": "oceanógrafa en el Servicio Hidrográfico y Oceanográfico de la Armada de Chile"
     }
   },
   "content": {

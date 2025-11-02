@@ -1165,6 +1165,21 @@ function App() {
         <p className="text-xl leading-relaxed mb-6">{t('elNino.whatsNext.paragraph')}</p>
       </ContentModule>
 
+      {/* Monica Alvarado Niño Quote with Image */}
+      <QuoteWithImage
+        quote={t('elNino.quote3.text')}
+        authorName={t('elNino.quote3.author')}
+        authorTitle={t('elNino.quote3.position')}
+        imageSrc="/images/content.jpg"
+        imageAlt="Monica Alvarado Niño"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-cyan-200"
+        quoteColor="text-goos-blue-700"
+        authorColor="text-goos-blue-700"
+        iconColor="fill-goos-cyan-600"
+      />
+
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
         titleLevel="h3"

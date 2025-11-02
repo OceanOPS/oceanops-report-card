@@ -118,6 +118,11 @@
     "whatsNext": {
       "title": "What's next?",
       "paragraph": "El Niño is a complex phenomenon that requires continuous observation of numerous oceanic and atmospheric variables for accurate predictions, especially under a changing climate. While vital ocean data is already being collected thanks to the work of several ocean observing networks, improvements are still needed in Pacific Ocean coverage. This includes supporting observation continuity, as well as standardization of data collection across the region and globally."
+    },
+    "quote3": {
+      "text": "Some countries can only monitor these variables once a month, while we can provide one-minute resolution. Moving towards at least hourly data collection will require international cooperation and agreements, but I hope we'll see progress in the next few years.",
+      "author": "Monica Alvarado Niño",
+      "position": "oceanographer at the Hydrographic and Oceanographic Service of the Chilean Navy"
     }
   },
   "content": {
