@@ -1435,10 +1435,10 @@ function App() {
       >
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph2')}</p>
-        <p className="text-2xl leading-relaxed mb-4 text-goos-blue-700" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
+        <p className="text-2xl leading-relaxed mb-4 text-goos-blue-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
       </ContentModule>
 
- <div className="px-16 bg-goos-green-100">
+ <div className="px-16">
         {/* YouTube Video */}
         <VideoModal
           videoType="youtube"
@@ -1475,13 +1475,8 @@ function App() {
         />
       </ContentModule>
 
-      {/* InsightPanel Examples */}
-
-      {/* Example 1: Full featured with title, button, and 4 stats */}
+      {/* Acknowledgments Panel */}
       <InsightPanel
-        title="Insight Panel Optional Heading"
-        hasLine={true}
-        lineColor="bg-goos-orange-500"
         largeNumber="129"
         largeNumberDescription="Lorem ipsum dolor sit amet aliqua."
         button={{
@@ -1489,39 +1484,16 @@ function App() {
           label: 'VIEW FULL LIST',
           onClick: () => setIsPartnerModalOpen(true),
           textColor: 'text-white',
-          bgColor: 'bg-goos-blue-900',
+          bgColor: 'bg-goos-blue-700',
         }}
-        stats={[
-          {
-            number: '$45M',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://example.com',
-          },
-          {
-            number: '$400B',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://example.com',
-          },
-          {
-            number: '$400B',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://example.com',
-          },
-          {
-            number: '$45M',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod aliqua.',
-            linkText: 'External Link',
-            linkUrl: 'https://example.com',
-          },
-        ]}
-        backgroundColor="bg-goos-blue-700"
-        titleColor="text-white"
-        textColor="text-white"
-        numberColor="text-white"
-        linkColor="text-white"
+        rightContent={
+          <p className="text-2xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
+            We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our global ocean observing system!
+          </p>
+        }
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-goos-white"
+        numberColor="text-goos-orange-500"
       />
 
       {/* Example 3: With translations */}
