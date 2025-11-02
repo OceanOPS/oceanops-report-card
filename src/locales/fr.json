@@ -125,6 +125,57 @@
       "position": "oceanographer at the Hydrographic and Oceanographic Service of the Chilean Navy"
     }
   },
+  "oceanHealth": {
+    "kicker": "OCEAN HEALTH",
+    "title": "First-of-its-kind seal data to guide Southern Ocean management and conservation",
+    "contributors": "Contributors: Clive McMahon, Jon Pye, Ian Jonsen, Ana Lara-Lopez",
+    "quickSummary": {
+      "title": "Quick summary:",
+      "realTimeInsights": "<strong>Real-Time Ocean Insights:</strong> Seal-borne sensors provide immediate data on water temperature, salinity, and ecosystem conditions in some of the most remote regions.",
+      "conservation": "<strong>Conservation & Marine Spatial Planning:</strong> These observations can provide vital information for marine spatial planning and management of fisheries and protected areas.",
+      "globalCollaboration": "<strong>Global Collaboration:</strong> Freely available, globally standardized animal-borne sensor datasets will enable worldwide collaboration for answering pressing societal questions related to ocean health and resilience."
+    },
+    "paragraph1": "In the icy waters of the Southern Ocean, one of the least observed regions on our planet, lies an ecosystem of immense importance. These remote waters, central to regulating Earth's climate, are teeming with life, and vital for global fisheries that sustain countless livelihoods. Ensuring this unique ecosystem is managed sustainably is critical if we want future generations to continue benefiting from these resources.",
+    "paragraph2": "Because few research ships reach this vast and hostile region, much about it has remained a mystery. Recently, an unlikely group of \"field assistants\" has begun to help us close the knowledge gap: southern elephant seals.",
+    "paragraph3": "These impressive mammals live up to their name. A full-grown male can weigh up to 4,000 kilograms — as much as an elephant — and reach over 6 meters in length, about the size of a large delivery van. They dive as deep as two kilometres in search of fish and squid — and on these journeys, some carry tiny state-of-the-art scientific instruments on their heads, transforming them into \"seal-oceanographers\".",
+    "observationsTitle": "Observations & Benefits",
+    "paragraph4": "Through the GOOS AniBOS network, elephant seals now provide real-time marine mammal data. This first-of-its-kind data deepens our understanding of seal biology, provides essential oceanographic observations of the Southern Ocean below the surface, and helps shape conservation and marine spatial planning efforts.",
+    "paragraph5": "The sensors on the animals' heads track their movements, including dive depths, times and changes in body condition — revealing which areas seals use for feeding and offering clues about ocean productivity. They also record sub-surface temperature and salinity profiles, allowing scientists to link changes in ocean physics to ecosystem health. This information will help marine spatial planners understand how ocean conditions shape species distribution and productivity, enabling ocean management that is based on real ecological needs rather than assumptions.",
+    "imageCaption": "Foraging trips of instrumented southern elephant seals tagged from December 2024 to February 2025 at Iles Keguelen (upper right) and in May 2025 at Macquarie Island (lower middle).",
+    "quote1": {
+      "text": "We get some excellent information on what the ocean physics looks like and how that affects ecosystem productivity, which we measure by looking at the condition of the animals. This real-time data allows us to monitor ocean health - and also implement better management.",
+      "author": "Dr. Clive McMahon",
+      "position": "seal biologist and co-chair of the AniBOS network"
+    },
+    "paragraph6": "The potential applications of the animal-borne systems are diverse, and compliment other ocean observing networks under GOOS. From climate change impacts on ocean physics, to productivity shifts that affect fisheries and ecosystems, this new stream of data can help answer urgent, big-picture questions about the ocean's health and resilience.",
+    "eovTable": {
+      "title": "GOOS Essential Ocean Variables that can be collected through animal-borne sensors:",
+      "biologyTitle": "Biology and Ecosystems",
+      "physicsTitle": "Physics"
+    },
+    "learnMore": {
+      "title": "LEARN MORE: Why is it so complicated to obtain data from animals in real-time?",
+      "content1": "Collecting data from animals in real time is technically challenging. Miniaturised electronic tags must withstand extreme environmental conditions, operate on limited battery power for months, and record, compress, and transmit summarised data to Argos satellites passing overhead when the animals surface to breathe or rest — all without causing the animals any harm.",
+      "content2": "The data are then received by the tag manufacturer, decoded into a human-readable format, and made available to researchers. Researchers then apply quality-control algorithms to improve the accuracy of obtained animal locations so that the animals' movements and associated ocean observations can be determined more precisely. The whole process — from data reception to quality control and publication — runs automatically, every 24 hours.",
+      "authorName": "Ian Jonsen",
+      "authorPosition": "Computation Ecologist and Data Committee chair of the AniBOS network"
+    },
+    "whatsNext": {
+      "title": "What's next?",
+      "paragraph1": "The next step for AniBOS is to ensure this pioneering dataset is quality-checked and integrated into global databases in real-time through the IOC Ocean Biodiversity Information System (OBIS), with the support of the GOOS Biology and Ecosystems Expert Panel (BioEco Panel).",
+      "paragraph2": "Moreover, while southern elephant seals are leading the way in this real-time biological and physical data provision, other marine species (such as sea turtles in Northern Australia) are also being explored for this role. Together with AniBOS, leading this work are Australia's Integrated Marine Observing System, the Sydney Institute of Marine Science, the Australian Institute of Marine Science, and other research groups.",
+      "paragraph3": "Canada is also contributing to AniBOS through the Ocean Tracking Network. There, researchers are building on the elephant seal example by developing open code and data workflows that standardize and streamline the real-time submission of animal-borne sensor data to the OBIS data system, for any species and any researcher working with their national AniBOS partner. The GOOS BioEco Panel provides a forum to connect these efforts, linking marine animal tracking initiatives worldwide into a truly global observing system."
+    },
+    "quote2": {
+      "text": "We're charting a new course here by making this data available and freely accessible to everyone. The next step is to integrate the data into a truly global system. That's when the value multiplies, and we can answer pressing societal questions.",
+      "author": "Dr. Clive McMahon",
+      "position": "co-chair of the AniBOS network and GOOS BioEco Panel"
+    },
+    "podcastBox": {
+      "title": "LEARN MORE",
+      "content": "Listen to the BioEcoOcean podcast with Dr. Clive McMahon and Dr. Lina Mtwana Nordlund (Uppsala University) where you can hear not only about southern elephant seals as oceanographers, but also the latest advancements in ocean observing of marine life, the importance of coordinated efforts in biodiversity monitoring, and how these insights contribute to global ocean management and conservation."
+    }
+  },
   "content": {
     "section1": {
       "kicker": "",

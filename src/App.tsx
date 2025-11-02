@@ -1180,6 +1180,175 @@ function App() {
         iconColor="fill-goos-cyan-600"
       />
 
+      {/* Ocean Health - Seal Data Story */}
+      <ContentModule
+        kicker={t('oceanHealth.kicker')}
+        title={t('oceanHealth.title')}
+        titleLevel="h3"
+        introduction={t('oceanHealth.contributors')}
+        layout="split"
+        backgroundColor="bg-goos-white"
+        titleColor="text-goos-blue-700"
+        textColor="text-goos-gray-800"
+        lineColor="bg-goos-cyan-600"
+      >
+        {/* Quick Summary */}
+        <div className="space-y-4 mb-8">
+          <h3 className="text-2xl font-bold text-goos-blue-700">{t('oceanHealth.quickSummary.title')}</h3>
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
+        </div>
+
+        {/* Main paragraphs */}
+        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph1')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph2')}</p>
+        <p className="text-xl leading-relaxed mb-8">{t('oceanHealth.paragraph3')}</p>
+
+        {/* Observations & Benefits */}
+        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.observationsTitle')}</h3>
+        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph4')}</p>
+        <p className="text-xl leading-relaxed mb-6">{t('oceanHealth.paragraph5')}</p>
+
+        {/* Image - Seal foraging trips */}
+        <ImageCaption
+          src="/images/content.jpg"
+          alt={t('oceanHealth.imageCaption')}
+          caption={t('oceanHealth.imageCaption')}
+          aspectRatio="video"
+          objectFit="cover"
+        />
+
+        <Spacer size="sm" />
+
+        {/* Quote 1 - Dr. Clive McMahon */}
+        <QuoteBlock
+          variant="quote"
+          quote={t('oceanHealth.quote1.text')}
+          authorName={t('oceanHealth.quote1.author')}
+          authorTitle={t('oceanHealth.quote1.position')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-cyan-600"
+        />
+
+        <Spacer size="sm" />
+
+        <p className="text-xl leading-relaxed mb-6">{t('oceanHealth.paragraph6')}</p>
+
+        {/* EOV Table */}
+        <div className="mb-6">
+          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.eovTable.title')}</h4>
+
+          {/* Biology and Ecosystems Table */}
+          <IconTable
+            columns={4}
+            headers={[t('oceanHealth.eovTable.biologyTitle')]}
+            rows={[
+              [
+                { icon: '/icons/biology_and_ecosystems/Marine-mammals.png', legend: 'Marine mammals', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Sea-turtles.png', legend: 'Sea turtles', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Seabirds.png', legend: 'Seabirds', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish', iconSize: 'w-16 h-16' },
+              ]
+            ]}
+            borderColor="border-goos-green-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-green-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-green-700"
+          />
+
+          <Spacer size="sm" />
+
+          {/* Physics Table */}
+          <IconTable
+            columns={4}
+            headers={[t('oceanHealth.eovTable.physicsTitle')]}
+            rows={[
+              [
+                { icon: '/icons/physics/Surface-temperature.png', legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-temperature.png', legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Surface-salinity.png', legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-salinity.png', legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
+              ]
+            ]}
+            borderColor="border-goos-blue-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-blue-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-blue-700"
+          />
+        </div>
+
+        <Spacer size="sm" />
+
+        {/* Learn More Content Box */}
+        <ContentBox
+          titleKey="oceanHealth.learnMore.title"
+          backgroundColor="bg-goos-blue-700"
+          textColor="text-goos-white"
+          titleColor="text-goos-white"
+        >
+          <div className="italic mb-6">
+            <p className="text-lg leading-relaxed mb-4">
+              "{t('oceanHealth.learnMore.content1')}
+            </p>
+            <p className="text-lg leading-relaxed">
+              {t('oceanHealth.learnMore.content2')}"
+            </p>
+          </div>
+          <div className="pt-4 border-t border-white/50">
+            <p className="text-base font-semibold text-goos-white">
+              {t('oceanHealth.learnMore.authorName')}
+            </p>
+            <p className="text-sm opacity-90">
+              {t('oceanHealth.learnMore.authorPosition')}
+            </p>
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
+
+        {/* What's Next */}
+        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.whatsNext.title')}</h3>
+        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.whatsNext.paragraph1')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.whatsNext.paragraph2')}</p>
+        <p className="text-xl leading-relaxed mb-6">{t('oceanHealth.whatsNext.paragraph3')}</p>
+
+        {/* Quote 2 - Dr. Clive McMahon */}
+        <QuoteBlock
+          variant="quote"
+          quote={t('oceanHealth.quote2.text')}
+          authorName={t('oceanHealth.quote2.author')}
+          authorTitle={t('oceanHealth.quote2.position')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-cyan-600"
+        />
+
+        <Spacer size="sm" />
+
+        {/* Learn More Podcast Content Box */}
+        <ContentBox
+          titleKey="oceanHealth.podcastBox.title"
+          backgroundColor="bg-goos-blue-700"
+          textColor="text-white"
+          titleColor="text-white"
+        >
+          <p className="text-lg leading-relaxed mb-8">
+            {t('oceanHealth.podcastBox.content')}
+          </p>
+
+          {/* Spotify Podcast Embed */}
+          <SpotifyEmbed
+            spotifyId="3AjTpnz2G7RZofpSOtiDa1"
+            type="episode"
+            height={252}
+          />
+        </ContentBox>
+      </ContentModule>
+
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
         titleLevel="h3"

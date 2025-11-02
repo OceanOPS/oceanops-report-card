@@ -125,6 +125,57 @@
       "position": "oceanógrafa en el Servicio Hidrográfico y Oceanográfico de la Armada de Chile"
     }
   },
+  "oceanHealth": {
+    "kicker": "SALUD OCEÁNICA",
+    "title": "Datos de focas únicos en su tipo para guiar la gestión y conservación del Océano Austral",
+    "contributors": "Colaboradores: Clive McMahon, Jon Pye, Ian Jonsen, Ana Lara-Lopez",
+    "quickSummary": {
+      "title": "Resumen rápido:",
+      "realTimeInsights": "<strong>Conocimientos oceánicos en tiempo real:</strong> Los sensores portados por focas proporcionan datos inmediatos sobre temperatura del agua, salinidad y condiciones del ecosistema en algunas de las regiones más remotas.",
+      "conservation": "<strong>Conservación y planificación espacial marina:</strong> Estas observaciones pueden proporcionar información vital para la planificación espacial marina y la gestión de pesquerías y áreas protegidas.",
+      "globalCollaboration": "<strong>Colaboración global:</strong> Los conjuntos de datos de sensores portados por animales, disponibles libremente y estandarizados globalmente, permitirán la colaboración mundial para responder preguntas sociales urgentes relacionadas con la salud y resiliencia del océano."
+    },
+    "paragraph1": "En las aguas heladas del Océano Austral, una de las regiones menos observadas de nuestro planeta, se encuentra un ecosistema de inmensa importancia. Estas aguas remotas, centrales para regular el clima de la Tierra, están llenas de vida y son vitales para las pesquerías globales que sustentan innumerables medios de vida. Garantizar que este ecosistema único se gestione de manera sostenible es fundamental si queremos que las futuras generaciones sigan beneficiándose de estos recursos.",
+    "paragraph2": "Debido a que pocos barcos de investigación llegan a esta vasta y hostil región, mucho sobre ella ha permanecido como un misterio. Recientemente, un grupo improbable de \"asistentes de campo\" ha comenzado a ayudarnos a cerrar la brecha de conocimiento: las focas elefante del sur.",
+    "paragraph3": "Estos impresionantes mamíferos hacen honor a su nombre. Un macho adulto puede pesar hasta 4,000 kilogramos — tanto como un elefante — y alcanzar más de 6 metros de longitud, aproximadamente el tamaño de una furgoneta de reparto grande. Se sumergen hasta dos kilómetros de profundidad en busca de peces y calamares — y en estos viajes, algunas llevan diminutos instrumentos científicos de última generación en sus cabezas, transformándolas en \"focas-oceanógrafas\".",
+    "observationsTitle": "Observaciones y beneficios",
+    "paragraph4": "A través de la red AniBOS de GOOS, las focas elefante ahora proporcionan datos de mamíferos marinos en tiempo real. Estos datos únicos en su tipo profundizan nuestra comprensión de la biología de las focas, proporcionan observaciones oceanográficas esenciales del Océano Austral bajo la superficie y ayudan a dar forma a los esfuerzos de conservación y planificación espacial marina.",
+    "paragraph5": "Los sensores en las cabezas de los animales rastrean sus movimientos, incluidas las profundidades de inmersión, tiempos y cambios en la condición corporal — revelando qué áreas usan las focas para alimentarse y ofreciendo pistas sobre la productividad del océano. También registran perfiles de temperatura y salinidad subsuperficial, permitiendo a los científicos vincular cambios en la física del océano con la salud del ecosistema. Esta información ayudará a los planificadores espaciales marinos a comprender cómo las condiciones oceánicas moldean la distribución y productividad de las especies, permitiendo una gestión oceánica basada en necesidades ecológicas reales en lugar de suposiciones.",
+    "imageCaption": "Viajes de alimentación de focas elefante del sur instrumentadas marcadas desde diciembre de 2024 hasta febrero de 2025 en Iles Keguelen (superior derecha) y en mayo de 2025 en la Isla Macquarie (centro inferior).",
+    "quote1": {
+      "text": "Obtenemos excelente información sobre cómo se ve la física del océano y cómo eso afecta la productividad del ecosistema, que medimos observando la condición de los animales. Estos datos en tiempo real nos permiten monitorear la salud del océano y también implementar una mejor gestión.",
+      "author": "Dr. Clive McMahon",
+      "position": "biólogo de focas y copresidente de la red AniBOS"
+    },
+    "paragraph6": "Las aplicaciones potenciales de los sistemas portados por animales son diversas y complementan otras redes de observación oceánica bajo GOOS. Desde los impactos del cambio climático en la física oceánica, hasta los cambios de productividad que afectan las pesquerías y los ecosistemas, este nuevo flujo de datos puede ayudar a responder preguntas urgentes y de gran alcance sobre la salud y resiliencia del océano.",
+    "eovTable": {
+      "title": "Variables Oceánicas Esenciales de GOOS que pueden recolectarse a través de sensores portados por animales:",
+      "biologyTitle": "Biología y Ecosistemas",
+      "physicsTitle": "Física"
+    },
+    "learnMore": {
+      "title": "APRENDE MÁS: ¿Por qué es tan complicado obtener datos de animales en tiempo real?",
+      "content1": "Recopilar datos de animales en tiempo real es técnicamente desafiante. Las etiquetas electrónicas miniaturizadas deben soportar condiciones ambientales extremas, operar con energía de batería limitada durante meses, y registrar, comprimir y transmitir datos resumidos a satélites Argos que pasan sobre ellos cuando los animales salen a la superficie para respirar o descansar — todo sin causar ningún daño a los animales.",
+      "content2": "Los datos luego son recibidos por el fabricante de la etiqueta, decodificados en un formato legible por humanos y puestos a disposición de los investigadores. Los investigadores luego aplican algoritmos de control de calidad para mejorar la precisión de las ubicaciones de animales obtenidas, de modo que los movimientos de los animales y las observaciones oceánicas asociadas puedan determinarse con mayor precisión. Todo el proceso — desde la recepción de datos hasta el control de calidad y publicación — se ejecuta automáticamente, cada 24 horas.",
+      "authorName": "Ian Jonsen",
+      "authorPosition": "Ecólogo Computacional y presidente del Comité de Datos de la red AniBOS"
+    },
+    "whatsNext": {
+      "title": "¿Qué sigue?",
+      "paragraph1": "El siguiente paso para AniBOS es garantizar que este conjunto de datos pionero se verifique en calidad y se integre en bases de datos globales en tiempo real a través del Sistema de Información sobre Biodiversidad Oceánica de la COI (OBIS), con el apoyo del Panel de Expertos en Biología y Ecosistemas de GOOS (Panel BioEco).",
+      "paragraph2": "Además, aunque las focas elefante del sur están liderando el camino en esta provisión de datos biológicos y físicos en tiempo real, otras especies marinas (como las tortugas marinas en el norte de Australia) también están siendo exploradas para este rol. Junto con AniBOS, lideran este trabajo el Sistema Integrado de Observación Marina de Australia, el Instituto de Ciencias Marinas de Sídney, el Instituto Australiano de Ciencias Marinas y otros grupos de investigación.",
+      "paragraph3": "Canadá también está contribuyendo a AniBOS a través de la Red de Seguimiento Oceánico. Allí, los investigadores están construyendo sobre el ejemplo de las focas elefante desarrollando código abierto y flujos de trabajo de datos que estandarizan y agilizan la presentación en tiempo real de datos de sensores portados por animales al sistema de datos OBIS, para cualquier especie y cualquier investigador que trabaje con su socio nacional de AniBOS. El Panel BioEco de GOOS proporciona un foro para conectar estos esfuerzos, vinculando iniciativas de seguimiento de animales marinos en todo el mundo en un sistema de observación verdaderamente global."
+    },
+    "quote2": {
+      "text": "Estamos trazando un nuevo curso aquí al hacer que estos datos estén disponibles y sean de libre acceso para todos. El siguiente paso es integrar los datos en un sistema verdaderamente global. Ahí es cuando el valor se multiplica y podemos responder preguntas sociales urgentes.",
+      "author": "Dr. Clive McMahon",
+      "position": "copresidente de la red AniBOS y del Panel BioEco de GOOS"
+    },
+    "podcastBox": {
+      "title": "APRENDE MÁS",
+      "content": "Escucha el podcast BioEcoOcean con el Dr. Clive McMahon y la Dra. Lina Mtwana Nordlund (Universidad de Uppsala) donde puedes escuchar no solo sobre las focas elefante del sur como oceanógrafas, sino también los últimos avances en la observación oceánica de la vida marina, la importancia de los esfuerzos coordinados en el monitoreo de la biodiversidad y cómo estas ideas contribuyen a la gestión y conservación oceánica global."
+    }
+  },
   "content": {
     "section1": {
       "kicker": "",
