@@ -75,6 +75,51 @@
       "position": "profesor asistente en la Universidad del Sur de Florida"
     }
   },
+  "elNino": {
+    "kicker": "Servicios Operacionales",
+    "title": "Hacia mejores pronósticos de El Niño para la pesca y la preparación ante desastres",
+    "contributors": "Contribuyentes: Juan Miguel Quintana Arena, Mónica Alvarado Niño, Matias Sifón, Albert Fischer",
+    "quickSummary": {
+      "title": "Resumen rápido:",
+      "betterForecasts": "<strong>Mejores Pronósticos de El Niño:</strong> La integración de observaciones oceánicas mejora los pronósticos estacionales, resultando en tiempos de anticipación sustancialmente mejorados para las predicciones de El Niño.",
+      "earlyWarnings": "<strong>Alertas Tempranas:</strong> Las redes de observación coordinadas por GOOS proporcionan datos oportunos para ayudar a las comunidades a prepararse para inundaciones, sequías y otros impactos climáticos.",
+      "protectingLivelihoods": "<strong>Protegiendo Medios de Vida:</strong> Los datos recopilados sobre Variables Oceánicas Esenciales relevantes de GOOS apoyan la pesca, la agricultura y la planificación de desastres para reducir las pérdidas económicas y sociales de los impactos de El Niño."
+    },
+    "paragraph1": "Cada pocos años, sin un calendario fijo, las temperaturas de la superficie del mar aumentan en el océano Pacífico tropical, desencadenando cambios importantes en los vientos y las precipitaciones con impactos de gran alcance en todo el mundo.",
+    "paragraph2": "El Niño 2023-2024 — clasificado como el segundo evento más fuerte del siglo XXI hasta ahora — trajo lluvias extremas, inundaciones y cambios en los recursos en múltiples regiones. Interrumpió la pesca y la economía en Perú, destruyó infraestructura y hogares en Brasil, y causó turbulencia en el mercado del arroz asiático.",
+    "paragraph3": "Con el cambio climático alterando las temperaturas de la superficie del mar y otras variables que influyen en el inicio de El Niño, se está volviendo cada vez más desafiante entregar pronósticos oceánicos y meteorológicos precisos, críticos para ayudar a las comunidades a prepararse para peligros naturales y minimizar daños. Un flujo continuo de observaciones oceánicas esenciales es vital para monitorear las condiciones oceánicas cambiantes y proteger el bienestar y las economías de múltiples regiones afectadas.",
+    "quote1": {
+      "text": "Durante los años 80 y 90, cuando había un evento de El Niño, especialmente en el centro de Chile, nuestros pronósticos estacionales eran prácticamente 100% precisos. Sin embargo, al entrar al siglo XXI, comenzaron a aparecer condiciones diferentes de las que habíamos esperado anteriormente, lo que sugiere que los patrones están cambiando.",
+      "author": "Juan Miguel Quintana Arena",
+      "position": "meteorólogo y representante chileno en la Comisión Permanente del Pacífico Sur"
+    },
+    "observationsTitle": "Observaciones y Beneficios",
+    "paragraph4": "En el Pacífico Sudeste, los datos de las estaciones de nivel del mar de la red GLOSS, flotadores perfiladores Argo, Buques de Observación Voluntaria y boyas fondeadas DBCP — todos coordinados bajo GOOS — se integran actualmente en pronósticos mensuales de El Niño, producidos y compartidos públicamente por la Comisión Permanente del Pacífico Sur (CPPS) y la Alianza Regional GOOS para la región del Pacífico Sudeste (GRASP).",
+    "paragraph5": "Esta información se alimenta en los sistemas de alerta temprana nacionales en la región, ayudando a las comunidades locales a prepararse para impactos potenciales — desde desastres naturales como inundaciones y sequías, hasta efectos económicos y sociales en los sectores de agricultura y pesca.",
+    "learnMore": {
+      "title": "Aprende Más: ¿Cómo afecta El Niño a la pesca?",
+      "content1": "Por ejemplo, la disponibilidad de sardinas y anchovetas – especies de peces comerciales clave en el Pacífico Sudeste – depende de las condiciones oceánicas prevalecientes. Durante un evento de calentamiento como El Niño, las aguas frías y ricas en nutrientes de las que dependen estos peces pueden ser desplazadas, forzándolos a migrar más lejos de la costa en busca de alimento. Esto aumenta su gasto de energía, puede reducir su crecimiento y los expone a más depredadores.",
+      "content2": "En última instancia, estos cambios pueden afectar sustancialmente las capturas pesqueras en la región, impactando las economías de países como Perú y Chile que dependen en gran medida de este sector.",
+      "authorName": "Monica Alvarado Niño",
+      "authorPosition": "oceanógrafa en el Servicio Hidrográfico y Oceanográfico de la Armada de Chile"
+    },
+    "quote2": {
+      "text": "El Taller de la Organización Meteorológica Mundial sobre el Impacto de Varios Sistemas de Observación en la Predicción Meteorológica Numérica y la Predicción del Sistema Terrestre mostró que la integración de datos oceánicos en pronósticos estacionales resulta en una ganancia de 2 meses de tiempo de anticipación para la predicción de El Niño, permitiendo una mejor preparación para sus impactos.",
+      "author": "Albert Fischer",
+      "position": "Director de la División del Sistema de Observación Global Integrado (WIGOS) de la OMM"
+    },
+    "imageCaption": "Pronóstico del Conjunto Multi-Modelo de América del Norte para Anomalías de Temperatura de la Superficie del Mar en enero-febrero-marzo de 2024",
+    "eovTable": {
+      "title": "Variables Oceánicas Esenciales de GOOS para pronósticos de El Niño:",
+      "physicsTitle": "Física",
+      "additionalTitle": "Variables adicionales para observar impactos:",
+      "biologyTitle": "Biología y Ecosistemas"
+    },
+    "whatsNext": {
+      "title": "¿Qué sigue?",
+      "paragraph": "El Niño es un fenómeno complejo que requiere observación continua de numerosas variables oceánicas y atmosféricas para predicciones precisas, especialmente bajo un clima cambiante. Si bien ya se están recopilando datos oceánicos vitales gracias al trabajo de varias redes de observación oceánica, aún se necesitan mejoras en la cobertura del Océano Pacífico. Esto incluye apoyar la continuidad de observación, así como la estandarización de la recopilación de datos en la región y a nivel mundial."
+    }
+  },
   "content": {
     "section1": {
       "kicker": "",

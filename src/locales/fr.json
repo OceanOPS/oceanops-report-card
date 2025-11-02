@@ -75,6 +75,51 @@
       "position": "assistant professor at University of South Florida"
     }
   },
+  "elNino": {
+    "kicker": "Operational Services",
+    "title": "Towards better El Niño forecasts for fisheries and disaster preparedness",
+    "contributors": "Contributors: Juan Miguel Quintana Arena, Mónica Alvarado Niño, Matias Sifón, Albert Fischer",
+    "quickSummary": {
+      "title": "Quick summary:",
+      "betterForecasts": "<strong>Better El Niño Forecasts:</strong> Integrating ocean observations improves seasonal forecasts, resulting in substantially improved lead-times for El Niño predictions.",
+      "earlyWarnings": "<strong>Early Warnings:</strong> GOOS-coordinated observing networks provide timely data to help communities prepare for floods, droughts, and other climate impacts.",
+      "protectingLivelihoods": "<strong>Protecting Livelihoods:</strong> The collected data on relevant GOOS Essential Ocean Variables supports fisheries, agriculture, and disaster planning to reduce economic and social losses from El Niño impacts."
+    },
+    "paragraph1": "Every few years, without a fixed schedule, sea-surface temperatures rise across the tropical Pacific Ocean, triggering major changes in winds and rainfall with far-reaching impacts worldwide.",
+    "paragraph2": "The 2023–2024 El Niño — ranked as the second strongest event of the twenty-first century so far — brought extreme rainfall, floods, and shifts in resources across multiple regions. It disrupted fisheries and the economy in Peru, destroyed infrastructure and homes in Brazil, and caused turmoil in the Asian rice market.",
+    "paragraph3": "With climate change altering sea-surface temperatures and other variables that influence the onset of El Niño, it is becoming increasingly challenging to deliver precise ocean and weather forecasts, critical to helping communities prepare for natural hazards and minimize damage. A continuous flow of essential ocean observations is vital to monitor changing ocean conditions and protect the welfare and economies of multiple affected regions.",
+    "quote1": {
+      "text": "During the 1980s and 1990s, when there was an El Niño event, especially in central Chile, our seasonal forecasts were practically 100% accurate. However, entering the 21st century, conditions started appearing that were different from what we had previously expected, suggesting that the patterns are changing.",
+      "author": "Juan Miguel Quintana Arena",
+      "position": "meteorologist and Chilean representative in the Permanent Commission for the South Pacific"
+    },
+    "observationsTitle": "Observations & Benefits",
+    "paragraph4": "In the South-East Pacific, data from GLOSS network's sea level stations, Argo profiling floats, Voluntary Observing Ships and DBCP moored buoys — all coordinated under GOOS — is currently integrated into monthly El Niño forecasts, produced and publicly shared by the Permanent Commission for the South Pacific (CPPS) and the GOOS Regional Alliance for the South-East Pacific region (GRASP).",
+    "paragraph5": "This information feeds into national early warning systems in the region, helping local communities prepare for potential impacts — from natural disasters like floods and droughts, to economic and social effects on agriculture and fisheries sectors.",
+    "learnMore": {
+      "title": "Learn More: How does El Niño impact fisheries?",
+      "content1": "For example, the availability of sardines and anchovetas – key commercial fish species in the South-East Pacific – depends on prevailing ocean conditions. During a warming event such as El Niño, the cold, nutrient-rich waters these fish rely on can be displaced, forcing them to migrate further from the coast in search of food. This increases their energy expenditure, may reduce their growth, and exposes them to more predators.",
+      "content2": "Ultimately, these changes can substantially affect fishery catches across the region, impacting the economies of countries like Peru and Chile which heavily depend on this sector.",
+      "authorName": "Monica Alvarado Niño",
+      "authorPosition": "oceanographer at the Hydrographic and Oceanographic Service of the Chilean Navy"
+    },
+    "quote2": {
+      "text": "The World Meteorological Organization´s Workshop on the Impact of Various Observing Systems on Numerical Weather Prediction and Earth System Prediction showed that integrating ocean data into seasonal forecasts results in a 2-month gain of lead time for El Niño prediction, allowing better preparedness for its impacts.",
+      "author": "Albert Fischer",
+      "position": "Director of the WMO Integrated Global Observing System (WIGOS) Division"
+    },
+    "imageCaption": "North American Multi Model Ensemble Forecast for January–February–March 2024 Sea Surface Temperature Anomalies",
+    "eovTable": {
+      "title": "GOOS Essential Ocean Variables for El Niño forecasts:",
+      "physicsTitle": "Physics",
+      "additionalTitle": "Additional variables to observe impacts:",
+      "biologyTitle": "Biology and Ecosystems"
+    },
+    "whatsNext": {
+      "title": "What's next?",
+      "paragraph": "El Niño is a complex phenomenon that requires continuous observation of numerous oceanic and atmospheric variables for accurate predictions, especially under a changing climate. While vital ocean data is already being collected thanks to the work of several ocean observing networks, improvements are still needed in Pacific Ocean coverage. This includes supporting observation continuity, as well as standardization of data collection across the region and globally."
+    }
+  },
   "content": {
     "section1": {
       "kicker": "",

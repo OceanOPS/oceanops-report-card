@@ -1015,6 +1015,156 @@ function App() {
         iconColor="fill-goos-cyan-600"
       />
 
+      {/* El Niño Operational Services Story */}
+      <ContentModule
+        kicker={t('elNino.kicker')}
+        title={t('elNino.title')}
+        titleLevel="h3"
+        introduction={t('elNino.contributors')}
+        layout="split"
+        backgroundColor="bg-goos-white"
+        titleColor="text-goos-blue-700"
+        textColor="text-goos-gray-800"
+        lineColor="bg-goos-cyan-600"
+      >
+        {/* Quick Summary */}
+        <div className="space-y-4 mb-8">
+          <h3 className="text-2xl font-bold text-goos-blue-700">{t('elNino.quickSummary.title')}</h3>
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
+          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
+        </div>
+
+        {/* Main paragraphs */}
+        <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph1')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph2')}</p>
+        <p className="text-xl leading-relaxed mb-8">{t('elNino.paragraph3')}</p>
+
+        {/* Quote 1 - Juan Miguel Quintana Arena */}
+        <QuoteBlock
+          variant="quote"
+          quote={t('elNino.quote1.text')}
+          authorName={t('elNino.quote1.author')}
+          authorTitle={t('elNino.quote1.position')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-cyan-600"
+        />
+
+        <Spacer size="sm" />
+
+        {/* Observations & Benefits */}
+        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('elNino.observationsTitle')}</h3>
+        <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph4')}</p>
+        <p className="text-xl leading-relaxed mb-6">{t('elNino.paragraph5')}</p>
+
+        {/* Learn More Content Box - Monica Alvarado Niño */}
+        <ContentBox
+          titleKey="elNino.learnMore.title"
+          backgroundColor="bg-goos-blue-700"
+          textColor="text-goos-white"
+          titleColor="text-goos-white"
+        >
+          <div className="italic mb-6">
+            <p className="text-lg leading-relaxed mb-4">
+              "{t('elNino.learnMore.content1')}
+            </p>
+            <p className="text-lg leading-relaxed">
+              {t('elNino.learnMore.content2')}"
+            </p>
+          </div>
+          <div className="pt-4 border-t border-white/50">
+            <p className="text-base font-semibold text-goos-white">
+              {t('elNino.learnMore.authorName')}
+            </p>
+            <p className="text-sm opacity-90">
+              {t('elNino.learnMore.authorPosition')}
+            </p>
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
+
+        {/* Quote 2 - Albert Fischer */}
+        <QuoteBlock
+          variant="quote"
+          quote={t('elNino.quote2.text')}
+          authorName={t('elNino.quote2.author')}
+          authorTitle={t('elNino.quote2.position')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-cyan-600"
+        />
+
+        <Spacer size="sm" />
+
+        {/* Image - El Niño Forecast */}
+        <ImageCaption
+          src="/images/content.jpg"
+          alt={t('elNino.imageCaption')}
+          caption={t('elNino.imageCaption')}
+          aspectRatio="video"
+          objectFit="cover"
+        />
+
+        <Spacer size="sm" />
+
+        {/* EOV Table */}
+        <div className="mb-6">
+          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('elNino.eovTable.title')}</h4>
+
+          {/* Physics Table */}
+          <IconTable
+            columns={4}
+            headers={[t('elNino.eovTable.physicsTitle')]}
+            rows={[
+              [
+                { icon: '/icons/physics/Surface-temperature.png', legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-temperature.png', legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Surface-currents.png', legend: 'Surface currents', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-currents.png', legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
+              ],
+              [
+                { icon: '/icons/physics/Surface-salinity.png', legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Subsurface-salinity.png', legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
+                { icon: '/icons/physics/Surface-height.png', legend: 'Sea surface height', iconSize: 'w-16 h-16' },
+                { icon: '', legend: '' },
+              ]
+            ]}
+            borderColor="border-goos-blue-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-blue-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-blue-700"
+          />
+
+          <Spacer size="sm" />
+
+          {/* Additional Variables Section */}
+          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('elNino.eovTable.additionalTitle')}</h4>
+
+          {/* Biology Table */}
+          <IconTable
+            columns={1}
+            headers={[t('elNino.eovTable.biologyTitle')]}
+            rows={[
+              [
+                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
+              ]
+            ]}
+            borderColor="border-goos-green-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-green-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-green-700"
+          />
+        </div>
+
+        {/* What's Next */}
+        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('elNino.whatsNext.title')}</h3>
+        <p className="text-xl leading-relaxed mb-6">{t('elNino.whatsNext.paragraph')}</p>
+      </ContentModule>
+
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
         titleLevel="h3"
