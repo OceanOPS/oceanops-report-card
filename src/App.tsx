@@ -998,18 +998,22 @@ function App() {
         <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('amoc.whatsNext.title')}</h3>
         <p className="text-xl leading-relaxed mb-4">{t('amoc.whatsNext.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-6">{t('amoc.whatsNext.paragraph2')}</p>
-
-        {/* Quote 2 */}
-        <QuoteBlock
-          variant="highlight"
-          quote={t('amoc.quote2.text')}
-          authorName={t('amoc.quote2.author')}
-          authorTitle={t('amoc.quote2.position')}
-          quoteColor="text-goos-gray-800"
-          authorColor="text-goos-blue-700"
-          borderColor="border-goos-cyan-600"
-        />
       </ContentModule>
+
+      {/* Dr. Yao Fu Quote with Image */}
+      <QuoteWithImage
+        quote={t('amoc.quote2.text')}
+        authorName={t('amoc.quote2.author')}
+        authorTitle={t('amoc.quote2.position')}
+        imageSrc="/images/content.jpg"
+        imageAlt="Dr. Yao Fu"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-cyan-200"
+        quoteColor="text-goos-blue-700"
+        authorColor="text-goos-blue-700"
+        iconColor="fill-goos-cyan-600"
+      />
 
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
