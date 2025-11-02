@@ -1369,44 +1369,26 @@ function App() {
         iconColor="fill-goos-cyan-600"
       />
 
-      {/* Content Module Example - Full Width Layout */}
+      {/* South Africa - Agulhas Current Story */}
       <ContentModule
-        layout="full-width"
+        title={t('southAfrica.title')}
         titleLevel="h2"
-        kicker={t('content.section1.kicker')}
-        title="Full Width Layout Example"
-        subtitle="Content in Two Columns"
-        introduction="This layout displays the title at the top with content distributed in two columns below."
-        hasLine={true}
-        backgroundColor="bg-goos-white"
+        introduction={t('southAfrica.contributors')}
+        layout="split"
+        backgroundColor="bg-goos-green-100"
         titleColor="text-goos-blue-700"
-        textColor="text-goos-gray-900"
-        lineColor="bg-goos-orange-500"
-        rightColumn={
-          <>
-            <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-              {t('content.section1.paragraph1')}
-            </p>
-
-            <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-              {t('content.section1.paragraph2')}
-            </p>
-          </>
-        }
+        textColor="text-goos-gray-800"
+        lineColor="bg-goos-green-700"
       >
-        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-          {t('content.section1.paragraph1')}
-        </p>
-
-        <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
-          {t('content.section1.paragraph2')}
-        </p>
-
-        <Spacer size="sm" />
-
+        {/* Paragraphs distributed in two columns */}
+        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph1')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph2')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph3')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph4')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph5')}</p>
       </ContentModule>
- 
- <div className="px-16 bg-goos-white">
+
+       <div className="px-16 bg-goos-green-100">
        {/* Image Gallery with Navigation */}
         <ImageGallery
           images={[
@@ -1414,16 +1396,6 @@ function App() {
               src: '/images/content.jpg',
               alt: t('content.section1.gallery.image1.alt'),
               caption: t('content.section1.gallery.image1.caption'),
-            },
-            {
-              src: '/images/content2.jpg',
-              alt: t('content.section1.gallery.image2.alt'),
-              caption: t('content.section1.gallery.image2.caption'),
-            },
-            {
-              src: '/images/content3.jpg',
-              alt: t('content.section1.gallery.image3.alt'),
-              caption: t('content.section1.gallery.image3.caption'),
             },
           ]}
           aspectRatio="video"
@@ -1438,67 +1410,45 @@ function App() {
          <Spacer size="sm" />
       </div>
 
-      {/* QuoteWithImage Examples */}
+      {/* 10,000 Ships for the Ocean Initiative */}
+      <ContentModule
+        title={t('tenThousandShips.title')}
+        titleLevel="h2"
+        introduction={t('tenThousandShips.contributors')}
+        layout="split"
+        backgroundColor="bg-goos-white"
+        titleColor="text-goos-blue-700"
+        textColor="text-goos-gray-800"
+        lineColor="bg-goos-orange-500"
+        button={{
+          type: 'link',
+          label: t('tenThousandShips.buttonLabel'),
+          url: 'https://10000ships.org',
+          textColor: 'text-white',
+          bgColor: 'bg-goos-blue-700',
+        }}
+      >
+        <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph1')}</p>
+        <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph2')}</p>
+        <p className="text-2xl leading-relaxed mb-4 text-goos-blue-700" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
+      </ContentModule>
 
-      {/* Example 1: Fullscreen with image on left (default) */}
-      <QuoteWithImage
-        quote={t('content.section1.quote.text')}
-        authorName={t('content.section1.quote.authorName')}
-        authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/content.jpg"
-        imageAlt="Ocean research professional"
-        logoSrc="/logos/oceanops.png"
-        logoAlt="OceanOPS Logo"
-        height="fullscreen"
-        imagePosition="left"
-        backgroundColor="bg-goos-cyan-200"
-        quoteColor="text-goos-blue-700"
-        authorColor="text-goos-blue-700"
-        iconColor="fill-goos-cyan-600"
-      />
+ <div className="px-16 bg-goos-green-100">
+        {/* YouTube Video */}
+        <VideoModal
+          videoType="youtube"
+          videoId="dQw4w9WgXcQ"
+          previewImage="/images/content.jpg"
+          previewAlt="10,000 Ships for the Ocean video"
+          caption="Watch the launch of 10,000 Ships for the Ocean initiative"
+          aspectRatio="video"
+          playButtonColor="bg-goos-orange-500"
+          captionColor="text-goos-gray-800"
+        />
+        {/* Spacer between modules */}
+         <Spacer size="sm" />
+      </div>
 
-      {/* Example 2: Auto height with image on right */}
-      <QuoteWithImage
-        quote={t('content.section1.quote.text')}
-        authorName={t('content.section1.quote.authorName')}
-        authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/content2.jpg"
-        imageAlt="Marine scientist at work"
-        height="auto"
-        imagePosition="right"
-        backgroundColor="bg-goos-blue-900"
-        quoteColor="text-white"
-        authorColor="text-white"
-        iconColor="fill-goos-cyan-500"
-      />
-
-      {/* Example 3: Without logo, custom colors */}
-      <QuoteWithImage
-        quote={t('content.section1.quote.text')}
-        authorName={t('content.section1.quote.authorName')}
-        authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/content3.jpg"
-        imageAlt="Ocean waves"
-        height="fullscreen"
-        imagePosition="left"
-        backgroundColor="bg-goos-orange-500"
-        quoteColor="text-white"
-        authorColor="text-white"
-        iconColor="fill-white"
-      />
-
-      {/* Example 5: No image - full width quote */}
-      <QuoteWithImage
-        quote={t('content.section1.quote.text')}
-        authorName={t('content.section1.quote.authorName')}
-        authorTitle={t('content.section1.quote.authorTitle')}
-        logoSrc="/logos/oceanops.png"
-        height="auto"
-        backgroundColor="bg-goos-blue-700"
-        quoteColor="text-white"
-        authorColor="text-white"
-        iconColor="fill-goos-orange-500"
-      />
 
       {/* InsightPanel Examples */}
 

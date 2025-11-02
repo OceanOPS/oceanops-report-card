@@ -98,7 +98,7 @@ export default function ImageGallery({
   const showNavigation = images.length > 1
 
   return (
-    <div className={`bg-goos-white w-full ${className}`}>
+    <div className={`w-full ${className}`}>
       {/* Image Container with Navigation */}
       <div className={`relative w-full ${aspectClass} bg-gray-300 flex items-center justify-center overflow-hidden`}>
         {/* Current Image */}

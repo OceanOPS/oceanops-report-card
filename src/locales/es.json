@@ -176,6 +176,23 @@
       "content": "Escucha el podcast BioEcoOcean con el Dr. Clive McMahon y la Dra. Lina Mtwana Nordlund (Universidad de Uppsala) donde puedes escuchar no solo sobre las focas elefante del sur como oceanógrafas, sino también los últimos avances en la observación oceánica de la vida marina, la importancia de los esfuerzos coordinados en el monitoreo de la biodiversidad y cómo estas ideas contribuyen a la gestión y conservación oceánica global."
     }
   },
+  "southAfrica": {
+    "title": "Aumentando la capacidad de observación oceánica de Sudáfrica",
+    "contributors": "Colaboradores: Ann-Christine Zinkann, Tammy Morris",
+    "paragraph1": "Las corrientes límite — corrientes oceánicas importantes y rápidas que fluyen a lo largo de los márgenes continentales — desempeñan un papel crucial en el movimiento de calor, sal y nutrientes a través del océano, impactando el clima y el tiempo. Uno de los sistemas de corriente menos observados pero más poderosos, la Corriente de Agulhas, fluye a lo largo de la costa este de África desde Mozambique hasta la punta de Sudáfrica, influyendo en el clima, eventos extremos y pesquerías tanto en los océanos Índico como Atlántico.",
+    "paragraph2": "En septiembre de 2024, el programa de Codiseño de Observación Oceánica de GOOS reunió a expertos locales e internacionales para evaluar y fortalecer la capacidad de Sudáfrica para observar este sistema vital. Por primera vez, utilizando un enfoque de codiseño, la comunidad local y las partes interesadas — incluidos científicos, modeladores, agencias de financiamiento y usuarios finales — trabajaron conjuntamente para compartir conocimientos e identificar áreas prioritarias para la prestación de servicios específicos.",
+    "paragraph3": "El taller identificó prioridades para fortalecer las observaciones que beneficiarían directamente a las personas y economías de la región del sur de África. Entre las prioridades estaban mejorar la capacidad de pronosticar olas de calor marinas y ciclones, apoyar la gestión sostenible de pesquerías y proporcionar mejor información para operaciones de búsqueda y rescate.",
+    "paragraph4": "Para lograr estos objetivos, los expertos destacaron varias necesidades de observación: capturar mejor la turbulencia a pequeña escala que influye en las trayectorias de tormentas y precipitaciones; mejorar la comprensión del afloramiento a lo largo de la plataforma continental que afecta las pesquerías y el clima local; y refinar las predicciones de la \"zona de retroflexión de Agulhas\" — donde la corriente se vuelve sobre sí misma, dando forma a la distribución regional de calor y humedad.",
+    "paragraph5": "Al integrar las necesidades de las partes interesadas desde el principio, esta iniciativa de codiseño establece el camino crítico para establecer un sistema de observación de Agulhas robusto y receptivo, creando mares más seguros y pronósticos meteorológicos más precisos."
+  },
+  "tenThousandShips": {
+    "title": "Una flota de 10,000 embarcaciones comerciales para apoyar a GOOS",
+    "contributors": "Colaboradores: Emanuela Rusciano, Mathieu Belbeoch",
+    "buttonLabel": "VISITAR 10000SHIPS.ORG",
+    "paragraph1": "Una iniciativa histórica de 10,000 Barcos para el Océano fue lanzada por OceanOPS en la Conferencia Oceánica de la ONU 2025, con el apoyo de Francia y Noruega, y en asociación con la Organización Meteorológica Mundial (OMM), la Comisión Oceanográfica Intergubernamental (COI) de la UNESCO, y la Organización Marítima Internacional (OMI).",
+    "paragraph2": "10,000 Barcos para el Océano reúne una coalición global de socios científicos, industriales y operacionales para transformar 10,000 embarcaciones comerciales en observatorios oceánicos y atmosféricos en tiempo real, construyendo sobre décadas de experiencia del Equipo de Observaciones de Barcos. Su objetivo es equipar flotas con instrumentos de observación met-oceánica de vanguardia, estandarizados y automatizados. Estas nuevas adiciones al sistema global de observación oceánica ayudarán a ampliar y cerrar las brechas críticas de observación oceanográfica y meteorológica, desbloqueando beneficios globales para operaciones, pronósticos, alertas tempranas y gestión ambiental.",
+    "paragraph3": "¿Eres propietario de barcos, operador o socio logístico? Firma el compromiso voluntario y únete a la coalición global para apoyar observaciones mejoradas basadas en barcos: <a href=\"https://10000ships.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:no-underline\">10,000 Barcos para el Océano</a>"
+  },
   "content": {
     "section1": {
       "kicker": "",
