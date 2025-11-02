@@ -193,6 +193,14 @@
     "paragraph2": "10 000 Navires pour l'Océan rassemble une coalition mondiale de partenaires scientifiques, industriels et opérationnels pour transformer 10 000 navires commerciaux en observatoires océaniques et atmosphériques en temps réel, s'appuyant sur des décennies d'expertise de l'Équipe d'Observations de Navires. L'objectif est d'équiper les flottes d'instruments d'observation met-océaniques de pointe, standardisés et automatisés. Ces nouveaux ajouts au système mondial d'observation des océans aideront à augmenter et à combler les lacunes critiques d'observation océanographique et météorologique, libérant des avantages mondiaux pour les opérations, les prévisions, les alertes précoces et la gestion environnementale.",
     "paragraph3": "Êtes-vous propriétaire de navire, opérateur ou partenaire logistique? Signez l'engagement volontaire et rejoignez la coalition mondiale pour soutenir les observations améliorées basées sur les navires: <a href=\"https://10000ships.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:no-underline\">10 000 Navires pour l'Océan</a>"
   },
+  "callToAction": {
+    "title": "Appel à l'Action",
+    "paragraph1": "L'observation des océans devrait être considérée comme une infrastructure critique, tout comme les services météorologiques ou les systèmes énergétiques. Elle est vitale pour la résilience climatique, la réduction des risques de catastrophe, la santé des océans, le développement durable et la stabilité économique.",
+    "paragraph2": "Bien que le système d'observation ait atteint sa maturité, la demande de données océaniques pour soutenir les besoins sociétaux sous une pression environnementale croissante augmente. Renforcer sa résilience nécessitera une participation internationale plus large et des partenariats qui s'étendent au-delà des secteurs académique et public, incluant l'industrie et les acteurs privés qui peuvent contribuer à stimuler l'innovation et l'évolutivité.",
+    "quote": "Un nouvel état d'esprit économique est nécessaire : un état d'esprit qui garantit un investissement coordonné à long terme dans l'observation des océans en tant qu'infrastructure mondiale partagée — sécurisant son avenir et libérant tout son potentiel pour les populations et la planète.",
+    "quoteAuthor": "Joanna Post",
+    "quotePosition": "Directrice du GOOS"
+  },
   "content": {
     "section1": {
       "kicker": "",

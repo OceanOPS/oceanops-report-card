@@ -193,6 +193,14 @@
     "paragraph2": "10,000 Ships for the Ocean brings together a global coalition of scientific, industrial, and operational partners to transform 10,000 commercial vessels into real-time ocean and atmosphere observatories, building on decades of expertise of the Ship Observations Team. It aims to equip fleets with cutting-edge, standardized, and automated met-ocean observing instruments. These new additions to the global ocean observing system will help scale-up and close critical oceanographic and meteorological observation gaps, unlocking global benefits for operations, forecasting, early warnings and environmental stewardship.",
     "paragraph3": "Are you a shipowner, operator, or logistics partner? Sign the voluntary commitment and join the global coalition to support enhanced ship-based observations: <a href=\"https://10000ships.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:no-underline\">10,000 Ships for the Ocean</a>"
   },
+  "callToAction": {
+    "title": "Call to Action",
+    "paragraph1": "Ocean observing should be viewed as critical infrastructure, just like weather services or energy systems. It is vital for climate resilience, disaster risk reduction, ocean health, sustainable development, and economic stability.",
+    "paragraph2": "While the observing system has matured, the demand for ocean data to support societal needs under increasing environmental pressure is growing. Strengthening its resilience will require broader international participation and partnerships that extend beyond the academic and public sectors, including industry and private actors who can help drive innovation and scalability.",
+    "quote": "A new economic mindset is needed: one that ensures long-term, coordinated investment in ocean observing as shared global infrastructure — securing its future and unlocking its full potential for people and the planet.",
+    "quoteAuthor": "Joanna Post",
+    "quotePosition": "GOOS Director"
+  },
   "content": {
     "section1": {
       "kicker": "",

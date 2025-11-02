@@ -1454,6 +1454,26 @@ function App() {
          <Spacer size="sm" />
       </div>
 
+      {/* Call to Action */}
+      <ContentModule
+        title={t('callToAction.title')}
+        titleLevel="h2"
+        layout="split"
+        backgroundColor="bg-goos-blue-900"
+        titleColor="text-goos-white"
+        textColor="text-goos-white"
+        lineColor="bg-goos-orange-600"
+      >
+        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4">{t('callToAction.paragraph1')}</p>
+        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4">{t('callToAction.paragraph2')}</p>
+        <QuoteBlock
+          quote={t('callToAction.quote')}
+          authorName={t('callToAction.quoteAuthor')}
+          authorTitle={t('callToAction.quotePosition')}
+          quoteColor="text-goos-white"
+          authorColor="text-goos-white"
+        />
+      </ContentModule>
 
       {/* InsightPanel Examples */}
 

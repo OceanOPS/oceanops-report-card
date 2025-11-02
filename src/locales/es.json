@@ -193,6 +193,14 @@
     "paragraph2": "10,000 Barcos para el Océano reúne una coalición global de socios científicos, industriales y operacionales para transformar 10,000 embarcaciones comerciales en observatorios oceánicos y atmosféricos en tiempo real, construyendo sobre décadas de experiencia del Equipo de Observaciones de Barcos. Su objetivo es equipar flotas con instrumentos de observación met-oceánica de vanguardia, estandarizados y automatizados. Estas nuevas adiciones al sistema global de observación oceánica ayudarán a ampliar y cerrar las brechas críticas de observación oceanográfica y meteorológica, desbloqueando beneficios globales para operaciones, pronósticos, alertas tempranas y gestión ambiental.",
     "paragraph3": "¿Eres propietario de barcos, operador o socio logístico? Firma el compromiso voluntario y únete a la coalición global para apoyar observaciones mejoradas basadas en barcos: <a href=\"https://10000ships.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:no-underline\">10,000 Barcos para el Océano</a>"
   },
+  "callToAction": {
+    "title": "Llamado a la Acción",
+    "paragraph1": "La observación oceánica debe considerarse como infraestructura crítica, al igual que los servicios meteorológicos o los sistemas energéticos. Es vital para la resiliencia climática, la reducción del riesgo de desastres, la salud oceánica, el desarrollo sostenible y la estabilidad económica.",
+    "paragraph2": "Aunque el sistema de observación ha madurado, la demanda de datos oceánicos para apoyar las necesidades sociales bajo la creciente presión ambiental está aumentando. Fortalecer su resiliencia requerirá una participación internacional más amplia y asociaciones que se extiendan más allá de los sectores académico y público, incluyendo a la industria y actores privados que puedan ayudar a impulsar la innovación y la escalabilidad.",
+    "quote": "Se necesita una nueva mentalidad económica: una que garantice inversión coordinada a largo plazo en la observación oceánica como infraestructura global compartida — asegurando su futuro y desbloqueando todo su potencial para las personas y el planeta.",
+    "quoteAuthor": "Joanna Post",
+    "quotePosition": "Directora de GOOS"
+  },
   "content": {
     "section1": {
       "kicker": "",
