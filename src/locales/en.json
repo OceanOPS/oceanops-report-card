@@ -299,6 +299,7 @@
     "soconet": {
       "title": "Surface Ocean CO₂ Observing Network (SOCONET)",
       "paragraph1": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (Global Carbon Budget, 2024). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
+      "paragraph1WithLink": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (<a href=\"https://globalcarbonbudget.org/gcb-2024/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-70\">Global Carbon Budget, 2024</a>). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
       "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms (see image gallery) to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations.",
       "imageAlt": "Ocean CO₂ monitoring equipment and platforms",
       "iconAlt": "SOCONET Network Icon"

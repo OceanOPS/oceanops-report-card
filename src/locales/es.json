@@ -319,6 +319,7 @@
     "soconet": {
       "title": "Red de Observación de CO₂ del Océano Superficial (SOCONET)",
       "paragraph1": "Durante la última década, el océano ha absorbido aproximadamente el 26% de las emisiones anuales de dióxido de carbono (CO₂) humano, ayudando a limitar el cambio climático (Presupuesto Global de Carbono, 2024). Sin embargo, la absorción de CO₂ oceánico varía enormemente a lo largo del tiempo y las regiones, y aún falta información robusta sobre estos cambios.",
+      "paragraph1WithLink": "Durante la última década, el océano ha absorbido aproximadamente el 26% de las emisiones anuales de dióxido de carbono (CO₂) humano, ayudando a limitar el cambio climático (<a href=\"https://globalcarbonbudget.org/gcb-2024/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-70\">Presupuesto Global de Carbono, 2024</a>). Sin embargo, la absorción de CO₂ oceánico varía enormemente a lo largo del tiempo y las regiones, y aún falta información robusta sobre estos cambios.",
       "paragraph2": "SOCONET, una nueva incorporación a las redes de observación del GOOS, utilizará una amplia gama de plataformas de observación (ver galería de imágenes) para expandir el número de mediciones de CO₂ de agua superficial de alta calidad. Estas observaciones son críticas para evaluar la salud del océano y cuantificar el papel del océano en la mitigación del aumento de las concentraciones de dióxido de carbono atmosférico.",
       "imageAlt": "Equipo y plataformas de monitoreo de CO₂ oceánico",
       "iconAlt": "Icono de Red SOCONET"

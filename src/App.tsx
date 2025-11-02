@@ -695,24 +695,28 @@ function App() {
           lineColor="bg-goos-orange-500"
         cards={[
           {
-            // FVON - First
-            imageSrc: '/images/content.jpg',
+            // FVON - First (Video)
+            mediaType: 'video',
+            videoType: 'youtube',
+            videoId: '-MKKMU3_siw',
+            previewImage: '/images/content.jpg',
             imageAlt: 'emerging.fvon.imageAlt',
-            iconSrc: '/icons/network/fvon.svg',
+            iconSrc: '/icons/network/fishing_vessels.svg',
             iconAlt: 'emerging.fvon.iconAlt',
             titleKey: 'emerging.fvon.title',
             paragraph1Key: 'emerging.fvon.paragraph1',
             paragraph2Key: 'emerging.fvon.paragraph2',
             externalLinkUrl: 'https://www.fvon.org/',
             externalLinkTextKey: 'networks.viewNetwork',
-            youtubeVideoId: '-MKKMU3_siw',
-            videoButtonTextKey: 'emerging.watchVideo',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
             deliveryAreas: ['operational', 'climate'],
           },
           {
-            // SMART Cables - Second
-            imageSrc: '/images/content.jpg',
+            // SMART Cables - Second (Video)
+            mediaType: 'video',
+            videoType: 'youtube',
+            videoId: 'NoEK7XwOMeU',
+            previewImage: '/images/content.jpg',
             imageAlt: 'emerging.smartCables.imageAlt',
             iconSrc: '/icons/network/smart_cables.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
@@ -721,25 +725,87 @@ function App() {
             paragraph2Key: 'emerging.smartCables.paragraph2',
             externalLinkUrl: 'https://www.smartcables.org/',
             externalLinkTextKey: 'networks.viewNetwork',
-            youtubeVideoId: 'NoEK7XwOMeU',
-            videoButtonTextKey: 'emerging.watchVideo',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            // SOCONET - Third
-            imageSrc: '/images/content.jpg',
+            // SOCONET - Third (Gallery with sample images - replace with final content)
+            mediaType: 'gallery',
+            images: [
+              {
+                src: '/images/content.jpg',
+                alt: 'SOCONET Image 1',
+                caption: 'Sample caption 1 - Replace with actual image and caption'
+              },
+              {
+                src: '/images/content.jpg',
+                alt: 'SOCONET Image 2',
+                caption: 'Sample caption 2 - Replace with actual image and caption'
+              },
+              {
+                src: '/images/content.jpg',
+                alt: 'SOCONET Image 3',
+                caption: 'Sample caption 3 - Replace with actual image and caption'
+              },
+              {
+                src: '/images/content.jpg',
+                alt: 'SOCONET Image 4',
+                caption: 'Sample caption 4 - Replace with actual image and caption'
+              }
+            ],
+            imageSrc: '/images/content.jpg', // Fallback image (first image preview)
             imageAlt: 'emerging.soconet.imageAlt',
-            iconSrc: '/icons/network/soconet.svg',
+            modalTitle: 'emerging.soconet.title',
+            modalContent: (
+              <div className="flex flex-col gap-5">
+                <ImageGallery
+                  images={[
+                    {
+                      src: '/images/content.jpg',
+                      alt: 'SOCONET Image 1',
+                      caption: 'Sample caption 1 - Replace with actual image and caption'
+                    },
+                    {
+                      src: '/images/content.jpg',
+                      alt: 'SOCONET Image 2',
+                      caption: 'Sample caption 2 - Replace with actual image and caption'
+                    },
+                    {
+                      src: '/images/content.jpg',
+                      alt: 'SOCONET Image 3',
+                      caption: 'Sample caption 3 - Replace with actual image and caption'
+                    },
+                    {
+                      src: '/images/content.jpg',
+                      alt: 'SOCONET Image 4',
+                      caption: 'Sample caption 4 - Replace with actual image and caption'
+                    }
+                  ]}
+                  aspectRatio="video"
+                  objectFit="cover"
+                />
+                <div className="flex flex-col gap-4 mt-4">
+                  <p
+                    className="text-xl font-normal text-goos-gray-800 leading-[1.5]"
+                    dangerouslySetInnerHTML={{ __html: t('emerging.soconet.paragraph1WithLink') }}
+                  />
+                  <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                    {t('emerging.soconet.paragraph2')}
+                  </p>
+                </div>
+              </div>
+            ),
+            iconSrc: '/icons/network/surface_ocean_co2.svg',
             iconAlt: 'emerging.soconet.iconAlt',
             titleKey: 'emerging.soconet.title',
-            paragraph1Key: 'emerging.soconet.paragraph1',
+            paragraph1Key: 'emerging.soconet.paragraph1WithLink',
             paragraph2Key: 'emerging.soconet.paragraph2',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
             deliveryAreas: ['climate', 'oceanhealth'],
           },
           {
-            // SUN Fleet - Fourth
+            // SUN Fleet - Fourth (Simple image)
+            mediaType: 'image',
             imageSrc: '/images/content.jpg',
             imageAlt: 'emerging.sunFleet.imageAlt',
             iconSrc: '/icons/network/sun_fleet.svg',
