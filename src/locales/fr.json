@@ -23,6 +23,10 @@
     "paragraph2": "Ce qui a commencé en 2016 comme la Carte de Rapport du Système d'Observation des Océans — dirigée par OceanOPS, le centre de surveillance et de soutien opérationnel du GOOS — a maintenant évolué vers un Rapport d'État du GOOS 2025 complet, offrant une vue interactive du système mondial d'observation des océans.",
     "paragraph3": "Dans cette nouvelle édition numérique, explorez les dernières mises à jour, histoires et perspectives en faisant défiler ou en utilisant le menu sur la droite."
   },
+  "valueOfObservations": {
+    "title": "Valeur des observations océaniques",
+    "introduction": "Les observations océaniques soutenues sont essentielles au bien-être, à la sécurité et à la prospérité de toutes les nations. Dans le rapport de cette année, les trois histoires sous les domaines de livraison GOOS du Climat, des Services Opérationnels et de la Santé des Océans reflètent certains des principaux défis et changements qui façonnent notre océan aujourd'hui — et le rôle vital des observations dans la guidance de la science, de la politique et de la réponse."
+  },
   "content": {
     "section1": {
       "kicker": "",

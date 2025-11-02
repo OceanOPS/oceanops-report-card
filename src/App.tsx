@@ -831,6 +831,17 @@ function App() {
       />
       </div>
 
+      {/* Value of Ocean Observations */}
+      <ContentModule
+        title={t('valueOfObservations.title')}
+        titleLevel="h2"
+        titleColor="text-goos-white"
+        introduction={t('valueOfObservations.introduction')}
+        layout="full-width"
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-goos-white"
+      />
+
       {/* Content Module Example 1 - With External Link Button */}
       <ContentModule
         titleLevel="h2"

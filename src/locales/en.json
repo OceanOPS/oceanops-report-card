@@ -23,6 +23,10 @@
     "paragraph2": "What began in 2016 as the Ocean Observing System Report Card — led by OceanOPS, the operational monitoring and support centre of GOOS — has now evolved into a comprehensive GOOS Status Report 2025, offering an interactive view of the global ocean observing system.",
     "paragraph3": "In this new digital edition, explore the latest updates, stories, and insights by scrolling or using the menu on the right."
   },
+  "valueOfObservations": {
+    "title": "Value of ocean observations",
+    "introduction": "Sustained ocean observations are essential to the wellbeing, safety, and prosperity of all nations. In this year's report, the three stories under the GOOS delivery areas of Climate, Operational Services, and Ocean Health reflect some of the major challenges and changes shaping our ocean today — and the vital role of observations in guiding science, policy, and response."
+  },
   "content": {
     "section1": {
       "kicker": "",

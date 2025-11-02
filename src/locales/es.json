@@ -23,6 +23,10 @@
     "paragraph2": "Lo que comenzó en 2016 como la Tarjeta de Informe del Sistema de Observación del Océano, liderada por OceanOPS, el centro de monitoreo y apoyo operacional del GOOS, ahora ha evolucionado hacia un Informe de Estado del GOOS 2025 integral, que ofrece una vista interactiva del sistema global de observación del océano.",
     "paragraph3": "En esta nueva edición digital, explore las últimas actualizaciones, historias y perspectivas desplazándose o usando el menú de la derecha."
   },
+  "valueOfObservations": {
+    "title": "Valor de las observaciones oceánicas",
+    "introduction": "Las observaciones oceánicas sostenidas son esenciales para el bienestar, la seguridad y la prosperidad de todas las naciones. En el informe de este año, las tres historias bajo las áreas de entrega de GOOS de Clima, Servicios Operacionales y Salud del Océano reflejan algunos de los principales desafíos y cambios que dan forma a nuestro océano hoy — y el papel vital de las observaciones en la guía de la ciencia, la política y la respuesta."
+  },
   "content": {
     "section1": {
       "kicker": "",
