@@ -306,12 +306,12 @@ export default function NetworkCard({
                 textColor={tooltipTextColor}
               >
                 <div
-                  className={`${iconBgColor} rounded-full p-2 w-12 h-12 flex items-center justify-center cursor-pointer transition-transform hover:scale-110`}
+                  className={`${iconBgColor} rounded-full p-2 w-16 h-16 flex items-center justify-center cursor-pointer transition-transform hover:scale-110`}
                 >
                   <img
                     src={area.icon}
                     alt={t(area.labelKey)}
-                    className={`w-6 h-6 object-contain ${iconTextColor}`}
+                    className={`object-contain ${iconTextColor}`}
                   />
                 </div>
               </Tooltip>

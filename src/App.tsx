@@ -199,7 +199,7 @@ function App() {
         backgroundColor="bg-goos-blue-900"
         titleColor="text-goos-white"
         textColor="text-goos-white"
-        lineColor="bg-goos-orange-600"
+        lineColor="bg-goos-orange-500"
         layout="split"
       >
         <p className="text-xl font-normal text-goos-white leading-[1.5]">
@@ -237,7 +237,7 @@ function App() {
 
         <Spacer size="sm" />
 
-        <h4 className="text-2xl font-extrabold text-goos-white leading-8">
+        <h4 className="text-2xl font-extrabold text-goos-orange-500 leading-8">
           {t('content.section1.heading1')}
         </h4>
 
@@ -251,7 +251,7 @@ function App() {
 
         <Spacer size="sm" />
 
-        <h4 className="text-2xl font-extrabold text-goos-white leading-8">
+        <h4 className="text-2xl font-extrabold text-goos-orange-500 leading-8">
           {t('content.section1.heading2')}
         </h4>
 
@@ -277,7 +277,7 @@ function App() {
           borderColor="border-goos-orange-600"
           authorName={t('content.section1.quote.authorName')}
           authorTitle={t('content.section1.quote.authorTitle')}
-          authorColor="text-goos-white"
+          authorColor="text-goos-orange-500"
         />
       </ContentModule>
       </div>

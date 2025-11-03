@@ -76,7 +76,7 @@ export default function DataCard({
       {/* Footer Section - Icon and Title */}
       <div className="flex flex-col gap-2">
         {/* Icon */}
-        <div className={`w-12 h-12 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
+        <div className={`w-16 h-16 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
           <img
             src={iconSrc}
             alt={iconAlt}
