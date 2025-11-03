@@ -446,7 +446,7 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/dbcp_moored.svg',
+            iconSrc: '/icons/network/tsunami_buoys.svg',
             iconAlt: 'networks.dbcpTsunami.iconAlt',
             titleKey: 'networks.dbcpTsunami.title',
             networkUrl: 'https://www.ocean-ops.org/DBCP',
