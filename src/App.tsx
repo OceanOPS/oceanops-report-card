@@ -311,7 +311,7 @@ function App() {
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate'],
+            deliveryAreas: ['climate', 'operational'],
           },
           {
             iconSrc: '/icons/network/soop.svg',
@@ -327,7 +327,7 @@ function App() {
               bestPractices: 3,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate'],
+            deliveryAreas: ['climate', 'operational'],
           },
           {
             iconSrc: '/icons/network/asap.svg',
@@ -359,7 +359,7 @@ function App() {
               bestPractices: 3,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate'],
+            deliveryAreas: ['climate', 'operational'],
           },
           {
             iconSrc: '/icons/network/gloss.svg',
@@ -375,7 +375,7 @@ function App() {
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate'],
+            deliveryAreas: ['climate', 'operational'],
           },
           {
             iconSrc: '/icons/network/ocean_sites.svg',
@@ -391,7 +391,7 @@ function App() {
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth', 'operational'],
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
             iconSrc: '/icons/network/dbcp_moored.svg',
@@ -407,7 +407,7 @@ function App() {
               bestPractices: 2.5,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate', 'oceanhealth'],
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
             iconSrc: '/icons/network/dbcp_moored.svg',
@@ -439,7 +439,7 @@ function App() {
               bestPractices: 3,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate'],
+            deliveryAreas: ['climate', 'operational'],
           },
           {
             iconSrc: '/icons/network/dbcp_drifters.svg',
@@ -455,7 +455,7 @@ function App() {
               bestPractices: 3,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate'],
+            deliveryAreas: ['climate', 'operational'],
           },
           {
             iconSrc: '/icons/network/argo.svg',
@@ -471,7 +471,7 @@ function App() {
               bestPractices: 2.5,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate', 'oceanhealth'],
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
             iconSrc: '/icons/network/ocean_gliders.svg',
@@ -487,7 +487,7 @@ function App() {
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate', 'oceanhealth'],
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
             iconSrc: '/icons/network/ani_bos.svg',
@@ -503,7 +503,7 @@ function App() {
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate', 'oceanhealth'],
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
         ]}
         backgroundColor="bg-goos-blue-900"
