@@ -1496,122 +1496,24 @@ function App() {
         numberColor="text-goos-orange-500"
       />
 
-      {/* Example 3: With translations */}
-      <InsightPanel
-        title={t('content.section1.heading')}
-        largeNumber={t('content.section1.stats.stat1.number')}
-        largeNumberDescription={t('content.section1.stats.stat1.description')}
-        button={{
-          variant: 'link',
-          label: 'LEARN MORE',
-          url: 'https://www.ocean-ops.org',
-          textColor: 'text-white',
-          bgColor: 'bg-goos-orange-500',
-        }}
-        stats={[
+             {/* Hero Image Grid */}
+      <ImageGrid
+        images={[
           {
-            number: t('content.section1.stats.stat2.number'),
-            description: t('content.section1.stats.stat2.description'),
-            linkText: t('content.section1.stats.stat2.linkText'),
-            linkUrl: t('content.section1.stats.stat2.linkUrl'),
+            src: '/images/content.jpg',
+            alt: t('hero.images.image1'),
           },
           {
-            number: t('content.section1.stats.stat3.number'),
-            description: t('content.section1.stats.stat3.description'),
-            linkText: t('content.section1.stats.stat3.linkText'),
-            linkUrl: t('content.section1.stats.stat3.linkUrl'),
+            src: '/images/content2.jpg',
+            alt: t('hero.images.image2'),
           },
           {
-            number: t('content.section1.stats.stat4.number'),
-            description: t('content.section1.stats.stat4.description'),
-            linkText: t('content.section1.stats.stat4.linkText'),
-            linkUrl: t('content.section1.stats.stat4.linkUrl'),
+            src: '/images/content3.jpg',
+            alt: t('hero.images.image3'),
           },
         ]}
-        backgroundColor="bg-goos-blue-900"
-        lineColor="bg-goos-orange-500"
-        numberColor="text-goos-orange-500"
+        columns={3}
       />
-
-      {/* InsightGrid Examples */}
-
-      {/* Example 1: 4 insights with title and links */}
-      <InsightGrid
-        title="Key Metrics Overview"
-        hasLine={true}
-        lineColor="bg-goos-orange-500"
-        insights={[
-          {
-            number: '2,847',
-            description: 'Active ocean observation platforms worldwide',
-            linkText: 'View Details',
-            linkUrl: 'https://www.ocean-ops.org',
-          },
-          {
-            number: '$45M',
-            description: 'Annual funding for ocean research programs',
-            linkText: 'Learn More',
-            linkUrl: 'https://example.com',
-          },
-          {
-            number: '567',
-            description: 'Research publications based on ocean data',
-            linkText: 'Read Papers',
-            linkUrl: 'https://example.com',
-          },
-          {
-            number: '98%',
-            description: 'Data accuracy rate across all platforms',
-            linkText: 'View Report',
-            linkUrl: 'https://example.com',
-          },
-        ]}
-        backgroundColor="bg-goos-blue-700"
-        titleColor="text-white"
-        textColor="text-white"
-        numberColor="text-white"
-        linkColor="text-white"
-      />
-
-      {/* Example 4: With translations */}
-      <InsightGrid
-        title={t('content.section1.heading')}
-        insights={[
-          {
-            number: t('content.section1.stats.stat1.number'),
-            description: t('content.section1.stats.stat1.description'),
-            linkText: t('content.section1.stats.stat1.linkText'),
-            linkUrl: t('content.section1.stats.stat1.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat2.number'),
-            description: t('content.section1.stats.stat2.description'),
-            linkText: t('content.section1.stats.stat2.linkText'),
-            linkUrl: t('content.section1.stats.stat2.linkUrl'),
-          },
-          {
-            number: t('content.section1.stats.stat3.number'),
-            description: t('content.section1.stats.stat3.description'),
-            linkText: t('content.section1.stats.stat3.linkText'),
-            linkUrl: t('content.section1.stats.stat3.linkUrl'),
-          },
-        ]}
-        backgroundColor="bg-goos-orange-500"
-        titleColor="text-white"
-        textColor="text-white"
-        numberColor="text-white"
-        linkColor="text-white"
-      />
-
-      {/* Partner Modal Example - View Full List Button */}
-      <div className="bg-goos-blue-700 py-12 px-12 flex justify-center">
-        <button
-          onClick={() => setIsPartnerModalOpen(true)}
-          className="bg-goos-orange-500 hover:bg-goos-orange-600 text-white font-bold py-4 px-8 rounded-lg text-xl transition-colors"
-        >
-          View Full Partner List
-        </button>
-      </div>
 
       {/* Partner Modal Component */}
       <PartnerModal
@@ -1635,26 +1537,7 @@ function App() {
           { src: '/logos/oceanops-w.png', altKey: 'logos.partner7', url: 'https://example.com' },
           { src: '/logos/oceanops-w.png', altKey: 'logos.partner8', url: 'https://example.com' },
         ]}
-        backgroundColor="bg-goos-blue-700"
-      />
-
-            {/* Hero Image Grid */}
-      <ImageGrid
-        images={[
-          {
-            src: '/images/content.jpg',
-            alt: t('hero.images.image1'),
-          },
-          {
-            src: '/images/content2.jpg',
-            alt: t('hero.images.image2'),
-          },
-          {
-            src: '/images/content3.jpg',
-            alt: t('hero.images.image3'),
-          },
-        ]}
-        columns={3}
+        backgroundColor="bg-goos-blue-900"
       />
 
     </div>
