@@ -8,7 +8,6 @@ import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
-import InsightGrid from './components/InsightGrid'
 import MapStatsPanel from './components/MapStatsPanel'
 import LogoStrip from './components/LogoStrip'
 import NetworkCarousel from './components/NetworkCarousel'
@@ -840,7 +839,7 @@ function App() {
       />
       </div>
 
-        <Spacer size="sm" backgroundColor="bg-goos-white"/>
+        <Spacer size="md" backgroundColor="bg-goos-white"/>
 
       {/* Value of Ocean Observations */}
       <ContentModule
@@ -1383,7 +1382,8 @@ function App() {
         iconColor="fill-goos-cyan-600"
       />
       </div>
-
+        <Spacer size="md" backgroundColor="bg-goos-green-100"/>
+     
       {/* South Africa - Agulhas Current Story */}
       <ContentModule
         title={t('southAfrica.title')}
@@ -1425,6 +1425,8 @@ function App() {
          <Spacer size="sm" />
       </div>
 
+        <Spacer size="md" backgroundColor="bg-goos-white"/>
+      
       {/* 10,000 Ships for the Ocean Initiative */}
       <ContentModule
         title={t('tenThousandShips.title')}
@@ -1463,6 +1465,8 @@ function App() {
         {/* Spacer between modules */}
          <Spacer size="sm" />
       </div>
+
+        <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
       {/* Call to Action */}
       <ContentModule
