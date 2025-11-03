@@ -27,6 +27,7 @@ export interface MenuItem {
   titleKey: string
   accentColor: string
   onClick?: () => void
+  subItems?: MenuItem[] // Optional sub-items for hierarchical menu
 }
 
 interface MenuSidebarProps {
@@ -219,13 +220,30 @@ export default function MenuSidebar({
           {/* Menu Items */}
           <nav className="space-y-4 mb-6">
             {menuItems.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => handleMenuItemClick(item)}
-                className="cursor-pointer hover:opacity-80 transition-opacity"
-              >
-                <div className={`${item.accentColor} h-1 w-8 mb-1`}></div>
-                <h2 className="text-2xl font-normal">{t(item.titleKey)}</h2>
+              <div key={index}>
+                {/* Main Item */}
+                <div
+                  onClick={() => handleMenuItemClick(item)}
+                  className="cursor-pointer hover:opacity-80 transition-opacity pt-2"
+                >
+                  <div className={`${item.accentColor} h-1 w-8 mb-1`}></div>
+                  <h2 className="text-2xl font-normal">{t(item.titleKey)}</h2>
+                </div>
+
+                {/* Sub Items */}
+                {item.subItems && item.subItems.length > 0 && (
+                  <div className="mt-2 space-y-2">
+                    {item.subItems.map((subItem, subIndex) => (
+                      <div
+                        key={subIndex}
+                        onClick={() => handleMenuItemClick(subItem)}
+                        className="cursor-pointer hover:opacity-80 transition-opacity"
+                      >
+                        <h3 className="text-xl font-normal">{t(subItem.titleKey)}</h3>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </nav>

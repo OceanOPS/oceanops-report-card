@@ -570,6 +570,9 @@
   "menu": {
     "title": "Carte de Rapport",
     "year": "2025",
+    "overview": "Aperçu",
+    "inSituStatus": "État et mises à jour du système d'observation in situ",
+    "networksByNumbers": "Réseaux en chiffres",
     "downloadPdf": "TÉLÉCHARGER PDF",
     "pastReports": "Rapports Précédents",
     "pastReportsLinks": {

@@ -581,6 +581,9 @@
   "menu": {
     "title": "Tarjeta de Reporte",
     "year": "2025",
+    "overview": "Resumen",
+    "inSituStatus": "Estado y actualizaciones del sistema de observación in situ",
+    "networksByNumbers": "Redes en cifras",
     "downloadPdf": "DESCARGAR PDF",
     "pastReports": "Reportes Anteriores",
     "pastReportsLinks": {
