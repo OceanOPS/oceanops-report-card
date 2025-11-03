@@ -182,7 +182,7 @@ export default function NetworkCarousel({
             <div
               key={index}
               className="flex-[0_0_auto] min-w-0 mr-10 flex"
-              style={{ flexBasis: '400px' }}
+              style={{ flexBasis: '450px' }}
             >
               <NetworkCard
                 {...card}
