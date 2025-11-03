@@ -24,6 +24,7 @@ import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
 import MenuSidebar from './components/MenuSidebar'
+import DeliveryAreasNav from './components/DeliveryAreasNav'
 
 function App() {
   const { t } = useTranslation()
@@ -104,6 +105,9 @@ function App() {
           { id: 'data-section', titleKey: 'content.section1.stats.stat1.description', accentColor: 'bg-goos-blue-500' },
         ]}
       />
+
+      {/* DeliveryAreasNav - Fixed navigation for Value of Ocean Observations sections */}
+      <DeliveryAreasNav />
 
       {/* Cover */}
       <CoverModule
@@ -854,6 +858,7 @@ function App() {
       </ContentModule>
 
       {/* AMOC Climate Story */}
+      <div id="amoc-section" className="pt-16 bg-goos-white">
       <ContentModule
         kicker={t('amoc.kicker')}
         title={t('amoc.title')}
@@ -1025,8 +1030,10 @@ function App() {
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
       />
+      </div>
 
       {/* El Niño Operational Services Story */}
+      <div id="elnino-section" className="pt-16 bg-goos-white">
       <ContentModule
         kicker={t('elNino.kicker')}
         title={t('elNino.title')}
@@ -1196,8 +1203,10 @@ function App() {
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
       />
+      </div>
 
       {/* Ocean Health - Seal Data Story */}
+      <div id="oceanhealth-section" className="pt-16 bg-goos-white">
       <ContentModule
         kicker={t('oceanHealth.kicker')}
         title={t('oceanHealth.title')}
@@ -1373,6 +1382,7 @@ function App() {
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
       />
+      </div>
 
       {/* South Africa - Agulhas Current Story */}
       <ContentModule

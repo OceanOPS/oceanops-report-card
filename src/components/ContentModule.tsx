@@ -314,7 +314,7 @@ export default function ContentModule({
         <div className="mx-auto flex gap-16 flex-col lg:flex-row">
           {/* Left Column - Sticky Title (only if has title content) */}
           {hasTitleContent && (
-            <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-0 lg:self-start z-10">
+            <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-16 lg:self-start z-10">
               {/* Top spacer */}
               <div className="h-8 w-5 opacity-75"></div>
 
