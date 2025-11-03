@@ -80,7 +80,7 @@ export default function DataCard({
           <img
             src={iconSrc}
             alt={iconAlt}
-            className="w-7 h-7 object-contain"
+            className="object-contain"
           />
         </div>
 

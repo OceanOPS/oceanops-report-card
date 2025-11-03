@@ -18,45 +18,238 @@
       "image3": "Ocean research equipment"
     }
   },
+  "intro": {
+    "paragraph1": "The Global Ocean Observing System (GOOS) Status Report 2025 highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.",
+    "paragraph2": "What began in 2016 as the Ocean Observing System Report Card — led by OceanOPS, the operational monitoring and support centre of GOOS — has now evolved into a comprehensive GOOS Status Report 2025, offering an interactive view of the global ocean observing system.",
+    "paragraph3": "In this new digital edition, explore the latest updates, stories, and insights by scrolling or using the menu on the right."
+  },
+  "valueOfObservations": {
+    "title": "Value of ocean observations",
+    "content": "Sustained ocean observations are essential to the wellbeing, safety, and prosperity of all nations. In this year's report, the three stories under the GOOS delivery areas of Climate, Operational Services, and Ocean Health reflect some of the major challenges and changes shaping our ocean today — and the vital role of observations in guiding science, policy, and response."
+  },
+  "amoc": {
+    "kicker": "Climate",
+    "title": "Is the ocean current system that shapes Europe's climate slowing down?",
+    "contributors": "Contributors: Eleanor Frajka-Williams, Yao Fu, Severine Fournier, Sreelekha Jarugula",
+    "quickSummary": {
+      "title": "Quick summary:",
+      "climateStability": "<strong>Climate Stability:</strong> The Atlantic meridional overturning circulation, or AMOC, helps regulate heat, rainfall, and sea level across Europe and the Atlantic basin.",
+      "predictingFuture": "<strong>Predicting the Future:</strong> Combining existing physical observations with new deep ocean and biogeochemical observations is key to understanding whether the Atlantic current system is slowing and what that means for societies and economies.",
+      "globalPreparedness": "<strong>Global Preparedness:</strong> Investing in sustained, coordinated ocean observation is essential for understanding ocean circulation, accurately projecting climate, preparing for disasters, and safeguarding long-term security."
+    },
+    "paragraph1": "The Atlantic meridional overturning circulation, or AMOC, is one of the most important ocean current systems on Earth. Since the end of the last Ice Age, more than 10,000 years ago, the AMOC has helped keep northwestern Europe's climate significantly milder than it would otherwise be, creating conditions that supported the rise of agriculture and human societies in the region.",
+    "paragraph2": "Recent headlines warn that this key Atlantic current system could soon slow or even collapse, with major consequences for climate, rainfall, and sea level in Europe and beyond. Experts caution, however, that the picture is more complex: different models actually give conflicting results, and data coverage remains limited to support any long-term trends. What is clear is that without more robust, sustained ocean observations, the future of the AMOC — and the climate system it supports — will remain uncertain.",
+    "observationsTitle": "Observations & Benefits",
+    "paragraph3": "Direct ocean observations of physical Essential Ocean Variables, extending deep into the water column, are the foundation for understanding AMOC variability. Much of our current knowledge comes from the time series data of moored buoy arrays, such as RAPID and OSNAP, which contribute to the OceanSITES network, alongside profiling Argo floats — all coordinated globally through GOOS.",
+    "paragraph4": "Satellite observations complement these in-situ measurements by capturing the surface expression of deep-ocean processes. Long-term records of sea surface height, temperature, salinity, and winds help estimate AMOC strength and variability, and reveal how heat and freshwater are redistributed across the Atlantic. Sustained satellite measurements over multiple decades are therefore essential to track both short-term fluctuations and longer-term trends in the circulation.",
+    "paragraph5": "These combined observations already reveal strong short-term fluctuations in the AMOC's strength: the system speeds up and slows down, carrying different amounts of heat and water from one year to the next. Yet the AMOC spans almost the entire Atlantic, and large parts remain unobserved — especially in the deep, dense water layers, which may be indicators of long-term changes in the climate system.",
+    "imageCaption": "AMOC strength time series from RAPID observations (orange) at 26°N and OSNAP observations (blue) in the subpolar North Atlantic (~60°N). The thick lines show 1-year lowpass filtered time series based on their respective original time series (thin lines).",
+    "quote1": {
+      "text": "From what we see, it looks like AMOC has changed significantly in the past, and that has been associated with glacial-interglacial cycles. The potential that it could change today would have widespread consequences for human life on this planet — and that's one of the reasons why we need more ocean observations to understand it.",
+      "author": "Dr. Eleanor Frajka-Williams",
+      "position": "professor at University of Hamburg"
+    },
+    "imageCaption2": "RAPID moored buoy deployment. Credit: Peter Brown",
+    "learnMore": {
+      "buttonText": "LEARN MORE: What affects the speed of the AMOC?",
+      "title": "Learn More: What affects the speed of the AMOC?",
+      "content1": "The strength of the AMOC is set by both wind and north-south differences in seawater density, which depend on temperature and salinity. In the high-latitude North Atlantic, cold, salty water sinks to the deep ocean, pushing the deep water southward. In the Southern Ocean, strong winds bring deep water to the ocean surface, pulling the water flow northward. Together, these two processes set the circulation in motion.",
+      "content2": "In a warmer climate, more freshwater is expected to enter the ocean from glacial and sea ice melting, rainfall and rivers. This can result in less dense surface waters, reducing deep-water formation in the North Atlantic and potentially slowing the circulation.",
+      "authorName": "Dr. Yao Fu",
+      "authorPosition": "assistant professor at University of South Florida"
+    },
+    "eovTable": {
+      "title": "GOOS Essential Ocean Variables for AMOC research:",
+      "physicsTitle": "Physics",
+      "additionalTitle": "Additional variables to observe impacts:",
+      "biogeochemistryTitle": "Biogeochemistry"
+    },
+    "whatsNext": {
+      "title": "What's next?",
+      "paragraph1": "Without expanded and sustained ocean observation coverage, detecting long-term trends or drawing firm conclusions about the AMOC's future will remain a challenge. It is vital to keep optimizing the established observing networks with reliable instruments and methodology, supplemented with new technologies including Deep Argo, which can autonomously measure temperature and salinity down to 6 kilometres. By observing the deep ocean, where vast amounts of heat and carbon are stored, Deep Argo can reveal changes that traditional measurements miss.",
+      "paragraph2": "Equipping underwater gliders — autonomous robots that collect data as they move through the water column — with additional sensors that measure biogeochemical Essential Ocean Variables can also help scientists understand how changes in the AMOC influence ocean carbon storage and oxygen levels, which are vital for global climate regulation and marine life."
+    },
+    "quote2": {
+      "text": "Sustained ocean observation is essential infrastructure for understanding the global climate, ensuring food security, disaster preparedness and economic stability. Which means that investing in ocean observation today is a very important step towards the future, to safeguard our planet and the future generations.",
+      "author": "Dr. Yao Fu",
+      "position": "assistant professor at University of South Florida"
+    }
+  },
+  "elNino": {
+    "kicker": "Operational Services",
+    "title": "Towards better El Niño forecasts for fisheries and disaster preparedness",
+    "contributors": "Contributors: Juan Miguel Quintana Arena, Mónica Alvarado Niño, Matias Sifón, Albert Fischer",
+    "quickSummary": {
+      "title": "Quick summary:",
+      "betterForecasts": "<strong>Better El Niño Forecasts:</strong> Integrating ocean observations improves seasonal forecasts, resulting in substantially improved lead-times for El Niño predictions.",
+      "earlyWarnings": "<strong>Early Warnings:</strong> GOOS-coordinated observing networks provide timely data to help communities prepare for floods, droughts, and other climate impacts.",
+      "protectingLivelihoods": "<strong>Protecting Livelihoods:</strong> The collected data on relevant GOOS Essential Ocean Variables supports fisheries, agriculture, and disaster planning to reduce economic and social losses from El Niño impacts."
+    },
+    "paragraph1": "Every few years, without a fixed schedule, sea-surface temperatures rise across the tropical Pacific Ocean, triggering major changes in winds and rainfall with far-reaching impacts worldwide.",
+    "paragraph2": "The 2023–2024 El Niño — ranked as the second strongest event of the twenty-first century so far — brought extreme rainfall, floods, and shifts in resources across multiple regions. It disrupted fisheries and the economy in Peru, destroyed infrastructure and homes in Brazil, and caused turmoil in the Asian rice market.",
+    "paragraph3": "With climate change altering sea-surface temperatures and other variables that influence the onset of El Niño, it is becoming increasingly challenging to deliver precise ocean and weather forecasts, critical to helping communities prepare for natural hazards and minimize damage. A continuous flow of essential ocean observations is vital to monitor changing ocean conditions and protect the welfare and economies of multiple affected regions.",
+    "quote1": {
+      "text": "During the 1980s and 1990s, when there was an El Niño event, especially in central Chile, our seasonal forecasts were practically 100% accurate. However, entering the 21st century, conditions started appearing that were different from what we had previously expected, suggesting that the patterns are changing.",
+      "author": "Juan Miguel Quintana Arena",
+      "position": "meteorologist and Chilean representative in the Permanent Commission for the South Pacific"
+    },
+    "observationsTitle": "Observations & Benefits",
+    "paragraph4": "In the South-East Pacific, data from GLOSS network's sea level stations, Argo profiling floats, Voluntary Observing Ships and DBCP moored buoys — all coordinated under GOOS — is currently integrated into monthly El Niño forecasts, produced and publicly shared by the Permanent Commission for the South Pacific (CPPS) and the GOOS Regional Alliance for the South-East Pacific region (GRASP).",
+    "paragraph5": "This information feeds into national early warning systems in the region, helping local communities prepare for potential impacts — from natural disasters like floods and droughts, to economic and social effects on agriculture and fisheries sectors.",
+    "learnMore": {
+      "title": "Learn More: How does El Niño impact fisheries?",
+      "content1": "For example, the availability of sardines and anchovetas – key commercial fish species in the South-East Pacific – depends on prevailing ocean conditions. During a warming event such as El Niño, the cold, nutrient-rich waters these fish rely on can be displaced, forcing them to migrate further from the coast in search of food. This increases their energy expenditure, may reduce their growth, and exposes them to more predators.",
+      "content2": "Ultimately, these changes can substantially affect fishery catches across the region, impacting the economies of countries like Peru and Chile which heavily depend on this sector.",
+      "authorName": "Monica Alvarado Niño",
+      "authorPosition": "oceanographer at the Hydrographic and Oceanographic Service of the Chilean Navy"
+    },
+    "quote2": {
+      "text": "The World Meteorological Organization´s Workshop on the Impact of Various Observing Systems on Numerical Weather Prediction and Earth System Prediction showed that integrating ocean data into seasonal forecasts results in a 2-month gain of lead time for El Niño prediction, allowing better preparedness for its impacts.",
+      "author": "Albert Fischer",
+      "position": "Director of the WMO Integrated Global Observing System (WIGOS) Division"
+    },
+    "imageCaption": "North American Multi Model Ensemble Forecast for January–February–March 2024 Sea Surface Temperature Anomalies",
+    "eovTable": {
+      "title": "GOOS Essential Ocean Variables for El Niño forecasts:",
+      "physicsTitle": "Physics",
+      "additionalTitle": "Additional variables to observe impacts:",
+      "biologyTitle": "Biology and Ecosystems"
+    },
+    "whatsNext": {
+      "title": "What's next?",
+      "paragraph": "El Niño is a complex phenomenon that requires continuous observation of numerous oceanic and atmospheric variables for accurate predictions, especially under a changing climate. While vital ocean data is already being collected thanks to the work of several ocean observing networks, improvements are still needed in Pacific Ocean coverage. This includes supporting observation continuity, as well as standardization of data collection across the region and globally."
+    },
+    "quote3": {
+      "text": "Some countries can only monitor these variables once a month, while we can provide one-minute resolution. Moving towards at least hourly data collection will require international cooperation and agreements, but I hope we'll see progress in the next few years.",
+      "author": "Monica Alvarado Niño",
+      "position": "oceanographer at the Hydrographic and Oceanographic Service of the Chilean Navy"
+    }
+  },
+  "oceanHealth": {
+    "kicker": "Ocean Health",
+    "title": "First-of-its-kind seal data to guide Southern Ocean management and conservation",
+    "contributors": "Contributors: Clive McMahon, Jon Pye, Ian Jonsen, Ana Lara-Lopez",
+    "quickSummary": {
+      "title": "Quick summary:",
+      "realTimeInsights": "<strong>Real-Time Ocean Insights:</strong> Seal-borne sensors provide immediate data on water temperature, salinity, and ecosystem conditions in some of the most remote regions.",
+      "conservation": "<strong>Conservation & Marine Spatial Planning:</strong> These observations can provide vital information for marine spatial planning and management of fisheries and protected areas.",
+      "globalCollaboration": "<strong>Global Collaboration:</strong> Freely available, globally standardized animal-borne sensor datasets will enable worldwide collaboration for answering pressing societal questions related to ocean health and resilience."
+    },
+    "paragraph1": "In the icy waters of the Southern Ocean, one of the least observed regions on our planet, lies an ecosystem of immense importance. These remote waters, central to regulating Earth's climate, are teeming with life, and vital for global fisheries that sustain countless livelihoods. Ensuring this unique ecosystem is managed sustainably is critical if we want future generations to continue benefiting from these resources.",
+    "paragraph2": "Because few research ships reach this vast and hostile region, much about it has remained a mystery. Recently, an unlikely group of \"field assistants\" has begun to help us close the knowledge gap: southern elephant seals.",
+    "paragraph3": "These impressive mammals live up to their name. A full-grown male can weigh up to 4,000 kilograms — as much as an elephant — and reach over 6 meters in length, about the size of a large delivery van. They dive as deep as two kilometres in search of fish and squid — and on these journeys, some carry tiny state-of-the-art scientific instruments on their heads, transforming them into \"seal-oceanographers\".",
+    "observationsTitle": "Observations & Benefits",
+    "paragraph4": "Through the GOOS AniBOS network, elephant seals now provide real-time marine mammal data. This first-of-its-kind data deepens our understanding of seal biology, provides essential oceanographic observations of the Southern Ocean below the surface, and helps shape conservation and marine spatial planning efforts.",
+    "paragraph5": "The sensors on the animals' heads track their movements, including dive depths, times and changes in body condition — revealing which areas seals use for feeding and offering clues about ocean productivity. They also record sub-surface temperature and salinity profiles, allowing scientists to link changes in ocean physics to ecosystem health. This information will help marine spatial planners understand how ocean conditions shape species distribution and productivity, enabling ocean management that is based on real ecological needs rather than assumptions.",
+    "imageCaption": "Foraging trips of instrumented southern elephant seals tagged from December 2024 to February 2025 at Iles Keguelen (upper right) and in May 2025 at Macquarie Island (lower middle).",
+    "quote1": {
+      "text": "We get some excellent information on what the ocean physics looks like and how that affects ecosystem productivity, which we measure by looking at the condition of the animals. This real-time data allows us to monitor ocean health - and also implement better management.",
+      "author": "Dr. Clive McMahon",
+      "position": "seal biologist and co-chair of the AniBOS network"
+    },
+    "paragraph6": "The potential applications of the animal-borne systems are diverse, and compliment other ocean observing networks under GOOS. From climate change impacts on ocean physics, to productivity shifts that affect fisheries and ecosystems, this new stream of data can help answer urgent, big-picture questions about the ocean's health and resilience.",
+    "eovTable": {
+      "title": "GOOS Essential Ocean Variables that can be collected through animal-borne sensors:",
+      "biologyTitle": "Biology and Ecosystems",
+      "physicsTitle": "Physics"
+    },
+    "learnMore": {
+      "title": "LEARN MORE: Why is it so complicated to obtain data from animals in real-time?",
+      "content1": "Collecting data from animals in real time is technically challenging. Miniaturised electronic tags must withstand extreme environmental conditions, operate on limited battery power for months, and record, compress, and transmit summarised data to Argos satellites passing overhead when the animals surface to breathe or rest — all without causing the animals any harm.",
+      "content2": "The data are then received by the tag manufacturer, decoded into a human-readable format, and made available to researchers. Researchers then apply quality-control algorithms to improve the accuracy of obtained animal locations so that the animals' movements and associated ocean observations can be determined more precisely. The whole process — from data reception to quality control and publication — runs automatically, every 24 hours.",
+      "authorName": "Ian Jonsen",
+      "authorPosition": "Computation Ecologist and Data Committee chair of the AniBOS network"
+    },
+    "whatsNext": {
+      "title": "What's next?",
+      "paragraph1": "The next step for AniBOS is to ensure this pioneering dataset is quality-checked and integrated into global databases in real-time through the IOC Ocean Biodiversity Information System (OBIS), with the support of the GOOS Biology and Ecosystems Expert Panel (BioEco Panel).",
+      "paragraph2": "Moreover, while southern elephant seals are leading the way in this real-time biological and physical data provision, other marine species (such as sea turtles in Northern Australia) are also being explored for this role. Together with AniBOS, leading this work are Australia's Integrated Marine Observing System, the Sydney Institute of Marine Science, the Australian Institute of Marine Science, and other research groups.",
+      "paragraph3": "Canada is also contributing to AniBOS through the Ocean Tracking Network. There, researchers are building on the elephant seal example by developing open code and data workflows that standardize and streamline the real-time submission of animal-borne sensor data to the OBIS data system, for any species and any researcher working with their national AniBOS partner. The GOOS BioEco Panel provides a forum to connect these efforts, linking marine animal tracking initiatives worldwide into a truly global observing system."
+    },
+    "quote2": {
+      "text": "We're charting a new course here by making this data available and freely accessible to everyone. The next step is to integrate the data into a truly global system. That's when the value multiplies, and we can answer pressing societal questions.",
+      "author": "Dr. Clive McMahon",
+      "position": "co-chair of the AniBOS network and GOOS BioEco Panel"
+    },
+    "podcastBox": {
+      "title": "Learn More:",
+      "content": "Listen to the BioEcoOcean podcast with Dr. Clive McMahon and Dr. Lina Mtwana Nordlund (Uppsala University) where you can hear not only about southern elephant seals as oceanographers, but also the latest advancements in ocean observing of marine life, the importance of coordinated efforts in biodiversity monitoring, and how these insights contribute to global ocean management and conservation."
+    }
+  },
+  "southAfrica": {
+    "title": "Growing South Africa's ocean observing capacity",
+    "contributors": "Contributors: Ann-Christine Zinkann, Tammy Morris",
+    "paragraph1": "Boundary currents — major, fast-flowing ocean currents that run along continental margins — play a crucial role in moving heat, salt and nutrients through the ocean, impacting weather and climate. One of the least observed yet one of the most powerful current systems, the Agulhas Current, flows along Africa's east coast from Mozambique to the tip of South Africa, influencing weather, extreme events and fisheries in both the Indian and Atlantic Oceans.",
+    "paragraph2": "In September 2024, the GOOS Ocean Observing Co-Design programme brought together local and international experts to assess and strengthen South Africa's capacity to observe this vital system. For the first time, using a co-design approach, the local community and stakeholders — including scientists, modelers, funding agencies, and end users — worked jointly to share insights and identify priority areas for targeted service delivery.",
+    "paragraph3": "The workshop identified priorities for strengthening observations that would directly benefit people and economies across the southern African region. Among the priorities were improving the ability to forecast marine heatwaves and cyclones, supporting sustainable fisheries management, and providing better information for search and rescue operations.",
+    "paragraph4": "To achieve these goals, experts highlighted several observation needs: to better capture small-scale turbulence that influences storm tracks and rainfall; to improve understanding of upwelling along the continental shelf that affects fisheries and local weather; and to refine predictions of the Agulhas \"retroflection zone\" — where the current loops back on itself, shaping regional heat and moisture distribution.",
+    "paragraph5": "By integrating stakeholder needs early, this co-design initiative sets the critical path for establishing a robust and responsive Agulhas observing system, creating safer seas and more accurate weather forecasts."
+  },
+  "tenThousandShips": {
+    "title": "A fleet of 10,000 Commercial Vessels to support GOOS",
+    "contributors": "Contributors: Emanuela Rusciano, Mathieu Belbeoch",
+    "buttonLabel": "VISIT 10000SHIPS.ORG",
+    "paragraph1": "A landmark 10,000 Ships for the Ocean initiative was launched by OceanOPS at the UN Ocean Conference 2025, with the support of France and Norway, and in partnership with the World Meteorological Organization (WMO), the Intergovernmental Oceanographic Commission (IOC) of UNESCO, and the International Maritime Organization (IMO).",
+    "paragraph2": "10,000 Ships for the Ocean brings together a global coalition of scientific, industrial, and operational partners to transform 10,000 commercial vessels into real-time ocean and atmosphere observatories, building on decades of expertise of the Ship Observations Team. It aims to equip fleets with cutting-edge, standardized, and automated met-ocean observing instruments. These new additions to the global ocean observing system will help scale-up and close critical oceanographic and meteorological observation gaps, unlocking global benefits for operations, forecasting, early warnings and environmental stewardship.",
+    "paragraph3": "Are you a shipowner, operator, or logistics partner? Sign the voluntary commitment and join the global coalition to support enhanced ship-based observations: <a href=\"https://10000ships.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:no-underline\">10,000 Ships for the Ocean</a>"
+  },
+  "callToAction": {
+    "title": "Call to Action",
+    "paragraph1": "Ocean observing should be viewed as critical infrastructure, just like weather services or energy systems. It is vital for climate resilience, disaster risk reduction, ocean health, sustainable development, and economic stability.",
+    "paragraph2": "While the observing system has matured, the demand for ocean data to support societal needs under increasing environmental pressure is growing. Strengthening its resilience will require broader international participation and partnerships that extend beyond the academic and public sectors, including industry and private actors who can help drive innovation and scalability.",
+    "quote": "A new economic mindset is needed: one that ensures long-term, coordinated investment in ocean observing as shared global infrastructure — securing its future and unlocking its full potential for people and the planet.",
+    "quoteAuthor": "Joanna Post",
+    "quotePosition": "GOOS Director"
+  },
+  "contact": {
+    "title": "Contacts",
+    "paragraph1": "General information: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/>Networks status: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>Report Card information: <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a><br/>If you wish to contribute to the global ocean observing system, please contact: <a href=\"mailto:support@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">support@ocean-ops.org</a>",
+    "paragraph2": "Authors: OceanOPS, GOOS Observations Coordination Group, GOOS-BGC and BioEco Panels, OOPC Panel, WMO and IOC/UNESCO Secretariats<br/>GOOS Report No.292",
+    "paragraph3": "Special thanks to all editors and authors: Corrine Almeida, Mathieu Belbéoch, Lance Braasch, Forest Collins, Thomas J. Cuff, Brad de Young, J. Emmett Duffy, Björn Fiedler, Darin Figurskey, Severine Fournier, Sarah Grimes, Emma Heslop, Long Jiang, Johannes Karstensen, Elizabeth Kent, Roxy Mathew Koll, Arne Körtzinger, David Legler, Belén Martin Miguez, Ivanice Monteiro, Lina Mtwana Nordlund, Clare Nullis, Joanna Post, Regina Rodrigues, Emanuela Rusciano, Alex Sen Gupta, Raquel Somavilla, Sabrina Speich, Laura Stukonyte, David Wyatt, Weidong Yu, Ann-Christine Zinkann."
+  },
   "content": {
     "section1": {
-      "kicker": "Kicker line:",
-      "title": "This is the H2",
-      "subtitle": "Subhead",
-      "introduction": "Introduction Text",
-      "heading": "This is the H4",
-      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
-      "paragraph2": "To highlight the status and development of this Global Ocean Observing System, the 2023 Ocean Observing System Report Card provides insight into the current status of the global observing networks.",
+      "kicker": "",
+      "title": "In situ observing system status and updates",
+      "subtitle": "",
+      "introduction": "",
+      "paragraph1": "In 2025, GOOS is pleased to report that the in situ component of the global ocean observing networks, monitored in real time by OceanOPS, has experienced a steady expansion over the past two years, continuing to deliver high-quality, near real-time ocean observations that support society worldwide.",
+      "paragraph2": "This positive trend has been primarily driven by an increase in autonomous networks such as Argo profiling floats. This increase has helped offset declines in other networks — notably drifting buoys, particularly in the Indian Ocean, and ship-based oceanographic observations, which are facing global budget constraints that may reduce the collection of long-term reference data sets.",
+      "paragraph3": "Further progress has been achieved with the inclusion of four emerging observing networks into GOOS: SMART subsea cables, uncrewed surface vehicles, fishing vessel observations, and a surface carbon monitoring network.",
+      "paragraph4a": "The Argo array has now surpassed 4,000 active floats, benefiting from technological innovation and improved instrument reliability. The program has reached 55% of its",
+      "paragraph4b": "implementation target global, full-depth and multidisciplinary vision, with growth driven by the expansion of biogeochemical missions and a twofold increase in European deployments since 2021. Maintaining this progress will require stable, long-term funding and balanced coverage across all ocean basins, particularly in the Southern Hemisphere.",
+      "paragraph5": "The Voluntary Observing Ships (VOS), a key component of ship-based meteorological observations, achieved a record 4,5 million observations in 2024, supported by an increase in automation — but the number of ships involved is decreasing. New public–private partnerships are also being developed through GOOS, such as the 10,000 Ships for the Ocean initiative, which shows how industry engagement can expand the global ship-based observing capacity.",
+      "paragraph6": "Overall, the availability and quality of real-time data and metadata have increased, reflecting the strong commitment of the global observing networks, their national operators and contributing institutions.",
+      "heading1": "Technological Evolution and Expansion of Scope",
+      "paragraph7": "In recent years, the observing system has evolved significantly through use of autonomous instruments and automatic weather stations, stronger international collaboration, including with the private sector. Continued investment in ocean carbon monitoring supported by European Projects will strengthen the Surface Ocean CO2 Observing Network (SOCONET), in particular in the Southern Ocean.",
+      "paragraph8": "GOOS is also advancing the integration of biological and ecosystem observations into the global system. This is built on observing a set of biological and ecosystem Essential Ocean Variables (EOVs), and work in this area now focuses on expanding observing capabilities globally, and promoting open access to standardized and interoperable data, to better monitor and understand changes in marine ecosystems and resources.",
+      "heading2": "Regional and Systemic Challenges",
+      "paragraph9": "Despite advances, the ocean observing system remains subcritical, with limited resilience to financial or geopolitical disruptions. It still depends heavily on a few major contributors and lacks sufficient redundancy to ensure long-term stability. Strengthening resilience will require broader international participation and the involvement of partners beyond the academic and public sectors, including industry and private sector actors.",
+      "paragraph10": "The Southern Ocean remains the most under-sampled region due to its remoteness and harsh conditions. Nevertheless, the Animal borne ocean sensors (AniBOS) network is contributing valuable data from this challenging region, helping to fill critical gaps.",
+      "paragraph11": "The subcritical nature of GOOS also extends to the supply and production chain, including instrument manufacturers and service providers. Limited research and development capacity, coupled with economic and logistical pressures, poses additional challenges to long-term sustainability of instrument supply.",
       "quote": {
-        "text": "In the face of climate change, the global community must work together to improve the coverage, quality, and multidisciplinary nature of the observing system to meet vital forecasting services and societal needs. OceanOPS can help make these connections",
-        "authorName": "Mathieu Belbéoch",
+        "text": "Faced with the fragility of the observing system and the constraints of decreasing budgets, we must innovate through stronger partnerships. This is why we are deepening our collaboration with the shipping industry - to harness the potential of these new partners and expand the automation of ship-based observations.",
+        "authorName": "M. Belbéoch",
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
       },
+      "statsTitle": "Networks by the numbers",
       "stats": {
         "stat1": {
-          "number": "$45M",
-          "description": "Annual investment in global ocean observing infrastructure and operations",
-          "linkText": "View Report",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "64",
+          "description": "contributing countries"
         },
         "stat2": {
-          "number": "$400B",
-          "description": "Economic value of ocean observations for weather forecasting and climate services",
-          "linkText": "Learn More",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "13",
+          "description": "global ocean observing networks (+4 emerging)"
         },
         "stat3": {
-          "number": "7,500+",
-          "description": "Active ocean observing platforms monitored by OceanOPS worldwide",
-          "linkText": "View Dashboard",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "9,897",
+          "description": "ocean observing platforms"
         },
         "stat4": {
-          "number": "100+",
-          "description": "Countries contributing to the global ocean observing system",
-          "linkText": "Explore Map",
-          "linkUrl": "https://www.ocean-ops.org"
+          "number": "120,000+",
+          "description": "ocean observations per day"
         }
       },
       "table": {
@@ -212,43 +405,101 @@
         "description": "Evaluates adherence to international standards for data collection, processing, and sharing. Networks following best practices ensure data interoperability across systems."
       }
     },
+    "sotVos": {
+      "title": "Ship based meteorological – SOT/VOS",
+      "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
+    },
+    "sotXbt": {
+      "title": "Ship based oceanographic – SOT/XBT-SOOP",
+      "iconAlt": "SOT/XBT-SOOP Network - Ship of Opportunity Programme with XBT temperature profiling"
+    },
+    "sotAsap": {
+      "title": "Ship based aerological – SOT/ASAP",
+      "iconAlt": "SOT/ASAP Network - Automated Shipboard Aerological Programme"
+    },
+    "goShip": {
+      "title": "Repeated transects - GO-SHIP",
+      "iconAlt": "GO-SHIP Network - Global Ocean Ship-based Hydrographic Investigations Program"
+    },
+    "gloss": {
+      "title": "Sea level gauges - GLOSS",
+      "iconAlt": "GLOSS Network - Global Sea Level Observing System"
+    },
+    "oceanSites": {
+      "title": "Time series sites - OceanSITES",
+      "iconAlt": "OceanSITES Network - Global network of long-term ocean reference stations"
+    },
+    "dbcpMoored": {
+      "title": "Moored buoys - DBCP",
+      "iconAlt": "DBCP Moored Buoys - Data Buoy Cooperation Panel moored buoy network"
+    },
+    "dbcpTsunami": {
+      "title": "Tsunami buoys - DBCP",
+      "iconAlt": "DBCP Tsunami Buoys - Tsunami detection and reporting buoys"
+    },
+    "hfRadar": {
+      "title": "HF radars - HF",
+      "iconAlt": "HF Radar Network - High Frequency radar coastal current mapping"
+    },
+    "dbcpDrifting": {
+      "title": "Drifting buoys - DBCP",
+      "iconAlt": "DBCP Drifting Buoys - Surface drifting buoy network"
+    },
     "argo": {
-      "title": "Argo",
+      "title": "Profiling floats - Argo",
       "iconAlt": "Argo Network - Global array of profiling floats measuring ocean temperature and salinity"
     },
-    "doos": {
-      "title": "Deep Ocean Observing Strategy",
-      "iconAlt": "DOOS Network - Coordinating observations of the deep ocean below 2000m"
-    },
-    "sot": {
-      "title": "Ship Observations Team",
-      "iconAlt": "SOT Network - Coordinating meteorological and oceanographic observations from ships"
-    },
     "gliders": {
-      "title": "OceanGliders",
+      "title": "Gliders - OceanGliders",
       "iconAlt": "OceanGliders Network - Global network of autonomous underwater gliders"
     },
-    "dbcp": {
-      "title": "Data Buoy Cooperation Panel",
-      "iconAlt": "DBCP Network - Coordinating global network of drifting and moored data buoys"
+    "anibos": {
+      "title": "Animal borne sensors - AniBOS",
+      "iconAlt": "AniBOS Network - Animal-borne ocean sensors collecting data from marine mammals"
     }
   },
   "emerging": {
     "title": "Emerging Networks",
     "viewMore": "View More",
     "watchVideo": "Watch Video",
+    "fvon": {
+      "title": "Fishing Vessel Ocean Observing Network (FVON)",
+      "paragraph1": "With over four million fishing vessels operating worldwide, fishers are vital partners in complementing existing GOOS coverage and expanding ocean knowledge in under-observed geographies. \"Fishing for data\" in coastal, shelf, and other data-sparse waters is an opportunity to provide insights at a resolution and scale never seen before.",
+      "paragraph2": "FVON's mission is to enable the transformation of fishing vessels into a collaborative fleet for inclusive and participatory data collection, worldwide. By connecting local fishing communities with global science, policy, and industry, FVON democratizes ocean observing and creates outcomes that matter: sustainable fisheries, accurate ocean forecasts, and robust coastal community resilience, supporting a data-driven ocean economy — where the benefits of ocean data are sustained and shared by all.",
+      "imageAlt": "Fishing vessel with ocean observation equipment",
+      "iconAlt": "FVON Network Icon",
+      "link": "https://www.fvon.org/",
+      "videoId": "-MKKMU3_siw"
+    },
     "smartCables": {
-      "title": "SMART Cables",
-      "description": "The Global Ocean Observing System (GOOS) observes our ocean through the \"eyes\" of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
+      "title": "Science Monitoring And Reliable Telecommunications Subsea Cables (SMART Cables)",
+      "paragraph1": "Since the mid-19th century, subsea telecommunications cables have connected the world, enabling international calls, data transfer, and high-speed internet between countries. Today, the emerging SMART Cables network seeks to enhance this same infrastructure with a dual purpose — connecting people while advancing climate monitoring and strengthening earthquake and tsunami early warning systems worldwide.",
+      "paragraph2": "By integrating temperature, bottom pressure, and seismic motion sensors into telecommunication cables, SMART Cables will enhance GOOS by closing critical deep-ocean observation gaps. This new generation of cables will provide reliable, real-time, long-term data, delivering novel insights into the state of the ocean and essential information for operational centers to save lives and monitor climate change.",
       "imageAlt": "SMART Cables undersea infrastructure",
-      "iconAlt": "SMART Cables Network Icon"
+      "iconAlt": "SMART Cables Network Icon",
+      "link": "https://www.smartcables.org/",
+      "videoId": "NoEK7XwOMeU"
+    },
+    "soconet": {
+      "title": "Surface Ocean CO₂ Observing Network (SOCONET)",
+      "paragraph1": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (Global Carbon Budget, 2024). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
+      "paragraph1WithLink": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (<a href=\"https://globalcarbonbudget.org/gcb-2024/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-70\">Global Carbon Budget, 2024</a>). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
+      "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms (see image gallery) to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations.",
+      "imageAlt": "Ocean CO₂ monitoring equipment and platforms",
+      "iconAlt": "SOCONET Network Icon"
+    },
+    "sunFleet": {
+      "title": "Surface UNcrewed Fleet (SUN Fleet)",
+      "paragraph1": "Observing the ocean surface is essential for understanding air-sea exchanges, climate regulation, and the health of marine ecosystems. Yet collecting this vital data remains a major challenge, particularly in remote areas and harsh weather conditions.",
+      "paragraph2": "SUN Fleet, the most recent addition to the GOOS observing networks, brings together uncrewed surface vehicles (USVs) to help close these observation gaps. By coordinating different USV operators, SUN Fleet will strengthen GOOS's ability to autonomously monitor numerous Essential Ocean Variables (such as ..) underobserved areas, ultimately leading to improved forecasts and actionable insights into the state of the ocean worldwide.",
+      "imageAlt": "Uncrewed surface vehicle monitoring the ocean",
+      "iconAlt": "SUN Fleet Network Icon"
     }
   },
   "dataBlock": {
+    "title": "Biological and Ecosystem Observations",
     "introduction": {
-      "paragraph1": "The Global Ocean Observing System (GOOS) observes our ocean through the eyes of thousands of ocean observing platforms that are constantly monitoring the ocean to capture the signature of various ocean phenomena.",
-      "paragraph2": "These platforms collect physical, biogeochemical and biological Essential Ocean and Climate Variables.",
-      "paragraph3": "These observations flow into data systems and are crucial for tracking, predicting and adapting to climate change, accurate weather and extreme event prediction, monitoring biodiversity for achieving key global targets, and informing sound decisions by local communities and national governments around sustainable development."
+      "paragraph1": "GOOS biological and ecosystem observations, coordinated by the GOOS Biology and Ecosystems Expert Panel, are organized differently from those for ocean physics and biogeochemistry because of the distinct nature of the communities and complexity of the information needs. These observations are carried out by observing communities collecting data on the 12 biological and ecological Essential Ocean Variables (EOVs). These EOV communities bring together numerous independent monitoring initiatives worldwide to deliver the complex data vital to evaluate the status of marine life."
     }
   },
   "dataCards": {
@@ -257,48 +508,48 @@
       "title": "Marine birds abundance and distribution"
     },
     "card2": {
-      "tag": "Platforms",
-      "title": "Active Argo floats"
+      "tag": "Programmes",
+      "title": "Fish abundance and distribution"
     },
     "card3": {
-      "tag": "Networks",
-      "title": "Ocean observing networks"
+      "tag": "Programmes",
+      "title": "Hard coral cover and composition"
     },
     "card4": {
-      "tag": "Countries",
-      "title": "Contributing nations"
+      "tag": "Programmes",
+      "title": "Invertebrate abundance and distribution"
     },
     "card5": {
-      "tag": "Variables",
-      "title": "Essential ocean variables"
+      "tag": "Programmes",
+      "title": "Macroalgal canopy cover and composition"
     },
     "card6": {
-      "tag": "Sensors",
-      "title": "Active ocean sensors"
+      "tag": "Programmes",
+      "title": "Marine mammals abundance and distribution"
     },
     "card7": {
-      "tag": "Species",
-      "title": "Marine species monitored"
+      "tag": "Programmes",
+      "title": "Mangrove cover and composition"
     },
     "card8": {
-      "tag": "Regions",
-      "title": "Ocean observation areas"
+      "tag": "Programmes",
+      "title": "Microbe biomass and diversity"
     },
     "card9": {
-      "tag": "Gliders",
-      "title": "Autonomous underwater gliders"
+      "tag": "Programmes",
+      "title": "Phytoplankton biomass and diversity"
     },
     "card10": {
-      "tag": "Moorings",
-      "title": "Fixed ocean moorings"
+      "tag": "Programmes",
+      "title": "Seagrass cover and composition"
     },
     "card11": {
-      "tag": "Ships",
-      "title": "Research vessels active"
+      "tag": "Programmes",
+      "title": "Marine turtles abundance and distribution"
     },
     "card12": {
-      "tag": "Data Points",
-      "title": "Annual observations collected"
+      "tag": "Programmes",
+      "title": "Zooplankton biomass and diversity"
     }
   },
   "contentBox": {

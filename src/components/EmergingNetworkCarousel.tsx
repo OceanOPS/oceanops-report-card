@@ -68,6 +68,8 @@ interface EmergingNetworkCardData {
   imageAlt?: string
   // For gallery
   images?: GalleryImage[]
+  modalTitle?: string
+  modalContent?: ReactNode
   // For video
   videoType?: 'youtube' | 'local'
   videoId?: string
@@ -76,12 +78,13 @@ interface EmergingNetworkCardData {
   iconSrc: string
   iconAlt: string
   titleKey: string
-  descriptionKey: string
-  modalTitle: string
-  modalContent: ReactNode
-  viewMoreTextKey: string
+  paragraph1Key: string
+  paragraph2Key: string
   deliveryAreasLabelKey: string
   deliveryAreas: DeliveryAreaKey[]
+  // Optional external link
+  externalLinkUrl?: string
+  externalLinkTextKey?: string
 }
 
 interface EmergingNetworkCarouselProps {
@@ -184,12 +187,12 @@ export default function EmergingNetworkCarousel({
 
       {/* Embla Carousel Container */}
       <div className="overflow-hidden px-12 md:px-16 pb-4" ref={emblaRef}>
-        <div className="flex cursor-grab active:cursor-grabbing">
+        <div className="flex cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex-[0_0_auto] min-w-0 mr-12"
-              style={{ flexBasis: 'calc(100vw - 200px)' }}
+              className="flex-[0_0_auto] min-w-0 mr-12 flex"
+              style={{ flexBasis: 'calc(100vw - 150px)' }}
             >
               <EmergingNetworkCard
                 {...card}

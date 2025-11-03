@@ -3,14 +3,14 @@
  *
  * A card component that displays network information with ratings and delivery areas.
  * Designed to be used within NetworkCarousel or standalone.
- * Supports half-star ratings (0, 0.5, 1, 1.5, 2, 2.5, 3).
+ * Supports half-star ratings (0, 0.5, 1, 1.5, 2, 2.5, 3) or text labels.
  *
  * @param iconSrc - URL to network icon/logo image (required)
  * @param iconAlt - Alt text for icon (translatable key) (required)
  * @param titleKey - Translation key for network title (required)
  * @param networkUrl - URL to network page (required)
  * @param networkLinkKey - Translation key for "View Network" link text (required)
- * @param ratings - Object with rating values (0-3, supports 0.5 increments) (required)
+ * @param ratings - Object with rating values (0-3 for stars, or string for text like "Not applicable") (required)
  * @param deliveryAreasLabelKey - Translation key for "GOOS delivery areas" label text (required)
  * @param deliveryAreas - Array of 1-3 delivery area keys: 'climate', 'operational', 'oceanhealth' (required)
  * @param backgroundColor - Tailwind background color (default: 'bg-goos-blue-800')
@@ -24,6 +24,7 @@
  *
  * @example
  * ```tsx
+ * // With numeric ratings (shows stars)
  * <NetworkCard
  *   iconSrc="/images/network-icon.png"
  *   iconAlt="networks.argo.iconAlt"
@@ -39,9 +40,24 @@
  *   }}
  *   deliveryAreasLabelKey="networks.deliveryAreasLabel"
  *   deliveryAreas={['climate', 'operational', 'oceanhealth']}
- *   backgroundColor="bg-goos-blue-800"
- *   textColor="text-white"
- *   accentColor="text-goos-orange-500"
+ * />
+ *
+ * // With text labels (shows text)
+ * <NetworkCard
+ *   iconSrc="/images/network-icon.png"
+ *   iconAlt="networks.emerging.iconAlt"
+ *   titleKey="networks.emerging.title"
+ *   networkUrl="https://example.com/emerging"
+ *   networkLinkKey="networks.viewNetwork"
+ *   ratings={{
+ *     implementationStatus: "Not applicable",
+ *     realTime: 2,
+ *     archivedHighQuality: "N/A",
+ *     metadata: 1,
+ *     bestPractices: "Not applicable"
+ *   }}
+ *   deliveryAreasLabelKey="networks.deliveryAreasLabel"
+ *   deliveryAreas={['climate']}
  * />
  * ```
  */
@@ -68,11 +84,11 @@ const DELIVERY_AREAS_CONFIG = {
 type DeliveryAreaKey = keyof typeof DELIVERY_AREAS_CONFIG
 
 interface NetworkRatings {
-  implementationStatus: number
-  realTime: number
-  archivedHighQuality: number
-  metadata: number
-  bestPractices: number
+  implementationStatus: number | string
+  realTime: number | string
+  archivedHighQuality: number | string
+  metadata: number | string
+  bestPractices: number | string
 }
 
 interface NetworkCardProps {
@@ -155,8 +171,20 @@ export default function NetworkCard({
     return stars
   }
 
+  // Helper function to render rating (stars or text)
+  const renderRating = (rating: number | string) => {
+    if (typeof rating === 'string') {
+      return (
+        <span className={`${textColor} text-sm italic opacity-70`}>
+          {rating}
+        </span>
+      )
+    }
+    return renderStars(rating)
+  }
+
   return (
-    <article className={`${backgroundColor} p-6 flex flex-col gap-6 w-[420px] ${className}`}>
+    <article className={`${backgroundColor} p-6 flex flex-col gap-6 w-full h-full ${className}`}>
       {/* Icon and Title */}
       <div className="flex flex-col gap-4 min-h-[88px]">
         <div className="h-[71px] w-[70px]">
@@ -192,7 +220,7 @@ export default function NetworkCard({
             {t('networks.ratings.implementationStatus')}:
           </p>
           <div className="flex gap-1">
-            {renderStars(ratings.implementationStatus)}
+            {renderRating(ratings.implementationStatus)}
           </div>
         </div>
 
@@ -200,7 +228,7 @@ export default function NetworkCard({
           <p className={`flex-1 ${textColor} text-base`}>
             {t('networks.ratings.realTime')}:
           </p>
-          <div className="flex gap-1">{renderStars(ratings.realTime)}</div>
+          <div className="flex gap-1">{renderRating(ratings.realTime)}</div>
         </div>
 
         <div className="flex justify-between items-center">
@@ -208,7 +236,7 @@ export default function NetworkCard({
             {t('networks.ratings.archivedHighQuality')}:
           </p>
           <div className="flex gap-1">
-            {renderStars(ratings.archivedHighQuality)}
+            {renderRating(ratings.archivedHighQuality)}
           </div>
         </div>
 
@@ -216,7 +244,7 @@ export default function NetworkCard({
           <p className={`flex-1 ${textColor} text-base`}>
             {t('networks.ratings.metadata')}:
           </p>
-          <div className="flex gap-1">{renderStars(ratings.metadata)}</div>
+          <div className="flex gap-1">{renderRating(ratings.metadata)}</div>
         </div>
 
         <div className="flex justify-between items-center">
@@ -224,7 +252,7 @@ export default function NetworkCard({
             {t('networks.ratings.bestPractices')}:
           </p>
           <div className="flex gap-1">
-            {renderStars(ratings.bestPractices)}
+            {renderRating(ratings.bestPractices)}
           </div>
         </div>
       </div>

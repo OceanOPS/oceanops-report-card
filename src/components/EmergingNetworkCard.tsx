@@ -63,7 +63,7 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import Button from './Button'
 import Tooltip from './Tooltip'
@@ -96,6 +96,8 @@ interface EmergingNetworkCardProps {
   imageAlt?: string
   // For gallery
   images?: GalleryImage[]
+  modalTitle?: string
+  modalContent?: React.ReactNode
   // For video
   videoType?: 'youtube' | 'local'
   videoId?: string
@@ -104,12 +106,13 @@ interface EmergingNetworkCardProps {
   iconSrc: string
   iconAlt: string
   titleKey: string
-  descriptionKey: string
-  modalTitle: string
-  modalContent: ReactNode
-  viewMoreTextKey: string
+  paragraph1Key: string
+  paragraph2Key: string
   deliveryAreasLabelKey: string
   deliveryAreas: DeliveryAreaKey[]
+  // Optional external link
+  externalLinkUrl?: string
+  externalLinkTextKey?: string
   backgroundColor?: string
   textColor?: string
   buttonBgColor?: string
@@ -127,18 +130,20 @@ export default function EmergingNetworkCard({
   imageSrc,
   imageAlt,
   images,
+  modalTitle,
+  modalContent,
   videoType,
   videoId,
   previewImage,
   iconSrc,
   iconAlt,
   titleKey,
-  descriptionKey,
-  modalTitle,
-  modalContent,
-  viewMoreTextKey,
+  paragraph1Key,
+  paragraph2Key,
   deliveryAreasLabelKey,
   deliveryAreas,
+  externalLinkUrl,
+  externalLinkTextKey,
   backgroundColor = 'bg-goos-blue-800',
   textColor = 'text-white',
   buttonBgColor = 'bg-goos-white',
@@ -159,13 +164,13 @@ export default function EmergingNetworkCard({
   // Get the preview image for the media section
   const getPreviewImageSrc = () => {
     if (mediaType === 'image') return imageSrc || ''
-    if (mediaType === 'gallery') return images?.[0]?.src || ''
+    if (mediaType === 'gallery') return images?.[0]?.src || imageSrc || ''
     if (mediaType === 'video') return previewImage || ''
     return ''
   }
 
   return (
-    <article className={`${backgroundColor} flex w-full h-[650px] overflow-hidden ${className}`}>
+    <article className={`${backgroundColor} flex w-full h-full overflow-hidden ${className}`}>
       {/* Left Section - Media */}
       <div className="flex-1 relative">
         {/* Preview Image */}
@@ -216,11 +221,11 @@ export default function EmergingNetworkCard({
 
       {/* Right Section - Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <div className="px-[53px] py-8 space-y-8">
+        <div className="px-12 py-16 space-y-8">
           {/* Header Section */}
           <div className="space-y-5">
             {/* Network Icon */}
-            <div className="w-[90px] h-[92px]">
+            <div className="w-[85px] h-[72px]">
               <img
                 src={iconSrc}
                 alt={t(iconAlt)}
@@ -234,30 +239,37 @@ export default function EmergingNetworkCard({
             </h2>
           </div>
 
-          {/* Description and Button */}
-          <div className="space-y-6">
-            {/* Description */}
-            <p className={`${textColor} text-base leading-6`}>
-              {t(descriptionKey)}
-            </p>
+          {/* Description */}
+          <div className="space-y-4">
+            {/* Paragraph 1 */}
+            <p
+              className={`${textColor} text-base leading-6`}
+              dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
+            />
 
-            {/* View More Button */}
+            {/* Paragraph 2 */}
+            <p className={`${textColor} text-base leading-6`}>
+              {t(paragraph2Key)}
+            </p>
+          </div>
+
+          {/* External Link Button (if provided) */}
+          {externalLinkUrl && externalLinkTextKey && (
             <div className="flex">
               <Button
-                variant="modal"
-                label={t(viewMoreTextKey)}
-                modalTitle={t(modalTitle)}
-                modalContent={modalContent}
+                variant="link"
+                label={t(externalLinkTextKey)}
+                url={externalLinkUrl}
                 bgColor={buttonBgColor}
                 textColor={buttonTextColor}
                 iconBgColor={buttonIconBgColor}
                 iconColor={buttonIconColor}
               />
             </div>
-          </div>
+          )}
 
           {/* GOOS Delivery Areas */}
-          <div className="space-y-4">
+          <div className="space-y-4 hidden">
             <p className={`${textColor} text-sm`}>{t(deliveryAreasLabelKey)}:</p>
 
             <div className="flex gap-4">
@@ -290,7 +302,7 @@ export default function EmergingNetworkCard({
         <ContentModal
           isOpen={isMediaModalOpen}
           onClose={() => setIsMediaModalOpen(false)}
-          title={t(modalTitle)}
+          title={modalTitle ? t(modalTitle) : ''}
           maxWidth="2xl"
         >
           {modalContent}

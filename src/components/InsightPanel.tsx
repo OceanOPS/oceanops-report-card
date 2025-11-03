@@ -2,7 +2,8 @@
  * InsightPanel Component
  *
  * A panel component that displays a large featured number with description and button,
- * alongside a grid of statistics (2x2). Perfect for showcasing key metrics and insights.
+ * alongside either a grid of statistics (2x2) or custom content (e.g., text paragraph).
+ * Perfect for showcasing key metrics and insights.
  *
  * @param title - Optional panel title
  * @param hasLine - Show decorative line above title (default: true)
@@ -10,7 +11,8 @@
  * @param largeNumber - The main featured number/text (required)
  * @param largeNumberDescription - Description text below the large number (optional)
  * @param button - Optional button configuration (uses Button component)
- * @param stats - Array of stat objects (up to 4) for the 2x2 grid (required)
+ * @param stats - Array of stat objects (up to 4) for the 2x2 grid (optional)
+ * @param rightContent - Custom content to display on right side instead of stats (optional)
  * @param backgroundColor - Tailwind background color (default: 'bg-goos-blue-700')
  * @param titleColor - Tailwind text color for title (default: 'text-white')
  * @param textColor - Tailwind text color for body text (default: 'text-white')
@@ -19,6 +21,7 @@
  * @param className - Optional additional Tailwind classes
  *
  * @example
+ * // With stats grid
  * ```tsx
  * <InsightPanel
  *   title="Insight Panel Optional Heading"
@@ -38,15 +41,25 @@
  *       linkText: 'External Link',
  *       linkUrl: 'https://example.com'
  *     },
- *     {
- *       number: '$400B',
- *       description: 'Lorem ipsum dolor sit amet...',
- *       linkText: 'External Link',
- *       linkUrl: 'https://example.com'
- *     },
  *     // ... up to 4 stats
  *   ]}
  *   backgroundColor="bg-goos-blue-700"
+ * />
+ * ```
+ *
+ * @example
+ * // With custom text content
+ * ```tsx
+ * <InsightPanel
+ *   title="Insight Panel with Text"
+ *   largeNumber="129"
+ *   largeNumberDescription="Countries contributing to GOOS"
+ *   rightContent={
+ *     <p className="text-xl">
+ *       This is custom text content that appears on the right side
+ *       instead of the stats grid.
+ *     </p>
+ *   }
  * />
  * ```
  */
@@ -112,7 +125,8 @@ interface InsightPanelProps {
   largeNumber: string
   largeNumberDescription?: string
   button?: ButtonConfig
-  stats: StatItem[]
+  stats?: StatItem[]
+  rightContent?: ReactNode
   backgroundColor?: string
   titleColor?: string
   textColor?: string
@@ -129,6 +143,7 @@ export default function InsightPanel({
   largeNumberDescription,
   button,
   stats,
+  rightContent,
   backgroundColor = 'bg-goos-blue-700',
   titleColor = 'text-white',
   textColor = 'text-white',
@@ -175,57 +190,67 @@ export default function InsightPanel({
             )}
           </div>
 
-          {/* Right: Stats Grid 2x2 - 50% width */}
+          {/* Right: Stats Grid 2x2 or Custom Content - 50% width */}
           <div className="lg:basis-1/2 flex flex-col gap-8">
-            {/* Top Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {stats.slice(0, 2).map((stat, index) => (
-                <div key={index} className="flex flex-col gap-2">
-                  <p className={`text-5xl font-light ${numberColor}`}>
-                    {stat.number}
-                  </p>
-                  <p className={`text-base font-normal ${textColor}`}>
-                    {stat.description}
-                  </p>
-                  {stat.linkText && stat.linkUrl && (
-                    <a
-                      href={stat.linkUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
-                    >
-                      {stat.linkText} <span className="text-xs">⧉</span>
-                    </a>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom Row */}
-            {stats.length > 2 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {stats.slice(2, 4).map((stat, index) => (
-                  <div key={index + 2} className="flex flex-col gap-2">
-                    <p className={`text-5xl font-light ${numberColor}`}>
-                      {stat.number}
-                    </p>
-                    <p className={`text-base font-normal ${textColor}`}>
-                      {stat.description}
-                    </p>
-                    {stat.linkText && stat.linkUrl && (
-                      <a
-                        href={stat.linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
-                      >
-                        {stat.linkText} <span className="text-xs">⧉</span>
-                      </a>
-                    )}
-                  </div>
-                ))}
+            {rightContent ? (
+              // Custom content (e.g., text paragraph)
+              <div className={`${textColor}`}>
+                {rightContent}
               </div>
-            )}
+            ) : stats ? (
+              // Stats Grid 2x2
+              <>
+                {/* Top Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {stats.slice(0, 2).map((stat, index) => (
+                    <div key={index} className="flex flex-col gap-2">
+                      <p className={`text-5xl font-light ${numberColor}`}>
+                        {stat.number}
+                      </p>
+                      <p className={`text-base font-normal ${textColor}`}>
+                        {stat.description}
+                      </p>
+                      {stat.linkText && stat.linkUrl && (
+                        <a
+                          href={stat.linkUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+                        >
+                          {stat.linkText} <span className="text-xs">⧉</span>
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Row */}
+                {stats.length > 2 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {stats.slice(2, 4).map((stat, index) => (
+                      <div key={index + 2} className="flex flex-col gap-2">
+                        <p className={`text-5xl font-light ${numberColor}`}>
+                          {stat.number}
+                        </p>
+                        <p className={`text-base font-normal ${textColor}`}>
+                          {stat.description}
+                        </p>
+                        {stat.linkText && stat.linkUrl && (
+                          <a
+                            href={stat.linkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+                          >
+                            {stat.linkText} <span className="text-xs">⧉</span>
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : null}
           </div>
         </div>
 
