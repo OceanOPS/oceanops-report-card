@@ -18,8 +18,8 @@
  * @param accentColor - Tailwind color for stars and links (default: 'text-goos-orange-500')
  * @param iconBgColor - Tailwind background color for delivery area icons (default: 'bg-goos-light-blue-shade-200')
  * @param iconTextColor - Tailwind text color for delivery area icon SVGs (default: 'text-goos-deep-blue')
- * @param tooltipBgColor - Tailwind background color for tooltip (default: 'bg-goos-blue-900')
- * @param tooltipTextColor - Tailwind text color for tooltip (default: 'text-white')
+ * @param tooltipBgColor - Tailwind background color for tooltip (default: 'bg-goos-deep-blue')
+ * @param tooltipTextColor - Tailwind text color for tooltip (default: 'text-goos-white')
  * @param className - Optional additional Tailwind classes
  *
  * @example
@@ -125,7 +125,7 @@ export default function NetworkCard({
   iconBgColor = 'bg-goos-cyan-200',
   iconTextColor = 'text-goos-deep-blue',
   tooltipBgColor = 'bg-goos-blue-900',
-  tooltipTextColor = 'text-white',
+  tooltipTextColor = 'text-goos-white',
   className = '',
 }: NetworkCardProps) {
   const { t } = useTranslation()
@@ -216,41 +216,72 @@ export default function NetworkCard({
       {/* Ratings */}
       <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.implementationStatus')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.implementationStatus')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
+              {t('networks.ratings.implementationStatus')}:
+            </p>
+          </Tooltip>
           <div className="flex gap-1">
             {renderRating(ratings.implementationStatus)}
           </div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.realTime')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.realTime')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
+              {t('networks.ratings.realTime')}:
+            </p>
+          </Tooltip>
           <div className="flex gap-1">{renderRating(ratings.realTime)}</div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.archivedHighQuality')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.archivedHighQuality')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
+              {t('networks.ratings.archivedHighQuality')}:
+            </p>
+          </Tooltip>
           <div className="flex gap-1">
             {renderRating(ratings.archivedHighQuality)}
           </div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.metadata')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.metadata')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+            allowHtml={true}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
+              {t('networks.ratings.metadata')}:
+            </p>
+          </Tooltip>
           <div className="flex gap-1">{renderRating(ratings.metadata)}</div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.bestPractices')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.bestPractices')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
+              {t('networks.ratings.bestPractices')}:
+            </p>
+          </Tooltip>
           <div className="flex gap-1">
             {renderRating(ratings.bestPractices)}
           </div>

@@ -269,7 +269,7 @@ export default function EmergingNetworkCard({
           )}
 
           {/* GOOS Delivery Areas */}
-          <div className="space-y-4 hidden">
+          <div className="space-y-4">
             <p className={`${textColor} text-sm`}>{t(deliveryAreasLabelKey)}:</p>
 
             <div className="flex gap-4">

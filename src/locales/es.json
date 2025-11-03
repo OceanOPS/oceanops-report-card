@@ -380,6 +380,13 @@
       "metadata": "Metadatos",
       "bestPractices": "Mejores Prácticas"
     },
+    "ratingsTooltips": {
+      "implementationStatus": "estado de la implementación comparado con el objetivo ampliamente adoptado por la comunidad cuando existe; estado autoevaluado por la red cuando el objetivo no existe o cuando OceanOPS no puede calcular las estadísticas necesarias.",
+      "realTime": "datos disponibles libremente, sin ninguna restricción, en el Sistema Global de Telecomunicaciones de la OMM e internet.",
+      "archivedHighQuality": "datos de la más alta calidad disponibles para análisis científico (ej. estudios climáticos).",
+      "metadata": "completitud de metadatos por OceanOPS, https://www.ocean-ops.org/metadata.",
+      "bestPractices": "documentación revisada por la comunidad y fácilmente accesible que abarca el ciclo de vida de las observaciones"
+    },
     "indicatorsButton": "SOBRE DEFINICIONES DE INDICADORES",
     "indicatorsModal": {
       "title": "Indicadores de Rendimiento de Redes",
@@ -581,6 +588,9 @@
   "menu": {
     "title": "Tarjeta de Reporte",
     "year": "2025",
+    "overview": "Resumen",
+    "inSituStatus": "Estado y actualizaciones del sistema de observación in situ",
+    "networksByNumbers": "Redes en cifras",
     "downloadPdf": "DESCARGAR PDF",
     "pastReports": "Reportes Anteriores",
     "pastReportsLinks": {

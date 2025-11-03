@@ -51,10 +51,20 @@ function App() {
   // Scroll spy - update URL hash based on visible section
   useEffect(() => {
     const sections = [
-      'map-section',
+      'overview-section',
+      'insitu-section',
+      'stats-section',
       'networks-section',
+      'data-section',
       'emerging-section',
-      'data-section'
+      'value-section',
+      'amoc-section',
+      'elnino-section',
+      'oceanhealth-section',
+      'southafrica-section',
+      'ships-section',
+      'calltoaction-section',
+      'contact-section'
     ]
 
     const observerOptions = {
@@ -98,10 +108,32 @@ function App() {
       {/* MenuSidebar - Fixed Menu Button with Slide-in Sidebar */}
       <MenuSidebar
         menuItems={[
-          { id: 'map-section', titleKey: 'content.section1.title', accentColor: 'bg-goos-orange-500' },
-          { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-cyan-500' },
-          { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-green-500' },
-          { id: 'data-section', titleKey: 'content.section1.stats.stat1.description', accentColor: 'bg-goos-blue-500' },
+          { id: 'overview-section', titleKey: 'menu.overview', accentColor: 'bg-goos-orange-600' },
+          {
+            id: 'insitu-section',
+            titleKey: 'menu.inSituStatus',
+            accentColor: 'bg-goos-orange-600',
+            subItems: [
+              { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-600' },
+              { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-orange-500' },
+            ],
+          },
+          {
+            id: 'value-section',
+            titleKey: 'valueOfObservations.title',
+            accentColor: 'bg-goos-cyan-600',
+            subItems: [
+              { id: 'amoc-section', titleKey: 'amoc.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'elnino-section', titleKey: 'elNino.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'oceanhealth-section', titleKey: 'oceanHealth.title', accentColor: 'bg-goos-cyan-600' },
+            ],
+          },
+          { id: 'southafrica-section', titleKey: 'southAfrica.title', accentColor: 'bg-goos-green-700' },
+          { id: 'ships-section', titleKey: 'tenThousandShips.title', accentColor: 'bg-goos-orange-500' },
+          { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-600' },
+          { id: 'contact-section', titleKey: 'contact.title', accentColor: 'bg-goos-blue-900' },
         ]}
       />
 
@@ -117,12 +149,12 @@ function App() {
         goosLogoVariant="white"
         partnerLogosVariant="white"
         // Background Media Options
-        backgroundOpacity={40}
+        backgroundOpacity={70}
         backgroundSize="cover"
-        backgroundBlendMode="luminosity"   // Uses luminosity of video with color of background
+        backgroundBlendMode="normal"   // Uses luminosity of video with color of background
         // Background Image or Video
         mediaType="video"
-        backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
+        backgroundMedia="/videos/video.mp4"
       />
 
       {/* Spacer */}
@@ -130,6 +162,7 @@ function App() {
 
 
       {/* Intro */}
+      <div id="overview-section">
       <ContentModule
         layout="full-width"
         backgroundColor="bg-goos-blue-900"
@@ -153,10 +186,12 @@ function App() {
           {t('intro.paragraph1')}
         </p>
       </ContentModule>
+      </div>
 
               <Spacer size="sm" backgroundColor="bg-goos-blue-900" />
 
       {/* In situ observing system status and updates */}
+      <div id="insitu-section">
       <ContentModule
         titleLevel="h2"
         title={t('content.section1.title')}
@@ -245,9 +280,10 @@ function App() {
           authorColor="text-goos-white"
         />
       </ContentModule>
+      </div>
 
       {/* Stats Grid - 4x1 */}
-      <div className="bg-goos-blue-900 px-12 md:px-16 py-16">
+      <div id="stats-section" className="bg-goos-blue-900 px-12 md:px-16 py-16">
         <StatsGrid
           title={t('content.section1.statsTitle')}
           hasLine={true}
@@ -511,8 +547,8 @@ function App() {
         cardBackgroundColor="bg-goos-blue-800"
         cardTextColor="text-white"
         cardAccentColor="text-goos-orange-500"
-        tooltipBgColor="bg-goos-white"
-        tooltipTextColor="text-blue-800"
+        tooltipBgColor="text-goos-white"
+        tooltipTextColor="bg-goos-blue-900"
       />
       </div>
 
@@ -833,8 +869,8 @@ function App() {
         buttonTextColor="text-white"
         buttonIconBgColor="bg-goos-white"
         buttonIconColor="text-goos-blue-900"
-        tooltipBgColor="bg-goos-white"
-        tooltipTextColor="text-blue-800"
+        tooltipBgColor="text-goos-white"
+        tooltipTextColor="bg-goos-blue-900"
         arrowColor="#F0F0F0"
       />
       </div>
@@ -842,6 +878,7 @@ function App() {
         <Spacer size="md" backgroundColor="bg-goos-white"/>
 
       {/* Value of Ocean Observations */}
+      <div id="value-section">
       <ContentModule
         title={t('valueOfObservations.title')}
         titleLevel="h2"
@@ -855,6 +892,7 @@ function App() {
           {t('valueOfObservations.content')}
         </p>
       </ContentModule>
+      </div>
 
       {/* AMOC Climate Story */}
       <div id="amoc-section" className="pt-16 bg-goos-white">
@@ -1383,8 +1421,9 @@ function App() {
       />
       </div>
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
-     
+
       {/* South Africa - Agulhas Current Story */}
+      <div id="southafrica-section">
       <ContentModule
         title={t('southAfrica.title')}
         titleLevel="h2"
@@ -1424,10 +1463,12 @@ function App() {
         {/* Spacer between modules */}
          <Spacer size="sm" />
       </div>
+      </div>
 
         <Spacer size="md" backgroundColor="bg-goos-white"/>
-      
+
       {/* 10,000 Ships for the Ocean Initiative */}
+      <div id="ships-section">
       <ContentModule
         title={t('tenThousandShips.title')}
         titleLevel="h2"
@@ -1465,10 +1506,12 @@ function App() {
         {/* Spacer between modules */}
          <Spacer size="sm" />
       </div>
+      </div>
 
         <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
       {/* Call to Action */}
+      <div id="calltoaction-section">
       <ContentModule
         title={t('callToAction.title')}
         titleLevel="h2"
@@ -1488,6 +1531,7 @@ function App() {
           authorColor="text-goos-white"
         />
       </ContentModule>
+      </div>
 
       {/* Acknowledgments Panel */}
       <InsightPanel
@@ -1555,6 +1599,7 @@ function App() {
       />
 
       {/* Contact Information */}
+      <div id="contact-section">
       <ContentModule
         title={t('contact.title')}
         titleLevel="h3"
@@ -1568,6 +1613,7 @@ function App() {
         <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }} />
         <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph3')}</p>
       </ContentModule>
+      </div>
 
     </div>
   )
