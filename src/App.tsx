@@ -1540,6 +1540,21 @@ function App() {
         backgroundColor="bg-goos-blue-900"
       />
 
+      {/* Contact Information */}
+      <ContentModule
+        title={t('contact.title')}
+        titleLevel="h3"
+        layout="split"
+        backgroundColor="bg-goos-blue-900"
+        titleColor="text-goos-white"
+        textColor="text-goos-white"
+        hasLine={false}
+      >
+        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }} />
+        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }} />
+        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph3')}</p>
+      </ContentModule>
+
     </div>
   )
 }

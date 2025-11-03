@@ -201,6 +201,12 @@
     "quoteAuthor": "Joanna Post",
     "quotePosition": "Directrice du GOOS"
   },
+  "contact": {
+    "title": "Contact",
+    "paragraph1": "Informations générales: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/>État des réseaux: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>Informations sur le Rapport: <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a><br/>Si vous souhaitez contribuer au système mondial d'observation des océans, veuillez contacter: <a href=\"mailto:support@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">support@ocean-ops.org</a>",
+    "paragraph2": "Auteurs: OceanOPS, Groupe de Coordination des Observations du GOOS, Panels GOOS-BGC et BioEco, Panel OOPC, Secrétariats de l'OMM et de la COI/UNESCO<br/>Rapport GOOS No.292",
+    "paragraph3": "Remerciements particuliers à tous les éditeurs et auteurs: Corrine Almeida, Mathieu Belbéoch, Lance Braasch, Forest Collins, Thomas J. Cuff, Brad de Young, J. Emmett Duffy, Björn Fiedler, Darin Figurskey, Severine Fournier, Sarah Grimes, Emma Heslop, Long Jiang, Johannes Karstensen, Elizabeth Kent, Roxy Mathew Koll, Arne Körtzinger, David Legler, Belén Martin Miguez, Ivanice Monteiro, Lina Mtwana Nordlund, Clare Nullis, Joanna Post, Regina Rodrigues, Emanuela Rusciano, Alex Sen Gupta, Raquel Somavilla, Sabrina Speich, Laura Stukonyte, David Wyatt, Weidong Yu, Ann-Christine Zinkann."
+  },
   "content": {
     "section1": {
       "kicker": "",
