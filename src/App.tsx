@@ -51,10 +51,20 @@ function App() {
   // Scroll spy - update URL hash based on visible section
   useEffect(() => {
     const sections = [
-      'map-section',
+      'overview-section',
+      'insitu-section',
+      'stats-section',
       'networks-section',
+      'data-section',
       'emerging-section',
-      'data-section'
+      'value-section',
+      'amoc-section',
+      'elnino-section',
+      'oceanhealth-section',
+      'southafrica-section',
+      'ships-section',
+      'calltoaction-section',
+      'contact-section'
     ]
 
     const observerOptions = {
@@ -106,7 +116,7 @@ function App() {
             subItems: [
               { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-600' },
               { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
-              { id: 'data-section', titleKey: 'biologicalEcosystem.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
               { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-orange-500' },
             ],
           },
