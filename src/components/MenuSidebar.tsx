@@ -239,7 +239,7 @@ export default function MenuSidebar({
                         onClick={() => handleMenuItemClick(subItem)}
                         className="cursor-pointer hover:opacity-80 transition-opacity"
                       >
-                        <h3 className="text-xl font-normal">{t(subItem.titleKey)}</h3>
+                        <h3 className="text-xl font-light">{t(subItem.titleKey)}</h3>
                       </div>
                     ))}
                   </div>

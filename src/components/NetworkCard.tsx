@@ -18,8 +18,8 @@
  * @param accentColor - Tailwind color for stars and links (default: 'text-goos-orange-500')
  * @param iconBgColor - Tailwind background color for delivery area icons (default: 'bg-goos-light-blue-shade-200')
  * @param iconTextColor - Tailwind text color for delivery area icon SVGs (default: 'text-goos-deep-blue')
- * @param tooltipBgColor - Tailwind background color for tooltip (default: 'bg-goos-blue-900')
- * @param tooltipTextColor - Tailwind text color for tooltip (default: 'text-white')
+ * @param tooltipBgColor - Tailwind background color for tooltip (default: 'bg-goos-deep-blue')
+ * @param tooltipTextColor - Tailwind text color for tooltip (default: 'text-goos-white')
  * @param className - Optional additional Tailwind classes
  *
  * @example
@@ -125,7 +125,7 @@ export default function NetworkCard({
   iconBgColor = 'bg-goos-cyan-200',
   iconTextColor = 'text-goos-deep-blue',
   tooltipBgColor = 'bg-goos-blue-900',
-  tooltipTextColor = 'text-white',
+  tooltipTextColor = 'text-goos-white',
   className = '',
 }: NetworkCardProps) {
   const { t } = useTranslation()

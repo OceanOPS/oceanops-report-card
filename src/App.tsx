@@ -149,12 +149,12 @@ function App() {
         goosLogoVariant="white"
         partnerLogosVariant="white"
         // Background Media Options
-        backgroundOpacity={40}
+        backgroundOpacity={70}
         backgroundSize="cover"
-        backgroundBlendMode="luminosity"   // Uses luminosity of video with color of background
+        backgroundBlendMode="normal"   // Uses luminosity of video with color of background
         // Background Image or Video
         mediaType="video"
-        backgroundMedia="/videos/stock-footage-a-newborn-baby-whale-seeks-protection-from-its-mother-by-swimming-close-to-her-side-drone-view.webm"
+        backgroundMedia="/videos/video.mp4"
       />
 
       {/* Spacer */}
@@ -547,8 +547,8 @@ function App() {
         cardBackgroundColor="bg-goos-blue-800"
         cardTextColor="text-white"
         cardAccentColor="text-goos-orange-500"
-        tooltipBgColor="bg-goos-white"
-        tooltipTextColor="text-blue-800"
+        tooltipBgColor="text-goos-white"
+        tooltipTextColor="bg-goos-blue-900"
       />
       </div>
 
@@ -869,8 +869,8 @@ function App() {
         buttonTextColor="text-white"
         buttonIconBgColor="bg-goos-white"
         buttonIconColor="text-goos-blue-900"
-        tooltipBgColor="bg-goos-white"
-        tooltipTextColor="text-blue-800"
+        tooltipBgColor="text-goos-white"
+        tooltipTextColor="bg-goos-blue-900"
         arrowColor="#F0F0F0"
       />
       </div>
