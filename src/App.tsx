@@ -13,7 +13,6 @@ import LogoStrip from './components/LogoStrip'
 import NetworkCarousel from './components/NetworkCarousel'
 import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
-import StatsGrid from './components/StatsGrid'
 import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
@@ -283,13 +282,16 @@ function App() {
       </div>
 
       {/* Stats Grid - 4x1 */}
-      <div id="stats-section" className="bg-goos-blue-900 px-12 md:px-16 py-16">
-        <StatsGrid
+      <div id="stats-section">
+        <InsightPanel
           title={t('content.section1.statsTitle')}
           hasLine={true}
           lineColor="bg-goos-orange-600"
-          titleColor="text-goos-white"
-          columns={4}
+          leftContent={
+            <p className="text-xl leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          }
           stats={[
             {
               number: t('content.section1.stats.stat1.number'),
@@ -308,8 +310,10 @@ function App() {
               description: t('content.section1.stats.stat4.description'),
             },
           ]}
-          numberColor="text-goos-orange-500"
+          backgroundColor="bg-goos-blue-900"
+          titleColor="text-goos-white"
           textColor="text-goos-white"
+          numberColor="text-goos-orange-500"
           linkColor="text-goos-white"
         />
       </div>

@@ -122,11 +122,12 @@ interface InsightPanelProps {
   title?: string
   hasLine?: boolean
   lineColor?: string
-  largeNumber: string
+  largeNumber?: string
   largeNumberDescription?: string
   button?: ButtonConfig
   stats?: StatItem[]
   rightContent?: ReactNode
+  leftContent?: ReactNode
   backgroundColor?: string
   titleColor?: string
   textColor?: string
@@ -144,6 +145,7 @@ export default function InsightPanel({
   button,
   stats,
   rightContent,
+  leftContent,
   backgroundColor = 'bg-goos-blue-700',
   titleColor = 'text-white',
   textColor = 'text-white',
@@ -170,23 +172,34 @@ export default function InsightPanel({
         <div className="h-8 w-5 opacity-75"></div>
 
         {/* Content: Large Number + Stats Grid */}
-        <div className="flex gap-5 flex-col lg:flex-row">
-          {/* Left: Large Number with Button - 50% width */}
+        <div className="flex gap-16 flex-col lg:flex-row">
+          {/* Left: Large Number with Button OR Custom Content - 50% width */}
           <div className="lg:basis-1/2 flex flex-col gap-4">
-            <div className={`flex flex-col gap-2 ${textColor}`}>
-              <p className={`text-8xl font-light leading-[96px] ${numberColor}`}>
-                {largeNumber}
-              </p>
-              {largeNumberDescription && (
-                <p className="text-base font-normal">{largeNumberDescription}</p>
-              )}
-            </div>
-
-            {/* Optional Button */}
-            {button && (
-              <div className="self-start">
-                <Button {...button} />
+            {leftContent ? (
+              // Custom content on the left
+              <div className={`${textColor}`}>
+                {leftContent}
               </div>
+            ) : (
+              <>
+                <div className={`flex flex-col gap-2 ${textColor}`}>
+                  {largeNumber && (
+                    <p className={`text-8xl font-light leading-[96px] ${numberColor}`}>
+                      {largeNumber}
+                    </p>
+                  )}
+                  {largeNumberDescription && (
+                    <p className="text-base font-normal">{largeNumberDescription}</p>
+                  )}
+                </div>
+
+                {/* Optional Button */}
+                {button && (
+                  <div className="self-start">
+                    <Button {...button} />
+                  </div>
+                )}
+              </>
             )}
           </div>
 
@@ -204,7 +217,7 @@ export default function InsightPanel({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {stats.slice(0, 2).map((stat, index) => (
                     <div key={index} className="flex flex-col gap-2">
-                      <p className={`text-5xl font-light ${numberColor}`}>
+                      <p className={`text-6xl font-light ${numberColor}`}>
                         {stat.number}
                       </p>
                       <p className={`text-base font-normal ${textColor}`}>
@@ -229,7 +242,7 @@ export default function InsightPanel({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {stats.slice(2, 4).map((stat, index) => (
                       <div key={index + 2} className="flex flex-col gap-2">
-                        <p className={`text-5xl font-light ${numberColor}`}>
+                        <p className={`text-6xl font-light ${numberColor}`}>
                           {stat.number}
                         </p>
                         <p className={`text-base font-normal ${textColor}`}>
@@ -253,10 +266,6 @@ export default function InsightPanel({
             ) : null}
           </div>
         </div>
-
-        {/* Bottom spacers */}
-        <div className="h-8 w-5 opacity-75"></div>
-        <div className="h-8 w-5 opacity-75"></div>
       </div>
     </section>
   )
