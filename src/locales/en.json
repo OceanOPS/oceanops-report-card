@@ -380,6 +380,13 @@
       "metadata": "Metadata",
       "bestPractices": "Best Practices"
     },
+    "ratingsTooltips": {
+      "implementationStatus": "Status of the implementation compared to the community widely adopted target when it exists; network self-assessed status when target doesn't exist or when OceanOPS cannot compute statistics as needed.",
+      "realTime": "Data freely available, without any restriction, on Global Telecommunication System of WMO and internet.",
+      "archivedHighQuality": "Data of the highest quality available for scientific analysis (e.g. climate studies).",
+      "metadata": "Metadata completeness by OceanOPS.",
+      "bestPractices": "Community reviewed and easily accessible documentation encompassing the observations lifecycle"
+    },
     "indicatorsButton": "ABOUT INDICATORS DEFINITIONS",
     "indicatorsModal": {
       "title": "Network Performance Indicators",

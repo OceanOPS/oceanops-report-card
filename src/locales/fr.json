@@ -425,6 +425,13 @@
       "metadata": "Métadonnées",
       "bestPractices": "Meilleures Pratiques"
     },
+    "ratingsTooltips": {
+      "implementationStatus": "état de la mise en œuvre par rapport à l'objectif largement adopté par la communauté lorsqu'il existe; état auto-évalué par le réseau lorsque l'objectif n'existe pas ou lorsque OceanOPS ne peut pas calculer les statistiques nécessaires.",
+      "realTime": "données disponibles librement, sans aucune restriction, sur le Système mondial de télécommunications de l'OMM et sur internet.",
+      "archivedHighQuality": "données de la plus haute qualité disponibles pour l'analyse scientifique (p. ex. études climatiques).",
+      "metadata": "exhaustivité des métadonnées par OceanOPS, https://www.ocean-ops.org/metadata.",
+      "bestPractices": "documentation révisée par la communauté et facilement accessible couvrant le cycle de vie des observations"
+    },
     "indicatorsButton": "À PROPOS DES DÉFINITIONS DES INDICATEURS",
     "indicatorsModal": {
       "title": "Indicateurs de Performance des Réseaux",
