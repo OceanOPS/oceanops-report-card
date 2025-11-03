@@ -99,10 +99,12 @@ export default function DeliveryAreasNav() {
     }
   }
 
-  if (!isVisible) return null
-
   return (
-    <div className="fixed top-0 left-0 right-0 z-20 bg-goos-cyan-100">
+    <div
+      className={`fixed top-0 left-0 right-0 z-20 bg-goos-cyan-100 transition-transform duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="w-full">
         <nav className="flex">
           {DELIVERY_AREAS.map((area) => (
