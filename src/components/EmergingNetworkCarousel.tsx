@@ -128,27 +128,46 @@ export default function EmergingNetworkCarousel({
 }: EmergingNetworkCarouselProps) {
   const { t } = useTranslation()
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
 
-  // Embla Carousel setup
+  // Embla Carousel setup - Simple and standard
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
-    loop: true, // Infinite loop
-    slidesToScroll: 1, // Scroll one card at a time
+    loop: false,
+    slidesToScroll: 1,
+    breakpoints: {
+      '(min-width: 768px)': { slidesToScroll: 1 },
+      '(min-width: 1024px)': { slidesToScroll: 1 },
+    },
   })
 
-  // Update selected index on slide change
+  // Update selected index, scroll snaps, and arrow states
   useEffect(() => {
     if (!emblaApi) return
 
     const onSelect = () => {
       setSelectedIndex(emblaApi.selectedScrollSnap())
+      setCanScrollPrev(emblaApi.canScrollPrev())
+      setCanScrollNext(emblaApi.canScrollNext())
+    }
+
+    const onInit = () => {
+      setScrollSnaps(emblaApi.scrollSnapList())
+      setCanScrollPrev(emblaApi.canScrollPrev())
+      setCanScrollNext(emblaApi.canScrollNext())
     }
 
     emblaApi.on('select', onSelect)
-    onSelect() // Set initial value
+    emblaApi.on('reInit', onInit)
+
+    onSelect()
+    onInit()
 
     return () => {
       emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onInit)
     }
   }, [emblaApi])
 
@@ -191,8 +210,7 @@ export default function EmergingNetworkCarousel({
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex-[0_0_auto] min-w-0 mr-12 flex"
-              style={{ flexBasis: 'calc(100vw - 150px)' }}
+              className="flex-[0_0_100%] min-w-0 mr-12 flex"
             >
               <EmergingNetworkCard
                 {...card}
@@ -213,9 +231,9 @@ export default function EmergingNetworkCarousel({
 
       {/* Navigation Controls: Dots (left) + Arrows (right) */}
       <div className="flex justify-between items-center px-12 md:px-16 py-4">
-        {/* Pagination Dots - Left aligned */}
+        {/* Pagination Dots - Left aligned - One dot per snap point */}
         <div className="flex gap-2">
-          {cards.map((_, index) => (
+          {scrollSnaps.map((_, index) => (
             <button
               key={index}
               onClick={() => scrollTo(index)}
@@ -231,16 +249,28 @@ export default function EmergingNetworkCarousel({
 
         {/* Navigation Arrows - Right aligned */}
         <div className="flex gap-4">
-          <CarouselArrow
-            direction="left"
-            color={arrowColor}
+          <button
             onClick={scrollPrev}
-          />
-          <CarouselArrow
-            direction="right"
-            color={arrowColor}
+            disabled={!canScrollPrev}
+            className={`transition-opacity ${!canScrollPrev ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          >
+            <CarouselArrow
+              direction="left"
+              color={arrowColor}
+              onClick={() => {}}
+            />
+          </button>
+          <button
             onClick={scrollNext}
-          />
+            disabled={!canScrollNext}
+            className={`transition-opacity ${!canScrollNext ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          >
+            <CarouselArrow
+              direction="right"
+              color={arrowColor}
+              onClick={() => {}}
+            />
+          </button>
         </div>
       </div>
     </section>

@@ -1528,7 +1528,7 @@ function App() {
           authorName={t('callToAction.quoteAuthor')}
           authorTitle={t('callToAction.quotePosition')}
           quoteColor="text-goos-white"
-          authorColor="text-goos-white"
+          authorColor="text-goos-orange-500"
         />
       </ContentModule>
       </div>
