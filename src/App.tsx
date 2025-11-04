@@ -60,6 +60,7 @@ function App() {
       'amoc-section',
       'elnino-section',
       'oceanhealth-section',
+      'strengthening-section',
       'southafrica-section',
       'ships-section',
       'calltoaction-section',
@@ -1484,11 +1485,30 @@ function App() {
       </div>
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
+      {/* Strengthening and Expanding the System */}
+      <div id="strengthening-section">
+      <ContentModule
+        title={t('strengtheningSystem.title')}
+        titleLevel="h2"
+        titleColor="text-goos-blue-700"
+        layout="split"
+        backgroundColor="bg-goos-green-100"
+        textColor="text-goos-black"
+        lineColor="bg-goos-green-700"
+      >
+        <p className="text-goos-black text-xl leading-relaxed">
+          {t('strengtheningSystem.content')}
+        </p>
+      </ContentModule>
+      </div>
+
+        <Spacer size="md" backgroundColor="bg-goos-green-100"/>
+
       {/* South Africa - Agulhas Current Story */}
       <div id="southafrica-section">
       <ContentModule
         title={t('southAfrica.title')}
-        titleLevel="h2"
+        titleLevel="h3"
         introduction={t('southAfrica.contributors')}
         layout="split"
         backgroundColor="bg-goos-green-100"
@@ -1533,7 +1553,7 @@ function App() {
       <div id="ships-section">
       <ContentModule
         title={t('tenThousandShips.title')}
-        titleLevel="h2"
+        titleLevel="h3"
         // introduction={t('tenThousandShips.contributors')}
         layout="split"
         backgroundColor="bg-goos-green-100"
