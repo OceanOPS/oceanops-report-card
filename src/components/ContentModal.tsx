@@ -9,6 +9,7 @@
  * @param children - Content to display in the modal
  * @param title - Optional title for the modal
  * @param maxWidth - Max width of modal: 'sm' | 'md' | 'lg' | 'xl' | '2xl' (default: 'lg')
+ * @param backgroundColor - Tailwind background color class (default: 'bg-goos-white')
  * @param className - Optional additional Tailwind classes
  *
  * @example
@@ -19,6 +20,7 @@
  *   isOpen={isOpen}
  *   onClose={() => setIsOpen(false)}
  *   title="Additional Information"
+ *   backgroundColor="bg-goos-blue-900"
  * >
  *   <p>Your custom content here...</p>
  * </ContentModal>
@@ -33,6 +35,7 @@ interface ContentModalProps {
   children: React.ReactNode
   title?: string
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  backgroundColor?: string
   className?: string
 }
 
@@ -42,6 +45,7 @@ export default function ContentModal({
   children,
   title,
   maxWidth = 'lg',
+  backgroundColor = 'bg-goos-white',
   className = '',
 }: ContentModalProps) {
   // Close on ESC key
@@ -87,11 +91,11 @@ export default function ContentModal({
       onClick={onClose}
     >
       <div
-        className={`relative w-full ${maxWidthClass} bg-goos-white shadow-xl max-h-[90vh] overflow-y-auto ${className}`}
+        className={`relative w-full ${maxWidthClass} ${backgroundColor} shadow-xl max-h-[90vh] overflow-y-auto ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with close button */}
-        <div className="sticky top-0 bg-goos-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+        <div className={`sticky top-0 ${backgroundColor} border-b border-gray-200 px-8 py-4 flex items-center justify-between`}>
           {title && (
             <h2 className="text-lg font-extrabold text-goos-blue-700">{title}</h2>
           )}

@@ -18,6 +18,7 @@
  * @param modalTitle - Modal title (optional for 'modal' variant)
  * @param modalContent - Modal content (required for 'modal' variant)
  * @param modalMaxWidth - Modal max width: 'sm' | 'md' | 'lg' | 'xl' | '2xl' (default: 'lg')
+ * @param modalBackgroundColor - Tailwind background color class for modal (default: 'bg-goos-white')
  * @param className - Optional additional Tailwind classes
  *
  * @example
@@ -91,6 +92,7 @@ type ButtonProps =
       modalTitle?: string
       modalContent: ReactNode
       modalMaxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+      modalBackgroundColor?: string
       textColor?: string
       bgColor?: string
       iconColor?: string
@@ -203,6 +205,7 @@ export default function Button(props: ButtonProps) {
             onClose={() => setIsContentModalOpen(false)}
             title={props.modalTitle}
             maxWidth={props.modalMaxWidth}
+            backgroundColor={props.modalBackgroundColor}
           >
             {props.modalContent}
           </ContentModal>,
