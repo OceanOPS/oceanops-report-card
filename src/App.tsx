@@ -55,6 +55,7 @@ function App() {
       'insitu-section',
       'stats-section',
       'networks-section',
+      'satellite-section',
       'data-section',
       'emerging-section',
       'value-section',
@@ -638,6 +639,183 @@ function App() {
         />
         
       </div>
+        <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
+
+      {/* Satellite Observations */}
+      <div id="satellite-section">
+        <ContentModule
+          title={t('satelliteObservations.title')}
+          titleLevel="h3"
+          titleColor="text-goos-white"
+          introductionKeys={[
+            'satelliteObservations.introduction'
+          ]}
+          layout="split"
+          backgroundColor="bg-goos-blue-900"
+          textColor="text-goos-white"
+        >
+          {/* Satellite Essential Climate Variables Table */}
+          <div className="w-full overflow-x-auto">
+            <table className="w-full border-collapse shadow-lg rounded-lg overflow-hidden">
+              {/* Header */}
+              <thead>
+                <tr className="bg-goos-blue-700">
+                  <th className="text-white text-left px-4 py-3 font-bold">Satellite Essential Climate Variables</th>
+                  <th className="text-white text-center px-4 py-3 font-semibold">
+                    Years
+                    <span className="block text-xs text-goos-cyan-300 mt-1 tracking-wider whitespace-nowrap">
+                      90 92 94 96 98 00 02 04 06 08 10 12 14 16 18 20 22 24 26 28 30
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+
+              {/* Body */}
+              <tbody>
+                {/* Sea Ice - Starts 1990 (0%) */}
+                <tr>
+                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                    Sea Ice
+                  </td>
+                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                    <div className="h-6 rounded relative overflow-hidden">
+                      <div
+                        className="h-full rounded"
+                        style={{
+                          width: '100%',
+                          background: 'linear-gradient(to right, #009e52 0%, #009e52 85%, #fff200 97%, #fff200 100%)'
+                        }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Ocean Color - Starts 1996 (15%) */}
+                <tr>
+                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                    Ocean Color
+                  </td>
+                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                    <div className="h-6 rounded relative overflow-hidden">
+                      <div
+                        className="h-full rounded"
+                        style={{
+                          width: '100%',
+                          background: 'linear-gradient(to right, transparent 0%, transparent 15%, #fff200 18%, #009e52 30%, #009e52 60%, #fff200 70%, #009e52 92%, #009e52 100%)'
+                        }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Sea Level - Starts 1992 (5%) */}
+                <tr>
+                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                    Sea Level
+                  </td>
+                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                    <div className="h-6 rounded relative overflow-hidden">
+                      <div
+                        className="h-full rounded"
+                        style={{
+                          width: '100%',
+                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #009e52 5%, #009e52 95%, #fff200 100%)'
+                        }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Sea Surface Temperature - Starts 1990 (0%) */}
+                <tr>
+                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                    Sea Surface Temperature
+                  </td>
+                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                    <div className="h-6 rounded relative overflow-hidden">
+                      <div
+                        className="h-full rounded"
+                        style={{
+                          width: '100%',
+                          background: 'linear-gradient(to right, #009e52 0%, #009e52 90%, #fff200 98%, #fff200 100%)'
+                        }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Sea Surface Salinity - Starts 2010 (50%) */}
+                <tr>
+                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                    Sea Surface Salinity
+                  </td>
+                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                    <div className="h-6 rounded relative overflow-hidden">
+                      <div
+                        className="h-full rounded"
+                        style={{
+                          width: '100%',
+                          background: 'linear-gradient(to right, transparent 0%, transparent 50%, #fff200 50%, #fff200 87%, #e60000 92%, #fff200 97%, #fff200 100%)'
+                        }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Sea State - Starts 1992 (5%) */}
+                <tr>
+                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                    Sea State
+                  </td>
+                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                    <div className="h-6 rounded relative overflow-hidden">
+                      <div
+                        className="h-full rounded"
+                        style={{
+                          width: '100%',
+                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #fff200 5%, #fff200 100%)'
+                        }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Wind - Starts 1990 (0%) */}
+                <tr>
+                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                    Wind
+                  </td>
+                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                    <div className="h-6 rounded relative overflow-hidden">
+                      <div
+                        className="h-full rounded"
+                        style={{
+                          width: '100%',
+                          background: 'linear-gradient(to right, #e60000 0%, #e60000 20%, #fff200 90%, #fff200 100%)'
+                        }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            {/* Legend */}
+            <div className="flex gap-8 mt-6 justify-center items-center flex-wrap font-bold">
+              <span className="px-5 py-2 rounded bg-red-600 text-white min-w-[120px] text-center text-sm">
+                INADEQUATE
+              </span>
+              <span className="px-5 py-2 rounded bg-yellow-400 text-black min-w-[120px] text-center text-sm">
+                MARGINAL
+              </span>
+              <span className="px-5 py-2 rounded bg-green-600 text-white min-w-[120px] text-center text-sm">
+                ADEQUATE
+              </span>
+            </div>
+          </div>
+        </ContentModule>
+      </div>
+
         <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
 
       {/* Biological and Ecosystem Observations */}
