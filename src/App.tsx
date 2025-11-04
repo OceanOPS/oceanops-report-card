@@ -643,18 +643,22 @@ function App() {
 
       {/* Satellite Observations */}
       <div id="satellite-section">
+        {/* Title and Introduction - Split Layout */}
         <ContentModule
           title={t('satelliteObservations.title')}
           titleLevel="h3"
           titleColor="text-goos-white"
-          introductionKeys={[
-            'satelliteObservations.introduction'
-          ]}
           layout="split"
           backgroundColor="bg-goos-blue-900"
           textColor="text-goos-white"
         >
-          {/* Satellite Essential Climate Variables Table */}
+          <p className="text-xl text-goos-white">
+            {t('satelliteObservations.introduction')}
+          </p>
+        </ContentModule>
+
+        {/* Full Width Table Module */}
+        <div className="bg-goos-blue-900 w-full px-12 md:px-16 py-8">
           <div className="w-full overflow-x-auto">
             <table className="w-full border-collapse shadow-lg rounded-lg overflow-hidden">
               {/* Header */}
@@ -813,7 +817,7 @@ function App() {
               </span>
             </div>
           </div>
-        </ContentModule>
+        </div>
       </div>
 
         <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
