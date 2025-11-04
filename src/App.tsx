@@ -660,16 +660,16 @@ function App() {
         {/* Full Width Table Module */}
         <div className="bg-goos-blue-900 w-full px-12 md:px-16 py-8">
           <div className="w-full overflow-x-auto">
-            <table className="w-full border-collapse shadow-lg rounded-lg overflow-hidden">
+            <table className="w-full border-collapse border-2 border-white">
               {/* Header */}
               <thead>
                 <tr className="bg-goos-blue-700">
-                  <th className="text-white text-left px-4 py-3 font-bold w-1/3">
-                    <div>Satellite Essential Climate Variables Timeline</div>
-                    <div className="text-sm font-normal text-goos-cyan-300 mt-1">(1990-2030)</div>
+                  <th className="text-white text-left px-6 py-4 border-2 border-white font-bold w-1/3">
+                    <div className="text-xl">Satellite Essential Climate Variables Timeline</div>
+                    <div className="text-sm font-normal mt-1">(1990-2030)</div>
                   </th>
-                  <th className="text-white px-4 py-3 font-semibold w-2/3">
-                    <div className="flex justify-between text-xs text-goos-cyan-300 whitespace-nowrap">
+                  <th className="text-white px-6 py-4 border-2 border-white font-semibold w-2/3">
+                    <div className="flex justify-between text-sm whitespace-nowrap">
                       <span>90</span>
                       <span>92</span>
                       <span>94</span>
@@ -700,10 +700,10 @@ function App() {
               <tbody>
                 {/* Sea Ice - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
                     Sea Ice
                   </td>
-                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
                     <div className="h-6 rounded relative overflow-hidden">
                       <div
                         className="h-full rounded"
@@ -718,10 +718,10 @@ function App() {
 
                 {/* Ocean Color - Starts 1996 (15%) */}
                 <tr>
-                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
                     Ocean Color
                   </td>
-                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
                     <div className="h-6 rounded relative overflow-hidden">
                       <div
                         className="h-full rounded"
@@ -736,10 +736,10 @@ function App() {
 
                 {/* Sea Level - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
                     Sea Level
                   </td>
-                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
                     <div className="h-6 rounded relative overflow-hidden">
                       <div
                         className="h-full rounded"
@@ -754,10 +754,10 @@ function App() {
 
                 {/* Sea Surface Temperature - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
                     Sea Surface Temperature
                   </td>
-                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
                     <div className="h-6 rounded relative overflow-hidden">
                       <div
                         className="h-full rounded"
@@ -772,10 +772,10 @@ function App() {
 
                 {/* Sea Surface Salinity - Starts 2010 (50%) */}
                 <tr>
-                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
                     Sea Surface Salinity
                   </td>
-                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
                     <div className="h-6 rounded relative overflow-hidden">
                       <div
                         className="h-full rounded"
@@ -790,10 +790,10 @@ function App() {
 
                 {/* Sea State - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
                     Sea State
                   </td>
-                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
                     <div className="h-6 rounded relative overflow-hidden">
                       <div
                         className="h-full rounded"
@@ -808,10 +808,10 @@ function App() {
 
                 {/* Wind - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-cyan-200 text-goos-blue-900 px-4 py-3 border-b-2 border-white font-semibold">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
                     Wind
                   </td>
-                  <td className="bg-goos-cyan-200 px-4 py-3 border-b-2 border-white">
+                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
                     <div className="h-6 rounded relative overflow-hidden">
                       <div
                         className="h-full rounded"
