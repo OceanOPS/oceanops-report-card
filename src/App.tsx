@@ -665,11 +665,31 @@ function App() {
               <thead>
                 <tr className="bg-goos-blue-700">
                   <th className="text-white text-left px-4 py-3 font-bold">Satellite Essential Climate Variables</th>
-                  <th className="text-white text-center px-4 py-3 font-semibold">
-                    Years
-                    <span className="block text-xs text-goos-cyan-300 mt-1 tracking-wider whitespace-nowrap">
-                      90 92 94 96 98 00 02 04 06 08 10 12 14 16 18 20 22 24 26 28 30
-                    </span>
+                  <th className="text-white px-4 py-3 font-semibold">
+                    <div className="text-center mb-2">Years</div>
+                    <div className="flex justify-between text-xs text-goos-cyan-300 whitespace-nowrap">
+                      <span>90</span>
+                      <span>92</span>
+                      <span>94</span>
+                      <span>96</span>
+                      <span>98</span>
+                      <span>00</span>
+                      <span>02</span>
+                      <span>04</span>
+                      <span>06</span>
+                      <span>08</span>
+                      <span>10</span>
+                      <span>12</span>
+                      <span>14</span>
+                      <span>16</span>
+                      <span>18</span>
+                      <span>20</span>
+                      <span>22</span>
+                      <span>24</span>
+                      <span>26</span>
+                      <span>28</span>
+                      <span>30</span>
+                    </div>
                   </th>
                 </tr>
               </thead>
