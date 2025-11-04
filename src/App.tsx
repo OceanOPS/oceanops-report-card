@@ -664,9 +664,11 @@ function App() {
               {/* Header */}
               <thead>
                 <tr className="bg-goos-blue-700">
-                  <th className="text-white text-left px-4 py-3 font-bold">Satellite Essential Climate Variables</th>
-                  <th className="text-white px-4 py-3 font-semibold">
-                    <div className="text-center mb-2">Years</div>
+                  <th className="text-white text-left px-4 py-3 font-bold w-1/3">
+                    <div>Satellite Essential Climate Variables Timeline</div>
+                    <div className="text-sm font-normal text-goos-cyan-300 mt-1">(1990-2030)</div>
+                  </th>
+                  <th className="text-white px-4 py-3 font-semibold w-2/3">
                     <div className="flex justify-between text-xs text-goos-cyan-300 whitespace-nowrap">
                       <span>90</span>
                       <span>92</span>
