@@ -586,16 +586,16 @@
     },
     "social": {
       "instagram": {
-        "label": "Instagram",
-        "url": "https://instagram.com/oceanops"
+        "label": "Website",
+        "url": "https://goosocean.org/"
       },
       "linkedin": {
         "label": "LinkedIn",
-        "url": "https://linkedin.com/company/oceanops"
+        "url": "https://www.linkedin.com/company/global-ocean-observing-system/"
       },
       "youtube": {
         "label": "YouTube",
-        "url": "https://youtube.com/@oceanops"
+        "url": "https://www.youtube.com/@goosocean"
       }
     }
   },
