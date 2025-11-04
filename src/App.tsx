@@ -911,13 +911,31 @@ function App() {
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary */}
-        <div className="space-y-4 mb-8">
-          <h3 className="text-2xl font-bold text-goos-blue-700">{t('amoc.quickSummary.title')}</h3>
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
-        </div>
+        {/* Quick Summary - Collapsible */}
+        <ContentBox
+          titleKey="amoc.quickSummary.title"
+          collapsible={true}
+          defaultCollapsed={true}
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-gray-800"
+          titleColor="text-goos-blue-700"
+          buttonBgColor="bg-goos-white"
+           buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-blue-600" 
+          buttonIconBorderColor = "border-goos-blue-600"
+          padding="p-6"
+          
+        >
+          <div className="space-y-4">
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
 
         {/* Main paragraphs */}
         <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph1')}</p>
@@ -967,15 +985,17 @@ function App() {
         {/* Learn More Content Box */}
         <ContentBox
           titleKey="amoc.learnMore.title"
-          backgroundColor="bg-goos-blue-700"
-          textColor="text-goos-white"
-          titleColor="text-goos-white"
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-blue-700"
+          titleColor="text-goos-blue-700"
           collapsible={true}
           defaultCollapsed={true}
           buttonBgColor="bg-goos-white"
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
-          buttonBorderColor="border-goos-blue-700" 
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-blue-600"
+          buttonIconBorderColor="border-goos-blue-600"
         >
           <div className="italic mb-6">
             <p className="text-lg leading-relaxed mb-4">
@@ -985,8 +1005,8 @@ function App() {
               {t('amoc.learnMore.content2')}"
             </p>
           </div>
-          <div className="pt-4 border-t border-white/50">
-            <p className="text-base font-semibold text-goos-white">
+          <div className="border-goos-blue-700">
+            <p className="text-base font-semibold text-goos-blue-700">
               {t('amoc.learnMore.authorName')}
             </p>
             <p className="text-sm opacity-90">
@@ -1086,13 +1106,30 @@ function App() {
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary */}
-        <div className="space-y-4 mb-8">
-          <h3 className="text-2xl font-bold text-goos-blue-700">{t('elNino.quickSummary.title')}</h3>
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
-        </div>
+        {/* Quick Summary - Collapsible */}
+        <ContentBox
+          titleKey="elNino.quickSummary.title"
+          collapsible={true}
+          defaultCollapsed={true}
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-gray-800"
+          titleColor="text-goos-blue-700"
+          buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-blue-600"
+          buttonIconBorderColor="border-goos-blue-600"
+          padding="p-6"
+        >
+          <div className="space-y-4">
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
 
         {/* Main paragraphs */}
         <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph1')}</p>
@@ -1128,7 +1165,9 @@ function App() {
           buttonBgColor="bg-goos-white"
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
-          buttonBorderColor="border-goos-blue-700" 
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-blue-600"
+          buttonIconBorderColor="border-goos-blue-600"
         >
           <div className="italic mb-6">
             <p className="text-lg leading-relaxed mb-4">
@@ -1259,13 +1298,30 @@ function App() {
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary */}
-        <div className="space-y-4 mb-8">
-          <h3 className="text-2xl font-bold text-goos-blue-700">{t('oceanHealth.quickSummary.title')}</h3>
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
-        </div>
+        {/* Quick Summary - Collapsible */}
+        <ContentBox
+          titleKey="oceanHealth.quickSummary.title"
+          collapsible={true}
+          defaultCollapsed={true}
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-gray-800"
+          titleColor="text-goos-blue-700"
+          buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-blue-600"
+          buttonIconBorderColor="border-goos-blue-600"
+          padding="p-6"
+        >
+          <div className="space-y-4">
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
 
         {/* Main paragraphs */}
         <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph1')}</p>
@@ -1356,10 +1412,12 @@ function App() {
           titleColor="text-goos-white"
           collapsible={true}
           defaultCollapsed={true}
-           buttonBgColor="bg-goos-white"
+          buttonBgColor="bg-goos-white"
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
-          buttonBorderColor="border-goos-blue-700" 
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-blue-600"
+          buttonIconBorderColor="border-goos-blue-600"
         >
           <div className="italic mb-6">
             <p className="text-lg leading-relaxed mb-4">
@@ -1478,7 +1536,7 @@ function App() {
         titleLevel="h2"
         introduction={t('tenThousandShips.contributors')}
         layout="split"
-        backgroundColor="bg-goos-white"
+        backgroundColor="bg-goos-green-100"
         titleColor="text-goos-blue-700"
         textColor="text-goos-gray-800"
         lineColor="bg-goos-orange-500"
@@ -1495,7 +1553,7 @@ function App() {
         <p className="text-2xl leading-relaxed mb-4 text-goos-blue-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
       </ContentModule>
 
- <div className="px-16">
+ <div className="px-16 bg-goos-green-100">
         {/* YouTube Video */}
         <VideoModal
           videoType="youtube"
@@ -1511,8 +1569,8 @@ function App() {
          <Spacer size="sm" />
       </div>
       </div>
-
-        <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
+      <Spacer size="md" backgroundColor="bg-goos-green-100"/>
+      <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
       {/* Call to Action */}
       <div id="calltoaction-section">
@@ -1557,8 +1615,8 @@ function App() {
         textColor="text-goos-white"
         numberColor="text-goos-orange-500"
       />
-
-             {/* Hero Image Grid */}
+      <Spacer size="xl" backgroundColor="bg-goos-blue-900"/>
+      {/* Hero Image Grid */}
       <ImageGrid
         images={[
           {
