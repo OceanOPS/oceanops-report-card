@@ -700,13 +700,13 @@ function App() {
               <tbody>
                 {/* Sea Ice - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 border-b-2 border-goos-blue-900 text-lg">
                     Sea Ice
                   </td>
                   <td className="border-b-2 border-goos-blue-900 p-0">
-                    <div className="h-16 relative overflow-hidden">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-16"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, #F48B25 0%, #F48B25 85%, #F9BF86 97%, #F9BF86 100%)'
@@ -718,16 +718,16 @@ function App() {
 
                 {/* Ocean Color - Starts 1996 (15%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 border-b-2 border-goos-blue-900 text-lg">
                     Ocean Color
                   </td>
                   <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
-                    <div className="h-16 relative overflow-hidden">
+                    <div className="h-14 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, transparent 0%, transparent 15%, #F9BF86 18%, #F48B25 30%, #F48B25 60%, #F9BF86 70%, #F48B25 92%, #F48B25 100%)'
+                          background: 'linear-gradient(to right, transparent 0%, transparent 15%, #F9BF86 15%, #F9BF86 20%, #F48B25 23%, #F48B25 66%, #F48B25 66%, #F9BF86 70%, #F9BF86 82%, #F48B25 86%, #F48B25 100%)'
                         }}
                       ></div>
                     </div>
@@ -736,16 +736,16 @@ function App() {
 
                 {/* Sea Level - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 border-b-2 border-goos-blue-900 text-lg">
                     Sea Level
                   </td>
                   <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
-                    <div className="h-16 relative overflow-hidden">
+                    <div className="h-14 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F48B25 5%, #F48B25 95%, #F9BF86 100%)'
+                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F48B25 5%, #F48B25 100%)'
                         }}
                       ></div>
                     </div>
@@ -754,11 +754,11 @@ function App() {
 
                 {/* Sea Surface Temperature - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 border-b-2 border-goos-blue-900 text-lg">
                     Sea Surface Temperature
                   </td>
                   <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
-                    <div className="h-16 relative overflow-hidden">
+                    <div className="h-14 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
@@ -772,11 +772,11 @@ function App() {
 
                 {/* Sea Surface Salinity - Starts 2010 (50%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 border-b-2 border-goos-blue-900 text-lg">
                     Sea Surface Salinity
                   </td>
                   <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
-                    <div className="h-16 relative overflow-hidden">
+                    <div className="h-14 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
@@ -790,11 +790,11 @@ function App() {
 
                 {/* Sea State - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 border-b-2 border-goos-blue-900 text-lg">
                     Sea State
                   </td>
                   <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
-                    <div className="h-16 relative overflow-hidden">
+                    <div className="h-14 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
@@ -808,11 +808,11 @@ function App() {
 
                 {/* Wind - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 border-b-2 border-goos-blue-900 text-lg">
                     Wind
                   </td>
                   <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
-                    <div className="h-16 relative overflow-hidden">
+                    <div className="h-14 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
