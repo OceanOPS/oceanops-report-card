@@ -91,7 +91,7 @@ export default function ContentBox({
         >
           <span>{t(titleKey)}</span>
           {/* Plus/Minus icon with circular background */}
-          <div className={`w-7 h-7 ${buttonIconBgColor} ${buttonIconBorderColor ? `border-2 ${buttonIconBorderColor}` : ''} rounded-full flex items-center justify-center flex-shrink-0`}>
+          <div className={`w-6 h-6 ${buttonIconBgColor} ${buttonIconBorderColor ? `border-2 ${buttonIconBorderColor}` : ''} rounded-full flex items-center justify-center flex-shrink-0 mt-1`}>
             <div className={`${buttonIconColor}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

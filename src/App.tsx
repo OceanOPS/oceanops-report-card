@@ -354,7 +354,7 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: '/icons/network/soop.svg',
+            iconSrc: '/icons/network/xbt-soop.svg',
             iconAlt: 'networks.sotXbt.iconAlt',
             titleKey: 'networks.sotXbt.title',
             networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
@@ -923,7 +923,7 @@ function App() {
            buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
           buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-blue-600" 
+          buttonLeftBorderColor="border-goos-cyan-600" 
           buttonIconBorderColor = "border-goos-blue-600"
           padding="p-6"
           
@@ -994,7 +994,7 @@ function App() {
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
           buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-blue-600"
+          buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
           <div className="italic mb-6">
@@ -1118,7 +1118,7 @@ function App() {
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
           buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-blue-600"
+          buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
           padding="p-6"
         >
@@ -1157,16 +1157,16 @@ function App() {
         {/* Learn More Content Box - Monica Alvarado Niño */}
         <ContentBox
           titleKey="elNino.learnMore.title"
-          backgroundColor="bg-goos-blue-700"
-          textColor="text-goos-white"
-          titleColor="text-goos-white"
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-blue-700"
+          titleColor="text-goos-blue-700"
           collapsible={true}
           defaultCollapsed={true}
           buttonBgColor="bg-goos-white"
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
           buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-blue-600"
+          buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
           <div className="italic mb-6">
@@ -1177,8 +1177,8 @@ function App() {
               {t('elNino.learnMore.content2')}"
             </p>
           </div>
-          <div className="pt-4 border-t border-white/50">
-            <p className="text-base font-semibold text-goos-white">
+          <div className="pt-4">
+            <p className="text-base font-semibold">
               {t('elNino.learnMore.authorName')}
             </p>
             <p className="text-sm opacity-90">
@@ -1310,7 +1310,7 @@ function App() {
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
           buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-blue-600"
+          buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
           padding="p-6"
         >
@@ -1407,8 +1407,8 @@ function App() {
         {/* Learn More Content Box */}
         <ContentBox
           titleKey="oceanHealth.learnMore.title"
-          backgroundColor="bg-goos-blue-700"
-          textColor="text-goos-white"
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-blue-700"
           titleColor="text-goos-white"
           collapsible={true}
           defaultCollapsed={true}
@@ -1416,7 +1416,7 @@ function App() {
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
           buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-blue-600"
+          buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
           <div className="italic mb-6">
@@ -1427,8 +1427,8 @@ function App() {
               {t('oceanHealth.learnMore.content2')}"
             </p>
           </div>
-          <div className="pt-4 border-t border-white/50">
-            <p className="text-base font-semibold text-goos-white">
+          <div className="pt-4">
+            <p className="text-base font-semibold">
               {t('oceanHealth.learnMore.authorName')}
             </p>
             <p className="text-sm opacity-90">
@@ -1460,7 +1460,7 @@ function App() {
 
           {/* Spotify Podcast Embed */}
           <SpotifyEmbed
-            spotifyId="3AjTpnz2G7RZofpSOtiDa1"
+            spotifyId="https://open.spotify.com/episode/7brfq0OYXFWUoILZJaqaSA?si=09ea24d816c44d45"
             type="episode"
             height={252}
           />
@@ -1527,30 +1527,30 @@ function App() {
       </div>
       </div>
 
-        <Spacer size="md" backgroundColor="bg-goos-white"/>
+        <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
       {/* 10,000 Ships for the Ocean Initiative */}
       <div id="ships-section">
       <ContentModule
         title={t('tenThousandShips.title')}
         titleLevel="h2"
-        introduction={t('tenThousandShips.contributors')}
+        // introduction={t('tenThousandShips.contributors')}
         layout="split"
         backgroundColor="bg-goos-green-100"
         titleColor="text-goos-blue-700"
         textColor="text-goos-gray-800"
-        lineColor="bg-goos-orange-500"
+        lineColor="bg-goos-green-700"
         button={{
           type: 'link',
           label: t('tenThousandShips.buttonLabel'),
           url: 'https://10000ships.org',
           textColor: 'text-white',
-          bgColor: 'bg-goos-blue-700',
+          bgColor: 'bg-goos-green-700',
         }}
       >
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph2')}</p>
-        <p className="text-2xl leading-relaxed mb-4 text-goos-blue-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
+        <p className="text-2xl leading-relaxed mb-4 text-goos-green-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
       </ContentModule>
 
  <div className="px-16 bg-goos-green-100">
