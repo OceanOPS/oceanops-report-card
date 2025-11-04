@@ -570,7 +570,7 @@ function App() {
       </div>
 
       {/* Indicators Definition Button */}
-      <div className="flex justify-center py-8 bg-goos-blue-900">
+      <div className="flex justify-center bg-goos-blue-900">
         <Button
           variant="modal"
           label={t('networks.indicatorsButton')}

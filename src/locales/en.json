@@ -512,7 +512,8 @@
     "introduction": "Satellite observations provide a global view of the ocean, complementing in situ measurements with repeated observations of surface variables such as temperature, sea level, ocean color, and winds. They are essential for understanding large-scale processes, supporting ocean and climate forecasts, and monitoring change. Together with in situ data, satellites also help track key phenomena such as the Atlantic Meridional Overturning Circulation (AMOC) and its long-term trends.",
     "platformButton": "ABOUT OPERATIONAL PLATFORM DEFINITION",
     "platformModal": {
-      "title": "Satellite Essential Climate Variables - JCOMM Report Card 2025",
+      "title": "Satellite Essential Climate Variables",
+      "header": "JCOMM Report Card 2025",
       "contacts": {
         "sst": "SST: Jorge Vazquez (jorge.vazquez@jpl.nasa.gov), Christina Gonzalez-Haro (cgharo@icm.csic.es)",
         "sss": "SSS: Severine Fournier (severine.fournier@jpl.nasa.gov)",

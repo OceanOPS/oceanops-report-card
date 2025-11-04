@@ -211,6 +211,13 @@ export default function SatelliteTable() {
             modalBackgroundColor="bg-goos-white"
             modalContent={
               <div className="flex flex-col gap-6">
+                {/* Header */}
+                <div>
+                  <h2 className="text-2xl text-goos-blue-700 font-semibold mb-8">
+                    {t('satelliteObservations.platformModal.header')}
+                  </h2>
+                </div>
+
                 {/* Contacts Section */}
                 <div>
                   <h3 className="text-xl text-goos-blue-700 mb-3">
