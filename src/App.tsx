@@ -663,13 +663,13 @@ function App() {
             <table className="w-full border-collapse">
               {/* Header */}
               <thead>
-                <tr className="bg-goos-blue-800">
+                <tr className="bg-goos-blue-800 p-0">
                   <th className="text-white text-left px-6 py-4 border-b-2 border-goos-blue-900 font-bold w-1/3">
                     <div className="text-lg">Satellite Essential Climate Variables Timeline</div>
                     <div className="text-sm font-normal">(1990-2030)</div>
                   </th>
                   <th className="text-white py-4 px-2 border-b-2 border-goos-blue-900 font-medium w-2/3">
-                    <div className="flex justify-between text-sm whitespace-nowrap">
+                    <div className="flex justify-between text-sm whitespace-nowrap p-0">
                       <span>90</span>
                       <span>92</span>
                       <span>94</span>
