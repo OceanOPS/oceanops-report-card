@@ -341,6 +341,167 @@ function App() {
         fullWidth={true}
         backgroundColor="bg-goos-blue-900"
       />
+
+      {/* Operational Platforms Definition Button */}
+      <div className="flex justify-center bg-goos-blue-900 pb-8">
+        <Button
+          variant="modal"
+          label={t('operationalPlatforms.platformButton')}
+          modalTitle={t('operationalPlatforms.platformModal.title')}
+          modalMaxWidth="xl"
+          modalContent={
+            <div className="flex flex-col gap-6">
+              {/* Intro */}
+              <p className="text-lg leading-relaxed">
+                {t('operationalPlatforms.platformModal.intro')}
+              </p>
+
+              {/* Ship-Based Platforms */}
+              <div>
+                <h3 className="text-lg text-goos-blue-700 mb-3 uppercase">
+                  {t('operationalPlatforms.platformModal.categories.shipBased.title')}
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.content')}
+                    </p>
+                  </div>
+                   <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.content')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fixed Platforms */}
+              <div>
+                <h3 className="text-lg text-goos-blue-700 mb-3 uppercase">
+                  {t('operationalPlatforms.platformModal.categories.fixedPlatforms.title')}
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.content')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Platforms */}
+              <div>
+                <h3 className="text-lg text-goos-blue-700 mb-3 uppercase">
+                  {t('operationalPlatforms.platformModal.categories.mobilePlatforms.title')}
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.content')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+          textColor="text-goos-white"
+          bgColor="bg-goos-orange-600"
+          iconColor="text-goos-orange-600"
+          iconBgColor="bg-goos-white"
+        />
+      </div>
       </div>
 
       {/* NetworkCarousel */}
