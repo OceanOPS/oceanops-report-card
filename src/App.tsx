@@ -348,7 +348,7 @@ function App() {
           variant="modal"
           label={t('operationalPlatforms.platformButton')}
           modalTitle={t('operationalPlatforms.platformModal.title')}
-          modalMaxWidth="xl"
+          modalMaxWidth="lg"
           modalContent={
             <div className="flex flex-col gap-6">
               {/* Intro */}
@@ -736,60 +736,132 @@ function App() {
           variant="modal"
           label={t('networks.indicatorsButton')}
           modalTitle={t('networks.indicatorsModal.title')}
+          modalMaxWidth="xl"
           modalContent={
             <div className="flex flex-col gap-6">
               {/* Introduction */}
-              <p className="text-lg text-goos-gray-800 leading-relaxed">
+              <p className="text-lg leading-relaxed">
                 {t('networks.indicatorsModal.intro')}
               </p>
 
               {/* Implementation Status */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-blue-700 mb-3">
                   {t('networks.indicatorsModal.implementationStatus.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3">
                   {t('networks.indicatorsModal.implementationStatus.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                  {t('networks.indicatorsModal.implementationStatus.cases')}
+                </p>
+                <div className="text-lg leading-relaxed mb-3">
+                  <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart1')}</span>
+                  {' '}
+                  <span>(</span>
+                  <a
+                    href={t('networks.indicatorsModal.implementationStatus.kpiLinkUrl')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-goos-blue-700 hover:underline"
+                  >
+                    {t('networks.indicatorsModal.implementationStatus.kpiLinkText')}
+                  </a>
+                  <span>{t('networks.indicatorsModal.implementationStatus.kpiLinkSuffix')})</span>
+                  {' '}
+                  <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart2')}</span>
+                </div>
+                <div className="bg-gray-100 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                    {t('networks.indicatorsModal.implementationStatus.scoring')}
+                  </p>
+                </div>
               </div>
 
               {/* Real Time */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-blue-700 mb-3">
                   {t('networks.indicatorsModal.realTime.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3">
                   {t('networks.indicatorsModal.realTime.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                  {t('networks.indicatorsModal.realTime.requirements')}
+                </p>
+                <div className="bg-gray-100 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                    {t('networks.indicatorsModal.realTime.scoring')}
+                  </p>
+                </div>
               </div>
 
-              {/* Archived High Quality */}
+              {/* Archived Delayed Mode Data */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-blue-700 mb-3">
                   {t('networks.indicatorsModal.archivedHighQuality.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3">
                   {t('networks.indicatorsModal.archivedHighQuality.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                  {t('networks.indicatorsModal.archivedHighQuality.requirements')}
+                </p>
+                <div className="bg-gray-100 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                    {t('networks.indicatorsModal.archivedHighQuality.scoring')}
+                  </p>
+                </div>
               </div>
 
               {/* Metadata */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-blue-700 mb-3">
                   {t('networks.indicatorsModal.metadata.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3">
                   {t('networks.indicatorsModal.metadata.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                  {t('networks.indicatorsModal.metadata.requirements')}
+                </p>
+                <div className="bg-gray-100 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                    {t('networks.indicatorsModal.metadata.scoring')}
+                  </p>
+                </div>
               </div>
 
               {/* Best Practices */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-blue-700 mb-3">
                   {t('networks.indicatorsModal.bestPractices.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3">
                   {t('networks.indicatorsModal.bestPractices.description')}
+                </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                  {t('networks.indicatorsModal.bestPractices.details')}
+                </p>
+                <div className="bg-gray-100 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                    {t('networks.indicatorsModal.bestPractices.scoring')}
+                  </p>
+                </div>
+              </div>
+
+              {/* GOOS Delivery Areas */}
+              <div>
+                <h3 className="text-xl text-goos-blue-700 mb-3">
+                  {t('networks.indicatorsModal.deliveryAreas.title')}
+                </h3>
+                <p className="text-lg leading-relaxed">
+                  {t('networks.indicatorsModal.deliveryAreas.description')}
                 </p>
               </div>
             </div>
@@ -799,7 +871,7 @@ function App() {
           iconColor="text-goos-orange-600"
           iconBgColor="bg-white"
         />
-        
+
       </div>
         <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
 
