@@ -202,7 +202,25 @@ export default function MenuSidebar({
 
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
-            <div>
+            <div
+              onClick={() => {
+                // Close menu first
+                setIsOpen()
+                // Navigate to cover section
+                setTimeout(() => {
+                  (window as any).isScrollingProgrammatically = true
+                  window.history.replaceState(null, '', '#cover-section')
+                  const element = document.getElementById('cover-section')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                  setTimeout(() => {
+                    (window as any).isScrollingProgrammatically = false
+                  }, 1000)
+                }, 300)
+              }}
+              className="cursor-pointer hover:opacity-80 transition-opacity"
+            >
               <h1 className="text-4xl font-extrabold leading-tight">{t('menu.title')}</h1>
               <p className="text-4xl font-normal">{t('menu.year')}</p>
             </div>

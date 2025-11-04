@@ -572,6 +572,7 @@
   "menu": {
     "title": "Report Card",
     "year": "2025",
+    "cover": "Cover",
     "overview": "Overview",
     "inSituStatus": "In situ observing system status and updates",
     "networksByNumbers": "Networks by the numbers",

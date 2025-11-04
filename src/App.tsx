@@ -50,6 +50,7 @@ function App() {
   // Scroll spy - update URL hash based on visible section
   useEffect(() => {
     const sections = [
+      'cover-section',
       'overview-section',
       'insitu-section',
       'stats-section',
@@ -125,13 +126,20 @@ function App() {
             titleKey: 'valueOfObservations.title',
             accentColor: 'bg-goos-cyan-600',
             subItems: [
-              { id: 'amoc-section', titleKey: 'amoc.title', accentColor: 'bg-goos-cyan-600' },
-              { id: 'elnino-section', titleKey: 'elNino.title', accentColor: 'bg-goos-cyan-600' },
-              { id: 'oceanhealth-section', titleKey: 'oceanHealth.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'amoc-section', titleKey: 'amoc.kicker', accentColor: 'bg-goos-cyan-600' },
+              { id: 'elnino-section', titleKey: 'elNino.kicker', accentColor: 'bg-goos-cyan-600' },
+              { id: 'oceanhealth-section', titleKey: 'oceanHealth.kicker', accentColor: 'bg-goos-cyan-600' },
             ],
           },
-          { id: 'southafrica-section', titleKey: 'southAfrica.title', accentColor: 'bg-goos-green-700' },
-          { id: 'ships-section', titleKey: 'tenThousandShips.title', accentColor: 'bg-goos-orange-500' },
+          {
+            id: 'strengthening-section',
+            titleKey: 'strengtheningSystem.title',
+            accentColor: 'bg-goos-green-700',
+            subItems: [
+              { id: 'southafrica-section', titleKey: 'southAfrica.title', accentColor: 'bg-goos-green-700' },
+              { id: 'ships-section', titleKey: 'tenThousandShips.title', accentColor: 'bg-goos-green-700' },
+            ],
+          },
           { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-600' },
           { id: 'contact-section', titleKey: 'contact.title', accentColor: 'bg-goos-blue-900' },
         ]}
@@ -141,6 +149,7 @@ function App() {
       <DeliveryAreasNav />
 
       {/* Cover */}
+      <div id="cover-section">
       <CoverModule
         title={t('cover.title')}
         year={t('cover.year')}
@@ -156,6 +165,7 @@ function App() {
         mediaType="video"
         backgroundMedia="/videos/video.mp4"
       />
+      </div>
 
       {/* Spacer */}
       <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
