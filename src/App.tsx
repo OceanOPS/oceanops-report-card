@@ -763,7 +763,7 @@ function App() {
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 98%, #F9BF86 100%)'
+                          background: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 94%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -781,7 +781,7 @@ function App() {
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, transparent 0%, transparent 50%, #F9BF86 50%, #F9BF86 87%, #FEF2E7 92%, #F9BF86 97%, #F9BF86 100%)'
+                          background: 'linear-gradient(to right, transparent 0%, transparent 50%, #F9BF86 50%, #F9BF86 90%, #FEF2E7 92%, #FEF2E7 95%, #F9BF86 97%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -817,7 +817,7 @@ function App() {
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, #FEF2E7 0%, #FEF2E7 20%, #F9BF86 90%, #F9BF86 100%)'
+                          background: 'linear-gradient(to right, #FEF2E7 0%, #FEF2E7 30%, #F9BF86 35%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -827,16 +827,19 @@ function App() {
             </table>
 
             {/* Legend */}
-            <div className="flex gap-8 mt-6 justify-center items-center flex-wrap font-bold">
-              <span className="px-5 py-2 bg-goos-orange-100 text-goos-blue-900 min-w-[120px] text-center text-sm">
-                INADEQUATE
-              </span>
-              <span className="px-5 py-2 bg-goos-orange-300 text-goos-blue-900 min-w-[120px] text-center text-sm">
-                MARGINAL
-              </span>
-              <span className="px-5 py-2 bg-goos-orange-500 text-white min-w-[120px] text-center text-sm">
-                ADEQUATE
-              </span>
+            <div className="flex gap-6 mt-6 items-center flex-wrap text-white">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-goos-orange-100"></div>
+                <span className="text-sm">INADEQUATE</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-goos-orange-300"></div>
+                <span className="text-sm">MARGINAL</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-goos-orange-500"></div>
+                <span className="text-sm">ADEQUATE</span>
+              </div>
             </div>
           </div>
         </div>
