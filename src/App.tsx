@@ -663,12 +663,12 @@ function App() {
             <table className="w-full border-collapse">
               {/* Header */}
               <thead>
-                <tr className="bg-goos-blue-700">
-                  <th className="text-white text-left px-6 py-4 border-b-2 border-white font-bold w-1/3">
+                <tr className="bg-goos-blue-800">
+                  <th className="text-white text-left px-6 py-4 border-b-2 border-goos-blue-900 font-bold w-1/3">
                     <div className="text-lg">Satellite Essential Climate Variables Timeline</div>
                     <div className="text-sm font-normal">(1990-2030)</div>
                   </th>
-                  <th className="text-white py-4 px-2 border-b-2 border-white font-medium w-2/3">
+                  <th className="text-white py-4 px-2 border-b-2 border-goos-blue-900 font-medium w-2/3">
                     <div className="flex justify-between text-sm whitespace-nowrap">
                       <span>90</span>
                       <span>92</span>
@@ -700,16 +700,16 @@ function App() {
               <tbody>
                 {/* Sea Ice - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
                     Sea Ice
                   </td>
-                  <td className="bg-goos-blue-700 border-b border-white">
-                    <div className="h-14 relative overflow-hidden">
+                  <td className="border-b-2 border-goos-blue-900 p-0">
+                    <div className="h-16 relative overflow-hidden">
                       <div
-                        className="h-full"
+                        className="h-16"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, #009e52 0%, #009e52 85%, #fff200 97%, #fff200 100%)'
+                          background: 'linear-gradient(to right, #F48B25 0%, #F48B25 85%, #F9BF86 97%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -718,16 +718,16 @@ function App() {
 
                 {/* Ocean Color - Starts 1996 (15%) */}
                 <tr>
-                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
                     Ocean Color
                   </td>
-                  <td className="bg-goos-blue-700 border-b border-white">
-                    <div className="h-14 relative overflow-hidden">
+                  <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
+                    <div className="h-16 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, transparent 0%, transparent 15%, #fff200 18%, #009e52 30%, #009e52 60%, #fff200 70%, #009e52 92%, #009e52 100%)'
+                          background: 'linear-gradient(to right, transparent 0%, transparent 15%, #F9BF86 18%, #F48B25 30%, #F48B25 60%, #F9BF86 70%, #F48B25 92%, #F48B25 100%)'
                         }}
                       ></div>
                     </div>
@@ -736,16 +736,16 @@ function App() {
 
                 {/* Sea Level - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
                     Sea Level
                   </td>
-                  <td className="bg-goos-blue-700 border-b border-white">
-                    <div className="h-14 relative overflow-hidden">
+                  <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
+                    <div className="h-16 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #009e52 5%, #009e52 95%, #fff200 100%)'
+                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F48B25 5%, #F48B25 95%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -754,16 +754,16 @@ function App() {
 
                 {/* Sea Surface Temperature - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
                     Sea Surface Temperature
                   </td>
-                  <td className="bg-goos-blue-700 border-b border-white">
-                    <div className="h-14 relative overflow-hidden">
+                  <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
+                    <div className="h-16 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, #009e52 0%, #009e52 90%, #fff200 98%, #fff200 100%)'
+                          background: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 98%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -772,16 +772,16 @@ function App() {
 
                 {/* Sea Surface Salinity - Starts 2010 (50%) */}
                 <tr>
-                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
                     Sea Surface Salinity
                   </td>
-                  <td className="bg-goos-blue-700 border-b border-white">
-                    <div className="h-14 relative overflow-hidden">
+                  <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
+                    <div className="h-16 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, transparent 0%, transparent 50%, #fff200 50%, #fff200 87%, #e60000 92%, #fff200 97%, #fff200 100%)'
+                          background: 'linear-gradient(to right, transparent 0%, transparent 50%, #F9BF86 50%, #F9BF86 87%, #FEF2E7 92%, #F9BF86 97%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -790,16 +790,16 @@ function App() {
 
                 {/* Sea State - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
                     Sea State
                   </td>
-                  <td className="bg-goos-blue-700 border-b border-white">
-                    <div className="h-14 relative overflow-hidden">
+                  <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
+                    <div className="h-16 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #fff200 5%, #fff200 100%)'
+                          background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F9BF86 5%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -808,16 +808,16 @@ function App() {
 
                 {/* Wind - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
+                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-b-2 border-goos-blue-900 text-lg">
                     Wind
                   </td>
-                  <td className="bg-goos-blue-700 border-b border-white">
-                    <div className="h-14 relative overflow-hidden">
+                  <td className="bg-goos-blue-800 border-b-2 border-goos-blue-900 p-0">
+                    <div className="h-16 relative overflow-hidden">
                       <div
                         className="h-full"
                         style={{
                           width: '100%',
-                          background: 'linear-gradient(to right, #e60000 0%, #e60000 20%, #fff200 90%, #fff200 100%)'
+                          background: 'linear-gradient(to right, #FEF2E7 0%, #FEF2E7 20%, #F9BF86 90%, #F9BF86 100%)'
                         }}
                       ></div>
                     </div>
@@ -828,13 +828,13 @@ function App() {
 
             {/* Legend */}
             <div className="flex gap-8 mt-6 justify-center items-center flex-wrap font-bold">
-              <span className="px-5 py-2 rounded bg-red-600 text-white min-w-[120px] text-center text-sm">
+              <span className="px-5 py-2 bg-goos-orange-100 text-goos-blue-900 min-w-[120px] text-center text-sm">
                 INADEQUATE
               </span>
-              <span className="px-5 py-2 rounded bg-yellow-400 text-black min-w-[120px] text-center text-sm">
+              <span className="px-5 py-2 bg-goos-orange-300 text-goos-blue-900 min-w-[120px] text-center text-sm">
                 MARGINAL
               </span>
-              <span className="px-5 py-2 rounded bg-green-600 text-white min-w-[120px] text-center text-sm">
+              <span className="px-5 py-2 bg-goos-orange-500 text-white min-w-[120px] text-center text-sm">
                 ADEQUATE
               </span>
             </div>
