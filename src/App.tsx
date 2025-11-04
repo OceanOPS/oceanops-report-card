@@ -660,15 +660,15 @@ function App() {
         {/* Full Width Table Module */}
         <div className="bg-goos-blue-900 w-full px-12 md:px-16 py-8">
           <div className="w-full overflow-x-auto">
-            <table className="w-full border-collapse border-2 border-white">
+            <table className="w-full border-collapse">
               {/* Header */}
               <thead>
                 <tr className="bg-goos-blue-700">
-                  <th className="text-white text-left px-6 py-4 border-2 border-white font-bold w-1/3">
-                    <div className="text-xl">Satellite Essential Climate Variables Timeline</div>
-                    <div className="text-sm font-normal mt-1">(1990-2030)</div>
+                  <th className="text-white text-left px-6 py-4 border-b-2 border-white font-bold w-1/3">
+                    <div className="text-lg">Satellite Essential Climate Variables Timeline</div>
+                    <div className="text-sm font-normal">(1990-2030)</div>
                   </th>
-                  <th className="text-white px-6 py-4 border-2 border-white font-semibold w-2/3">
+                  <th className="text-white py-4 px-2 border-b-2 border-white font-medium w-2/3">
                     <div className="flex justify-between text-sm whitespace-nowrap">
                       <span>90</span>
                       <span>92</span>
@@ -700,13 +700,13 @@ function App() {
               <tbody>
                 {/* Sea Ice - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
+                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
                     Sea Ice
                   </td>
-                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
-                    <div className="h-6 rounded relative overflow-hidden">
+                  <td className="bg-goos-blue-700 border-b border-white">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-full rounded"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, #009e52 0%, #009e52 85%, #fff200 97%, #fff200 100%)'
@@ -718,13 +718,13 @@ function App() {
 
                 {/* Ocean Color - Starts 1996 (15%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
+                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
                     Ocean Color
                   </td>
-                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
-                    <div className="h-6 rounded relative overflow-hidden">
+                  <td className="bg-goos-blue-700 border-b border-white">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-full rounded"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, transparent 0%, transparent 15%, #fff200 18%, #009e52 30%, #009e52 60%, #fff200 70%, #009e52 92%, #009e52 100%)'
@@ -736,13 +736,13 @@ function App() {
 
                 {/* Sea Level - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
+                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
                     Sea Level
                   </td>
-                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
-                    <div className="h-6 rounded relative overflow-hidden">
+                  <td className="bg-goos-blue-700 border-b border-white">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-full rounded"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, transparent 0%, transparent 5%, #009e52 5%, #009e52 95%, #fff200 100%)'
@@ -754,13 +754,13 @@ function App() {
 
                 {/* Sea Surface Temperature - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
+                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
                     Sea Surface Temperature
                   </td>
-                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
-                    <div className="h-6 rounded relative overflow-hidden">
+                  <td className="bg-goos-blue-700 border-b border-white">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-full rounded"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, #009e52 0%, #009e52 90%, #fff200 98%, #fff200 100%)'
@@ -772,13 +772,13 @@ function App() {
 
                 {/* Sea Surface Salinity - Starts 2010 (50%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
+                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
                     Sea Surface Salinity
                   </td>
-                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
-                    <div className="h-6 rounded relative overflow-hidden">
+                  <td className="bg-goos-blue-700 border-b border-white">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-full rounded"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, transparent 0%, transparent 50%, #fff200 50%, #fff200 87%, #e60000 92%, #fff200 97%, #fff200 100%)'
@@ -790,13 +790,13 @@ function App() {
 
                 {/* Sea State - Starts 1992 (5%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
+                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
                     Sea State
                   </td>
-                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
-                    <div className="h-6 rounded relative overflow-hidden">
+                  <td className="bg-goos-blue-700 border-b border-white">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-full rounded"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, transparent 0%, transparent 5%, #fff200 5%, #fff200 100%)'
@@ -808,13 +808,13 @@ function App() {
 
                 {/* Wind - Starts 1990 (0%) */}
                 <tr>
-                  <td className="bg-goos-blue-800 text-white px-6 py-4 border-2 border-white font-semibold text-lg">
+                  <td className="bg-goos-blue-700 text-white px-6 py-4 border-b border-white text-lg">
                     Wind
                   </td>
-                  <td className="bg-goos-blue-800 px-6 py-4 border-2 border-white">
-                    <div className="h-6 rounded relative overflow-hidden">
+                  <td className="bg-goos-blue-700 border-b border-white">
+                    <div className="h-14 relative overflow-hidden">
                       <div
-                        className="h-full rounded"
+                        className="h-full"
                         style={{
                           width: '100%',
                           background: 'linear-gradient(to right, #e60000 0%, #e60000 20%, #fff200 90%, #fff200 100%)'
