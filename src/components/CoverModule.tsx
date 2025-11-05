@@ -35,6 +35,8 @@
  * ```
  */
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 import PartnerLogos from './PartnerLogos'
 import GoosLogo from './GoosLogo'
 
@@ -69,6 +71,41 @@ export default function CoverModule({
   goosLogoVariant = 'white',
   partnerLogosVariant = 'white',
 }: CoverModuleProps) {
+  const logoRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
+  const partnerLogosRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Create a timeline for sequential animations
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      // Animate logo from top
+      tl.fromTo(
+        logoRef.current,
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 1 }
+      )
+
+      // Animate title from center
+      tl.fromTo(
+        titleRef.current,
+        { opacity: 0, scale: 0.9 },
+        { opacity: 1, scale: 1, duration: 1 },
+        '-=0.5' // Overlap with previous animation
+      )
+
+      // Animate partner logos from bottom
+      tl.fromTo(
+        partnerLogosRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1 },
+        '-=0.5' // Overlap with previous animation
+      )
+    })
+
+    return () => ctx.revert()
+  }, [])
   // Para imágenes usamos background-image para mejor control, videos usan tag video
   const backgroundStyles: React.CSSProperties = mediaType === 'image' && backgroundMedia
     ? {
@@ -120,16 +157,20 @@ export default function CoverModule({
 
       <div className="relative z-10 flex flex-col justify-between flex-1">
         {/* Top: GOOS Logo */}
-        <GoosLogo variant={goosLogoVariant} />
+        <div ref={logoRef}>
+          <GoosLogo variant={goosLogoVariant} />
+        </div>
 
         {/* Middle: Main Title */}
-        <div className="flex flex-col gap-4 my-auto">
+        <div ref={titleRef} className="flex flex-col gap-4 my-auto">
           <h1 className="text-6xl font-extrabold text-goos-white">{title}</h1>
           <p className={`text-6xl font-normal ${yearColor}`}>{year}</p>
         </div>
 
         {/* Bottom: Partner Logos */}
-        <PartnerLogos variant={partnerLogosVariant} />
+        <div ref={partnerLogosRef}>
+          <PartnerLogos variant={partnerLogosVariant} />
+        </div>
       </div>
     </section>
   )

@@ -63,10 +63,14 @@
  * ```
  */
 
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import VideoModal from './VideoModal'
 import ContentModal from './ContentModal'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Button configuration types
 type ButtonConfig =
@@ -137,6 +141,40 @@ export default function ContentModule({
   const { t } = useTranslation()
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const [isContentModalOpen, setIsContentModalOpen] = useState(false)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  // Scroll reveal animation for content
+  useEffect(() => {
+    if (!contentRef.current) return
+
+    const ctx = gsap.context(() => {
+      // Animate all direct children of content area
+      const elements = contentRef.current?.children
+      if (!elements) return
+
+      gsap.fromTo(
+        Array.from(elements),
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+        }
+      )
+    }, contentRef)
+
+    return () => ctx.revert()
+  }, [children, rightColumn])
 
   // Title sizes based on level
   const titleSizes = {
@@ -323,7 +361,7 @@ export default function ContentModule({
           )}
 
           {/* Right Column - Content */}
-          <div className={`${hasTitleContent ? 'lg:basis-1/2' : 'w-full'} flex flex-col gap-5`}>
+          <div ref={contentRef} className={`${hasTitleContent ? 'lg:basis-1/2' : 'w-full'} flex flex-col gap-5`}>
             {/* Top spacer */}
             <div className="h-8 w-5 opacity-75"></div>
 
