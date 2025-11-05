@@ -92,6 +92,10 @@ export default function CoverModule({
           y: 0,
           scale: 1,
         })
+        // Set fade overlay to final state without animation
+        if (fadeOverlayRef.current) {
+          gsap.set(fadeOverlayRef.current, { opacity: 0 })
+        }
       } else {
         // Animate normally with improved dynamics
         // Create a timeline for sequential animations
