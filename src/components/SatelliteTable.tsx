@@ -24,33 +24,10 @@ export default function SatelliteTable() {
           <thead>
             <tr className="bg-goos-blue-900 p-0">
               <th className="text-white text-left px-6 py-4 border-b-2 border-goos-white font-bold w-1/3">
-                <div className="text-lg">Satellite Essential Climate Variables Timeline</div>
-                <div className="text-sm font-normal">(1990-2030)</div>
+                <div className="text-xl">Satellite Essential Climate Variables Timeline</div>
+                <div className="text-xg font-normal">(1990-2030)</div>
               </th>
               <th className="text-white py-4 pr-4 border-b-2 border-goos-white font-medium w-2/3">
-                <div className="flex justify-between text-sm whitespace-nowrap p-0">
-                  <span>90</span>
-                  <span>92</span>
-                  <span>94</span>
-                  <span>96</span>
-                  <span>98</span>
-                  <span>00</span>
-                  <span>02</span>
-                  <span>04</span>
-                  <span>06</span>
-                  <span>08</span>
-                  <span>10</span>
-                  <span>12</span>
-                  <span>14</span>
-                  <span>16</span>
-                  <span>18</span>
-                  <span>20</span>
-                  <span>22</span>
-                  <span>24</span>
-                  <span className="opacity-50">26</span>
-                  <span className="opacity-50">28</span>
-                  <span className="opacity-50">30</span>
-                </div>
               </th>
             </tr>
           </thead>
@@ -183,6 +160,39 @@ export default function SatelliteTable() {
               </td>
             </tr>
           </tbody>
+
+          {/* Footer with years */}
+          <tfoot>
+            <tr className="bg-goos-blue-900 p-0">
+              <td className="text-white text-left px-6 py-4 border-t-2 border-goos-white font-bold w-1/3">
+              </td>
+              <td className="text-white py-4 pr-4 border-t-2 border-goos-white font-medium w-2/3">
+                <div className="flex justify-between text-sm whitespace-nowrap p-0">
+                  <span>90</span>
+                  <span>92</span>
+                  <span>94</span>
+                  <span>96</span>
+                  <span>98</span>
+                  <span>00</span>
+                  <span>02</span>
+                  <span>04</span>
+                  <span>06</span>
+                  <span>08</span>
+                  <span>10</span>
+                  <span>12</span>
+                  <span>14</span>
+                  <span>16</span>
+                  <span>18</span>
+                  <span>20</span>
+                  <span>22</span>
+                  <span>24</span>
+                  <span className="opacity-50">26</span>
+                  <span className="opacity-50">28</span>
+                  <span className="opacity-50">30</span>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
         </table>
 
         {/* Legend */}
