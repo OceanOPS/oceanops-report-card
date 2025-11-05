@@ -119,6 +119,7 @@ function App() {
             subItems: [
               { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-600' },
               { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'satellite-section', titleKey: 'satelliteObservations.title', accentColor: 'bg-goos-orange-500' },
               { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
               { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-orange-500' },
             ],
@@ -1884,7 +1885,7 @@ function App() {
 
       {/* Acknowledgments Panel */}
       <InsightPanel
-        largeNumber="129"
+        largeNumber="65"
         largeNumberDescription="Lorem ipsum dolor sit amet aliqua."
         button={{
           variant: 'action',
