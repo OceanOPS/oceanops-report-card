@@ -8,3 +8,112 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Partner Modal Smooth Animations */
+@keyframes smoothExpand {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 2000px;
+  }
+}
+
+@keyframes smoothCollapse {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 2000px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-smoothExpand {
+  animation: smoothExpand 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-smoothCollapse {
+  animation: smoothCollapse 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Smooth grid item stagger animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.grid > .animate-fadeInUp {
+  animation-fill-mode: both;
+}
+
+.grid > .animate-fadeInUp:nth-child(1) { animation-delay: 0.05s; }
+.grid > .animate-fadeInUp:nth-child(2) { animation-delay: 0.1s; }
+.grid > .animate-fadeInUp:nth-child(3) { animation-delay: 0.15s; }
+.grid > .animate-fadeInUp:nth-child(4) { animation-delay: 0.2s; }
+.grid > .animate-fadeInUp:nth-child(5) { animation-delay: 0.25s; }
+.grid > .animate-fadeInUp:nth-child(6) { animation-delay: 0.3s; }
+.grid > .animate-fadeInUp:nth-child(7) { animation-delay: 0.35s; }
+.grid > .animate-fadeInUp:nth-child(8) { animation-delay: 0.4s; }
+.grid > .animate-fadeInUp:nth-child(9) { animation-delay: 0.45s; }
+.grid > .animate-fadeInUp:nth-child(10) { animation-delay: 0.5s; }
+.grid > .animate-fadeInUp:nth-child(11) { animation-delay: 0.55s; }
+.grid > .animate-fadeInUp:nth-child(12) { animation-delay: 0.6s; }
+.grid > .animate-fadeInUp:nth-child(13) { animation-delay: 0.65s; }
+.grid > .animate-fadeInUp:nth-child(14) { animation-delay: 0.7s; }
