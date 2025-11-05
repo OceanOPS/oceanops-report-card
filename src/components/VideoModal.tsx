@@ -37,6 +37,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 
 interface VideoModalProps {
   videoType?: 'youtube' | 'local'
@@ -72,6 +73,8 @@ export default function VideoModal({
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
   const videoRef = useRef<HTMLVideoElement>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
 
   // Map aspect ratios
   const aspectRatioMap = {
@@ -125,6 +128,43 @@ export default function VideoModal({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen])
 
+  // Animate modal open/close
+  useEffect(() => {
+    if (!overlayRef.current || !modalRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations - show immediately
+      if (isOpen) {
+        gsap.set(overlayRef.current, { opacity: 1 })
+        gsap.set(modalRef.current, { opacity: 1, scale: 1 })
+      }
+      return
+    }
+
+    if (isOpen) {
+      // Animate in
+      const tl = gsap.timeline()
+
+      // Overlay fade in
+      tl.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: 'power2.out' }
+      )
+
+      // Modal scale + fade in
+      tl.fromTo(
+        modalRef.current,
+        { opacity: 0, scale: 0.9, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.1' // Overlap slightly with overlay
+      )
+    }
+  }, [isOpen])
+
   // Build YouTube embed URL
   const youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`
 
@@ -170,10 +210,12 @@ export default function VideoModal({
       {/* Modal */}
       {isOpen && (
         <div
+          ref={overlayRef}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 p-4"
           onClick={closeModal}
         >
           <div
+            ref={modalRef}
             className="relative w-full max-w-5xl"
             onClick={(e) => e.stopPropagation()}
           >

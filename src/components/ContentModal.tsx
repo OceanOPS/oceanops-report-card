@@ -27,7 +27,8 @@
  * ```
  */
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 
 interface ContentModalProps {
   isOpen: boolean
@@ -48,6 +49,9 @@ export default function ContentModal({
   backgroundColor = 'bg-goos-white',
   className = '',
 }: ContentModalProps) {
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
+
   // Close on ESC key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -73,6 +77,43 @@ export default function ContentModal({
     }
   }, [isOpen])
 
+  // Animate modal open/close
+  useEffect(() => {
+    if (!overlayRef.current || !modalRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations - show immediately
+      if (isOpen) {
+        gsap.set(overlayRef.current, { opacity: 1 })
+        gsap.set(modalRef.current, { opacity: 1, scale: 1 })
+      }
+      return
+    }
+
+    if (isOpen) {
+      // Animate in
+      const tl = gsap.timeline()
+
+      // Overlay fade in
+      tl.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: 'power2.out' }
+      )
+
+      // Modal scale + fade in
+      tl.fromTo(
+        modalRef.current,
+        { opacity: 0, scale: 0.9, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.1' // Overlap slightly with overlay
+      )
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   const maxWidthMap = {
@@ -87,10 +128,12 @@ export default function ContentModal({
 
   return (
     <div
+      ref={overlayRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 p-4"
       onClick={onClose}
     >
       <div
+        ref={modalRef}
         className={`relative w-full ${maxWidthClass} ${backgroundColor} shadow-xl max-h-[90vh] overflow-y-auto ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
