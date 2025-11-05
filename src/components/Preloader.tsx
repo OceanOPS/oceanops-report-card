@@ -27,9 +27,6 @@ interface PreloaderProps {
 export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
-  const wave1Ref = useRef<HTMLDivElement>(null)
-  const wave2Ref = useRef<HTMLDivElement>(null)
-  const wave3Ref = useRef<HTMLDivElement>(null)
   const progressCircleRef = useRef<HTMLDivElement>(null)
   const progressTextRef = useRef<HTMLSpanElement>(null)
 
@@ -47,24 +44,29 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
-  // Smooth circle follow with delay
+  // Smooth circle follow - continues smoothly to cursor position even when stopped
   useEffect(() => {
     if (!progressCircleRef.current) return
 
+    let animationFrameId: number
+
     const animate = () => {
       // Lerp (linear interpolation) for smooth following
-      circlePos.current.x += (mousePos.x - circlePos.current.x) * 0.1
-      circlePos.current.y += (mousePos.y - circlePos.current.y) * 0.1
+      // Slower lerp factor (0.08 instead of 0.1) for smoother deceleration
+      const lerpFactor = 0.08
+      circlePos.current.x += (mousePos.x - circlePos.current.x) * lerpFactor
+      circlePos.current.y += (mousePos.y - circlePos.current.y) * lerpFactor
 
       if (progressCircleRef.current) {
         progressCircleRef.current.style.transform = `translate(${circlePos.current.x}px, ${circlePos.current.y}px)`
       }
 
-      requestAnimationFrame(animate)
+      // Continue animating - this ensures smooth approach to target even when cursor stops
+      animationFrameId = requestAnimationFrame(animate)
     }
 
-    const animationId = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(animationId)
+    animationFrameId = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animationFrameId)
   }, [mousePos])
 
   // Preload video and simulate progress
@@ -156,8 +158,8 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
         },
       })
 
-      // Fade out logo and waves
-      tl.to([logoRef.current, wave1Ref.current, wave2Ref.current, wave3Ref.current], {
+      // Fade out logo
+      tl.to(logoRef.current, {
         opacity: 0,
         scale: 1.1,
         duration: 0.4,
@@ -172,26 +174,22 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
     <>
       <div
         ref={containerRef}
-        className="fixed inset-0 z-50 bg-goos-blue-900 flex items-center justify-center"
+        className="fixed inset-0 z-50 bg-goos-blue-900 flex items-center justify-center overflow-hidden"
       >
-        {/* Animated waves */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-          <div
-            ref={wave1Ref}
-            className="absolute w-96 h-96 rounded-full border-4 border-goos-cyan-600"
-            style={{ opacity: 0 }}
-          />
-          <div
-            ref={wave2Ref}
-            className="absolute w-96 h-96 rounded-full border-4 border-goos-cyan-500"
-            style={{ opacity: 0 }}
-          />
-          <div
-            ref={wave3Ref}
-            className="absolute w-96 h-96 rounded-full border-4 border-goos-cyan-400"
-            style={{ opacity: 0 }}
-          />
-        </div>
+        {/* Background image - 120% size, aligned right with -200px offset, 50% opacity */}
+        <div
+          className="absolute inset-0 h-full"
+          style={{
+            backgroundImage: 'url(/backgrounds/thinkstockPhotos-618219270-trace.png)',
+            backgroundSize: '75%',
+            backgroundPosition: 'calc(100% + 200px) center',
+            backgroundRepeat: 'no-repeat',
+            opacity: 0.5,
+            right: '-100px',
+            left: 'auto',
+            width: '100%',
+          }}
+        />
 
         {/* Content container */}
         <div className="relative z-10 flex flex-col items-center">
