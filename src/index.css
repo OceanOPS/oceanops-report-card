@@ -121,3 +121,63 @@ body {
 .grid > .animate-fadeInUp:nth-child(13) { animation-delay: 0.65s; }
 .grid > .animate-fadeInUp:nth-child(14) { animation-delay: 0.7s; }
 */
+
+/* Custom Scrollbar Styles */
+/* WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.1); /* Very subtle track */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #184596; /* goos-blue-700 */
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #205BC6; /* goos-blue-600 - lighter on hover */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #12336E; /* goos-blue-800 - darker on click */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #184596 rgba(15, 23, 42, 0.1);
+}
+
+/* Darker scrollbar for dark backgrounds (modals, dark sections) */
+.bg-goos-blue-900::-webkit-scrollbar-track,
+.bg-goos-blue-800::-webkit-scrollbar-track,
+.bg-goos-blue-700::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bg-goos-blue-900,
+.bg-goos-blue-800,
+.bg-goos-blue-700 {
+  scrollbar-color: #F38B25 rgba(255, 255, 255, 0.1); /* Orange for dark backgrounds */
+}
+
+.bg-goos-blue-900::-webkit-scrollbar-thumb,
+.bg-goos-blue-800::-webkit-scrollbar-thumb,
+.bg-goos-blue-700::-webkit-scrollbar-thumb {
+  background: #F38B25; /* goos-orange-500 */
+}
+
+.bg-goos-blue-900::-webkit-scrollbar-thumb:hover,
+.bg-goos-blue-800::-webkit-scrollbar-thumb:hover,
+.bg-goos-blue-700::-webkit-scrollbar-thumb:hover {
+  background: #F6A555; /* goos-orange-400 - lighter on hover */
+}
