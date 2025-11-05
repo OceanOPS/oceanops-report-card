@@ -223,7 +223,7 @@ export default function SatelliteTable() {
               <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div>
-                  <h2 className="text-2xl text-goos-blue-700 font-semibold mb-8">
+                  <h2 className="text-2xl text-goos-blue-700 font-semibold mb-1">
                     {t('satelliteObservations.platformModal.header')}
                   </h2>
                 </div>

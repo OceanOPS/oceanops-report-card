@@ -146,7 +146,7 @@ export default function ContentModule({
     },
     h3: {
       main: 'text-4xl',
-      lineHeight: 'leading-10',
+      lineHeight: 'leading-[1.2]',
     },
   }
 
