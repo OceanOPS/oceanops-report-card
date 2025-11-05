@@ -281,7 +281,7 @@ export default function PartnerModal({
                               <img
                                 src={network.icon}
                                 alt={t(network.labelKey)}
-                                className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110"
+                                className="w-16 h-16 object-contain transition-transform duration-300 hover:scale-110"
                               />
                               <p className="text-goos-white text-base font-semibold uppercase leading-tight">
                                 {t(network.labelKey)}
