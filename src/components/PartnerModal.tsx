@@ -202,7 +202,7 @@ export default function PartnerModal({
         </div>
 
         {/* Content */}
-        <div className="px-8 py-8 space-y-1 bg-goos-blue-900">
+        <div className="space-y-1 bg-goos-blue-900">
           {countries.map((country) => {
             const { activeNetworks, totalPlatforms } = getCountryTotals(country.networks)
             const isExpanded = expandedCountry === country.name
@@ -215,7 +215,7 @@ export default function PartnerModal({
               >
                 {isExpanded ? (
                   // Expanded Card
-                  <div className="bg-goos-white border-t border-goos-gray-400 px-8 py-8 space-y-8 animate-smoothExpand">
+                  <div className="bg-goos-blue-900 border-t border-goos-gray-400 px-8 py-8 space-y-8 animate-smoothExpand">
                     {/* Country Header - Entire header is clickable */}
                     <div
                       onClick={() => setExpandedCountry(null)}
@@ -231,7 +231,7 @@ export default function PartnerModal({
                             />
                           </div>
                         )}
-                        <h2 className="text-4xl text-goos-blue-700 font-normal">{country.name}</h2>
+                        <h2 className="text-4xl text-goos-white font-normal">{country.name}</h2>
                         <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
                           {activeNetworks} {t('partners.networksLabel')}
                         </span>
@@ -239,7 +239,7 @@ export default function PartnerModal({
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
                       </div>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 transition-transform duration-300 hover:rotate-180">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                           <path d="M19 13H5v-2h14v2z" fill="#f0f0f0" />
                         </svg>
@@ -296,7 +296,7 @@ export default function PartnerModal({
                   // Collapsed Card - Entire card is clickable
                   <div
                     onClick={() => handleExpand(country.name)}
-                    className="bg-goos-blue-800 px-8 py-8 animate-fadeInScale cursor-pointer hover:opacity-90 transition-all duration-300 hover:shadow-md"
+                    className="bg-goos-blue-900 border-t border-blue-900 px-8 py-8 animate-fadeInScale cursor-pointer hover:opacity-90 transition-all duration-300 hover:shadow-md"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -317,7 +317,7 @@ export default function PartnerModal({
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
                       </div>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 transition-transform duration-300 hover:rotate-90">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#f0f0f0" />
                         </svg>
