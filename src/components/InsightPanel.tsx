@@ -182,34 +182,29 @@ export default function InsightPanel({
   useEffect(() => {
     if (!sectionRef.current) return
 
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const ctx = gsap.context(() => {
-      // Animate large number
-      if (largeNumberRef.current && largeNumber) {
-        const targetValue = extractNumber(largeNumber)
-        const tempObj = { value: 0 }
+      if (prefersReducedMotion) {
+        // No animations - show final numbers immediately
+        if (largeNumberRef.current && largeNumber) {
+          const targetValue = extractNumber(largeNumber)
+          largeNumberRef.current.textContent = formatNumber(largeNumber, targetValue)
+        }
 
-        gsap.to(tempObj, {
-          value: targetValue,
-          duration: 2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-            once: true,
-          },
-          onUpdate: () => {
-            if (largeNumberRef.current) {
-              largeNumberRef.current.textContent = formatNumber(largeNumber, tempObj.value)
-            }
-          },
+        stats?.forEach((stat, index) => {
+          const ref = statNumberRefs.current[index]
+          if (ref && stat.number) {
+            const targetValue = extractNumber(stat.number)
+            ref.textContent = formatNumber(stat.number, targetValue)
+          }
         })
-      }
-
-      // Animate stat numbers
-      stats?.forEach((stat, index) => {
-        const ref = statNumberRefs.current[index]
-        if (ref && stat.number) {
-          const targetValue = extractNumber(stat.number)
+      } else {
+        // Animate normally
+        // Animate large number
+        if (largeNumberRef.current && largeNumber) {
+          const targetValue = extractNumber(largeNumber)
           const tempObj = { value: 0 }
 
           gsap.to(tempObj, {
@@ -217,18 +212,43 @@ export default function InsightPanel({
             duration: 2,
             ease: 'power2.out',
             scrollTrigger: {
-              trigger: ref,
+              trigger: sectionRef.current,
               start: 'top 80%',
               once: true,
             },
             onUpdate: () => {
-              if (ref) {
-                ref.textContent = formatNumber(stat.number, tempObj.value)
+              if (largeNumberRef.current) {
+                largeNumberRef.current.textContent = formatNumber(largeNumber, tempObj.value)
               }
             },
           })
         }
-      })
+
+        // Animate stat numbers
+        stats?.forEach((stat, index) => {
+          const ref = statNumberRefs.current[index]
+          if (ref && stat.number) {
+            const targetValue = extractNumber(stat.number)
+            const tempObj = { value: 0 }
+
+            gsap.to(tempObj, {
+              value: targetValue,
+              duration: 2,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: ref,
+                start: 'top 80%',
+                once: true,
+              },
+              onUpdate: () => {
+                if (ref) {
+                  ref.textContent = formatNumber(stat.number, tempObj.value)
+                }
+              },
+            })
+          }
+        })
+      }
     }, sectionRef)
 
     return () => ctx.revert()

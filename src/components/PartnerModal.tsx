@@ -146,33 +146,46 @@ export default function PartnerModal({
 
     if (!expandedContent || !cardsGrid) return
 
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline()
-
-      // 1. Expand container - MUY RÁPIDO, casi instantáneo
-      tl.to(expandedContent, {
-        height: 'auto',
-        duration: 0.2,
-        ease: 'none', // Linear, sin curva
-      })
-
-      // 2. Fade in cards - SOLO opacity, super simple
       const cards = cardsGrid.querySelectorAll('.platform-card')
-      if (cards.length > 0) {
-        // Initial state
-        gsap.set(cards, { opacity: 0 })
 
-        // Animate ONLY opacity - más ligero y fluido
-        tl.to(
-          Array.from(cards),
-          {
-            opacity: 1,
-            duration: 0.3,
-            stagger: 0.02, // 20ms entre cards
-            ease: 'none', // Linear para máxima fluidez
-          },
-          '-=0.15' // Overlap con expansión
-        )
+      if (prefersReducedMotion) {
+        // No animations - show content immediately
+        gsap.set(expandedContent, { height: 'auto' })
+        if (cards.length > 0) {
+          gsap.set(cards, { opacity: 1 })
+        }
+      } else {
+        // Animate normally
+        const tl = gsap.timeline()
+
+        // 1. Expand container - MUY RÁPIDO, casi instantáneo
+        tl.to(expandedContent, {
+          height: 'auto',
+          duration: 0.2,
+          ease: 'none', // Linear, sin curva
+        })
+
+        // 2. Fade in cards - SOLO opacity, super simple
+        if (cards.length > 0) {
+          // Initial state
+          gsap.set(cards, { opacity: 0 })
+
+          // Animate ONLY opacity - más ligero y fluido
+          tl.to(
+            Array.from(cards),
+            {
+              opacity: 1,
+              duration: 0.3,
+              stagger: 0.02, // 20ms entre cards
+              ease: 'none', // Linear para máxima fluidez
+            },
+            '-=0.15' // Overlap con expansión
+          )
+        }
       }
     }, expandedContent)
 

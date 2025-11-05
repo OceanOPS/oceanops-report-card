@@ -83,25 +83,37 @@ export default function DataCard({
   useEffect(() => {
     if (!cardRef.current || !numberRef.current) return
 
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const ctx = gsap.context(() => {
       const targetValue = extractNumber(number)
-      const tempObj = { value: 0 }
 
-      gsap.to(tempObj, {
-        value: targetValue,
-        duration: 2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 80%',
-          once: true,
-        },
-        onUpdate: () => {
-          if (numberRef.current) {
-            numberRef.current.textContent = formatNumber(number, tempObj.value)
-          }
-        },
-      })
+      if (prefersReducedMotion) {
+        // No animation - show final number immediately
+        if (numberRef.current) {
+          numberRef.current.textContent = formatNumber(number, targetValue)
+        }
+      } else {
+        // Animate normally
+        const tempObj = { value: 0 }
+
+        gsap.to(tempObj, {
+          value: targetValue,
+          duration: 2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+          onUpdate: () => {
+            if (numberRef.current) {
+              numberRef.current.textContent = formatNumber(number, tempObj.value)
+            }
+          },
+        })
+      }
     }, cardRef)
 
     return () => ctx.revert()

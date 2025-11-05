@@ -76,32 +76,45 @@ export default function CoverModule({
   const partnerLogosRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const ctx = gsap.context(() => {
-      // Create a timeline for sequential animations
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      if (prefersReducedMotion) {
+        // No animations - show all content immediately
+        gsap.set([logoRef.current, titleRef.current, partnerLogosRef.current], {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        })
+      } else {
+        // Animate normally
+        // Create a timeline for sequential animations
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-      // Animate logo from top
-      tl.fromTo(
-        logoRef.current,
-        { opacity: 0, y: -50 },
-        { opacity: 1, y: 0, duration: 1 }
-      )
+        // Animate logo from top
+        tl.fromTo(
+          logoRef.current,
+          { opacity: 0, y: -50 },
+          { opacity: 1, y: 0, duration: 1 }
+        )
 
-      // Animate title from center
-      tl.fromTo(
-        titleRef.current,
-        { opacity: 0, scale: 0.9 },
-        { opacity: 1, scale: 1, duration: 1 },
-        '-=0.5' // Overlap with previous animation
-      )
+        // Animate title from center
+        tl.fromTo(
+          titleRef.current,
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: 1 },
+          '-=0.5' // Overlap with previous animation
+        )
 
-      // Animate partner logos from bottom
-      tl.fromTo(
-        partnerLogosRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1 },
-        '-=0.5' // Overlap with previous animation
-      )
+        // Animate partner logos from bottom
+        tl.fromTo(
+          partnerLogosRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1 },
+          '-=0.5' // Overlap with previous animation
+        )
+      }
     })
 
     return () => ctx.revert()

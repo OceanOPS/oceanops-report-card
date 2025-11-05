@@ -147,30 +147,42 @@ export default function ContentModule({
   useEffect(() => {
     if (!contentRef.current) return
 
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const ctx = gsap.context(() => {
       // Animate all direct children of content area
       const elements = contentRef.current?.children
       if (!elements) return
 
-      gsap.fromTo(
-        Array.from(elements),
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
+      if (prefersReducedMotion) {
+        // No animations - show content immediately
+        gsap.set(Array.from(elements), {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: contentRef.current,
-            start: 'top 80%',
-            once: true,
+        })
+      } else {
+        // Animate normally
+        gsap.fromTo(
+          Array.from(elements),
+          {
+            opacity: 0,
+            y: 30,
           },
-        }
-      )
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: contentRef.current,
+              start: 'top 80%',
+              once: true,
+            },
+          }
+        )
+      }
     }, contentRef)
 
     return () => ctx.revert()

@@ -27,25 +27,34 @@ export default function SatelliteTable() {
   useEffect(() => {
     if (!tableRef.current) return
 
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const ctx = gsap.context(() => {
       const bars = tableRef.current?.querySelectorAll('.timeline-bar')
       if (!bars || bars.length === 0) return
 
-      // Set initial state - width 0
-      gsap.set(bars, { width: 0 })
+      if (prefersReducedMotion) {
+        // No animations - show bars at full width immediately
+        gsap.set(bars, { width: '100%' })
+      } else {
+        // Animate normally
+        // Set initial state - width 0
+        gsap.set(bars, { width: 0 })
 
-      // Animate bars growing from left to right
-      gsap.to(bars, {
-        width: '100%',
-        duration: 0.8,
-        stagger: 0.1, // 100ms between each bar
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: tableRef.current,
-          start: 'top 70%',
-          once: true,
-        },
-      })
+        // Animate bars growing from left to right
+        gsap.to(bars, {
+          width: '100%',
+          duration: 0.8,
+          stagger: 0.1, // 100ms between each bar
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: tableRef.current,
+            start: 'top 70%',
+            once: true,
+          },
+        })
+      }
     }, tableRef)
 
     return () => ctx.revert()
