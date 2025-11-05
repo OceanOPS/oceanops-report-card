@@ -12,12 +12,47 @@
  */
 
 import { useTranslation } from 'react-i18next'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from './Button'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function SatelliteTable() {
   const { t } = useTranslation()
+  const tableRef = useRef<HTMLDivElement>(null)
+
+  // Animate timeline bars on scroll
+  useEffect(() => {
+    if (!tableRef.current) return
+
+    const ctx = gsap.context(() => {
+      const bars = tableRef.current?.querySelectorAll('.timeline-bar')
+      if (!bars || bars.length === 0) return
+
+      // Set initial state - width 0
+      gsap.set(bars, { width: 0 })
+
+      // Animate bars growing from left to right
+      gsap.to(bars, {
+        width: '100%',
+        duration: 0.8,
+        stagger: 0.1, // 100ms between each bar
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: tableRef.current,
+          start: 'top 70%',
+          once: true,
+        },
+      })
+    }, tableRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="bg-goos-blue-900 w-full px-12 md:px-16 py-8">
+    <div ref={tableRef} className="bg-goos-blue-900 w-full px-12 md:px-16 py-8">
       <div className="w-full overflow-x-auto">
         <table className="w-full border-collapse border border-goos-white">
           {/* Header */}
@@ -42,7 +77,7 @@ export default function SatelliteTable() {
               <td className="border-b border-goos-white p-0">
                 <div className="h-14 relative overflow-hidden">
                   <div
-                    className="h-full"
+                    className="timeline-bar h-full"
                     style={{
                       width: '100%',
                       background: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 95%, #F9BF86 100%)'
@@ -60,7 +95,7 @@ export default function SatelliteTable() {
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
                 <div className="h-14 relative overflow-hidden">
                   <div
-                    className="h-full"
+                    className="timeline-bar h-full"
                     style={{
                       width: '100%',
                       background: 'linear-gradient(to right, transparent 0%, transparent 15%, #F9BF86 15%, #F9BF86 20%, #F48B25 23%, #F48B25 66%, #F48B25 66%, #F9BF86 70%, #F9BF86 82%, #F48B25 86%, #F48B25 100%)'
@@ -78,7 +113,7 @@ export default function SatelliteTable() {
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
                 <div className="h-14 relative overflow-hidden">
                   <div
-                    className="h-full"
+                    className="timeline-bar h-full"
                     style={{
                       width: '100%',
                       background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F48B25 5%, #F48B25 100%)'
@@ -96,7 +131,7 @@ export default function SatelliteTable() {
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
                 <div className="h-14 relative overflow-hidden">
                   <div
-                    className="h-full"
+                    className="timeline-bar h-full"
                     style={{
                       width: '100%',
                       background: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 94%, #F9BF86 100%)'
@@ -114,7 +149,7 @@ export default function SatelliteTable() {
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
                 <div className="h-14 relative overflow-hidden">
                   <div
-                    className="h-full"
+                    className="timeline-bar h-full"
                     style={{
                       width: '100%',
                       background: 'linear-gradient(to right, transparent 0%, transparent 50%, #F9BF86 50%, #F9BF86 90%, #FEF2E7 92%, #FEF2E7 95%, #F9BF86 97%, #F9BF86 100%)'
@@ -132,7 +167,7 @@ export default function SatelliteTable() {
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
                 <div className="h-14 relative overflow-hidden">
                   <div
-                    className="h-full"
+                    className="timeline-bar h-full"
                     style={{
                       width: '100%',
                       background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F9BF86 5%, #F9BF86 100%)'
@@ -150,7 +185,7 @@ export default function SatelliteTable() {
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
                 <div className="h-14 relative overflow-hidden">
                   <div
-                    className="h-full"
+                    className="timeline-bar h-full"
                     style={{
                       width: '100%',
                       background: 'linear-gradient(to right, #FEF2E7 0%, #FEF2E7 30%, #F9BF86 35%, #F9BF86 100%)'
