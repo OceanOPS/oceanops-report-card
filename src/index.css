@@ -9,7 +9,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Partner Modal Smooth Animations */
+/* Partner Modal Smooth Animations - COMMENTED OUT (using GSAP now) */
+/*
 @keyframes smoothExpand {
   from {
     opacity: 0;
@@ -81,8 +82,10 @@ body {
 .animate-delay-200 {
   animation-delay: 0.2s;
 }
+*/
 
-/* Smooth grid item stagger animation */
+/* Smooth grid item stagger animation - COMMENTED OUT (using GSAP now) */
+/*
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -117,3 +120,4 @@ body {
 .grid > .animate-fadeInUp:nth-child(12) { animation-delay: 0.6s; }
 .grid > .animate-fadeInUp:nth-child(13) { animation-delay: 0.65s; }
 .grid > .animate-fadeInUp:nth-child(14) { animation-delay: 0.7s; }
+*/

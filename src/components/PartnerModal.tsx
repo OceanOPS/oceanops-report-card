@@ -45,6 +45,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { gsap } from 'gsap'
 
 // Fixed network types with their icons and translation keys
 const FIXED_NETWORKS = [
@@ -108,6 +109,8 @@ export default function PartnerModal({
   const { t } = useTranslation()
   const [expandedCountry, setExpandedCountry] = useState<string | null>(null)
   const countryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const cardsGridRef = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const expandedContentRef = useRef<{ [key: string]: HTMLDivElement | null }>({})
 
   // Close on ESC key
   useEffect(() => {
@@ -133,6 +136,48 @@ export default function PartnerModal({
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+
+  // GSAP animation when country expands
+  useEffect(() => {
+    if (!expandedCountry) return
+
+    const expandedContent = expandedContentRef.current[expandedCountry]
+    const cardsGrid = cardsGridRef.current[expandedCountry]
+
+    if (!expandedContent || !cardsGrid) return
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline()
+
+      // 1. Expand container - MUY RÁPIDO, casi instantáneo
+      tl.to(expandedContent, {
+        height: 'auto',
+        duration: 0.2,
+        ease: 'none', // Linear, sin curva
+      })
+
+      // 2. Fade in cards - SOLO opacity, super simple
+      const cards = cardsGrid.querySelectorAll('.platform-card')
+      if (cards.length > 0) {
+        // Initial state
+        gsap.set(cards, { opacity: 0 })
+
+        // Animate ONLY opacity - más ligero y fluido
+        tl.to(
+          Array.from(cards),
+          {
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.02, // 20ms entre cards
+            ease: 'none', // Linear para máxima fluidez
+          },
+          '-=0.15' // Overlap con expansión
+        )
+      }
+    }, expandedContent)
+
+    return () => ctx.revert()
+  }, [expandedCountry])
 
   if (!isOpen) return null
 
@@ -215,11 +260,14 @@ export default function PartnerModal({
               >
                 {isExpanded ? (
                   // Expanded Card
-                  <div className="bg-goos-blue-900 border-t border-goos-blue-700 px-8 py-8 space-y-8 animate-smoothExpand">
+                  <div
+                    ref={(el) => (expandedContentRef.current[country.name] = el)}
+                    className="bg-goos-blue-900 border-t border-goos-blue-700 px-8 py-8 space-y-8"
+                  >
                     {/* Country Header - Entire header is clickable */}
                     <div
                       onClick={() => setExpandedCountry(null)}
-                      className="flex items-center justify-between animate-slideDown cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                      className="flex items-center justify-between cursor-pointer hover:opacity-90 transition-opacity duration-200"
                     >
                       <div className="flex items-center gap-3">
                         {showFlags && country.countryCode && (
@@ -248,13 +296,16 @@ export default function PartnerModal({
 
                     {/* Description - Only show if country has one */}
                     {country.description && (
-                      <p className="text-goos-white text-xl leading-relaxed animate-fadeInUp animate-delay-100">
+                      <p className="text-goos-white text-xl leading-relaxed">
                         {country.description}
                       </p>
                     )}
 
                     {/* Platform Cards Grid */}
-                    <div className="grid grid-cols-4 gap-6">
+                    <div
+                      ref={(el) => (cardsGridRef.current[country.name] = el)}
+                      className="grid grid-cols-4 gap-6"
+                    >
                       {FIXED_NETWORKS.map((network) => {
                         const platformCount = country.networks[network.key as NetworkKey]
 
@@ -267,7 +318,7 @@ export default function PartnerModal({
                         return (
                           <div
                             key={network.key}
-                            className="bg-goos-blue-800 p-4 flex flex-col justify-between h-[290px] animate-fadeInUp transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                            className="platform-card bg-goos-blue-800 p-4 flex flex-col justify-between h-[290px] opacity-0"
                           >
                             <div className="flex items-start justify-between">
                               <span className="text-7xl font-light text-goos-white leading-none">
