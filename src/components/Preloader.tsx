@@ -184,7 +184,7 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
             backgroundSize: '75%',
             backgroundPosition: 'calc(100% + 200px) center',
             backgroundRepeat: 'no-repeat',
-            opacity: 0.5,
+            opacity: 0.3,
             right: '-100px',
             left: 'auto',
             width: '100%',
