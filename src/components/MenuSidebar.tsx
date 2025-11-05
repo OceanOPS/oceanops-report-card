@@ -279,14 +279,12 @@ export default function MenuSidebar({
               onClick={() => {
                 // Close menu first
                 setIsOpen()
-                // Navigate to cover section
+                // Navigate to home (top of page)
                 setTimeout(() => {
                   (window as any).isScrollingProgrammatically = true
-                  window.history.replaceState(null, '', '#cover-section')
-                  const element = document.getElementById('cover-section')
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }
+                  window.history.replaceState(null, '', '#home')
+                  // Scroll to top of page
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
                   setTimeout(() => {
                     (window as any).isScrollingProgrammatically = false
                   }, 1000)

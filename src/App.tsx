@@ -65,7 +65,7 @@ function App() {
   // Scroll spy - update URL hash based on visible section
   useEffect(() => {
     const sections = [
-      'cover-section',
+      'home',
       'overview-section',
       'insitu-section',
       'stats-section',
@@ -94,6 +94,14 @@ function App() {
       // Don't update hash if we're scrolling programmatically (from menu click or deep link)
       if ((window as any).isScrollingProgrammatically) return
 
+      // Check if we're at the top of the page (home section)
+      if (window.scrollY < 100) {
+        if (window.location.hash !== '#home') {
+          window.history.replaceState(null, '', '#home')
+        }
+        return
+      }
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.id
@@ -115,8 +123,20 @@ function App() {
       }
     })
 
+    // Add scroll listener to detect when returning to top
+    const handleScroll = () => {
+      if ((window as any).isScrollingProgrammatically) return
+
+      if (window.scrollY < 100 && window.location.hash !== '#home') {
+        window.history.replaceState(null, '', '#home')
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
       observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
@@ -177,7 +197,7 @@ function App() {
       <DeliveryAreasNav />
 
       {/* Cover - Sticky container for parallax effect */}
-      <div id="cover-section" className="sticky top-0 h-screen">
+      <div id="home" className="sticky top-0 h-screen">
       <CoverModule
         title={t('cover.title')}
         year={t('cover.year')}
