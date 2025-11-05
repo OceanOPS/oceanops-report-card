@@ -37,8 +37,11 @@
 
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import PartnerLogos from './PartnerLogos'
 import GoosLogo from './GoosLogo'
+
+gsap.registerPlugin(ScrollTrigger)
 
 type BlendMode = 'normal' | 'multiply' | 'screen' | 'overlay' | 'darken' | 'lighten' | 'color-dodge' | 'color-burn' | 'hard-light' | 'soft-light' | 'difference' | 'exclusion' | 'hue' | 'saturation' | 'color' | 'luminosity'
 
@@ -71,6 +74,8 @@ export default function CoverModule({
   goosLogoVariant = 'white',
   partnerLogosVariant = 'white',
 }: CoverModuleProps) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const fadeOverlayRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const partnerLogosRef = useRef<HTMLDivElement>(null)
@@ -114,6 +119,80 @@ export default function CoverModule({
           { opacity: 1, y: 0, duration: 0.6 },
           '-=0.3' // Overlap with previous animation
         )
+
+        // Wait for entrance animations to complete, then set up scroll animations
+        tl.add(() => {
+          // Fade overlay effect: Cover fades to dark blue as content scrolls over it
+          if (fadeOverlayRef.current) {
+            gsap.fromTo(
+              fadeOverlayRef.current,
+              { opacity: 0 },
+              {
+                opacity: 1,
+                scrollTrigger: {
+                  trigger: sectionRef.current,
+                  start: 'top top',
+                  end: 'bottom top',
+                  scrub: true,
+                },
+              }
+            )
+          }
+
+          // Animate logo out: fade and move up on scroll
+          if (logoRef.current) {
+            gsap.fromTo(
+              logoRef.current,
+              { opacity: 1, y: 0 },
+              {
+                opacity: 0,
+                y: -50,
+                scrollTrigger: {
+                  trigger: sectionRef.current,
+                  start: 'top top',
+                  end: 'center top',
+                  scrub: true,
+                },
+              }
+            )
+          }
+
+          // Animate title out: fade and move up on scroll
+          if (titleRef.current) {
+            gsap.fromTo(
+              titleRef.current,
+              { opacity: 1, y: 0 },
+              {
+                opacity: 0,
+                y: -80,
+                scrollTrigger: {
+                  trigger: sectionRef.current,
+                  start: 'top top',
+                  end: 'center top',
+                  scrub: true,
+                },
+              }
+            )
+          }
+
+          // Animate partner logos out: fade and move down on scroll
+          if (partnerLogosRef.current) {
+            gsap.fromTo(
+              partnerLogosRef.current,
+              { opacity: 1, y: 0 },
+              {
+                opacity: 0,
+                y: 50,
+                scrollTrigger: {
+                  trigger: sectionRef.current,
+                  start: 'top top',
+                  end: 'center top',
+                  scrub: true,
+                },
+              }
+            )
+          }
+        })
       }
     })
 
@@ -147,7 +226,7 @@ export default function CoverModule({
   }
 
   return (
-    <section className={`relative w-full min-h-screen ${backgroundColor} p-12 md:p-16 flex flex-col overflow-hidden`}>
+    <section ref={sectionRef} className={`relative w-full h-screen ${backgroundColor} p-12 md:p-16 flex flex-col overflow-hidden`}>
       {/* Background Media */}
       {backgroundMedia && (
         <div className="absolute inset-0 pointer-events-none">
@@ -167,6 +246,13 @@ export default function CoverModule({
           )}
         </div>
       )}
+
+      {/* Fade overlay - transitions to dark blue as content scrolls over */}
+      <div
+        ref={fadeOverlayRef}
+        className="absolute inset-0 bg-goos-blue-900 pointer-events-none"
+        style={{ opacity: 0 }}
+      />
 
       <div className="relative z-10 flex flex-col justify-between flex-1">
         {/* Top: GOOS Logo */}

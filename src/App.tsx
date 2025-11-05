@@ -151,8 +151,8 @@ function App() {
       {/* DeliveryAreasNav - Fixed navigation for Value of Ocean Observations sections */}
       <DeliveryAreasNav />
 
-      {/* Cover */}
-      <div id="cover-section">
+      {/* Cover - Sticky container for parallax effect */}
+      <div id="cover-section" className="sticky top-0 h-screen">
       <CoverModule
         title={t('cover.title')}
         year={t('cover.year')}
@@ -170,6 +170,8 @@ function App() {
       />
       </div>
 
+      {/* Content that overlays on top of cover */}
+      <div className="relative z-10">
       {/* Spacer */}
       <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
@@ -1965,6 +1967,7 @@ function App() {
       </ContentModule>
       </div>
 
+      </div> {/* End of content overlay container */}
     </div>
   )
 }

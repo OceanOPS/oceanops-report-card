@@ -360,7 +360,7 @@ export default function ContentModule({
   // Split layout (default): Sticky title on left, content on right
   if (layout === 'split') {
     return (
-      <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
+      <section className={`relative z-10 ${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
         <div className="mx-auto flex gap-16 flex-col lg:flex-row">
           {/* Left Column - Sticky Title (only if has title content) */}
           {hasTitleContent && (
@@ -390,7 +390,7 @@ export default function ContentModule({
 
   // Full-width layout: Title at top, content in two columns below
   return (
-    <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
+    <section className={`relative z-10 ${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
         {/* Title Section - Full Width (only if has title content) */}
         {hasTitleContent && (
