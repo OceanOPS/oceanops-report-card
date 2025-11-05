@@ -32,6 +32,12 @@
  * ```
  */
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
 export interface IconTableCell {
   icon?: string       // URL to icon/image (optional)
   iconSize?: string   // Tailwind size class (e.g., 'w-8 h-8', 'w-12 h-12')
@@ -61,6 +67,8 @@ export default function IconTable({
   rowTextColor = 'text-goos-blue-700',
   className = '',
 }: IconTableProps) {
+  const tableRef = useRef<HTMLDivElement>(null)
+
   // Map columns to grid classes
   const gridColsMap = {
     1: 'grid-cols-1',
@@ -79,8 +87,48 @@ export default function IconTable({
 
   const gridCols = gridColsMap[columns]
 
+  // Animate icons with pop-up effect on scroll
+  useEffect(() => {
+    if (!tableRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations for users who prefer reduced motion
+      return
+    }
+
+    const ctx = gsap.context(() => {
+      const icons = tableRef.current?.querySelectorAll('.icon-cell')
+      if (!icons || icons.length === 0) return
+
+      gsap.fromTo(
+        Array.from(icons),
+        {
+          opacity: 0,
+          scale: 0.5,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          stagger: 0.08, // 80ms between each icon
+          ease: 'back.out(1.5)', // Slight bounce effect
+          scrollTrigger: {
+            trigger: tableRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+        }
+      )
+    }, tableRef)
+
+    return () => ctx.revert()
+  }, [rows.length])
+
   return (
-    <div className={`border ${borderColor} overflow-hidden ${className}`}>
+    <div ref={tableRef} className={`border ${borderColor} overflow-hidden ${className}`}>
       {/* Header Row */}
       <div className={`grid ${gridCols} ${headerBgColor} border-b-2 ${borderColor}`}>
         {headers.map((header, index) => (
@@ -102,7 +150,7 @@ export default function IconTable({
           {row.map((cell, cellIndex) => (
             <div
               key={cellIndex}
-              className={`p-4 flex flex-col items-center gap-2`}
+              className={`icon-cell p-4 flex flex-col items-center gap-2`}
             >
               {/* Icon/Image */}
               {cell.icon && (
