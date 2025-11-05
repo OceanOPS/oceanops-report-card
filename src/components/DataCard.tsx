@@ -61,7 +61,7 @@ export default function DataCard({
 
   return (
     <div
-      className={`${backgroundColor} w-full aspect-[7/8] p-4 flex flex-col justify-between ${className}`}
+      className={`${backgroundColor} w-full aspect-[15/16] p-4 flex flex-col justify-between ${className}`}
     >
       {/* Header Section - Number and Tag */}
       <div className="flex items-start justify-between">
@@ -76,7 +76,7 @@ export default function DataCard({
       {/* Footer Section - Icon and Title */}
       <div className="flex flex-col gap-2">
         {/* Icon */}
-        <div className={`w-14 h-14 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
+        <div className={`w-14 h-14 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0 mb-2`}>
           <img
             src={iconSrc}
             alt={iconAlt}
