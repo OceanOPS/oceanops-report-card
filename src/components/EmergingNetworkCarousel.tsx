@@ -52,11 +52,15 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { ReactNode, useCallback, useEffect, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useState, useRef } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import EmergingNetworkCard from './EmergingNetworkCard'
 import CarouselArrow from './CarouselArrow'
 import { GalleryImage } from './ImageGallery'
+
+gsap.registerPlugin(ScrollTrigger)
 
 type DeliveryAreaKey = 'climate' | 'operational' | 'oceanhealth'
 
@@ -127,6 +131,7 @@ export default function EmergingNetworkCarousel({
   className = '',
 }: EmergingNetworkCarouselProps) {
   const { t } = useTranslation()
+  const carouselRef = useRef<HTMLDivElement>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
   const [canScrollPrev, setCanScrollPrev] = useState(false)
@@ -185,6 +190,46 @@ export default function EmergingNetworkCarousel({
     if (emblaApi) emblaApi.scrollTo(index)
   }, [emblaApi])
 
+  // Animate cards cascading from left on scroll
+  useEffect(() => {
+    if (!carouselRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations for users who prefer reduced motion
+      return
+    }
+
+    const ctx = gsap.context(() => {
+      const cardElements = carouselRef.current?.querySelectorAll('.emerging-card-slide')
+      if (!cardElements || cardElements.length === 0) return
+
+      gsap.fromTo(
+        Array.from(cardElements),
+        {
+          opacity: 0,
+          x: -100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          stagger: 0.15, // 150ms between each card
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: carouselRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+        }
+      )
+    }, carouselRef)
+
+    return () => ctx.revert()
+  }, [cards.length])
+
   return (
     <section className={`${backgroundColor} py-12 ${className}`}>
       {/* Header Section */}
@@ -206,11 +251,11 @@ export default function EmergingNetworkCarousel({
 
       {/* Embla Carousel Container */}
       <div className="overflow-hidden px-12 md:px-16 pb-4" ref={emblaRef}>
-        <div className="flex cursor-grab active:cursor-grabbing items-stretch">
+        <div ref={carouselRef} className="flex cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex-[0_0_100%] min-w-0 mr-12 flex"
+              className="emerging-card-slide flex-[0_0_100%] min-w-0 mr-12 flex"
             >
               <EmergingNetworkCard
                 {...card}
