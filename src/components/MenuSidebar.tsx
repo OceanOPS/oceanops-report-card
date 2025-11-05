@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { gsap } from 'gsap'
 import Button from './Button'
 
 /**
@@ -46,6 +47,7 @@ export default function MenuSidebar({
   const [internalIsOpen, setInternalIsOpen] = useState(false)
   const [isPastReportsExpanded, setIsPastReportsExpanded] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
+  const menuItemsRef = useRef<HTMLDivElement>(null)
 
   // Use external control if provided, otherwise use internal state
   const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen
@@ -93,6 +95,40 @@ export default function MenuSidebar({
     return () => {
       document.body.style.overflow = 'unset'
     }
+  }, [isOpen])
+
+  // Animate menu items when sidebar opens
+  useEffect(() => {
+    if (!isOpen || !menuItemsRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const ctx = gsap.context(() => {
+      const items = menuItemsRef.current?.querySelectorAll('.menu-item')
+      if (!items || items.length === 0) return
+
+      if (prefersReducedMotion) {
+        // No animations - show items immediately
+        gsap.set(items, { opacity: 1, x: 0 })
+      } else {
+        // Animate items with stagger
+        gsap.fromTo(
+          items,
+          { opacity: 0, x: 20 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.3,
+            stagger: 0.05, // 50ms between each item
+            ease: 'power2.out',
+            delay: 0.1, // Small delay to let sidebar slide in first
+          }
+        )
+      }
+    }, menuItemsRef)
+
+    return () => ctx.revert()
   }, [isOpen])
 
   const handleMenuItemClick = (item: MenuItem) => {
@@ -242,9 +278,9 @@ export default function MenuSidebar({
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
 
           {/* Menu Items */}
-          <nav className="space-y-4 mb-6">
+          <nav ref={menuItemsRef} className="space-y-4 mb-6">
             {menuItems.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="menu-item">
                 {/* Main Item */}
                 <div
                   onClick={() => handleMenuItemClick(item)}
