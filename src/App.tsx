@@ -1838,7 +1838,7 @@ function App() {
       >
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph2')}</p>
-        <p className="text-2xl leading-relaxed mb-4 text-goos-green-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
+        <p className="text-3xl leading-relaxed mb-4 text-goos-green-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
       </ContentModule>
 
  <div className="px-16 bg-goos-green-100">
@@ -1895,7 +1895,7 @@ function App() {
           bgColor: 'bg-goos-blue-700',
         }}
         rightContent={
-          <p className="text-2xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
+          <p className="text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
             We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our global ocean observing system!
           </p>
         }
