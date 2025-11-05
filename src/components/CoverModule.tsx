@@ -88,31 +88,31 @@ export default function CoverModule({
           scale: 1,
         })
       } else {
-        // Animate normally
+        // Animate normally with improved dynamics
         // Create a timeline for sequential animations
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+        const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
 
-        // Animate logo from top
+        // Animate logo from top with slight bounce
         tl.fromTo(
           logoRef.current,
-          { opacity: 0, y: -50 },
-          { opacity: 1, y: 0, duration: 1 }
+          { opacity: 0, y: -30, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.2)' }
         )
 
-        // Animate title from center
+        // Animate title with scale and fade
         tl.fromTo(
           titleRef.current,
-          { opacity: 0, scale: 0.9 },
-          { opacity: 1, scale: 1, duration: 1 },
-          '-=0.5' // Overlap with previous animation
+          { opacity: 0, scale: 0.95, y: 20 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.7 },
+          '-=0.4' // Overlap with previous animation
         )
 
         // Animate partner logos from bottom
         tl.fromTo(
           partnerLogosRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1 },
-          '-=0.5' // Overlap with previous animation
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          '-=0.3' // Overlap with previous animation
         )
       }
     })
