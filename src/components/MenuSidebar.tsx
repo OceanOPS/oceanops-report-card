@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import Button from './Button'
 
 /**
  * MenuSidebar Component
@@ -165,7 +166,7 @@ export default function MenuSidebar({
           {/* Close Button */}
           <button
             onClick={() => setIsOpen()}
-            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-goos-white hover:bg-goos-blue-800 rounded-full transition-colors"
+            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-goos-white hover:bg-goos-blue-800 rounded-full transition-colors z-10"
             aria-label="Close menu"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -173,8 +174,8 @@ export default function MenuSidebar({
             </svg>
           </button>
 
-          {/* Language Selector */}
-          <div className="mb-6">
+          {/* Language Selector - Hidden for now, will be enabled in future release */}
+          <div className="mb-6 hidden">
             <div className="flex gap-1.5 text-lg">
               <button
                 onClick={() => changeLanguage('en')}
@@ -201,7 +202,7 @@ export default function MenuSidebar({
           </div>
 
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="mb-6">
             <div
               onClick={() => {
                 // Close menu first
@@ -219,18 +220,23 @@ export default function MenuSidebar({
                   }, 1000)
                 }, 300)
               }}
-              className="cursor-pointer hover:opacity-80 transition-opacity"
+              className="cursor-pointer hover:opacity-80 transition-opacity mb-8 pr-12"
             >
               <h1 className="text-4xl font-extrabold leading-tight">{t('menu.title')}</h1>
               <p className="text-4xl font-normal">{t('menu.year')}</p>
             </div>
-            <button className="bg-goos-blue-700 px-3 py-1.5 flex items-center gap-1 hover:bg-goos-blue-600 transition-colors">
-              <span className="font-semibold text-lg">{t('menu.downloadPdf')}</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 12L3 7H6V2H10V7H13L8 12Z" fill="currentColor"/>
-                <path d="M2 14H14V16H2V14Z" fill="currentColor"/>
-              </svg>
-            </button>
+            <Button
+              variant="download"
+              label={t('menu.downloadPdf')}
+              onClick={() => {
+                // TODO: Implement PDF download
+                console.log('Download PDF')
+              }}
+              textColor="text-white"
+              bgColor="bg-goos-blue-700"
+              iconColor="text-goos-blue-700"
+              iconBgColor="bg-white"
+            />
           </div>
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>

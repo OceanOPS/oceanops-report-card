@@ -109,6 +109,16 @@ type ButtonProps =
       iconBgColor?: string
       className?: string
     }
+  | {
+      variant: 'download'
+      label: string
+      onClick: () => void
+      textColor?: string
+      bgColor?: string
+      iconColor?: string
+      iconBgColor?: string
+      className?: string
+    }
 
 export default function Button(props: ButtonProps) {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -231,6 +241,28 @@ export default function Button(props: ButtonProps) {
             className={`w-3 h-3 ${iconColor}`}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </div>
+      </button>
+    )
+  }
+
+  // Download button (custom onClick with chevron down icon)
+  if (props.variant === 'download') {
+    return (
+      <button onClick={props.onClick} className={baseClasses}>
+        {props.label}
+        {/* Chevron down icon with circular background */}
+        <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className={`w-3 h-3 ${iconColor}`}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </div>
       </button>
