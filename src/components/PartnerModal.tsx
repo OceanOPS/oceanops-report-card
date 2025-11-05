@@ -55,12 +55,12 @@ const FIXED_NETWORKS = [
   { key: 'fvon', icon: '/icons/network/soop.svg', labelKey: 'partners.networks.fvon' },
   { key: 'sotVos', icon: '/icons/network/vos.svg', labelKey: 'partners.networks.sotVos' },
   { key: 'sotAsap', icon: '/icons/network/asap.svg', labelKey: 'partners.networks.sotAsap' },
-  { key: 'sot', icon: '/icons/network/soop.svg', labelKey: 'partners.networks.sot' },
+  { key: 'sot', icon: '/icons/network/xbt-soop.svg', labelKey: 'partners.networks.sot' },
   { key: 'goShip', icon: '/icons/network/go_ship.svg', labelKey: 'partners.networks.goShip' },
   { key: 'gloss', icon: '/icons/network/gloss.svg', labelKey: 'partners.networks.gloss' },
   { key: 'oceanSites', icon: '/icons/network/ocean_sites.svg', labelKey: 'partners.networks.oceanSites' },
   { key: 'mooredBuoys', icon: '/icons/network/dbcp_moored.svg', labelKey: 'partners.networks.mooredBuoys' },
-  { key: 'tsunamiBuoys', icon: '/icons/network/dbcp_moored.svg', labelKey: 'partners.networks.tsunamiBuoys' },
+  { key: 'tsunamiBuoys', icon: '/icons/network/tsunami_buoys.svg', labelKey: 'partners.networks.tsunamiBuoys' },
   { key: 'hfRadars', icon: '/icons/network/hf_radar.svg', labelKey: 'partners.networks.hfRadars' },
 ] as const
 
