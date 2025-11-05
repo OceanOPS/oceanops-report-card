@@ -58,6 +58,7 @@ interface CoverModuleProps {
   backgroundBlendMode?: BlendMode
   goosLogoVariant?: 'white' | 'color'
   partnerLogosVariant?: 'white' | 'color'
+  startAnimation?: boolean  // Controls when entrance animation should start
 }
 
 export default function CoverModule({
@@ -73,14 +74,19 @@ export default function CoverModule({
   backgroundBlendMode = 'normal',
   goosLogoVariant = 'white',
   partnerLogosVariant = 'white',
+  startAnimation = true,
 }: CoverModuleProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const fadeOverlayRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const partnerLogosRef = useRef<HTMLDivElement>(null)
+  const backgroundMediaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Don't start animation until told to do so
+    if (!startAnimation) return
+
     // Respect user's motion preferences
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -92,6 +98,10 @@ export default function CoverModule({
           y: 0,
           scale: 1,
         })
+        // Set background to normal scale (no zoom animation)
+        if (backgroundMediaRef.current) {
+          gsap.set(backgroundMediaRef.current, { scale: 1 })
+        }
         // Set fade overlay to final state without animation
         if (fadeOverlayRef.current) {
           gsap.set(fadeOverlayRef.current, { opacity: 0 })
@@ -101,27 +111,38 @@ export default function CoverModule({
         // Create a timeline for sequential animations
         const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
 
-        // Animate logo from top with slight bounce
+        // Animate background video zoom out - faster and more abrupt
+        if (backgroundMediaRef.current) {
+          tl.fromTo(
+            backgroundMediaRef.current,
+            { scale: 1.4 },
+            { scale: 1, duration: 0.9, ease: 'power3.out' },
+            0  // Start immediately
+          )
+        }
+
+        // Animate logo from top - faster and more abrupt
         tl.fromTo(
           logoRef.current,
           { opacity: 0, y: -30, scale: 0.9 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.2)' }
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.7)' },
+          0.1  // Very quick after zoom starts
         )
 
-        // Animate title with scale and fade
+        // Animate title - faster and more abrupt
         tl.fromTo(
           titleRef.current,
           { opacity: 0, scale: 0.95, y: 20 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.7 },
-          '-=0.4' // Overlap with previous animation
+          { opacity: 1, scale: 1, y: 0, duration: 0.5 },
+          '-=0.3' // Less overlap, faster sequence
         )
 
-        // Animate partner logos from bottom
+        // Animate partner logos - faster and more abrupt
         tl.fromTo(
           partnerLogosRef.current,
           { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6 },
-          '-=0.3' // Overlap with previous animation
+          { opacity: 1, y: 0, duration: 0.4 },
+          '-=0.2' // Less overlap, faster sequence
         )
 
         // Wait for entrance animations to complete, then set up scroll animations
@@ -201,7 +222,7 @@ export default function CoverModule({
     })
 
     return () => ctx.revert()
-  }, [])
+  }, [startAnimation])
   // Para imágenes usamos background-image para mejor control, videos usan tag video
   const backgroundStyles: React.CSSProperties = mediaType === 'image' && backgroundMedia
     ? {
@@ -233,7 +254,7 @@ export default function CoverModule({
     <section ref={sectionRef} className={`relative w-full h-screen ${backgroundColor} p-12 md:p-16 flex flex-col overflow-hidden`}>
       {/* Background Media */}
       {backgroundMedia && (
-        <div className="absolute inset-0 pointer-events-none">
+        <div ref={backgroundMediaRef} className="absolute inset-0 pointer-events-none" style={{ transform: 'scale(1.4)' }}>
           {mediaType === 'video' ? (
             <video
               autoPlay
@@ -260,18 +281,18 @@ export default function CoverModule({
 
       <div className="relative z-10 flex flex-col justify-between flex-1">
         {/* Top: GOOS Logo */}
-        <div ref={logoRef}>
+        <div ref={logoRef} style={{ opacity: 0 }}>
           <GoosLogo variant={goosLogoVariant} />
         </div>
 
         {/* Middle: Main Title */}
-        <div ref={titleRef} className="flex flex-col gap-4 my-auto">
+        <div ref={titleRef} className="flex flex-col gap-4 my-auto" style={{ opacity: 0 }}>
           <h1 className="text-6xl font-extrabold text-goos-white">{title}</h1>
           <p className={`text-6xl font-normal ${yearColor}`}>{year}</p>
         </div>
 
         {/* Bottom: Partner Logos */}
-        <div ref={partnerLogosRef}>
+        <div ref={partnerLogosRef} style={{ opacity: 0 }}>
           <PartnerLogos variant={partnerLogosVariant} />
         </div>
       </div>

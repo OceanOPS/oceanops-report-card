@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
+import Preloader from './components/Preloader'
 import CoverModule from './components/CoverModule'
 import PartnerModal from './components/PartnerModal'
 import { partnerCountries } from './data/partnerCountries'
@@ -27,7 +28,20 @@ import DeliveryAreasNav from './components/DeliveryAreasNav'
 
 function App() {
   const { t } = useTranslation()
+  const [isLoading, setIsLoading] = useState(true)
   const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
+
+  // Block scroll while preloader is active
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isLoading])
 
   // Handle deep linking - scroll to section if hash is present in URL
   useEffect(() => {
@@ -107,9 +121,20 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <>
+      {/* Preloader */}
+      {isLoading && (
+        <Preloader
+          onComplete={() => setIsLoading(false)}
+          videoUrl="/videos/video.mp4"
+        />
+      )}
+
+      {/* Main content - Visible but CoverModule waits for preloader */}
+      <div>
       {/* MenuSidebar - Fixed Menu Button with Slide-in Sidebar */}
       <MenuSidebar
+        show={!isLoading}
         menuItems={[
           { id: 'overview-section', titleKey: 'menu.overview', accentColor: 'bg-goos-orange-600' },
           {
@@ -167,6 +192,8 @@ function App() {
         // Background Image or Video
         mediaType="video"
         backgroundMedia="/videos/video.mp4"
+        // Animation control - starts after preloader finishes
+        startAnimation={!isLoading}
       />
       </div>
 
@@ -1968,7 +1995,8 @@ function App() {
       </div>
 
       </div> {/* End of content overlay container */}
-    </div>
+      </div> {/* End of main content */}
+    </>
   )
 }
 

@@ -36,18 +36,21 @@ interface MenuSidebarProps {
   menuItems: MenuItem[]
   isOpen?: boolean
   onClose?: () => void
+  show?: boolean  // Controls visibility and entrance animation
 }
 
 export default function MenuSidebar({
   menuItems,
   isOpen: externalIsOpen,
   onClose,
+  show = true,
 }: MenuSidebarProps) {
   const { t, i18n } = useTranslation()
   const [internalIsOpen, setInternalIsOpen] = useState(false)
   const [isPastReportsExpanded, setIsPastReportsExpanded] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
   const menuItemsRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   // Use external control if provided, otherwise use internal state
   const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen
@@ -96,6 +99,37 @@ export default function MenuSidebar({
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+
+  // Animate button entrance when show becomes true
+  useEffect(() => {
+    if (!buttonRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animation - just show/hide
+      gsap.set(buttonRef.current, { opacity: show ? 1 : 0, scale: 1, x: 0 })
+    } else {
+      if (show) {
+        // Animate from right with bounce - delayed to appear after cover animations
+        gsap.fromTo(
+          buttonRef.current,
+          { opacity: 0, scale: 0.5, x: 100 },
+          {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            duration: 0.6,
+            ease: 'back.out(1.7)',
+            delay: 1.8  // Wait longer for cover animations to finish
+          }
+        )
+      } else {
+        gsap.set(buttonRef.current, { opacity: 0 })
+      }
+    }
+  }, [show])
 
   // Animate menu items when sidebar opens
   useEffect(() => {
@@ -174,8 +208,10 @@ export default function MenuSidebar({
     <>
       {/* Hamburger Menu Button - Fixed Top Right */}
       <button
+        ref={buttonRef}
         onClick={() => externalIsOpen !== undefined ? onClose?.() : setInternalIsOpen(true)}
         className="fixed top-16 right-16 z-50 w-16 h-16 bg-goos-blue-700 hover:bg-goos-blue-600 transition-colors flex flex-col items-center justify-center gap-2 rounded-full"
+        style={{ opacity: 0 }}
         aria-label="Open menu"
       >
         <span className="w-8 h-0.5 bg-goos-white"></span>
