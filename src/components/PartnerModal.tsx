@@ -215,7 +215,7 @@ export default function PartnerModal({
               >
                 {isExpanded ? (
                   // Expanded Card
-                  <div className="bg-goos-blue-900 border-t border-goos-gray-400 px-8 py-8 space-y-8 animate-smoothExpand">
+                  <div className="bg-goos-blue-900 border-t border-goos-blue-700 px-8 py-8 space-y-8 animate-smoothExpand">
                     {/* Country Header - Entire header is clickable */}
                     <div
                       onClick={() => setExpandedCountry(null)}
@@ -223,7 +223,7 @@ export default function PartnerModal({
                     >
                       <div className="flex items-center gap-3">
                         {showFlags && country.countryCode && (
-                          <div className="flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                          <div className="flex-shrink-0 w-10 h-6 transition-transform duration-300 hover:scale-110">
                             <img
                               src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                               alt={`${country.name} flag`}
@@ -248,7 +248,7 @@ export default function PartnerModal({
 
                     {/* Description - Only show if country has one */}
                     {country.description && (
-                      <p className="text-goos-gray-800 text-xl leading-relaxed animate-fadeInUp animate-delay-100">
+                      <p className="text-goos-white text-xl leading-relaxed animate-fadeInUp animate-delay-100">
                         {country.description}
                       </p>
                     )}
@@ -301,7 +301,7 @@ export default function PartnerModal({
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         {showFlags && country.countryCode && (
-                          <div className="flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                          <div className="flex-shrink-0 w-10 h-6 transition-transform duration-300 hover:scale-110">
                             <img
                               src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                               alt={`${country.name} flag`}
