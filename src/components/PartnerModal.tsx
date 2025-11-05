@@ -223,7 +223,7 @@ export default function PartnerModal({
                     >
                       <div className="flex items-center gap-3">
                         {showFlags && country.countryCode && (
-                          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-goos-blue-700 flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                          <div className="flex-shrink-0 transition-transform duration-300 hover:scale-110">
                             <img
                               src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                               alt={`${country.name} flag`}
@@ -301,7 +301,7 @@ export default function PartnerModal({
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         {showFlags && country.countryCode && (
-                          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-goos-white flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                          <div className="flex-shrink-0 transition-transform duration-300 hover:scale-110">
                             <img
                               src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                               alt={`${country.name} flag`}
