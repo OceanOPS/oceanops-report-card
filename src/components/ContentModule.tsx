@@ -167,17 +167,18 @@ export default function ContentModule({
           Array.from(elements),
           {
             opacity: 0,
-            y: 30,
+            y: 20,
           },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            stagger: 0.15,
+            duration: 0.5,
+            stagger: 0.08,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: contentRef.current,
-              start: 'top 80%',
+              start: 'top 90%',
+              toggleActions: 'play none none none',
               once: true,
             },
           }

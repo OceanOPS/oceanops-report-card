@@ -10,7 +10,6 @@ import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import LogoStrip from './components/LogoStrip'
 import NetworkCarousel from './components/NetworkCarousel'
 import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
@@ -1978,23 +1977,6 @@ function App() {
         onClose={() => setIsPartnerModalOpen(false)}
         countries={partnerCountries}
         showFlags={true}
-      />
-
-      {/* LogoStrip Examples */}
-      {/* Example 1: 9 logos with blue background */}
-      <LogoStrip
-        logos={[
-          { src: '/logos/oceanops-w.png', altKey: 'logos.oceanops', url: 'https://www.ocean-ops.org' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner1', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner2', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner3', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner4', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner5', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner6', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner7', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner8', url: 'https://example.com' },
-        ]}
-        backgroundColor="bg-goos-blue-900"
       />
 
       {/* Contact Information */}
