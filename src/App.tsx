@@ -1928,29 +1928,34 @@ function App() {
           quoteColor="text-goos-white"
           authorColor="text-goos-orange-500"
         />
+
+              {/* Spacer */}
+      <Spacer size="sm" backgroundColor="bg-goos-blue-900"/>
+
+        {/* Number and description in same line */}
+        <div className="flex gap-8 items-center mt-8 mb-6">
+          <p className="text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
+          <p className="text-xl font-normal text-goos-white leading-[1.5] flex-1">Member States contributing to the system.</p>
+        </div>
+
+        {/* Button below */}
+        <div className="mb-8">
+          <Button
+            variant="action"
+            label="VIEW FULL LIST"
+            onClick={() => setIsPartnerModalOpen(true)}
+            textColor="text-white"
+            bgColor="bg-goos-blue-700"
+          />
+        </div>
+
+        {/* Acknowledgment text */}
+        <p className="text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
+          We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our global ocean observing system!
+        </p>
       </ContentModule>
       </div>
 
-      {/* Acknowledgments Panel */}
-      <InsightPanel
-        largeNumber="65"
-        largeNumberDescription="Lorem ipsum dolor sit amet aliqua."
-        button={{
-          variant: 'action',
-          label: 'VIEW FULL LIST',
-          onClick: () => setIsPartnerModalOpen(true),
-          textColor: 'text-white',
-          bgColor: 'bg-goos-blue-700',
-        }}
-        rightContent={
-          <p className="text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
-            We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our global ocean observing system!
-          </p>
-        }
-        backgroundColor="bg-goos-blue-900"
-        textColor="text-goos-white"
-        numberColor="text-goos-orange-500"
-      />
       <Spacer size="xl" backgroundColor="bg-goos-blue-900"/>
       {/* Hero Image Grid */}
       <ImageGrid
