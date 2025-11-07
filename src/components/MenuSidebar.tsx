@@ -295,7 +295,8 @@ export default function MenuSidebar({
               <h1 className="text-4xl font-extrabold leading-tight">{t('menu.title')}</h1>
               <p className="text-4xl font-normal">{t('menu.year')}</p>
             </div>
-            <Button
+            {/* Download PDF button - hidden for now, will be enabled later */}
+            {/* <Button
               variant="download"
               label={t('menu.downloadPdf')}
               onClick={() => {
@@ -306,7 +307,7 @@ export default function MenuSidebar({
               bgColor="bg-goos-blue-700"
               iconColor="text-goos-blue-700"
               iconBgColor="bg-white"
-            />
+            /> */}
           </div>
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>

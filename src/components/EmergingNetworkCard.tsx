@@ -157,9 +157,21 @@ export default function EmergingNetworkCard({
 }: EmergingNetworkCardProps) {
   const { t } = useTranslation()
   const [isMediaModalOpen, setIsMediaModalOpen] = useState(false)
+  const [isContentModalOpen, setIsContentModalOpen] = useState(false)
 
   // Limit delivery areas to 1-3
   const limitedAreas = deliveryAreas.slice(0, 3)
+
+  // Get first sentence from paragraph
+  const getFirstSentence = (text: string) => {
+    // Remove HTML tags for sentence detection
+    const plainText = text.replace(/<[^>]*>/g, '')
+    // Find first sentence ending with . ! or ?
+    const match = plainText.match(/^[^.!?]+[.!?]/)
+    return match ? match[0] : plainText.substring(0, 200) // Fallback to 200 chars
+  }
+
+  const truncatedText = getFirstSentence(t(paragraph1Key))
 
   // Get the preview image for the media section
   const getPreviewImageSrc = () => {
@@ -234,24 +246,21 @@ export default function EmergingNetworkCard({
             </div>
 
             {/* Title */}
-            <h2 className={`${textColor} text-3xl font-extrabold leading-9`}>
+            <h2 className={`${textColor} text-2xl font-extrabold leading-9`}>
               {t(titleKey)}
             </h2>
           </div>
 
-          {/* Description */}
-          <div className="space-y-4">
-            {/* Paragraph 1 */}
-            <p
-              className={`${textColor} text-base leading-6`}
-              dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
-            />
-
-            {/* Paragraph 2 */}
-            <p className={`${textColor} text-base leading-6`}>
-              {t(paragraph2Key)}
-            </p>
-          </div>
+          {/* Description - First sentence with inline more link */}
+          <p className={`${textColor} text-lg leading-6`}>
+            {truncatedText}..{' '}
+            <button
+              onClick={() => setIsContentModalOpen(true)}
+              className="text-goos-orange-500 hover:underline cursor-pointer"
+            >
+              more
+            </button>
+          </p>
 
           {/* External Link Button (if provided) */}
           {externalLinkUrl && externalLinkTextKey && (
@@ -364,6 +373,28 @@ export default function EmergingNetworkCard({
             </div>
           </div>
         </div>,
+        document.body
+      )}
+
+      {/* Content Modal - Full text */}
+      {createPortal(
+        <ContentModal
+          isOpen={isContentModalOpen}
+          onClose={() => setIsContentModalOpen(false)}
+          title="Emerging Networks"
+          maxWidth="lg"
+        >
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-goos-blue-700">{t(titleKey)}</h3>
+            <p
+              className="text-base leading-6"
+              dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
+            />
+            <p className="text-base leading-6">
+              {t(paragraph2Key)}
+            </p>
+          </div>
+        </ContentModal>,
         document.body
       )}
     </article>
