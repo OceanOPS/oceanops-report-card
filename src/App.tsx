@@ -24,6 +24,7 @@ import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
 import MenuSidebar from './components/MenuSidebar'
 import DeliveryAreasNav from './components/DeliveryAreasNav'
+import ColorStripes from './components/ColorStripes'
 
 function App() {
   const { t } = useTranslation()
@@ -1214,6 +1215,9 @@ function App() {
         </p>
       </ContentModule>
       </div>
+
+      {/* Color Stripes Module */}
+      <ColorStripes stripeColors={['bg-goos-cyan-300', 'bg-goos-cyan-200', 'bg-goos-cyan-100']} />
 
       {/* AMOC Climate Story */}
       <div id="amoc-section" className="pt-16 bg-goos-white">
