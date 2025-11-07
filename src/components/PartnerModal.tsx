@@ -276,7 +276,7 @@ export default function PartnerModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-goos-blue-900 border-b border-blue-900 px-8 py-8 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-goos-blue-900 border-b border-goos-blue-300 px-8 py-8 flex items-center justify-between z-10">
           <h2 className="text-lg font-extrabold text-goos-white">{t(titleKey)}</h2>
           <button
             onClick={onClose}
@@ -316,7 +316,7 @@ export default function PartnerModal({
                   // Expanded Card
                   <div
                     ref={(el) => (expandedContentRef.current[country.name] = el)}
-                    className="bg-goos-blue-900 border-t border-goos-blue-700 px-8 py-8 space-y-8"
+                    className="bg-goos-blue-900 border-t border-goos-blue-900 px-8 py-8 space-y-8"
                   >
                     {/* Country Header - Entire header is clickable */}
                     <div

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
-import Button from './Button'
 
 /**
  * MenuSidebar Component
