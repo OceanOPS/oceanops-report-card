@@ -262,22 +262,22 @@ export default function SatelliteTable() {
             label={t('satelliteObservations.platformButton')}
             modalTitle={t('satelliteObservations.platformModal.title')}
             modalMaxWidth="lg"
-            modalBackgroundColor="bg-goos-white"
+            modalBackgroundColor="bg-goos-blue-900"
             modalContent={
               <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div>
-                  <h2 className="text-2xl text-goos-blue-700 font-semibold mb-1">
+                  <h2 className="text-2xl text-goos-orange-500 font-semibold mb-1">
                     {t('satelliteObservations.platformModal.header')}
                   </h2>
                 </div>
 
                 {/* Contacts Section */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-3">
+                  <h3 className="text-xl text-goos-orange-500 mb-3">
                     Contacts
                   </h3>
-                  <div className="space-y-1 text-lg">
+                  <div className="space-y-1 text-lg text-white">
                     <p>{t('satelliteObservations.platformModal.contacts.sst')}</p>
                     <p>{t('satelliteObservations.platformModal.contacts.sss')}</p>
                     <p>{t('satelliteObservations.platformModal.contacts.seaLevel')}</p>
@@ -290,47 +290,47 @@ export default function SatelliteTable() {
 
                 {/* SST */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-2">
+                  <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.sst.title')}
                   </h3>
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.variables.sst.content')}
                   </p>
                 </div>
 
                 {/* SSS */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-2">
+                  <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.sss.title')}
                   </h3>
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.variables.sss.content')}
                   </p>
                 </div>
 
                 {/* Sea Level */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-2">
+                  <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.seaLevel.title')}
                   </h3>
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.variables.seaLevel.content')}
                   </p>
                 </div>
 
                 {/* Winds */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-2">
+                  <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.winds.title')}
                   </h3>
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.variables.winds.content')}
                   </p>
                 </div>
 
                 {/* Sea Ice */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-2">
+                  <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.seaIce.title')}
                   </h3>
                   <p className="text-lg text-goos-gray-800 leading-relaxed">
@@ -340,20 +340,20 @@ export default function SatelliteTable() {
 
                 {/* Sea State */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-2">
+                  <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.seaState.title')}
                   </h3>
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.variables.seaState.content')}
                   </p>
                 </div>
 
                 {/* Ocean Color */}
                 <div>
-                  <h3 className="text-xl text-goos-blue-700 mb-2">
+                  <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.oceanColor.title')}
                   </h3>
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.variables.oceanColor.content')}
                   </p>
                 </div>

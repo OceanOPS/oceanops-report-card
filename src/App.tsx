@@ -402,56 +402,57 @@ function App() {
           label={t('operationalPlatforms.platformButton')}
           modalTitle={t('operationalPlatforms.platformModal.title')}
           modalMaxWidth="lg"
+          modalBackgroundColor="bg-goos-blue-900"
           modalContent={
             <div className="flex flex-col gap-6">
               {/* Intro */}
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-white">
                 {t('operationalPlatforms.platformModal.intro')}
               </p>
 
               {/* Ship-Based Platforms */}
               <div>
-                <h3 className="text-lg text-goos-blue-700 mb-3 uppercase">
+                <h3 className="text-lg text-goos-orange-500 mb-3 uppercase">
                   {t('operationalPlatforms.platformModal.categories.shipBased.title')}
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.shipBased.aerological.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.shipBased.aerological.content')}
                     </p>
                   </div>
                    <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.content')}
                     </p>
                   </div>
@@ -460,47 +461,47 @@ function App() {
 
               {/* Fixed Platforms */}
               <div>
-                <h3 className="text-lg text-goos-blue-700 mb-3 uppercase">
+                <h3 className="text-lg text-goos-orange-500 mb-3 uppercase">
                   {t('operationalPlatforms.platformModal.categories.fixedPlatforms.title')}
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.content')}
                     </p>
                   </div>
@@ -509,39 +510,39 @@ function App() {
 
               {/* Mobile Platforms */}
               <div>
-                <h3 className="text-lg text-goos-blue-700 mb-3 uppercase">
+                <h3 className="text-lg text-goos-orange-500 mb-3 uppercase">
                   {t('operationalPlatforms.platformModal.categories.mobilePlatforms.title')}
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.content')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">
+                    <h4 className="text-lg font-semibold mb-1 text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.title')}
                     </h4>
-                    <p className="text-base leading-relaxed">
+                    <p className="text-base leading-relaxed text-white">
                       {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.content')}
                     </p>
                   </div>
@@ -790,25 +791,26 @@ function App() {
           label={t('networks.indicatorsButton')}
           modalTitle={t('networks.indicatorsModal.title')}
           modalMaxWidth="lg"
+          modalBackgroundColor="bg-goos-blue-900"
           modalContent={
             <div className="flex flex-col gap-6">
               {/* Introduction */}
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-white">
                 {t('networks.indicatorsModal.intro')}
               </p>
 
               {/* Implementation Status */}
               <div>
-                <h3 className="text-xl text-goos-blue-700 mb-3">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.implementationStatus.title')}
                 </h3>
-                <p className="text-lg leading-relaxed mb-3">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.implementationStatus.description')}
                 </p>
-                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.implementationStatus.cases')}
                 </p>
-                <div className="text-lg leading-relaxed mb-3">
+                <div className="text-lg leading-relaxed mb-3 text-white">
                   <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart1')}</span>
                   {' '}
                   <span>(</span>
@@ -834,13 +836,13 @@ function App() {
 
               {/* Real Time */}
               <div>
-                <h3 className="text-xl text-goos-blue-700 mb-3">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.realTime.title')}
                 </h3>
-                <p className="text-lg leading-relaxed mb-3">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.realTime.description')}
                 </p>
-                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.realTime.requirements')}
                 </p>
                 <div className="bg-gray-100 p-4 rounded">
@@ -853,13 +855,13 @@ function App() {
 
               {/* Archived Delayed Mode Data */}
               <div>
-                <h3 className="text-xl text-goos-blue-700 mb-3">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.archivedHighQuality.title')}
                 </h3>
-                <p className="text-lg leading-relaxed mb-3">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.archivedHighQuality.description')}
                 </p>
-                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.archivedHighQuality.requirements')}
                 </p>
                 <div className="bg-gray-100 p-4 rounded">
@@ -872,13 +874,13 @@ function App() {
 
               {/* Metadata */}
               <div>
-                <h3 className="text-xl text-goos-blue-700 mb-3">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.metadata.title')}
                 </h3>
-                <p className="text-lg leading-relaxed mb-3">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.metadata.description')}
                 </p>
-                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.metadata.requirements')}
                 </p>
                 <div className="bg-gray-100 p-4 rounded">
@@ -891,13 +893,13 @@ function App() {
 
               {/* Best Practices */}
               <div>
-                <h3 className="text-xl text-goos-blue-700 mb-3">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.bestPractices.title')}
                 </h3>
-                <p className="text-lg leading-relaxed mb-3">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.bestPractices.description')}
                 </p>
-                <p className="text-lg leading-relaxed whitespace-pre-line mb-3">
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.bestPractices.details')}
                 </p>
                 <div className="bg-gray-100 p-4 rounded">
@@ -910,7 +912,7 @@ function App() {
 
               {/* GOOS Delivery Areas */}
               <div>
-                <h3 className="text-xl text-goos-blue-700 mb-3">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.deliveryAreas.title')}
                 </h3>
                 <p className="text-lg leading-relaxed">

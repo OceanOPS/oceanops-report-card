@@ -138,13 +138,13 @@ export default function ContentModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with close button */}
-        <div className={`sticky top-0 z-10 ${backgroundColor} border-b border-gray-200 px-8 py-4 flex items-center justify-between`}>
+        <div className={`sticky top-0 z-10 ${backgroundColor} border-b ${backgroundColor === 'bg-goos-blue-900' ? 'border-goos-blue-700' : 'border-gray-200'} px-8 py-4 flex items-center justify-between`}>
           {title && (
-            <h2 className="text-lg font-extrabold text-goos-blue-700">{title}</h2>
+            <h2 className={`text-lg font-extrabold ${backgroundColor === 'bg-goos-blue-900' ? 'text-goos-orange-500' : 'text-goos-blue-700'}`}>{title}</h2>
           )}
           <button
             onClick={onClose}
-            className="ml-auto text-gray-500 hover:text-gray-700 transition-colors"
+            className={`ml-auto transition-colors ${backgroundColor === 'bg-goos-blue-900' ? 'text-white hover:text-gray-300' : 'text-gray-500 hover:text-gray-700'}`}
             aria-label="Close modal"
           >
             <svg
