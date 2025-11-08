@@ -229,11 +229,11 @@ export default function MenuSidebar({
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-screen bg-goos-blue-900 text-goos-white w-full sm:max-w-[500px] md:max-w-[600px] lg:max-w-[665px] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed top-0 right-0 h-screen min-h-screen bg-goos-blue-900 text-goos-white w-full sm:max-w-[500px] md:max-w-[600px] lg:max-w-[665px] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-4 sm:p-6 md:p-8">
+        <div className="p-4 sm:p-6 md:p-8 min-h-full">
           {/* Close Button */}
           <button
             onClick={() => setIsOpen()}
