@@ -1907,7 +1907,7 @@ function App() {
       <ContentModule
         title={t('southAfrica.title')}
         titleLevel="h3"
-        introduction={t('southAfrica.contributors')}
+        // introduction={t('southAfrica.contributors')}
         layout="split"
         backgroundColor="bg-goos-green-100"
         titleColor="text-goos-blue-700"
@@ -1927,18 +1927,33 @@ function App() {
         <ImageGallery
           images={[
             {
-              src: '/images/content.jpg',
-              alt: t('content.section1.gallery.image1.alt'),
-              caption: t('content.section1.gallery.image1.caption'),
+              src: '/images/sa1.jpg',
+              alt: 'South Africa observation 1',
+              caption: '',
+            },
+            {
+              src: '/images/sa2.png',
+              alt: 'South Africa observation 2',
+              caption: '',
+            },
+            {
+              src: '/images/sa3.png',
+              alt: 'South Africa observation 3',
+              caption: '',
+            },
+            {
+              src: '/images/sa4.png',
+              alt: 'South Africa observation 4',
+              caption: '',
             },
           ]}
           aspectRatio="video"
           objectFit="cover"
           captionColor="text-goos-gray-800"
           arrowColor="text-goos-white"
-          arrowBgColor="bg-goos-orange-600"
+          arrowBgColor="bg-goos-green-700"
           dotColor="bg-gray-200"
-          activeDotColor="bg-goos-orange-600"
+          activeDotColor="bg-goos-green-700"
         />
         {/* Spacer between modules */}
          <Spacer size="sm" />
@@ -1972,16 +1987,13 @@ function App() {
       </ContentModule>
 
  <div className="px-16 bg-goos-green-100">
-        {/* YouTube Video */}
-        <VideoModal
-          videoType="youtube"
-          videoId="dQw4w9WgXcQ"
-          previewImage="/images/content.jpg"
-          previewAlt="10,000 Ships for the Ocean video"
-          caption="Watch the launch of 10,000 Ships for the Ocean initiative"
+        {/* Image - 10,000 Ships */}
+        <ImageCaption
+          src="/images/10k.png"
+          alt="10,000 Ships for the Ocean"
+          caption=""
           aspectRatio="video"
-          playButtonColor="bg-goos-orange-500"
-          captionColor="text-goos-gray-800"
+          objectFit="cover"
         />
         {/* Spacer between modules */}
          <Spacer size="sm" />
