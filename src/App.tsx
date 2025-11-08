@@ -1698,6 +1698,35 @@ function App() {
         <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph2')}</p>
         <p className="text-xl leading-relaxed mb-8">{t('oceanHealth.paragraph3')}</p>
 
+        {/* Gallery - Ocean Health observations */}
+        <ImageGallery
+          images={[
+            {
+              src: '/images/oh1.jpeg',
+              alt: 'Ocean health observation 1',
+              caption: ''
+            },
+            {
+              src: '/images/oh2.jpeg',
+              alt: 'Ocean health observation 2',
+              caption: ''
+            },
+            {
+              src: '/images/oh3.jpeg',
+              alt: 'Ocean health observation 3',
+              caption: ''
+            }
+          ]}
+          aspectRatio="square"
+          objectFit="cover"
+          arrowColor="text-goos-white"
+          arrowBgColor="bg-goos-blue-700"
+          dotColor="bg-gray-200"
+          activeDotColor="bg-goos-blue-700"
+        />
+
+        <Spacer size="xs" />
+
         {/* Observations & Benefits */}
         <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.observationsTitle')}</h3>
         <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph4')}</p>
@@ -1705,10 +1734,10 @@ function App() {
 
         {/* Image - Seal foraging trips */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/imos_anim_230624.gif"
           alt={t('oceanHealth.imageCaption')}
           caption={t('oceanHealth.imageCaption')}
-          aspectRatio="video"
+          aspectRatio="auto"
           objectFit="cover"
         />
 
@@ -1842,7 +1871,7 @@ function App() {
         quote={t('oceanHealth.quote2.text')}
         authorName={t('oceanHealth.quote2.author')}
         authorTitle={t('oceanHealth.quote2.position')}
-        imageSrc="/images/content.jpg"
+        imageSrc="/images/clive.jpeg"
         imageAlt="Dr. Clive McMahon"
         height="fullscreen"
         imagePosition="left"
