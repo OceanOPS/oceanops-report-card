@@ -261,7 +261,7 @@ export default function SatelliteTable() {
             variant="modal"
             label={t('satelliteObservations.platformButton')}
             modalTitle={t('satelliteObservations.platformModal.title')}
-            modalMaxWidth="xl"
+            modalMaxWidth="lg"
             modalBackgroundColor="bg-goos-white"
             modalContent={
               <div className="flex flex-col gap-6">

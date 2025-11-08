@@ -17,7 +17,6 @@ import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
-import VideoModal from './components/VideoModal'
 import SatelliteTable from './components/SatelliteTable'
 import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
@@ -790,7 +789,7 @@ function App() {
           variant="modal"
           label={t('networks.indicatorsButton')}
           modalTitle={t('networks.indicatorsModal.title')}
-          modalMaxWidth="xl"
+          modalMaxWidth="lg"
           modalContent={
             <div className="flex flex-col gap-6">
               {/* Introduction */}
@@ -2092,6 +2091,8 @@ function App() {
         <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }} />
         <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }} />
         <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph3')}</p>
+        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }} />
+        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph5')}</p>
       </ContentModule>
       </div>
 
