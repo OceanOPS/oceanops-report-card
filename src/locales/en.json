@@ -237,15 +237,15 @@
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
       },
-      "statsTitle": "Networks by the numbers",
+      "statsTitle": "GOOS In situ networks by the numbers",
       "stats": {
         "stat1": {
           "number": "64",
           "description": "contributing countries"
         },
         "stat2": {
-          "number": "13",
-          "description": "global ocean observing networks (+4 emerging)"
+          "number": "17",
+          "description": "global ocean observing networks (including 4 emerging)"
         },
         "stat3": {
           "number": "9,897",
@@ -379,8 +379,8 @@
     },
     "ratings": {
       "implementationStatus": "Implementation Status",
-      "realTime": "Real Time",
-      "archivedHighQuality": "Archived High Quality",
+      "realTime": "Real Time Data",
+      "archivedHighQuality": "Archived Delayed Mode",
       "metadata": "Metadata",
       "bestPractices": "Best Practices"
     },
@@ -468,7 +468,7 @@
       "iconAlt": "DBCP Tsunami Buoys - Tsunami detection and reporting buoys"
     },
     "hfRadar": {
-      "title": "HF radars - HF",
+      "title": "High Frequency radars - HF radars",
       "iconAlt": "HF Radar Network - High Frequency radar coastal current mapping"
     },
     "dbcpDrifting": {
@@ -574,7 +574,7 @@
             "content": "Tsunami buoys that have delivered data to the GTS within the last 30 days"
           },
           "hfRadars": {
-            "title": "HF radars - HF",
+            "title": "High Frequency radars - HF radars",
             "content": "All HF radars registered at OceanOPS"
           }
         },

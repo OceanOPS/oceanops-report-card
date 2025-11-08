@@ -245,7 +245,7 @@ function App() {
         }
       >
         <p className="text-xl font-normal text-goos-white leading-[1.5] mt-4">
-          {t('intro.paragraph1')}
+          The <span className="text-goos-orange-500">Global Ocean Observing System (GOOS) Status Report 2025</span> highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.
         </p>
       </ContentModule>
       </div>
@@ -328,21 +328,25 @@ function App() {
         <p className="text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph11')}
         </p>
-
-        <Spacer size="sm" />
-
-        {/* Quote Block */}
-        <QuoteBlock
-          variant="quote"
-          quote={t('content.section1.quote.text')}
-          quoteColor="text-goos-white"
-          borderColor="border-goos-orange-600"
-          authorName={t('content.section1.quote.authorName')}
-          authorTitle={t('content.section1.quote.authorTitle')}
-          authorColor="text-goos-orange-500"
-        />
       </ContentModule>
       </div>
+
+      <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
+
+      {/* M. Belbéoch Quote with Image */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/belbeoch.jpg"
+        imageAlt="M. Belbéoch"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-blue-800"
+        quoteColor="text-goos-white"
+        authorColor="text-goos-white"
+      />
+<Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
       {/* Stats Grid - 4x1 */}
       <div id="stats-section">
@@ -352,7 +356,7 @@ function App() {
           lineColor="bg-goos-orange-600"
           leftContent={
             <p className="text-xl leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Our global community of providers and operators are working together to deliver essential ocean information every day.
             </p>
           }
           stats={[
@@ -597,7 +601,7 @@ function App() {
             iconSrc: '/icons/network/asap.svg',
             iconAlt: 'networks.sotAsap.iconAlt',
             titleKey: 'networks.sotAsap.title',
-            networkUrl: 'https://www.ocean-ops.org',
+            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: "No target",
@@ -629,7 +633,7 @@ function App() {
             iconSrc: '/icons/network/gloss.svg',
             iconAlt: 'networks.gloss.iconAlt',
             titleKey: 'networks.gloss.title',
-            networkUrl: 'http://www.gloss-sealevel.org/',
+            networkUrl: 'https://gloss-sealevel.org/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 1.5,
@@ -645,7 +649,7 @@ function App() {
             iconSrc: '/icons/network/ocean_sites.svg',
             iconAlt: 'networks.oceanSites.iconAlt',
             titleKey: 'networks.oceanSites.title',
-            networkUrl: 'https://www.ocean-ops.org/board?modules=[{%22id%22:6}]&t=oceansites',
+            networkUrl: 'https://www.ocean-ops.org/oceansites/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
@@ -661,7 +665,7 @@ function App() {
             iconSrc: '/icons/network/dbcp_moored.svg',
             iconAlt: 'networks.dbcpMoored.iconAlt',
             titleKey: 'networks.dbcpMoored.title',
-            networkUrl: 'https://www.ocean-ops.org/DBCP',
+            networkUrl: 'https://www.ocean-ops.org/dbcp/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: "No target",
@@ -677,7 +681,7 @@ function App() {
             iconSrc: '/icons/network/tsunami_buoys.svg',
             iconAlt: 'networks.dbcpTsunami.iconAlt',
             titleKey: 'networks.dbcpTsunami.title',
-            networkUrl: 'https://www.ocean-ops.org/DBCP',
+            networkUrl: 'https://www.ocean-ops.org/dbcp/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
@@ -693,23 +697,23 @@ function App() {
             iconSrc: '/icons/network/hf_radar.svg',
             iconAlt: 'networks.hfRadar.iconAlt',
             titleKey: 'networks.hfRadar.title',
-            networkUrl: 'http://www.global-hfradar.org/',
+            networkUrl: 'http://global-hfradar.org/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
-              implementationStatus: 1.5,
+              implementationStatus: 2.5,
               realTime: 1.5,
-              archivedHighQuality: 0.5,
-              metadata: 0.5,
+              archivedHighQuality: 1.5,
+              metadata: 3,
               bestPractices: 3,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
             iconSrc: '/icons/network/dbcp_drifters.svg',
             iconAlt: 'networks.dbcpDrifting.iconAlt',
             titleKey: 'networks.dbcpDrifting.title',
-            networkUrl: 'https://www.ocean-ops.org/DBCP',
+            networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
@@ -725,7 +729,7 @@ function App() {
             iconSrc: '/icons/network/argo.svg',
             iconAlt: 'networks.argo.iconAlt',
             titleKey: 'networks.argo.title',
-            networkUrl: 'http://www.argo.ucsd.edu/',
+            networkUrl: 'https://argo.ucsd.edu/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 3,
@@ -741,7 +745,7 @@ function App() {
             iconSrc: '/icons/network/ocean_gliders.svg',
             iconAlt: 'networks.gliders.iconAlt',
             titleKey: 'networks.gliders.title',
-            networkUrl: 'http://www.oceangliders.org/',
+            networkUrl: 'https://www.oceangliders.org/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 1.5,
@@ -757,13 +761,13 @@ function App() {
             iconSrc: '/icons/network/ani_bos.svg',
             iconAlt: 'networks.anibos.iconAlt',
             titleKey: 'networks.anibos.title',
-            networkUrl: 'http://www.meop.net/',
+            networkUrl: 'https://anibos.com/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 0.5,
               realTime: 1.5,
               archivedHighQuality: 1.5,
-              metadata: 1.5,
+              metadata: 2,
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
