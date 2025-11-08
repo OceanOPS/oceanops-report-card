@@ -1,26 +1,38 @@
 import { useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Registrar el plugin de ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+interface DeliveryArea {
+  iconSrc: string;
+  iconAlt: string;
+  textKey: string;
+}
+
 interface ColorStripesProps {
   stripeColors: string[];
   className?: string;
-  words?: string[];
+  deliveryAreas?: DeliveryArea[];
   stripeHeight?: string;
 }
 
 export default function ColorStripes({
   stripeColors,
   className = '',
-  words = ['CREATIVIDAD', 'INNOVACIÓN', 'IMPACTO'],
+  deliveryAreas = [
+    { iconSrc: '/icons/climate.png', iconAlt: 'Climate', textKey: 'networks.deliveryAreas.climate' },
+    { iconSrc: '/icons/operational_services.png', iconAlt: 'Operational Services', textKey: 'networks.deliveryAreas.operational' },
+    { iconSrc: '/icons/ocean_health.png', iconAlt: 'Ocean Health', textKey: 'networks.deliveryAreas.oceanhealth' },
+  ],
   stripeHeight = '150vh'
 }: ColorStripesProps) {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const stripesRef = useRef<(HTMLDivElement | null)[]>([]);
-  const wordsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const deliveryAreasRef = useRef<(HTMLDivElement | null)[]>([]);
   const whiteLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Función para agregar referencias a los stripes
@@ -28,9 +40,9 @@ export default function ColorStripes({
     stripesRef.current[index] = el;
   };
 
-  // Función para agregar referencias a las palabras
-  const addToWordsRefs = (el: HTMLDivElement | null, index: number) => {
-    wordsRef.current[index] = el;
+  // Función para agregar referencias a las delivery areas
+  const addToDeliveryAreasRefs = (el: HTMLDivElement | null, index: number) => {
+    deliveryAreasRef.current[index] = el;
   };
 
   // Función para agregar referencias a las capas blancas
@@ -96,21 +108,21 @@ export default function ColorStripes({
         });
       });
 
-      // ANIMACIÓN DE PALABRAS
-      wordsRef.current.forEach((word, index) => {
-        if (!word) return;
+      // ANIMACIÓN DE DELIVERY AREAS
+      deliveryAreasRef.current.forEach((area, index) => {
+        if (!area) return;
 
-        // ENTRADA de palabras
-        gsap.fromTo(word, 
+        // ENTRADA de delivery areas
+        gsap.fromTo(area, 
           {
             opacity: 0,
             y: 100,
-            scale: 0.7
+            scale: 0.5
           },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
+            scale: 0.6,
             ease: "back.out(1.7)",
             scrollTrigger: {
               trigger: containerRef.current,
@@ -121,11 +133,11 @@ export default function ColorStripes({
           }
         );
 
-        // SALIDA de palabras
-        gsap.to(word, {
+        // SALIDA de delivery areas
+        gsap.to(area, {
           opacity: 0,
           y: -80,
-          scale: 0.8,
+          scale: 0.7,
           ease: "power2.in",
           scrollTrigger: {
             trigger: containerRef.current,
@@ -139,7 +151,7 @@ export default function ColorStripes({
     }, containerRef);
 
     return () => ctx.revert();
-  }, [stripeColors, words]);
+  }, [stripeColors, deliveryAreas]);
 
   return (
     <div 
@@ -160,17 +172,23 @@ export default function ColorStripes({
             className="absolute inset-0 bg-white opacity-0 pointer-events-none"
           />
 
-          {/* Contenedor para la palabra */}
+          {/* Contenedor para delivery area (icono + texto) */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div
-              ref={(el) => addToWordsRefs(el, index)}
-              className="text-white text-4xl md:text-6xl lg:text-7xl font-bold opacity-0 text-center px-4"
-              style={{
-                textShadow: '2px 2px 8px rgba(0,0,0,0.6)',
-                fontFamily: 'system-ui, sans-serif'
-              }}
+              ref={(el) => addToDeliveryAreasRefs(el, index)}
+              className="flex flex-col items-center justify-center gap-6 opacity-0"
             >
-              {words[index]}
+              {/* Icono */}
+              <img
+                src={deliveryAreas[index].iconSrc}
+                alt={deliveryAreas[index].iconAlt}
+                className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+              />
+              {/* Texto */}
+              <p className="text-goos-blue-700 text-2xl md:text-3xl lg:text-4xl font-semibold text-center uppercase tracking-wide font-roboto-condensed"
+              >
+                {t(deliveryAreas[index].textKey)}
+              </p>
             </div>
           </div>
         </div>
