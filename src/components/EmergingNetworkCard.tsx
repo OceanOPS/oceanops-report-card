@@ -312,6 +312,7 @@ export default function EmergingNetworkCard({
           onClose={() => setIsModalOpen(false)}
           title="Emerging Network"
           maxWidth="lg"
+          backgroundColor="bg-goos-blue-900"
         >
           <div className="space-y-6">
             {/* If there's custom modalContent (for gallery), use it entirely */}
@@ -353,12 +354,12 @@ export default function EmergingNetworkCard({
 
                 {/* Text Content */}
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-goos-blue-700">{t(titleKey)}</h3>
+                  <h3 className="text-2xl font-bold text-goos-orange-500">{t(titleKey)}</h3>
                   <p
-                    className="text-xl font-normal text-goos-gray-800 leading-[1.5]"
+                    className="text-xl font-normal text-white leading-[1.5]"
                     dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
                   />
-                  <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  <p className="text-xl font-normal text-white leading-[1.5]">
                     {t(paragraph2Key)}
                   </p>
                 </div>
@@ -370,10 +371,10 @@ export default function EmergingNetworkCard({
                       variant="link"
                       label={t(externalLinkTextKey)}
                       url={externalLinkUrl}
-                      bgColor="bg-goos-blue-700"
+                      bgColor="bg-goos-orange-500"
                       textColor="text-white"
                       iconBgColor="bg-white"
-                      iconColor="text-goos-blue-700"
+                      iconColor="text-goos-orange-500"
                     />
                   </div>
                 )}

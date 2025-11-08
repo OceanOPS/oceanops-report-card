@@ -818,7 +818,7 @@ function App() {
                     href={t('networks.indicatorsModal.implementationStatus.kpiLinkUrl')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-goos-blue-700 hover:underline"
+                    className="text-goos-orange-500 hover:underline"
                   >
                     {t('networks.indicatorsModal.implementationStatus.kpiLinkText')}
                   </a>
@@ -826,9 +826,9 @@ function App() {
                   {' '}
                   <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart2')}</span>
                 </div>
-                <div className="bg-gray-100 p-4 rounded">
-                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.implementationStatus.scoring')}
                   </p>
                 </div>
@@ -845,9 +845,9 @@ function App() {
                 <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.realTime.requirements')}
                 </p>
-                <div className="bg-gray-100 p-4 rounded">
-                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.realTime.scoring')}
                   </p>
                 </div>
@@ -864,9 +864,9 @@ function App() {
                 <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.archivedHighQuality.requirements')}
                 </p>
-                <div className="bg-gray-100 p-4 rounded">
-                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.archivedHighQuality.scoring')}
                   </p>
                 </div>
@@ -883,9 +883,9 @@ function App() {
                 <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.metadata.requirements')}
                 </p>
-                <div className="bg-gray-100 p-4 rounded">
-                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.metadata.scoring')}
                   </p>
                 </div>
@@ -902,9 +902,9 @@ function App() {
                 <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
                   {t('networks.indicatorsModal.bestPractices.details')}
                 </p>
-                <div className="bg-gray-100 p-4 rounded">
-                  <h4 className="text-lg font-semibold mb-2">SCORING:</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono">
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.bestPractices.scoring')}
                   </p>
                 </div>
@@ -915,7 +915,7 @@ function App() {
                 <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.deliveryAreas.title')}
                 </h3>
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed text-white">
                   {t('networks.indicatorsModal.deliveryAreas.description')}
                 </p>
               </div>
@@ -1151,11 +1151,12 @@ function App() {
                   activeDotColor="bg-goos-orange-500"
                 />
                 <div className="flex flex-col gap-4 mt-4">
+                  <h3 className="text-2xl font-bold text-goos-orange-500">{t('emerging.soconet.title')}</h3>
                   <p
-                    className="text-xl font-normal text-goos-gray-800 leading-[1.5]"
+                    className="text-xl font-normal text-white leading-[1.5]"
                     dangerouslySetInnerHTML={{ __html: t('emerging.soconet.paragraph1WithLink') }}
                   />
-                  <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  <p className="text-xl font-normal text-white leading-[1.5]">
                     {t('emerging.soconet.paragraph2')}
                   </p>
                 </div>
@@ -1852,7 +1853,7 @@ function App() {
         {/* Learn More Podcast Content Box */}
         <ContentBox
           titleKey="oceanHealth.podcastBox.title"
-          backgroundColor="bg-goos-blue-700"
+          backgroundColor="bg-goos-cyan-700"
           textColor="text-white"
           titleColor="text-white"
         >

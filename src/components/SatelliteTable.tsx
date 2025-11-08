@@ -333,7 +333,7 @@ export default function SatelliteTable() {
                   <h3 className="text-xl text-goos-orange-500 mb-2">
                     {t('satelliteObservations.platformModal.variables.seaIce.title')}
                   </h3>
-                  <p className="text-lg text-goos-gray-800 leading-relaxed">
+                  <p className="text-lg leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.variables.seaIce.content')}
                   </p>
                 </div>
@@ -360,7 +360,7 @@ export default function SatelliteTable() {
 
                 {/* Note Section */}
                 <div className="pt-4 border-t border-gray-300">
-                  <p className="text-md leading-relaxed">
+                  <p className="text-md leading-relaxed text-white">
                     {t('satelliteObservations.platformModal.note')}
                   </p>
                 </div>
