@@ -1143,6 +1143,10 @@ function App() {
                   ]}
                   aspectRatio="video"
                   objectFit="cover"
+                  arrowColor="text-goos-white"
+                  arrowBgColor="bg-goos-orange-500"
+                  dotColor="bg-gray-200"
+                  activeDotColor="bg-goos-orange-500"
                 />
                 <div className="flex flex-col gap-4 mt-4">
                   <p
@@ -1460,6 +1464,15 @@ function App() {
         <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph2')}</p>
         <p className="text-xl leading-relaxed mb-8">{t('elNino.paragraph3')}</p>
 
+        {/* Image - Operational 1 */}
+        <ImageCaption
+          src="/images/operational1.jpg"
+          alt="Operational observation"
+          caption=""
+        />
+
+        <Spacer size="sm" />
+
         {/* Quote 1 - Juan Miguel Quintana Arena */}
         <QuoteBlock
           variant="quote"
@@ -1477,6 +1490,40 @@ function App() {
         <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('elNino.observationsTitle')}</h3>
         <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph4')}</p>
         <p className="text-xl leading-relaxed mb-6">{t('elNino.paragraph5')}</p>
+
+        {/* Gallery - Operational observations */}
+        <ImageGallery
+          images={[
+            {
+              src: '/images/operational3.jpg',
+              alt: 'Operational observation 3',
+              caption: ''
+            },
+            {
+              src: '/images/operational4.jpg',
+              alt: 'Operational observation 4',
+              caption: ''
+            },
+            {
+              src: '/images/operational5.jpg',
+              alt: 'Operational observation 5',
+              caption: ''
+            },
+            {
+              src: '/images/operational6.jpg',
+              alt: 'Operational observation 6',
+              caption: ''
+            }
+          ]}
+          aspectRatio="video"
+          objectFit="cover"
+          arrowColor="text-goos-white"
+          arrowBgColor="bg-goos-blue-700"
+          dotColor="bg-gray-200"
+          activeDotColor="bg-goos-blue-700"
+        />
+
+        <Spacer size="xs" />
 
         {/* Learn More Content Box - Monica Alvarado Niño */}
         <ContentBox
@@ -1528,11 +1575,10 @@ function App() {
 
         {/* Image - El Niño Forecast */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/operational2.png"
           alt={t('elNino.imageCaption')}
           caption={t('elNino.imageCaption')}
-          aspectRatio="video"
-          objectFit="cover"
+          aspectRatio="auto"
         />
 
         <Spacer size="sm" />
@@ -1598,7 +1644,7 @@ function App() {
         quote={t('elNino.quote3.text')}
         authorName={t('elNino.quote3.author')}
         authorTitle={t('elNino.quote3.position')}
-        imageSrc="/images/content.jpg"
+        imageSrc="/images/monica.jpg"
         imageAlt="Monica Alvarado Niño"
         height="fullscreen"
         imagePosition="left"
@@ -1615,7 +1661,7 @@ function App() {
         kicker={t('oceanHealth.kicker')}
         title={t('oceanHealth.title')}
         titleLevel="h3"
-        introduction={t('oceanHealth.contributors')}
+        // introduction={t('oceanHealth.contributors')}
         layout="split"
         backgroundColor="bg-goos-white"
         titleColor="text-goos-blue-700"
