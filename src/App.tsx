@@ -1069,7 +1069,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: '-MKKMU3_siw',
-            previewImage: '/images/content.jpg',
+            previewImage: '/images/fvon.jpg',
             imageAlt: 'emerging.fvon.imageAlt',
             iconSrc: '/icons/network/fishing_vessels.svg',
             iconAlt: 'emerging.fvon.iconAlt',
@@ -1086,7 +1086,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: 'NoEK7XwOMeU',
-            previewImage: '/images/content.jpg',
+            previewImage: '/images/smart_cables.png',
             imageAlt: 'emerging.smartCables.imageAlt',
             iconSrc: '/icons/network/smart_cables.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
@@ -1103,27 +1103,22 @@ function App() {
             mediaType: 'gallery',
             images: [
               {
-                src: '/images/content.jpg',
+                src: '/images/soconet.jpeg',
                 alt: 'SOCONET Image 1',
-                caption: 'Sample caption 1 - Replace with actual image and caption'
+                caption: ''
               },
               {
-                src: '/images/content.jpg',
+                src: '/images/soconet3.png',
                 alt: 'SOCONET Image 2',
-                caption: 'Sample caption 2 - Replace with actual image and caption'
+                caption: ''
               },
               {
-                src: '/images/content.jpg',
+                src: '/images/soconet4.jpg',
                 alt: 'SOCONET Image 3',
-                caption: 'Sample caption 3 - Replace with actual image and caption'
-              },
-              {
-                src: '/images/content.jpg',
-                alt: 'SOCONET Image 4',
-                caption: 'Sample caption 4 - Replace with actual image and caption'
+                caption: ''
               }
             ],
-            imageSrc: '/images/content.jpg', // Fallback image (first image preview)
+            imageSrc: '/images/soconet.jpeg', // Fallback image (first image preview)
             imageAlt: 'emerging.soconet.imageAlt',
             modalTitle: 'emerging.soconet.title',
             modalContent: (
@@ -1131,24 +1126,19 @@ function App() {
                 <ImageGallery
                   images={[
                     {
-                      src: '/images/content.jpg',
+                      src: '/images/soconet.jpeg',
                       alt: 'SOCONET Image 1',
-                      caption: 'Sample caption 1 - Replace with actual image and caption'
+                      caption: ''
                     },
                     {
-                      src: '/images/content.jpg',
+                      src: '/images/soconet3.png',
                       alt: 'SOCONET Image 2',
-                      caption: 'Sample caption 2 - Replace with actual image and caption'
+                      caption: ''
                     },
                     {
-                      src: '/images/content.jpg',
+                      src: '/images/soconet4.jpg',
                       alt: 'SOCONET Image 3',
-                      caption: 'Sample caption 3 - Replace with actual image and caption'
-                    },
-                    {
-                      src: '/images/content.jpg',
-                      alt: 'SOCONET Image 4',
-                      caption: 'Sample caption 4 - Replace with actual image and caption'
+                      caption: ''
                     }
                   ]}
                   aspectRatio="video"
@@ -1176,7 +1166,7 @@ function App() {
           {
             // SUN Fleet - Fourth (Simple image)
             mediaType: 'image',
-            imageSrc: '/images/content.jpg',
+            imageSrc: '/images/sunfleet.jpg',
             imageAlt: 'emerging.sunFleet.imageAlt',
             iconSrc: '/icons/network/sun_fleet.svg',
             iconAlt: 'emerging.sunFleet.iconAlt',
@@ -1322,7 +1312,7 @@ function App() {
           buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="italic mb-6">
+          <div className="mb-6">
             <p className="text-lg leading-relaxed mb-4">
               "{t('amoc.learnMore.content1')}
             </p>
@@ -1494,7 +1484,7 @@ function App() {
           buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="italic mb-6">
+          <div className="mb-6">
             <p className="text-lg leading-relaxed mb-4">
               "{t('elNino.learnMore.content1')}
             </p>
@@ -1694,10 +1684,10 @@ function App() {
             headers={[t('oceanHealth.eovTable.biologyTitle')]}
             rows={[
               [
-                { icon: '/icons/biology_and_ecosystems/Marine-mammals.png', legend: 'Marine mammals', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Sea-turtles.png', legend: 'Sea turtles', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Seabirds.png', legend: 'Seabirds', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Marine-mammals.png', legend: 'Marine mammal abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Sea-turtles.png', legend: 'Sea turtle abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Seabirds.png', legend: 'Seabird abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
               ]
             ]}
             borderColor="border-goos-green-700"
@@ -1744,7 +1734,7 @@ function App() {
           buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="italic mb-6">
+          <div className="mb-6">
             <p className="text-lg leading-relaxed mb-4">
               "{t('oceanHealth.learnMore.content1')}
             </p>

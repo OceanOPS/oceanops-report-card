@@ -55,8 +55,8 @@
     },
     "imageCaption2": "RAPID moored buoy deployment. Credit: Peter Brown",
     "learnMore": {
-      "buttonText": "LEARN MORE: What affects the speed of the AMOC?",
-      "title": "Learn More: What affects the speed of the AMOC?",
+      "buttonText": "Learn more: What affects the speed of the AMOC?",
+      "title": "Learn more: What affects the speed of the AMOC?",
       "content1": "The strength of the AMOC is set by both wind and north-south differences in seawater density, which depend on temperature and salinity. In the high-latitude North Atlantic, cold, salty water sinks to the deep ocean, pushing the deep water southward. In the Southern Ocean, strong winds bring deep water to the ocean surface, pulling the water flow northward. Together, these two processes set the circulation in motion.",
       "content2": "In a warmer climate, more freshwater is expected to enter the ocean from glacial and sea ice melting, rainfall and rivers. This can result in less dense surface waters, reducing deep-water formation in the North Atlantic and potentially slowing the circulation.",
       "authorName": "Dr. Yao Fu",
@@ -101,7 +101,7 @@
     "paragraph4": "In the South-East Pacific, data from GLOSS network's sea level stations, Argo profiling floats, Voluntary Observing Ships and DBCP moored buoys — all coordinated under GOOS — is currently integrated into monthly El Niño forecasts, produced and publicly shared by the Permanent Commission for the South Pacific (CPPS) and the GOOS Regional Alliance for the South-East Pacific region (GRASP).",
     "paragraph5": "This information feeds into national early warning systems in the region, helping local communities prepare for potential impacts — from natural disasters like floods and droughts, to economic and social effects on agriculture and fisheries sectors.",
     "learnMore": {
-      "title": "Learn More: How does El Niño impact fisheries?",
+      "title": "Learn more: How does El Niño impact fisheries?",
       "content1": "For example, the availability of sardines and anchovetas – key commercial fish species in the South-East Pacific – depends on prevailing ocean conditions. During a warming event such as El Niño, the cold, nutrient-rich waters these fish rely on can be displaced, forcing them to migrate further from the coast in search of food. This increases their energy expenditure, may reduce their growth, and exposes them to more predators.",
       "content2": "Ultimately, these changes can substantially affect fishery catches across the region, impacting the economies of countries like Peru and Chile which heavily depend on this sector.",
       "authorName": "Monica Alvarado Niño",
@@ -158,7 +158,7 @@
       "physicsTitle": "Physics"
     },
     "learnMore": {
-      "title": "LEARN MORE: Why is it so complicated to obtain data from animals in real-time?",
+      "title": "Learn more: Why is it so complicated to obtain data from animals in real-time?",
       "content1": "Collecting data from animals in real time is technically challenging. Miniaturised electronic tags must withstand extreme environmental conditions, operate on limited battery power for months, and record, compress, and transmit summarised data to Argos satellites passing overhead when the animals surface to breathe or rest — all without causing the animals any harm.",
       "content2": "The data are then received by the tag manufacturer, decoded into a human-readable format, and made available to researchers. Researchers then apply quality-control algorithms to improve the accuracy of obtained animal locations so that the animals' movements and associated ocean observations can be determined more precisely. The whole process — from data reception to quality control and publication — runs automatically, every 24 hours.",
       "authorName": "Ian Jonsen",
@@ -176,7 +176,7 @@
       "position": "co-chair of the AniBOS network and GOOS BioEco Panel"
     },
     "podcastBox": {
-      "title": "Learn More:",
+      "title": "Learn more:",
       "content": "Listen to the BioEcoOcean podcast with Dr. Clive McMahon and Dr. Lina Mtwana Nordlund (Uppsala University) where you can hear not only about southern elephant seals as oceanographers, but also the latest advancements in ocean observing of marine life, the importance of coordinated efforts in biodiversity monitoring, and how these insights contribute to global ocean management and conservation."
     }
   },
@@ -658,7 +658,7 @@
   "dataCards": {
     "card1": {
       "tag": "Programmes",
-      "title": "Marine birds abundance and distribution"
+      "title": "Seabird abundance and distribution"
     },
     "card2": {
       "tag": "Programmes",
@@ -666,11 +666,11 @@
     },
     "card3": {
       "tag": "Programmes",
-      "title": "Hard coral cover and composition"
+      "title": "Coral cover and composition"
     },
     "card4": {
       "tag": "Programmes",
-      "title": "Invertebrate abundance and distribution"
+      "title": "Benthic invertebrate abundance and distribution"
     },
     "card5": {
       "tag": "Programmes",
@@ -698,7 +698,7 @@
     },
     "card11": {
       "tag": "Programmes",
-      "title": "Marine turtles abundance and distribution"
+      "title": "Sea turtle abundance and distribution"
     },
     "card12": {
       "tag": "Programmes",
