@@ -1219,7 +1219,7 @@ function App() {
         kicker={t('amoc.kicker')}
         title={t('amoc.title')}
         titleLevel="h3"
-        introduction={t('amoc.contributors')}
+        // introduction={t('amoc.contributors')}
         layout="split"
         backgroundColor="bg-goos-white"
         titleColor="text-goos-blue-700"
@@ -1256,6 +1256,15 @@ function App() {
         <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-8">{t('amoc.paragraph2')}</p>
 
+        {/* Image - Climate 1 */}
+        <ImageCaption
+          src="/images/climate1.jpg"
+          alt="Climate observation"
+          caption=""
+        />
+
+        <Spacer size="sm" />
+
         {/* Observations & Benefits */}
         <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('amoc.observationsTitle')}</h3>
         <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph3')}</p>
@@ -1264,11 +1273,11 @@ function App() {
 
         {/* Image 1 - AMOC time series */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/climate2.PNG"
           alt={t('amoc.imageCaption')}
           caption={t('amoc.imageCaption')}
-          aspectRatio="video"
-          objectFit="cover"
+          aspectRatio="auto"
+          objectFit="contain"
         />
 
         <Spacer size="sm" />
@@ -1288,7 +1297,7 @@ function App() {
 
         {/* Image 2 - RAPID buoy */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/climate3.png"
           alt={t('amoc.imageCaption2')}
           caption={t('amoc.imageCaption2')}
           aspectRatio="video"
@@ -1397,7 +1406,7 @@ function App() {
         quote={t('amoc.quote2.text')}
         authorName={t('amoc.quote2.author')}
         authorTitle={t('amoc.quote2.position')}
-        imageSrc="/images/content.jpg"
+        imageSrc="/images/yao.jpeg"
         imageAlt="Dr. Yao Fu"
         height="fullscreen"
         imagePosition="left"
@@ -1414,7 +1423,7 @@ function App() {
         kicker={t('elNino.kicker')}
         title={t('elNino.title')}
         titleLevel="h3"
-        introduction={t('elNino.contributors')}
+        // introduction={t('elNino.contributors')}
         layout="split"
         backgroundColor="bg-goos-white"
         titleColor="text-goos-blue-700"
