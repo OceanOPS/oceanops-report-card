@@ -310,7 +310,7 @@ export default function EmergingNetworkCard({
         <ContentModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          title="Emerging Network"
+          title={modalTitle}
           maxWidth="lg"
           backgroundColor="bg-goos-blue-900"
         >
