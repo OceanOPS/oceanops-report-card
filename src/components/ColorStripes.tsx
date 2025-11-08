@@ -30,9 +30,13 @@ export default function ColorStripes({
   stripeHeight = '150vh'
 }: ColorStripesProps) {
   const { t } = useTranslation();
+
+  // Colores más claros para el fade: cada tira va a un tono más claro
+  const fadeColors = ['bg-goos-cyan-200', 'bg-goos-cyan-100', 'bg-white'];
   const containerRef = useRef<HTMLDivElement>(null);
   const stripesRef = useRef<(HTMLDivElement | null)[]>([]);
   const deliveryAreasRef = useRef<(HTMLDivElement | null)[]>([]);
+  const whiteLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Función para agregar referencias a los stripes
   const addToStripesRefs = (el: HTMLDivElement | null, index: number) => {
@@ -42,6 +46,11 @@ export default function ColorStripes({
   // Función para agregar referencias a las delivery areas
   const addToDeliveryAreasRefs = (el: HTMLDivElement | null, index: number) => {
     deliveryAreasRef.current[index] = el;
+  };
+
+  // Función para agregar referencias a las capas blancas
+  const addToWhiteLayersRefs = (el: HTMLDivElement | null, index: number) => {
+    whiteLayersRef.current[index] = el;
   };
 
   useEffect(() => {
@@ -93,7 +102,7 @@ export default function ColorStripes({
         gsap.fromTo(area, 
           {
             opacity: 0,
-            y: 100,
+            y: 20,
             scale: 0.5
           },
           {
@@ -143,6 +152,12 @@ export default function ColorStripes({
           className={`${color} w-full relative`}
           style={{ height: stripeHeight }}
         >
+          {/* Capa de color claro para fade */}
+          <div
+            ref={(el) => addToWhiteLayersRefs(el, index)}
+            className={`absolute inset-0 ${fadeColors[index]} opacity-0 pointer-events-none`}
+          />
+
           {/* Contenedor para delivery area (icono + texto) */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div
