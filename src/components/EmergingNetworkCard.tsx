@@ -245,7 +245,7 @@ export default function EmergingNetworkCard({
             </div>
 
             {/* Title */}
-            <h2 className={`${textColor} text-2xl font-extrabold leading-9`}>
+            <h2 className={`${textColor} text-3xl font-extrabold leading-9`}>
               {t(titleKey)}
             </h2>
           </div>
