@@ -33,7 +33,6 @@ export default function ColorStripes({
   const containerRef = useRef<HTMLDivElement>(null);
   const stripesRef = useRef<(HTMLDivElement | null)[]>([]);
   const deliveryAreasRef = useRef<(HTMLDivElement | null)[]>([]);
-  const whiteLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Función para agregar referencias a los stripes
   const addToStripesRefs = (el: HTMLDivElement | null, index: number) => {
@@ -43,11 +42,6 @@ export default function ColorStripes({
   // Función para agregar referencias a las delivery areas
   const addToDeliveryAreasRefs = (el: HTMLDivElement | null, index: number) => {
     deliveryAreasRef.current[index] = el;
-  };
-
-  // Función para agregar referencias a las capas blancas
-  const addToWhiteLayersRefs = (el: HTMLDivElement | null, index: number) => {
-    whiteLayersRef.current[index] = el;
   };
 
   useEffect(() => {
@@ -73,9 +67,7 @@ export default function ColorStripes({
           }
         );
 
-        // SALIDA ESCALONADA - Empiezan desfasadas pero terminan alineadas
-        const exitDelay = (2 - index) * 20;
-
+        // SALIDA SINCRONIZADA - Todas terminan al mismo tiempo
         gsap.fromTo(stripe,
           {
             y: '0vh',
@@ -85,27 +77,12 @@ export default function ColorStripes({
             ease: "none",
             scrollTrigger: {
               trigger: containerRef.current,
-              start: `top+=${80 + exitDelay}% top`,
+              start: `top+=${80}% top`,
               end: `top+=${180}% top`,
               scrub: 1,
             }
           }
         );
-      });
-
-      // FADE A BLANCO con capas blancas encima
-      whiteLayersRef.current.forEach((layer) => {
-        if (!layer) return;
-
-        gsap.to(layer, {
-          opacity: 1,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: `top+=${150}% top`,
-            end: `top+=${180}% top`,
-            scrub: 1,
-          }
-        });
       });
 
       // ANIMACIÓN DE DELIVERY AREAS
@@ -166,12 +143,6 @@ export default function ColorStripes({
           className={`${color} w-full relative`}
           style={{ height: stripeHeight }}
         >
-          {/* Capa blanca para fade a color claro */}
-          <div
-            ref={(el) => addToWhiteLayersRefs(el, index)}
-            className="absolute inset-0 bg-white opacity-0 pointer-events-none"
-          />
-
           {/* Contenedor para delivery area (icono + texto) */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div
