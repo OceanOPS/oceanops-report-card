@@ -156,8 +156,7 @@ export default function EmergingNetworkCard({
   className = '',
 }: EmergingNetworkCardProps) {
   const { t } = useTranslation()
-  const [isMediaModalOpen, setIsMediaModalOpen] = useState(false)
-  const [isContentModalOpen, setIsContentModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Limit delivery areas to 1-3
   const limitedAreas = deliveryAreas.slice(0, 3)
@@ -192,43 +191,43 @@ export default function EmergingNetworkCard({
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Overlay for gallery or video */}
-        {(mediaType === 'gallery' || mediaType === 'video') && (
-          <div
-            className="absolute inset-0 flex items-center justify-center cursor-pointer group"
-            onClick={() => setIsMediaModalOpen(true)}
-          >
+        {/* Overlay - always clickable to open modal */}
+        <div
+          className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+          onClick={() => setIsModalOpen(true)}
+        >
             {/* Semi-transparent overlay on hover */}
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity" />
 
-            {/* Icon */}
-            <div className={`relative z-10 w-20 h-20 ${overlayIconColor} rounded-full flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity`}>
-              {mediaType === 'video' ? (
-                // Play icon for video
-                <svg
-                  className="w-8 h-8 text-white ml-1"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              ) : (
-                // Gallery icon (overlapping images)
-                <svg
-                  className="w-6 h-6"
-                  viewBox="0 0 23 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.5 3.25H22.25V21.75H3.75V18.5H0V0H18.5V3.25ZM18.5 18.5H5.75V19.75H20.25V5.25H18.5V18.5Z"
-                    fill="#F0F0F0"
-                  />
-                </svg>
-              )}
-            </div>
-          </div>
-        )}
+            {/* Icon - show gallery or video icon if applicable */}
+            {(mediaType === 'gallery' || mediaType === 'video') && (
+              <div className={`relative z-10 w-20 h-20 ${overlayIconColor} rounded-full flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity`}>
+                {mediaType === 'video' ? (
+                  // Play icon for video
+                  <svg
+                    className="w-8 h-8 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                ) : (
+                  // Gallery icon (overlapping images)
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 23 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.5 3.25H22.25V21.75H3.75V18.5H0V0H18.5V3.25ZM18.5 18.5H5.75V19.75H20.25V5.25H18.5V18.5Z"
+                      fill="#F0F0F0"
+                    />
+                  </svg>
+                )}
+              </div>
+            )}
+        </div>
       </div>
 
       {/* Right Section - Content */}
@@ -255,7 +254,7 @@ export default function EmergingNetworkCard({
           <p className={`${textColor} text-lg leading-6`}>
             {truncatedText}..{' '}
             <button
-              onClick={() => setIsContentModalOpen(true)}
+              onClick={() => setIsModalOpen(true)}
               className="text-goos-orange-500 hover:underline cursor-pointer"
             >
               more
@@ -306,93 +305,80 @@ export default function EmergingNetworkCard({
         </div>
       </div>
 
-      {/* Media Modal - Gallery uses ContentModal, Video uses simple modal */}
-      {mediaType === 'gallery' && createPortal(
-        <ContentModal
-          isOpen={isMediaModalOpen}
-          onClose={() => setIsMediaModalOpen(false)}
-          title={modalTitle ? t(modalTitle) : ''}
-          maxWidth="2xl"
-        >
-          {modalContent}
-        </ContentModal>,
-        document.body
-      )}
-
-      {mediaType === 'video' && isMediaModalOpen && videoId && videoType && createPortal(
-        <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 p-4"
-          onClick={() => setIsMediaModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsMediaModalOpen(false)}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
-              aria-label="Close video"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            {/* Video Container */}
-            <div className="aspect-video w-full bg-black">
-              {videoType === 'youtube' ? (
-                <iframe
-                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="YouTube video player"
-                />
-              ) : (
-                <video
-                  src={videoId}
-                  controls
-                  autoPlay
-                  className="w-full h-full"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              )}
-            </div>
-          </div>
-        </div>,
-        document.body
-      )}
-
-      {/* Content Modal - Full text */}
+      {/* Unified Modal - Shows image/gallery/video + content */}
       {createPortal(
         <ContentModal
-          isOpen={isContentModalOpen}
-          onClose={() => setIsContentModalOpen(false)}
-          title="Emerging Networks"
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Emerging Network"
           maxWidth="lg"
         >
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-goos-blue-700">{t(titleKey)}</h3>
-            <p
-              className="text-base leading-6"
-              dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
-            />
-            <p className="text-base leading-6">
-              {t(paragraph2Key)}
-            </p>
+          <div className="space-y-6">
+            {/* If there's custom modalContent (for gallery), use it entirely */}
+            {modalContent ? (
+              <div>{modalContent}</div>
+            ) : (
+              <>
+                {/* Media Section - for simple image or video */}
+                <div className="w-full">
+                  {mediaType === 'image' && imageSrc && (
+                    <img
+                      src={imageSrc}
+                      alt={t(imageAlt || 'Network image')}
+                      className="w-full h-auto object-cover rounded"
+                    />
+                  )}
+                  {mediaType === 'video' && videoId && videoType && (
+                    <div className="aspect-video w-full bg-black rounded overflow-hidden">
+                      {videoType === 'youtube' ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0`}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          title="YouTube video player"
+                        />
+                      ) : (
+                        <video
+                          src={videoId}
+                          controls
+                          className="w-full h-full"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Text Content */}
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-goos-blue-700">{t(titleKey)}</h3>
+                  <p
+                    className="text-xl font-normal text-goos-gray-800 leading-[1.5]"
+                    dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
+                  />
+                  <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                    {t(paragraph2Key)}
+                  </p>
+                </div>
+
+                {/* External Link Button (if provided) */}
+                {externalLinkUrl && externalLinkTextKey && (
+                  <div className="flex">
+                    <Button
+                      variant="link"
+                      label={t(externalLinkTextKey)}
+                      url={externalLinkUrl}
+                      bgColor="bg-goos-blue-700"
+                      textColor="text-white"
+                      iconBgColor="bg-white"
+                      iconColor="text-goos-blue-700"
+                    />
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </ContentModal>,
         document.body

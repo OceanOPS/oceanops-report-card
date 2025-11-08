@@ -138,7 +138,7 @@ export default function ContentModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with close button */}
-        <div className={`sticky top-0 ${backgroundColor} border-b border-gray-200 px-8 py-4 flex items-center justify-between`}>
+        <div className={`sticky top-0 z-10 ${backgroundColor} border-b border-gray-200 px-8 py-4 flex items-center justify-between`}>
           {title && (
             <h2 className="text-lg font-extrabold text-goos-blue-700">{title}</h2>
           )}
