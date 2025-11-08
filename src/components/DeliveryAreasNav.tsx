@@ -56,7 +56,7 @@ export default function DeliveryAreasNav() {
       }
 
       // Check if we're in any of the value sections
-      const scrollPosition = window.scrollY + 200 // Offset for better UX
+      const scrollPosition = window.scrollY + 100 // Show nav earlier to avoid overlap
       let inValueSection = false
       let currentSection: string | null = null
 

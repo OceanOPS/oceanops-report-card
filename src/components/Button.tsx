@@ -18,6 +18,7 @@
  * @param modalTitle - Modal title (optional for 'modal' variant)
  * @param modalContent - Modal content (required for 'modal' variant)
  * @param modalMaxWidth - Modal max width: 'sm' | 'md' | 'lg' | 'xl' | '2xl' (default: 'lg')
+ * @param modalBackgroundColor - Tailwind background color class for modal (default: 'bg-goos-white')
  * @param className - Optional additional Tailwind classes
  *
  * @example
@@ -56,8 +57,9 @@
  * ```
  */
 
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { gsap } from 'gsap'
 import VideoModal from './VideoModal'
 import ContentModal from './ContentModal'
 
@@ -91,6 +93,7 @@ type ButtonProps =
       modalTitle?: string
       modalContent: ReactNode
       modalMaxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+      modalBackgroundColor?: string
       textColor?: string
       bgColor?: string
       iconColor?: string
@@ -107,10 +110,22 @@ type ButtonProps =
       iconBgColor?: string
       className?: string
     }
+  | {
+      variant: 'download'
+      label: string
+      onClick: () => void
+      textColor?: string
+      bgColor?: string
+      iconColor?: string
+      iconBgColor?: string
+      className?: string
+    }
 
 export default function Button(props: ButtonProps) {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const [isContentModalOpen, setIsContentModalOpen] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null)
+  const iconRef = useRef<HTMLDivElement>(null)
 
   const defaultTextColor = props.textColor || 'text-white'
   const defaultBgColor = props.bgColor || 'bg-goos-blue-700'
@@ -119,12 +134,63 @@ export default function Button(props: ButtonProps) {
   const iconColor = props.iconColor || defaultBgColor.replace('bg-', 'text-')
   const iconBgColor = props.iconBgColor || defaultTextColor.replace('text-', 'bg-')
 
-  const baseClasses = `inline-flex items-center gap-2 px-5 py-2 ${defaultTextColor} ${defaultBgColor} font-roboto-condensed uppercase text-lg font-semibold hover:opacity-90 transition-opacity ${props.className || ''}`
+  const baseClasses = `inline-flex items-center gap-2 px-5 py-2 ${defaultTextColor} ${defaultBgColor} font-roboto-condensed uppercase text-lg font-semibold transition-all cursor-pointer ${props.className || ''}`
+
+  // Hover animation with GSAP
+  useEffect(() => {
+    if (!buttonRef.current || !iconRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No hover animations
+      return
+    }
+
+    const button = buttonRef.current
+    const icon = iconRef.current
+
+    const handleMouseEnter = () => {
+      gsap.to(button, {
+        y: -2,
+        duration: 0.2,
+        ease: 'power2.out',
+      })
+      gsap.to(icon, {
+        scale: 1.1,
+        duration: 0.2,
+        ease: 'back.out(2)',
+      })
+    }
+
+    const handleMouseLeave = () => {
+      gsap.to(button, {
+        y: 0,
+        duration: 0.2,
+        ease: 'power2.out',
+      })
+      gsap.to(icon, {
+        scale: 1,
+        duration: 0.2,
+        ease: 'power2.out',
+      })
+    }
+
+    button.addEventListener('mouseenter', handleMouseEnter)
+    button.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      button.removeEventListener('mouseenter', handleMouseEnter)
+      button.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [])
 
   // External link button
   if (props.variant === 'link') {
     return (
       <a
+        ref={buttonRef as React.RefObject<HTMLAnchorElement>}
         href={props.url}
         target="_blank"
         rel="noopener noreferrer"
@@ -132,7 +198,7 @@ export default function Button(props: ButtonProps) {
       >
         {props.label}
         {/* Right arrow icon with circular background */}
-        <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
+        <div ref={iconRef} className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
           <svg
             className={`w-3 h-3 ${iconColor}`}
             fill="currentColor"
@@ -149,10 +215,10 @@ export default function Button(props: ButtonProps) {
   if (props.variant === 'video') {
     return (
       <>
-        <button onClick={() => setIsVideoModalOpen(true)} className={baseClasses}>
+        <button ref={buttonRef as React.RefObject<HTMLButtonElement>} onClick={() => setIsVideoModalOpen(true)} className={baseClasses}>
           {props.label}
           {/* Play icon with circular background */}
-          <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
+          <div ref={iconRef} className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
             <svg
               className={`w-3 h-3 ${iconColor}`}
               fill="currentColor"
@@ -181,10 +247,10 @@ export default function Button(props: ButtonProps) {
   if (props.variant === 'modal') {
     return (
       <>
-        <button onClick={() => setIsContentModalOpen(true)} className={baseClasses}>
+        <button ref={buttonRef as React.RefObject<HTMLButtonElement>} onClick={() => setIsContentModalOpen(true)} className={baseClasses}>
           {props.label}
           {/* Plus icon with circular background */}
-          <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
+          <div ref={iconRef} className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -203,6 +269,7 @@ export default function Button(props: ButtonProps) {
             onClose={() => setIsContentModalOpen(false)}
             title={props.modalTitle}
             maxWidth={props.modalMaxWidth}
+            backgroundColor={props.modalBackgroundColor}
           >
             {props.modalContent}
           </ContentModal>,
@@ -215,10 +282,10 @@ export default function Button(props: ButtonProps) {
   // Action button (custom onClick with plus icon)
   if (props.variant === 'action') {
     return (
-      <button onClick={props.onClick} className={baseClasses}>
+      <button ref={buttonRef as React.RefObject<HTMLButtonElement>} onClick={props.onClick} className={baseClasses}>
         {props.label}
         {/* Plus icon with circular background */}
-        <div className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
+        <div ref={iconRef} className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -228,6 +295,28 @@ export default function Button(props: ButtonProps) {
             className={`w-3 h-3 ${iconColor}`}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </div>
+      </button>
+    )
+  }
+
+  // Download button (custom onClick with chevron down icon)
+  if (props.variant === 'download') {
+    return (
+      <button ref={buttonRef as React.RefObject<HTMLButtonElement>} onClick={props.onClick} className={baseClasses}>
+        {props.label}
+        {/* Chevron down icon with circular background */}
+        <div ref={iconRef} className={`w-5 h-5 ${iconBgColor} rounded-full flex items-center justify-center`}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className={`w-3 h-3 ${iconColor}`}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </div>
       </button>

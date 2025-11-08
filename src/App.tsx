@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
+import Preloader from './components/Preloader'
 import CoverModule from './components/CoverModule'
 import PartnerModal from './components/PartnerModal'
 import { partnerCountries } from './data/partnerCountries'
@@ -9,25 +10,37 @@ import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import LogoStrip from './components/LogoStrip'
 import NetworkCarousel from './components/NetworkCarousel'
 import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
-import StatsGrid from './components/StatsGrid'
 import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
-import VideoModal from './components/VideoModal'
+import SatelliteTable from './components/SatelliteTable'
 import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
 import MenuSidebar from './components/MenuSidebar'
 import DeliveryAreasNav from './components/DeliveryAreasNav'
+import ColorStripes from './components/ColorStripes'
 
 function App() {
   const { t } = useTranslation()
+  const [isLoading, setIsLoading] = useState(true)
   const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
+
+  // Block scroll while preloader is active
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isLoading])
 
   // Handle deep linking - scroll to section if hash is present in URL
   useEffect(() => {
@@ -51,16 +64,19 @@ function App() {
   // Scroll spy - update URL hash based on visible section
   useEffect(() => {
     const sections = [
+      'home',
       'overview-section',
       'insitu-section',
       'stats-section',
       'networks-section',
+      'satellite-section',
       'data-section',
       'emerging-section',
       'value-section',
       'amoc-section',
       'elnino-section',
       'oceanhealth-section',
+      'strengthening-section',
       'southafrica-section',
       'ships-section',
       'calltoaction-section',
@@ -76,6 +92,14 @@ function App() {
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       // Don't update hash if we're scrolling programmatically (from menu click or deep link)
       if ((window as any).isScrollingProgrammatically) return
+
+      // Check if we're at the top of the page (home section)
+      if (window.scrollY < 100) {
+        if (window.location.hash !== '#home') {
+          window.history.replaceState(null, '', '#home')
+        }
+        return
+      }
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -98,15 +122,38 @@ function App() {
       }
     })
 
+    // Add scroll listener to detect when returning to top
+    const handleScroll = () => {
+      if ((window as any).isScrollingProgrammatically) return
+
+      if (window.scrollY < 100 && window.location.hash !== '#home') {
+        window.history.replaceState(null, '', '#home')
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
       observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
   return (
-    <div>
+    <>
+      {/* Preloader */}
+      {isLoading && (
+        <Preloader
+          onComplete={() => setIsLoading(false)}
+          videoUrl="/videos/video.mp4"
+        />
+      )}
+
+      {/* Main content - Visible but CoverModule waits for preloader */}
+      <div>
       {/* MenuSidebar - Fixed Menu Button with Slide-in Sidebar */}
       <MenuSidebar
+        show={!isLoading}
         menuItems={[
           { id: 'overview-section', titleKey: 'menu.overview', accentColor: 'bg-goos-orange-600' },
           {
@@ -116,6 +163,7 @@ function App() {
             subItems: [
               { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-600' },
               { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'satellite-section', titleKey: 'satelliteObservations.title', accentColor: 'bg-goos-orange-500' },
               { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
               { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-orange-500' },
             ],
@@ -125,13 +173,20 @@ function App() {
             titleKey: 'valueOfObservations.title',
             accentColor: 'bg-goos-cyan-600',
             subItems: [
-              { id: 'amoc-section', titleKey: 'amoc.title', accentColor: 'bg-goos-cyan-600' },
-              { id: 'elnino-section', titleKey: 'elNino.title', accentColor: 'bg-goos-cyan-600' },
-              { id: 'oceanhealth-section', titleKey: 'oceanHealth.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'amoc-section', titleKey: 'amoc.kicker', accentColor: 'bg-goos-cyan-600' },
+              { id: 'elnino-section', titleKey: 'elNino.kicker', accentColor: 'bg-goos-cyan-600' },
+              { id: 'oceanhealth-section', titleKey: 'oceanHealth.kicker', accentColor: 'bg-goos-cyan-600' },
             ],
           },
-          { id: 'southafrica-section', titleKey: 'southAfrica.title', accentColor: 'bg-goos-green-700' },
-          { id: 'ships-section', titleKey: 'tenThousandShips.title', accentColor: 'bg-goos-orange-500' },
+          {
+            id: 'strengthening-section',
+            titleKey: 'strengtheningSystem.title',
+            accentColor: 'bg-goos-green-700',
+            subItems: [
+              { id: 'southafrica-section', titleKey: 'southAfrica.title', accentColor: 'bg-goos-green-700' },
+              { id: 'ships-section', titleKey: 'tenThousandShips.title', accentColor: 'bg-goos-green-700' },
+            ],
+          },
           { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-600' },
           { id: 'contact-section', titleKey: 'contact.title', accentColor: 'bg-goos-blue-900' },
         ]}
@@ -140,7 +195,8 @@ function App() {
       {/* DeliveryAreasNav - Fixed navigation for Value of Ocean Observations sections */}
       <DeliveryAreasNav />
 
-      {/* Cover */}
+      {/* Cover - Sticky container for parallax effect */}
+      <div id="home" className="sticky top-0 h-screen">
       <CoverModule
         title={t('cover.title')}
         year={t('cover.year')}
@@ -155,8 +211,13 @@ function App() {
         // Background Image or Video
         mediaType="video"
         backgroundMedia="/videos/video.mp4"
+        // Animation control - starts after preloader finishes
+        startAnimation={!isLoading}
       />
+      </div>
 
+      {/* Content that overlays on top of cover */}
+      <div className="relative z-10">
       {/* Spacer */}
       <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
@@ -183,7 +244,7 @@ function App() {
         }
       >
         <p className="text-xl font-normal text-goos-white leading-[1.5] mt-4">
-          {t('intro.paragraph1')}
+          The <span className="text-goos-orange-500">Global Ocean Observing System (GOOS) Status Report 2025</span> highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.
         </p>
       </ContentModule>
       </div>
@@ -199,7 +260,7 @@ function App() {
         backgroundColor="bg-goos-blue-900"
         titleColor="text-goos-white"
         textColor="text-goos-white"
-        lineColor="bg-goos-orange-600"
+        lineColor="bg-goos-orange-500"
         layout="split"
       >
         <p className="text-xl font-normal text-goos-white leading-[1.5]">
@@ -237,7 +298,7 @@ function App() {
 
         <Spacer size="sm" />
 
-        <h4 className="text-2xl font-extrabold text-goos-white leading-8">
+        <h4 className="text-2xl font-extrabold text-goos-orange-500 leading-8">
           {t('content.section1.heading1')}
         </h4>
 
@@ -251,7 +312,7 @@ function App() {
 
         <Spacer size="sm" />
 
-        <h4 className="text-2xl font-extrabold text-goos-white leading-8">
+        <h4 className="text-2xl font-extrabold text-goos-orange-500 leading-8">
           {t('content.section1.heading2')}
         </h4>
 
@@ -266,30 +327,37 @@ function App() {
         <p className="text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph11')}
         </p>
-
-        <Spacer size="sm" />
-
-        {/* Quote Block */}
-        <QuoteBlock
-          variant="quote"
-          quote={t('content.section1.quote.text')}
-          quoteColor="text-goos-white"
-          borderColor="border-goos-orange-600"
-          authorName={t('content.section1.quote.authorName')}
-          authorTitle={t('content.section1.quote.authorTitle')}
-          authorColor="text-goos-white"
-        />
       </ContentModule>
       </div>
 
+      <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
+
+      {/* M. Belbéoch Quote with Image */}
+      <QuoteWithImage
+        quote={t('content.section1.quote.text')}
+        authorName={t('content.section1.quote.authorName')}
+        authorTitle={t('content.section1.quote.authorTitle')}
+        imageSrc="/images/belbeoch.jpg"
+        imageAlt="M. Belbéoch"
+        height="fullscreen"
+        imagePosition="left"
+        backgroundColor="bg-goos-blue-800"
+        quoteColor="text-goos-white"
+        authorColor="text-goos-white"
+      />
+<Spacer size="md" backgroundColor="bg-goos-blue-900"/>
+
       {/* Stats Grid - 4x1 */}
-      <div id="stats-section" className="bg-goos-blue-900 px-12 md:px-16 py-16">
-        <StatsGrid
+      <div id="stats-section">
+        <InsightPanel
           title={t('content.section1.statsTitle')}
           hasLine={true}
           lineColor="bg-goos-orange-600"
-          titleColor="text-goos-white"
-          columns={4}
+          leftContent={
+            <p className="text-xl leading-relaxed">
+              Our global community of providers and operators are working together to deliver essential ocean information every day.
+            </p>
+          }
           stats={[
             {
               number: t('content.section1.stats.stat1.number'),
@@ -308,8 +376,10 @@ function App() {
               description: t('content.section1.stats.stat4.description'),
             },
           ]}
-          numberColor="text-goos-orange-500"
+          backgroundColor="bg-goos-blue-900"
+          titleColor="text-goos-white"
           textColor="text-goos-white"
+          numberColor="text-goos-orange-500"
           linkColor="text-goos-white"
         />
       </div>
@@ -324,6 +394,168 @@ function App() {
         fullWidth={true}
         backgroundColor="bg-goos-blue-900"
       />
+
+      {/* Operational Platforms Definition Button */}
+      <div className="flex justify-center bg-goos-blue-900 pb-8">
+        <Button
+          variant="modal"
+          label={t('operationalPlatforms.platformButton')}
+          modalTitle={t('operationalPlatforms.platformModal.title')}
+          modalMaxWidth="lg"
+          modalBackgroundColor="bg-goos-blue-900"
+          modalContent={
+            <div className="flex flex-col gap-6">
+              {/* Intro */}
+              <p className="text-lg leading-relaxed text-white">
+                {t('operationalPlatforms.platformModal.intro')}
+              </p>
+
+              {/* Ship-Based Platforms */}
+              <div>
+                <h3 className="text-lg text-goos-orange-500 mb-3 uppercase">
+                  {t('operationalPlatforms.platformModal.categories.shipBased.title')}
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.content')}
+                    </p>
+                  </div>
+                   <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.content')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fixed Platforms */}
+              <div>
+                <h3 className="text-lg text-goos-orange-500 mb-3 uppercase">
+                  {t('operationalPlatforms.platformModal.categories.fixedPlatforms.title')}
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.content')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Platforms */}
+              <div>
+                <h3 className="text-lg text-goos-orange-500 mb-3 uppercase">
+                  {t('operationalPlatforms.platformModal.categories.mobilePlatforms.title')}
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.content')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1 text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.title')}
+                    </h4>
+                    <p className="text-base leading-relaxed text-white">
+                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.content')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+          textColor="text-goos-white"
+          bgColor="bg-goos-orange-600"
+          iconColor="text-goos-orange-600"
+          iconBgColor="bg-goos-white"
+        />
+      </div>
       </div>
 
       {/* NetworkCarousel */}
@@ -350,7 +582,7 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: '/icons/network/soop.svg',
+            iconSrc: '/icons/network/xbt-soop.svg',
             iconAlt: 'networks.sotXbt.iconAlt',
             titleKey: 'networks.sotXbt.title',
             networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
@@ -369,7 +601,7 @@ function App() {
             iconSrc: '/icons/network/asap.svg',
             iconAlt: 'networks.sotAsap.iconAlt',
             titleKey: 'networks.sotAsap.title',
-            networkUrl: 'https://www.ocean-ops.org',
+            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: "No target",
@@ -401,7 +633,7 @@ function App() {
             iconSrc: '/icons/network/gloss.svg',
             iconAlt: 'networks.gloss.iconAlt',
             titleKey: 'networks.gloss.title',
-            networkUrl: 'http://www.gloss-sealevel.org/',
+            networkUrl: 'https://gloss-sealevel.org/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 1.5,
@@ -417,7 +649,7 @@ function App() {
             iconSrc: '/icons/network/ocean_sites.svg',
             iconAlt: 'networks.oceanSites.iconAlt',
             titleKey: 'networks.oceanSites.title',
-            networkUrl: 'https://www.ocean-ops.org/board?modules=[{%22id%22:6}]&t=oceansites',
+            networkUrl: 'https://www.ocean-ops.org/oceansites/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
@@ -433,7 +665,7 @@ function App() {
             iconSrc: '/icons/network/dbcp_moored.svg',
             iconAlt: 'networks.dbcpMoored.iconAlt',
             titleKey: 'networks.dbcpMoored.title',
-            networkUrl: 'https://www.ocean-ops.org/DBCP',
+            networkUrl: 'https://www.ocean-ops.org/dbcp/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: "No target",
@@ -446,10 +678,10 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/dbcp_moored.svg',
+            iconSrc: '/icons/network/tsunami_buoys.svg',
             iconAlt: 'networks.dbcpTsunami.iconAlt',
             titleKey: 'networks.dbcpTsunami.title',
-            networkUrl: 'https://www.ocean-ops.org/DBCP',
+            networkUrl: 'https://www.ocean-ops.org/dbcp/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
@@ -465,23 +697,23 @@ function App() {
             iconSrc: '/icons/network/hf_radar.svg',
             iconAlt: 'networks.hfRadar.iconAlt',
             titleKey: 'networks.hfRadar.title',
-            networkUrl: 'http://www.global-hfradar.org/',
+            networkUrl: 'http://global-hfradar.org/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
-              implementationStatus: 1.5,
+              implementationStatus: 2.5,
               realTime: 1.5,
-              archivedHighQuality: 0.5,
-              metadata: 0.5,
+              archivedHighQuality: 1.5,
+              metadata: 3,
               bestPractices: 3,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
+            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
             iconSrc: '/icons/network/dbcp_drifters.svg',
             iconAlt: 'networks.dbcpDrifting.iconAlt',
             titleKey: 'networks.dbcpDrifting.title',
-            networkUrl: 'https://www.ocean-ops.org/DBCP',
+            networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
@@ -497,7 +729,7 @@ function App() {
             iconSrc: '/icons/network/argo.svg',
             iconAlt: 'networks.argo.iconAlt',
             titleKey: 'networks.argo.title',
-            networkUrl: 'http://www.argo.ucsd.edu/',
+            networkUrl: 'https://argo.ucsd.edu/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 3,
@@ -513,7 +745,7 @@ function App() {
             iconSrc: '/icons/network/ocean_gliders.svg',
             iconAlt: 'networks.gliders.iconAlt',
             titleKey: 'networks.gliders.title',
-            networkUrl: 'http://www.oceangliders.org/',
+            networkUrl: 'https://www.oceangliders.org/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 1.5,
@@ -529,13 +761,13 @@ function App() {
             iconSrc: '/icons/network/ani_bos.svg',
             iconAlt: 'networks.anibos.iconAlt',
             titleKey: 'networks.anibos.title',
-            networkUrl: 'http://www.meop.net/',
+            networkUrl: 'https://anibos.com/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 0.5,
               realTime: 1.5,
               archivedHighQuality: 1.5,
-              metadata: 1.5,
+              metadata: 2,
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
@@ -553,65 +785,138 @@ function App() {
       </div>
 
       {/* Indicators Definition Button */}
-      <div className="flex justify-center py-8 bg-goos-blue-900">
+      <div className="flex justify-center bg-goos-blue-900">
         <Button
           variant="modal"
           label={t('networks.indicatorsButton')}
           modalTitle={t('networks.indicatorsModal.title')}
+          modalMaxWidth="lg"
+          modalBackgroundColor="bg-goos-blue-900"
           modalContent={
             <div className="flex flex-col gap-6">
               {/* Introduction */}
-              <p className="text-lg text-goos-gray-800 leading-relaxed">
+              <p className="text-lg leading-relaxed text-white">
                 {t('networks.indicatorsModal.intro')}
               </p>
 
               {/* Implementation Status */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.implementationStatus.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.implementationStatus.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
+                  {t('networks.indicatorsModal.implementationStatus.cases')}
+                </p>
+                <div className="text-lg leading-relaxed mb-3 text-white">
+                  <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart1')}</span>
+                  {' '}
+                  <span>(</span>
+                  <a
+                    href={t('networks.indicatorsModal.implementationStatus.kpiLinkUrl')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-goos-orange-500 hover:underline"
+                  >
+                    {t('networks.indicatorsModal.implementationStatus.kpiLinkText')}
+                  </a>
+                  <span>{t('networks.indicatorsModal.implementationStatus.kpiLinkSuffix')})</span>
+                  {' '}
+                  <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart2')}</span>
+                </div>
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                    {t('networks.indicatorsModal.implementationStatus.scoring')}
+                  </p>
+                </div>
               </div>
 
               {/* Real Time */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.realTime.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.realTime.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
+                  {t('networks.indicatorsModal.realTime.requirements')}
+                </p>
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                    {t('networks.indicatorsModal.realTime.scoring')}
+                  </p>
+                </div>
               </div>
 
-              {/* Archived High Quality */}
+              {/* Archived Delayed Mode Data */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.archivedHighQuality.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.archivedHighQuality.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
+                  {t('networks.indicatorsModal.archivedHighQuality.requirements')}
+                </p>
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                    {t('networks.indicatorsModal.archivedHighQuality.scoring')}
+                  </p>
+                </div>
               </div>
 
               {/* Metadata */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.metadata.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.metadata.description')}
                 </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
+                  {t('networks.indicatorsModal.metadata.requirements')}
+                </p>
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                    {t('networks.indicatorsModal.metadata.scoring')}
+                  </p>
+                </div>
               </div>
 
               {/* Best Practices */}
               <div>
-                <h3 className="text-xl font-bold text-goos-blue-700 mb-2">
+                <h3 className="text-xl text-goos-orange-500 mb-3">
                   {t('networks.indicatorsModal.bestPractices.title')}
                 </h3>
-                <p className="text-base text-goos-gray-800 leading-relaxed">
+                <p className="text-lg leading-relaxed mb-3 text-white">
                   {t('networks.indicatorsModal.bestPractices.description')}
+                </p>
+                <p className="text-lg leading-relaxed whitespace-pre-line mb-3 text-white">
+                  {t('networks.indicatorsModal.bestPractices.details')}
+                </p>
+                <div className="bg-goos-blue-800 p-4 rounded">
+                  <h4 className="text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                    {t('networks.indicatorsModal.bestPractices.scoring')}
+                  </p>
+                </div>
+              </div>
+
+              {/* GOOS Delivery Areas */}
+              <div>
+                <h3 className="text-xl text-goos-orange-500 mb-3">
+                  {t('networks.indicatorsModal.deliveryAreas.title')}
+                </h3>
+                <p className="text-lg leading-relaxed text-white">
+                  {t('networks.indicatorsModal.deliveryAreas.description')}
                 </p>
               </div>
             </div>
@@ -621,8 +926,31 @@ function App() {
           iconColor="text-goos-orange-600"
           iconBgColor="bg-white"
         />
-        
+
       </div>
+        <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
+
+      {/* Satellite Observations */}
+      <div id="satellite-section">
+        {/* Title and Introduction - Split Layout */}
+        <ContentModule
+          title={t('satelliteObservations.title')}
+          titleLevel="h3"
+          titleColor="text-goos-white"
+          layout="split"
+          backgroundColor="bg-goos-blue-900"
+          textColor="text-goos-white"
+          stickyTitle={false}
+        >
+          <p className="text-xl text-goos-white">
+            {t('satelliteObservations.introduction')}
+          </p>
+        </ContentModule>
+
+        {/* Full Width Table Module */}
+        <SatelliteTable />
+      </div>
+
         <Spacer size="lg" backgroundColor="bg-goos-blue-900"/>
 
       {/* Biological and Ecosystem Observations */}
@@ -743,7 +1071,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: '-MKKMU3_siw',
-            previewImage: '/images/content.jpg',
+            previewImage: '/images/fvon.jpg',
             imageAlt: 'emerging.fvon.imageAlt',
             iconSrc: '/icons/network/fishing_vessels.svg',
             iconAlt: 'emerging.fvon.iconAlt',
@@ -760,7 +1088,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: 'NoEK7XwOMeU',
-            previewImage: '/images/content.jpg',
+            previewImage: '/images/smart_cables.png',
             imageAlt: 'emerging.smartCables.imageAlt',
             iconSrc: '/icons/network/smart_cables.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
@@ -777,27 +1105,22 @@ function App() {
             mediaType: 'gallery',
             images: [
               {
-                src: '/images/content.jpg',
+                src: '/images/soconet.jpeg',
                 alt: 'SOCONET Image 1',
-                caption: 'Sample caption 1 - Replace with actual image and caption'
+                caption: ''
               },
               {
-                src: '/images/content.jpg',
+                src: '/images/soconet3.png',
                 alt: 'SOCONET Image 2',
-                caption: 'Sample caption 2 - Replace with actual image and caption'
+                caption: ''
               },
               {
-                src: '/images/content.jpg',
+                src: '/images/soconet4.jpg',
                 alt: 'SOCONET Image 3',
-                caption: 'Sample caption 3 - Replace with actual image and caption'
-              },
-              {
-                src: '/images/content.jpg',
-                alt: 'SOCONET Image 4',
-                caption: 'Sample caption 4 - Replace with actual image and caption'
+                caption: ''
               }
             ],
-            imageSrc: '/images/content.jpg', // Fallback image (first image preview)
+            imageSrc: '/images/soconet.jpeg', // Fallback image (first image preview)
             imageAlt: 'emerging.soconet.imageAlt',
             modalTitle: 'emerging.soconet.title',
             modalContent: (
@@ -805,35 +1128,35 @@ function App() {
                 <ImageGallery
                   images={[
                     {
-                      src: '/images/content.jpg',
+                      src: '/images/soconet.jpeg',
                       alt: 'SOCONET Image 1',
-                      caption: 'Sample caption 1 - Replace with actual image and caption'
+                      caption: ''
                     },
                     {
-                      src: '/images/content.jpg',
+                      src: '/images/soconet3.png',
                       alt: 'SOCONET Image 2',
-                      caption: 'Sample caption 2 - Replace with actual image and caption'
+                      caption: ''
                     },
                     {
-                      src: '/images/content.jpg',
+                      src: '/images/soconet4.jpg',
                       alt: 'SOCONET Image 3',
-                      caption: 'Sample caption 3 - Replace with actual image and caption'
-                    },
-                    {
-                      src: '/images/content.jpg',
-                      alt: 'SOCONET Image 4',
-                      caption: 'Sample caption 4 - Replace with actual image and caption'
+                      caption: ''
                     }
                   ]}
                   aspectRatio="video"
                   objectFit="cover"
+                  arrowColor="text-goos-white"
+                  arrowBgColor="bg-goos-orange-500"
+                  dotColor="bg-gray-200"
+                  activeDotColor="bg-goos-orange-500"
                 />
                 <div className="flex flex-col gap-4 mt-4">
+                  <h3 className="text-2xl font-bold text-goos-orange-500">{t('emerging.soconet.title')}</h3>
                   <p
-                    className="text-xl font-normal text-goos-gray-800 leading-[1.5]"
+                    className="text-xl font-normal text-white leading-[1.5]"
                     dangerouslySetInnerHTML={{ __html: t('emerging.soconet.paragraph1WithLink') }}
                   />
-                  <p className="text-xl font-normal text-goos-gray-800 leading-[1.5]">
+                  <p className="text-xl font-normal text-white leading-[1.5]">
                     {t('emerging.soconet.paragraph2')}
                   </p>
                 </div>
@@ -850,7 +1173,7 @@ function App() {
           {
             // SUN Fleet - Fourth (Simple image)
             mediaType: 'image',
-            imageSrc: '/images/content.jpg',
+            imageSrc: '/images/sunfleet.jpg',
             imageAlt: 'emerging.sunFleet.imageAlt',
             iconSrc: '/icons/network/sun_fleet.svg',
             iconAlt: 'emerging.sunFleet.iconAlt',
@@ -887,6 +1210,7 @@ function App() {
         backgroundColor="bg-goos-white"
         textColor="text-goos-black"
         lineColor="bg-goos-cyan-600"
+        stickyTitle={false}
       >
         <p className="text-goos-black text-xl leading-relaxed">
           {t('valueOfObservations.content')}
@@ -894,30 +1218,60 @@ function App() {
       </ContentModule>
       </div>
 
+      {/* Color Stripes Module */}
+      <ColorStripes stripeColors={['bg-goos-cyan-300', 'bg-goos-cyan-200', 'bg-goos-cyan-100']} />
+
       {/* AMOC Climate Story */}
       <div id="amoc-section" className="pt-16 bg-goos-white">
       <ContentModule
         kicker={t('amoc.kicker')}
         title={t('amoc.title')}
         titleLevel="h3"
-        introduction={t('amoc.contributors')}
+        // introduction={t('amoc.contributors')}
         layout="split"
         backgroundColor="bg-goos-white"
         titleColor="text-goos-blue-700"
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary */}
-        <div className="space-y-4 mb-8">
-          <h3 className="text-2xl font-bold text-goos-blue-700">{t('amoc.quickSummary.title')}</h3>
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
-        </div>
+        {/* Quick Summary - Collapsible */}
+        <ContentBox
+          titleKey="amoc.quickSummary.title"
+          collapsible={true}
+          defaultCollapsed={true}
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-gray-800"
+          titleColor="text-goos-blue-700"
+          buttonBgColor="bg-goos-white"
+           buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-cyan-600" 
+          buttonIconBorderColor = "border-goos-blue-600"
+          padding="p-6"
+          
+        >
+          <div className="space-y-4">
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
 
         {/* Main paragraphs */}
         <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-8">{t('amoc.paragraph2')}</p>
+
+        {/* Image - Climate 1 */}
+        <ImageCaption
+          src="/images/climate1.jpg"
+          alt="Climate observation"
+          caption=""
+        />
+
+        <Spacer size="sm" />
 
         {/* Observations & Benefits */}
         <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('amoc.observationsTitle')}</h3>
@@ -927,11 +1281,11 @@ function App() {
 
         {/* Image 1 - AMOC time series */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/climate2.PNG"
           alt={t('amoc.imageCaption')}
           caption={t('amoc.imageCaption')}
-          aspectRatio="video"
-          objectFit="cover"
+          aspectRatio="auto"
+          objectFit="contain"
         />
 
         <Spacer size="sm" />
@@ -951,7 +1305,7 @@ function App() {
 
         {/* Image 2 - RAPID buoy */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/climate3.png"
           alt={t('amoc.imageCaption2')}
           caption={t('amoc.imageCaption2')}
           aspectRatio="video"
@@ -963,17 +1317,19 @@ function App() {
         {/* Learn More Content Box */}
         <ContentBox
           titleKey="amoc.learnMore.title"
-          backgroundColor="bg-goos-blue-700"
-          textColor="text-goos-white"
-          titleColor="text-goos-white"
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-blue-700"
+          titleColor="text-goos-blue-700"
           collapsible={true}
           defaultCollapsed={true}
           buttonBgColor="bg-goos-white"
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
-          buttonBorderColor="border-goos-blue-700" 
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-cyan-600"
+          buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="italic mb-6">
+          <div className="mb-6">
             <p className="text-lg leading-relaxed mb-4">
               "{t('amoc.learnMore.content1')}
             </p>
@@ -981,8 +1337,8 @@ function App() {
               {t('amoc.learnMore.content2')}"
             </p>
           </div>
-          <div className="pt-4 border-t border-white/50">
-            <p className="text-base font-semibold text-goos-white">
+          <div className="border-goos-blue-700">
+            <p className="text-base font-semibold text-goos-blue-700">
               {t('amoc.learnMore.authorName')}
             </p>
             <p className="text-sm opacity-90">
@@ -1058,7 +1414,7 @@ function App() {
         quote={t('amoc.quote2.text')}
         authorName={t('amoc.quote2.author')}
         authorTitle={t('amoc.quote2.position')}
-        imageSrc="/images/content.jpg"
+        imageSrc="/images/yao.jpeg"
         imageAlt="Dr. Yao Fu"
         height="fullscreen"
         imagePosition="left"
@@ -1075,25 +1431,51 @@ function App() {
         kicker={t('elNino.kicker')}
         title={t('elNino.title')}
         titleLevel="h3"
-        introduction={t('elNino.contributors')}
+        // introduction={t('elNino.contributors')}
         layout="split"
         backgroundColor="bg-goos-white"
         titleColor="text-goos-blue-700"
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary */}
-        <div className="space-y-4 mb-8">
-          <h3 className="text-2xl font-bold text-goos-blue-700">{t('elNino.quickSummary.title')}</h3>
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
-        </div>
+        {/* Quick Summary - Collapsible */}
+        <ContentBox
+          titleKey="elNino.quickSummary.title"
+          collapsible={true}
+          defaultCollapsed={true}
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-gray-800"
+          titleColor="text-goos-blue-700"
+          buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-cyan-600"
+          buttonIconBorderColor="border-goos-blue-600"
+          padding="p-6"
+        >
+          <div className="space-y-4">
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
 
         {/* Main paragraphs */}
         <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph2')}</p>
         <p className="text-xl leading-relaxed mb-8">{t('elNino.paragraph3')}</p>
+
+        {/* Image - Operational 1 */}
+        <ImageCaption
+          src="/images/operational1.jpg"
+          alt="Operational observation"
+          caption=""
+        />
+
+        <Spacer size="sm" />
 
         {/* Quote 1 - Juan Miguel Quintana Arena */}
         <QuoteBlock
@@ -1113,20 +1495,56 @@ function App() {
         <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph4')}</p>
         <p className="text-xl leading-relaxed mb-6">{t('elNino.paragraph5')}</p>
 
+        {/* Gallery - Operational observations */}
+        <ImageGallery
+          images={[
+            {
+              src: '/images/operational3.jpg',
+              alt: 'Operational observation 3',
+              caption: ''
+            },
+            {
+              src: '/images/operational4.jpg',
+              alt: 'Operational observation 4',
+              caption: ''
+            },
+            {
+              src: '/images/operational5.jpg',
+              alt: 'Operational observation 5',
+              caption: ''
+            },
+            {
+              src: '/images/operational6.jpg',
+              alt: 'Operational observation 6',
+              caption: ''
+            }
+          ]}
+          aspectRatio="video"
+          objectFit="cover"
+          arrowColor="text-goos-white"
+          arrowBgColor="bg-goos-blue-700"
+          dotColor="bg-gray-200"
+          activeDotColor="bg-goos-blue-700"
+        />
+
+        <Spacer size="xs" />
+
         {/* Learn More Content Box - Monica Alvarado Niño */}
         <ContentBox
           titleKey="elNino.learnMore.title"
-          backgroundColor="bg-goos-blue-700"
-          textColor="text-goos-white"
-          titleColor="text-goos-white"
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-blue-700"
+          titleColor="text-goos-blue-700"
           collapsible={true}
           defaultCollapsed={true}
           buttonBgColor="bg-goos-white"
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
-          buttonBorderColor="border-goos-blue-700" 
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-cyan-600"
+          buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="italic mb-6">
+          <div className="mb-6">
             <p className="text-lg leading-relaxed mb-4">
               "{t('elNino.learnMore.content1')}
             </p>
@@ -1134,8 +1552,8 @@ function App() {
               {t('elNino.learnMore.content2')}"
             </p>
           </div>
-          <div className="pt-4 border-t border-white/50">
-            <p className="text-base font-semibold text-goos-white">
+          <div className="pt-4">
+            <p className="text-base font-semibold">
               {t('elNino.learnMore.authorName')}
             </p>
             <p className="text-sm opacity-90">
@@ -1161,11 +1579,10 @@ function App() {
 
         {/* Image - El Niño Forecast */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/operational2.png"
           alt={t('elNino.imageCaption')}
           caption={t('elNino.imageCaption')}
-          aspectRatio="video"
-          objectFit="cover"
+          aspectRatio="auto"
         />
 
         <Spacer size="sm" />
@@ -1231,7 +1648,7 @@ function App() {
         quote={t('elNino.quote3.text')}
         authorName={t('elNino.quote3.author')}
         authorTitle={t('elNino.quote3.position')}
-        imageSrc="/images/content.jpg"
+        imageSrc="/images/monica.jpg"
         imageAlt="Monica Alvarado Niño"
         height="fullscreen"
         imagePosition="left"
@@ -1248,25 +1665,71 @@ function App() {
         kicker={t('oceanHealth.kicker')}
         title={t('oceanHealth.title')}
         titleLevel="h3"
-        introduction={t('oceanHealth.contributors')}
+        // introduction={t('oceanHealth.contributors')}
         layout="split"
         backgroundColor="bg-goos-white"
         titleColor="text-goos-blue-700"
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary */}
-        <div className="space-y-4 mb-8">
-          <h3 className="text-2xl font-bold text-goos-blue-700">{t('oceanHealth.quickSummary.title')}</h3>
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
-          <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
-        </div>
+        {/* Quick Summary - Collapsible */}
+        <ContentBox
+          titleKey="oceanHealth.quickSummary.title"
+          collapsible={true}
+          defaultCollapsed={true}
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-gray-800"
+          titleColor="text-goos-blue-700"
+          buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-cyan-600"
+          buttonIconBorderColor="border-goos-blue-600"
+          padding="p-6"
+        >
+          <div className="space-y-4">
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
+            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
+          </div>
+        </ContentBox>
+
+        <Spacer size="sm" />
 
         {/* Main paragraphs */}
         <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph2')}</p>
         <p className="text-xl leading-relaxed mb-8">{t('oceanHealth.paragraph3')}</p>
+
+        {/* Gallery - Ocean Health observations */}
+        <ImageGallery
+          images={[
+            {
+              src: '/images/oh1.jpeg',
+              alt: 'Ocean health observation 1',
+              caption: ''
+            },
+            {
+              src: '/images/oh2.jpeg',
+              alt: 'Ocean health observation 2',
+              caption: ''
+            },
+            {
+              src: '/images/oh3.jpeg',
+              alt: 'Ocean health observation 3',
+              caption: ''
+            }
+          ]}
+          aspectRatio="square"
+          objectFit="cover"
+          arrowColor="text-goos-white"
+          arrowBgColor="bg-goos-blue-700"
+          dotColor="bg-gray-200"
+          activeDotColor="bg-goos-blue-700"
+        />
+
+        <Spacer size="xs" />
 
         {/* Observations & Benefits */}
         <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.observationsTitle')}</h3>
@@ -1275,10 +1738,10 @@ function App() {
 
         {/* Image - Seal foraging trips */}
         <ImageCaption
-          src="/images/content.jpg"
+          src="/images/imos_anim_230624.gif"
           alt={t('oceanHealth.imageCaption')}
           caption={t('oceanHealth.imageCaption')}
-          aspectRatio="video"
+          aspectRatio="auto"
           objectFit="cover"
         />
 
@@ -1309,10 +1772,10 @@ function App() {
             headers={[t('oceanHealth.eovTable.biologyTitle')]}
             rows={[
               [
-                { icon: '/icons/biology_and_ecosystems/Marine-mammals.png', legend: 'Marine mammals', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Sea-turtles.png', legend: 'Sea turtles', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Seabirds.png', legend: 'Seabirds', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Marine-mammals.png', legend: 'Marine mammal abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Sea-turtles.png', legend: 'Sea turtle abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Seabirds.png', legend: 'Seabird abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
               ]
             ]}
             borderColor="border-goos-green-700"
@@ -1347,17 +1810,19 @@ function App() {
         {/* Learn More Content Box */}
         <ContentBox
           titleKey="oceanHealth.learnMore.title"
-          backgroundColor="bg-goos-blue-700"
-          textColor="text-goos-white"
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-blue-700"
           titleColor="text-goos-white"
           collapsible={true}
           defaultCollapsed={true}
-           buttonBgColor="bg-goos-white"
+          buttonBgColor="bg-goos-white"
           buttonTextColor="text-goos-blue-700"
           buttonIconColor="text-goos-blue-700"
-          buttonBorderColor="border-goos-blue-700" 
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-cyan-600"
+          buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="italic mb-6">
+          <div className="mb-6">
             <p className="text-lg leading-relaxed mb-4">
               "{t('oceanHealth.learnMore.content1')}
             </p>
@@ -1365,8 +1830,8 @@ function App() {
               {t('oceanHealth.learnMore.content2')}"
             </p>
           </div>
-          <div className="pt-4 border-t border-white/50">
-            <p className="text-base font-semibold text-goos-white">
+          <div className="pt-4">
+            <p className="text-base font-semibold">
               {t('oceanHealth.learnMore.authorName')}
             </p>
             <p className="text-sm opacity-90">
@@ -1388,7 +1853,7 @@ function App() {
         {/* Learn More Podcast Content Box */}
         <ContentBox
           titleKey="oceanHealth.podcastBox.title"
-          backgroundColor="bg-goos-blue-700"
+          backgroundColor="bg-goos-cyan-700"
           textColor="text-white"
           titleColor="text-white"
         >
@@ -1398,7 +1863,7 @@ function App() {
 
           {/* Spotify Podcast Embed */}
           <SpotifyEmbed
-            spotifyId="3AjTpnz2G7RZofpSOtiDa1"
+            spotifyId="https://open.spotify.com/episode/7brfq0OYXFWUoILZJaqaSA?si=09ea24d816c44d45"
             type="episode"
             height={252}
           />
@@ -1410,7 +1875,7 @@ function App() {
         quote={t('oceanHealth.quote2.text')}
         authorName={t('oceanHealth.quote2.author')}
         authorTitle={t('oceanHealth.quote2.position')}
-        imageSrc="/images/content.jpg"
+        imageSrc="/images/clive.jpeg"
         imageAlt="Dr. Clive McMahon"
         height="fullscreen"
         imagePosition="left"
@@ -1422,12 +1887,31 @@ function App() {
       </div>
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
+      {/* Strengthening and Expanding the System */}
+      <div id="strengthening-section">
+      <ContentModule
+        title={t('strengtheningSystem.title')}
+        titleLevel="h2"
+        titleColor="text-goos-blue-700"
+        layout="split"
+        backgroundColor="bg-goos-green-100"
+        textColor="text-goos-black"
+        lineColor="bg-goos-green-700"
+      >
+        <p className="text-goos-black text-xl leading-relaxed">
+          {t('strengtheningSystem.content')}
+        </p>
+      </ContentModule>
+      </div>
+
+        <Spacer size="md" backgroundColor="bg-goos-green-100"/>
+
       {/* South Africa - Agulhas Current Story */}
       <div id="southafrica-section">
       <ContentModule
         title={t('southAfrica.title')}
-        titleLevel="h2"
-        introduction={t('southAfrica.contributors')}
+        titleLevel="h3"
+        // introduction={t('southAfrica.contributors')}
         layout="split"
         backgroundColor="bg-goos-green-100"
         titleColor="text-goos-blue-700"
@@ -1447,68 +1931,80 @@ function App() {
         <ImageGallery
           images={[
             {
-              src: '/images/content.jpg',
-              alt: t('content.section1.gallery.image1.alt'),
-              caption: t('content.section1.gallery.image1.caption'),
+              src: '/images/sa1.jpg',
+              alt: 'South Africa observation 1',
+              caption: '',
+            },
+            {
+              src: '/images/sa2.png',
+              alt: 'South Africa observation 2',
+              caption: '',
+            },
+            {
+              src: '/images/sa3.png',
+              alt: 'South Africa observation 3',
+              caption: '',
+            },
+            {
+              src: '/images/sa4.png',
+              alt: 'South Africa observation 4',
+              caption: '',
             },
           ]}
           aspectRatio="video"
           objectFit="cover"
           captionColor="text-goos-gray-800"
           arrowColor="text-goos-white"
-          arrowBgColor="bg-goos-orange-600"
+          arrowBgColor="bg-goos-green-700"
           dotColor="bg-gray-200"
-          activeDotColor="bg-goos-orange-600"
+          activeDotColor="bg-goos-green-700"
         />
         {/* Spacer between modules */}
          <Spacer size="sm" />
       </div>
       </div>
 
-        <Spacer size="md" backgroundColor="bg-goos-white"/>
+        <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
       {/* 10,000 Ships for the Ocean Initiative */}
       <div id="ships-section">
       <ContentModule
         title={t('tenThousandShips.title')}
-        titleLevel="h2"
-        introduction={t('tenThousandShips.contributors')}
+        titleLevel="h3"
+        // introduction={t('tenThousandShips.contributors')}
         layout="split"
-        backgroundColor="bg-goos-white"
+        backgroundColor="bg-goos-green-100"
         titleColor="text-goos-blue-700"
         textColor="text-goos-gray-800"
-        lineColor="bg-goos-orange-500"
+        lineColor="bg-goos-green-700"
         button={{
           type: 'link',
           label: t('tenThousandShips.buttonLabel'),
           url: 'https://10000ships.org',
           textColor: 'text-white',
-          bgColor: 'bg-goos-blue-700',
+          bgColor: 'bg-goos-green-700',
         }}
       >
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph1')}</p>
         <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph2')}</p>
-        <p className="text-2xl leading-relaxed mb-4 text-goos-blue-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
+        <p className="text-3xl leading-relaxed mb-4 text-goos-green-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
       </ContentModule>
 
- <div className="px-16">
-        {/* YouTube Video */}
-        <VideoModal
-          videoType="youtube"
-          videoId="dQw4w9WgXcQ"
-          previewImage="/images/content.jpg"
-          previewAlt="10,000 Ships for the Ocean video"
-          caption="Watch the launch of 10,000 Ships for the Ocean initiative"
+ <div className="px-16 bg-goos-green-100">
+        {/* Image - 10,000 Ships */}
+        <ImageCaption
+          src="/images/10k.png"
+          alt="10,000 Ships for the Ocean"
+          caption=""
           aspectRatio="video"
-          playButtonColor="bg-goos-orange-500"
-          captionColor="text-goos-gray-800"
+          objectFit="cover"
         />
         {/* Spacer between modules */}
          <Spacer size="sm" />
       </div>
       </div>
-
-        <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
+      <Spacer size="md" backgroundColor="bg-goos-green-100"/>
+      <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
       {/* Call to Action */}
       <div id="calltoaction-section">
@@ -1528,33 +2024,38 @@ function App() {
           authorName={t('callToAction.quoteAuthor')}
           authorTitle={t('callToAction.quotePosition')}
           quoteColor="text-goos-white"
-          authorColor="text-goos-white"
+          authorColor="text-goos-orange-500"
         />
+
+              {/* Spacer */}
+      <Spacer size="sm" backgroundColor="bg-goos-blue-900"/>
+
+        {/* Number and description in same line */}
+        <div className="flex gap-8 items-center mt-8 mb-6">
+          <p className="text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
+          <p className="text-xl font-normal text-goos-white leading-[1.5] flex-1">Member States contributing to the system.</p>
+        </div>
+
+        {/* Button below */}
+        <div className="mb-8">
+          <Button
+            variant="action"
+            label="VIEW FULL LIST"
+            onClick={() => setIsPartnerModalOpen(true)}
+            textColor="text-white"
+            bgColor="bg-goos-blue-700"
+          />
+        </div>
+
+        {/* Acknowledgment text */}
+        <p className="text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
+          We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our global ocean observing system!
+        </p>
       </ContentModule>
       </div>
 
-      {/* Acknowledgments Panel */}
-      <InsightPanel
-        largeNumber="129"
-        largeNumberDescription="Lorem ipsum dolor sit amet aliqua."
-        button={{
-          variant: 'action',
-          label: 'VIEW FULL LIST',
-          onClick: () => setIsPartnerModalOpen(true),
-          textColor: 'text-white',
-          bgColor: 'bg-goos-blue-700',
-        }}
-        rightContent={
-          <p className="text-2xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
-            We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our global ocean observing system!
-          </p>
-        }
-        backgroundColor="bg-goos-blue-900"
-        textColor="text-goos-white"
-        numberColor="text-goos-orange-500"
-      />
-
-             {/* Hero Image Grid */}
+      <Spacer size="xl" backgroundColor="bg-goos-blue-900"/>
+      {/* Hero Image Grid */}
       <ImageGrid
         images={[
           {
@@ -1581,23 +2082,6 @@ function App() {
         showFlags={true}
       />
 
-      {/* LogoStrip Examples */}
-      {/* Example 1: 9 logos with blue background */}
-      <LogoStrip
-        logos={[
-          { src: '/logos/oceanops-w.png', altKey: 'logos.oceanops', url: 'https://www.ocean-ops.org' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner1', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner2', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner3', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner4', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner5', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner6', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner7', url: 'https://example.com' },
-          { src: '/logos/oceanops-w.png', altKey: 'logos.partner8', url: 'https://example.com' },
-        ]}
-        backgroundColor="bg-goos-blue-900"
-      />
-
       {/* Contact Information */}
       <div id="contact-section">
       <ContentModule
@@ -1612,10 +2096,14 @@ function App() {
         <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }} />
         <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }} />
         <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph3')}</p>
+        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }} />
+        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph5')}</p>
       </ContentModule>
       </div>
 
-    </div>
+      </div> {/* End of content overlay container */}
+      </div> {/* End of main content */}
+    </>
   )
 }
 

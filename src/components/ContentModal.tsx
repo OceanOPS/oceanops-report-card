@@ -9,6 +9,7 @@
  * @param children - Content to display in the modal
  * @param title - Optional title for the modal
  * @param maxWidth - Max width of modal: 'sm' | 'md' | 'lg' | 'xl' | '2xl' (default: 'lg')
+ * @param backgroundColor - Tailwind background color class (default: 'bg-goos-white')
  * @param className - Optional additional Tailwind classes
  *
  * @example
@@ -19,13 +20,15 @@
  *   isOpen={isOpen}
  *   onClose={() => setIsOpen(false)}
  *   title="Additional Information"
+ *   backgroundColor="bg-goos-blue-900"
  * >
  *   <p>Your custom content here...</p>
  * </ContentModal>
  * ```
  */
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 
 interface ContentModalProps {
   isOpen: boolean
@@ -33,6 +36,7 @@ interface ContentModalProps {
   children: React.ReactNode
   title?: string
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  backgroundColor?: string
   className?: string
 }
 
@@ -42,8 +46,12 @@ export default function ContentModal({
   children,
   title,
   maxWidth = 'lg',
+  backgroundColor = 'bg-goos-white',
   className = '',
 }: ContentModalProps) {
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
+
   // Close on ESC key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -69,6 +77,43 @@ export default function ContentModal({
     }
   }, [isOpen])
 
+  // Animate modal open/close
+  useEffect(() => {
+    if (!overlayRef.current || !modalRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations - show immediately
+      if (isOpen) {
+        gsap.set(overlayRef.current, { opacity: 1 })
+        gsap.set(modalRef.current, { opacity: 1, scale: 1 })
+      }
+      return
+    }
+
+    if (isOpen) {
+      // Animate in
+      const tl = gsap.timeline()
+
+      // Overlay fade in
+      tl.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: 'power2.out' }
+      )
+
+      // Modal scale + fade in
+      tl.fromTo(
+        modalRef.current,
+        { opacity: 0, scale: 0.9, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.1' // Overlap slightly with overlay
+      )
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   const maxWidthMap = {
@@ -83,21 +128,23 @@ export default function ContentModal({
 
   return (
     <div
+      ref={overlayRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 p-4"
       onClick={onClose}
     >
       <div
-        className={`relative w-full ${maxWidthClass} bg-goos-white shadow-xl max-h-[90vh] overflow-y-auto ${className}`}
+        ref={modalRef}
+        className={`relative w-full ${maxWidthClass} ${backgroundColor} shadow-xl max-h-[90vh] overflow-y-auto ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with close button */}
-        <div className="sticky top-0 bg-goos-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+        <div className={`sticky top-0 z-10 ${backgroundColor} border-b ${backgroundColor === 'bg-goos-blue-900' ? 'border-goos-blue-700' : 'border-gray-200'} px-8 py-4 flex items-center justify-between`}>
           {title && (
-            <h2 className="text-lg font-extrabold text-goos-blue-700">{title}</h2>
+            <h2 className={`text-lg font-extrabold ${backgroundColor === 'bg-goos-blue-900' ? 'text-goos-orange-500' : 'text-goos-blue-700'}`}>{title}</h2>
           )}
           <button
             onClick={onClose}
-            className="ml-auto text-gray-500 hover:text-gray-700 transition-colors"
+            className={`ml-auto transition-colors ${backgroundColor === 'bg-goos-blue-900' ? 'text-white hover:text-gray-300' : 'text-gray-500 hover:text-gray-700'}`}
             aria-label="Close modal"
           >
             <svg

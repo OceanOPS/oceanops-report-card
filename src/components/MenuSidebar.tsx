@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { gsap } from 'gsap'
 
 /**
  * MenuSidebar Component
@@ -34,17 +35,21 @@ interface MenuSidebarProps {
   menuItems: MenuItem[]
   isOpen?: boolean
   onClose?: () => void
+  show?: boolean  // Controls visibility and entrance animation
 }
 
 export default function MenuSidebar({
   menuItems,
   isOpen: externalIsOpen,
   onClose,
+  show = true,
 }: MenuSidebarProps) {
   const { t, i18n } = useTranslation()
   const [internalIsOpen, setInternalIsOpen] = useState(false)
   const [isPastReportsExpanded, setIsPastReportsExpanded] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
+  const menuItemsRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   // Use external control if provided, otherwise use internal state
   const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen
@@ -94,6 +99,71 @@ export default function MenuSidebar({
     }
   }, [isOpen])
 
+  // Animate button entrance when show becomes true
+  useEffect(() => {
+    if (!buttonRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animation - just show/hide
+      gsap.set(buttonRef.current, { opacity: show ? 1 : 0, scale: 1, x: 0 })
+    } else {
+      if (show) {
+        // Animate from right with bounce - delayed to appear after cover animations
+        gsap.fromTo(
+          buttonRef.current,
+          { opacity: 0, scale: 0.5, x: 100 },
+          {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            duration: 0.6,
+            ease: 'back.out(1.7)',
+            delay: 1.8  // Wait longer for cover animations to finish
+          }
+        )
+      } else {
+        gsap.set(buttonRef.current, { opacity: 0 })
+      }
+    }
+  }, [show])
+
+  // Animate menu items when sidebar opens
+  useEffect(() => {
+    if (!isOpen || !menuItemsRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const ctx = gsap.context(() => {
+      const items = menuItemsRef.current?.querySelectorAll('.menu-item')
+      if (!items || items.length === 0) return
+
+      if (prefersReducedMotion) {
+        // No animations - show items immediately
+        gsap.set(items, { opacity: 1, x: 0 })
+      } else {
+        // Animate items with stagger
+        gsap.fromTo(
+          items,
+          { opacity: 0, x: 20 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.3,
+            stagger: 0.05, // 50ms between each item
+            ease: 'power2.out',
+            delay: 0.1, // Small delay to let sidebar slide in first
+          }
+        )
+      }
+    }, menuItemsRef)
+
+    return () => ctx.revert()
+  }, [isOpen])
+
   const handleMenuItemClick = (item: MenuItem) => {
     if (item.onClick) {
       item.onClick()
@@ -137,8 +207,10 @@ export default function MenuSidebar({
     <>
       {/* Hamburger Menu Button - Fixed Top Right */}
       <button
+        ref={buttonRef}
         onClick={() => externalIsOpen !== undefined ? onClose?.() : setInternalIsOpen(true)}
         className="fixed top-16 right-16 z-50 w-16 h-16 bg-goos-blue-700 hover:bg-goos-blue-600 transition-colors flex flex-col items-center justify-center gap-2 rounded-full"
+        style={{ opacity: 0 }}
         aria-label="Open menu"
       >
         <span className="w-8 h-0.5 bg-goos-white"></span>
@@ -165,7 +237,7 @@ export default function MenuSidebar({
           {/* Close Button */}
           <button
             onClick={() => setIsOpen()}
-            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-goos-white hover:bg-goos-blue-800 rounded-full transition-colors"
+            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-goos-white hover:bg-goos-blue-800 rounded-full transition-colors z-10"
             aria-label="Close menu"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -173,8 +245,8 @@ export default function MenuSidebar({
             </svg>
           </button>
 
-          {/* Language Selector */}
-          <div className="mb-6">
+          {/* Language Selector - Hidden for now, will be enabled in future release */}
+          <div className="mb-6 hidden">
             <div className="flex gap-1.5 text-lg">
               <button
                 onClick={() => changeLanguage('en')}
@@ -201,26 +273,48 @@ export default function MenuSidebar({
           </div>
 
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
-            <div>
+          <div className="mb-6">
+            <div
+              onClick={() => {
+                // Close menu first
+                setIsOpen()
+                // Navigate to home (top of page)
+                setTimeout(() => {
+                  (window as any).isScrollingProgrammatically = true
+                  window.history.replaceState(null, '', '#home')
+                  // Scroll to top of page
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                  setTimeout(() => {
+                    (window as any).isScrollingProgrammatically = false
+                  }, 1000)
+                }, 300)
+              }}
+              className="cursor-pointer hover:opacity-80 transition-opacity mb-8 pr-12"
+            >
               <h1 className="text-4xl font-extrabold leading-tight">{t('menu.title')}</h1>
               <p className="text-4xl font-normal">{t('menu.year')}</p>
             </div>
-            <button className="bg-goos-blue-700 px-3 py-1.5 flex items-center gap-1 hover:bg-goos-blue-600 transition-colors">
-              <span className="font-semibold text-lg">{t('menu.downloadPdf')}</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 12L3 7H6V2H10V7H13L8 12Z" fill="currentColor"/>
-                <path d="M2 14H14V16H2V14Z" fill="currentColor"/>
-              </svg>
-            </button>
+            {/* Download PDF button - hidden for now, will be enabled later */}
+            {/* <Button
+              variant="download"
+              label={t('menu.downloadPdf')}
+              onClick={() => {
+                // TODO: Implement PDF download
+                console.log('Download PDF')
+              }}
+              textColor="text-white"
+              bgColor="bg-goos-blue-700"
+              iconColor="text-goos-blue-700"
+              iconBgColor="bg-white"
+            /> */}
           </div>
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
 
           {/* Menu Items */}
-          <nav className="space-y-4 mb-6">
+          <nav ref={menuItemsRef} className="space-y-4 mb-6">
             {menuItems.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="menu-item">
                 {/* Main Item */}
                 <div
                   onClick={() => handleMenuItemClick(item)}
@@ -237,9 +331,9 @@ export default function MenuSidebar({
                       <div
                         key={subIndex}
                         onClick={() => handleMenuItemClick(subItem)}
-                        className="cursor-pointer hover:opacity-80 transition-opacity"
+                        className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
                       >
-                        <h3 className="text-xl font-light">{t(subItem.titleKey)}</h3>
+                        <h3 className="text-lg font-light">{t(subItem.titleKey)}</h3>
                       </div>
                     ))}
                   </div>
@@ -266,28 +360,60 @@ export default function MenuSidebar({
             {isPastReportsExpanded && (
               <div className="mt-4 space-y-2">
                 <a
-                  href="/report-2024"
-                  className="block text-lg hover:underline transition-all"
-                >
-                  {t('menu.pastReportsLinks.2024')}
-                </a>
-                <a
-                  href="/report-2023"
+                  href="https://www.ocean-ops.org/reportcard2023/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-lg hover:underline transition-all"
                 >
                   {t('menu.pastReportsLinks.2023')}
                 </a>
                 <a
-                  href="/report-2022"
+                  href="https://www.ocean-ops.org/reportcard2022/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-lg hover:underline transition-all"
                 >
                   {t('menu.pastReportsLinks.2022')}
                 </a>
                 <a
-                  href="/report-2021"
+                  href="https://www.ocean-ops.org/reportcard2021/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-lg hover:underline transition-all"
                 >
                   {t('menu.pastReportsLinks.2021')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2020/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2020')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2019/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2019')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2018/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2018')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2016/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2016')}
                 </a>
               </div>
             )}

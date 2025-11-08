@@ -221,8 +221,8 @@ export default function NetworkCard({
             backgroundColor={tooltipBgColor}
             textColor={tooltipTextColor}
           >
-            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
-              {t('networks.ratings.implementationStatus')}:
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.implementationStatus')}
             </p>
           </Tooltip>
           <div className="flex gap-1">
@@ -236,8 +236,8 @@ export default function NetworkCard({
             backgroundColor={tooltipBgColor}
             textColor={tooltipTextColor}
           >
-            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
-              {t('networks.ratings.realTime')}:
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.realTime')}
             </p>
           </Tooltip>
           <div className="flex gap-1">{renderRating(ratings.realTime)}</div>
@@ -249,8 +249,8 @@ export default function NetworkCard({
             backgroundColor={tooltipBgColor}
             textColor={tooltipTextColor}
           >
-            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
-              {t('networks.ratings.archivedHighQuality')}:
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.archivedHighQuality')}
             </p>
           </Tooltip>
           <div className="flex gap-1">
@@ -265,8 +265,8 @@ export default function NetworkCard({
             textColor={tooltipTextColor}
             allowHtml={true}
           >
-            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
-              {t('networks.ratings.metadata')}:
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.metadata')}
             </p>
           </Tooltip>
           <div className="flex gap-1">{renderRating(ratings.metadata)}</div>
@@ -278,8 +278,8 @@ export default function NetworkCard({
             backgroundColor={tooltipBgColor}
             textColor={tooltipTextColor}
           >
-            <p className={`flex-1 ${textColor} text-base underline decoration-dotted cursor-help`}>
-              {t('networks.ratings.bestPractices')}:
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.bestPractices')}
             </p>
           </Tooltip>
           <div className="flex gap-1">
@@ -306,12 +306,12 @@ export default function NetworkCard({
                 textColor={tooltipTextColor}
               >
                 <div
-                  className={`${iconBgColor} rounded-full p-2 w-12 h-12 flex items-center justify-center cursor-pointer transition-transform hover:scale-110`}
+                  className={`${iconBgColor} rounded-full p-2 w-14 h-14 flex items-center justify-center cursor-pointer transition-transform hover:scale-110`}
                 >
                   <img
                     src={area.icon}
                     alt={t(area.labelKey)}
-                    className={`w-6 h-6 object-contain ${iconTextColor}`}
+                    className={`object-contain ${iconTextColor}`}
                   />
                 </div>
               </Tooltip>

@@ -63,10 +63,14 @@
  * ```
  */
 
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import VideoModal from './VideoModal'
 import ContentModal from './ContentModal'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Button configuration types
 type ButtonConfig =
@@ -107,6 +111,7 @@ interface ContentModuleProps {
   introductionKeys?: string[]  // Array of translation keys for multiple paragraphs
   button?: ButtonConfig
   hasLine?: boolean
+  stickyTitle?: boolean  // Enable/disable sticky title in split layout (default: true)
   backgroundColor?: string
   titleColor?: string
   textColor?: string
@@ -126,6 +131,7 @@ export default function ContentModule({
   introductionKeys,
   button,
   hasLine = true,
+  stickyTitle = true,
   backgroundColor = 'bg-goos-white',
   titleColor = 'text-goos-blue-900',
   textColor = 'text-goos-gray-800',
@@ -137,6 +143,53 @@ export default function ContentModule({
   const { t } = useTranslation()
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const [isContentModalOpen, setIsContentModalOpen] = useState(false)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  // Scroll reveal animation for content
+  useEffect(() => {
+    if (!contentRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const ctx = gsap.context(() => {
+      // Animate all direct children of content area
+      const elements = contentRef.current?.children
+      if (!elements) return
+
+      if (prefersReducedMotion) {
+        // No animations - show content immediately
+        gsap.set(Array.from(elements), {
+          opacity: 1,
+          y: 0,
+        })
+      } else {
+        // Animate normally
+        gsap.fromTo(
+          Array.from(elements),
+          {
+            opacity: 0,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: contentRef.current,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        )
+      }
+    }, contentRef)
+
+    return () => ctx.revert()
+  }, [children, rightColumn])
 
   // Title sizes based on level
   const titleSizes = {
@@ -146,7 +199,7 @@ export default function ContentModule({
     },
     h3: {
       main: 'text-4xl',
-      lineHeight: 'leading-10',
+      lineHeight: 'leading-[1.2]',
     },
   }
 
@@ -310,11 +363,11 @@ export default function ContentModule({
   // Split layout (default): Sticky title on left, content on right
   if (layout === 'split') {
     return (
-      <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
+      <section className={`relative z-10 ${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
         <div className="mx-auto flex gap-16 flex-col lg:flex-row">
-          {/* Left Column - Sticky Title (only if has title content) */}
+          {/* Left Column - Title (sticky by default, can be disabled) */}
           {hasTitleContent && (
-            <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-16 lg:self-start z-10">
+            <div className={`lg:basis-1/2 flex flex-col gap-5 ${stickyTitle ? 'lg:sticky lg:top-16 lg:self-start' : ''} z-10`}>
               {/* Top spacer */}
               <div className="h-8 w-5 opacity-75"></div>
 
@@ -323,7 +376,7 @@ export default function ContentModule({
           )}
 
           {/* Right Column - Content */}
-          <div className={`${hasTitleContent ? 'lg:basis-1/2' : 'w-full'} flex flex-col gap-5`}>
+          <div ref={contentRef} className={`${hasTitleContent ? 'lg:basis-1/2' : 'w-full'} flex flex-col gap-5`}>
             {/* Top spacer */}
             <div className="h-8 w-5 opacity-75"></div>
 
@@ -340,7 +393,7 @@ export default function ContentModule({
 
   // Full-width layout: Title at top, content in two columns below
   return (
-    <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
+    <section className={`relative z-10 ${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
         {/* Title Section - Full Width (only if has title content) */}
         {hasTitleContent && (

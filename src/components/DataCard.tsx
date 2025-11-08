@@ -1,4 +1,9 @@
 import { useTranslation } from 'react-i18next'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * DataCard Component
@@ -58,14 +63,70 @@ export default function DataCard({
   className = '',
 }: DataCardProps) {
   const { t } = useTranslation()
+  const cardRef = useRef<HTMLDivElement>(null)
+  const numberRef = useRef<HTMLHeadingElement>(null)
+
+  // Helper function to extract numeric value from string (e.g., "129" from "129" or "45" from "3,800")
+  const extractNumber = (text: string): number => {
+    const match = text.match(/[\d,]+/)
+    return match ? parseFloat(match[0].replace(/,/g, '')) : 0
+  }
+
+  // Helper function to format number with original formatting
+  const formatNumber = (original: string, value: number): string => {
+    // Check if original has comma formatting
+    const hasComma = original.includes(',')
+    const formatted = hasComma ? Math.round(value).toLocaleString() : Math.round(value).toString()
+    return formatted
+  }
+
+  useEffect(() => {
+    if (!cardRef.current || !numberRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const ctx = gsap.context(() => {
+      const targetValue = extractNumber(number)
+
+      if (prefersReducedMotion) {
+        // No animation - show final number immediately
+        if (numberRef.current) {
+          numberRef.current.textContent = formatNumber(number, targetValue)
+        }
+      } else {
+        // Animate normally
+        const tempObj = { value: 0 }
+
+        gsap.to(tempObj, {
+          value: targetValue,
+          duration: 2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+          onUpdate: () => {
+            if (numberRef.current) {
+              numberRef.current.textContent = formatNumber(number, tempObj.value)
+            }
+          },
+        })
+      }
+    }, cardRef)
+
+    return () => ctx.revert()
+  }, [number])
 
   return (
     <div
-      className={`${backgroundColor} w-full aspect-[7/8] p-4 flex flex-col justify-between ${className}`}
+      ref={cardRef}
+      className={`${backgroundColor} w-full aspect-[15/16] p-4 flex flex-col justify-between ${className}`}
     >
       {/* Header Section - Number and Tag */}
       <div className="flex items-start justify-between">
-        <h1 className={`text-6xl font-light leading-[72px] ${numberColor}`}>
+        <h1 ref={numberRef} className={`text-6xl font-light leading-[72px] ${numberColor}`}>
           {number}
         </h1>
         <span className={`text-md ${tagColor} mt-1`}>
@@ -76,7 +137,7 @@ export default function DataCard({
       {/* Footer Section - Icon and Title */}
       <div className="flex flex-col gap-2">
         {/* Icon */}
-        <div className={`w-12 h-12 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
+        <div className={`w-14 h-14 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0 mb-2`}>
           <img
             src={iconSrc}
             alt={iconAlt}

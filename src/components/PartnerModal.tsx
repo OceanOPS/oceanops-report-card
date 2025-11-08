@@ -45,6 +45,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { gsap } from 'gsap'
 
 // Fixed network types with their icons and translation keys
 const FIXED_NETWORKS = [
@@ -55,12 +56,12 @@ const FIXED_NETWORKS = [
   { key: 'fvon', icon: '/icons/network/soop.svg', labelKey: 'partners.networks.fvon' },
   { key: 'sotVos', icon: '/icons/network/vos.svg', labelKey: 'partners.networks.sotVos' },
   { key: 'sotAsap', icon: '/icons/network/asap.svg', labelKey: 'partners.networks.sotAsap' },
-  { key: 'sot', icon: '/icons/network/soop.svg', labelKey: 'partners.networks.sot' },
+  { key: 'sot', icon: '/icons/network/xbt-soop.svg', labelKey: 'partners.networks.sot' },
   { key: 'goShip', icon: '/icons/network/go_ship.svg', labelKey: 'partners.networks.goShip' },
   { key: 'gloss', icon: '/icons/network/gloss.svg', labelKey: 'partners.networks.gloss' },
   { key: 'oceanSites', icon: '/icons/network/ocean_sites.svg', labelKey: 'partners.networks.oceanSites' },
   { key: 'mooredBuoys', icon: '/icons/network/dbcp_moored.svg', labelKey: 'partners.networks.mooredBuoys' },
-  { key: 'tsunamiBuoys', icon: '/icons/network/dbcp_moored.svg', labelKey: 'partners.networks.tsunamiBuoys' },
+  { key: 'tsunamiBuoys', icon: '/icons/network/tsunami_buoys.svg', labelKey: 'partners.networks.tsunamiBuoys' },
   { key: 'hfRadars', icon: '/icons/network/hf_radar.svg', labelKey: 'partners.networks.hfRadars' },
 ] as const
 
@@ -108,6 +109,10 @@ export default function PartnerModal({
   const { t } = useTranslation()
   const [expandedCountry, setExpandedCountry] = useState<string | null>(null)
   const countryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const cardsGridRef = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const expandedContentRef = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
 
   // Close on ESC key
   useEffect(() => {
@@ -133,6 +138,98 @@ export default function PartnerModal({
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+
+  // Animate modal open
+  useEffect(() => {
+    if (!overlayRef.current || !modalRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations - show immediately
+      if (isOpen) {
+        gsap.set(overlayRef.current, { opacity: 1 })
+        gsap.set(modalRef.current, { opacity: 1, scale: 1 })
+      }
+      return
+    }
+
+    if (isOpen) {
+      // Animate in
+      const tl = gsap.timeline()
+
+      // Overlay fade in
+      tl.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: 'power2.out' }
+      )
+
+      // Modal scale + fade in
+      tl.fromTo(
+        modalRef.current,
+        { opacity: 0, scale: 0.9, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.1' // Overlap slightly with overlay
+      )
+    }
+  }, [isOpen])
+
+  // GSAP animation when country expands
+  useEffect(() => {
+    if (!expandedCountry) return
+
+    const expandedContent = expandedContentRef.current[expandedCountry]
+    const cardsGrid = cardsGridRef.current[expandedCountry]
+
+    if (!expandedContent || !cardsGrid) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const ctx = gsap.context(() => {
+      const cards = cardsGrid.querySelectorAll('.platform-card')
+
+      if (prefersReducedMotion) {
+        // No animations - show content immediately
+        gsap.set(expandedContent, { height: 'auto' })
+        if (cards.length > 0) {
+          gsap.set(cards, { opacity: 1 })
+        }
+      } else {
+        // Animate normally
+        const tl = gsap.timeline()
+
+        // 1. Expand container - MUY RÁPIDO, casi instantáneo
+        tl.to(expandedContent, {
+          height: 'auto',
+          duration: 0.2,
+          ease: 'none', // Linear, sin curva
+        })
+
+        // 2. Fade in cards - SOLO opacity, super simple
+        if (cards.length > 0) {
+          // Initial state
+          gsap.set(cards, { opacity: 0 })
+
+          // Animate ONLY opacity - más ligero y fluido
+          tl.to(
+            Array.from(cards),
+            {
+              opacity: 1,
+              duration: 0.3,
+              stagger: 0.02, // 20ms entre cards
+              ease: 'none', // Linear para máxima fluidez
+            },
+            '-=0.15' // Overlap con expansión
+          )
+        }
+      }
+    }, expandedContent)
+
+    return () => ctx.revert()
+  }, [expandedCountry])
 
   if (!isOpen) return null
 
@@ -169,15 +266,17 @@ export default function PartnerModal({
 
   return (
     <div
+      ref={overlayRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 p-4"
       onClick={onClose}
     >
       <div
+        ref={modalRef}
         className="relative w-full max-w-7xl bg-goos-white shadow-xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-goos-blue-900 border-b border-blue-900 px-8 py-8 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-goos-blue-900 border-b border-goos-blue-300 px-8 py-8 flex items-center justify-between z-10">
           <h2 className="text-lg font-extrabold text-goos-white">{t(titleKey)}</h2>
           <button
             onClick={onClose}
@@ -202,7 +301,7 @@ export default function PartnerModal({
         </div>
 
         {/* Content */}
-        <div className="px-8 py-8 space-y-1 bg-goos-blue-900">
+        <div className="space-y-1 bg-goos-blue-900">
           {countries.map((country) => {
             const { activeNetworks, totalPlatforms } = getCountryTotals(country.networks)
             const isExpanded = expandedCountry === country.name
@@ -211,19 +310,22 @@ export default function PartnerModal({
               <div
                 key={country.name}
                 ref={(el) => (countryRefs.current[country.name] = el)}
-                className="w-full overflow-hidden"
+                className="w-full overflow-hidden transition-all duration-500 ease-in-out"
               >
                 {isExpanded ? (
                   // Expanded Card
-                  <div className="bg-goos-white border-t border-goos-gray-400 px-8 py-8 space-y-8 animate-expandIn">
+                  <div
+                    ref={(el) => (expandedContentRef.current[country.name] = el)}
+                    className="bg-goos-blue-900 border-t border-goos-blue-900 px-8 py-8 space-y-8"
+                  >
                     {/* Country Header - Entire header is clickable */}
                     <div
                       onClick={() => setExpandedCountry(null)}
-                      className="flex items-center justify-between animate-fadeInDown cursor-pointer hover:opacity-90 transition-opacity"
+                      className="flex items-center justify-between cursor-pointer hover:opacity-90 transition-opacity duration-200"
                     >
                       <div className="flex items-center gap-3">
                         {showFlags && country.countryCode && (
-                          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-goos-blue-700 flex-shrink-0">
+                          <div className="flex-shrink-0 w-10 h-6 transition-transform duration-300 hover:scale-110">
                             <img
                               src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                               alt={`${country.name} flag`}
@@ -231,11 +333,11 @@ export default function PartnerModal({
                             />
                           </div>
                         )}
-                        <h2 className="text-4xl text-goos-blue-700 font-normal">{country.name}</h2>
-                        <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold">
+                        <h2 className="text-4xl text-goos-white font-normal">{country.name}</h2>
+                        <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
                           {activeNetworks} {t('partners.networksLabel')}
                         </span>
-                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
                       </div>
@@ -248,13 +350,16 @@ export default function PartnerModal({
 
                     {/* Description - Only show if country has one */}
                     {country.description && (
-                      <p className="text-goos-gray-800 text-xl leading-relaxed animate-fadeInUp animation-delay-100">
+                      <p className="text-goos-white text-xl leading-relaxed">
                         {country.description}
                       </p>
                     )}
 
                     {/* Platform Cards Grid */}
-                    <div className="grid grid-cols-4 gap-6 animate-fadeInUp animation-delay-200">
+                    <div
+                      ref={(el) => (cardsGridRef.current[country.name] = el)}
+                      className="grid grid-cols-4 gap-6"
+                    >
                       {FIXED_NETWORKS.map((network) => {
                         const platformCount = country.networks[network.key as NetworkKey]
 
@@ -267,7 +372,7 @@ export default function PartnerModal({
                         return (
                           <div
                             key={network.key}
-                            className="bg-goos-blue-800 p-4 flex flex-col justify-between h-[290px]"
+                            className="platform-card bg-goos-blue-800 p-4 flex flex-col justify-between h-[290px] opacity-0"
                           >
                             <div className="flex items-start justify-between">
                               <span className="text-7xl font-light text-goos-white leading-none">
@@ -281,7 +386,7 @@ export default function PartnerModal({
                               <img
                                 src={network.icon}
                                 alt={t(network.labelKey)}
-                                className="w-12 h-12 object-contain"
+                                className="w-16 h-16 object-contain transition-transform duration-300 hover:scale-110"
                               />
                               <p className="text-goos-white text-base font-semibold uppercase leading-tight">
                                 {t(network.labelKey)}
@@ -296,12 +401,12 @@ export default function PartnerModal({
                   // Collapsed Card - Entire card is clickable
                   <div
                     onClick={() => handleExpand(country.name)}
-                    className="bg-goos-blue-800 px-8 py-8 animate-fadeIn cursor-pointer hover:opacity-90 transition-opacity"
+                    className="bg-goos-blue-900 border-t border-goos-blue-200 px-8 py-8 animate-fadeInScale cursor-pointer hover:opacity-90 transition-all duration-300 hover:shadow-md"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         {showFlags && country.countryCode && (
-                          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-goos-white flex-shrink-0">
+                          <div className="flex-shrink-0 w-10 h-6 transition-transform duration-300 hover:scale-110">
                             <img
                               src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                               alt={`${country.name} flag`}
@@ -310,10 +415,10 @@ export default function PartnerModal({
                           </div>
                         )}
                         <h3 className="text-4xl text-goos-white font-normal">{country.name}</h3>
-                        <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
                           {activeNetworks} {t('partners.networksLabel')}
                         </span>
-                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
                       </div>

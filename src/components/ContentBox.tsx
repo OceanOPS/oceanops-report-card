@@ -16,8 +16,9 @@ import { useState } from 'react'
  * @param defaultCollapsed - If collapsible, whether to start collapsed (default: true)
  * @param buttonTextColor - Text color for the collapsible button (default: 'text-white')
  * @param buttonBgColor - Background color for the collapsible button (default: 'bg-goos-blue-900')
- * @param buttonIconColor - Color for the expand/collapse icon (default: 'text-white')
- * @param buttonBorderColor - Border color for the collapsible button (optional, e.g., 'border-goos-gray-300')
+ * @param buttonIconColor - Color for the plus/minus icon (default: 'text-white')
+ * @param buttonIconBgColor - Background color for the icon circle (default: 'bg-goos-blue-700')
+ * @param buttonLeftBorderColor - Left border color for the collapsible button (optional, e.g., 'border-goos-blue-700')
  * @param children - Content to display inside the box
  *
  * @example
@@ -54,7 +55,9 @@ interface ContentBoxProps {
   buttonTextColor?: string
   buttonBgColor?: string
   buttonIconColor?: string
-  buttonBorderColor?: string
+  buttonIconBgColor?: string
+  buttonIconBorderColor?: string
+  buttonLeftBorderColor?: string
   children: React.ReactNode
 }
 
@@ -63,13 +66,15 @@ export default function ContentBox({
   backgroundColor = 'bg-goos-blue-800',
   textColor = 'text-white',
   titleColor = 'text-white',
-  padding = 'p-8',
+  padding = 'p-6',
   collapsible = false,
   defaultCollapsed = true,
   buttonTextColor = 'text-white',
   buttonBgColor = 'bg-goos-blue-900',
   buttonIconColor = 'text-white',
-  buttonBorderColor = '',
+  buttonIconBgColor = 'bg-goos-blue-700',
+  buttonIconBorderColor = '',
+  buttonLeftBorderColor = '',
   children,
 }: ContentBoxProps) {
   const { t } = useTranslation()
@@ -82,24 +87,30 @@ export default function ContentBox({
         {/* Collapsible Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className={`${buttonBgColor} ${buttonTextColor} ${buttonBorderColor ? `border ${buttonBorderColor}` : ''} px-8 py-4 w-full text-left font-regular text-lg font-roboto-condensed flex items-center justify-between hover:opacity-90 transition-opacity`}
+          className={`${buttonBgColor} ${buttonTextColor} ${buttonLeftBorderColor ? `border-l-4 ${buttonLeftBorderColor}` : ''} px-6 py-4 w-full text-left font-regular text-2xl font-roboto-condensed flex justify-between hover:bg-gray-100 transition-colors duration-200`}
         >
           <span>{t(titleKey)}</span>
-          <svg
-            className={`w-6 h-6 transform transition-transform duration-300 ${buttonIconColor} ${
-              isExpanded ? 'rotate-180' : ''
-            }`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          {/* Plus/Minus icon with circular background */}
+          <div className={`w-6 h-6 ${buttonIconBgColor} ${buttonIconBorderColor ? `border-2 ${buttonIconBorderColor}` : ''} rounded-full flex items-center justify-center flex-shrink-0 mt-1`}>
+            <div className={`${buttonIconColor}`}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5 transition-transform duration-300"
+              >
+                {isExpanded ? (
+                  // Minus icon when expanded
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+                ) : (
+                  // Plus icon when collapsed
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                )}
+              </svg>
+            </div>
+          </div>
         </button>
 
         {/* Collapsible Content */}
@@ -108,7 +119,7 @@ export default function ContentBox({
             isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className={`${backgroundColor} ${textColor} ${padding} w-full`}>
+          <div className={`${backgroundColor} ${textColor} ${padding} w-full ${buttonLeftBorderColor ? `border-l-4 ${buttonLeftBorderColor}` : ''}`}>
             <div className="space-y-4">
               {children}
             </div>
