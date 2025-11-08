@@ -938,6 +938,7 @@ function App() {
           layout="split"
           backgroundColor="bg-goos-blue-900"
           textColor="text-goos-white"
+          stickyTitle={false}
         >
           <p className="text-xl text-goos-white">
             {t('satelliteObservations.introduction')}
@@ -1206,6 +1207,7 @@ function App() {
         backgroundColor="bg-goos-white"
         textColor="text-goos-black"
         lineColor="bg-goos-cyan-600"
+        stickyTitle={false}
       >
         <p className="text-goos-black text-xl leading-relaxed">
           {t('valueOfObservations.content')}

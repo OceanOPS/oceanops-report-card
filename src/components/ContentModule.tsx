@@ -111,6 +111,7 @@ interface ContentModuleProps {
   introductionKeys?: string[]  // Array of translation keys for multiple paragraphs
   button?: ButtonConfig
   hasLine?: boolean
+  stickyTitle?: boolean  // Enable/disable sticky title in split layout (default: true)
   backgroundColor?: string
   titleColor?: string
   textColor?: string
@@ -130,6 +131,7 @@ export default function ContentModule({
   introductionKeys,
   button,
   hasLine = true,
+  stickyTitle = true,
   backgroundColor = 'bg-goos-white',
   titleColor = 'text-goos-blue-900',
   textColor = 'text-goos-gray-800',
@@ -363,9 +365,9 @@ export default function ContentModule({
     return (
       <section className={`relative z-10 ${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
         <div className="mx-auto flex gap-16 flex-col lg:flex-row">
-          {/* Left Column - Sticky Title (only if has title content) */}
+          {/* Left Column - Title (sticky by default, can be disabled) */}
           {hasTitleContent && (
-            <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-16 lg:self-start z-10">
+            <div className={`lg:basis-1/2 flex flex-col gap-5 ${stickyTitle ? 'lg:sticky lg:top-16 lg:self-start' : ''} z-10`}>
               {/* Top spacer */}
               <div className="h-8 w-5 opacity-75"></div>
 

@@ -723,10 +723,13 @@
     "downloadPdf": "DOWNLOAD PDF",
     "pastReports": "Past Reports",
     "pastReportsLinks": {
-      "2024": "Report Card 2024",
       "2023": "Report Card 2023",
       "2022": "Report Card 2022",
-      "2021": "Report Card 2021"
+      "2021": "Report Card 2021",
+      "2020": "Report Card 2020",
+      "2019": "Report Card 2019",
+      "2018": "Report Card 2018",
+      "2016": "Report Card 2016/2017"
     },
     "social": {
       "instagram": {

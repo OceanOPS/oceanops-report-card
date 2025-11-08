@@ -360,28 +360,60 @@ export default function MenuSidebar({
             {isPastReportsExpanded && (
               <div className="mt-4 space-y-2">
                 <a
-                  href="/report-2024"
-                  className="block text-lg hover:underline transition-all"
-                >
-                  {t('menu.pastReportsLinks.2024')}
-                </a>
-                <a
-                  href="/report-2023"
+                  href="https://www.ocean-ops.org/reportcard2023/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-lg hover:underline transition-all"
                 >
                   {t('menu.pastReportsLinks.2023')}
                 </a>
                 <a
-                  href="/report-2022"
+                  href="https://www.ocean-ops.org/reportcard2022/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-lg hover:underline transition-all"
                 >
                   {t('menu.pastReportsLinks.2022')}
                 </a>
                 <a
-                  href="/report-2021"
+                  href="https://www.ocean-ops.org/reportcard2021/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-lg hover:underline transition-all"
                 >
                   {t('menu.pastReportsLinks.2021')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2020/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2020')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2019/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2019')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2018/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2018')}
+                </a>
+                <a
+                  href="https://www.ocean-ops.org/reportcard2016/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2016')}
                 </a>
               </div>
             )}
