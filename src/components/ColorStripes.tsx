@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -16,11 +16,12 @@ export default function ColorStripes({
   stripeColors,
   className = '',
   words = ['CREATIVIDAD', 'INNOVACIÓN', 'IMPACTO'],
-  stripeHeight = '150vh' // 3 pantallas de altura para máximo dramatismo
+  stripeHeight = '150vh'
 }: ColorStripesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const stripesRef = useRef<(HTMLDivElement | null)[]>([]);
   const wordsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const whiteLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Función para agregar referencias a los stripes
   const addToStripesRefs = (el: HTMLDivElement | null, index: number) => {
@@ -32,6 +33,11 @@ export default function ColorStripes({
     wordsRef.current[index] = el;
   };
 
+  // Función para agregar referencias a las capas blancas
+  const addToWhiteLayersRefs = (el: HTMLDivElement | null, index: number) => {
+    whiteLayersRef.current[index] = el;
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // ENTRADA ESCALONADA DRAMÁTICA - Cada tira entra con delay
@@ -41,46 +47,60 @@ export default function ColorStripes({
         // ENTRADA ESCALONADA - Cada tira entra 15% después de la anterior
         gsap.fromTo(stripe, 
           {
-            y: '50vh', // Comienzan MÁS abajo para mayor dramatismo
+            y: '50vh',
           },
           {
             y: '0vh',
             ease: "power2.out",
-            duration: 2,
             scrollTrigger: {
               trigger: containerRef.current,
-              start: `top+=${index * 15}% bottom`, // Entrada muy escalonada
+              start: `top+=${index * 15}% bottom`,
               end: `top+=${20 + index * 5}% top`, 
               scrub: 1,
-              markers: false, // Puedes activar markers para debug
             }
           }
         );
 
-        // SALIDA ESCALONADA DRAMÁTICA - Cada tira sale con delay
+        // SALIDA ESCALONADA - Empiezan desfasadas pero terminan alineadas
+        const exitDelay = (2 - index) * 20;
+
         gsap.fromTo(stripe,
           {
             y: '0vh',
           },
           {
-            y: '-50vh', // Salen MÁS arriba para mayor dramatismo
-            ease: "power2.in",
-            duration: 2,
+            y: '-100vh',
+            ease: "none",
             scrollTrigger: {
               trigger: containerRef.current,
-              start: `top+=${100 + index * 40}% top`, // Salida muy escalonada (10% de diferencia)
-              end: `top+=${180 + index * 40}% top`, 
+              start: `top+=${80 + exitDelay}% top`,
+              end: `top+=${180}% top`,
               scrub: 1,
             }
           }
         );
       });
 
-      // ANIMACIÓN DE PALABRAS (la que te gustaba) - en la zona media
+      // FADE A BLANCO con capas blancas encima
+      whiteLayersRef.current.forEach((layer) => {
+        if (!layer) return;
+
+        gsap.to(layer, {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: `top+=${150}% top`,
+            end: `top+=${180}% top`,
+            scrub: 1,
+          }
+        });
+      });
+
+      // ANIMACIÓN DE PALABRAS
       wordsRef.current.forEach((word, index) => {
         if (!word) return;
 
-        // ENTRADA de palabras - después de que las tiras estén en posición
+        // ENTRADA de palabras
         gsap.fromTo(word, 
           {
             opacity: 0,
@@ -94,15 +114,14 @@ export default function ColorStripes({
             ease: "back.out(1.7)",
             scrollTrigger: {
               trigger: containerRef.current,
-              start: `top+=${0 + index * 8}% top`, // Aparecen escalonadas
+              start: `top+=${0 + index * 8}% top`,
               end: `top+=${10 + index * 8}% top`, 
               scrub: 1,
             }
           }
         );
 
-        // Las palabras permanecen visibles por un buen rato
-        // SALIDA de palabras - antes de que salgan las tiras
+        // SALIDA de palabras
         gsap.to(word, {
           opacity: 0,
           y: -80,
@@ -110,19 +129,11 @@ export default function ColorStripes({
           ease: "power2.in",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: `top+=${65}% top`, // Comienzan a desaparecer
-            end: `top+=${75}% top`,   // Todas desaparecen juntas
+            start: `top+=${65}% top`,
+            end: `top+=${75}% top`,
             scrub: 1,
           }
         });
-      });
-
-      // Scroll más largo para aprovechar las 300vh
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        pin: false,
       });
 
     }, containerRef);
@@ -143,9 +154,15 @@ export default function ColorStripes({
           className={`${color} w-full relative`}
           style={{ height: stripeHeight }}
         >
+          {/* Capa blanca para fade a color claro */}
+          <div
+            ref={(el) => addToWhiteLayersRefs(el, index)}
+            className="absolute inset-0 bg-white opacity-0 pointer-events-none"
+          />
+
           {/* Contenedor para la palabra */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div 
+            <div
               ref={(el) => addToWordsRefs(el, index)}
               className="text-white text-4xl md:text-6xl lg:text-7xl font-bold opacity-0 text-center px-4"
               style={{
