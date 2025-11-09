@@ -195,6 +195,14 @@ function App() {
       {/* DeliveryAreasNav - Fixed navigation for Value of Ocean Observations sections */}
       <DeliveryAreasNav />
 
+      {/* Partner Modal Component - Outside z-10 context to appear above all */}
+      <PartnerModal
+        isOpen={isPartnerModalOpen}
+        onClose={() => setIsPartnerModalOpen(false)}
+        countries={partnerCountries}
+        showFlags={true}
+      />
+
       {/* Cover - Sticky container for parallax effect */}
       <div id="home" className="sticky top-0 h-screen">
       <CoverModule
@@ -2090,14 +2098,6 @@ function App() {
           },
         ]}
         columns={3}
-      />
-
-      {/* Partner Modal Component */}
-      <PartnerModal
-        isOpen={isPartnerModalOpen}
-        onClose={() => setIsPartnerModalOpen(false)}
-        countries={partnerCountries}
-        showFlags={true}
       />
 
       {/* Contact Information */}
