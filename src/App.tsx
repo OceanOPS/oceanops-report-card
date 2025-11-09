@@ -558,10 +558,10 @@ function App() {
               </div>
             </div>
           }
-          textColor="text-goos-white"
-          bgColor="bg-goos-orange-600"
-          iconColor="text-goos-orange-600"
-          iconBgColor="bg-goos-white"
+          textColor="text-white"
+          bgColor="bg-goos-orange-700"
+          iconColor="text-goos-orange-700"
+          iconBgColor="bg-white"
         />
       </div>
       </div>
@@ -786,7 +786,7 @@ function App() {
         titleColor="text-white"
         cardBackgroundColor="bg-goos-blue-800"
         cardTextColor="text-white"
-        cardAccentColor="text-goos-orange-500"
+        cardAccentColor="text-goos-orange-700"
         tooltipBgColor="text-goos-white"
         tooltipTextColor="bg-goos-blue-900"
       />
@@ -929,9 +929,9 @@ function App() {
               </div>
             </div>
           }
-          bgColor="bg-goos-orange-600"
+          bgColor="bg-goos-orange-700"
           textColor="text-white"
-          iconColor="text-goos-orange-600"
+          iconColor="text-goos-orange-800"
           iconBgColor="bg-white"
         />
 
@@ -1199,7 +1199,7 @@ function App() {
         buttonBgColor="bg-goos-blue-900"
         buttonTextColor="text-white"
         buttonIconBgColor="bg-goos-white"
-        buttonIconColor="text-goos-blue-900"
+        buttonIconColor="text-goos-blue-700"
         tooltipBgColor="text-goos-white"
         tooltipTextColor="bg-goos-blue-900"
         arrowColor="#F0F0F0"

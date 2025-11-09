@@ -456,8 +456,8 @@ export default function SatelliteTable() {
               </div>
             }
             textColor="text-goos-white"
-            bgColor="bg-goos-orange-600"
-            iconColor="text-goos-orange-600"
+            bgColor="bg-goos-orange-700"
+            iconColor="text-goos-orange-700"
             iconBgColor="bg-goos-white"
           />
         </div>

@@ -369,7 +369,7 @@ export default function EmergingNetworkCard({
                       variant="link"
                       label={t(externalLinkTextKey)}
                       url={externalLinkUrl}
-                      bgColor="bg-goos-orange-500"
+                      bgColor="bg-goos-orange-700"
                       textColor="text-white"
                       iconBgColor="bg-white"
                       iconColor="text-goos-orange-500"
