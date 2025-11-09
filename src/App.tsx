@@ -2015,12 +2015,14 @@ function App() {
           aspectRatio="video"
           objectFit="cover"
         />
-        {/* Spacer between modules */}
-         <Spacer size="sm" />
       </div>
       </div>
-      <Spacer size="md" backgroundColor="bg-goos-green-100"/>
-      <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
+      <div className="hidden sm:block">
+        <Spacer size="md" backgroundColor="bg-goos-green-100"/>
+      </div>
+      <div className="hidden sm:block">
+        <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
+      </div>
 
       {/* Call to Action */}
       <div id="calltoaction-section">
