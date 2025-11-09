@@ -942,7 +942,7 @@ function App() {
           textColor="text-goos-white"
           stickyTitle={false}
         >
-          <p className="text-xl text-goos-white">
+          <p className="text-base sm:text-lg md:text-xl text-goos-white leading-relaxed">
             {t('satelliteObservations.introduction')}
           </p>
         </ContentModule>

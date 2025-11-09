@@ -61,17 +61,17 @@ export default function SatelliteTable() {
   }, [])
 
   return (
-    <div ref={tableRef} className="bg-goos-blue-900 w-full px-12 md:px-16 py-8">
+    <div ref={tableRef} className="bg-goos-blue-900 w-full px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8">
       <div className="w-full overflow-x-auto">
         <table className="w-full border-collapse border border-goos-white">
           {/* Header */}
           <thead>
             <tr className="bg-goos-blue-900 p-0">
-              <th className="text-white text-left px-6 py-4 border-b-2 border-goos-white font-bold w-1/3">
-                <div className="text-xl">Satellite Essential Climate Variables Timeline</div>
-                <div className="text-xg font-normal">(1990-2030)</div>
+              <th className="text-white text-left px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-b-2 border-goos-white font-bold w-1/3">
+                <div className="text-base sm:text-lg md:text-xl">Satellite Essential Climate Variables Timeline</div>
+                <div className="text-sm sm:text-base font-normal">(1990-2030)</div>
               </th>
-              <th className="text-white py-4 pr-4 border-b-2 border-goos-white font-medium w-2/3">
+              <th className="text-white py-3 sm:py-4 pr-3 sm:pr-4 border-b-2 border-goos-white font-medium w-2/3">
               </th>
             </tr>
           </thead>
@@ -80,7 +80,7 @@ export default function SatelliteTable() {
           <tbody>
             {/* Sea Ice - Starts 1990 (0%) */}
             <tr>
-              <td className="bg-goos-blue-900 text-white px-6 border-b border-goos-white text-lg">
+              <td className="bg-goos-blue-900 text-white px-3 sm:px-4 md:px-6 border-b border-goos-white text-sm sm:text-base md:text-lg">
                 Sea Ice
               </td>
               <td className="border-b border-goos-white p-0">
@@ -98,7 +98,7 @@ export default function SatelliteTable() {
 
             {/* Ocean Color - Starts 1996 (15%) */}
             <tr>
-              <td className="bg-goos-blue-900 text-white px-6 border-b border-goos-white text-lg">
+              <td className="bg-goos-blue-900 text-white px-3 sm:px-4 md:px-6 border-b border-goos-white text-sm sm:text-base md:text-lg">
                 Ocean Color
               </td>
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
@@ -116,7 +116,7 @@ export default function SatelliteTable() {
 
             {/* Sea Level - Starts 1992 (5%) */}
             <tr>
-              <td className="bg-goos-blue-900 text-white px-6 border-b border-goos-white text-lg">
+              <td className="bg-goos-blue-900 text-white px-3 sm:px-4 md:px-6 border-b border-goos-white text-sm sm:text-base md:text-lg">
                 Sea Level
               </td>
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
@@ -134,7 +134,7 @@ export default function SatelliteTable() {
 
             {/* Sea Surface Temperature - Starts 1990 (0%) */}
             <tr>
-              <td className="bg-goos-blue-900 text-white px-6 border-b border-goos-white text-lg">
+              <td className="bg-goos-blue-900 text-white px-3 sm:px-4 md:px-6 border-b border-goos-white text-sm sm:text-base md:text-lg">
                 Sea Surface Temperature
               </td>
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
@@ -152,7 +152,7 @@ export default function SatelliteTable() {
 
             {/* Sea Surface Salinity - Starts 2010 (50%) */}
             <tr>
-              <td className="bg-goos-blue-900 text-white px-6 border-b border-goos-white text-lg">
+              <td className="bg-goos-blue-900 text-white px-3 sm:px-4 md:px-6 border-b border-goos-white text-sm sm:text-base md:text-lg">
                 Sea Surface Salinity
               </td>
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
@@ -170,7 +170,7 @@ export default function SatelliteTable() {
 
             {/* Sea State - Starts 1992 (5%) */}
             <tr>
-              <td className="bg-goos-blue-900 text-white px-6 border-b border-goos-white text-lg">
+              <td className="bg-goos-blue-900 text-white px-3 sm:px-4 md:px-6 border-b border-goos-white text-sm sm:text-base md:text-lg">
                 Sea State
               </td>
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
@@ -188,7 +188,7 @@ export default function SatelliteTable() {
 
             {/* Wind - Starts 1990 (0%) */}
             <tr>
-              <td className="bg-goos-blue-900 text-white px-6 border-b border-goos-white text-lg">
+              <td className="bg-goos-blue-900 text-white px-3 sm:px-4 md:px-6 border-b border-goos-white text-sm sm:text-base md:text-lg">
                 Wind
               </td>
               <td className="bg-goos-blue-900 border-b border-goos-white p-0">
@@ -208,10 +208,10 @@ export default function SatelliteTable() {
           {/* Footer with years */}
           <tfoot>
             <tr className="bg-goos-blue-900 p-0">
-              <td className="text-white text-left px-6 py-4 border-t-2 border-goos-white font-bold w-1/3">
+              <td className="text-white text-left px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-t-2 border-goos-white font-bold w-1/3">
               </td>
-              <td className="text-white py-4 pr-4 border-t-2 border-goos-white font-medium w-2/3">
-                <div className="flex justify-between text-sm whitespace-nowrap p-0">
+              <td className="text-white py-3 sm:py-4 pr-3 sm:pr-4 border-t-2 border-goos-white font-medium w-2/3">
+                <div className="flex justify-between text-xs sm:text-sm whitespace-nowrap p-0">
                   <span>90</span>
                   <span>92</span>
                   <span>94</span>
@@ -240,23 +240,23 @@ export default function SatelliteTable() {
         </table>
 
         {/* Legend */}
-        <div className="flex gap-6 mt-6 items-center flex-wrap text-white">
+        <div className="flex gap-4 sm:gap-6 mt-4 sm:mt-6 items-center flex-wrap text-white">
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-goos-orange-100"></div>
-            <span className="text-sm">INADEQUATE</span>
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-goos-orange-100"></div>
+            <span className="text-xs sm:text-sm">INADEQUATE</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-goos-orange-300"></div>
-            <span className="text-sm">MARGINAL</span>
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-goos-orange-300"></div>
+            <span className="text-xs sm:text-sm">MARGINAL</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-goos-orange-500"></div>
-            <span className="text-sm">ADEQUATE</span>
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-goos-orange-500"></div>
+            <span className="text-xs sm:text-sm">ADEQUATE</span>
           </div>
         </div>
 
         {/* Platform Definition Button */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-6 sm:mt-8">
           <Button
             variant="modal"
             label={t('satelliteObservations.platformButton')}
