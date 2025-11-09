@@ -62,32 +62,46 @@ export default function SatelliteTable() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     const ctx = gsap.context(() => {
-      const bars = document.querySelectorAll('.timeline-bar')
-      if (!bars || bars.length === 0) return
+      // Select mobile and desktop bars separately
+      const mobileBars = cardsRef.current?.querySelectorAll('.timeline-bar')
+      const desktopBars = tableRef.current?.querySelectorAll('.timeline-bar')
 
       if (prefersReducedMotion) {
         // No animations - show bars at full width immediately
-        gsap.set(bars, { width: '100%' })
+        if (mobileBars) gsap.set(mobileBars, { width: '100%' })
+        if (desktopBars) gsap.set(desktopBars, { width: '100%' })
       } else {
-        // Animate normally
-        // Set initial state - width 0
-        gsap.set(bars, { width: 0 })
+        // Animate mobile bars
+        if (mobileBars && mobileBars.length > 0) {
+          gsap.set(mobileBars, { width: 0 })
+          gsap.to(mobileBars, {
+            width: '100%',
+            duration: 0.5,
+            stagger: 0.05,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: mobileBars[0],
+              start: 'top 85%',
+              once: true,
+            },
+          })
+        }
 
-        // Use the first bar as trigger so animation starts when first card is visible
-        const firstBar = bars[0]
-
-        // Animate bars growing from left to right - faster animation
-        gsap.to(bars, {
-          width: '100%',
-          duration: 0.5, // Reduced from 0.8 to 0.5
-          stagger: 0.05, // Reduced from 0.1 to 0.05
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: firstBar,
-            start: 'top 85%', // Trigger when first bar reaches 85% from top
-            once: true,
-          },
-        })
+        // Animate desktop bars
+        if (desktopBars && desktopBars.length > 0) {
+          gsap.set(desktopBars, { width: 0 })
+          gsap.to(desktopBars, {
+            width: '100%',
+            duration: 0.5,
+            stagger: 0.05,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: desktopBars[0],
+              start: 'top 85%',
+              once: true,
+            },
+          })
+        }
       }
     })
 

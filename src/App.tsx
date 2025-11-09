@@ -1404,9 +1404,9 @@ function App() {
         </div>
 
         {/* What's Next */}
-        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('amoc.whatsNext.title')}</h3>
-        <p className="text-xl leading-relaxed mb-4">{t('amoc.whatsNext.paragraph1')}</p>
-        <p className="text-xl leading-relaxed mb-6">{t('amoc.whatsNext.paragraph2')}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.whatsNext.title')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.whatsNext.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('amoc.whatsNext.paragraph2')}</p>
       </ContentModule>
 
       {/* Dr. Yao Fu Quote with Image */}
