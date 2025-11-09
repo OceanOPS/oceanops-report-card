@@ -33,20 +33,33 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
   const [progress, setProgress] = useState(0)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const circlePos = useRef({ x: 0, y: 0 })
+  const [isMobile, setIsMobile] = useState(false)
 
-  // Mouse tracking effect
+  // Detect if mobile
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024) // lg breakpoint
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Mouse tracking effect - only on desktop
+  useEffect(() => {
+    if (isMobile) return
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY })
     }
 
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  }, [isMobile])
 
-  // Smooth circle follow - continues smoothly to cursor position even when stopped
+  // Smooth circle follow - continues smoothly to cursor position even when stopped (desktop only)
   useEffect(() => {
-    if (!progressCircleRef.current) return
+    if (!progressCircleRef.current || isMobile) return
 
     let animationFrameId: number
 
@@ -67,7 +80,7 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
 
     animationFrameId = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(animationFrameId)
-  }, [mousePos])
+  }, [mousePos, isMobile])
 
   // Preload video and simulate progress
   useEffect(() => {
@@ -176,16 +189,16 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
         ref={containerRef}
         className="fixed inset-0 z-50 bg-goos-blue-900 flex items-center justify-center overflow-hidden"
       >
-        {/* Background image - 120% size, aligned right with -200px offset, 50% opacity */}
+        {/* Background image - responsive positioning */}
         <div
           className="absolute inset-0 h-full"
           style={{
             backgroundImage: 'url(/backgrounds/thinkstockPhotos-618219270-trace.png)',
-            backgroundSize: '75%',
-            backgroundPosition: 'calc(100% + 200px) center',
+            backgroundSize: isMobile ? '150%' : '75%',
+            backgroundPosition: isMobile ? 'center center' : 'calc(100% + 200px) center',
             backgroundRepeat: 'no-repeat',
             opacity: 0.1,
-            right: '-100px',
+            right: isMobile ? '0' : '-100px',
             left: 'auto',
             width: '100%',
           }}
@@ -194,25 +207,35 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
         {/* Content container */}
         <div className="relative z-10 flex flex-col items-center">
           {/* GOOS Logo */}
-          <div ref={logoRef} className="w-56" style={{ opacity: 1 }}>
+          <div ref={logoRef} className="w-40 sm:w-48 md:w-56" style={{ opacity: 1 }}>
             <GoosLogo variant="white" />
           </div>
         </div>
+
+        {/* Loading text - mobile only, positioned at bottom quarter */}
+        {isMobile && (
+          <div className="absolute bottom-[25vh] left-0 right-0 flex justify-center z-10">
+            <div className="text-goos-white text-sm font-light font-roboto-condensed">
+              Loading {Math.round(progress)}%
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Progress circle that follows mouse */}
-      <div
-        ref={progressCircleRef}
-        className="fixed z-[60] pointer-events-none"
-        style={{
-          top: 0,
-          left: 0,
-          width: '100px',
-          height: '100px',
-          marginLeft: '-50px',
-          marginTop: '-50px',
-        }}
-      >
+      {/* Progress circle that follows mouse - desktop only */}
+      {!isMobile && (
+        <div
+          ref={progressCircleRef}
+          className="fixed z-[60] pointer-events-none"
+          style={{
+            top: 0,
+            left: 0,
+            width: '100px',
+            height: '100px',
+            marginLeft: '-50px',
+            marginTop: '-50px',
+          }}
+        >
         {/* Outer circle with border */}
         <div className="relative w-full h-full">
           {/* Progress ring */}
@@ -248,7 +271,8 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
             </span>
           </div>
         </div>
-      </div>
+        </div>
+      )}
     </>
   )
 }
