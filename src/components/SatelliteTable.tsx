@@ -22,16 +22,47 @@ gsap.registerPlugin(ScrollTrigger)
 export default function SatelliteTable() {
   const { t } = useTranslation()
   const tableRef = useRef<HTMLDivElement>(null)
+  const cardsRef = useRef<HTMLDivElement>(null)
 
-  // Animate timeline bars on scroll
+  // Data for satellite variables
+  const satelliteData = [
+    {
+      name: 'Sea Ice',
+      gradient: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 95%, #F9BF86 100%)',
+    },
+    {
+      name: 'Ocean Color',
+      gradient: 'linear-gradient(to right, transparent 0%, transparent 15%, #F9BF86 15%, #F9BF86 20%, #F48B25 23%, #F48B25 66%, #F48B25 66%, #F9BF86 70%, #F9BF86 82%, #F48B25 86%, #F48B25 100%)',
+    },
+    {
+      name: 'Sea Level',
+      gradient: 'linear-gradient(to right, transparent 0%, transparent 5%, #F48B25 5%, #F48B25 100%)',
+    },
+    {
+      name: 'Sea Surface Temperature',
+      gradient: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 94%, #F9BF86 100%)',
+    },
+    {
+      name: 'Sea Surface Salinity',
+      gradient: 'linear-gradient(to right, transparent 0%, transparent 50%, #F9BF86 50%, #F9BF86 90%, #FEF2E7 92%, #FEF2E7 95%, #F9BF86 97%, #F9BF86 100%)',
+    },
+    {
+      name: 'Sea State',
+      gradient: 'linear-gradient(to right, transparent 0%, transparent 5%, #F9BF86 5%, #F9BF86 100%)',
+    },
+    {
+      name: 'Wind',
+      gradient: 'linear-gradient(to right, #FEF2E7 0%, #FEF2E7 30%, #F9BF86 35%, #F9BF86 100%)',
+    },
+  ]
+
+  // Animate timeline bars on scroll (for both table and cards)
   useEffect(() => {
-    if (!tableRef.current) return
-
     // Respect user's motion preferences
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     const ctx = gsap.context(() => {
-      const bars = tableRef.current?.querySelectorAll('.timeline-bar')
+      const bars = document.querySelectorAll('.timeline-bar')
       if (!bars || bars.length === 0) return
 
       if (prefersReducedMotion) {
@@ -42,27 +73,70 @@ export default function SatelliteTable() {
         // Set initial state - width 0
         gsap.set(bars, { width: 0 })
 
-        // Animate bars growing from left to right
+        // Use the first bar as trigger so animation starts when first card is visible
+        const firstBar = bars[0]
+
+        // Animate bars growing from left to right - faster animation
         gsap.to(bars, {
           width: '100%',
-          duration: 0.8,
-          stagger: 0.1, // 100ms between each bar
+          duration: 0.5, // Reduced from 0.8 to 0.5
+          stagger: 0.05, // Reduced from 0.1 to 0.05
           ease: 'power2.out',
           scrollTrigger: {
-            trigger: tableRef.current,
-            start: 'top 70%',
+            trigger: firstBar,
+            start: 'top 85%', // Trigger when first bar reaches 85% from top
             once: true,
           },
         })
       }
-    }, tableRef)
+    })
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <div ref={tableRef} className="bg-goos-blue-900 w-full px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8">
-      <div className="w-full overflow-x-auto">
+    <div className="bg-goos-blue-900 w-full px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8">
+      {/* Mobile Card View - Only visible on mobile */}
+      <div ref={cardsRef} className="md:hidden space-y-4">
+        {/* Header */}
+        <div className="mb-4">
+          <h3 className="text-base font-bold text-white mb-1">
+            Satellite Essential Climate Variables Timeline
+          </h3>
+          <p className="text-sm text-white">(1990-2030)</p>
+        </div>
+
+        {/* Cards */}
+        {satelliteData.map((variable, index) => (
+          <div key={index} className="bg-goos-blue-800 rounded p-4 space-y-3">
+            {/* Variable Name */}
+            <h4 className="text-sm font-bold text-white">{variable.name}</h4>
+
+            {/* Timeline Bar */}
+            <div className="relative h-10 bg-goos-blue-900 rounded overflow-hidden">
+              <div
+                className="timeline-bar h-full"
+                style={{
+                  width: '100%',
+                  background: variable.gradient,
+                }}
+              ></div>
+            </div>
+
+            {/* Years - Compact */}
+            <div className="flex justify-between text-xs text-white opacity-75">
+              <span>1990</span>
+              <span>2000</span>
+              <span>2010</span>
+              <span>2020</span>
+              <span className="opacity-50">2030</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Table View - Hidden on mobile */}
+      <div ref={tableRef} className="hidden md:block w-full overflow-x-auto">
         <table className="w-full border-collapse border border-goos-white">
           {/* Header */}
           <thead>
@@ -238,9 +312,10 @@ export default function SatelliteTable() {
             </tr>
           </tfoot>
         </table>
+      </div>
 
-        {/* Legend */}
-        <div className="flex gap-4 sm:gap-6 mt-4 sm:mt-6 items-center flex-wrap text-white">
+      {/* Legend - Shared between mobile and desktop */}
+      <div className="flex gap-4 sm:gap-6 mt-4 sm:mt-6 items-center flex-wrap text-white">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 sm:w-4 sm:h-4 bg-goos-orange-100"></div>
             <span className="text-xs sm:text-sm">INADEQUATE</span>
@@ -256,7 +331,7 @@ export default function SatelliteTable() {
         </div>
 
         {/* Platform Definition Button */}
-        <div className="flex justify-center mt-6 sm:mt-8">
+        <div className="flex justify-center mt-12 sm:mt-14 md:mt-10">
           <Button
             variant="modal"
             label={t('satelliteObservations.platformButton')}
@@ -372,7 +447,6 @@ export default function SatelliteTable() {
             iconBgColor="bg-goos-white"
           />
         </div>
-      </div>
     </div>
   )
 }
