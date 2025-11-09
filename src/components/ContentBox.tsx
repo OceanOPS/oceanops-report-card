@@ -87,7 +87,7 @@ export default function ContentBox({
         {/* Collapsible Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className={`${buttonBgColor} ${buttonTextColor} ${buttonLeftBorderColor ? `border-l-4 ${buttonLeftBorderColor}` : ''} px-6 py-4 w-full text-left font-regular text-2xl font-roboto-condensed flex justify-between hover:bg-gray-100 transition-colors duration-200`}
+          className={`${buttonBgColor} ${buttonTextColor} ${buttonLeftBorderColor ? `border-l-4 ${buttonLeftBorderColor}` : ''} px-4 sm:px-6 py-3 sm:py-4 w-full text-left font-regular text-lg sm:text-xl md:text-2xl font-roboto-condensed flex justify-between hover:bg-gray-100 transition-colors duration-200`}
         >
           <span>{t(titleKey)}</span>
           {/* Plus/Minus icon with circular background */}
