@@ -27,7 +27,7 @@ export default function ColorStripes({
     { iconSrc: '/icons/operational_services.png', iconAlt: 'Operational Services', textKey: 'networks.deliveryAreas.operational' },
     { iconSrc: '/icons/ocean_health.png', iconAlt: 'Ocean Health', textKey: 'networks.deliveryAreas.oceanhealth' },
   ],
-  stripeHeight = '150vh'
+  stripeHeight = ''
 }: ColorStripesProps) {
   const { t } = useTranslation();
 
@@ -98,8 +98,8 @@ export default function ColorStripes({
       deliveryAreasRef.current.forEach((area, index) => {
         if (!area) return;
 
-        // ENTRADA de delivery areas
-        gsap.fromTo(area, 
+        // ENTRADA de delivery areas - usar bottom para que aparezcan antes en todos los tamaños
+        gsap.fromTo(area,
           {
             opacity: 0,
             y: 20,
@@ -112,8 +112,8 @@ export default function ColorStripes({
             ease: "back.out(1.7)",
             scrollTrigger: {
               trigger: containerRef.current,
-              start: `top+=${0 + index * 8}% top`,
-              end: `top+=${10 + index * 8}% top`, 
+              start: `top+=${index * 8}% bottom`,
+              end: `top+=${10 + index * 8}% center`,
               scrub: 1,
             }
           }
@@ -140,17 +140,17 @@ export default function ColorStripes({
   }, [stripeColors, deliveryAreas]);
 
   return (
-    <div 
-      ref={containerRef} 
-      className={`w-full flex flex-row relative overflow-hidden bg-goos-white ${className}`}
-      style={{ height: stripeHeight }}
+    <div
+      ref={containerRef}
+      className={`w-full flex flex-row relative overflow-hidden bg-goos-white h-[100vh] ${className}`}
+      style={stripeHeight ? { height: stripeHeight } : undefined}
     >
       {stripeColors.map((color, index) => (
         <div
           key={index}
           ref={(el) => addToStripesRefs(el, index)}
-          className={`${color} w-full relative`}
-          style={{ height: stripeHeight }}
+          className={`${color} w-full relative h-[100vh]`}
+          style={stripeHeight ? { height: stripeHeight } : undefined}
         >
           {/* Capa de color claro para fade */}
           <div
@@ -162,16 +162,16 @@ export default function ColorStripes({
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               ref={(el) => addToDeliveryAreasRefs(el, index)}
-              className="flex flex-col items-center justify-center gap-6 opacity-0"
+              className="flex flex-col items-center justify-center gap-3 sm:gap-4 md:gap-6 opacity-0"
             >
               {/* Icono */}
               <img
                 src={deliveryAreas[index].iconSrc}
                 alt={deliveryAreas[index].iconAlt}
-                className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain"
               />
               {/* Texto */}
-              <p className="text-goos-blue-700 text-2xl md:text-3xl lg:text-4xl font-semibold text-center uppercase tracking-wide font-roboto-condensed"
+              <p className="text-goos-blue-700 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center uppercase tracking-wide font-roboto-condensed"
               >
                 {t(deliveryAreas[index].textKey)}
               </p>
