@@ -354,7 +354,7 @@ function App() {
           hasLine={true}
           lineColor="bg-goos-orange-600"
           leftContent={
-            <p className="text-xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
               Our global community of providers and operators are working together to deliver essential ocean information every day.
             </p>
           }
