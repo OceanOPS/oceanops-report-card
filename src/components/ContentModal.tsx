@@ -138,9 +138,9 @@ export default function ContentModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with close button */}
-        <div className={`sticky top-0 z-10 ${backgroundColor} border-b ${backgroundColor === 'bg-goos-blue-900' ? 'border-goos-blue-700' : 'border-gray-200'} px-8 py-4 flex items-center justify-between`}>
+        <div className={`sticky top-0 z-10 ${backgroundColor} border-b ${backgroundColor === 'bg-goos-blue-900' ? 'border-goos-white' : 'border-gray-200'} px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 flex items-center justify-between`}>
           {title && (
-            <h2 className={`text-lg font-extrabold ${backgroundColor === 'bg-goos-blue-900' ? 'text-goos-orange-500' : 'text-goos-blue-700'}`}>{title}</h2>
+            <h2 className={`text-base sm:text-lg font-extrabold ${backgroundColor === 'bg-goos-blue-900' ? 'text-goos-white' : 'text-goos-blue-700'}`}>{title}</h2>
           )}
           <button
             onClick={onClose}
