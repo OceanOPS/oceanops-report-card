@@ -390,7 +390,7 @@ function App() {
         mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
         mapAlt="Global platform distribution map"
         mapType="iframe"
-        mapHeight={1000}
+        mapHeight={600}
         fullWidth={true}
         backgroundColor="bg-goos-blue-900"
       />
