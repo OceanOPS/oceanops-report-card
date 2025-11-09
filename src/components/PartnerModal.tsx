@@ -276,8 +276,8 @@ export default function PartnerModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-goos-blue-900 border-b border-goos-blue-300 px-8 py-8 flex items-center justify-between z-10">
-          <h2 className="text-lg font-extrabold text-goos-white">{t(titleKey)}</h2>
+        <div className="sticky top-0 bg-goos-blue-900 border-b border-goos-blue-300 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 flex items-center justify-between z-10">
+          <h2 className="text-base sm:text-lg font-extrabold text-goos-white">{t(titleKey)}</h2>
           <button
             onClick={onClose}
             className="ml-auto text-white hover:text-gray-200 transition-colors"
@@ -316,41 +316,45 @@ export default function PartnerModal({
                   // Expanded Card
                   <div
                     ref={(el) => (expandedContentRef.current[country.name] = el)}
-                    className="bg-goos-blue-900 border-t border-goos-blue-900 px-8 py-8 space-y-8"
+                    className="bg-goos-blue-900 border-t border-goos-blue-900 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 space-y-4 sm:space-y-6 md:space-y-8"
                   >
                     {/* Country Header - Entire header is clickable */}
                     <div
                       onClick={() => setExpandedCountry(null)}
-                      className="flex items-center justify-between cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                      className="flex flex-col gap-2 cursor-pointer hover:opacity-90 transition-opacity duration-200"
                     >
-                      <div className="flex items-center gap-3">
-                        {showFlags && country.countryCode && (
-                          <div className="flex-shrink-0 w-10 h-6 transition-transform duration-300 hover:scale-110">
-                            <img
-                              src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
-                              alt={`${country.name} flag`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        )}
-                        <h2 className="text-4xl text-goos-white font-normal">{country.name}</h2>
-                        <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          {showFlags && country.countryCode && (
+                            <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
+                              <img
+                                src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
+                                alt={`${country.name} flag`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          )}
+                          <h2 className="text-2xl sm:text-3xl md:text-4xl text-goos-white font-normal">{country.name}</h2>
+                        </div>
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 flex-shrink-0">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 13H5v-2h14v2z" fill="#f0f0f0" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 sm:flex-wrap">
+                        <span className="bg-goos-blue-700 text-goos-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
                           {activeNetworks} {t('partners.networksLabel')}
                         </span>
-                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
+                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
-                      </div>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M19 13H5v-2h14v2z" fill="#f0f0f0" />
-                        </svg>
                       </div>
                     </div>
 
                     {/* Description - Only show if country has one */}
                     {country.description && (
-                      <p className="text-goos-white text-xl leading-relaxed">
+                      <p className="text-goos-white text-base sm:text-lg md:text-xl leading-relaxed">
                         {country.description}
                       </p>
                     )}
@@ -358,7 +362,7 @@ export default function PartnerModal({
                     {/* Platform Cards Grid */}
                     <div
                       ref={(el) => (cardsGridRef.current[country.name] = el)}
-                      className="grid grid-cols-4 gap-6"
+                      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
                     >
                       {FIXED_NETWORKS.map((network) => {
                         const platformCount = country.networks[network.key as NetworkKey]
@@ -372,23 +376,23 @@ export default function PartnerModal({
                         return (
                           <div
                             key={network.key}
-                            className="platform-card bg-goos-blue-800 p-4 flex flex-col justify-between h-[290px] opacity-0"
+                            className="platform-card bg-goos-blue-800 p-3 sm:p-4 flex flex-col justify-between h-[200px] sm:h-[240px] md:h-[290px] opacity-0"
                           >
                             <div className="flex items-start justify-between">
-                              <span className="text-7xl font-light text-goos-white leading-none">
+                              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-goos-white leading-none">
                                 {displayValue}
                               </span>
-                              <span className="text-xs text-goos-white uppercase">
+                              <span className="text-[10px] sm:text-xs text-goos-white uppercase">
                                 {platformCount === -1 ? '' : t('partners.platformsLabel')}
                               </span>
                             </div>
-                            <div className="space-y-2">
+                            <div className="space-y-1 sm:space-y-2">
                               <img
                                 src={network.icon}
                                 alt={t(network.labelKey)}
-                                className="w-16 h-16 object-contain transition-transform duration-300 hover:scale-110"
+                                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain transition-transform duration-300 hover:scale-110"
                               />
-                              <p className="text-goos-white text-base font-semibold uppercase leading-tight">
+                              <p className="text-goos-white text-xs sm:text-sm md:text-base font-semibold uppercase leading-tight">
                                 {t(network.labelKey)}
                               </p>
                             </div>
@@ -401,31 +405,35 @@ export default function PartnerModal({
                   // Collapsed Card - Entire card is clickable
                   <div
                     onClick={() => handleExpand(country.name)}
-                    className="bg-goos-blue-900 border-t border-goos-blue-200 px-8 py-8 animate-fadeInScale cursor-pointer hover:opacity-90 transition-all duration-300 hover:shadow-md"
+                    className="bg-goos-blue-900 border-t border-goos-blue-200 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 animate-fadeInScale cursor-pointer hover:opacity-90 transition-all duration-300 hover:shadow-md"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        {showFlags && country.countryCode && (
-                          <div className="flex-shrink-0 w-10 h-6 transition-transform duration-300 hover:scale-110">
-                            <img
-                              src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
-                              alt={`${country.name} flag`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        )}
-                        <h3 className="text-4xl text-goos-white font-normal">{country.name}</h3>
-                        <span className="bg-goos-blue-700 text-goos-white px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          {showFlags && country.countryCode && (
+                            <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
+                              <img
+                                src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
+                                alt={`${country.name} flag`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          )}
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl text-goos-white font-normal">{country.name}</h3>
+                        </div>
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 flex-shrink-0">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#f0f0f0" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 sm:flex-wrap">
+                        <span className="bg-goos-blue-700 text-goos-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
                           {activeNetworks} {t('partners.networksLabel')}
                         </span>
-                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105">
+                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
                           {totalPlatforms} {t('partners.platformsLabel')}
                         </span>
-                      </div>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#f0f0f0" />
-                        </svg>
                       </div>
                     </div>
                   </div>
