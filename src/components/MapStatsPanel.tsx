@@ -168,15 +168,13 @@ export default function MapStatsPanel({
             <img
               src={mapSrc}
               alt={mapAlt}
-              style={isFullHeight ? undefined : { height: `${mapHeight}px` }}
-              className={`w-full object-cover rounded ${isFullHeight ? 'h-full' : ''}`}
+              className={`w-full object-cover rounded ${isFullHeight ? 'h-full' : 'h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
             />
           ) : (
             <iframe
               src={mapSrc}
               title={mapAlt}
-              style={isFullHeight ? undefined : { height: `${mapHeight}px` }}
-              className={`w-full border-0 rounded ${isFullHeight ? 'h-full' : ''}`}
+              className={`w-full border-0 rounded ${isFullHeight ? 'h-full' : 'h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
               loading="lazy"
             />
           )}

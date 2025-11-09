@@ -287,8 +287,8 @@ export default function CoverModule({
 
         {/* Middle: Main Title */}
         <div ref={titleRef} className="flex flex-col gap-2 sm:gap-3 md:gap-4 my-auto" style={{ opacity: 0 }}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-goos-white">{title}</h1>
-          <p className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal ${yearColor}`}>{year}</p>
+          <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-goos-white">{title}</h1>
+          <p className={`text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-normal ${yearColor}`}>{year}</p>
         </div>
 
         {/* Bottom: Partner Logos */}
