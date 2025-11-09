@@ -43,12 +43,12 @@ interface SpacerProps {
 export default function Spacer({ size = 'md', height, backgroundColor = '', className = '' }: SpacerProps) {
   // Preset size mappings with responsive values
   const sizeMap = {
-    xs: 'h-2 sm:h-3 md:h-4',        // 8px -> 12px -> 16px
-    sm: 'h-4 sm:h-6 md:h-8',        // 16px -> 24px -> 32px
-    md: 'h-6 sm:h-10 md:h-16',      // 24px -> 40px -> 64px
-    lg: 'h-8 sm:h-12 md:h-24',      // 32px -> 48px -> 96px
-    xl: 'h-12 sm:h-20 md:h-32',     // 48px -> 80px -> 128px
-    '2xl': 'h-16 sm:h-28 md:h-40',  // 64px -> 112px -> 160px
+    xs: 'h-1 sm:h-2 md:h-4',        // 4px -> 8px -> 16px
+    sm: 'h-2 sm:h-4 md:h-8',        // 8px -> 16px -> 32px
+    md: 'h-3 sm:h-6 md:h-16',       // 12px -> 24px -> 64px
+    lg: 'h-4 sm:h-8 md:h-24',       // 16px -> 32px -> 96px
+    xl: 'h-6 sm:h-12 md:h-32',      // 24px -> 48px -> 128px
+    '2xl': 'h-8 sm:h-16 md:h-40',   // 32px -> 64px -> 160px
   }
 
   // If custom height is provided, use it; otherwise use preset size

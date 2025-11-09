@@ -88,7 +88,7 @@ export default function ImageCaption({
 
       {/* Caption/Credits */}
       {caption && (
-        <p className={`text-sm ${captionColor} mt-2`}>
+        <p className={`text-sm ${captionColor} mt-2 px-4 sm:px-0`}>
           {caption}
         </p>
       )}

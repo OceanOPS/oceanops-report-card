@@ -1265,11 +1265,13 @@ function App() {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.paragraph2')}</p>
 
         {/* Image - Climate 1 */}
-        <ImageCaption
-          src="/images/climate1.jpg"
-          alt="Climate observation"
-          caption=""
-        />
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src="/images/climate1.jpg"
+            alt="Climate observation"
+            caption=""
+          />
+        </div>
 
         <Spacer size="sm" />
 
@@ -1280,13 +1282,15 @@ function App() {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('amoc.paragraph5')}</p>
 
         {/* Image 1 - AMOC time series */}
-        <ImageCaption
-          src="/images/climate2.PNG"
-          alt={t('amoc.imageCaption')}
-          caption={t('amoc.imageCaption')}
-          aspectRatio="auto"
-          objectFit="contain"
-        />
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src="/images/climate2.PNG"
+            alt={t('amoc.imageCaption')}
+            caption={t('amoc.imageCaption')}
+            aspectRatio="auto"
+            objectFit="contain"
+          />
+        </div>
 
         <Spacer size="sm" />
 
@@ -1304,13 +1308,15 @@ function App() {
         <Spacer size="sm" />
 
         {/* Image 2 - RAPID buoy */}
-        <ImageCaption
-          src="/images/climate3.png"
-          alt={t('amoc.imageCaption2')}
-          caption={t('amoc.imageCaption2')}
-          aspectRatio="video"
-          objectFit="cover"
-        />
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src="/images/climate3.png"
+            alt={t('amoc.imageCaption2')}
+            caption={t('amoc.imageCaption2')}
+            aspectRatio="video"
+            objectFit="cover"
+          />
+        </div>
 
         <Spacer size="xs" />
 
@@ -1469,11 +1475,13 @@ function App() {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('elNino.paragraph3')}</p>
 
         {/* Image - Operational 1 */}
-        <ImageCaption
-          src="/images/operational1.jpg"
-          alt="Operational observation"
-          caption=""
-        />
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src="/images/operational1.jpg"
+            alt="Operational observation"
+            caption=""
+          />
+        </div>
 
         <Spacer size="sm" />
 
@@ -1496,36 +1504,38 @@ function App() {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('elNino.paragraph5')}</p>
 
         {/* Gallery - Operational observations */}
-        <ImageGallery
-          images={[
-            {
-              src: '/images/operational3.jpg',
-              alt: 'Operational observation 3',
-              caption: ''
-            },
-            {
-              src: '/images/operational4.jpg',
-              alt: 'Operational observation 4',
-              caption: ''
-            },
-            {
-              src: '/images/operational5.jpg',
-              alt: 'Operational observation 5',
-              caption: ''
-            },
-            {
-              src: '/images/operational6.jpg',
-              alt: 'Operational observation 6',
-              caption: ''
-            }
-          ]}
-          aspectRatio="video"
-          objectFit="cover"
-          arrowColor="text-goos-white"
-          arrowBgColor="bg-goos-blue-700"
-          dotColor="bg-gray-200"
-          activeDotColor="bg-goos-blue-700"
-        />
+        <div className="-mx-4 sm:mx-0">
+          <ImageGallery
+            images={[
+              {
+                src: '/images/operational3.jpg',
+                alt: 'Operational observation 3',
+                caption: ''
+              },
+              {
+                src: '/images/operational4.jpg',
+                alt: 'Operational observation 4',
+                caption: ''
+              },
+              {
+                src: '/images/operational5.jpg',
+                alt: 'Operational observation 5',
+                caption: ''
+              },
+              {
+                src: '/images/operational6.jpg',
+                alt: 'Operational observation 6',
+                caption: ''
+              }
+            ]}
+            aspectRatio="video"
+            objectFit="cover"
+            arrowColor="text-goos-white"
+            arrowBgColor="bg-goos-blue-700"
+            dotColor="bg-gray-200"
+            activeDotColor="bg-goos-blue-700"
+          />
+        </div>
 
         <Spacer size="xs" />
 
@@ -1578,12 +1588,14 @@ function App() {
         <Spacer size="sm" />
 
         {/* Image - El Niño Forecast */}
-        <ImageCaption
-          src="/images/operational2.png"
-          alt={t('elNino.imageCaption')}
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src="/images/operational2.png"
+            alt={t('elNino.imageCaption')}
           caption={t('elNino.imageCaption')}
           aspectRatio="auto"
-        />
+          />
+        </div>
 
         <Spacer size="sm" />
 
@@ -1703,31 +1715,33 @@ function App() {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('oceanHealth.paragraph3')}</p>
 
         {/* Gallery - Ocean Health observations */}
-        <ImageGallery
-          images={[
-            {
-              src: '/images/oh1.jpeg',
-              alt: 'Ocean health observation 1',
-              caption: ''
-            },
-            {
-              src: '/images/oh2.jpeg',
-              alt: 'Ocean health observation 2',
-              caption: ''
-            },
-            {
-              src: '/images/oh3.jpeg',
-              alt: 'Ocean health observation 3',
-              caption: ''
-            }
-          ]}
-          aspectRatio="square"
-          objectFit="cover"
-          arrowColor="text-goos-white"
-          arrowBgColor="bg-goos-blue-700"
-          dotColor="bg-gray-200"
-          activeDotColor="bg-goos-blue-700"
-        />
+        <div className="-mx-4 sm:mx-0">
+          <ImageGallery
+            images={[
+              {
+                src: '/images/oh1.jpeg',
+                alt: 'Ocean health observation 1',
+                caption: ''
+              },
+              {
+                src: '/images/oh2.jpeg',
+                alt: 'Ocean health observation 2',
+                caption: ''
+              },
+              {
+                src: '/images/oh3.jpeg',
+                alt: 'Ocean health observation 3',
+                caption: ''
+              }
+            ]}
+            aspectRatio="square"
+            objectFit="cover"
+            arrowColor="text-goos-white"
+            arrowBgColor="bg-goos-blue-700"
+            dotColor="bg-gray-200"
+            activeDotColor="bg-goos-blue-700"
+          />
+        </div>
 
         <Spacer size="xs" />
 
@@ -1737,13 +1751,15 @@ function App() {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('oceanHealth.paragraph5')}</p>
 
         {/* Image - Seal foraging trips */}
-        <ImageCaption
-          src="/images/imos_anim_230624.gif"
-          alt={t('oceanHealth.imageCaption')}
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src="/images/imos_anim_230624.gif"
+            alt={t('oceanHealth.imageCaption')}
           caption={t('oceanHealth.imageCaption')}
           aspectRatio="auto"
           objectFit="cover"
-        />
+          />
+        </div>
 
         <Spacer size="sm" />
 
@@ -1898,7 +1914,7 @@ function App() {
         textColor="text-goos-black"
         lineColor="bg-goos-green-700"
       >
-        <p className="text-goos-black text-xl leading-relaxed">
+        <p className="text-goos-black text-base sm:text-lg md:text-xl leading-relaxed">
           {t('strengtheningSystem.content')}
         </p>
       </ContentModule>
@@ -1919,14 +1935,14 @@ function App() {
         lineColor="bg-goos-green-700"
       >
         {/* Paragraphs distributed in two columns */}
-        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph1')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph2')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph3')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph4')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('southAfrica.paragraph5')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph3')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph4')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph5')}</p>
       </ContentModule>
 
-       <div className="px-16 bg-goos-green-100">
+       <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
        {/* Image Gallery with Navigation */}
         <ImageGallery
           images={[
@@ -1985,12 +2001,12 @@ function App() {
           bgColor: 'bg-goos-green-700',
         }}
       >
-        <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph1')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('tenThousandShips.paragraph2')}</p>
-        <p className="text-3xl leading-relaxed mb-4 text-goos-green-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('tenThousandShips.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('tenThousandShips.paragraph2')}</p>
+        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed mb-3 sm:mb-4 text-goos-green-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
       </ContentModule>
 
- <div className="px-16 bg-goos-green-100">
+ <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
         {/* Image - 10,000 Ships */}
         <ImageCaption
           src="/images/10k.png"

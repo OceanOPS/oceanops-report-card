@@ -166,7 +166,7 @@ export default function ImageGallery({
 
       {/* Caption */}
       {currentImage.caption && (
-        <p className={`text-sm ${captionColor} mt-2`}>
+        <p className={`text-sm ${captionColor} mt-2 px-4 sm:px-0`}>
           {currentImage.caption}
         </p>
       )}
