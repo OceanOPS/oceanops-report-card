@@ -47,6 +47,7 @@ export default function MenuSidebar({
   const { t, i18n } = useTranslation()
   const [internalIsOpen, setInternalIsOpen] = useState(false)
   const [isPastReportsExpanded, setIsPastReportsExpanded] = useState(false)
+  const [isDeliveryNavVisible, setIsDeliveryNavVisible] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
   const menuItemsRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -54,6 +55,36 @@ export default function MenuSidebar({
   // Use external control if provided, otherwise use internal state
   const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen
   const setIsOpen = onClose ? onClose : () => setInternalIsOpen(false)
+
+  // Detect when DeliveryAreasNav is visible
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if we're in any of the delivery area sections
+      const sections = ['amoc-section', 'elnino-section', 'oceanhealth-section']
+      const scrollPosition = window.scrollY + 100
+      let inSection = false
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId)
+        if (!element) continue
+
+        const rect = element.getBoundingClientRect()
+        const elementTop = rect.top + window.scrollY
+        const elementBottom = elementTop + rect.height
+
+        if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+          inSection = true
+          break
+        }
+      }
+
+      setIsDeliveryNavVisible(inSection)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Close on Escape key
   useEffect(() => {
@@ -209,7 +240,9 @@ export default function MenuSidebar({
       <button
         ref={buttonRef}
         onClick={() => externalIsOpen !== undefined ? onClose?.() : setInternalIsOpen(true)}
-        className="fixed top-4 right-4 sm:top-8 sm:right-8 md:top-12 md:right-12 lg:top-16 lg:right-16 z-50 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-goos-blue-700 hover:bg-goos-blue-600 transition-colors flex flex-col items-center justify-center gap-1.5 sm:gap-2 rounded-full"
+        className={`fixed right-4 sm:right-8 md:right-12 lg:right-16 z-50 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-goos-blue-700 hover:bg-goos-blue-600 flex flex-col items-center justify-center gap-1.5 sm:gap-2 rounded-full transition-all duration-300 ${
+          isDeliveryNavVisible ? 'top-16' : 'top-4'
+        } sm:top-8 md:top-12 lg:top-16`}
         style={{ opacity: 0 }}
         aria-label="Open menu"
       >
