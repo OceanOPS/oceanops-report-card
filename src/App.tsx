@@ -234,16 +234,16 @@ function App() {
         title={t('Overview')}
         rightColumn={
           <>
-            <p className="text-xl font-normal text-goos-white leading-[1.5] mt-4">
+            <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
               {t('intro.paragraph2')}
             </p>
-            <p className="text-xl font-normal text-goos-white leading-[1.5]">
+            <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
               {t('intro.paragraph3')}
             </p>
           </>
         }
       >
-        <p className="text-xl font-normal text-goos-white leading-[1.5] mt-4">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           The <span className="text-goos-orange-500">Global Ocean Observing System (GOOS) Status Report 2025</span> highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.
         </p>
       </ContentModule>
@@ -263,19 +263,19 @@ function App() {
         lineColor="bg-goos-orange-500"
         layout="split"
       >
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph1')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph2')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph3')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph4a')}{' '}
           <a
             href="https://drive.google.com/file/d/1QgcsBXR3AImNOtGtH30SGwyx4gWkvLOP/view"
@@ -288,43 +288,43 @@ function App() {
           {t('content.section1.paragraph4b')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph5')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph6')}
         </p>
 
         <Spacer size="sm" />
 
-        <h4 className="text-2xl font-extrabold text-goos-orange-500 leading-8">
+        <h4 className="text-lg sm:text-xl md:text-2xl font-extrabold text-goos-orange-500 leading-tight">
           {t('content.section1.heading1')}
         </h4>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph7')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph8')}
         </p>
 
         <Spacer size="sm" />
 
-        <h4 className="text-2xl font-extrabold text-goos-orange-500 leading-8">
+        <h4 className="text-lg sm:text-xl md:text-2xl font-extrabold text-goos-orange-500 leading-tight">
           {t('content.section1.heading2')}
         </h4>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph9')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph10')}
         </p>
 
-        <p className="text-xl font-normal text-goos-white leading-[1.5]">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph11')}
         </p>
       </ContentModule>
