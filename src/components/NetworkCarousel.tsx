@@ -241,11 +241,11 @@ export default function NetworkCarousel({
 
       {/* Embla Carousel Container */}
       <div className="overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 pb-3 sm:pb-4" ref={emblaRef}>
-        <div ref={carouselRef} className="flex cursor-grab active:cursor-grabbing items-stretch">
+        <div ref={carouselRef} className="flex gap-10 cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="network-card-slide flex-[0_0_100%] min-w-0 mr-10 flex sm:flex-[0_0_100%] md:flex-[0_0_calc(50%-20px)] lg:flex-[0_0_calc(33.333%-27px)]"
+              className="network-card-slide flex-[0_0_100%] min-w-0 flex md:flex-[0_0_calc(50%-20px)] lg:flex-[0_0_calc(33.333%-27px)]"
             >
               <NetworkCard
                 {...card}
