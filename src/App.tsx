@@ -2056,26 +2056,21 @@ function App() {
               {/* Spacer */}
       <Spacer size="sm" backgroundColor="bg-goos-blue-900"/>
 
-        {/* Number, description and button - responsive layout */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
-          {/* Number and button in row on desktop */}
-          <div className="flex flex-col sm:flex-row lg:flex-row gap-4 sm:gap-6 lg:gap-6 items-start sm:items-center lg:items-center">
-            <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
-            <div className="lg:block">
-              <Button
-                variant="action"
-                label="VIEW FULL LIST"
-                onClick={() => setIsPartnerModalOpen(true)}
-                textColor="text-white"
-                bgColor="bg-goos-blue-700"
-              />
-            </div>
-          </div>
+        {/* Number and description in same line */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-start sm:items-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
+          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
+          <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] flex-1">Member States contributing to the system.</p>
+        </div>
 
-          {/* Text below on desktop, in row on tablet */}
-          <div className="lg:w-full">
-            <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">Member States contributing to the system.</p>
-          </div>
+        {/* Button below */}
+        <div className="mb-6 sm:mb-8">
+          <Button
+            variant="action"
+            label="VIEW FULL LIST"
+            onClick={() => setIsPartnerModalOpen(true)}
+            textColor="text-white"
+            bgColor="bg-goos-blue-700"
+          />
         </div>
 
         {/* Acknowledgment text */}
