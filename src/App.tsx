@@ -2033,8 +2033,8 @@ function App() {
         textColor="text-goos-white"
         lineColor="bg-goos-orange-600"
       >
-        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4">{t('callToAction.paragraph1')}</p>
-        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4">{t('callToAction.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph2')}</p>
         <QuoteBlock
           quote={t('callToAction.quote')}
           authorName={t('callToAction.quoteAuthor')}
@@ -2047,13 +2047,13 @@ function App() {
       <Spacer size="sm" backgroundColor="bg-goos-blue-900"/>
 
         {/* Number and description in same line */}
-        <div className="flex gap-8 items-center mt-8 mb-6">
-          <p className="text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
-          <p className="text-xl font-normal text-goos-white leading-[1.5] flex-1">Member States contributing to the system.</p>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-start sm:items-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
+          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
+          <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] flex-1">Member States contributing to the system.</p>
         </div>
 
         {/* Button below */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <Button
             variant="action"
             label="VIEW FULL LIST"
@@ -2064,7 +2064,7 @@ function App() {
         </div>
 
         {/* Acknowledgment text */}
-        <p className="text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
+        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
           We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our global ocean observing system!
         </p>
       </ContentModule>
