@@ -33,7 +33,7 @@ export default function GoosLogo({ variant = 'white', className = '' }: GoosLogo
   const logoSrc = `/logos/goos-logo${logoSuffix}.png`
 
   return (
-    <div className={`h-28 ${className}`}>
+    <div className={`h-16 sm:h-20 md:h-24 lg:h-28 ${className}`}>
       <img
         src={logoSrc}
         alt={t('cover.logos.goos')}

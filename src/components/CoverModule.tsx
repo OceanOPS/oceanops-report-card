@@ -251,7 +251,7 @@ export default function CoverModule({
   }
 
   return (
-    <section ref={sectionRef} className={`relative w-full h-screen ${backgroundColor} p-12 md:p-16 flex flex-col overflow-hidden`}>
+    <section ref={sectionRef} className={`relative w-full h-screen ${backgroundColor} p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col overflow-hidden`}>
       {/* Background Media */}
       {backgroundMedia && (
         <div ref={backgroundMediaRef} className="absolute inset-0 pointer-events-none" style={{ transform: 'scale(1.4)' }}>
@@ -286,9 +286,9 @@ export default function CoverModule({
         </div>
 
         {/* Middle: Main Title */}
-        <div ref={titleRef} className="flex flex-col gap-4 my-auto" style={{ opacity: 0 }}>
-          <h1 className="text-6xl font-extrabold text-goos-white">{title}</h1>
-          <p className={`text-6xl font-normal ${yearColor}`}>{year}</p>
+        <div ref={titleRef} className="flex flex-col gap-2 sm:gap-3 md:gap-4 my-auto" style={{ opacity: 0 }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-goos-white">{title}</h1>
+          <p className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal ${yearColor}`}>{year}</p>
         </div>
 
         {/* Bottom: Partner Logos */}
