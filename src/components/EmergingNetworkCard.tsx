@@ -14,10 +14,10 @@
  * @param iconSrc - URL to network icon (required)
  * @param iconAlt - Alt text for icon (translatable key) (required)
  * @param titleKey - Translation key for network title (required)
- * @param descriptionKey - Translation key for description text (required)
- * @param modalTitle - Title for the modal (translatable key) (required)
- * @param modalContent - React node content for the modal (required)
- * @param viewMoreTextKey - Translation key for "View More" button text (required)
+ * @param paragraph1Key - Translation key for first paragraph (required)
+ * @param paragraph2Key - Translation key for second paragraph (required)
+ * @param modalContent - React node content for the modal (optional)
+ * @param externalLinkTextKey - Translation key for external link button text (optional)
  * @param deliveryAreasLabelKey - Translation key for "GOOS delivery areas" label text (required)
  * @param deliveryAreas - Array of 1-3 delivery area keys: 'climate', 'operational', 'oceanhealth' (required)
  * @param backgroundColor - Tailwind background color (default: 'bg-goos-blue-800')
@@ -96,7 +96,6 @@ interface EmergingNetworkCardProps {
   imageAlt?: string
   // For gallery
   images?: GalleryImage[]
-  modalTitle?: string
   modalContent?: React.ReactNode
   // For video
   videoType?: 'youtube' | 'local'
@@ -130,7 +129,6 @@ export default function EmergingNetworkCard({
   imageSrc,
   imageAlt,
   images,
-  modalTitle,
   modalContent,
   videoType,
   videoId,
@@ -310,7 +308,7 @@ export default function EmergingNetworkCard({
         <ContentModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          title={modalTitle}
+          title="Emerging Networks"
           maxWidth="lg"
           backgroundColor="bg-goos-blue-900"
         >
