@@ -109,7 +109,7 @@ export default function QuoteWithImage({
 
   // Image section - 50% width (only if imageSrc is provided)
   const imageSection = imageSrc ? (
-    <div className={`w-full lg:w-1/2 relative h-[40vh] lg:h-auto`}>
+    <div className={`w-full lg:w-1/2 relative aspect-square max-h-[60vh] lg:max-h-none lg:h-auto lg:aspect-auto`}>
       <img
         src={imageSrc}
         alt={imageAlt}
@@ -159,8 +159,8 @@ export default function QuoteWithImage({
   )
 
   return (
-    <section className={`${backgroundColor} ${height === 'fullscreen' ? 'min-h-screen' : ''} ${className}`}>
-      <div className={`flex w-full ${height === 'fullscreen' ? 'lg:h-screen' : heightClass} flex-col lg:flex-row`}>
+    <section className={`${backgroundColor} ${height === 'fullscreen' ? 'sm:min-h-screen' : ''} ${className}`}>
+      <div className={`flex w-full ${height === 'fullscreen' ? 'sm:h-screen lg:h-screen' : heightClass} flex-col lg:flex-row`}>
         {imageSrc && imagePosition === 'left' && imageSection}
         {quoteSection}
         {imageSrc && imagePosition === 'right' && imageSection}
