@@ -114,8 +114,8 @@ export default function DataCardGrid({
 
   return (
     <div className={`${backgroundColor} ${className}`}>
-      {/* 2-column grid on all screen sizes */}
-      <div ref={gridRef} className="grid grid-cols-2 gap-10">
+      {/* 2-column grid on all screen sizes with responsive gap */}
+      <div ref={gridRef} className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-10">
         {limitedCards.map((card, index) => (
           <DataCard
             key={index}
