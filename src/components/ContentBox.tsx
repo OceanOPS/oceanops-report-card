@@ -134,7 +134,7 @@ export default function ContentBox({
     <div className={`${backgroundColor} ${textColor} ${padding} w-full`}>
       {/* Title (optional) */}
       {titleKey && (
-        <h2 className={`text-2xl font-bold ${titleColor} mb-6`}>
+        <h2 className={`text-lg sm:text-xl md:text-2xl font-bold ${titleColor} mb-4 sm:mb-6`}>
           {t(titleKey)}
         </h2>
       )}

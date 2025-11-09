@@ -1857,7 +1857,7 @@ function App() {
           textColor="text-white"
           titleColor="text-white"
         >
-          <p className="text-lg leading-relaxed mb-8">
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
             {t('oceanHealth.podcastBox.content')}
           </p>
 
