@@ -2109,11 +2109,11 @@ function App() {
         textColor="text-goos-white"
         hasLine={false}
       >
-        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }} />
-        <p className="text-xl font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }} />
-        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph3')}</p>
-        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }} />
-        <p className="text-base font-normal text-goos-white leading-[1.5] mb-4">{t('contact.paragraph5')}</p>
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }} />
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }} />
+        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('contact.paragraph3')}</p>
+        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }} />
+        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('contact.paragraph5')}</p>
       </ContentModule>
       </div>
 
