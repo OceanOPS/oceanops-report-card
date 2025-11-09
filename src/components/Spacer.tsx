@@ -45,10 +45,10 @@ export default function Spacer({ size = 'md', height, backgroundColor = '', clas
   const sizeMap = {
     xs: 'h-2 sm:h-3 md:h-4',        // 8px -> 12px -> 16px
     sm: 'h-4 sm:h-6 md:h-8',        // 16px -> 24px -> 32px
-    md: 'h-8 sm:h-12 md:h-16',      // 32px -> 48px -> 64px
-    lg: 'h-12 sm:h-16 md:h-24',     // 48px -> 64px -> 96px
-    xl: 'h-16 sm:h-24 md:h-32',     // 64px -> 96px -> 128px
-    '2xl': 'h-20 sm:h-32 md:h-40',  // 80px -> 128px -> 160px
+    md: 'h-6 sm:h-10 md:h-16',      // 24px -> 40px -> 64px
+    lg: 'h-8 sm:h-12 md:h-24',      // 32px -> 48px -> 96px
+    xl: 'h-12 sm:h-20 md:h-32',     // 48px -> 80px -> 128px
+    '2xl': 'h-16 sm:h-28 md:h-40',  // 64px -> 112px -> 160px
   }
 
   // If custom height is provided, use it; otherwise use preset size
