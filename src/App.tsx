@@ -1212,7 +1212,7 @@ function App() {
         lineColor="bg-goos-cyan-600"
         stickyTitle={false}
       >
-        <p className="text-goos-black text-xl leading-relaxed">
+        <p className="text-goos-black text-base sm:text-lg md:text-xl leading-relaxed">
           {t('valueOfObservations.content')}
         </p>
       </ContentModule>
@@ -1222,7 +1222,7 @@ function App() {
       <ColorStripes stripeColors={['bg-goos-cyan-300', 'bg-goos-cyan-200', 'bg-goos-cyan-100']} />
 
       {/* AMOC Climate Story */}
-      <div id="amoc-section" className="pt-16 bg-goos-white">
+      <div id="amoc-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
       <ContentModule
         kicker={t('amoc.kicker')}
         title={t('amoc.title')}
@@ -1251,18 +1251,18 @@ function App() {
           padding="p-6"
           
         >
-          <div className="space-y-4">
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
           </div>
         </ContentBox>
 
         <Spacer size="sm" />
 
         {/* Main paragraphs */}
-        <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph1')}</p>
-        <p className="text-xl leading-relaxed mb-8">{t('amoc.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.paragraph2')}</p>
 
         {/* Image - Climate 1 */}
         <ImageCaption
@@ -1274,10 +1274,10 @@ function App() {
         <Spacer size="sm" />
 
         {/* Observations & Benefits */}
-        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('amoc.observationsTitle')}</h3>
-        <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph3')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('amoc.paragraph4')}</p>
-        <p className="text-xl leading-relaxed mb-6">{t('amoc.paragraph5')}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.observationsTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph3')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph4')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('amoc.paragraph5')}</p>
 
         {/* Image 1 - AMOC time series */}
         <ImageCaption
@@ -1329,19 +1329,19 @@ function App() {
           buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="mb-6">
-            <p className="text-lg leading-relaxed mb-4">
+          <div className="mb-4 sm:mb-6">
+            <p className="text-base sm:text-lg leading-relaxed mb-3 sm:mb-4">
               "{t('amoc.learnMore.content1')}
             </p>
-            <p className="text-lg leading-relaxed">
+            <p className="text-base sm:text-lg leading-relaxed">
               {t('amoc.learnMore.content2')}"
             </p>
           </div>
           <div className="border-goos-blue-700">
-            <p className="text-base font-semibold text-goos-blue-700">
+            <p className="text-sm sm:text-base font-semibold text-goos-blue-700">
               {t('amoc.learnMore.authorName')}
             </p>
-            <p className="text-sm opacity-90">
+            <p className="text-xs sm:text-sm opacity-90">
               {t('amoc.learnMore.authorPosition')}
             </p>
           </div>
@@ -1350,8 +1350,8 @@ function App() {
         <Spacer size="sm" />
 
         {/* EOV Table */}
-        <div className="mb-6">
-          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('amoc.eovTable.title')}</h4>
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.eovTable.title')}</h4>
 
           {/* Physics Table */}
           <IconTable
@@ -1381,7 +1381,7 @@ function App() {
           <Spacer size="sm" />
 
           {/* Additional Variables Section */}
-           <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('amoc.eovTable.additionalTitle')}</h4>
+           <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.eovTable.additionalTitle')}</h4>
 
           {/* Biogeochemistry Table */}
           <IconTable
@@ -1426,7 +1426,7 @@ function App() {
       </div>
 
       {/* El Niño Operational Services Story */}
-      <div id="elnino-section" className="pt-16 bg-goos-white">
+      <div id="elnino-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
       <ContentModule
         kicker={t('elNino.kicker')}
         title={t('elNino.title')}
@@ -1454,19 +1454,19 @@ function App() {
           buttonIconBorderColor="border-goos-blue-600"
           padding="p-6"
         >
-          <div className="space-y-4">
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
           </div>
         </ContentBox>
 
         <Spacer size="sm" />
 
         {/* Main paragraphs */}
-        <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph1')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph2')}</p>
-        <p className="text-xl leading-relaxed mb-8">{t('elNino.paragraph3')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('elNino.paragraph3')}</p>
 
         {/* Image - Operational 1 */}
         <ImageCaption
@@ -1491,9 +1491,9 @@ function App() {
         <Spacer size="sm" />
 
         {/* Observations & Benefits */}
-        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('elNino.observationsTitle')}</h3>
-        <p className="text-xl leading-relaxed mb-4">{t('elNino.paragraph4')}</p>
-        <p className="text-xl leading-relaxed mb-6">{t('elNino.paragraph5')}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.observationsTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.paragraph4')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('elNino.paragraph5')}</p>
 
         {/* Gallery - Operational observations */}
         <ImageGallery
@@ -1588,8 +1588,8 @@ function App() {
         <Spacer size="sm" />
 
         {/* EOV Table */}
-        <div className="mb-6">
-          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('elNino.eovTable.title')}</h4>
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.eovTable.title')}</h4>
 
           {/* Physics Table */}
           <IconTable
@@ -1619,7 +1619,7 @@ function App() {
           <Spacer size="sm" />
 
           {/* Additional Variables Section */}
-          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('elNino.eovTable.additionalTitle')}</h4>
+          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.eovTable.additionalTitle')}</h4>
 
           {/* Biology Table */}
           <IconTable
@@ -1639,8 +1639,8 @@ function App() {
         </div>
 
         {/* What's Next */}
-        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('elNino.whatsNext.title')}</h3>
-        <p className="text-xl leading-relaxed mb-6">{t('elNino.whatsNext.paragraph')}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.whatsNext.title')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('elNino.whatsNext.paragraph')}</p>
       </ContentModule>
 
       {/* Monica Alvarado Niño Quote with Image */}
@@ -1660,7 +1660,7 @@ function App() {
       </div>
 
       {/* Ocean Health - Seal Data Story */}
-      <div id="oceanhealth-section" className="pt-16 bg-goos-white">
+      <div id="oceanhealth-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
       <ContentModule
         kicker={t('oceanHealth.kicker')}
         title={t('oceanHealth.title')}
@@ -1688,19 +1688,19 @@ function App() {
           buttonIconBorderColor="border-goos-blue-600"
           padding="p-6"
         >
-          <div className="space-y-4">
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
-            <p className="text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
           </div>
         </ContentBox>
 
         <Spacer size="sm" />
 
         {/* Main paragraphs */}
-        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph1')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph2')}</p>
-        <p className="text-xl leading-relaxed mb-8">{t('oceanHealth.paragraph3')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('oceanHealth.paragraph3')}</p>
 
         {/* Gallery - Ocean Health observations */}
         <ImageGallery
@@ -1732,9 +1732,9 @@ function App() {
         <Spacer size="xs" />
 
         {/* Observations & Benefits */}
-        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.observationsTitle')}</h3>
-        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.paragraph4')}</p>
-        <p className="text-xl leading-relaxed mb-6">{t('oceanHealth.paragraph5')}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.observationsTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.paragraph4')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('oceanHealth.paragraph5')}</p>
 
         {/* Image - Seal foraging trips */}
         <ImageCaption
@@ -1760,11 +1760,11 @@ function App() {
 
         <Spacer size="sm" />
 
-        <p className="text-xl leading-relaxed mb-6">{t('oceanHealth.paragraph6')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('oceanHealth.paragraph6')}</p>
 
         {/* EOV Table */}
-        <div className="mb-6">
-          <h4 className="text-xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.eovTable.title')}</h4>
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.eovTable.title')}</h4>
 
           {/* Biology and Ecosystems Table */}
           <IconTable
@@ -1843,10 +1843,10 @@ function App() {
         <Spacer size="sm" />
 
         {/* What's Next */}
-        <h3 className="text-2xl font-bold text-goos-blue-700 mb-4">{t('oceanHealth.whatsNext.title')}</h3>
-        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.whatsNext.paragraph1')}</p>
-        <p className="text-xl leading-relaxed mb-4">{t('oceanHealth.whatsNext.paragraph2')}</p>
-        <p className="text-xl leading-relaxed mb-6">{t('oceanHealth.whatsNext.paragraph3')}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.whatsNext.title')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.whatsNext.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.whatsNext.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('oceanHealth.whatsNext.paragraph3')}</p>
 
         <Spacer size="sm" />
 
