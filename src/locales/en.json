@@ -20,6 +20,7 @@
     }
   },
   "intro": {
+    "paragraph1": "The Global Ocean Observing System (GOOS) Status Report 2025 highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.",
     "paragraph2": "What began in 2016 as the Ocean Observing System Report Card — led by OceanOPS, the operational monitoring and support centre of GOOS — has now evolved into a comprehensive GOOS Status Report 2025, offering an interactive view of the global ocean observing system.",
     "paragraph3": "In this new digital edition, explore the latest updates, stories, and insights by scrolling or using the menu on the right."
   },
@@ -36,6 +37,7 @@
     "title": "Is the ocean current system that shapes Europe's climate slowing down?",
     "contributors": "Contributors: Eleanor Frajka-Williams, Yao Fu, Severine Fournier, Sreelekha Jarugula",
     "quickSummary": {
+      "title": "Quick summary",
       "climateStability": "<strong>Climate Stability:</strong> The Atlantic meridional overturning circulation, or AMOC, helps regulate heat, rainfall, and sea level across Europe and the Atlantic basin.",
       "predictingFuture": "<strong>Predicting the Future:</strong> Combining existing physical observations with new deep ocean and biogeochemical observations is key to understanding whether the Atlantic current system is slowing and what that means for societies and economies.",
       "globalPreparedness": "<strong>Global Preparedness:</strong> Investing in sustained, coordinated ocean observation is essential for understanding ocean circulation, accurately projecting climate, preparing for disasters, and safeguarding long-term security."
@@ -54,6 +56,8 @@
     },
     "imageCaption2": "RAPID moored buoy deployment. Credit: Peter Brown",
     "learnMore": {
+      "buttonText": "Learn more: What affects the speed of the AMOC?",
+      "title": "Learn more: What affects the speed of the AMOC?",
       "content1": "The strength of the AMOC is set by both wind and north-south differences in seawater density, which depend on temperature and salinity. In the high-latitude North Atlantic, cold, salty water sinks to the deep ocean, pushing the deep water southward. In the Southern Ocean, strong winds bring deep water to the ocean surface, pulling the water flow northward. Together, these two processes set the circulation in motion.",
       "content2": "In a warmer climate, more freshwater is expected to enter the ocean from glacial and sea ice melting, rainfall and rivers. This can result in less dense surface waters, reducing deep-water formation in the North Atlantic and potentially slowing the circulation.",
       "authorName": "Yao Fu",
@@ -81,6 +85,7 @@
     "title": "Towards better El Niño forecasts for fisheries and disaster preparedness",
     "contributors": "Contributors: Juan Miguel Quintana Arena, Mónica Alvarado Niño, Matias Sifón, Albert Fischer",
     "quickSummary": {
+      "title": "Quick summary",
       "betterForecasts": "<strong>Better El Niño Forecasts:</strong> Integrating ocean observations improves seasonal forecasts, resulting in substantially improved lead-times for El Niño predictions.",
       "earlyWarnings": "<strong>Early Warnings:</strong> GOOS-coordinated observing networks provide timely data to help communities prepare for floods, droughts, and other climate impacts.",
       "protectingLivelihoods": "<strong>Protecting Livelihoods:</strong> The collected data on relevant GOOS Essential Ocean Variables supports fisheries, agriculture, and disaster planning to reduce economic and social losses from El Niño impacts."
@@ -97,6 +102,7 @@
     "paragraph4": "In the South-East Pacific, data from GLOSS network's sea level stations, Argo profiling floats, Voluntary Observing Ships and DBCP moored buoys — all coordinated under GOOS — is currently integrated into monthly El Niño forecasts, produced and publicly shared by the Permanent Commission for the South Pacific (CPPS) and the GOOS Regional Alliance for the South-East Pacific region (GRASP).",
     "paragraph5": "This information feeds into national early warning systems in the region, helping local communities prepare for potential impacts — from natural disasters like floods and droughts, to economic and social effects on agriculture and fisheries sectors.",
     "learnMore": {
+      "title": "Learn more: How does El Niño impact fisheries?",
       "content1": "For example, the availability of sardines and anchovetas – key commercial fish species in the South-East Pacific – depends on prevailing ocean conditions. During a warming event such as El Niño, the cold, nutrient-rich waters these fish rely on can be displaced, forcing them to migrate further from the coast in search of food. This increases their energy expenditure, may reduce their growth, and exposes them to more predators.",
       "content2": "Ultimately, these changes can substantially affect fishery catches across the region, impacting the economies of countries like Peru and Chile which heavily depend on this sector.",
       "authorName": "Monica Alvarado Niño",
@@ -129,6 +135,7 @@
     "title": "First-of-its-kind seal data to guide Southern Ocean management and conservation",
     "contributors": "Contributors: Clive McMahon, Jon Pye, Ian Jonsen, Ana Lara-Lopez",
     "quickSummary": {
+      "title": "Quick summary",
       "realTimeInsights": "<strong>Real-Time Ocean Insights:</strong> Seal-borne sensors provide immediate data on water temperature, salinity, and ecosystem conditions in some of the most remote regions.",
       "conservation": "<strong>Conservation & Marine Spatial Planning:</strong> These observations can provide vital information for marine spatial planning and management of fisheries and protected areas.",
       "globalCollaboration": "<strong>Global Collaboration:</strong> Freely available, globally standardized animal-borne sensor datasets will enable worldwide collaboration for answering pressing societal questions related to ocean health and resilience."
@@ -152,6 +159,7 @@
       "physicsTitle": "Physics"
     },
     "learnMore": {
+      "title": "Learn more: Why is it so complicated to obtain data from animals in real-time?",
       "content1": "Collecting data from animals in real time is technically challenging. Miniaturised electronic tags must withstand extreme environmental conditions, operate on limited battery power for months, and record, compress, and transmit summarised data to Argos satellites passing overhead when the animals surface to breathe or rest — all without causing the animals any harm.",
       "content2": "The data are then received by the tag manufacturer, decoded into a human-readable format, and made available to researchers. Researchers then apply quality-control algorithms to improve the accuracy of obtained animal locations so that the animals' movements and associated ocean observations can be determined more precisely. The whole process — from data reception to quality control and publication — runs automatically, every 24 hours.",
       "authorName": "Ian Jonsen",
@@ -169,6 +177,7 @@
       "position": "co-chair of the AniBOS network and GOOS BioEco Panel"
     },
     "podcastBox": {
+      "title": "Learn more:",
       "content": "Listen to the BioEcoOcean podcast with Dr. Clive McMahon and Dr. Lina Mtwana Nordlund (Uppsala University) where you can hear not only about southern elephant seals as oceanographers, but also the latest advancements in ocean observing of marine life, the importance of coordinated efforts in biodiversity monitoring, and how these insights contribute to global ocean management and conservation."
     }
   },
@@ -207,7 +216,10 @@
   },
   "content": {
     "section1": {
+      "kicker": "",
       "title": "Ocean observing system status and updates",
+      "subtitle": "",
+      "introduction": "",
       "paragraph1": "In 2025, GOOS is pleased to report that the in situ component of the global ocean observing networks, monitored in real time by OceanOPS, has experienced a steady expansion over the past two years, continuing to deliver high-quality, near real-time ocean observations that support society worldwide.",
       "paragraph2": "This positive trend has been primarily driven by an increase in autonomous networks such as Argo profiling floats. This increase has helped offset declines in other networks — notably drifting buoys, particularly in the Indian Ocean, and ship-based oceanographic observations, which are facing global budget constraints that may reduce the collection of long-term reference data sets.",
       "paragraph3": "Further progress has been achieved with the inclusion of four emerging observing networks into GOOS: SMART subsea cables, uncrewed surface vehicles, fishing vessel observations, and a surface carbon monitoring network.",
@@ -225,7 +237,8 @@
       "quote": {
         "text": "Faced with the fragility of the observing system and the constraints of decreasing budgets, we must innovate through stronger partnerships. This is why we are deepening our collaboration with the shipping industry — to harness the potential of these new partners and expand the automation of ship-based observations.",
         "authorName": "M. Belbéoch",
-        "authorTitle": "OceanOPS Manager"
+        "authorTitle": "OceanOPS Manager",
+        "logoAlt": "OceanOPS Logo"
       },
       "statsTitle": "In situ observing networks by the numbers",
       "stats": {
@@ -247,17 +260,126 @@
         }
       },
       "table": {
-        "rows": {}
+        "headers": {
+          "col1": "Platform Type",
+          "col2": "Active Units",
+          "col3": "Coverage",
+          "col4": "Status"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Argo Floats",
+            "col2": "3,800",
+            "col3": "Global",
+            "col4": "Operational"
+          },
+          "row2": {
+            "col1": "Drifting Buoys",
+            "col2": "1,250",
+            "col3": "Global",
+            "col4": "Operational"
+          },
+          "row3": {
+            "col1": "Tide Gauges",
+            "col2": "1,500",
+            "col3": "Coastal",
+            "col4": "Operational"
+          },
+          "row4": {
+            "col1": "Gliders",
+            "col2": "150",
+            "col3": "Regional",
+            "col4": "Expanding"
+          }
+        }
       },
       "iconTable": {
-        "rows": {}
+        "headers": {
+          "col1": "Network",
+          "col2": "Data Type",
+          "col3": "Status"
+        },
+        "rows": {
+          "row1": {
+            "col1": "Argo Floats",
+            "col2": "Temperature & Salinity",
+            "col3": "Active"
+          },
+          "row2": {
+            "col1": "Surface Drifters",
+            "col2": "SST & Currents",
+            "col3": "Active"
+          },
+          "row3": {
+            "col1": "Ocean Gliders",
+            "col2": "Multi-parameter",
+            "col3": "Expanding"
+          }
+        }
       },
-      "gallery": {},
-      "modal": {}
+      "image": {
+        "alt": "Ocean observation platform deployment",
+        "caption": "Photo by Research Team / OceanOPS 2024"
+      },
+      "gallery": {
+        "image1": {
+          "alt": "Argo float deployment from research vessel",
+          "caption": "Argo float deployment - Photo by A. Auriol / Malizia Seaexplorer"
+        },
+        "image2": {
+          "alt": "Ocean glider being prepared for mission",
+          "caption": "Ocean glider preparation - Photo by Research Team / OceanOPS"
+        },
+        "image3": {
+          "alt": "Drifting buoy in open ocean",
+          "caption": "Surface drifting buoy - Photo by L. Fortunato / Parthenope University"
+        }
+      },
+      "video": {
+        "previewAlt": "Watch: Ocean Observing Systems Overview",
+        "caption": "Video: Global Ocean Observing System - A comprehensive overview"
+      },
+      "buttons": {
+        "externalLink": "View Full Report",
+        "watchVideo": "Watch Video",
+        "learnMore": "Learn More",
+        "examplesTitle": "Reusable Button Examples",
+        "examplesDescription": "The following are examples of reusable button components that can be used throughout the application:"
+      },
+      "modal": {
+        "title": "Additional Information",
+        "heading": "Key Resources",
+        "paragraph1": "This comprehensive section provides detailed information about ocean observation methodologies, data quality standards, and network coordination efforts.",
+        "paragraph2": "Access technical documentation, explore data collection procedures, and review quality control frameworks that ensure reliable ocean observations.",
+        "listItems": {
+          "item1": "Technical Documentation",
+          "item2": "Data Collection Methodologies",
+          "item3": "Quality Control Procedures",
+          "item4": "Network Status Reports"
+        }
+      }
     }
   },
+  "logos": {
+    "oceanops": "OceanOPS",
+    "partner1": "Partner Organization 1",
+    "partner2": "Partner Organization 2",
+    "partner3": "Partner Organization 3",
+    "partner4": "Partner Organization 4",
+    "partner5": "Partner Organization 5",
+    "partner6": "Partner Organization 6",
+    "partner7": "Partner Organization 7",
+    "partner8": "Partner Organization 8"
+  },
   "networks": {
+    "title": "In situ mature networks",
     "viewNetwork": "View Network",
+    "deliveryAreasLabel": "GOOS delivery areas",
+    "deliveryAreas": {
+      "climate": "Climate",
+      "operational": "Operational Services",
+      "oceanhealth": "Ocean Health"
+    },
     "ratings": {
       "implementationStatus": "Implementation Status",
       "realTime": "Real Time Data",
@@ -316,21 +438,96 @@
         "description": "The tag for GOOS delivery areas shows only areas where the networks are delivering \"significant\" data to those applications. The score is mostly based on GOOS network specification sheets."
       }
     },
-    "title": "In situ mature networks",
-    "deliveryAreasLabel": "GOOS delivery areas",
-    "deliveryAreas": {
-      "climate": "Climate",
-      "operational": "Operational Services",
-      "oceanhealth": "Ocean Health"
+    "sotVos": {
+      "title": "Ship based meteorological – SOT/VOS",
+      "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
+    },
+    "sotXbt": {
+      "title": "Ship based oceanographic – SOT/XBT-SOOP",
+      "iconAlt": "SOT/XBT-SOOP Network - Ship of Opportunity Programme with XBT temperature profiling"
+    },
+    "sotAsap": {
+      "title": "Ship based aerological – SOT/ASAP",
+      "iconAlt": "SOT/ASAP Network - Automated Shipboard Aerological Programme"
+    },
+    "goShip": {
+      "title": "Repeated transects - GO-SHIP",
+      "iconAlt": "GO-SHIP Network - Global Ocean Ship-based Hydrographic Investigations Program"
+    },
+    "gloss": {
+      "title": "Sea level gauges - GLOSS",
+      "iconAlt": "GLOSS Network - Global Sea Level Observing System"
+    },
+    "oceanSites": {
+      "title": "Time series sites - OceanSITES",
+      "iconAlt": "OceanSITES Network - Global network of long-term ocean reference stations"
+    },
+    "dbcpMoored": {
+      "title": "Moored buoys - DBCP",
+      "iconAlt": "DBCP Moored Buoys - Data Buoy Cooperation Panel moored buoy network"
+    },
+    "dbcpTsunami": {
+      "title": "Tsunami buoys - DBCP",
+      "iconAlt": "DBCP Tsunami Buoys - Tsunami detection and reporting buoys"
+    },
+    "hfRadar": {
+      "title": "High Frequency radars - HF radars",
+      "iconAlt": "HF Radar Network - High Frequency radar coastal current mapping"
+    },
+    "dbcpDrifting": {
+      "title": "Drifting buoys - DBCP",
+      "iconAlt": "DBCP Drifting Buoys - Surface drifting buoy network"
+    },
+    "argo": {
+      "title": "Profiling floats - Argo",
+      "iconAlt": "Argo Network - Global array of profiling floats measuring ocean temperature and salinity"
+    },
+    "gliders": {
+      "title": "Gliders - OceanGliders",
+      "iconAlt": "OceanGliders Network - Global network of autonomous underwater gliders"
+    },
+    "anibos": {
+      "title": "Animal borne sensors - AniBOS",
+      "iconAlt": "AniBOS Network - Animal-borne ocean sensors collecting data from marine mammals"
     }
   },
   "emerging": {
+    "title": " In situ emerging networks",
+    "viewMore": "View More",
+    "watchVideo": "Watch Video",
+    "fvon": {
+      "title": "Fishing Vessel Ocean Observing Network (FVON)",
+      "paragraph1": "With over four million fishing vessels operating worldwide, fishers are vital partners in complementing existing GOOS coverage and expanding ocean knowledge in under-observed geographies. \"Fishing for data\" in coastal, shelf, and other data-sparse waters is an opportunity to provide insights at a resolution and scale never seen before.",
+      "paragraph2": "FVON's mission is to enable the transformation of fishing vessels into a collaborative fleet for inclusive and participatory data collection, worldwide. By connecting local fishing communities with global science, policy, and industry, FVON democratizes ocean observing and creates outcomes that matter: sustainable fisheries, accurate ocean forecasts, and robust coastal community resilience, supporting a data-driven ocean economy — where the benefits of ocean data are sustained and shared by all.",
+      "imageAlt": "Fishing vessel with ocean observation equipment",
+      "iconAlt": "FVON Network Icon",
+      "link": "https://www.fvon.org/",
+      "videoId": "-MKKMU3_siw"
+    },
+    "smartCables": {
+      "title": "Science Monitoring And Reliable Telecommunications Subsea Cables (SMART Cables)",
+      "paragraph1": "Since the mid-19th century, subsea telecommunications cables have connected the world, enabling international calls, data transfer, and high-speed internet between countries. Today, the emerging SMART Cables network seeks to enhance this same infrastructure with a dual purpose — connecting people while advancing climate monitoring and strengthening earthquake and tsunami early warning systems worldwide.",
+      "paragraph2": "By integrating temperature, bottom pressure, and seismic motion sensors into telecommunication cables, SMART Cables will enhance GOOS by closing critical deep-ocean observation gaps. This new generation of cables will provide reliable, real-time, long-term data, delivering novel insights into the state of the ocean and essential information for operational centers to save lives and monitor climate change.",
+      "imageAlt": "SMART Cables undersea infrastructure",
+      "iconAlt": "SMART Cables Network Icon",
+      "link": "https://www.smartcables.org/",
+      "videoId": "NoEK7XwOMeU"
+    },
     "soconet": {
       "title": "Surface Ocean CO₂ Observing Network (SOCONET)",
+      "paragraph1": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (Global Carbon Budget, 2024). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
       "paragraph1WithLink": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (<a href=\"https://globalcarbonbudget.org/gcb-2024/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-70\">Global Carbon Budget, 2024</a>). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
-      "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms (see image gallery) to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations."
+      "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms (see image gallery) to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations.",
+      "imageAlt": "Ocean CO₂ monitoring equipment and platforms",
+      "iconAlt": "SOCONET Network Icon"
     },
-    "title": " In situ emerging networks"
+    "sunFleet": {
+      "title": "Surface UNcrewed Fleet (SUN Fleet)",
+      "paragraph1": "Observing the ocean surface is essential for understanding air-sea exchanges, climate regulation, and the health of marine ecosystems. Yet collecting this vital data remains a major challenge, particularly in remote areas and harsh weather conditions.",
+      "paragraph2": "SUN Fleet, the most recent addition to the GOOS observing networks, brings together uncrewed surface vehicles (USVs) to help close these observation gaps. By coordinating different USV operators, SUN Fleet will strengthen GOOS's ability to autonomously monitor numerous Essential Ocean Variables (such as ..) underobserved areas, ultimately leading to improved forecasts and actionable insights into the state of the ocean worldwide.",
+      "imageAlt": "Uncrewed surface vehicle monitoring the ocean",
+      "iconAlt": "SUN Fleet Network Icon"
+    }
   },
   "operationalPlatforms": {
     "platformButton": "About operational platform definitions",
@@ -474,24 +671,87 @@
     }
   },
   "dataBlock": {
-    "title": "Biological and Ecosystem Observations"
+    "title": "Biological and Ecosystem Observations",
+    "introduction": {
+      "paragraph1": "GOOS biological and ecosystem observations, coordinated by the GOOS Biology and Ecosystems Expert Panel, are organized differently from those for ocean physics and biogeochemistry because of the distinct nature of the communities and complexity of the information needs. These observations are carried out by observing communities collecting data on the 12 biological and ecological Essential Ocean Variables (EOVs). These EOV communities bring together numerous independent monitoring initiatives worldwide to deliver the complex data vital to evaluate the status of marine life."
+    }
+  },
+  "dataCards": {
+    "card1": {
+      "tag": "Programmes",
+      "title": "Seabird abundance and distribution"
+    },
+    "card2": {
+      "tag": "Programmes",
+      "title": "Fish abundance and distribution"
+    },
+    "card3": {
+      "tag": "Programmes",
+      "title": "Coral cover and composition"
+    },
+    "card4": {
+      "tag": "Programmes",
+      "title": "Benthic invertebrate abundance and distribution"
+    },
+    "card5": {
+      "tag": "Programmes",
+      "title": "Macroalgal canopy cover and composition"
+    },
+    "card6": {
+      "tag": "Programmes",
+      "title": "Marine mammals abundance and distribution"
+    },
+    "card7": {
+      "tag": "Programmes",
+      "title": "Mangrove cover and composition"
+    },
+    "card8": {
+      "tag": "Programmes",
+      "title": "Microbe biomass and diversity"
+    },
+    "card9": {
+      "tag": "Programmes",
+      "title": "Phytoplankton biomass and diversity"
+    },
+    "card10": {
+      "tag": "Programmes",
+      "title": "Seagrass cover and composition"
+    },
+    "card11": {
+      "tag": "Programmes",
+      "title": "Sea turtle abundance and distribution"
+    },
+    "card12": {
+      "tag": "Programmes",
+      "title": "Zooplankton biomass and diversity"
+    }
+  },
+  "contentBox": {
+    "example": {
+      "title": "Ocean Observations Podcast",
+      "paragraph": "Listen to the latest episode featuring experts discussing the future of ocean monitoring and the critical role of global observation networks in understanding climate change."
+    }
   },
   "menu": {
     "title": "GOOS Status Report",
     "year": "2025",
+    "cover": "Cover",
+    "overview": "Overview",
+    "inSituStatus": "Ocean observing system status and updates",
+    "networksByNumbers": "In situ observing networks by the numbers",
     "downloadPdf": "DOWNLOAD PDF",
     "comingSoon": "SOON",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "pastReports": "Past Reports",
     "pastReportsLinks": {
-      "2016": "Report Card 2016/2017",
-      "2018": "Report Card 2018",
-      "2019": "Report Card 2019",
-      "2020": "Report Card 2020",
-      "2021": "Report Card 2021",
+      "2023": "Report Card 2023",
       "2022": "Report Card 2022",
-      "2023": "Report Card 2023"
+      "2021": "Report Card 2021",
+      "2020": "Report Card 2020",
+      "2019": "Report Card 2019",
+      "2018": "Report Card 2018",
+      "2016": "Report Card 2016/2017"
     },
     "social": {
       "instagram": {
@@ -506,10 +766,28 @@
         "label": "YouTube",
         "url": "https://www.youtube.com/@goosocean"
       }
-    },
-    "overview": "Overview",
-    "inSituStatus": "Ocean observing system status and updates",
-    "networksByNumbers": "In situ observing networks by the numbers"
+    }
+  },
+  "partners": {
+    "title": "Our Partners",
+    "networksLabel": "Networks",
+    "platformsLabel": "Platforms",
+    "networks": {
+      "driftingBuoys": "Drifting buoys - DBCP",
+      "argo": "Profiling floats - Argo",
+      "oceanGliders": "OceanGliders",
+      "aniBOS": "Animal borne sensors - AniBOS",
+      "fvon": "Fishing vessel probes - FVON",
+      "sotVos": "Ship based meteorological - SOT/VOS",
+      "sotAsap": "Ship based meteorological - SOT/ASAP",
+      "sot": "Ship based oceanographic - SOT",
+      "goShip": "Repeated transects - GO-SHIP",
+      "gloss": "Sea level gauges - GLOSS",
+      "oceanSites": "Time series sites - OceanSITES",
+      "mooredBuoys": "Moored Buoys - DBCP",
+      "tsunamiBuoys": "Tsunami Buoys - DBCP",
+      "hfRadars": "HF radars"
+    }
   },
   "languages": {
     "english": "English",
@@ -529,9 +807,5 @@
   },
   "overview": {
     "title": "Overview"
-  },
-  "partners": {
-    "networksLabel": "Networks",
-    "platformsLabel": "Platforms"
   }
 }
