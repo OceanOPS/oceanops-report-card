@@ -48,7 +48,7 @@
     "paragraph3": "Direct ocean observations of physical Essential Ocean Variables, extending deep into the water column, are the foundation for understanding AMOC variability. Much of our current knowledge comes from the time series data of moored buoy arrays, such as RAPID and OSNAP, which contribute to the OceanSITES network, alongside profiling Argo floats — all coordinated globally through GOOS.",
     "paragraph4": "Satellite observations complement these in-situ measurements by capturing the surface expression of deep-ocean processes. Long-term records of sea surface height, temperature, salinity, and winds help estimate AMOC strength and variability, and reveal how heat and freshwater are redistributed across the Atlantic. Sustained satellite measurements over multiple decades are therefore essential to track both short-term fluctuations and longer-term trends in the circulation.",
     "paragraph5": "These combined observations already reveal strong short-term fluctuations in the AMOC's strength: the system speeds up and slows down, carrying different amounts of heat and water from one year to the next. Yet the AMOC spans almost the entire Atlantic, and large parts remain unobserved — especially in the deep, dense water layers, which may be indicators of long-term changes in the climate system.",
-    "imageCaption": "AMOC strength time series from RAPID observations (orange) at 26°N and OSNAP observations (blue) in the subpolar North Atlantic (~60°N). The thick lines show 1-year lowpass filtered time series based on their respective original time series (thin lines). Yao Fu, University of South Florida",
+    "imageCaption": "AMOC strength time series from RAPID observations (orange) at 26°N and OSNAP observations (blue) in the subpolar North Atlantic (~60°N). The thick lines show 1-year lowpass filtered time series based on their respective original time series (thin lines). Credit: Yao Fu, University of South Florida",
     "quote1": {
       "text": "From what we see, it looks like AMOC has changed significantly in the past, and that has been associated with glacial-interglacial cycles. The potential that it could change today would have widespread consequences for human life on this planet — and that's one of the reasons why we need more ocean observations to understand it.",
       "author": "Eleanor Frajka-Williams",
@@ -241,6 +241,7 @@
         "logoAlt": "OceanOPS Logo"
       },
       "statsTitle": "In situ observing networks by the numbers",
+      "statsIntro": "Our global community of providers and operators are working together to deliver essential ocean information every day.",
       "stats": {
         "stat1": {
           "number": "64",
@@ -517,14 +518,14 @@
       "title": "Surface Ocean CO₂ Observing Network (SOCONET)",
       "paragraph1": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (Global Carbon Budget, 2024). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
       "paragraph1WithLink": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (<a href=\"https://globalcarbonbudget.org/gcb-2024/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-70\">Global Carbon Budget, 2024</a>). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
-      "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms (see image gallery) to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations.",
+      "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations.",
       "imageAlt": "Ocean CO₂ monitoring equipment and platforms",
       "iconAlt": "SOCONET Network Icon"
     },
     "sunFleet": {
       "title": "Surface UNcrewed Fleet (SUN Fleet)",
       "paragraph1": "Observing the ocean surface is essential for understanding air-sea exchanges, climate regulation, and the health of marine ecosystems. Yet collecting this vital data remains a major challenge, particularly in remote areas and harsh weather conditions.",
-      "paragraph2": "SUN Fleet, the most recent addition to the GOOS observing networks, brings together uncrewed surface vehicles (USVs) to help close these observation gaps. By coordinating different USV operators, SUN Fleet will strengthen GOOS's ability to autonomously monitor numerous Essential Ocean Variables (such as ..) underobserved areas, ultimately leading to improved forecasts and actionable insights into the state of the ocean worldwide.",
+      "paragraph2": "SUN Fleet, the most recent addition to the GOOS observing networks, brings together uncrewed surface vehicles (USVs) to help close these observation gaps. By coordinating different USV operators, SUN Fleet will strengthen GOOS's ability to autonomously monitor up to 26 Essential Ocean Variables in underobserved areas, ultimately leading to improved forecasts and actionable insights into the state of the ocean worldwide.",
       "imageAlt": "Uncrewed surface vehicle monitoring the ocean",
       "iconAlt": "SUN Fleet Network Icon"
     }

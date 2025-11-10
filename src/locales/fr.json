@@ -234,6 +234,7 @@
         "logoAlt": "Logo OceanOPS"
       },
       "statsTitle": "Les réseaux en chiffres",
+      "statsIntro": "Notre communauté mondiale de fournisseurs et d'opérateurs travaillent ensemble pour fournir des informations océaniques essentielles chaque jour.",
       "stats": {
         "stat1": {
           "number": "64",

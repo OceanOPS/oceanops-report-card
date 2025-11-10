@@ -364,7 +364,7 @@ function App() {
           lineColor="bg-goos-orange-500"
           leftContent={
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              Our global community of providers and operators are working together to deliver essential ocean information every day.
+              {t('content.section1.statsIntro')}
             </p>
           }
           stats={[
