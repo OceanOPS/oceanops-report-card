@@ -321,9 +321,9 @@ export default function PartnerModal({
                     {/* Country Header - Entire header is clickable */}
                     <div
                       onClick={() => setExpandedCountry(null)}
-                      className="flex flex-col gap-2 cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                      className="flex items-center justify-between w-full cursor-pointer hover:opacity-90 transition-opacity duration-200"
                     >
-                      <div className="flex items-center justify-between w-full">
+                      <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
                         <div className="flex items-center gap-2 sm:gap-3">
                           {showFlags && country.countryCode && (
                             <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
@@ -336,19 +336,19 @@ export default function PartnerModal({
                           )}
                           <h2 className="text-2xl sm:text-3xl md:text-4xl text-goos-white font-normal">{country.name}</h2>
                         </div>
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 flex-shrink-0">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M19 13H5v-2h14v2z" fill="#f0f0f0" />
-                          </svg>
+                        <div className="flex items-center gap-2">
+                          <span className="bg-goos-blue-700 text-goos-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
+                            {activeNetworks} {t('partners.networksLabel')}
+                          </span>
+                          <span className="bg-goos-cyan-200 text-goos-blue-700 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
+                            {totalPlatforms} {t('partners.platformsLabel')}
+                          </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 sm:flex-wrap">
-                        <span className="bg-goos-blue-700 text-goos-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
-                          {activeNetworks} {t('partners.networksLabel')}
-                        </span>
-                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
-                          {totalPlatforms} {t('partners.platformsLabel')}
-                        </span>
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 flex-shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M19 13H5v-2h14v2z" fill="#f0f0f0" />
+                        </svg>
                       </div>
                     </div>
 
@@ -407,8 +407,8 @@ export default function PartnerModal({
                     onClick={() => handleExpand(country.name)}
                     className="bg-goos-blue-900 border-t border-goos-blue-200 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 animate-fadeInScale cursor-pointer hover:opacity-90 transition-all duration-300 hover:shadow-md"
                   >
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
                         <div className="flex items-center gap-2 sm:gap-3">
                           {showFlags && country.countryCode && (
                             <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
@@ -421,19 +421,19 @@ export default function PartnerModal({
                           )}
                           <h3 className="text-2xl sm:text-3xl md:text-4xl text-goos-white font-normal">{country.name}</h3>
                         </div>
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 flex-shrink-0">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#f0f0f0" />
-                          </svg>
+                        <div className="flex items-center gap-2">
+                          <span className="bg-goos-blue-700 text-goos-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
+                            {activeNetworks} {t('partners.networksLabel')}
+                          </span>
+                          <span className="bg-goos-cyan-200 text-goos-blue-700 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
+                            {totalPlatforms} {t('partners.platformsLabel')}
+                          </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 sm:flex-wrap">
-                        <span className="bg-goos-blue-700 text-goos-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
-                          {activeNetworks} {t('partners.networksLabel')}
-                        </span>
-                        <span className="bg-goos-cyan-200 text-goos-blue-700 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-200 hover:scale-105">
-                          {totalPlatforms} {t('partners.platformsLabel')}
-                        </span>
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-goos-blue-800 flex-shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#f0f0f0" />
+                        </svg>
                       </div>
                     </div>
                   </div>
