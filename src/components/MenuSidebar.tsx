@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import Button from './Button'
 
 /**
  * MenuSidebar Component
@@ -327,19 +328,25 @@ export default function MenuSidebar({
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">{t('menu.title')}</h1>
               <p className="text-2xl sm:text-3xl md:text-4xl font-normal">{t('menu.year')}</p>
             </div>
-            {/* Download PDF button - hidden for now, will be enabled later */}
-            {/* <Button
-              variant="download"
-              label={t('menu.downloadPdf')}
-              onClick={() => {
-                // TODO: Implement PDF download
-                console.log('Download PDF')
-              }}
-              textColor="text-white"
-              bgColor="bg-goos-blue-700"
-              iconColor="text-goos-blue-700"
-              iconBgColor="bg-white"
-            /> */}
+            {/* Download PDF button with SOON badge */}
+            <div className="relative inline-block">
+              <Button
+                variant="download"
+                label={t('menu.downloadPdf')}
+                onClick={() => {
+                  // TODO: Uncomment and update the URL when PDF is ready
+                  // const pdfUrl = 'https://example.com/path-to-your-report.pdf'
+                  // window.open(pdfUrl, '_blank')
+                }}
+                textColor="text-white"
+                bgColor="bg-goos-blue-700"
+                iconColor="text-goos-blue-700"
+                iconBgColor="bg-white"
+              />
+              <span className="absolute -top-2 -right-2 bg-goos-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                SOON
+              </span>
+            </div>
           </div>
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>

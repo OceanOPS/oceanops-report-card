@@ -155,13 +155,13 @@ function App() {
       <MenuSidebar
         show={!isLoading}
         menuItems={[
-          { id: 'overview-section', titleKey: 'menu.overview', accentColor: 'bg-goos-orange-600' },
+          { id: 'overview-section', titleKey: 'menu.overview', accentColor: 'bg-goos-orange-500' },
           {
             id: 'insitu-section',
             titleKey: 'menu.inSituStatus',
-            accentColor: 'bg-goos-orange-600',
+            accentColor: 'bg-goos-orange-500',
             subItems: [
-              { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-600' },
+              { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-500' },
               { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
               { id: 'satellite-section', titleKey: 'satelliteObservations.title', accentColor: 'bg-goos-orange-500' },
               { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
@@ -187,7 +187,7 @@ function App() {
               { id: 'ships-section', titleKey: 'tenThousandShips.title', accentColor: 'bg-goos-green-700' },
             ],
           },
-          { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-600' },
+          { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-500' },
           { id: 'contact-section', titleKey: 'contact.title', accentColor: 'bg-goos-blue-900' },
         ]}
       />
@@ -237,7 +237,7 @@ function App() {
         backgroundColor="bg-goos-blue-900"
         titleColor="text-goos-white"
         textColor="text-goos-white"
-        lineColor="bg-goos-orange-600"
+        lineColor="bg-goos-orange-500"
          titleLevel="h2"
         title={t('Overview')}
         rightColumn={
@@ -360,7 +360,7 @@ function App() {
         <InsightPanel
           title={t('content.section1.statsTitle')}
           hasLine={true}
-          lineColor="bg-goos-orange-600"
+          lineColor="bg-goos-orange-500"
           leftContent={
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
               Our global community of providers and operators are working together to deliver essential ocean information every day.
@@ -559,8 +559,8 @@ function App() {
             </div>
           }
           textColor="text-white"
-          bgColor="bg-goos-orange-700"
-          iconColor="text-goos-orange-700"
+          bgColor="bg-goos-orange-600"
+          iconColor="text-goos-orange-600"
           iconBgColor="bg-white"
         />
       </div>
@@ -786,7 +786,7 @@ function App() {
         titleColor="text-white"
         cardBackgroundColor="bg-goos-blue-800"
         cardTextColor="text-white"
-        cardAccentColor="text-goos-orange-700"
+        cardAccentColor="text-goos-orange-500"
         tooltipBgColor="text-goos-white"
         tooltipTextColor="bg-goos-blue-900"
       />
@@ -929,9 +929,9 @@ function App() {
               </div>
             </div>
           }
-          bgColor="bg-goos-orange-700"
+          bgColor="bg-goos-orange-600"
           textColor="text-white"
-          iconColor="text-goos-orange-800"
+          iconColor="text-goos-orange-600"
           iconBgColor="bg-white"
         />
 
@@ -2041,7 +2041,7 @@ function App() {
         backgroundColor="bg-goos-blue-900"
         titleColor="text-goos-white"
         textColor="text-goos-white"
-        lineColor="bg-goos-orange-600"
+        lineColor="bg-goos-orange-500"
       >
         <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph1')}</p>
         <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph2')}</p>
