@@ -297,6 +297,7 @@ export default function SatelliteTable() {
           <tfoot>
             <tr className="bg-goos-blue-900 p-0">
               <td className="text-white text-left px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-t-2 border-goos-white font-bold w-1/3">
+                Year
               </td>
               <td className="text-white py-3 sm:py-4 pr-3 sm:pr-4 border-t-2 border-goos-white font-medium w-2/3">
                 <div className="flex justify-between text-xs sm:text-sm whitespace-nowrap p-0">
