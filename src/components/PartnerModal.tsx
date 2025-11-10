@@ -281,7 +281,7 @@ export default function PartnerModal({
           <button
             onClick={onClose}
             className="ml-auto text-white hover:text-gray-200 transition-colors"
-            aria-label="Close modal"
+            aria-label={t('common.closeModal')}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +329,7 @@ export default function PartnerModal({
                             <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
                               <img
                                 src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
-                                alt={`${country.name} flag`}
+                                alt={`${country.name} ${t('common.flag')}`}
                                 className="w-full h-full object-cover"
                               />
                             </div>
@@ -414,7 +414,7 @@ export default function PartnerModal({
                             <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
                               <img
                                 src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
-                                alt={`${country.name} flag`}
+                                alt={`${country.name} ${t('common.flag')}`}
                                 className="w-full h-full object-cover"
                               />
                             </div>

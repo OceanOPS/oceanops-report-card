@@ -37,6 +37,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 
 interface VideoModalProps {
@@ -67,6 +68,7 @@ export default function VideoModal({
   isOpen: controlledIsOpen,
   onClose: controlledOnClose,
 }: VideoModalProps) {
+  const { t } = useTranslation()
   const [internalIsOpen, setInternalIsOpen] = useState(false)
 
   // Use controlled or internal state
@@ -223,7 +225,7 @@ export default function VideoModal({
             <button
               onClick={closeModal}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-              aria-label="Close video"
+              aria-label={t('common.closeVideo')}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -260,7 +262,7 @@ export default function VideoModal({
                   autoPlay
                   className="w-full h-full"
                 >
-                  Your browser does not support the video tag.
+                  {t('common.videoNotSupported')}
                 </video>
               )}
             </div>
