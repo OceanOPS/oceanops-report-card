@@ -252,9 +252,10 @@ function App() {
           </>
         }
       >
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          The <span className="text-goos-orange-500">Global Ocean Observing System (GOOS) Status Report 2025</span> highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.
-        </p>
+        <p
+          className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]"
+          dangerouslySetInnerHTML={{ __html: t('intro.paragraph1') }}
+        />
       </ContentModule>
       </div>
 
@@ -397,7 +398,7 @@ function App() {
       {/* Interactive ArcGIS map - Full width */}
       <MapStatsPanel
         mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
-        mapAlt="Global platform distribution map"
+        mapAlt={t('operationalPlatforms.mapAlt')}
         mapType="iframe"
         mapHeight={600}
         fullWidth={true}
@@ -613,9 +614,9 @@ function App() {
             networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
-              implementationStatus: "No target",
+              implementationStatus: t('satelliteObservations.statuses.noTarget'),
               realTime: 2.5,
-              archivedHighQuality: "No archive",
+              archivedHighQuality: t('satelliteObservations.statuses.noArchive'),
               metadata: 2,
               bestPractices: 2,
             },
@@ -630,7 +631,7 @@ function App() {
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
-              realTime: "Not applicable",
+              realTime: t('satelliteObservations.statuses.notApplicable'),
               archivedHighQuality: 2.5,
               metadata: 1.5,
               bestPractices: 3,
@@ -662,7 +663,7 @@ function App() {
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
               implementationStatus: 2.5,
-              realTime: "Not a core mission but existent",
+              realTime: t('satelliteObservations.statuses.notCoreMission'),
               archivedHighQuality: 2.5,
               metadata: 3,
               bestPractices: 2,
@@ -677,7 +678,7 @@ function App() {
             networkUrl: 'https://www.ocean-ops.org/dbcp/',
             networkLinkKey: 'networks.viewNetwork',
             ratings: {
-              implementationStatus: "No target",
+              implementationStatus: t('satelliteObservations.statuses.noTarget'),
               realTime: 2.5,
               archivedHighQuality: 3,
               metadata: 2,
@@ -836,7 +837,7 @@ function App() {
                   <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart2')}</span>
                 </div>
                 <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
                   <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.implementationStatus.scoring')}
                   </p>
@@ -855,7 +856,7 @@ function App() {
                   {t('networks.indicatorsModal.realTime.requirements')}
                 </p>
                 <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
                   <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.realTime.scoring')}
                   </p>
@@ -874,7 +875,7 @@ function App() {
                   {t('networks.indicatorsModal.archivedHighQuality.requirements')}
                 </p>
                 <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
                   <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.archivedHighQuality.scoring')}
                   </p>
@@ -893,7 +894,7 @@ function App() {
                   {t('networks.indicatorsModal.metadata.requirements')}
                 </p>
                 <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
                   <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.metadata.scoring')}
                   </p>
@@ -912,7 +913,7 @@ function App() {
                   {t('networks.indicatorsModal.bestPractices.details')}
                 </p>
                 <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">SCORING:</h4>
+                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
                   <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
                     {t('networks.indicatorsModal.bestPractices.scoring')}
                   </p>
@@ -982,84 +983,84 @@ function App() {
               number: "108",
               tagKey: "dataCards.card1.tag",
               iconSrc: "/icons/biology_and_ecosystems/Seabirds.png",
-              iconAlt: "Seabird icon representing marine bird observation programmes",
+              iconAlt: t('dataCards.card1.iconAlt'),
               titleKey: "dataCards.card1.title",
             },
             {
               number: "224",
               tagKey: "dataCards.card2.tag",
               iconSrc: "/icons/biology_and_ecosystems/Fish.png",
-              iconAlt: "Fish icon representing fish abundance monitoring programmes",
+              iconAlt: t('dataCards.card2.iconAlt'),
               titleKey: "dataCards.card2.title",
             },
             {
               number: "59",
               tagKey: "dataCards.card3.tag",
               iconSrc: "/icons/biology_and_ecosystems/Hard-coral.png",
-              iconAlt: "Hard coral icon representing coral reef monitoring programmes",
+              iconAlt: t('dataCards.card3.iconAlt'),
               titleKey: "dataCards.card3.title",
             },
             {
               number: "192",
               tagKey: "dataCards.card4.tag",
               iconSrc: "/icons/biology_and_ecosystems/Invertebrates.png",
-              iconAlt: "Invertebrate icon representing marine invertebrate observation programmes",
+              iconAlt: t('dataCards.card4.iconAlt'),
               titleKey: "dataCards.card4.title",
             },
             {
               number: "120",
               tagKey: "dataCards.card5.tag",
               iconSrc: "/icons/biology_and_ecosystems/Macroalgae.png",
-              iconAlt: "Macroalgae icon representing seaweed and kelp monitoring programmes",
+              iconAlt: t('dataCards.card5.iconAlt'),
               titleKey: "dataCards.card5.title",
             },
             {
               number: "184",
               tagKey: "dataCards.card6.tag",
               iconSrc: "/icons/biology_and_ecosystems/Marine-mammals.png",
-              iconAlt: "Marine mammal icon representing whale and dolphin observation programmes",
+              iconAlt: t('dataCards.card6.iconAlt'),
               titleKey: "dataCards.card6.title",
             },
             {
               number: "18",
               tagKey: "dataCards.card7.tag",
               iconSrc: "/icons/biology_and_ecosystems/Mangroves.png",
-              iconAlt: "Mangrove icon representing mangrove forest monitoring programmes",
+              iconAlt: t('dataCards.card7.iconAlt'),
               titleKey: "dataCards.card7.title",
             },
             {
               number: "99",
               tagKey: "dataCards.card8.tag",
               iconSrc: "/icons/biology_and_ecosystems/Microbes.png",
-              iconAlt: "Microbe icon representing marine microbial observation programmes",
+              iconAlt: t('dataCards.card8.iconAlt'),
               titleKey: "dataCards.card8.title",
             },
             {
               number: "230",
               tagKey: "dataCards.card9.tag",
               iconSrc: "/icons/biology_and_ecosystems/Phytoplankton.png",
-              iconAlt: "Phytoplankton icon representing microscopic algae monitoring programmes",
+              iconAlt: t('dataCards.card9.iconAlt'),
               titleKey: "dataCards.card9.title",
             },
             {
               number: "75",
               tagKey: "dataCards.card10.tag",
               iconSrc: "/icons/biology_and_ecosystems/Seagrass.png",
-              iconAlt: "Seagrass icon representing underwater grass meadow monitoring programmes",
+              iconAlt: t('dataCards.card10.iconAlt'),
               titleKey: "dataCards.card10.title",
             },
             {
               number: "78",
               tagKey: "dataCards.card11.tag",
               iconSrc: "/icons/biology_and_ecosystems/Sea-turtles.png",
-              iconAlt: "Sea turtle icon representing marine turtle observation programmes",
+              iconAlt: t('dataCards.card11.iconAlt'),
               titleKey: "dataCards.card11.title",
             },
             {
               number: "188",
               tagKey: "dataCards.card12.tag",
               iconSrc: "/icons/biology_and_ecosystems/Zooplankton.png",
-              iconAlt: "Zooplankton icon representing microscopic animal monitoring programmes",
+              iconAlt: t('dataCards.card12.iconAlt'),
               titleKey: "dataCards.card12.title",
             },
           ]}
@@ -2083,7 +2084,7 @@ function App() {
         <div className="mb-6 sm:mb-8">
           <Button
             variant="action"
-            label="VIEW FULL LIST"
+            label={t('partners.viewFullListButton')}
             onClick={() => setIsPartnerModalOpen(true)}
             textColor="text-white"
             bgColor="bg-goos-blue-700"

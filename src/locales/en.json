@@ -20,7 +20,7 @@
     }
   },
   "intro": {
-    "paragraph1": "The Global Ocean Observing System (GOOS) Status Report 2025 highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.",
+    "paragraph1": "The <span class=\"text-goos-orange-500\">Global Ocean Observing System (GOOS) Status Report 2025</span> highlights the status of GOOS observing networks, as well as progress in strengthening the world's capacity to monitor the ocean, understand and adapt to a changing climate, improve operational services, and protect ocean health — all of which underpin sustainable ocean economies and the safety and well-being of societies worldwide.",
     "paragraph2": "What began in 2016 as the Ocean Observing System Report Card — led by OceanOPS, the operational monitoring and support centre of GOOS — has now evolved into a comprehensive GOOS Status Report 2025, offering an interactive view of the global ocean observing system.",
     "paragraph3": "In this new digital edition, explore the latest updates, stories, and insights by scrolling or using the menu on the right."
   },
@@ -533,6 +533,7 @@
     }
   },
   "operationalPlatforms": {
+    "mapAlt": "Global platform distribution map",
     "platformButton": "About operational platform definitions",
     "platformModal": {
       "title": "Operational Platform Definitions",
@@ -627,6 +628,13 @@
       "marginal": "MARGINAL",
       "adequate": "ADEQUATE"
     },
+    "scoringTitle": "SCORING:",
+    "statuses": {
+      "noTarget": "No target",
+      "noArchive": "No archive",
+      "notApplicable": "Not applicable",
+      "notCoreMission": "Not a core mission but existent"
+    },
     "platformModal": {
       "title": "Satellite Essential Climate Variables",
       "introduction": "This document provides additional information on the adequacy, continuity, and requirements of satellite observations for each Essential Climate Variable (ECV), as contributed by the satellite ocean observing community. It summarizes the current status and future outlook of satellite measurements for each ECV, outlining key achievements, challenges, and planned missions.",
@@ -682,51 +690,63 @@
   "dataCards": {
     "card1": {
       "tag": "Programmes",
-      "title": "Seabird abundance and distribution"
+      "title": "Seabird abundance and distribution",
+      "iconAlt": "Seabird icon representing marine bird observation programmes"
     },
     "card2": {
       "tag": "Programmes",
-      "title": "Fish abundance and distribution"
+      "title": "Fish abundance and distribution",
+      "iconAlt": "Fish icon representing fish abundance monitoring programmes"
     },
     "card3": {
       "tag": "Programmes",
-      "title": "Coral cover and composition"
+      "title": "Coral cover and composition",
+      "iconAlt": "Hard coral icon representing coral reef monitoring programmes"
     },
     "card4": {
       "tag": "Programmes",
-      "title": "Benthic invertebrate abundance and distribution"
+      "title": "Benthic invertebrate abundance and distribution",
+      "iconAlt": "Invertebrate icon representing marine invertebrate observation programmes"
     },
     "card5": {
       "tag": "Programmes",
-      "title": "Macroalgal canopy cover and composition"
+      "title": "Macroalgal canopy cover and composition",
+      "iconAlt": "Macroalgae icon representing seaweed and kelp monitoring programmes"
     },
     "card6": {
       "tag": "Programmes",
-      "title": "Marine mammals abundance and distribution"
+      "title": "Marine mammals abundance and distribution",
+      "iconAlt": "Marine mammal icon representing whale and dolphin observation programmes"
     },
     "card7": {
       "tag": "Programmes",
-      "title": "Mangrove cover and composition"
+      "title": "Mangrove cover and composition",
+      "iconAlt": "Mangrove icon representing mangrove forest monitoring programmes"
     },
     "card8": {
       "tag": "Programmes",
-      "title": "Microbe biomass and diversity"
+      "title": "Microbe biomass and diversity",
+      "iconAlt": "Microbe icon representing marine microbial observation programmes"
     },
     "card9": {
       "tag": "Programmes",
-      "title": "Phytoplankton biomass and diversity"
+      "title": "Phytoplankton biomass and diversity",
+      "iconAlt": "Phytoplankton icon representing microscopic algae monitoring programmes"
     },
     "card10": {
       "tag": "Programmes",
-      "title": "Seagrass cover and composition"
+      "title": "Seagrass cover and composition",
+      "iconAlt": "Seagrass icon representing underwater grass meadow monitoring programmes"
     },
     "card11": {
       "tag": "Programmes",
-      "title": "Sea turtle abundance and distribution"
+      "title": "Sea turtle abundance and distribution",
+      "iconAlt": "Sea turtle icon representing marine turtle observation programmes"
     },
     "card12": {
       "tag": "Programmes",
-      "title": "Zooplankton biomass and diversity"
+      "title": "Zooplankton biomass and diversity",
+      "iconAlt": "Zooplankton icon representing microscopic animal monitoring programmes"
     }
   },
   "contentBox": {
@@ -775,6 +795,7 @@
     "title": "Our Partners",
     "networksLabel": "Networks",
     "platformsLabel": "Platforms",
+    "viewFullListButton": "VIEW FULL LIST",
     "networks": {
       "driftingBuoys": "Drifting buoys - DBCP",
       "argo": "Profiling floats - Argo",

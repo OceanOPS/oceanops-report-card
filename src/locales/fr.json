@@ -19,7 +19,7 @@
     }
   },
   "intro": {
-    "paragraph1": "Le Rapport d'État du Système mondial d'observation des océans (GOOS) 2025 met en lumière l'état des réseaux d'observation du GOOS, ainsi que les progrès réalisés dans le renforcement de la capacité mondiale à surveiller l'océan, à comprendre et s'adapter au changement climatique, à améliorer les services opérationnels et à protéger la santé des océans — tous ces éléments soutiennent les économies océaniques durables et la sécurité et le bien-être des sociétés dans le monde entier.",
+    "paragraph1": "Le <span class=\"text-goos-orange-500\">Rapport d'État du Système mondial d'observation des océans (GOOS) 2025</span> met en lumière l'état des réseaux d'observation du GOOS, ainsi que les progrès réalisés dans le renforcement de la capacité mondiale à surveiller l'océan, à comprendre et s'adapter au changement climatique, à améliorer les services opérationnels et à protéger la santé des océans — tous ces éléments soutiennent les économies océaniques durables et la sécurité et le bien-être des sociétés dans le monde entier.",
     "paragraph2": "Ce qui a commencé en 2016 comme la Carte de Rapport du Système d'Observation des Océans — dirigée par OceanOPS, le centre de surveillance et de soutien opérationnel du GOOS — a maintenant évolué vers un Rapport d'État du GOOS 2025 complet, offrant une vue interactive du système mondial d'observation des océans.",
     "paragraph3": "Dans cette nouvelle édition numérique, explorez les dernières mises à jour, histoires et perspectives en faisant défiler ou en utilisant le menu sur la droite."
   },
@@ -367,51 +367,63 @@
   "dataCards": {
     "card1": {
       "tag": "Programmes",
-      "title": "Abondance et distribution d'oiseaux marins"
+      "title": "Abondance et distribution d'oiseaux marins",
+      "iconAlt": "Icône d'oiseau marin représentant les programmes d'observation des oiseaux marins"
     },
     "card2": {
       "tag": "Plateformes",
-      "title": "Flotteurs Argo actifs"
+      "title": "Flotteurs Argo actifs",
+      "iconAlt": "Icône de poisson représentant les programmes de surveillance de l'abondance des poissons"
     },
     "card3": {
       "tag": "Réseaux",
-      "title": "Réseaux d'observation océanique"
+      "title": "Réseaux d'observation océanique",
+      "iconAlt": "Icône de corail dur représentant les programmes de surveillance des récifs coralliens"
     },
     "card4": {
       "tag": "Pays",
-      "title": "Nations contributrices"
+      "title": "Nations contributrices",
+      "iconAlt": "Icône d'invertébré représentant les programmes d'observation des invertébrés marins"
     },
     "card5": {
       "tag": "Variables",
-      "title": "Variables océaniques essentielles"
+      "title": "Variables océaniques essentielles",
+      "iconAlt": "Icône de macroalgue représentant les programmes de surveillance des algues et du kelp"
     },
     "card6": {
       "tag": "Capteurs",
-      "title": "Capteurs océaniques actifs"
+      "title": "Capteurs océaniques actifs",
+      "iconAlt": "Icône de mammifère marin représentant les programmes d'observation des baleines et des dauphins"
     },
     "card7": {
       "tag": "Espèces",
-      "title": "Espèces marines surveillées"
+      "title": "Espèces marines surveillées",
+      "iconAlt": "Icône de mangrove représentant les programmes de surveillance des forêts de mangroves"
     },
     "card8": {
       "tag": "Régions",
-      "title": "Zones d'observation océanique"
+      "title": "Zones d'observation océanique",
+      "iconAlt": "Icône de microbe représentant les programmes d'observation microbienne marine"
     },
     "card9": {
       "tag": "Planeurs",
-      "title": "Planeurs sous-marins autonomes"
+      "title": "Planeurs sous-marins autonomes",
+      "iconAlt": "Icône de phytoplancton représentant les programmes de surveillance des algues microscopiques"
     },
     "card10": {
       "tag": "Mouillages",
-      "title": "Mouillages océaniques fixes"
+      "title": "Mouillages océaniques fixes",
+      "iconAlt": "Icône d'herbe marine représentant les programmes de surveillance des prairies d'herbes sous-marines"
     },
     "card11": {
       "tag": "Navires",
-      "title": "Navires de recherche actifs"
+      "title": "Navires de recherche actifs",
+      "iconAlt": "Icône de tortue marine représentant les programmes d'observation des tortues marines"
     },
     "card12": {
       "tag": "Données",
-      "title": "Observations annuelles collectées"
+      "title": "Observations annuelles collectées",
+      "iconAlt": "Icône de zooplancton représentant les programmes de surveillance des animaux microscopiques"
     }
   },
   "networks": {
@@ -627,6 +639,19 @@
       "mooredBuoys": "Bouées ancrées - DBCP",
       "tsunamiBuoys": "Bouées tsunami - DBCP",
       "hfRadars": "Radars HF"
+    },
+    "viewFullListButton": "VOIR LA LISTE COMPLÈTE"
+  },
+  "satelliteObservations": {
+    "scoringTitle": "NOTATION:",
+    "statuses": {
+      "noTarget": "Pas d'objectif",
+      "noArchive": "Pas d'archive",
+      "notApplicable": "Non applicable",
+      "notCoreMission": "Pas une mission centrale mais existante"
     }
+  },
+  "operationalPlatforms": {
+    "mapAlt": "Carte de distribution mondiale des plateformes"
   }
 }
