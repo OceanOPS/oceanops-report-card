@@ -234,7 +234,7 @@
       "paragraph10": "The Southern Ocean remains the most under-sampled region due to its remoteness and harsh conditions. Nevertheless, the Animal borne ocean sensors (AniBOS) network is contributing valuable data from this challenging region, helping to fill critical gaps.",
       "paragraph11": "The subcritical nature of GOOS also extends to the supply and production chain, including instrument manufacturers and service providers. Limited research and development capacity, coupled with economic and logistical pressures, poses additional challenges to long-term sustainability of instrument supply.",
       "quote": {
-        "text": "Faced with the fragility of the observing system and the constraints of decreasing budgets, we must innovate through stronger partnerships. This is why we are deepening our collaboration with the shipping industry - to harness the potential of these new partners and expand the automation of ship-based observations.",
+        "text": "Faced with the fragility of the observing system and the constraints of decreasing budgets, we must innovate through stronger partnerships. This is why we are deepening our collaboration with the shipping industry — to harness the potential of these new partners and expand the automation of ship-based observations.",
         "authorName": "M. Belbéoch",
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
@@ -371,7 +371,7 @@
     "partner8": "Partner Organization 8"
   },
   "networks": {
-    "title": "Global Ocean Observing System Networks",
+    "title": "GOOS Mature in situ networks",
     "viewNetwork": "View Network",
     "deliveryAreasLabel": "GOOS delivery areas",
     "deliveryAreas": {
@@ -529,9 +529,9 @@
     }
   },
   "operationalPlatforms": {
-    "platformButton": "ABOUT OPERATIONAL PLATFORMS DEFINITION",
+    "platformButton": "About operational platform definitions",
     "platformModal": {
-      "title": "About Operational Platform Definition",
+      "title": "About Operational Platform Definitions",
       "intro": "The map shows operational platforms. The criteria for operational status vary depending on the observing network. The applied rules are as follows:",
       "categories": {
         "shipBased": {
@@ -605,7 +605,7 @@
   "satelliteObservations": {
     "title": "Satellite Observations",
     "introduction": "Satellite observations provide a global view of the ocean, complementing in situ measurements with repeated observations of surface variables such as temperature, sea level, ocean color, and winds. They are essential for understanding large-scale processes, supporting ocean and climate forecasts, and monitoring change. Together with in situ data, satellites also help track key phenomena such as the Atlantic Meridional Overturning Circulation (AMOC) and its long-term trends.",
-    "platformButton": "ABOUT OPERATIONAL PLATFORM DEFINITION",
+    "platformButton": "About operational platform definitions",
     "platformModal": {
       "title": "Satellite Essential Climate Variables",
       "header": "JCOMM Report Card 2025",
