@@ -1089,7 +1089,7 @@ function App() {
             externalLinkUrl: 'https://www.fvon.org/',
             externalLinkTextKey: 'networks.viewNetwork',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational', 'climate'],
+            deliveryAreas: ['climate', 'operational', `oceanhealth`],
           },
           {
             // SMART Cables - Second (Video)
@@ -1167,6 +1167,18 @@ function App() {
                   <p className="text-xl font-normal text-white leading-[1.5]">
                     {t('emerging.soconet.paragraph2')}
                   </p>
+                  {/* External Link Button */}
+                  <div className="flex">
+                    <Button
+                      variant="link"
+                      label={t('networks.viewNetwork')}
+                      url="https://www.aoml.noaa.gov/ocd/gcc/SOCONET/"
+                      bgColor="bg-goos-orange-600"
+                      textColor="text-white"
+                      iconBgColor="bg-white"
+                      iconColor="text-goos-orange-600"
+                    />
+                  </div>
                 </div>
               </div>
             ),
@@ -1175,6 +1187,8 @@ function App() {
             titleKey: 'emerging.soconet.title',
             paragraph1Key: 'emerging.soconet.paragraph1WithLink',
             paragraph2Key: 'emerging.soconet.paragraph2',
+            externalLinkUrl: 'https://www.aoml.noaa.gov/ocd/gcc/SOCONET/',
+            externalLinkTextKey: 'networks.viewNetwork',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
             deliveryAreas: ['climate', 'oceanhealth'],
           },
@@ -1188,6 +1202,8 @@ function App() {
             titleKey: 'emerging.sunFleet.title',
             paragraph1Key: 'emerging.sunFleet.paragraph1',
             paragraph2Key: 'emerging.sunFleet.paragraph2',
+            externalLinkUrl: 'https://airseaobs.org/sun-fleet',
+            externalLinkTextKey: 'networks.viewNetwork',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
