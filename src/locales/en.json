@@ -190,7 +190,7 @@
     "paragraph5": "By integrating stakeholder needs early, this co-design initiative sets the critical path for establishing a robust and responsive Agulhas observing system, creating safer seas and more accurate weather forecasts."
   },
   "tenThousandShips": {
-    "title": "A fleet of 10,000 Commercial Vessels to support GOOS",
+    "title": "10,000 Commercial Vessels to support GOOS",
     "contributors": "Contributors: Emanuela Rusciano, Mathieu Belbeoch",
     "buttonLabel": "VISIT 10000SHIPS.ORG",
     "paragraph1": "A landmark 10,000 Ships for the Ocean initiative was launched by OceanOPS at the UN Ocean Conference 2025, with the support of France and Norway, and in partnership with the World Meteorological Organization (WMO), the Intergovernmental Oceanographic Commission (IOC) of UNESCO, and the International Maritime Organization (IMO).",
@@ -216,7 +216,7 @@
   "content": {
     "section1": {
       "kicker": "",
-      "title": "In situ observing system status and updates",
+      "title": "Ocean observing system status and updates",
       "subtitle": "",
       "introduction": "",
       "paragraph1": "In 2025, GOOS is pleased to report that the in situ component of the global ocean observing networks, monitored in real time by OceanOPS, has experienced a steady expansion over the past two years, continuing to deliver high-quality, near real-time ocean observations that support society worldwide.",
@@ -239,7 +239,7 @@
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
       },
-      "statsTitle": "GOOS In situ networks by the numbers",
+      "statsTitle": "In situ observing networks by the numbers",
       "stats": {
         "stat1": {
           "number": "64",
@@ -371,7 +371,7 @@
     "partner8": "Partner Organization 8"
   },
   "networks": {
-    "title": "GOOS Mature in situ networks",
+    "title": "In situ mature networks",
     "viewNetwork": "View Network",
     "deliveryAreasLabel": "GOOS delivery areas",
     "deliveryAreas": {
@@ -491,7 +491,7 @@
     }
   },
   "emerging": {
-    "title": "Emerging Networks",
+    "title": " In situ emerging networks",
     "viewMore": "View More",
     "watchVideo": "Watch Video",
     "fvon": {
@@ -531,7 +531,7 @@
   "operationalPlatforms": {
     "platformButton": "About operational platform definitions",
     "platformModal": {
-      "title": "About Operational Platform Definitions",
+      "title": "Operational Platform Definitions",
       "intro": "The map shows operational platforms. The criteria for operational status vary depending on the observing network. The applied rules are as follows:",
       "categories": {
         "shipBased": {
@@ -605,7 +605,7 @@
   "satelliteObservations": {
     "title": "Satellite Observations",
     "introduction": "Satellite observations provide a global view of the ocean, complementing in situ measurements with repeated observations of surface variables such as temperature, sea level, ocean color, and winds. They are essential for understanding large-scale processes, supporting ocean and climate forecasts, and monitoring change. Together with in situ data, satellites also help track key phenomena such as the Atlantic Meridional Overturning Circulation (AMOC) and its long-term trends.",
-    "platformButton": "Satellite Essential Climate Variable definitions",
+    "platformButton": "About Essential Climate Variables",
     "platformModal": {
       "title": "Satellite Essential Climate Variables",
       "header": "JCOMM Report Card 2025",
@@ -718,8 +718,8 @@
     "year": "2025",
     "cover": "Cover",
     "overview": "Overview",
-    "inSituStatus": "In situ observing system status and updates",
-    "networksByNumbers": "Networks by the numbers",
+    "inSituStatus": "Ocean observing system status and updates",
+    "networksByNumbers": "In situ observing networks by the numbers",
     "downloadPdf": "DOWNLOAD PDF",
     "pastReports": "Past Reports",
     "pastReportsLinks": {
