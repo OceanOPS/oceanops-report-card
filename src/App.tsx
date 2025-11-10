@@ -17,6 +17,7 @@ import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
 import ImageGallery from './components/ImageGallery'
+import VideoModal from './components/VideoModal'
 import SatelliteTable from './components/SatelliteTable'
 import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
@@ -2031,13 +2032,13 @@ function App() {
       </ContentModule>
 
  <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
-        {/* Image - 10,000 Ships */}
-        <ImageCaption
-          src="/images/10k.webp"
-          alt="10,000 Ships for the Ocean"
-          caption=""
+        {/* Video - 10,000 Ships */}
+        <VideoModal
+          videoType="youtube"
+          videoId="ki5EsC2BHO0"
+          previewImage="/images/10k.webp"
+          previewAlt="10,000 Ships for the Ocean"
           aspectRatio="video"
-          objectFit="cover"
         />
       </div>
       </div>
