@@ -2076,7 +2076,7 @@ function App() {
         {/* Number and description in same line */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-start sm:items-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
           <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
-          <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] flex-1">Member States contributing to the system.</p>
+          <p className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-goos-white font-roboto-condensed font-normal leading-[1.3] flex-1">Member States contributing to the system</p>
         </div>
 
         {/* Button below */}
