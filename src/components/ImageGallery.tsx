@@ -27,7 +27,7 @@
  * ```
  */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export interface GalleryImage {
   src: string
@@ -59,18 +59,46 @@ export default function ImageGallery({
   className = '',
 }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
-  // Handle navigation
+  // Preload adjacent images for smooth transitions
+  useEffect(() => {
+    const preloadImage = (src: string) => {
+      const img = new Image()
+      img.src = src
+    }
+
+    // Preload next and previous images
+    const nextIndex = (currentIndex + 1) % images.length
+    const prevIndex = (currentIndex - 1 + images.length) % images.length
+
+    if (images[nextIndex]) preloadImage(images[nextIndex].src)
+    if (images[prevIndex]) preloadImage(images[prevIndex].src)
+  }, [currentIndex, images])
+
+  // Handle navigation with transition state
+  const navigateToIndex = (newIndex: number) => {
+    if (newIndex === currentIndex || isTransitioning) return
+
+    setIsTransitioning(true)
+    setCurrentIndex(newIndex)
+
+    // Reset transition state after animation completes
+    setTimeout(() => {
+      setIsTransitioning(false)
+    }, 500) // Match this with CSS transition duration
+  }
+
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length)
+    navigateToIndex((currentIndex + 1) % images.length)
   }
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+    navigateToIndex((currentIndex - 1 + images.length) % images.length)
   }
 
   const goToIndex = (index: number) => {
-    setCurrentIndex(index)
+    navigateToIndex(index)
   }
 
   // Map aspect ratios to Tailwind classes
@@ -101,12 +129,17 @@ export default function ImageGallery({
     <div className={`w-full ${className}`}>
       {/* Image Container with Navigation */}
       <div className={`relative w-full ${aspectClass} bg-gray-300 flex items-center justify-center overflow-hidden`}>
-        {/* Current Image */}
-        <img
-          src={currentImage.src}
-          alt={currentImage.alt}
-          className={`w-full h-full ${objectFitClass}`}
-        />
+        {/* Images with Crossfade Effect */}
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            className={`absolute inset-0 w-full h-full ${objectFitClass} transition-opacity duration-500 ease-in-out ${
+              index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+          />
+        ))}
 
         {/* Navigation Arrows - Only show if more than 1 image */}
         {showNavigation && (
@@ -114,7 +147,7 @@ export default function ImageGallery({
             {/* Previous Arrow */}
             <button
               onClick={goToPrevious}
-              className={`absolute left-4 top-1/2 -translate-y-1/2 ${arrowBgColor} ${arrowColor} w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity shadow-lg`}
+              className={`absolute left-4 top-1/2 -translate-y-1/2 ${arrowBgColor} ${arrowColor} w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity shadow-lg z-20`}
               aria-label="Previous image"
             >
               <svg
@@ -132,7 +165,7 @@ export default function ImageGallery({
             {/* Next Arrow */}
             <button
               onClick={goToNext}
-              className={`absolute right-4 top-1/2 -translate-y-1/2 ${arrowBgColor} ${arrowColor} w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity shadow-lg`}
+              className={`absolute right-4 top-1/2 -translate-y-1/2 ${arrowBgColor} ${arrowColor} w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity shadow-lg z-20`}
               aria-label="Next image"
             >
               <svg
@@ -148,12 +181,12 @@ export default function ImageGallery({
             </button>
 
             {/* Dot Indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
               {images.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex ? `${activeDotColor} w-6` : dotColor
                   }`}
                   aria-label={`Go to image ${index + 1}`}
@@ -164,9 +197,11 @@ export default function ImageGallery({
         )}
       </div>
 
-      {/* Caption */}
+      {/* Caption with fade transition */}
       {currentImage.caption && (
-        <p className={`text-sm ${captionColor} mt-2 px-4 sm:px-0`}>
+        <p className={`text-sm ${captionColor} mt-2 px-4 sm:px-0 transition-opacity duration-300 ${
+          isTransitioning ? 'opacity-0' : 'opacity-100'
+        }`}>
           {currentImage.caption}
         </p>
       )}
