@@ -196,10 +196,12 @@
   "callToAction": {
     "title": "Appel à l'Action",
     "paragraph1": "L'observation des océans devrait être considérée comme une infrastructure critique, tout comme les services météorologiques ou les systèmes énergétiques. Elle est vitale pour la résilience climatique, la réduction des risques de catastrophe, la santé des océans, le développement durable et la stabilité économique.",
-    "paragraph2": "Bien que le système d'observation ait atteint sa maturité, la demande de données océaniques pour soutenir les besoins sociétaux sous une pression environnementale croissante augmente. Renforcer sa résilience nécessitera une participation internationale plus large et des partenariats qui s'étendent au-delà des secteurs académique et public, incluant l'industrie et les acteurs privés qui peuvent contribuer à stimuler l'innovation et l'évolutivité.",
+    "paragraph2": "Bien que le système d'observation ait atteint sa maturité, la demande de données océaniques pour soutenir les besoins sociétaux sous une pression environnementale croissante augmente. Renforcer sa résilience nécessitera une participation internationale plus large et des partenariats qui s'étendent au-delà des secteurs académique et public, incluant l'industrie et d'autres acteurs privés qui peuvent contribuer à stimuler l'innovation et l'évolutivité.",
     "quote": "Un nouvel état d'esprit économique est nécessaire : un état d'esprit qui garantit un investissement coordonné à long terme dans l'observation des océans en tant qu'infrastructure mondiale partagée — sécurisant son avenir et libérant tout son potentiel pour les populations et la planète.",
     "quoteAuthor": "Joanna Post",
-    "quotePosition": "Directrice du GOOS"
+    "quotePosition": "Directrice du GOOS",
+    "memberStatesText": "États membres contribuant au système.",
+    "acknowledgmentText": "Nous remercions tous les financeurs pour leur soutien continu, ainsi que les dévoués responsables de la mise en œuvre du système d'observation pour leurs efforts remarquables dans le développement de notre Système mondial d'observation de l'océan!"
   },
   "contact": {
     "title": "Contact",

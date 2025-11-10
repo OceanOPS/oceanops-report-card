@@ -30,7 +30,7 @@
   },
   "strengtheningSystem": {
     "title": "Strengthening and expanding the system",
-    "content": "Meeting the growing demand for ocean data requires an observing system that continues to evolve. This section highlights new initiatives – from building national and regional capacity to forging innovative partnerships – to create a stronger, more resilient system, and secure the future of sustained ocean observations."
+    "content": "Meeting the growing demand for ocean data requires an observing system that continues to evolve. This section highlights new initiatives — from building national and regional capacity to forging innovative partnerships — to create a stronger, more resilient system, and secure the future of sustained ocean observations."
   },
   "amoc": {
     "kicker": "Climate",
@@ -191,7 +191,7 @@
     "paragraph5": "By integrating stakeholder needs early, this co-design initiative sets the critical path for establishing a robust and responsive Agulhas observing system, creating safer seas and more accurate weather forecasts."
   },
   "tenThousandShips": {
-    "title": "10,000 Commercial Vessels to support GOOS",
+    "title": "10,000 Ships for the Ocean",
     "contributors": "Contributors: Emanuela Rusciano, Mathieu Belbeoch",
     "buttonLabel": "VISIT 10000SHIPS.ORG",
     "paragraph1": "A landmark <span class=\"text-goos-green-700\">10,000 Ships for the Ocean initiative</span> was launched by OceanOPS at the UN Ocean Conference 2025, with the support of France and Norway, and in partnership with the World Meteorological Organization (WMO), the Intergovernmental Oceanographic Commission (IOC) of UNESCO, and the International Maritime Organization (IMO).",
@@ -201,10 +201,12 @@
   "callToAction": {
     "title": "Call to Action",
     "paragraph1": "Ocean observing should be viewed as critical infrastructure, just like weather services or energy systems. It is vital for climate resilience, disaster risk reduction, ocean health, sustainable development, and economic stability.",
-    "paragraph2": "While the observing system has matured, the demand for ocean data to support societal needs under increasing environmental pressure is growing. Strengthening its resilience will require broader international participation and partnerships that extend beyond the academic and public sectors, including industry and private actors who can help drive innovation and scalability.",
+    "paragraph2": "While the observing system has matured, the demand for ocean data to support societal needs under increasing environmental pressure is growing. Strengthening its resilience will require broader international participation and partnerships that extend beyond the academic and public sectors, including industry and other private actors who can help drive innovation and scalability.",
     "quote": "A new economic mindset is needed: one that ensures long-term, coordinated investment in ocean observing as shared global infrastructure — securing its future and unlocking its full potential for people and the planet.",
     "quoteAuthor": "Joanna Post",
-    "quotePosition": "GOOS Director"
+    "quotePosition": "GOOS Director",
+    "memberStatesText": "Member States contributing to the system.",
+    "acknowledgmentText": "We acknowledge all the funders for their continued support, as well as the dedicated observing system implementers for their outstanding efforts in advancing the development of our Global Ocean Observing System!"
   },
   "contact": {
     "title": "Contacts",

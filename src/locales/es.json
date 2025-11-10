@@ -196,10 +196,12 @@
   "callToAction": {
     "title": "Llamado a la Acción",
     "paragraph1": "La observación oceánica debe considerarse como infraestructura crítica, al igual que los servicios meteorológicos o los sistemas energéticos. Es vital para la resiliencia climática, la reducción del riesgo de desastres, la salud oceánica, el desarrollo sostenible y la estabilidad económica.",
-    "paragraph2": "Aunque el sistema de observación ha madurado, la demanda de datos oceánicos para apoyar las necesidades sociales bajo la creciente presión ambiental está aumentando. Fortalecer su resiliencia requerirá una participación internacional más amplia y asociaciones que se extiendan más allá de los sectores académico y público, incluyendo a la industria y actores privados que puedan ayudar a impulsar la innovación y la escalabilidad.",
+    "paragraph2": "Aunque el sistema de observación ha madurado, la demanda de datos oceánicos para apoyar las necesidades sociales bajo la creciente presión ambiental está aumentando. Fortalecer su resiliencia requerirá una participación internacional más amplia y asociaciones que se extiendan más allá de los sectores académico y público, incluyendo a la industria y otros actores privados que puedan ayudar a impulsar la innovación y la escalabilidad.",
     "quote": "Se necesita una nueva mentalidad económica: una que garantice inversión coordinada a largo plazo en la observación oceánica como infraestructura global compartida — asegurando su futuro y desbloqueando todo su potencial para las personas y el planeta.",
     "quoteAuthor": "Joanna Post",
-    "quotePosition": "Directora de GOOS"
+    "quotePosition": "Directora de GOOS",
+    "memberStatesText": "Estados Miembros que contribuyen al sistema.",
+    "acknowledgmentText": "Reconocemos a todos los financiadores por su continuo apoyo, así como a los dedicados implementadores del sistema de observación por sus destacados esfuerzos en el avance del desarrollo de nuestro Sistema Global de Observación del Océano!"
   },
   "contact": {
     "title": "Contacto",
