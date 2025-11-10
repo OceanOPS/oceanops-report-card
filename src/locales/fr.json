@@ -19,7 +19,7 @@
     }
   },
   "intro": {
-    "paragraph1": "Le Rapport d'État du Système mondial d'observation des océans (GOOS) 2025 met en lumière l'état des réseaux d'observation du GOOS, ainsi que les progrès réalisés dans le renforcement de la capacité mondiale à surveiller l'océan, à comprendre et s'adapter au changement climatique, à améliorer les services opérationnels et à protéger la santé des océans — tous ces éléments soutiennent les économies océaniques durables et la sécurité et le bien-être des sociétés dans le monde entier.",
+    "paragraph1": "Le <span class=\"text-goos-orange-500\">Rapport d'État du Système mondial d'observation des océans (GOOS) 2025</span> met en lumière l'état des réseaux d'observation du GOOS, ainsi que les progrès réalisés dans le renforcement de la capacité mondiale à surveiller l'océan, à comprendre et s'adapter au changement climatique, à améliorer les services opérationnels et à protéger la santé des océans — tous ces éléments soutiennent les économies océaniques durables et la sécurité et le bien-être des sociétés dans le monde entier.",
     "paragraph2": "Ce qui a commencé en 2016 comme la Carte de Rapport du Système d'Observation des Océans — dirigée par OceanOPS, le centre de surveillance et de soutien opérationnel du GOOS — a maintenant évolué vers un Rapport d'État du GOOS 2025 complet, offrant une vue interactive du système mondial d'observation des océans.",
     "paragraph3": "Dans cette nouvelle édition numérique, explorez les dernières mises à jour, histoires et perspectives en faisant défiler ou en utilisant le menu sur la droite."
   },
@@ -196,16 +196,20 @@
   "callToAction": {
     "title": "Appel à l'Action",
     "paragraph1": "L'observation des océans devrait être considérée comme une infrastructure critique, tout comme les services météorologiques ou les systèmes énergétiques. Elle est vitale pour la résilience climatique, la réduction des risques de catastrophe, la santé des océans, le développement durable et la stabilité économique.",
-    "paragraph2": "Bien que le système d'observation ait atteint sa maturité, la demande de données océaniques pour soutenir les besoins sociétaux sous une pression environnementale croissante augmente. Renforcer sa résilience nécessitera une participation internationale plus large et des partenariats qui s'étendent au-delà des secteurs académique et public, incluant l'industrie et les acteurs privés qui peuvent contribuer à stimuler l'innovation et l'évolutivité.",
+    "paragraph2": "Bien que le système d'observation ait atteint sa maturité, la demande de données océaniques pour soutenir les besoins sociétaux sous une pression environnementale croissante augmente. Renforcer sa résilience nécessitera une participation internationale plus large et des partenariats qui s'étendent au-delà des secteurs académique et public, incluant l'industrie et d'autres acteurs privés qui peuvent contribuer à stimuler l'innovation et l'évolutivité.",
     "quote": "Un nouvel état d'esprit économique est nécessaire : un état d'esprit qui garantit un investissement coordonné à long terme dans l'observation des océans en tant qu'infrastructure mondiale partagée — sécurisant son avenir et libérant tout son potentiel pour les populations et la planète.",
     "quoteAuthor": "Joanna Post",
-    "quotePosition": "Directrice du GOOS"
+    "quotePosition": "Directrice du GOOS",
+    "memberStatesText": "États membres contribuant au système.",
+    "acknowledgmentText": "Nous remercions tous les financeurs pour leur soutien continu, ainsi que les dévoués responsables de la mise en œuvre du système d'observation pour leurs efforts remarquables dans le développement de notre Système mondial d'observation de l'océan!"
   },
   "contact": {
     "title": "Contact",
     "paragraph1": "Informations générales: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/>État des réseaux: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>Informations sur le Rapport: <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a><br/>Si vous souhaitez contribuer au système mondial d'observation des océans, veuillez contacter: <a href=\"mailto:support@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">support@ocean-ops.org</a>",
-    "paragraph2": "Auteurs: OceanOPS, Groupe de Coordination des Observations du GOOS, Panels GOOS-BGC et BioEco, Panel OOPC, Secrétariats de l'OMM et de la COI/UNESCO<br/>Rapport GOOS No.292",
-    "paragraph3": "Remerciements particuliers à tous les éditeurs et auteurs: Corrine Almeida, Mathieu Belbéoch, Lance Braasch, Forest Collins, Thomas J. Cuff, Brad de Young, J. Emmett Duffy, Björn Fiedler, Darin Figurskey, Severine Fournier, Sarah Grimes, Emma Heslop, Long Jiang, Johannes Karstensen, Elizabeth Kent, Roxy Mathew Koll, Arne Körtzinger, David Legler, Belén Martin Miguez, Ivanice Monteiro, Lina Mtwana Nordlund, Clare Nullis, Joanna Post, Regina Rodrigues, Emanuela Rusciano, Alex Sen Gupta, Raquel Somavilla, Sabrina Speich, Laura Stukonyte, David Wyatt, Weidong Yu, Ann-Christine Zinkann."
+    "paragraph2": "Auteurs: OceanOPS, Groupe de Coordination des Observations du GOOS, Panels GOOS-BGC et BioEco, Panel OOPC, Secrétariats de l'OMM et de la COI/UNESCO<br/>Rapport GOOS No. GOOS-300.",
+    "paragraph3": "Remerciements particuliers à tous les éditeurs et auteurs: Corrine Almeida, Mathieu Belbéoch, Lance Braasch, Forest Collins, Thomas J. Cuff, Brad de Young, J. Emmett Duffy, Björn Fiedler, Darin Figurskey, Severine Fournier, Sarah Grimes, Emma Heslop, Long Jiang, Johannes Karstensen, Elizabeth Kent, Roxy Mathew Koll, Arne Körtzinger, David Legler, Belén Martin Miguez, Ivanice Monteiro, Lina Mtwana Nordlund, Clare Nullis, Joanna Post, Regina Rodrigues, Emanuela Rusciano, Alex Sen Gupta, Raquel Somavilla, Sabrina Speich, Laura Stukonyte, David Wyatt, Weidong Yu, Ann-Christine Zinkann.",
+    "paragraph4": "Vidéo de couverture: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a><br/>Photos: Abeeku Acquah (EDF); SMART Cables; NOAA-PMEL; Charles Darwin University, Elysium EPL and Oceanus Collective Ltd Pty; Shutterstock; Peter Brown; Monica Alvarado Niño, Clive McMahon, OceanOPS",
+    "paragraph5": "Design + Code par Diego Cataldo"
   },
   "content": {
     "section1": {
@@ -234,6 +238,7 @@
         "logoAlt": "Logo OceanOPS"
       },
       "statsTitle": "Les réseaux en chiffres",
+      "statsIntro": "Notre communauté mondiale de fournisseurs et d'opérateurs travaillent ensemble pour fournir des informations océaniques essentielles chaque jour.",
       "stats": {
         "stat1": {
           "number": "64",
@@ -362,51 +367,63 @@
   "dataCards": {
     "card1": {
       "tag": "Programmes",
-      "title": "Abondance et distribution d'oiseaux marins"
+      "title": "Abondance et distribution d'oiseaux marins",
+      "iconAlt": "Icône d'oiseau marin représentant les programmes d'observation des oiseaux marins"
     },
     "card2": {
       "tag": "Plateformes",
-      "title": "Flotteurs Argo actifs"
+      "title": "Flotteurs Argo actifs",
+      "iconAlt": "Icône de poisson représentant les programmes de surveillance de l'abondance des poissons"
     },
     "card3": {
       "tag": "Réseaux",
-      "title": "Réseaux d'observation océanique"
+      "title": "Réseaux d'observation océanique",
+      "iconAlt": "Icône de corail dur représentant les programmes de surveillance des récifs coralliens"
     },
     "card4": {
       "tag": "Pays",
-      "title": "Nations contributrices"
+      "title": "Nations contributrices",
+      "iconAlt": "Icône d'invertébré représentant les programmes d'observation des invertébrés marins"
     },
     "card5": {
       "tag": "Variables",
-      "title": "Variables océaniques essentielles"
+      "title": "Variables océaniques essentielles",
+      "iconAlt": "Icône de macroalgue représentant les programmes de surveillance des algues et du kelp"
     },
     "card6": {
       "tag": "Capteurs",
-      "title": "Capteurs océaniques actifs"
+      "title": "Capteurs océaniques actifs",
+      "iconAlt": "Icône de mammifère marin représentant les programmes d'observation des baleines et des dauphins"
     },
     "card7": {
       "tag": "Espèces",
-      "title": "Espèces marines surveillées"
+      "title": "Espèces marines surveillées",
+      "iconAlt": "Icône de mangrove représentant les programmes de surveillance des forêts de mangroves"
     },
     "card8": {
       "tag": "Régions",
-      "title": "Zones d'observation océanique"
+      "title": "Zones d'observation océanique",
+      "iconAlt": "Icône de microbe représentant les programmes d'observation microbienne marine"
     },
     "card9": {
       "tag": "Planeurs",
-      "title": "Planeurs sous-marins autonomes"
+      "title": "Planeurs sous-marins autonomes",
+      "iconAlt": "Icône de phytoplancton représentant les programmes de surveillance des algues microscopiques"
     },
     "card10": {
       "tag": "Mouillages",
-      "title": "Mouillages océaniques fixes"
+      "title": "Mouillages océaniques fixes",
+      "iconAlt": "Icône d'herbe marine représentant les programmes de surveillance des prairies d'herbes sous-marines"
     },
     "card11": {
       "tag": "Navires",
-      "title": "Navires de recherche actifs"
+      "title": "Navires de recherche actifs",
+      "iconAlt": "Icône de tortue marine représentant les programmes d'observation des tortues marines"
     },
     "card12": {
       "tag": "Données",
-      "title": "Observations annuelles collectées"
+      "title": "Observations annuelles collectées",
+      "iconAlt": "Icône de zooplancton représentant les programmes de surveillance des animaux microscopiques"
     }
   },
   "networks": {
@@ -622,6 +639,19 @@
       "mooredBuoys": "Bouées ancrées - DBCP",
       "tsunamiBuoys": "Bouées tsunami - DBCP",
       "hfRadars": "Radars HF"
+    },
+    "viewFullListButton": "VOIR LA LISTE COMPLÈTE"
+  },
+  "satelliteObservations": {
+    "scoringTitle": "NOTATION:",
+    "statuses": {
+      "noTarget": "Pas d'objectif",
+      "noArchive": "Pas d'archive",
+      "notApplicable": "Non applicable",
+      "notCoreMission": "Pas une mission centrale mais existante"
     }
+  },
+  "operationalPlatforms": {
+    "mapAlt": "Carte de distribution mondiale des plateformes"
   }
 }

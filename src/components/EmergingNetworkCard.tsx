@@ -14,10 +14,10 @@
  * @param iconSrc - URL to network icon (required)
  * @param iconAlt - Alt text for icon (translatable key) (required)
  * @param titleKey - Translation key for network title (required)
- * @param descriptionKey - Translation key for description text (required)
- * @param modalTitle - Title for the modal (translatable key) (required)
- * @param modalContent - React node content for the modal (required)
- * @param viewMoreTextKey - Translation key for "View More" button text (required)
+ * @param paragraph1Key - Translation key for first paragraph (required)
+ * @param paragraph2Key - Translation key for second paragraph (required)
+ * @param modalContent - React node content for the modal (optional)
+ * @param externalLinkTextKey - Translation key for external link button text (optional)
  * @param deliveryAreasLabelKey - Translation key for "GOOS delivery areas" label text (required)
  * @param deliveryAreas - Array of 1-3 delivery area keys: 'climate', 'operational', 'oceanhealth' (required)
  * @param backgroundColor - Tailwind background color (default: 'bg-goos-blue-800')
@@ -96,7 +96,6 @@ interface EmergingNetworkCardProps {
   imageAlt?: string
   // For gallery
   images?: GalleryImage[]
-  modalTitle?: string
   modalContent?: React.ReactNode
   // For video
   videoType?: 'youtube' | 'local'
@@ -130,7 +129,6 @@ export default function EmergingNetworkCard({
   imageSrc,
   imageAlt,
   images,
-  modalTitle,
   modalContent,
   videoType,
   videoId,
@@ -181,9 +179,9 @@ export default function EmergingNetworkCard({
   }
 
   return (
-    <article className={`${backgroundColor} flex w-full h-full overflow-hidden ${className}`}>
-      {/* Left Section - Media */}
-      <div className="flex-1 relative">
+    <article className={`${backgroundColor} flex flex-col lg:flex-row w-full h-full overflow-hidden ${className}`}>
+      {/* Top/Left Section - Media */}
+      <div className="flex-1 relative min-h-[300px] lg:min-h-0">
         {/* Preview Image */}
         <img
           src={getPreviewImageSrc()}
@@ -230,13 +228,13 @@ export default function EmergingNetworkCard({
         </div>
       </div>
 
-      {/* Right Section - Content */}
+      {/* Bottom/Right Section - Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <div className="px-12 py-16 space-y-8">
+        <div className="px-6 sm:px-8 md:px-10 lg:px-12 py-8 sm:py-10 md:py-12 lg:py-16 space-y-4 sm:space-y-6 md:space-y-8">
           {/* Header Section */}
-          <div className="space-y-5">
+          <div className="space-y-3 sm:space-y-4 md:space-y-5">
             {/* Network Icon */}
-            <div className="w-[85px] h-[72px]">
+            <div className="w-[60px] h-[50px] sm:w-[70px] sm:h-[60px] md:w-[85px] md:h-[72px]">
               <img
                 src={iconSrc}
                 alt={t(iconAlt)}
@@ -245,13 +243,13 @@ export default function EmergingNetworkCard({
             </div>
 
             {/* Title */}
-            <h2 className={`${textColor} text-3xl font-extrabold leading-9`}>
+            <h2 className={`${textColor} text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight`}>
               {t(titleKey)}
             </h2>
           </div>
 
           {/* Description - First sentence with inline more link */}
-          <p className={`${textColor} text-lg leading-6`}>
+          <p className={`${textColor} text-sm sm:text-base md:text-lg leading-relaxed`}>
             {truncatedText}..{' '}
             <button
               onClick={() => setIsModalOpen(true)}
@@ -277,10 +275,10 @@ export default function EmergingNetworkCard({
           )}
 
           {/* GOOS Delivery Areas */}
-          <div className="space-y-4">
-            <p className={`${textColor} text-sm`}>{t(deliveryAreasLabelKey)}:</p>
+          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+            <p className={`${textColor} text-xs sm:text-sm`}>{t(deliveryAreasLabelKey)}:</p>
 
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               {limitedAreas.map((areaKey) => {
                 const area = DELIVERY_AREAS_CONFIG[areaKey]
                 return (
@@ -290,7 +288,7 @@ export default function EmergingNetworkCard({
                     backgroundColor={tooltipBgColor}
                     textColor={tooltipTextColor}
                   >
-                    <div className="bg-goos-cyan-200 rounded-full p-2 w-14 h-14 flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
+                    <div className="bg-goos-cyan-200 rounded-full p-1.5 sm:p-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
                       <img
                         src={area.icon}
                         alt={t(area.labelKey)}
@@ -310,11 +308,11 @@ export default function EmergingNetworkCard({
         <ContentModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          title={modalTitle}
+          title="Emerging Networks"
           maxWidth="lg"
           backgroundColor="bg-goos-blue-900"
         >
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* If there's custom modalContent (for gallery), use it entirely */}
             {modalContent ? (
               <div>{modalContent}</div>
@@ -353,13 +351,13 @@ export default function EmergingNetworkCard({
                 </div>
 
                 {/* Text Content */}
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-goos-orange-500">{t(titleKey)}</h3>
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-goos-orange-500">{t(titleKey)}</h3>
                   <p
-                    className="text-xl font-normal text-white leading-[1.5]"
+                    className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
                   />
-                  <p className="text-xl font-normal text-white leading-[1.5]">
+                  <p className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed">
                     {t(paragraph2Key)}
                   </p>
                 </div>
@@ -371,10 +369,10 @@ export default function EmergingNetworkCard({
                       variant="link"
                       label={t(externalLinkTextKey)}
                       url={externalLinkUrl}
-                      bgColor="bg-goos-orange-500"
+                      bgColor="bg-goos-orange-600"
                       textColor="text-white"
                       iconBgColor="bg-white"
-                      iconColor="text-goos-orange-500"
+                      iconColor="text-goos-orange-600"
                     />
                   </div>
                 )}

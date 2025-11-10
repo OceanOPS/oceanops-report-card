@@ -111,7 +111,7 @@ export default function DeliveryAreasNav() {
             <button
               key={area.key}
               onClick={() => scrollToSection(area.sectionId)}
-              className={`flex-1 flex items-center justify-center gap-3 px-6 py-3 transition-all duration-200 text-goos-blue-800 font-roboto-condensed ${
+              className={`flex-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 px-1 sm:px-3 md:px-6 py-1.5 sm:py-2 md:py-3 transition-all duration-200 text-goos-blue-800 font-roboto-condensed ${
                 activeSection === area.key
                   ? 'bg-goos-cyan-200'
                   : 'bg-goos-cyan-100 hover:bg-goos-cyan-200'
@@ -120,9 +120,9 @@ export default function DeliveryAreasNav() {
               <img
                 src={area.icon}
                 alt=""
-                className="w-8 h-8 object-contain"
+                className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain"
               />
-              <span className="text-sm font-semibold uppercase tracking-wide">
+              <span className="text-[9px] sm:text-xs md:text-sm font-semibold uppercase tracking-tight sm:tracking-wide text-center sm:text-left leading-tight">
                 {t(area.labelKey)}
               </span>
             </button>

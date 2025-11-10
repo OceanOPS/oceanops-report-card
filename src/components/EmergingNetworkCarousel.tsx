@@ -231,31 +231,31 @@ export default function EmergingNetworkCarousel({
   }, [cards.length])
 
   return (
-    <section className={`${backgroundColor} py-12 ${className}`}>
+    <section className={`${backgroundColor} py-6 sm:py-8 md:py-12 ${className}`}>
       {/* Header Section */}
-      <div className="px-12 md:px-16 mx-auto flex flex-col gap-5">
-        <div className="h-8 w-5 opacity-75"></div>
+      <div className="px-4 sm:px-8 md:px-12 lg:px-16 mx-auto flex flex-col gap-5">
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {/* Title Section */}
         {title && (
-          <div className="flex flex-col gap-6">
-            {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
-            <h3 className={`text-4xl font-extrabold ${titleColor} leading-10`}>
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+            {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
+            <h3 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}>
               {t(title)}
             </h3>
           </div>
         )}
 
-        <div className="h-8 w-5 opacity-75"></div>
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
       </div>
 
       {/* Embla Carousel Container */}
-      <div className="overflow-hidden px-12 md:px-16 pb-4" ref={emblaRef}>
-        <div ref={carouselRef} className="flex cursor-grab active:cursor-grabbing items-stretch">
+      <div className="overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 pb-3 sm:pb-4" ref={emblaRef}>
+        <div ref={carouselRef} className="flex gap-12 cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="emerging-card-slide flex-[0_0_100%] min-w-0 mr-12 flex"
+              className="emerging-card-slide flex-[0_0_100%] min-w-0 flex"
             >
               <EmergingNetworkCard
                 {...card}
@@ -275,7 +275,7 @@ export default function EmergingNetworkCarousel({
       </div>
 
       {/* Navigation Controls: Dots (left) + Arrows (right) */}
-      <div className="flex justify-between items-center px-12 md:px-16 py-4">
+      <div className="flex justify-between items-center px-4 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4">
         {/* Pagination Dots - Left aligned - One dot per snap point */}
         <div className="flex gap-2">
           {scrollSnaps.map((_, index) => (

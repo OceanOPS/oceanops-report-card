@@ -37,6 +37,8 @@
  * ```
  */
 
+import { useTranslation } from 'react-i18next'
+
 interface QuoteBlockProps {
   variant?: 'quote' | 'highlight'
   quote: string
@@ -57,22 +59,27 @@ export default function QuoteBlock({
   authorName,
   authorTitle,
   logoSrc,
-  logoAlt = 'Logo',
+  logoAlt,
   quoteColor = 'text-goos-blue-900',
   authorColor = 'text-goos-blue-900',
   iconColor = 'fill-goos-orange-500',
   borderColor = 'border-goos-orange-500',
   className = '',
 }: QuoteBlockProps) {
+  const { t } = useTranslation()
+
+  // Use translation for default logoAlt
+  const altText = logoAlt || t('common.logo')
+
   return (
     <div
-      className={`flex flex-col gap-5 max-w-xl ${
-        variant === 'highlight' ? `border-l-8 ${borderColor} pl-6` : ''
+      className={`flex flex-col gap-3 sm:gap-4 md:gap-5 max-w-xl ${
+        variant === 'highlight' ? `border-l-4 sm:border-l-6 md:border-l-8 ${borderColor} pl-3 sm:pl-4 md:pl-6` : ''
       } ${className}`}
     >
       {/* Quote Icon - only for 'quote' variant */}
       {variant === 'quote' && (
-        <div className="w-10 h-9">
+        <div className="w-8 h-7 sm:w-9 sm:h-8 md:w-10 md:h-9">
           <svg viewBox="0 0 39 35" fill="none" xmlns="http://www.w3.org/2000/svg" className={iconColor}>
             <path d="M18.0781 0.233398V10.1631C18.0093 10.1612 17.9403 10.1582 17.8711 10.1582C13.8288 10.1583 10.5413 13.3797 10.4316 17.3955H18.0781V34.9736H0.5V17.3955H0.50293C0.613895 7.89713 8.34643 0.231473 17.8711 0.231445C17.9402 0.231445 18.0092 0.232594 18.0781 0.233398ZM38.5 0.233398V10.1631C38.4313 10.1612 38.3621 10.1582 38.293 10.1582C34.2508 10.1584 30.9632 13.3798 30.8535 17.3955H38.5V34.9736H20.9219V17.3955H20.9248C21.0358 7.89713 28.7683 0.231473 38.293 0.231445C38.3619 0.23145 38.4312 0.232595 38.5 0.233398Z"/>
           </svg>
@@ -80,22 +87,22 @@ export default function QuoteBlock({
       )}
 
       {/* Quote Text */}
-      <p className={`text-3xl font-semibold ${quoteColor} leading-[1.4] font-roboto-condensed`}>
+      <p className={`text-xl sm:text-2xl md:text-3xl font-semibold ${quoteColor} leading-[1.4] font-roboto-condensed`}>
         {quote}
       </p>
 
       {/* Author Attribution */}
       {(authorName || authorTitle) && (
         <div className={`flex flex-col ${authorColor}`}>
-          {authorName && <p className="text-xl font-semibold">{authorName}</p>}
-          {authorTitle && <p className="text-base font-normal">{authorTitle}</p>}
+          {authorName && <p className="text-lg sm:text-xl font-semibold">{authorName}</p>}
+          {authorTitle && <p className="text-sm sm:text-base font-normal">{authorTitle}</p>}
         </div>
       )}
 
       {/* Organization Logo */}
       {logoSrc && (
-        <div className="w-52 h-16">
-          <img src={logoSrc} alt={logoAlt} className="w-full h-full object-contain object-left" />
+        <div className="w-40 h-12 sm:w-48 sm:h-14 md:w-52 md:h-16">
+          <img src={logoSrc} alt={altText} className="w-full h-full object-contain object-left" />
         </div>
       )}
     </div>

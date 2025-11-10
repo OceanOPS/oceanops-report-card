@@ -60,6 +60,8 @@
  * ```
  */
 
+import { useTranslation } from 'react-i18next'
+
 interface StatItem {
   number: string
   description: string
@@ -91,7 +93,7 @@ export default function MapStatsPanel({
   lineColor = 'bg-goos-orange-500',
   stats,
   mapSrc,
-  mapAlt = 'Map',
+  mapAlt,
   mapType = 'image',
   mapHeight = 500,
   fullWidth = false,
@@ -102,8 +104,13 @@ export default function MapStatsPanel({
   linkColor = 'text-goos-orange-500',
   className = '',
 }: MapStatsPanelProps) {
+  const { t } = useTranslation()
+
   // Check if stats panel should be shown
   const hasStats = stats && stats.length > 0
+
+  // Use translation for default mapAlt
+  const altText = mapAlt || t('common.mapAlt')
 
   // Ensure exactly 4 stats (take first 4 if more provided)
   const gridStats = hasStats ? stats.slice(0, 4) : []
@@ -113,40 +120,37 @@ export default function MapStatsPanel({
   const sectionHeightClass = isFullHeight ? 'min-h-screen' : ''
 
   // Padding classes based on fullWidth prop
-  const paddingClass = fullWidth ? '' : 'px-12 md:px-16'
+  const paddingClass = fullWidth ? '' : 'px-4 sm:px-8 md:px-12 lg:px-16'
 
   return (
     <section className={`${backgroundColor} ${paddingClass} py-0 flex flex-col ${sectionHeightClass} ${className}`}>
       {/* Header Section */}
       <div className="flex flex-col gap-5 flex-shrink-0">
-        <div className="h-8 w-5 opacity-75"></div>
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {/* Title Section */}
         {title && (
-          <div className="flex flex-col gap-6">
-            {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
-            <h3 className={`text-4xl font-extrabold ${titleColor} leading-10`}>
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-6 sm:mb-8 md:mb-12">
+            {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
+            <h3 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}>
               {title}
             </h3>
           </div>
         )}
       </div>
 
-      {/* Spacer */}
-      {/* <div className="h-8 w-5 opacity-75 flex-shrink-0"></div> */}
-
       {/* Content: Stats and Map - Takes remaining space and centers */}
-      <div className={`flex gap-5 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0`}>
+      <div className={`flex gap-5 md:gap-8 lg:gap-12 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0`}>
         {/* Left Column - Stats Grid 2x2 (50% width) - Only show if stats exist */}
         {hasStats && (
           <div className="lg:basis-1/2 flex items-center">
-            <div className="grid grid-cols-2 gap-8 w-full">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
               {gridStats.map((stat, index) => (
                 <div key={index} className="flex flex-col gap-2">
-                  <p className={`text-5xl font-light ${numberColor}`}>
+                  <p className={`text-3xl sm:text-4xl md:text-5xl font-light leading-tight ${numberColor}`}>
                     {stat.number}
                   </p>
-                  <p className={`text-base font-normal ${textColor}`}>
+                  <p className={`text-sm sm:text-base font-normal ${textColor}`}>
                     {stat.description}
                   </p>
                   {stat.linkText && stat.linkUrl && (
@@ -154,7 +158,7 @@ export default function MapStatsPanel({
                       href={stat.linkUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+                      className={`text-sm sm:text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
                     >
                       {stat.linkText} <span className="text-xs">⧉</span>
                     </a>
@@ -170,16 +174,14 @@ export default function MapStatsPanel({
           {mapType === 'image' ? (
             <img
               src={mapSrc}
-              alt={mapAlt}
-              style={isFullHeight ? undefined : { height: `${mapHeight}px` }}
-              className={`w-full object-cover rounded ${isFullHeight ? 'h-full' : ''}`}
+              alt={altText}
+              className={`w-full object-cover rounded ${isFullHeight ? 'h-full' : 'h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
             />
           ) : (
             <iframe
               src={mapSrc}
-              title={mapAlt}
-              style={isFullHeight ? undefined : { height: `${mapHeight}px` }}
-              className={`w-full border-0 rounded ${isFullHeight ? 'h-full' : ''}`}
+              title={altText}
+              className={`w-full border-0 rounded ${isFullHeight ? 'h-full' : 'h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
               loading="lazy"
             />
           )}
@@ -187,7 +189,7 @@ export default function MapStatsPanel({
       </div>
 
       {/* Bottom spacer */}
-      <div className="h-8 w-5 opacity-75 flex-shrink-0"></div>
+      <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75 flex-shrink-0"></div>
     </section>
   )
 }

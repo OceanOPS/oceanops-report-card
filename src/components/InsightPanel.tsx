@@ -254,25 +254,23 @@ export default function InsightPanel({
     return () => ctx.revert()
   }, [largeNumber, stats])
   return (
-    <section ref={sectionRef} className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
+    <section ref={sectionRef} className={`${backgroundColor} px-4 sm:px-8 md:px-12 lg:px-16 py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
         {/* Top spacer */}
-        <div className="h-8 w-5 opacity-75"></div>
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {/* Title Section */}
         {title && (
-          <div className="flex flex-col gap-6">
-            {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
-            <h3 className={`text-4xl font-extrabold ${titleColor} leading-10`}>
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-6 sm:mb-8 md:mb-12">
+            {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
+            <h3 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}>
               {title}
             </h3>
           </div>
         )}
 
-        <div className="h-8 w-5 opacity-75"></div>
-
         {/* Content: Large Number + Stats Grid */}
-        <div className="flex gap-16 flex-col lg:flex-row">
+        <div className="flex gap-8 md:gap-12 lg:gap-16 flex-col lg:flex-row">
           {/* Left: Large Number with Button OR Custom Content - 50% width */}
           <div className="lg:basis-1/2 flex flex-col gap-4">
             {leftContent ? (
@@ -284,12 +282,12 @@ export default function InsightPanel({
               <>
                 <div className={`flex flex-col gap-2 ${textColor}`}>
                   {largeNumber && (
-                    <p ref={largeNumberRef} className={`text-8xl font-light leading-[96px] ${numberColor}`}>
+                    <p ref={largeNumberRef} className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-tight ${numberColor}`}>
                       {largeNumber}
                     </p>
                   )}
                   {largeNumberDescription && (
-                    <p className="text-base font-normal">{largeNumberDescription}</p>
+                    <p className="text-sm sm:text-base font-normal">{largeNumberDescription}</p>
                   )}
                 </div>
 
@@ -314,13 +312,13 @@ export default function InsightPanel({
               // Stats Grid 2x2
               <>
                 {/* Top Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   {stats.slice(0, 2).map((stat, index) => (
                     <div key={index} className="flex flex-col gap-2">
-                      <p ref={(el) => (statNumberRefs.current[index] = el)} className={`text-6xl font-light ${numberColor}`}>
+                      <p ref={(el) => (statNumberRefs.current[index] = el)} className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}>
                         {stat.number}
                       </p>
-                      <p className={`text-base font-normal ${textColor}`}>
+                      <p className={`text-sm sm:text-base font-normal ${textColor}`}>
                         {stat.description}
                       </p>
                       {stat.linkText && stat.linkUrl && (
@@ -328,7 +326,7 @@ export default function InsightPanel({
                           href={stat.linkUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+                          className={`text-sm sm:text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
                         >
                           {stat.linkText} <span className="text-xs">⧉</span>
                         </a>
@@ -339,13 +337,13 @@ export default function InsightPanel({
 
                 {/* Bottom Row */}
                 {stats.length > 2 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                     {stats.slice(2, 4).map((stat, index) => (
                       <div key={index + 2} className="flex flex-col gap-2">
-                        <p ref={(el) => (statNumberRefs.current[index + 2] = el)} className={`text-6xl font-light ${numberColor}`}>
+                        <p ref={(el) => (statNumberRefs.current[index + 2] = el)} className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}>
                           {stat.number}
                         </p>
-                        <p className={`text-base font-normal ${textColor}`}>
+                        <p className={`text-sm sm:text-base font-normal ${textColor}`}>
                           {stat.description}
                         </p>
                         {stat.linkText && stat.linkUrl && (
@@ -353,7 +351,7 @@ export default function InsightPanel({
                             href={stat.linkUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+                            className={`text-sm sm:text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
                           >
                             {stat.linkText} <span className="text-xs">⧉</span>
                           </a>

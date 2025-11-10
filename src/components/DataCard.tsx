@@ -122,31 +122,31 @@ export default function DataCard({
   return (
     <div
       ref={cardRef}
-      className={`${backgroundColor} w-full aspect-[15/16] p-4 flex flex-col justify-between ${className}`}
+      className={`${backgroundColor} w-full aspect-[15/16] p-3 sm:p-4 md:p-5 flex flex-col justify-between ${className}`}
     >
       {/* Header Section - Number and Tag */}
       <div className="flex items-start justify-between">
-        <h1 ref={numberRef} className={`text-6xl font-light leading-[72px] ${numberColor}`}>
+        <h1 ref={numberRef} className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight sm:leading-[48px] md:leading-[60px] lg:leading-[72px] ${numberColor}`}>
           {number}
         </h1>
-        <span className={`text-md ${tagColor} mt-1`}>
+        <span className={`text-xs sm:text-sm md:text-md ${tagColor} mt-0.5 sm:mt-1`}>
           {t(tagKey)}
         </span>
       </div>
 
       {/* Footer Section - Icon and Title */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1 sm:gap-2">
         {/* Icon */}
-        <div className={`w-14 h-14 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0 mb-2`}>
+        <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 ${iconBgColor} rounded-full flex items-center justify-center flex-shrink-0 mb-1 sm:mb-2`}>
           <img
             src={iconSrc}
             alt={iconAlt}
-            className="object-contain"
+            className="object-contain w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
           />
         </div>
 
         {/* Title */}
-        <p className={`text-md font-roboto-condensed font-semibold ${textColor} uppercase leading-5 tracking-wide min-h-[40px]`}>
+        <p className={`text-xs sm:text-sm md:text-md font-roboto-condensed font-semibold ${textColor} uppercase leading-tight sm:leading-5 tracking-wide min-h-[30px] sm:min-h-[40px]`}>
           {t(titleKey)}
         </p>
       </div>

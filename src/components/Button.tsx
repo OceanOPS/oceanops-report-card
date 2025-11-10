@@ -134,7 +134,7 @@ export default function Button(props: ButtonProps) {
   const iconColor = props.iconColor || defaultBgColor.replace('bg-', 'text-')
   const iconBgColor = props.iconBgColor || defaultTextColor.replace('text-', 'bg-')
 
-  const baseClasses = `inline-flex items-center gap-2 px-5 py-2 ${defaultTextColor} ${defaultBgColor} font-roboto-condensed uppercase text-lg font-semibold transition-all cursor-pointer ${props.className || ''}`
+  const baseClasses = `inline-flex items-center gap-2 px-4 sm:px-5 py-2 ${defaultTextColor} ${defaultBgColor} font-roboto-condensed uppercase text-base sm:text-lg font-semibold transition-all cursor-pointer ${props.className || ''}`
 
   // Hover animation with GSAP
   useEffect(() => {

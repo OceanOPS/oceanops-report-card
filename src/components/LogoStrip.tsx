@@ -61,32 +61,23 @@ export default function LogoStrip({
   const { t } = useTranslation()
 
   return (
-    <section className={`${backgroundColor} w-screen relative left-1/2 right-1/2 -mx-[50vw] px-12 md:px-16 py-0 ${className}`}>
-      <div className="mx-auto flex flex-col gap-5">
-        {/* Top spacer */}
-        <div className="h-8 w-5 opacity-75"></div>
-
-        {/* Logo Strip - Single Line */}
-        <div className="flex items-center justify-between gap-4 md:gap-8">
-          {logos.map((logo, index) => (
-            <a
-              key={index}
-              href={logo.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center flex-1 h-16 md:h-20 transition-opacity hover:opacity-70"
-            >
-              <img
-                src={logo.src}
-                alt={t(logo.altKey)}
-                className="max-h-full max-w-full object-contain"
-              />
-            </a>
-          ))}
-        </div>
-
-        {/* Bottom spacer */}
-        <div className="h-8 w-5 opacity-75"></div>
+    <section className={`${backgroundColor} w-screen relative left-1/2 right-1/2 -mx-[50vw] px-4 sm:px-8 md:px-12 lg:px-16 py-1 sm:py-2 md:py-0 ${className}`}>
+      <div className="mx-auto flex items-center justify-center gap-1 sm:gap-2 md:gap-3 lg:gap-6 h-8 sm:h-12 md:h-16 lg:h-20">
+        {logos.map((logo, index) => (
+          <a
+            key={index}
+            href={logo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-12 sm:w-16 md:w-20 lg:w-24 h-full transition-opacity hover:opacity-70"
+          >
+            <img
+              src={logo.src}
+              alt={t(logo.altKey)}
+              className="max-h-full max-w-full object-contain"
+            />
+          </a>
+        ))}
       </div>
     </section>
   )
