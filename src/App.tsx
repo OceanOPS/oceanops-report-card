@@ -345,7 +345,7 @@ function App() {
         quote={t('content.section1.quote.text')}
         authorName={t('content.section1.quote.authorName')}
         authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/belbeoch.jpg"
+        imageSrc="/images/belbeoch.webp"
         imageAlt="M. Belbéoch"
         height="fullscreen"
         imagePosition="left"
@@ -1079,7 +1079,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: '-MKKMU3_siw',
-            previewImage: '/images/fvon.jpg',
+            previewImage: '/images/fvon.webp',
             imageAlt: 'emerging.fvon.imageAlt',
             iconSrc: '/icons/network/fishing_vessels.svg',
             iconAlt: 'emerging.fvon.iconAlt',
@@ -1096,7 +1096,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: 'NoEK7XwOMeU',
-            previewImage: '/images/smart_cables.png',
+            previewImage: '/images/smart_cables.webp',
             imageAlt: 'emerging.smartCables.imageAlt',
             iconSrc: '/icons/network/smart_cables.svg',
             iconAlt: 'emerging.smartCables.iconAlt',
@@ -1113,22 +1113,22 @@ function App() {
             mediaType: 'gallery',
             images: [
               {
-                src: '/images/soconet.jpeg',
+                src: '/images/soconet.webp',
                 alt: 'SOCONET Image 1',
                 caption: ''
               },
               {
-                src: '/images/soconet3.png',
+                src: '/images/soconet3.webp',
                 alt: 'SOCONET Image 2',
                 caption: ''
               },
               {
-                src: '/images/soconet4.jpg',
+                src: '/images/soconet4.webp',
                 alt: 'SOCONET Image 3',
                 caption: ''
               }
             ],
-            imageSrc: '/images/soconet.jpeg', // Fallback image (first image preview)
+            imageSrc: '/images/soconet.webp', // Fallback image (first image preview)
             imageAlt: 'emerging.soconet.imageAlt',
             modalTitle: 'emerging.soconet.title',
             modalContent: (
@@ -1136,17 +1136,17 @@ function App() {
                 <ImageGallery
                   images={[
                     {
-                      src: '/images/soconet.jpeg',
+                      src: '/images/soconet.webp',
                       alt: 'SOCONET Image 1',
                       caption: ''
                     },
                     {
-                      src: '/images/soconet3.png',
+                      src: '/images/soconet3.webp',
                       alt: 'SOCONET Image 2',
                       caption: ''
                     },
                     {
-                      src: '/images/soconet4.jpg',
+                      src: '/images/soconet4.webp',
                       alt: 'SOCONET Image 3',
                       caption: ''
                     }
@@ -1181,7 +1181,7 @@ function App() {
           {
             // SUN Fleet - Fourth (Simple image)
             mediaType: 'image',
-            imageSrc: '/images/sunfleet.jpg',
+            imageSrc: '/images/sunfleet.webp',
             imageAlt: 'emerging.sunFleet.imageAlt',
             iconSrc: '/icons/network/sun_fleet.svg',
             iconAlt: 'emerging.sunFleet.iconAlt',
@@ -1275,7 +1275,7 @@ function App() {
         {/* Image - Climate 1 */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/climate1.jpg"
+            src="/images/climate1.webp"
             alt="Climate observation"
             caption=""
           />
@@ -1292,7 +1292,7 @@ function App() {
         {/* Image 1 - AMOC time series */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/climate2.PNG"
+            src="/images/climate2.webp"
             alt={t('amoc.imageCaption')}
             caption={t('amoc.imageCaption')}
             aspectRatio="auto"
@@ -1318,7 +1318,7 @@ function App() {
         {/* Image 2 - RAPID buoy */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/climate3.png"
+            src="/images/climate3.webp"
             alt={t('amoc.imageCaption2')}
             caption={t('amoc.imageCaption2')}
             aspectRatio="video"
@@ -1428,7 +1428,7 @@ function App() {
         quote={t('amoc.quote2.text')}
         authorName={t('amoc.quote2.author')}
         authorTitle={t('amoc.quote2.position')}
-        imageSrc="/images/yao.jpeg"
+        imageSrc="/images/yao.webp"
         imageAlt="Dr. Yao Fu"
         height="fullscreen"
         imagePosition="left"
@@ -1485,7 +1485,7 @@ function App() {
         {/* Image - Operational 1 */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/operational1.jpg"
+            src="/images/operational1.webp"
             alt="Operational observation"
             caption=""
           />
@@ -1516,22 +1516,22 @@ function App() {
           <ImageGallery
             images={[
               {
-                src: '/images/operational3.jpg',
+                src: '/images/operational3.webp',
                 alt: 'Operational observation 3',
                 caption: ''
               },
               {
-                src: '/images/operational4.jpg',
+                src: '/images/operational4.webp',
                 alt: 'Operational observation 4',
                 caption: ''
               },
               {
-                src: '/images/operational5.jpg',
+                src: '/images/operational5.webp',
                 alt: 'Operational observation 5',
                 caption: ''
               },
               {
-                src: '/images/operational6.jpg',
+                src: '/images/operational6.webp',
                 alt: 'Operational observation 6',
                 caption: ''
               }
@@ -1598,7 +1598,7 @@ function App() {
         {/* Image - El Niño Forecast */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/operational2.png"
+            src="/images/operational2.webp"
             alt={t('elNino.imageCaption')}
           caption={t('elNino.imageCaption')}
           aspectRatio="auto"
@@ -1668,7 +1668,7 @@ function App() {
         quote={t('elNino.quote3.text')}
         authorName={t('elNino.quote3.author')}
         authorTitle={t('elNino.quote3.position')}
-        imageSrc="/images/monica.jpg"
+        imageSrc="/images/monica.webp"
         imageAlt="Monica Alvarado Niño"
         height="fullscreen"
         imagePosition="left"
@@ -1727,17 +1727,17 @@ function App() {
           <ImageGallery
             images={[
               {
-                src: '/images/oh1.jpeg',
+                src: '/images/oh1.webp',
                 alt: 'Ocean health observation 1',
                 caption: ''
               },
               {
-                src: '/images/oh2.jpeg',
+                src: '/images/oh2.webp',
                 alt: 'Ocean health observation 2',
                 caption: ''
               },
               {
-                src: '/images/oh3.jpeg',
+                src: '/images/oh3.webp',
                 alt: 'Ocean health observation 3',
                 caption: ''
               }
@@ -1899,7 +1899,7 @@ function App() {
         quote={t('oceanHealth.quote2.text')}
         authorName={t('oceanHealth.quote2.author')}
         authorTitle={t('oceanHealth.quote2.position')}
-        imageSrc="/images/clive.jpeg"
+        imageSrc="/images/clive.webp"
         imageAlt="Dr. Clive McMahon"
         height="fullscreen"
         imagePosition="left"
@@ -1955,22 +1955,22 @@ function App() {
         <ImageGallery
           images={[
             {
-              src: '/images/sa1.jpg',
+              src: '/images/sa1.webp',
               alt: 'South Africa observation 1',
               caption: '',
             },
             {
-              src: '/images/sa2.png',
+              src: '/images/sa2.webp',
               alt: 'South Africa observation 2',
               caption: '',
             },
             {
-              src: '/images/sa3.png',
+              src: '/images/sa3.webp',
               alt: 'South Africa observation 3',
               caption: '',
             },
             {
-              src: '/images/sa4.png',
+              src: '/images/sa4.webp',
               alt: 'South Africa observation 4',
               caption: '',
             },
@@ -2017,7 +2017,7 @@ function App() {
  <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
         {/* Image - 10,000 Ships */}
         <ImageCaption
-          src="/images/10k.png"
+          src="/images/10k.webp"
           alt="10,000 Ships for the Ocean"
           caption=""
           aspectRatio="video"
@@ -2085,15 +2085,15 @@ function App() {
       <ImageGrid
         images={[
           {
-            src: '/images/content.jpg',
+            src: '/images/content.webp',
             alt: t('hero.images.image1'),
           },
           {
-            src: '/images/content2.jpg',
+            src: '/images/content2.webp',
             alt: t('hero.images.image2'),
           },
           {
-            src: '/images/content3.jpg',
+            src: '/images/content3.webp',
             alt: t('hero.images.image3'),
           },
         ]}
