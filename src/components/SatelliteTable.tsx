@@ -27,31 +27,31 @@ export default function SatelliteTable() {
   // Data for satellite variables
   const satelliteData = [
     {
-      name: 'Sea Ice',
+      name: t('satelliteObservations.variableNames.seaIce'),
       gradient: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 95%, #F9BF86 100%)',
     },
     {
-      name: 'Ocean Color',
+      name: t('satelliteObservations.variableNames.oceanColor'),
       gradient: 'linear-gradient(to right, transparent 0%, transparent 15%, #F9BF86 15%, #F9BF86 20%, #F48B25 23%, #F48B25 66%, #F48B25 66%, #F9BF86 70%, #F9BF86 82%, #F48B25 86%, #F48B25 100%)',
     },
     {
-      name: 'Sea Level',
+      name: t('satelliteObservations.variableNames.seaLevel'),
       gradient: 'linear-gradient(to right, transparent 0%, transparent 5%, #F48B25 5%, #F48B25 100%)',
     },
     {
-      name: 'Sea Surface Temperature',
+      name: t('satelliteObservations.variableNames.seaSurfaceTemperature'),
       gradient: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 94%, #F9BF86 100%)',
     },
     {
-      name: 'Sea Surface Salinity',
+      name: t('satelliteObservations.variableNames.seaSurfaceSalinity'),
       gradient: 'linear-gradient(to right, transparent 0%, transparent 50%, #F9BF86 50%, #F9BF86 90%, #FEF2E7 92%, #FEF2E7 95%, #F9BF86 97%, #F9BF86 100%)',
     },
     {
-      name: 'Sea State',
+      name: t('satelliteObservations.variableNames.seaState'),
       gradient: 'linear-gradient(to right, transparent 0%, transparent 5%, #F9BF86 5%, #F9BF86 100%)',
     },
     {
-      name: 'Wind',
+      name: t('satelliteObservations.variableNames.wind'),
       gradient: 'linear-gradient(to right, #FEF2E7 0%, #FEF2E7 30%, #F9BF86 35%, #F9BF86 100%)',
     },
   ]
@@ -115,9 +115,9 @@ export default function SatelliteTable() {
         {/* Header */}
         <div className="mb-4">
           <h3 className="text-base font-bold text-white mb-1">
-            Satellite Essential Climate Variables Timeline
+            {t('satelliteObservations.tableTitle')}
           </h3>
-          <p className="text-sm text-white">(1990-2030)</p>
+          <p className="text-sm text-white">{t('satelliteObservations.timelineRange')}</p>
         </div>
 
         {/* Cards */}
@@ -297,7 +297,7 @@ export default function SatelliteTable() {
           <tfoot>
             <tr className="bg-goos-blue-900 p-0">
               <td className="text-white text-left px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-t-2 border-goos-white font-bold w-1/3">
-                Year
+                {t('satelliteObservations.yearLabel')}
               </td>
               <td className="text-white py-3 sm:py-4 pr-3 sm:pr-4 border-t-2 border-goos-white font-medium w-2/3">
                 <div className="flex justify-between text-xs sm:text-sm whitespace-nowrap p-0">
@@ -333,15 +333,15 @@ export default function SatelliteTable() {
       <div className="flex gap-4 sm:gap-6 mt-4 sm:mt-6 items-center flex-wrap text-white">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 sm:w-4 sm:h-4 bg-goos-orange-100"></div>
-            <span className="text-xs sm:text-sm">INADEQUATE</span>
+            <span className="text-xs sm:text-sm">{t('satelliteObservations.legend.inadequate')}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 sm:w-4 sm:h-4 bg-goos-orange-300"></div>
-            <span className="text-xs sm:text-sm">MARGINAL</span>
+            <span className="text-xs sm:text-sm">{t('satelliteObservations.legend.marginal')}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 sm:w-4 sm:h-4 bg-goos-orange-500"></div>
-            <span className="text-xs sm:text-sm">ADEQUATE</span>
+            <span className="text-xs sm:text-sm">{t('satelliteObservations.legend.adequate')}</span>
           </div>
         </div>
 
@@ -365,7 +365,7 @@ export default function SatelliteTable() {
                 {/* Contacts Section */}
                 <div>
                   <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
-                    Contacts
+                    {t('satelliteObservations.platformModal.contactsTitle')}
                   </h3>
                   <div className="space-y-1 text-sm sm:text-base text-white">
                     <p>{t('satelliteObservations.platformModal.contacts.sst')}</p>

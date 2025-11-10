@@ -86,7 +86,7 @@ export default function PartnerLogos({ variant = 'white', className = '' }: Part
 
       {/* Right side logo - OceanOPS with "Powered by" */}
       <div className="flex flex-col items-start gap-2 sm:items-end">
-        <span className="text-xs sm:text-sm text-white opacity-70 font-light">Powered by:</span>
+        <span className="text-xs sm:text-sm text-white opacity-70 font-light">{t('cover.poweredBy')}</span>
         <a
           href={rightLogo.url}
           target="_blank"

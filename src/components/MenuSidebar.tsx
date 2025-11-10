@@ -245,7 +245,7 @@ export default function MenuSidebar({
           isDeliveryNavVisible ? 'top-16' : 'top-4'
         } sm:top-8 md:top-12 lg:top-16`}
         style={{ opacity: 0 }}
-        aria-label="Open menu"
+        aria-label={t('menu.openMenu')}
       >
         <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
         <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
@@ -272,7 +272,7 @@ export default function MenuSidebar({
           <button
             onClick={() => setIsOpen()}
             className="absolute top-4 right-4 sm:top-6 sm:right-6 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-goos-white hover:bg-goos-blue-800 rounded-full transition-colors z-10"
-            aria-label="Close menu"
+            aria-label={t('menu.closeMenu')}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -286,21 +286,21 @@ export default function MenuSidebar({
                 onClick={() => changeLanguage('en')}
                 className={`hover:opacity-100 transition-opacity ${i18n.language === 'en' ? 'opacity-100' : 'opacity-70'}`}
               >
-                English
+                {t('languages.english')}
               </button>
               <span>/</span>
               <button
                 onClick={() => changeLanguage('fr')}
                 className={`hover:opacity-100 transition-opacity ${i18n.language === 'fr' ? 'opacity-100' : 'opacity-70'}`}
               >
-                Français
+                {t('languages.french')}
               </button>
               <span>/</span>
               <button
                 onClick={() => changeLanguage('es')}
                 className={`hover:opacity-100 transition-opacity ${i18n.language === 'es' ? 'opacity-100' : 'opacity-70'}`}
               >
-                Español
+                {t('languages.spanish')}
               </button>
             </div>
             <div className="w-full h-px bg-goos-white opacity-20 mt-6"></div>
@@ -344,7 +344,7 @@ export default function MenuSidebar({
                 iconBgColor="bg-white"
               />
               <span className="absolute -top-2 -right-2 bg-goos-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                SOON
+                {t('menu.comingSoon')}
               </span>
             </div>
           </div>

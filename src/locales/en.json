@@ -2,6 +2,7 @@
   "cover": {
     "title": "Global Ocean Observing System",
     "year": "Status Report 2025",
+    "poweredBy": "Powered by:",
     "logos": {
       "goos": "GOOS Logo",
       "oceanops": "OceanOPS Logo",
@@ -606,9 +607,27 @@
     "title": "Satellite Observations",
     "introduction": "Satellite observations provide a global view of the ocean, complementing in situ measurements with repeated observations of surface variables such as temperature, sea level, ocean color, and winds. They are essential for understanding large-scale processes, supporting ocean and climate forecasts, and monitoring change. Together with in situ data, satellites also help track key phenomena such as the Atlantic Meridional Overturning Circulation (AMOC) and its long-term trends.",
     "platformButton": "About Essential Climate Variables",
+    "tableTitle": "Satellite Essential Climate Variables Timeline",
+    "timelineRange": "(1990-2030)",
+    "yearLabel": "Year",
+    "variableNames": {
+      "seaIce": "Sea Ice",
+      "oceanColor": "Ocean Color",
+      "seaLevel": "Sea Level",
+      "seaSurfaceTemperature": "Sea Surface Temperature",
+      "seaSurfaceSalinity": "Sea Surface Salinity",
+      "seaState": "Sea State",
+      "wind": "Wind"
+    },
+    "legend": {
+      "inadequate": "INADEQUATE",
+      "marginal": "MARGINAL",
+      "adequate": "ADEQUATE"
+    },
     "platformModal": {
       "title": "Satellite Essential Climate Variables",
       "introduction": "This document provides additional information on the adequacy, continuity, and requirements of satellite observations for each Essential Climate Variable (ECV), as contributed by the satellite ocean observing community. It summarizes the current status and future outlook of satellite measurements for each ECV, outlining key achievements, challenges, and planned missions.",
+      "contactsTitle": "Contacts",
       "contacts": {
         "sst": "SST: Jorge Vazquez (jorge.vazquez@jpl.nasa.gov), Christina Gonzalez-Haro (cgharo@icm.csic.es)",
         "sss": "SSS: Severine Fournier (severine.fournier@jpl.nasa.gov)",
@@ -721,6 +740,9 @@
     "inSituStatus": "Ocean observing system status and updates",
     "networksByNumbers": "In situ observing networks by the numbers",
     "downloadPdf": "DOWNLOAD PDF",
+    "comingSoon": "SOON",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "pastReports": "Past Reports",
     "pastReportsLinks": {
       "2023": "Report Card 2023",
@@ -766,5 +788,24 @@
       "tsunamiBuoys": "Tsunami Buoys - DBCP",
       "hfRadars": "HF radars"
     }
+  },
+  "languages": {
+    "english": "English",
+    "french": "Français",
+    "spanish": "Español"
+  },
+  "common": {
+    "logo": "Logo",
+    "mapAlt": "Map",
+    "flag": "flag",
+    "closeModal": "Close modal",
+    "closeVideo": "Close video",
+    "videoNotSupported": "Your browser does not support the video tag."
+  },
+  "preloader": {
+    "loading": "Loading"
+  },
+  "overview": {
+    "title": "Overview"
   }
 }
