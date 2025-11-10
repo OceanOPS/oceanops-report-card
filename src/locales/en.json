@@ -315,6 +315,13 @@
         "title": "GOOS Delivery Areas",
         "description": "The tag for GOOS delivery areas shows only areas where the networks are delivering \"significant\" data to those applications. The score is mostly based on GOOS network specification sheets."
       }
+    },
+    "title": "In situ mature networks",
+    "deliveryAreasLabel": "GOOS delivery areas",
+    "deliveryAreas": {
+      "climate": "Climate",
+      "operational": "Operational Services",
+      "oceanhealth": "Ocean Health"
     }
   },
   "emerging": {
@@ -322,7 +329,8 @@
       "title": "Surface Ocean CO₂ Observing Network (SOCONET)",
       "paragraph1WithLink": "Over the past decade, the ocean has absorbed about 26% of annual human carbon dioxide (CO₂) emissions, helping to limit climate change (<a href=\"https://globalcarbonbudget.org/gcb-2024/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-70\">Global Carbon Budget, 2024</a>). However, ocean CO₂ uptake varies greatly across time and regions, and robust information on these changes is still lacking.",
       "paragraph2": "SOCONET, a new addition to the GOOS observing networks, will use a wide range of observing platforms (see image gallery) to expand the number of high-quality surface water CO₂ measurements. These observations are critical for assessing ocean health and quantifying the ocean's role in mitigating increasing atmospheric carbon dioxide concentrations."
-    }
+    },
+    "title": " In situ emerging networks"
   },
   "operationalPlatforms": {
     "platformButton": "About operational platform definitions",
@@ -498,7 +506,10 @@
         "label": "YouTube",
         "url": "https://www.youtube.com/@goosocean"
       }
-    }
+    },
+    "overview": "Overview",
+    "inSituStatus": "Ocean observing system status and updates",
+    "networksByNumbers": "In situ observing networks by the numbers"
   },
   "languages": {
     "english": "English",
@@ -518,5 +529,9 @@
   },
   "overview": {
     "title": "Overview"
+  },
+  "partners": {
+    "networksLabel": "Networks",
+    "platformsLabel": "Platforms"
   }
 }
