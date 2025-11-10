@@ -1336,7 +1336,7 @@ function App() {
           <ImageCaption
             src="/images/climate3.webp"
             alt={t('amoc.imageCaption2')}
-            caption={t('amoc.imageCaption2')}
+            // caption={t('amoc.imageCaption2')}
             aspectRatio="video"
             objectFit="cover"
           />
