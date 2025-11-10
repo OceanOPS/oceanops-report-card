@@ -103,17 +103,17 @@
     "paragraph5": "This information feeds into national early warning systems in the region, helping local communities prepare for potential impacts — from natural disasters like floods and droughts, to economic and social effects on agriculture and fisheries sectors.",
     "learnMore": {
       "title": "Learn more: How does El Niño impact fisheries?",
-      "content1": "For example, the availability of sardines and anchovetas – key commercial fish species in the South-East Pacific – depends on prevailing ocean conditions. During a warming event such as El Niño, the cold, nutrient-rich waters these fish rely on can be displaced, forcing them to migrate further from the coast in search of food. This increases their energy expenditure, may reduce their growth, and exposes them to more predators.",
+      "content1": "For example, the availability of sardines and anchovetas — key commercial fish species in the South-East Pacific — depends on prevailing ocean conditions. During a warming event such as El Niño, the cold, nutrient-rich waters these fish rely on can be displaced, forcing them to migrate further from the coast in search of food. This increases their energy expenditure, may reduce their growth, and exposes them to more predators.",
       "content2": "Ultimately, these changes can substantially affect fishery catches across the region, impacting the economies of countries like Peru and Chile which heavily depend on this sector.",
       "authorName": "Monica Alvarado Niño",
       "authorPosition": "oceanographer at the Hydrographic and Oceanographic Service of the Chilean Navy"
     },
     "quote2": {
-      "text": "The World Meteorological Organization´s Workshop on the Impact of Various Observing Systems on Numerical Weather Prediction and Earth System Prediction showed that integrating ocean data into seasonal forecasts results in a 2-month gain of lead time for El Niño prediction, allowing better preparedness for its impacts.",
+      "text": "The World Meteorological Organization's Workshop on the Impact of Various Observing Systems on Numerical Weather Prediction and Earth System Prediction showed that integrating ocean data into seasonal forecasts results in a 2-month gain of lead time for El Niño prediction, allowing better preparedness for its impacts.",
       "author": "Albert Fischer",
       "position": "Director of the WMO Integrated Global Observing System (WIGOS) Division"
     },
-    "imageCaption": "North American Multi Model Ensemble Forecast for January–February–March 2024 Sea Surface Temperature Anomalies",
+    "imageCaption": "North American Multi Model Ensemble Forecast for January–February–March 2024 Sea Surface Temperature Anomalies. Credit: NMME",
     "eovTable": {
       "title": "GOOS Essential Ocean Variables for El Niño forecasts:",
       "physicsTitle": "Physics",
