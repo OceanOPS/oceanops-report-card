@@ -16,6 +16,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import GoosLogo from './GoosLogo'
 
@@ -25,6 +26,7 @@ interface PreloaderProps {
 }
 
 export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
+  const { t } = useTranslation()
   const containerRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
   const progressCircleRef = useRef<HTMLDivElement>(null)
@@ -216,7 +218,7 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
         {isMobile && (
           <div className="absolute bottom-[25vh] left-0 right-0 flex justify-center z-10">
             <div className="text-goos-white text-sm font-light font-roboto-condensed">
-              Loading {Math.round(progress)}%
+              {t('preloader.loading')} {Math.round(progress)}%
             </div>
           </div>
         )}

@@ -37,6 +37,8 @@
  * ```
  */
 
+import { useTranslation } from 'react-i18next'
+
 interface QuoteBlockProps {
   variant?: 'quote' | 'highlight'
   quote: string
@@ -57,13 +59,18 @@ export default function QuoteBlock({
   authorName,
   authorTitle,
   logoSrc,
-  logoAlt = 'Logo',
+  logoAlt,
   quoteColor = 'text-goos-blue-900',
   authorColor = 'text-goos-blue-900',
   iconColor = 'fill-goos-orange-500',
   borderColor = 'border-goos-orange-500',
   className = '',
 }: QuoteBlockProps) {
+  const { t } = useTranslation()
+
+  // Use translation for default logoAlt
+  const altText = logoAlt || t('common.logo')
+
   return (
     <div
       className={`flex flex-col gap-3 sm:gap-4 md:gap-5 max-w-xl ${
@@ -95,7 +102,7 @@ export default function QuoteBlock({
       {/* Organization Logo */}
       {logoSrc && (
         <div className="w-40 h-12 sm:w-48 sm:h-14 md:w-52 md:h-16">
-          <img src={logoSrc} alt={logoAlt} className="w-full h-full object-contain object-left" />
+          <img src={logoSrc} alt={altText} className="w-full h-full object-contain object-left" />
         </div>
       )}
     </div>

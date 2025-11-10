@@ -69,6 +69,8 @@
  * ```
  */
 
+import { useTranslation } from 'react-i18next'
+
 interface QuoteWithImageProps {
   quote: string
   authorName?: string
@@ -96,7 +98,7 @@ export default function QuoteWithImage({
   imagePosition = 'left',
   height = 'fullscreen',
   logoSrc,
-  logoAlt = 'Logo',
+  logoAlt,
   backgroundColor = 'bg-goos-white',
   quoteColor = 'text-goos-blue-700',
   authorColor = 'text-goos-blue-700',
@@ -104,8 +106,13 @@ export default function QuoteWithImage({
   showIcon = true,
   className = '',
 }: QuoteWithImageProps) {
+  const { t } = useTranslation()
+
   // Height class based on variant
   const heightClass = height === 'fullscreen' ? 'h-screen' : 'min-h-[400px]'
+
+  // Use translation for default logoAlt
+  const altText = logoAlt || t('common.logo')
 
   // Image section - 50% width (only if imageSrc is provided)
   const imageSection = imageSrc ? (
@@ -149,7 +156,7 @@ export default function QuoteWithImage({
           <div className="w-40 h-12 sm:w-48 sm:h-14 md:w-52 md:h-16">
             <img
               src={logoSrc}
-              alt={logoAlt}
+              alt={altText}
               className="w-full h-full object-contain object-left"
             />
           </div>

@@ -240,7 +240,7 @@ function App() {
         textColor="text-goos-white"
         lineColor="bg-goos-orange-500"
          titleLevel="h2"
-        title={t('Overview')}
+        title={t('overview.title')}
         rightColumn={
           <>
             <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">

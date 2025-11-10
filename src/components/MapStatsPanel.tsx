@@ -60,6 +60,8 @@
  * ```
  */
 
+import { useTranslation } from 'react-i18next'
+
 interface StatItem {
   number: string
   description: string
@@ -91,7 +93,7 @@ export default function MapStatsPanel({
   lineColor = 'bg-goos-orange-500',
   stats,
   mapSrc,
-  mapAlt = 'Map',
+  mapAlt,
   mapType = 'image',
   mapHeight = 500,
   fullWidth = false,
@@ -102,8 +104,13 @@ export default function MapStatsPanel({
   linkColor = 'text-goos-orange-500',
   className = '',
 }: MapStatsPanelProps) {
+  const { t } = useTranslation()
+
   // Check if stats panel should be shown
   const hasStats = stats && stats.length > 0
+
+  // Use translation for default mapAlt
+  const altText = mapAlt || t('common.mapAlt')
 
   // Ensure exactly 4 stats (take first 4 if more provided)
   const gridStats = hasStats ? stats.slice(0, 4) : []
@@ -167,13 +174,13 @@ export default function MapStatsPanel({
           {mapType === 'image' ? (
             <img
               src={mapSrc}
-              alt={mapAlt}
+              alt={altText}
               className={`w-full object-cover rounded ${isFullHeight ? 'h-full' : 'h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
             />
           ) : (
             <iframe
               src={mapSrc}
-              title={mapAlt}
+              title={altText}
               className={`w-full border-0 rounded ${isFullHeight ? 'h-full' : 'h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
               loading="lazy"
             />
