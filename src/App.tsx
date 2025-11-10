@@ -1163,10 +1163,10 @@ function App() {
                 <div className="flex flex-col gap-4 mt-4">
                   <h3 className="text-2xl font-bold text-goos-orange-500">{t('emerging.soconet.title')}</h3>
                   <p
-                    className="text-xl font-normal text-white leading-[1.5]"
+                    className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: t('emerging.soconet.paragraph1WithLink') }}
                   />
-                  <p className="text-xl font-normal text-white leading-[1.5]">
+                  <p className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed">
                     {t('emerging.soconet.paragraph2')}
                   </p>
                   {/* External Link Button */}
