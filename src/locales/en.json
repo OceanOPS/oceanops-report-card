@@ -608,7 +608,7 @@
     "platformButton": "About Essential Climate Variables",
     "platformModal": {
       "title": "Satellite Essential Climate Variables",
-      "header": "JCOMM Report Card 2025",
+      "introduction": "This document provides additional information on the adequacy, continuity, and requirements of satellite observations for each Essential Climate Variable (ECV), as contributed by the satellite ocean observing community. It summarizes the current status and future outlook of satellite measurements for each ECV, outlining key achievements, challenges, and planned missions.",
       "contacts": {
         "sst": "SST: Jorge Vazquez (jorge.vazquez@jpl.nasa.gov), Christina Gonzalez-Haro (cgharo@icm.csic.es)",
         "sss": "SSS: Severine Fournier (severine.fournier@jpl.nasa.gov)",
