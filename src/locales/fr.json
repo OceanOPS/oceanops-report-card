@@ -607,16 +607,20 @@
     },
     "social": {
       "instagram": {
-        "label": "Instagram",
-        "url": "https://instagram.com/oceanops"
+        "label": "Site web",
+        "url": "https://goosocean.org/"
       },
       "linkedin": {
-        "label": "LinkedIn",
-        "url": "https://linkedin.com/company/oceanops"
+        "label": "GOOS LinkedIn",
+        "url": "https://www.linkedin.com/company/global-ocean-observing-system/"
+      },
+      "oceanopsLinkedin": {
+        "label": "OceanOPS LinkedIn",
+        "url": "https://www.linkedin.com/company/oceanops-wmo-ioc-unesco/"
       },
       "youtube": {
         "label": "YouTube",
-        "url": "https://youtube.com/@oceanops"
+        "url": "https://www.youtube.com/@goosocean"
       }
     }
   },

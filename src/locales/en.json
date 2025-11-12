@@ -146,7 +146,7 @@
     "observationsTitle": "Observations & Benefits",
     "paragraph4": "Through the GOOS AniBOS network, elephant seals now provide real-time marine mammal data. This first-of-its-kind data deepens our understanding of seal biology, provides essential oceanographic observations of the Southern Ocean below the surface, and helps shape conservation and marine spatial planning efforts.",
     "paragraph5": "The sensors on the animals' heads track their movements, including dive depths, times and changes in body condition — revealing which areas seals use for feeding and offering clues about ocean productivity. They also record sub-surface temperature and salinity profiles, allowing scientists to link changes in ocean physics to ecosystem health. This information will help marine spatial planners understand how ocean conditions shape species distribution and productivity, enabling ocean management that is based on real ecological needs rather than assumptions.",
-    "imageCaption": "Foraging trips of instrumented southern elephant seals tagged from December 2024 to February 2025 at Iles Keguelen (upper right) and in May 2025 at Macquarie Island (lower middle).",
+    "imageCaption": "Foraging trips of instrumented southern elephant seals tagged from December 2024 to February 2025 at Iles Keguelen (upper right) and in May 2025 at Macquarie Island (lower middle). Credit: Ian Jonsen (AniBOS)",
     "quote1": {
       "text": "We get some excellent information on what the ocean physics looks like and how that affects ecosystem productivity, which we measure by looking at the condition of the animals. This real-time data allows us to monitor ocean health — and also implement better management.",
       "author": "Clive McMahon",
@@ -782,8 +782,12 @@
         "url": "https://goosocean.org/"
       },
       "linkedin": {
-        "label": "LinkedIn",
+        "label": "GOOS LinkedIn",
         "url": "https://www.linkedin.com/company/global-ocean-observing-system/"
+      },
+      "oceanopsLinkedin": {
+        "label": "OceanOPS LinkedIn",
+        "url": "https://www.linkedin.com/company/oceanops-wmo-ioc-unesco/"
       },
       "youtube": {
         "label": "YouTube",
