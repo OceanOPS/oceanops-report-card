@@ -281,6 +281,13 @@ function App() {
           {t('content.section1.paragraph2')}
         </p>
 
+        <ImageCaption
+          src="/images/intro1.webp"
+          alt={t('content.section1.intro1ImageAlt')}
+          aspectRatio="video"
+          objectFit="cover"
+        />
+
         <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph3')}
         </p>
