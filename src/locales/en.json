@@ -146,7 +146,7 @@
     "observationsTitle": "Observations & Benefits",
     "paragraph4": "Through the GOOS AniBOS network, elephant seals now provide real-time marine mammal data. This first-of-its-kind data deepens our understanding of seal biology, provides essential oceanographic observations of the Southern Ocean below the surface, and helps shape conservation and marine spatial planning efforts.",
     "paragraph5": "The sensors on the animals' heads track their movements, including dive depths, times and changes in body condition — revealing which areas seals use for feeding and offering clues about ocean productivity. They also record sub-surface temperature and salinity profiles, allowing scientists to link changes in ocean physics to ecosystem health. This information will help marine spatial planners understand how ocean conditions shape species distribution and productivity, enabling ocean management that is based on real ecological needs rather than assumptions.",
-    "imageCaption": "Foraging trips of instrumented southern elephant seals tagged from December 2024 to February 2025 at Iles Keguelen (upper right) and in May 2025 at Macquarie Island (lower middle).",
+    "imageCaption": "Foraging trips of instrumented southern elephant seals tagged from December 2024 to February 2025 at Iles Keguelen (upper right) and in May 2025 at Macquarie Island (lower middle). Credit: Ian Jonsen (AniBOS)",
     "quote1": {
       "text": "We get some excellent information on what the ocean physics looks like and how that affects ecosystem productivity, which we measure by looking at the condition of the animals. This real-time data allows us to monitor ocean health — and also implement better management.",
       "author": "Clive McMahon",
@@ -224,6 +224,7 @@
       "introduction": "",
       "paragraph1": "In 2025, GOOS is pleased to report that the in situ component of the global ocean observing networks, monitored in real time by OceanOPS, has experienced a steady expansion over the past two years, continuing to deliver high-quality, near real-time ocean observations that support society worldwide.",
       "paragraph2": "This positive trend has been primarily driven by an increase in autonomous networks such as Argo profiling floats. This increase has helped offset declines in other networks — notably drifting buoys, particularly in the Indian Ocean, and ship-based oceanographic observations, which are facing global budget constraints that may reduce the collection of long-term reference data sets.",
+      "intro1ImageAlt": "Ocean observing system status visualization",
       "paragraph3": "Further progress has been achieved with the inclusion of four emerging observing networks into GOOS: SMART subsea cables, uncrewed surface vehicles, fishing vessel observations, and a surface carbon monitoring network.",
       "paragraph4a": "The Argo array has now surpassed 4,000 active floats, benefiting from technological innovation and improved instrument reliability. The program has reached 55% of its",
       "paragraph4b": "implementation target global, full-depth and multidisciplinary vision, with growth driven by the expansion of biogeochemical missions and a twofold increase in European deployments since 2021. Maintaining this progress will require stable, long-term funding and balanced coverage across all ocean basins, particularly in the Southern Hemisphere.",
@@ -782,8 +783,12 @@
         "url": "https://goosocean.org/"
       },
       "linkedin": {
-        "label": "LinkedIn",
+        "label": "GOOS LinkedIn",
         "url": "https://www.linkedin.com/company/global-ocean-observing-system/"
+      },
+      "oceanopsLinkedin": {
+        "label": "OceanOPS LinkedIn",
+        "url": "https://www.linkedin.com/company/oceanops-wmo-ioc-unesco/"
       },
       "youtube": {
         "label": "YouTube",

@@ -473,6 +473,15 @@ export default function MenuSidebar({
             </a>
             <span>/</span>
             <a
+              href={t('menu.social.youtube.url')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              {t('menu.social.youtube.label')}
+            </a>
+            <span>/</span>
+            <a
               href={t('menu.social.linkedin.url')}
               target="_blank"
               rel="noopener noreferrer"
@@ -482,12 +491,12 @@ export default function MenuSidebar({
             </a>
             <span>/</span>
             <a
-              href={t('menu.social.youtube.url')}
+              href={t('menu.social.oceanopsLinkedin.url')}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              {t('menu.social.youtube.label')}
+              {t('menu.social.oceanopsLinkedin.label')}
             </a>
           </div>
         </div>

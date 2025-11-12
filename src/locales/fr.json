@@ -219,6 +219,7 @@
       "introduction": "",
       "paragraph1": "En 2025, le GOOS est heureux d'annoncer que la composante in situ des réseaux mondiaux d'observation des océans, surveillée en temps réel par OceanOPS, a connu une expansion constante au cours des deux dernières années, continuant à fournir des observations océaniques de haute qualité et quasi temps réel qui soutiennent les sociétés du monde entier.",
       "paragraph2": "Cette tendance positive a été principalement portée par une augmentation des réseaux autonomes tels que les flotteurs profileurs Argo. Cette augmentation a permis de compenser les baisses d'autres réseaux, notamment les bouées dérivantes, en particulier dans l'océan Indien, et les observations océanographiques basées sur les navires, qui font face à des contraintes budgétaires mondiales pouvant réduire la collecte d'ensembles de données de référence à long terme.",
+      "intro1ImageAlt": "Visualisation de l'état du système d'observation des océans",
       "paragraph3": "Des progrès supplémentaires ont été réalisés avec l'inclusion de quatre réseaux d'observation émergents dans le GOOS : câbles sous-marins SMART, véhicules de surface non habités, observations de navires de pêche et réseau de surveillance du carbone de surface.",
       "paragraph4a": "Le réseau Argo a maintenant dépassé les 4 000 flotteurs actifs, bénéficiant de l'innovation technologique et d'une fiabilité améliorée des instruments. Le programme a atteint 55% de son objectif de mise en œuvre",
       "paragraph4b": "global, pleine profondeur et vision multidisciplinaire, avec une croissance portée par l'expansion des missions biogéochimiques et un doublement des déploiements européens depuis 2021. Maintenir ces progrès nécessitera un financement stable à long terme et une couverture équilibrée dans tous les bassins océaniques, en particulier dans l'hémisphère sud.",
@@ -607,16 +608,20 @@
     },
     "social": {
       "instagram": {
-        "label": "Instagram",
-        "url": "https://instagram.com/oceanops"
+        "label": "Site web",
+        "url": "https://goosocean.org/"
       },
       "linkedin": {
-        "label": "LinkedIn",
-        "url": "https://linkedin.com/company/oceanops"
+        "label": "GOOS LinkedIn",
+        "url": "https://www.linkedin.com/company/global-ocean-observing-system/"
+      },
+      "oceanopsLinkedin": {
+        "label": "OceanOPS LinkedIn",
+        "url": "https://www.linkedin.com/company/oceanops-wmo-ioc-unesco/"
       },
       "youtube": {
         "label": "YouTube",
-        "url": "https://youtube.com/@oceanops"
+        "url": "https://www.youtube.com/@goosocean"
       }
     }
   },
