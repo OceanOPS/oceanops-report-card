@@ -282,7 +282,7 @@ export default function CoverModule({
       <div className="relative z-10 flex flex-col justify-between flex-1">
         {/* Top: GOOS Logo */}
         <div ref={logoRef} style={{ opacity: 0 }}>
-          <GoosLogo variant={goosLogoVariant} />
+          <GoosLogo variant={goosLogoVariant} url="https://goosocean.org/" />
         </div>
 
         {/* Middle: Main Title */}
