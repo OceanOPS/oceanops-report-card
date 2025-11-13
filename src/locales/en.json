@@ -443,15 +443,15 @@
       }
     },
     "sotVos": {
-      "title": "Ship based meteorological – SOT/VOS",
+      "title": "Ship based meteorological - SOT/VOS",
       "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
     },
     "sotXbt": {
-      "title": "Ship based oceanographic – SOT/XBT-SOOP",
+      "title": "Ship based oceanographic - SOT/XBT-SOOP",
       "iconAlt": "SOT/XBT-SOOP Network - Ship of Opportunity Programme with XBT temperature profiling"
     },
     "sotAsap": {
-      "title": "Ship based aerological – SOT/ASAP",
+      "title": "Ship based aerological - SOT/ASAP",
       "iconAlt": "SOT/ASAP Network - Automated Shipboard Aerological Programme"
     },
     "goShip": {
@@ -543,7 +543,7 @@
         "shipBased": {
           "title": "Ship",
           "meteorological": {
-            "title": "Ship based meteorological – SOT/VOS",
+            "title": "Ship based meteorological - SOT/VOS",
             "content": "Ship based meteorological stations that have delivered data to the GTS within the last 30 days"
           },
           "oceanographic": {
@@ -558,27 +558,27 @@
         "fixedPlatforms": {
           "title": "Fixed",
           "repeatedTransects": {
-            "title": "Repeated transects – GO-SHIP",
+            "title": "Repeated transects - GO-SHIP",
             "content": "Core GO-SHIP lines sampled since 2015"
           },
           "fishingVessels": {
-            "title": "Fishing vessels – FVON",
+            "title": "Fishing vessels - FVON",
             "content": "Fishing vessels that have been deployed since 1 January 2025"
           },
           "seaLevelGauges": {
-            "title": "Sea level gauges – GLOSS",
+            "title": "Sea level gauges - GLOSS",
             "content": "GLOSS stations that have provided monthly mean sea level data within the last 5 years"
           },
           "timeSeriesSites": {
-            "title": "Time series sites – OceanSITES",
+            "title": "Time series sites - OceanSITES",
             "content": "All OceanSITES moorings that are not closed"
           },
           "mooredBuoys": {
-            "title": "Moored Buoys – DBCP/MB",
+            "title": "Moored Buoys - DBCP/MB",
             "content": "Moored buoys that have delivered data to the GTS within the last 30 days"
           },
           "tsunamiBuoys": {
-            "title": "Tsunami Buoys – DBCP/TSU",
+            "title": "Tsunami Buoys - DBCP/TSU",
             "content": "Tsunami buoys that have delivered data to the GTS within the last 30 days"
           },
           "hfRadars": {
@@ -589,7 +589,7 @@
         "mobilePlatforms": {
           "title": "Mobile",
           "driftingBuoys": {
-            "title": "Drifting buoys – DBCP/GDA",
+            "title": "Drifting buoys - DBCP/GDA",
             "content": "Drifting buoys that have delivered data to the GTS within the last 30 days"
           },
           "profilingFloats": {
@@ -597,11 +597,11 @@
             "content": "Argo floats that have delivered data to a GDAC within the last 30 days"
           },
           "gliders": {
-            "title": "Gliders – OceanGliders",
+            "title": "Gliders - OceanGliders",
             "content": "Gliders that have been deployed since 1 January 2024"
           },
           "animalBorne": {
-            "title": "Animal borne sensors – AniBOS",
+            "title": "Animal borne sensors - AniBOS",
             "content": "Animal-borne sensors that have been deployed since 1 January 2025"
           }
         }
@@ -809,7 +809,7 @@
       "fvon": "Fishing vessel probes - FVON",
       "sotVos": "Ship based meteorological - SOT/VOS",
       "sotAsap": "Ship based meteorological - SOT/ASAP",
-      "sot": "Ship based oceanographic - SOT",
+      "sot": "Ship based oceanographic - SOT/XBT-SOOP",
       "goShip": "Repeated transects - GO-SHIP",
       "gloss": "Sea level gauges - GLOSS",
       "oceanSites": "Time series sites - OceanSITES",
