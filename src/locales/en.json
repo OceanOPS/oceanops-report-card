@@ -213,7 +213,7 @@
     "paragraph1": "General information: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/>In-situ networks status: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>GOOS Status Report information: <a href=\"mailto:l.stukonyte@unesco.org\" class=\"text-goos-orange-500 underline hover:no-underline\">l.stukonyte@unesco.org</a> / <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a><br/>If you wish to contribute to the global ocean observing system, please contact: <a href=\"mailto:support@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">support@ocean-ops.org</a>",
     "paragraph2": "Authors: GOOS Secretariat, OceanOPS, GOOS Observations Coordination Group<br/>GOOS Report No. GOOS-300.",
     "paragraph3": "A special thank you to all editors and contributors: Monica Alvarado Niño, Mathieu Belbéoch, Severine Fournier, Yao Fu, Emma Heslop, Sreelekha Jarugula, Ian Jonsen, Ana Lara-Lopez, Clive McMahon, Tammy Morris, Joanna Post, Jon Pye, Juan Miguel Quintana Arena, Emanuela Rusciano, Matias Sifón, Laura Stukonytė, Ann-Christine Zinkann",
-    "paragraph4": "Cover video: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a><br/>Photos: Abeeku Acquah (EDF); SMART Cables; NOAA-PMEL; Charles Darwin University, Elysium EPL and Oceanus Collective Ltd Pty; Shutterstock; Peter Brown; Monica Alvarado Niño, Clive McMahon, OceanOPS",
+    "paragraph4": "Cover video: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a><br/>Photos: Abeeku Acquah (EDF); SMART Cables; NOAA-PMEL; Charles Darwin University, Elysium EPL and Oceanus Collective Ltd Pty; Shutterstock; Peter Brown; Monica Alvarado Niño, Clive McMahon, OceanOPS, NOAA, SOCIB",
     "paragraph5": "Design + Code by Diego Cataldo"
   },
   "content": {
@@ -255,7 +255,7 @@
           "description": "global ocean observing networks (including 4 emerging)"
         },
         "stat3": {
-          "number": "9,897",
+          "number": "9,389",
           "description": "ocean observing platforms"
         },
         "stat4": {
@@ -396,7 +396,7 @@
       "realTime": "Data freely available, without any restriction, on Global Telecommunication System of WMO and internet.",
       "archivedHighQuality": "Data of the highest quality available for scientific analysis (e.g. climate studies).",
       "metadata": "Metadata completeness by OceanOPS.",
-      "bestPractices": "Community reviewed and easily accessible documentation encompassing the observations lifecycle"
+      "bestPractices": "Community reviewed and easily accessible documentation encompassing the observations lifecycle."
     },
     "indicatorsButton": "ABOUT INDICATORS DEFINITIONS",
     "indicatorsModal": {
@@ -416,7 +416,7 @@
       "realTime": {
         "title": "Real Time Data Delivery",
         "description": "Evaluates the timeliness of data transmission to operational centers. Networks with high ratings support immediate forecasting needs.",
-        "requirements": "Requirements:\n• Real-Time Quality controlled procedures are applied\n• All individual observations are made available on the GTS of WMO with proper timeliness\n• All individual observations are made available on the Internet with proper interoperable services (API, ERRDAP e.g.), citable and discoverable.",
+        "requirements": "Requirements:\n• Real-Time Quality controlled procedures are applied\n• All individual observations are made available on the GTS of WMO with proper timeliness\n• All individual observations are made available on the Internet with proper interoperable services (e.g. API, ERRDAP), citable and discoverable.",
         "scoring": "HALF-STAR: 0 < REAL-TIME ≤ 0.5\n1 STAR: 0.5 < REAL-TIME ≤ 1\n1 STAR & HALF: 1 < REAL-TIME ≤ 1.5\n2 STARS: 1.5 < REAL-TIME ≤ 2\n2 STARS & HALF: 2 < REAL-TIME ≤ 2.5\n3 STARS: REAL-TIME > 2.5"
       },
       "archivedHighQuality": {
@@ -428,14 +428,14 @@
       "metadata": {
         "title": "Metadata Completeness",
         "description": "Measures the documentation of observation methods, instruments, and data provenance. Complete metadata ensures data can be properly interpreted and reused by all users.",
-        "requirements": "Metadata are required by OceanOPS to:\n• monitor and support each network and the GOOS\n• serve WMO/WIGOS/OSCAR system with quality metadata for all marine systems\n• capture a common denominator enabling an integrated view, and using reference tables (WIGOS, SeaDataNet, ICES harmonized vocabularies as far as possible.\n\nMetadata score is based on the completeness of each category of the OceanOPS passport (identification, affiliation, operation, hardware). Each category is monitored individually against network-specific criteria, and the overall score represents the average of the category scores over operational platforms. Next year the full Passport scoring (including data end points) will be used.",
+        "requirements": "Metadata are required by OceanOPS to:\n• monitor and support each network and the GOOS\n• serve WMO/WIGOS/OSCAR system with quality metadata for all marine systems\n• capture a common denominator enabling an integrated view, and using reference tables (WIGOS, SeaDataNet, ICES harmonized vocabularies) as far as possible.\n\nMetadata score is based on the completeness of each category of the OceanOPS passport (identification, affiliation, operation, hardware). Each category is monitored individually against network-specific criteria, and the overall score represents the average of the category scores over operational platforms. Next year the full Passport scoring (including data end points) will be used.",
         "scoring": "HALF-STAR: 0 < SCORE ≤ 15%\n1 STAR: 15% < SCORE ≤ 30%\n1 STAR & HALF: 30% < SCORE ≤ 50%\n2 STARS: 50% < SCORE ≤ 70%\n2 STARS & HALF: 70% < SCORE ≤ 85%\n3 STARS: SCORE > 85%"
       },
       "bestPractices": {
         "title": "Best Practices Adoption",
         "description": "Evaluates adherence to international standards for data collection, processing, and sharing. Networks following best practices ensure data interoperability across systems.",
         "details": "Regarding Best Practices a number of criteria were considered: the generic term \"Best Practices\" cover the observation 'lifecycle' - including deployment, sampling strategy, Standard Operating Procedures, pre-mission preparation (e.g. calibration and validation), data retrieval and formatting, primary quality control and secondary quality control for all the EOVs (and sub-variables) that they sample. There also needs to be clear best practices around data documentation, access and archival.\n\nOn top of having the best practices written, the ratings were based on how easily accessible the best practices are outside of the network community.\n\nAdditionally, the frequency of the update of the best practice has also been considered.",
-        "scoring": "1 STAR: standard practices exist, not accessible for larger community, no network agreement on best practices\n2 STARS: best practices in place but only accessible through meeting reports (difficult to find on various websites) or 2-3 manuals are easily available but don't cover the whole observing lifecycle, or very outdated\n3 STARS: community reviewed and easily accessible documentation encompassing the observations lifecycle"
+        "scoring": "1 STAR: standard practices exist, not accessible for larger community, no network agreement on best practices\n2 STARS: best practices in place but only accessible through meeting reports (difficult to find on various websites) or 2-3 manuals are easily available but don't cover the whole observing lifecycle, or very outdated\n3 STARS: community reviewed and easily accessible documentation encompassing the observations lifecycle."
       },
       "deliveryAreas": {
         "title": "GOOS Delivery Areas",
@@ -443,15 +443,15 @@
       }
     },
     "sotVos": {
-      "title": "Ship based meteorological – SOT/VOS",
+      "title": "Ship based meteorological - SOT/VOS",
       "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
     },
     "sotXbt": {
-      "title": "Ship based oceanographic – SOT/XBT-SOOP",
+      "title": "Ship based oceanographic - SOT/XBT-SOOP",
       "iconAlt": "SOT/XBT-SOOP Network - Ship of Opportunity Programme with XBT temperature profiling"
     },
     "sotAsap": {
-      "title": "Ship based aerological – SOT/ASAP",
+      "title": "Ship based aerological - SOT/ASAP",
       "iconAlt": "SOT/ASAP Network - Automated Shipboard Aerological Programme"
     },
     "goShip": {
@@ -467,11 +467,11 @@
       "iconAlt": "OceanSITES Network - Global network of long-term ocean reference stations"
     },
     "dbcpMoored": {
-      "title": "Moored buoys - DBCP",
+      "title": "Moored buoys - DBCP/MB",
       "iconAlt": "DBCP Moored Buoys - Data Buoy Cooperation Panel moored buoy network"
     },
     "dbcpTsunami": {
-      "title": "Tsunami buoys - DBCP",
+      "title": "Tsunami buoys - DBCP/TSU",
       "iconAlt": "DBCP Tsunami Buoys - Tsunami detection and reporting buoys"
     },
     "hfRadar": {
@@ -479,7 +479,7 @@
       "iconAlt": "HF Radar Network - High Frequency radar coastal current mapping"
     },
     "dbcpDrifting": {
-      "title": "Drifting buoys - DBCP",
+      "title": "Drifting buoys/DBCP/GDA",
       "iconAlt": "DBCP Drifting Buoys - Surface drifting buoy network"
     },
     "argo": {
@@ -543,7 +543,7 @@
         "shipBased": {
           "title": "Ship",
           "meteorological": {
-            "title": "Ship based meteorological – SOT/VOS",
+            "title": "Ship based meteorological - SOT/VOS",
             "content": "Ship based meteorological stations that have delivered data to the GTS within the last 30 days"
           },
           "oceanographic": {
@@ -558,27 +558,27 @@
         "fixedPlatforms": {
           "title": "Fixed",
           "repeatedTransects": {
-            "title": "Repeated transects – GO-SHIP",
+            "title": "Repeated transects - GO-SHIP",
             "content": "Core GO-SHIP lines sampled since 2015"
           },
           "fishingVessels": {
-            "title": "Fishing vessels – FVON",
+            "title": "Fishing vessels - FVON",
             "content": "Fishing vessels that have been deployed since 1 January 2025"
           },
           "seaLevelGauges": {
-            "title": "Sea level gauges – GLOSS",
+            "title": "Sea level gauges - GLOSS",
             "content": "GLOSS stations that have provided monthly mean sea level data within the last 5 years"
           },
           "timeSeriesSites": {
-            "title": "Time series sites – OceanSITES",
+            "title": "Time series sites - OceanSITES",
             "content": "All OceanSITES moorings that are not closed"
           },
           "mooredBuoys": {
-            "title": "Moored Buoys – DBCP/MB",
+            "title": "Moored Buoys - DBCP/MB",
             "content": "Moored buoys that have delivered data to the GTS within the last 30 days"
           },
           "tsunamiBuoys": {
-            "title": "Tsunami Buoys – DBCP/TSU",
+            "title": "Tsunami Buoys - DBCP/TSU",
             "content": "Tsunami buoys that have delivered data to the GTS within the last 30 days"
           },
           "hfRadars": {
@@ -589,7 +589,7 @@
         "mobilePlatforms": {
           "title": "Mobile",
           "driftingBuoys": {
-            "title": "Drifting buoys – DBCP/GDA",
+            "title": "Drifting buoys - DBCP/GDA",
             "content": "Drifting buoys that have delivered data to the GTS within the last 30 days"
           },
           "profilingFloats": {
@@ -597,11 +597,11 @@
             "content": "Argo floats that have delivered data to a GDAC within the last 30 days"
           },
           "gliders": {
-            "title": "Gliders – OceanGliders",
+            "title": "Gliders - OceanGliders",
             "content": "Gliders that have been deployed since 1 January 2024"
           },
           "animalBorne": {
-            "title": "Animal borne sensors – AniBOS",
+            "title": "Animal borne sensors - AniBOS",
             "content": "Animal-borne sensors that have been deployed since 1 January 2025"
           }
         }
@@ -809,7 +809,7 @@
       "fvon": "Fishing vessel probes - FVON",
       "sotVos": "Ship based meteorological - SOT/VOS",
       "sotAsap": "Ship based meteorological - SOT/ASAP",
-      "sot": "Ship based oceanographic - SOT",
+      "sot": "Ship based oceanographic - SOT/XBT-SOOP",
       "goShip": "Repeated transects - GO-SHIP",
       "gloss": "Sea level gauges - GLOSS",
       "oceanSites": "Time series sites - OceanSITES",

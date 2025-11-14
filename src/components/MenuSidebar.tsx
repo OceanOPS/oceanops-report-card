@@ -323,29 +323,10 @@ export default function MenuSidebar({
                   }, 1000)
                 }, 300)
               }}
-              className="cursor-pointer hover:opacity-80 transition-opacity mb-6 sm:mb-8 pr-10 sm:pr-12"
+              className="cursor-pointer hover:opacity-80 transition-opacity pr-10 sm:pr-12"
             >
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">{t('menu.title')}</h1>
               <p className="text-2xl sm:text-3xl md:text-4xl font-normal text-goos-orange-500">{t('menu.year')}</p>
-            </div>
-            {/* Download PDF button with SOON badge */}
-            <div className="relative inline-block">
-              <Button
-                variant="download"
-                label={t('menu.downloadPdf')}
-                onClick={() => {
-                  // TODO: Uncomment and update the URL when PDF is ready
-                  // const pdfUrl = 'https://example.com/path-to-your-report.pdf'
-                  // window.open(pdfUrl, '_blank')
-                }}
-                textColor="text-white"
-                bgColor="bg-goos-blue-700"
-                iconColor="text-goos-blue-700"
-                iconBgColor="bg-white"
-              />
-              <span className="absolute -top-2 -right-2 bg-goos-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                {t('menu.comingSoon')}
-              </span>
             </div>
           </div>
 
@@ -381,6 +362,30 @@ export default function MenuSidebar({
               </div>
             ))}
           </nav>
+
+          <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
+
+          {/* Download PDF button with SOON badge */}
+          <div className="mb-6">
+            <div className="relative inline-block">
+              <Button
+                variant="download"
+                label={t('menu.downloadPdf')}
+                onClick={() => {
+                  // TODO: Uncomment and update the URL when PDF is ready
+                  // const pdfUrl = 'https://example.com/path-to-your-report.pdf'
+                  // window.open(pdfUrl, '_blank')
+                }}
+                textColor="text-white"
+                bgColor="bg-goos-blue-700"
+                iconColor="text-goos-blue-700"
+                iconBgColor="bg-white"
+              />
+              <span className="absolute -top-2 -right-2 bg-goos-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                {t('menu.comingSoon')}
+              </span>
+            </div>
+          </div>
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
 

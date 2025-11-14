@@ -10,6 +10,7 @@ interface DeliveryArea {
   iconSrc: string;
   iconAlt: string;
   textKey: string;
+  sectionId?: string; // ID de la sección a la que navegar
 }
 
 interface ColorStripesProps {
@@ -23,23 +24,33 @@ export default function ColorStripes({
   stripeColors,
   className = '',
   deliveryAreas = [
-    { iconSrc: '/icons/climate.png', iconAlt: 'Climate', textKey: 'networks.deliveryAreas.climate' },
-    { iconSrc: '/icons/operational_services.png', iconAlt: 'Operational Services', textKey: 'networks.deliveryAreas.operational' },
-    { iconSrc: '/icons/ocean_health.png', iconAlt: 'Ocean Health', textKey: 'networks.deliveryAreas.oceanhealth' },
+    { iconSrc: '/icons/climate.png', iconAlt: 'Climate', textKey: 'networks.deliveryAreas.climate', sectionId: 'amoc-section' },
+    { iconSrc: '/icons/operational_services.png', iconAlt: 'Operational Services', textKey: 'networks.deliveryAreas.operational', sectionId: 'elnino-section' },
+    { iconSrc: '/icons/ocean_health.png', iconAlt: 'Ocean Health', textKey: 'networks.deliveryAreas.oceanhealth', sectionId: 'oceanhealth-section' },
   ],
   stripeHeight = ''
 }: ColorStripesProps) {
   const { t } = useTranslation();
 
+  // Función para scroll suave a la sección
+  const scrollToSection = (sectionId?: string) => {
+    if (!sectionId) return;
+
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   // Colores más claros para el fade: cada tira va a un tono más claro
   const fadeColors = ['bg-goos-cyan-200', 'bg-goos-cyan-100', 'bg-white'];
   const containerRef = useRef<HTMLDivElement>(null);
-  const stripesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const stripesRef = useRef<(HTMLButtonElement | null)[]>([]);
   const deliveryAreasRef = useRef<(HTMLDivElement | null)[]>([]);
   const whiteLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Función para agregar referencias a los stripes
-  const addToStripesRefs = (el: HTMLDivElement | null, index: number) => {
+  const addToStripesRefs = (el: HTMLButtonElement | null, index: number) => {
     stripesRef.current[index] = el;
   };
 
@@ -146,11 +157,13 @@ export default function ColorStripes({
       style={stripeHeight ? { height: stripeHeight } : undefined}
     >
       {stripeColors.map((color, index) => (
-        <div
+        <button
           key={index}
           ref={(el) => addToStripesRefs(el, index)}
-          className={`${color} w-full relative h-[100vh]`}
+          onClick={() => scrollToSection(deliveryAreas[index]?.sectionId)}
+          className={`${color} w-full relative h-[100vh] cursor-pointer transition-opacity hover:opacity-90`}
           style={stripeHeight ? { height: stripeHeight } : undefined}
+          aria-label={`Navigate to ${deliveryAreas[index]?.iconAlt}`}
         >
           {/* Capa de color claro para fade */}
           <div
@@ -168,16 +181,16 @@ export default function ColorStripes({
               <img
                 src={deliveryAreas[index].iconSrc}
                 alt={deliveryAreas[index].iconAlt}
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain pointer-events-none"
               />
               {/* Texto */}
-              <p className="text-goos-blue-700 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center uppercase tracking-wide font-roboto-condensed"
+              <p className="text-goos-blue-700 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center uppercase tracking-wide font-roboto-condensed pointer-events-none"
               >
                 {t(deliveryAreas[index].textKey)}
               </p>
             </div>
           </div>
-        </div>
+        </button>
       ))}
     </div>
   );
