@@ -802,6 +802,7 @@
     "networksLabel": "Networks",
     "platformsLabel": "Platforms",
     "viewFullListButton": "VIEW FULL LIST",
+    "disclaimer": "Disclaimer: The depiction and use of boundaries, geographic names and related data shown on the OceanOPS map and included in country lists and tables are not warranted to be error free nor do they imply official endorsement or acceptance by the Intergovernmental Oceanographic Commission of UNESCO and the World Meteorological Organization. Statistics in this report are gradually made more accurate by OceanOPS based on data and metadata availability. Please contact support@ocean-ops.org for any discrepancies.",
     "networks": {
       "driftingBuoys": "Drifting buoys – DBCP/GDA",
       "argo": "Profiling floats – Argo",
