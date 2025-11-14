@@ -372,9 +372,15 @@ function App() {
           hasLine={true}
           lineColor="bg-goos-orange-500"
           leftContent={
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              {t('content.section1.statsIntro')}
-            </p>
+            <>
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4">
+                {t('content.section1.statsIntro')}
+              </p>
+              <p
+                className="text-base sm:text-lg md:text-xl leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t('content.section1.statsIntro2') }}
+              />
+            </>
           }
           stats={[
             {
@@ -1303,19 +1309,6 @@ function App() {
           iconColor="fill-goos-cyan-600"
         />
 
-        <Spacer size="sm" />
-
-        {/* Image 2 - RAPID buoy */}
-        <div className="-mx-4 sm:mx-0">
-          <ImageCaption
-            src="/images/climate3.webp"
-            alt={t('amoc.imageCaption2')}
-            // caption={t('amoc.imageCaption2')}
-            aspectRatio="video"
-            objectFit="cover"
-          />
-        </div>
-
         <Spacer size="xs" />
 
         {/* Learn More Content Box */}
@@ -1508,21 +1501,6 @@ function App() {
               {
                 src: '/images/operational3.webp',
                 alt: 'Operational observation 3',
-                caption: ''
-              },
-              {
-                src: '/images/operational4.webp',
-                alt: 'Operational observation 4',
-                caption: ''
-              },
-              {
-                src: '/images/operational5.webp',
-                alt: 'Operational observation 5',
-                caption: ''
-              },
-              {
-                src: '/images/operational6.webp',
-                alt: 'Operational observation 6',
                 caption: ''
               }
             ]}

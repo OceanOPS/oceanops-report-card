@@ -245,6 +245,7 @@
       },
       "statsTitle": "<i>In situ</i> observing networks by the numbers",
       "statsIntro": "Our global community of providers and operators are working together to deliver essential ocean information every day.",
+      "statsIntro2": "<i>Numbers provided in this report mostly concern the operational components of the GOOS, and it is planned to gradually include the BioEco components in future releases.</i>",
       "stats": {
         "stat1": {
           "number": "64",
@@ -612,8 +613,8 @@
     "title": "Satellite Observations",
     "introduction": "Satellite observations provide a global view of the ocean, complementing <i>in situ</i> measurements with repeated observations of surface variables such as temperature, sea level, ocean color, and winds. They are essential for understanding large-scale processes, supporting ocean and climate forecasts, and monitoring change. Together with <i>in situ</i> data, satellites also help track key phenomena such as the Atlantic Meridional Overturning Circulation (AMOC) and its long-term trends.",
     "platformButton": "About Essential Climate Variables",
-    "tableTitle": "Satellite Essential Climate Variables Timeline",
-    "timelineRange": "(1990-2030)",
+    "tableTitle": "Essential Ocean and Climate Variables",
+    "timelineRange": "Measured from space",
     "yearLabel": "Year",
     "variableNames": {
       "seaIce": "Sea Ice",
