@@ -263,9 +263,10 @@ export default function InsightPanel({
         {title && (
           <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-6 sm:mb-8 md:mb-12">
             {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
-            <h3 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}>
-              {title}
-            </h3>
+            <h3
+              className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
           </div>
         )}
 

@@ -229,9 +229,10 @@ export default function NetworkCarousel({
           <div className="px-4 sm:px-8 md:px-12 lg:px-16">
             <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
               {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
-              <h3 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}>
-                {t(title)}
-              </h3>
+              <h3
+                className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
+                dangerouslySetInnerHTML={{ __html: t(title) }}
+              />
             </div>
           </div>
         )}

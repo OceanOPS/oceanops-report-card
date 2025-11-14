@@ -342,7 +342,10 @@ export default function MenuSidebar({
                   className="cursor-pointer hover:opacity-80 transition-opacity pt-1 sm:pt-2"
                 >
                   <div className={`${item.accentColor} h-1 w-6 sm:w-8 mb-1`}></div>
-                  <h2 className="text-xl sm:text-2xl font-normal">{t(item.titleKey)}</h2>
+                  <h2
+                    className="text-xl sm:text-2xl font-normal"
+                    dangerouslySetInnerHTML={{ __html: t(item.titleKey) }}
+                  />
                 </div>
 
                 {/* Sub Items */}
@@ -354,7 +357,10 @@ export default function MenuSidebar({
                         onClick={() => handleMenuItemClick(subItem)}
                         className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
                       >
-                        <h3 className="text-base sm:text-lg font-light">{t(subItem.titleKey)}</h3>
+                        <h3
+                          className="text-base sm:text-lg font-light"
+                          dangerouslySetInnerHTML={{ __html: t(subItem.titleKey) }}
+                        />
                       </div>
                     ))}
                   </div>

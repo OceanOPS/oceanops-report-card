@@ -210,7 +210,7 @@
   },
   "contact": {
     "title": "Contacts",
-    "paragraph1": "General information: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/>In situ networks status: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>GOOS Status Report information: <a href=\"mailto:l.stukonyte@unesco.org\" class=\"text-goos-orange-500 underline hover:no-underline\">l.stukonyte@unesco.org</a> / <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a>",
+    "paragraph1": "General information: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/><i>In situ</i> networks status: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>GOOS Status Report information: <a href=\"mailto:l.stukonyte@unesco.org\" class=\"text-goos-orange-500 underline hover:no-underline\">l.stukonyte@unesco.org</a> / <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a>",
     "paragraph2": "Authors: GOOS Secretariat, OceanOPS, GOOS Observations Coordination Group<br/>GOOS Report No. GOOS-300.",
     "paragraph3": "A special thank you to all editors and contributors: Monica Alvarado Niño, Mathieu Belbéoch, Severine Fournier, Yao Fu, Emma Heslop, Sreelekha Jarugula, Ian Jonsen, Ana Lara-Lopez, Thomas Latter, Clive McMahon, Tammy Morris, Joanna Post, Jon Pye, Juan Miguel Quintana Arena, Emanuela Rusciano, Matias Sifón, Laura Stukonytė, Ann-Christine Zinkann",
     "paragraph4": "Cover video: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a><br/>Photos: Abeeku Acquah (EDF); SMART Cables; NOAA-PMEL; Charles Darwin University, Elysium EPL and Oceanus Collective Ltd Pty; Shutterstock; Peter Brown; Monica Alvarado Niño, Clive McMahon, OceanOPS, NOAA, SOCIB",
@@ -243,7 +243,7 @@
         "authorTitle": "OceanOPS Manager",
         "logoAlt": "OceanOPS Logo"
       },
-      "statsTitle": "In situ observing networks by the numbers",
+      "statsTitle": "<i>In situ</i> observing networks by the numbers",
       "statsIntro": "Our global community of providers and operators are working together to deliver essential ocean information every day.",
       "stats": {
         "stat1": {
@@ -376,7 +376,7 @@
     "partner8": "Partner Organization 8"
   },
   "networks": {
-    "title": "In situ mature networks",
+    "title": "<i>In situ</i> mature networks",
     "viewNetwork": "View Network",
     "deliveryAreasLabel": "GOOS delivery areas",
     "deliveryAreas": {
@@ -496,7 +496,7 @@
     }
   },
   "emerging": {
-    "title": " In situ emerging networks",
+    "title": " <i>In situ</i> emerging networks",
     "viewMore": "View More",
     "watchVideo": "Watch Video",
     "fvon": {
@@ -762,7 +762,7 @@
     "cover": "Cover",
     "overview": "Overview",
     "inSituStatus": "Ocean observing system status and updates",
-    "networksByNumbers": "In situ observing networks by the numbers",
+    "networksByNumbers": "<i>In situ</i> observing networks by the numbers",
     "downloadPdf": "DOWNLOAD PDF",
     "comingSoon": "SOON",
     "openMenu": "Open menu",
