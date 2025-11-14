@@ -181,7 +181,7 @@ export default function SatelliteTable() {
                     }}
                   ></div>
                   {/* 2025 marker line */}
-                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
+                  <div className="absolute top-0 bottom-0 w-0.5 border-l-2 border-dashed border-white" style={{ left: '85%' }}></div>
                 </div>
               </td>
             </tr>
@@ -201,7 +201,7 @@ export default function SatelliteTable() {
                     }}
                   ></div>
                   {/* 2025 marker line */}
-                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
+                  <div className="absolute top-0 bottom-0 w-0.5 border-l-2 border-dashed border-white" style={{ left: '85%' }}></div>
                 </div>
               </td>
             </tr>
@@ -221,7 +221,7 @@ export default function SatelliteTable() {
                     }}
                   ></div>
                   {/* 2025 marker line */}
-                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
+                  <div className="absolute top-0 bottom-0 w-0.5 border-l-2 border-dashed border-white" style={{ left: '85%' }}></div>
                 </div>
               </td>
             </tr>
@@ -241,7 +241,7 @@ export default function SatelliteTable() {
                     }}
                   ></div>
                   {/* 2025 marker line */}
-                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
+                  <div className="absolute top-0 bottom-0 w-0.5 border-l-2 border-dashed border-white" style={{ left: '85%' }}></div>
                 </div>
               </td>
             </tr>
@@ -261,7 +261,7 @@ export default function SatelliteTable() {
                     }}
                   ></div>
                   {/* 2025 marker line */}
-                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
+                  <div className="absolute top-0 bottom-0 w-0.5 border-l-2 border-dashed border-white" style={{ left: '85%' }}></div>
                 </div>
               </td>
             </tr>
@@ -281,7 +281,7 @@ export default function SatelliteTable() {
                     }}
                   ></div>
                   {/* 2025 marker line */}
-                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
+                  <div className="absolute top-0 bottom-0 w-0.5 border-l-2 border-dashed border-white" style={{ left: '85%' }}></div>
                 </div>
               </td>
             </tr>
@@ -301,7 +301,7 @@ export default function SatelliteTable() {
                     }}
                   ></div>
                   {/* 2025 marker line */}
-                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
+                  <div className="absolute top-0 bottom-0 w-0.5 border-l-2 border-dashed border-white" style={{ left: '85%' }}></div>
                 </div>
               </td>
             </tr>
