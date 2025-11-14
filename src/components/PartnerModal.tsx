@@ -392,7 +392,7 @@ export default function PartnerModal({
                                 alt={t(network.labelKey)}
                                 className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain transition-transform duration-300 hover:scale-110"
                               />
-                              <p className="text-goos-white text-xs sm:text-sm md:text-base font-semibold uppercase leading-tight">
+                              <p className="text-goos-white text-xs sm:text-sm md:text-xl font-semibold leading-tight">
                                 {t(network.labelKey)}
                               </p>
                             </div>
