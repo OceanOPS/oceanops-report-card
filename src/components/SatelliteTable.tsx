@@ -156,8 +156,8 @@ export default function SatelliteTable() {
           <thead>
             <tr className="bg-goos-blue-900 p-0">
               <th className="text-white text-left px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-b-2 border-goos-white font-bold w-1/3">
-                <div className="text-base sm:text-lg md:text-xl">Satellite Essential Climate Variables Timeline</div>
-                <div className="text-sm sm:text-base font-normal">(1990-2030)</div>
+                <div className="text-base sm:text-lg md:text-xl">Essential Ocean and Climate Variables</div>
+                <div className="text-sm sm:text-base font-normal">Measured from space</div>
               </th>
               <th className="text-white py-3 sm:py-4 pr-3 sm:pr-4 border-b-2 border-goos-white font-medium w-2/3">
               </th>
