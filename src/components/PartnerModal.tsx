@@ -445,9 +445,10 @@ export default function PartnerModal({
 
         {/* Disclaimer */}
         <div className="bg-goos-blue-800 px-8 sm:px-8 md:px-8 lg:px-8 py-8 sm:py-4">
-          <p className="text-xs sm:text-sm text-goos-white/80 italic leading-relaxed">
-            {t('partners.disclaimer')}
-          </p>
+          <p
+            className="text-xs sm:text-sm text-goos-white/80 italic leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('partners.disclaimer') }}
+          />
         </div>
       </div>
     </div>
