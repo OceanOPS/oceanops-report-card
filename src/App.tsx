@@ -273,9 +273,10 @@ function App() {
         lineColor="bg-goos-orange-500"
         layout="split"
       >
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph1')}
-        </p>
+        <p
+          className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]"
+          dangerouslySetInnerHTML={{ __html: t('content.section1.paragraph1') }}
+        />
 
         <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph2')}
@@ -959,9 +960,10 @@ function App() {
           textColor="text-goos-white"
           stickyTitle={false}
         >
-          <p className="text-base sm:text-lg md:text-xl text-goos-white leading-relaxed">
-            {t('satelliteObservations.introduction')}
-          </p>
+          <p
+            className="text-base sm:text-lg md:text-xl text-goos-white leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('satelliteObservations.introduction') }}
+          />
         </ContentModule>
 
         {/* Full Width Table Module */}
@@ -1274,7 +1276,7 @@ function App() {
         {/* Observations & Benefits */}
         <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.observationsTitle')}</h3>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph3')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph4')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('amoc.paragraph4') }} />
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('amoc.paragraph5')}</p>
 
         {/* Image 1 - AMOC time series */}
