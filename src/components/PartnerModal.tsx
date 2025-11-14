@@ -444,7 +444,7 @@ export default function PartnerModal({
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-goos-blue-800 px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 mt-6">
+        <div className="bg-goos-blue-800 px-8 sm:px-8 md:px-8 lg:px-8 py-8 sm:py-4">
           <p className="text-xs sm:text-sm text-goos-white/80 italic leading-relaxed">
             {t('partners.disclaimer')}
           </p>
