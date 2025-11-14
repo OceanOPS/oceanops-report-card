@@ -273,9 +273,10 @@ function App() {
         lineColor="bg-goos-orange-500"
         layout="split"
       >
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph1')}
-        </p>
+        <p
+          className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]"
+          dangerouslySetInnerHTML={{ __html: t('content.section1.paragraph1') }}
+        />
 
         <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
           {t('content.section1.paragraph2')}
@@ -371,9 +372,15 @@ function App() {
           hasLine={true}
           lineColor="bg-goos-orange-500"
           leftContent={
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              {t('content.section1.statsIntro')}
-            </p>
+            <>
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4">
+                {t('content.section1.statsIntro')}
+              </p>
+              <p
+                className="text-base sm:text-lg md:text-xl leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t('content.section1.statsIntro2') }}
+              />
+            </>
           }
           stats={[
             {
@@ -959,9 +966,10 @@ function App() {
           textColor="text-goos-white"
           stickyTitle={false}
         >
-          <p className="text-base sm:text-lg md:text-xl text-goos-white leading-relaxed">
-            {t('satelliteObservations.introduction')}
-          </p>
+          <p
+            className="text-base sm:text-lg md:text-xl text-goos-white leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('satelliteObservations.introduction') }}
+          />
         </ContentModule>
 
         {/* Full Width Table Module */}
@@ -1274,7 +1282,7 @@ function App() {
         {/* Observations & Benefits */}
         <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.observationsTitle')}</h3>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph3')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph4')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('amoc.paragraph4') }} />
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('amoc.paragraph5')}</p>
 
         {/* Image 1 - AMOC time series */}
@@ -1300,19 +1308,6 @@ function App() {
           authorColor="text-goos-blue-700"
           iconColor="fill-goos-cyan-600"
         />
-
-        <Spacer size="sm" />
-
-        {/* Image 2 - RAPID buoy */}
-        <div className="-mx-4 sm:mx-0">
-          <ImageCaption
-            src="/images/climate3.webp"
-            alt={t('amoc.imageCaption2')}
-            // caption={t('amoc.imageCaption2')}
-            aspectRatio="video"
-            objectFit="cover"
-          />
-        </div>
 
         <Spacer size="xs" />
 
@@ -1506,21 +1501,6 @@ function App() {
               {
                 src: '/images/operational3.webp',
                 alt: 'Operational observation 3',
-                caption: ''
-              },
-              {
-                src: '/images/operational4.webp',
-                alt: 'Operational observation 4',
-                caption: ''
-              },
-              {
-                src: '/images/operational5.webp',
-                alt: 'Operational observation 5',
-                caption: ''
-              },
-              {
-                src: '/images/operational6.webp',
-                alt: 'Operational observation 6',
                 caption: ''
               }
             ]}
@@ -1717,16 +1697,6 @@ function App() {
               {
                 src: '/images/oh1.webp',
                 alt: 'Ocean health observation 1',
-                caption: ''
-              },
-              {
-                src: '/images/oh2.webp',
-                alt: 'Ocean health observation 2',
-                caption: ''
-              },
-              {
-                src: '/images/oh3.webp',
-                alt: 'Ocean health observation 3',
                 caption: ''
               }
             ]}
