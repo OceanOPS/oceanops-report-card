@@ -1118,54 +1118,17 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            // SOCONET - Third (Gallery with sample images - replace with final content)
-            mediaType: 'gallery',
-            images: [
-              {
-                src: '/images/soconet.webp',
-                alt: 'SOCONET Image 1',
-                caption: ''
-              },
-              {
-                src: '/images/soconet3.webp',
-                alt: 'SOCONET Image 2',
-                caption: ''
-              },
-              {
-                src: '/images/soconet4.webp',
-                alt: 'SOCONET Image 3',
-                caption: ''
-              }
-            ],
-            imageSrc: '/images/soconet.webp', // Fallback image (first image preview)
+            // SOCONET - Third (Simple image - showing only first photo)
+            mediaType: 'image',
+            imageSrc: '/images/soconet.webp',
             imageAlt: 'emerging.soconet.imageAlt',
             modalTitle: 'emerging.soconet.title',
             modalContent: (
               <div className="flex flex-col gap-5">
-                <ImageGallery
-                  images={[
-                    {
-                      src: '/images/soconet.webp',
-                      alt: 'SOCONET Image 1',
-                      caption: ''
-                    },
-                    {
-                      src: '/images/soconet3.webp',
-                      alt: 'SOCONET Image 2',
-                      caption: ''
-                    },
-                    {
-                      src: '/images/soconet4.webp',
-                      alt: 'SOCONET Image 3',
-                      caption: ''
-                    }
-                  ]}
-                  aspectRatio="video"
-                  objectFit="cover"
-                  arrowColor="text-goos-white"
-                  arrowBgColor="bg-goos-orange-500"
-                  dotColor="bg-gray-200"
-                  activeDotColor="bg-goos-orange-500"
+                <img
+                  src="/images/soconet.webp"
+                  alt="SOCONET"
+                  className="w-full h-auto object-cover rounded"
                 />
                 <div className="flex flex-col gap-4 mt-4">
                   <h3 className="text-2xl font-bold text-goos-orange-500">{t('emerging.soconet.title')}</h3>
@@ -1976,37 +1939,12 @@ function App() {
       </ContentModule>
 
        <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
-       {/* Image Gallery with Navigation */}
-        <ImageGallery
-          images={[
-            {
-              src: '/images/sa1.webp',
-              alt: 'South Africa observation 1',
-              caption: '',
-            },
-            {
-              src: '/images/sa2.webp',
-              alt: 'South Africa observation 2',
-              caption: '',
-            },
-            {
-              src: '/images/sa3.webp',
-              alt: 'South Africa observation 3',
-              caption: '',
-            },
-            {
-              src: '/images/sa4.webp',
-              alt: 'South Africa observation 4',
-              caption: '',
-            },
-          ]}
+       {/* Single Image */}
+        <ImageCaption
+          src="/images/sa1.webp"
+          alt="South Africa observation"
           aspectRatio="video"
           objectFit="cover"
-          captionColor="text-goos-gray-800"
-          arrowColor="text-goos-white"
-          arrowBgColor="bg-goos-green-700"
-          dotColor="bg-gray-200"
-          activeDotColor="bg-goos-green-700"
         />
         {/* Spacer between modules */}
          <Spacer size="sm" />
