@@ -180,6 +180,8 @@ export default function SatelliteTable() {
                       background: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 95%, #F9BF86 100%)'
                     }}
                   ></div>
+                  {/* 2025 marker line */}
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
                 </div>
               </td>
             </tr>
@@ -198,6 +200,8 @@ export default function SatelliteTable() {
                       background: 'linear-gradient(to right, transparent 0%, transparent 15%, #F9BF86 15%, #F9BF86 20%, #F48B25 23%, #F48B25 66%, #F48B25 66%, #F9BF86 70%, #F9BF86 82%, #F48B25 86%, #F48B25 100%)'
                     }}
                   ></div>
+                  {/* 2025 marker line */}
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
                 </div>
               </td>
             </tr>
@@ -216,6 +220,8 @@ export default function SatelliteTable() {
                       background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F48B25 5%, #F48B25 100%)'
                     }}
                   ></div>
+                  {/* 2025 marker line */}
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
                 </div>
               </td>
             </tr>
@@ -234,6 +240,8 @@ export default function SatelliteTable() {
                       background: 'linear-gradient(to right, #F48B25 0%, #F48B25 90%, #F9BF86 94%, #F9BF86 100%)'
                     }}
                   ></div>
+                  {/* 2025 marker line */}
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
                 </div>
               </td>
             </tr>
@@ -252,6 +260,8 @@ export default function SatelliteTable() {
                       background: 'linear-gradient(to right, transparent 0%, transparent 50%, #F9BF86 50%, #F9BF86 90%, #FEF2E7 92%, #FEF2E7 95%, #F9BF86 97%, #F9BF86 100%)'
                     }}
                   ></div>
+                  {/* 2025 marker line */}
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
                 </div>
               </td>
             </tr>
@@ -270,6 +280,8 @@ export default function SatelliteTable() {
                       background: 'linear-gradient(to right, transparent 0%, transparent 5%, #F9BF86 5%, #F9BF86 100%)'
                     }}
                   ></div>
+                  {/* 2025 marker line */}
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
                 </div>
               </td>
             </tr>
@@ -288,6 +300,8 @@ export default function SatelliteTable() {
                       background: 'linear-gradient(to right, #FEF2E7 0%, #FEF2E7 30%, #F9BF86 35%, #F9BF86 100%)'
                     }}
                   ></div>
+                  {/* 2025 marker line */}
+                  <div className="absolute top-0 bottom-0 w-0.5 bg-white" style={{ left: '87.5%' }}></div>
                 </div>
               </td>
             </tr>
