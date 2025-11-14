@@ -1698,16 +1698,6 @@ function App() {
                 src: '/images/oh1.webp',
                 alt: 'Ocean health observation 1',
                 caption: ''
-              },
-              {
-                src: '/images/oh2.webp',
-                alt: 'Ocean health observation 2',
-                caption: ''
-              },
-              {
-                src: '/images/oh3.webp',
-                alt: 'Ocean health observation 3',
-                caption: ''
               }
             ]}
             aspectRatio="square"
