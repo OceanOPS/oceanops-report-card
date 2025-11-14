@@ -45,12 +45,12 @@ export default function ColorStripes({
   // Colores más claros para el fade: cada tira va a un tono más claro
   const fadeColors = ['bg-goos-cyan-200', 'bg-goos-cyan-100', 'bg-white'];
   const containerRef = useRef<HTMLDivElement>(null);
-  const stripesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const stripesRef = useRef<(HTMLButtonElement | null)[]>([]);
   const deliveryAreasRef = useRef<(HTMLDivElement | null)[]>([]);
   const whiteLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Función para agregar referencias a los stripes
-  const addToStripesRefs = (el: HTMLDivElement | null, index: number) => {
+  const addToStripesRefs = (el: HTMLButtonElement | null, index: number) => {
     stripesRef.current[index] = el;
   };
 
