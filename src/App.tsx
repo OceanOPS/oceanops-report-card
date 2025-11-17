@@ -31,6 +31,22 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
 
+  // Indicators modal collapsible states
+  const [expandedIndicators, setExpandedIndicators] = useState({
+    implementation: false,
+    realTime: false,
+    archived: false,
+    metadata: false,
+    bestPractices: false,
+  })
+
+  const toggleIndicator = (indicator: keyof typeof expandedIndicators) => {
+    setExpandedIndicators(prev => ({
+      ...prev,
+      [indicator]: !prev[indicator]
+    }))
+  }
+
   // Block scroll while preloader is active
   useEffect(() => {
     if (isLoading) {
@@ -828,33 +844,74 @@ function App() {
                 <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                   {t('networks.indicatorsModal.implementationStatus.title')}
                 </h3>
-                <p className="text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-white">
+                <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
                   {t('networks.indicatorsModal.implementationStatus.description')}
                 </p>
-                <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line mb-2 sm:mb-3 text-white">
-                  {t('networks.indicatorsModal.implementationStatus.cases')}
-                </p>
-                <div className="text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-white">
-                  <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart1')}</span>
-                  {' '}
-                  <span>(</span>
-                  <a
-                    href={t('networks.indicatorsModal.implementationStatus.kpiLinkUrl')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-goos-orange-500 hover:underline"
+
+                {/* More button when collapsed */}
+                {!expandedIndicators.implementation && (
+                  <button
+                    onClick={() => toggleIndicator('implementation')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
                   >
-                    {t('networks.indicatorsModal.implementationStatus.kpiLinkText')}
-                  </a>
-                  <span>{t('networks.indicatorsModal.implementationStatus.kpiLinkSuffix')})</span>
-                  {' '}
-                  <span className="whitespace-pre-line">{t('networks.indicatorsModal.implementationStatus.kpiPart2')}</span>
-                </div>
-                <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
-                    {t('networks.indicatorsModal.implementationStatus.scoring')}
+                    {t('networks.indicatorsModal.moreButton')}
+                  </button>
+                )}
+
+                {/* Collapsible Content */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedIndicators.implementation ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
+                    {t('networks.indicatorsModal.implementationStatus.detailedCases')}
                   </p>
+                  <ul className="list-disc list-inside text-sm sm:text-base leading-relaxed mb-2 text-white space-y-1">
+                    <li>{t('networks.indicatorsModal.implementationStatus.case1')}</li>
+                    <li>{t('networks.indicatorsModal.implementationStatus.case2')}</li>
+                    <li>{t('networks.indicatorsModal.implementationStatus.case3')}</li>
+                  </ul>
+                  <p className="text-xs sm:text-sm italic leading-relaxed mb-3 text-goos-gray-200">
+                    {t('networks.indicatorsModal.implementationStatus.case1Note')}
+                  </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
+                    {t('networks.indicatorsModal.implementationStatus.kpiPart1')}
+                  </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
+                    {t('networks.indicatorsModal.implementationStatus.kpiPart2')}{' '}
+                    (<a
+                      href={t('networks.indicatorsModal.implementationStatus.kpiLinkUrl')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-goos-orange-500 hover:underline"
+                    >
+                      {t('networks.indicatorsModal.implementationStatus.kpiLinkText')}
+                    </a>){' '}
+                    {t('networks.indicatorsModal.implementationStatus.kpiPart3')}
+                  </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
+                    {t('networks.indicatorsModal.implementationStatus.activityDefinition')}
+                  </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
+                    {t('networks.indicatorsModal.implementationStatus.noTargetNote')}
+                  </p>
+                  <div className="bg-goos-blue-800 p-3 sm:p-4 rounded border border-goos-blue-700 mb-3">
+                    <h4 className="text-base sm:text-lg font-semibold mb-2 text-white uppercase">
+                      {t('satelliteObservations.scoringTitle')}
+                    </h4>
+                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                      {t('networks.indicatorsModal.implementationStatus.scoring')}
+                    </p>
+                  </div>
+
+                  {/* Less button at the end of expanded content */}
+                  <button
+                    onClick={() => toggleIndicator('implementation')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    Less...
+                  </button>
                 </div>
               </div>
 
@@ -863,17 +920,50 @@ function App() {
                 <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                   {t('networks.indicatorsModal.realTime.title')}
                 </h3>
-                <p className="text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-white">
+                <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
                   {t('networks.indicatorsModal.realTime.description')}
                 </p>
-                <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line mb-2 sm:mb-3 text-white">
-                  {t('networks.indicatorsModal.realTime.requirements')}
-                </p>
-                <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
-                    {t('networks.indicatorsModal.realTime.scoring')}
+
+                {/* More button when collapsed */}
+                {!expandedIndicators.realTime && (
+                  <button
+                    onClick={() => toggleIndicator('realTime')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    {t('networks.indicatorsModal.moreButton')}
+                  </button>
+                )}
+
+                {/* Collapsible Content */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedIndicators.realTime ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-sm sm:text-base font-semibold leading-relaxed mb-2 text-white">
+                    {t('networks.indicatorsModal.realTime.requirementsTitle')}
                   </p>
+                  <ul className="list-disc list-inside text-sm sm:text-base leading-relaxed mb-3 text-white space-y-1">
+                    <li>{t('networks.indicatorsModal.realTime.requirement1')}</li>
+                    <li>{t('networks.indicatorsModal.realTime.requirement2')}</li>
+                    <li>{t('networks.indicatorsModal.realTime.requirement3')}</li>
+                  </ul>
+                  <div className="bg-goos-blue-800 p-3 sm:p-4 rounded border border-goos-blue-700 mb-3">
+                    <h4 className="text-base sm:text-lg font-semibold mb-2 text-white uppercase">
+                      {t('satelliteObservations.scoringTitle')}
+                    </h4>
+                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                      {t('networks.indicatorsModal.realTime.scoring')}
+                    </p>
+                  </div>
+
+                  {/* Less button at the end of expanded content */}
+                  <button
+                    onClick={() => toggleIndicator('realTime')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    Less...
+                  </button>
                 </div>
               </div>
 
@@ -882,17 +972,50 @@ function App() {
                 <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                   {t('networks.indicatorsModal.archivedHighQuality.title')}
                 </h3>
-                <p className="text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-white">
+                <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
                   {t('networks.indicatorsModal.archivedHighQuality.description')}
                 </p>
-                <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line mb-2 sm:mb-3 text-white">
-                  {t('networks.indicatorsModal.archivedHighQuality.requirements')}
-                </p>
-                <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
-                    {t('networks.indicatorsModal.archivedHighQuality.scoring')}
+
+                {/* More button when collapsed */}
+                {!expandedIndicators.archived && (
+                  <button
+                    onClick={() => toggleIndicator('archived')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    {t('networks.indicatorsModal.moreButton')}
+                  </button>
+                )}
+
+                {/* Collapsible Content */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedIndicators.archived ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-sm sm:text-base font-semibold leading-relaxed mb-2 text-white">
+                    {t('networks.indicatorsModal.archivedHighQuality.requirementsTitle')}
                   </p>
+                  <ul className="list-disc list-inside text-sm sm:text-base leading-relaxed mb-3 text-white space-y-1">
+                    <li>{t('networks.indicatorsModal.archivedHighQuality.requirement1')}</li>
+                    <li>{t('networks.indicatorsModal.archivedHighQuality.requirement2')}</li>
+                    <li>{t('networks.indicatorsModal.archivedHighQuality.requirement3')}</li>
+                  </ul>
+                  <div className="bg-goos-blue-800 p-3 sm:p-4 rounded border border-goos-blue-700 mb-3">
+                    <h4 className="text-base sm:text-lg font-semibold mb-2 text-white uppercase">
+                      {t('satelliteObservations.scoringTitle')}
+                    </h4>
+                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                      {t('networks.indicatorsModal.archivedHighQuality.scoring')}
+                    </p>
+                  </div>
+
+                  {/* Less button at the end of expanded content */}
+                  <button
+                    onClick={() => toggleIndicator('archived')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    Less...
+                  </button>
                 </div>
               </div>
 
@@ -901,17 +1024,53 @@ function App() {
                 <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                   {t('networks.indicatorsModal.metadata.title')}
                 </h3>
-                <p className="text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-white">
+                <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
                   {t('networks.indicatorsModal.metadata.description')}
                 </p>
-                <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line mb-2 sm:mb-3 text-white">
-                  {t('networks.indicatorsModal.metadata.requirements')}
-                </p>
-                <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
-                    {t('networks.indicatorsModal.metadata.scoring')}
+
+                {/* More button when collapsed */}
+                {!expandedIndicators.metadata && (
+                  <button
+                    onClick={() => toggleIndicator('metadata')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    {t('networks.indicatorsModal.moreButton')}
+                  </button>
+                )}
+
+                {/* Collapsible Content */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedIndicators.metadata ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
+                    {t('networks.indicatorsModal.metadata.requirementsIntro')}
                   </p>
+                  <ul className="list-disc list-inside text-sm sm:text-base leading-relaxed mb-3 text-white space-y-1">
+                    <li>{t('networks.indicatorsModal.metadata.requirement1')}</li>
+                    <li>{t('networks.indicatorsModal.metadata.requirement2')}</li>
+                    <li>{t('networks.indicatorsModal.metadata.requirement3')}</li>
+                  </ul>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
+                    {t('networks.indicatorsModal.metadata.scoringIntro')}
+                  </p>
+                  <div className="bg-goos-blue-800 p-3 sm:p-4 rounded border border-goos-blue-700 mb-3">
+                    <h4 className="text-base sm:text-lg font-semibold mb-2 text-white uppercase">
+                      {t('satelliteObservations.scoringTitle')}
+                    </h4>
+                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                      {t('networks.indicatorsModal.metadata.scoring')}
+                    </p>
+                  </div>
+
+                  {/* Less button at the end of expanded content */}
+                  <button
+                    onClick={() => toggleIndicator('metadata')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    Less...
+                  </button>
                 </div>
               </div>
 
@@ -920,17 +1079,54 @@ function App() {
                 <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                   {t('networks.indicatorsModal.bestPractices.title')}
                 </h3>
-                <p className="text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-white">
+                <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
                   {t('networks.indicatorsModal.bestPractices.description')}
                 </p>
-                <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line mb-2 sm:mb-3 text-white">
-                  {t('networks.indicatorsModal.bestPractices.details')}
-                </p>
-                <div className="bg-goos-blue-800 p-3 sm:p-4 rounded">
-                  <h4 className="text-base sm:text-lg font-semibold mb-2 text-white">{t('satelliteObservations.scoringTitle')}</h4>
-                  <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
-                    {t('networks.indicatorsModal.bestPractices.scoring')}
+
+                {/* More button when collapsed */}
+                {!expandedIndicators.bestPractices && (
+                  <button
+                    onClick={() => toggleIndicator('bestPractices')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    {t('networks.indicatorsModal.moreButton')}
+                  </button>
+                )}
+
+                {/* Collapsible Content */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedIndicators.bestPractices ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
+                    {t('networks.indicatorsModal.bestPractices.detailsPart1')}
                   </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
+                    {t('networks.indicatorsModal.bestPractices.detailsPart2')}
+                  </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
+                    {t('networks.indicatorsModal.bestPractices.detailsPart3')}
+                  </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
+                    {t('networks.indicatorsModal.bestPractices.scoringIntro')}
+                  </p>
+                  <div className="bg-goos-blue-800 p-3 sm:p-4 rounded border border-goos-blue-700 mb-3">
+                    <h4 className="text-base sm:text-lg font-semibold mb-2 text-white uppercase">
+                      {t('satelliteObservations.scoringTitle')}
+                    </h4>
+                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                      {t('networks.indicatorsModal.bestPractices.scoring')}
+                    </p>
+                  </div>
+
+                  {/* Less button at the end of expanded content */}
+                  <button
+                    onClick={() => toggleIndicator('bestPractices')}
+                    className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                  >
+                    Less...
+                  </button>
                 </div>
               </div>
 

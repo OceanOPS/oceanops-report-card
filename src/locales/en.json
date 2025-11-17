@@ -403,40 +403,60 @@
     "indicatorsModal": {
       "title": "Network Performance Indicators",
       "intro": "Each network is evaluated by OceanOPS across five key performance indicators, rated on a scale from 0 to 3 stars. In some cases, a number of metrics are self-assessed by the networks when direct OceanOPS monitoring capacity is missing or information is not available (for example: missing metadata, unknown delayed mode data nodes, or absence of clear targets).",
+      "moreButton": "More...",
       "implementationStatus": {
         "title": "Implementation Status",
-        "description": "Measures the implementation of the networks against its target. Targets are defined by networks based on their implementation plan.",
-        "cases": "Three cases should be considered:\n• Community widely adopted target (e.g. Argo*, GO-SHIP, DBCP targets)\n• Network self-declared target (e.g. OceanGliders)\n• No target (self-assessed implementation/status)\n\n*The Argo program is transitioning from a global T/S array of 4,000 active floats to the OneArgo array, integrating the T/S, Deep, and BGC missions. During this transition, the global T/S array is being maintained.",
-        "kpiPart1": "When networks have a target, we can assess the operational implementation status of the network vs this target.\n\nThe KPI Activity at OceanOPS",
-        "kpiLinkText": "www.ocean-ops.org",
+        "description": "Measures the implementation of the networks against its target.  Targets are defined by networks based on their implementation plan.",
+        "detailedCases": "Three cases should be considered:",
+        "case1": "Community widely adopted target (e.g. Argo*, GO-SHIP, DBCP targets)",
+        "case1Note": "*The Argo program is transitioning from a global T/S array of 4,000 active floats to the OneArgo array, integrating the T/S, Deep, and BGC missions. During this transition, the global T/S array is being maintained.",
+        "case2": "Network self-declared target (e.g. OceanGliders)",
+        "case3": "No target (self-assessed implementation/status)",
+        "kpiPart1": "When networks have a target, we can assess the operational implementation status of the network vs this target.",
+        "kpiPart2": "The KPI Activity at OceanOPS",
+        "kpiLinkText": "www.ocean-ops.org > Metrics > KPIs",
         "kpiLinkUrl": "https://www.ocean-ops.org",
-        "kpiLinkSuffix": " > Metrics > KPIs",
-        "kpiPart2": "tracks this and provides a clear background metric.\n\nActivity measures the number of active platforms of a network. The definition of an active platform differs from one network to another (e.g., an active Argo float sent a profile within a month, an active GLOSS platform sent a monthly sea level mean within 5 years). Detailed definitions of active platforms are available in the report, below the <i>in situ</i> observing networks map.\n\nSome networks may have no target yet; in this case, the implementation status is self-evaluated by Networks.",
+        "kpiPart3": "tracks this and provides a clear background metric.",
+        "activityDefinition": "Activity measures the number of active platforms of a network. The definition of an active platform differs from one network to another (e.g., an active Argo float sent a profile within a month, an active GLOSS platform sent a monthly sea level mean within 5 years). Detailed definitions of active platforms are available in the report, below the <i>in situ</i> observing networks map.",
+        "noTargetNote": "Some networks may have no target yet; in this case, the implementation status is self-evaluated by Networks.",
         "scoring": "HALF-STAR: 0 < ACTIVITY ≤ 15%\n1 STAR: 15% < ACTIVITY ≤ 30%\n1 STAR & HALF: 30% < ACTIVITY ≤ 50%\n2 STARS: 50% < ACTIVITY ≤ 70%\n2 STARS & HALF: 70% < ACTIVITY ≤ 85%\n3 STARS: ACTIVITY > 85%"
       },
       "realTime": {
         "title": "Real Time Data Delivery",
         "description": "Evaluates the timeliness of data transmission to operational centers. Networks with high ratings support immediate forecasting needs.",
-        "requirements": "Requirements:\n• Real-Time Quality controlled procedures are applied\n• All individual observations are made available on the GTS of WMO with proper timeliness\n• All individual observations are made available on the Internet with proper interoperable services (e.g. API, ERRDAP), citable and discoverable.",
+        "requirementsTitle": "Requirements:",
+        "requirement1": "Real-Time Quality controlled procedures are applied",
+        "requirement2": "All individual observations are made available on the GTS of WMO with proper timeliness",
+        "requirement3": "All individual observations are made available on the Internet with proper interoperable services (API, ERRDAP e.g.), citable and discoverable.",
         "scoring": "HALF-STAR: 0 < REAL-TIME ≤ 0.5\n1 STAR: 0.5 < REAL-TIME ≤ 1\n1 STAR & HALF: 1 < REAL-TIME ≤ 1.5\n2 STARS: 1.5 < REAL-TIME ≤ 2\n2 STARS & HALF: 2 < REAL-TIME ≤ 2.5\n3 STARS: REAL-TIME > 2.5"
       },
       "archivedHighQuality": {
         "title": "Archived Delayed Mode Data",
         "description": "Assesses the completeness and quality control of historical data archives. High ratings indicate rigorous quality control processes and long-term archiving insurance.",
-        "requirements": "Requirements:\n• Raw data are archived for future reprocessing\n• A percentage of individual data are processed in delayed mode with additional quality controls (e.g. for climate analysis)\n• All individual observations made available on the internet with proper interoperable services (e.g. API, ERRDAP), citable and discoverable.",
+        "requirementsTitle": "Requirements:",
+        "requirement1": "Raw data are archived for future reprocessing",
+        "requirement2": "A percentage of individual data are processed in delayed mode with additional quality controls (e.g. for climate analysis)",
+        "requirement3": "All individual observations made available on the internet with proper interoperable services (e.g. API, ERRDAP), citable and discoverable.",
         "scoring": "HALF-STAR: 0 < ARCHIVED DELAYED-MODE ≤ 0.5\n1 STAR: 0.5 < ARCHIVED DELAYED-MODE ≤ 1\n1 STAR & HALF: 1 < ARCHIVED DELAYED-MODE ≤ 1.5\n2 STARS: 1.5 < ARCHIVED DELAYED-MODE ≤ 2\n2 STARS & HALF: 2 < ARCHIVED DELAYED-MODE ≤ 2.5\n3 STARS: ARCHIVED DELAYED-MODE > 2.5"
       },
       "metadata": {
         "title": "Metadata Completeness",
         "description": "Measures the documentation of observation methods, instruments, and data provenance. Complete metadata ensures data can be properly interpreted and reused by all users.",
-        "requirements": "Metadata are required by OceanOPS to:\n• monitor and support each network and the GOOS\n• serve WMO/WIGOS/OSCAR system with quality metadata for all marine systems\n• capture a common denominator enabling an integrated view, and using reference tables (WIGOS, SeaDataNet, ICES harmonized vocabularies) as far as possible.\n\nMetadata score is based on the completeness of each category of the OceanOPS passport (identification, affiliation, operation, hardware). Each category is monitored individually against network-specific criteria, and the overall score represents the average of the category scores over operational platforms. Next year the full Passport scoring (including data end points) will be used.",
+        "requirementsIntro": "Metadata are required by OceanOPS to:",
+        "requirement1": "monitor and support each network and the GOOS",
+        "requirement2": "serve WMO/WIGOS/OSCAR system with quality metadata for all marine systems",
+        "requirement3": "capture a common denominator enabling an integrated view, and using reference tables (WIGOS, SeaDataNet, ICES harmonized vocabularies as far as possible.",
+        "scoringIntro": "Metadata score is based on the completeness of each category of the OceanOPS passport (identification, affiliation, operation, hardware). Each category is monitored individually against network-specific criteria, and the overall score represents the average of the category scores over operational platforms. Next year the full Passport scoring (including data end points) will be used.:",
         "scoring": "HALF-STAR: 0 < SCORE ≤ 15%\n1 STAR: 15% < SCORE ≤ 30%\n1 STAR & HALF: 30% < SCORE ≤ 50%\n2 STARS: 50% < SCORE ≤ 70%\n2 STARS & HALF: 70% < SCORE ≤ 85%\n3 STARS: SCORE > 85%"
       },
       "bestPractices": {
         "title": "Best Practices Adoption",
         "description": "Evaluates adherence to international standards for data collection, processing, and sharing. Networks following best practices ensure data interoperability across systems.",
-        "details": "Regarding Best Practices a number of criteria were considered: the generic term \"Best Practices\" cover the observation 'lifecycle' - including deployment, sampling strategy, Standard Operating Procedures, pre-mission preparation (e.g. calibration and validation), data retrieval and formatting, primary quality control and secondary quality control for all the EOVs (and sub-variables) that they sample. There also needs to be clear best practices around data documentation, access and archival.\n\nOn top of having the best practices written, the ratings were based on how easily accessible the best practices are outside of the network community.\n\nAdditionally, the frequency of the update of the best practice has also been considered.",
-        "scoring": "1 STAR: standard practices exist, not accessible for larger community, no network agreement on best practices\n2 STARS: best practices in place but only accessible through meeting reports (difficult to find on various websites) or 2-3 manuals are easily available but don't cover the whole observing lifecycle, or very outdated\n3 STARS: community reviewed and easily accessible documentation encompassing the observations lifecycle."
+        "detailsPart1": "Regarding Best Practices a number of criteria were considered: the generic term \"Best Practices\" cover the observation 'lifecycle' - including deployment, sampling strategy, Standard Operating Procedures , pre-mission preparation (e.g. calibration and validation), data retrieval and formatting, primary quality control and secondary quality control for all the EOVs (and sub-variables) that they sample. There also needs to be clear best practices around data documentation, access and archival.",
+        "detailsPart2": "On top of having the best practices written, the ratings were based on how easily accessible the best practices are outside of the network community.",
+        "detailsPart3": "Additionally, the frequency of the update of the best practice has also been considered.",
+        "scoringIntro": "So, the scoring could be:",
+        "scoring": "1 STAR: standard practices exist, not accessible for larger community, no network agreement on best practices\n2 STARS: best practices in place but only accessible through meeting reports (difficult to find on various websites) or 2-3 manuals are easily available but don't cover the whole observing lifecycle, or very outdated\n3 STARS: community reviewed and easily accessible documentation encompassing the observations lifecycle"
       },
       "deliveryAreas": {
         "title": "GOOS Delivery Areas",
