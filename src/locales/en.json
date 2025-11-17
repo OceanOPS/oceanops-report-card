@@ -213,7 +213,7 @@
     "paragraph1": "General information: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/><i>In situ</i> networks status: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>GOOS Status Report information: <a href=\"mailto:l.stukonyte@unesco.org\" class=\"text-goos-orange-500 underline hover:no-underline\">l.stukonyte@unesco.org</a> / <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a>",
     "paragraph2": "Authors: GOOS Secretariat, OceanOPS, GOOS Observations Coordination Group<br/>GOOS Report No. GOOS-300.",
     "paragraph3": "A special thank you to all editors and contributors: Monica Alvarado Niño, Mathieu Belbéoch, Severine Fournier, Yao Fu, Emma Heslop, Sreelekha Jarugula, Ian Jonsen, Ana Lara-Lopez, Thomas Latter, Clive McMahon, Tammy Morris, Joanna Post, Jon Pye, Juan Miguel Quintana Arena, Emanuela Rusciano, Matias Sifón, Laura Stukonytė, Ann-Christine Zinkann",
-    "paragraph4": "Cover video: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a><br/>Photos: Abeeku Acquah (EDF); SMART Cables; NOAA-PMEL; Charles Darwin University, Elysium EPL and Oceanus Collective Ltd Pty; Shutterstock; Peter Brown; Monica Alvarado Niño, Clive McMahon, OceanOPS, NOAA, SOCIB",
+    "paragraph4": "Cover video: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a><br/>Photos: Abeeku Acquah (EDF); SMART Cables; NOAA-PMEL; Charles Darwin University, Elysium EPL and Oceanus Collective Ltd Pty; Shutterstock; Peter Brown; Monica Alvarado Niño, Clive McMahon, OceanOPS, NOAA, Balearic Islands Coastal Observing and Forecasting System (SOCIB)",
     "paragraph5": "Design + Code by Diego Cataldo"
   },
   "content": {
@@ -245,7 +245,7 @@
       },
       "statsTitle": "<i>In situ</i> observing networks by the numbers",
       "statsIntro": "Our global community of providers and operators are working together to deliver essential ocean information every day.",
-      "statsIntro2": "<i>Numbers provided in this report mostly concern the operational components of the GOOS, and it is planned to gradually include the BioEco components in future releases.</i>",
+      "statsIntro2": "The current numbers and map show operational observations from mostly mature ocean observing networks feeding into OceanOPS. In future editions, GOOS aims to fully integrate all emerging networks as well as biological and ecosystem observations into this display.",
       "stats": {
         "stat1": {
           "number": "64",
@@ -612,7 +612,7 @@
   "satelliteObservations": {
     "title": "Satellite Observations",
     "introduction": "Satellite observations provide a global view of the ocean, complementing <i>in situ</i> measurements with repeated observations of surface variables such as temperature, sea level, ocean color, and winds. They are essential for understanding large-scale processes, supporting ocean and climate forecasts, and monitoring change. Together with <i>in situ</i> data, satellites also help track key phenomena such as the Atlantic Meridional Overturning Circulation (AMOC) and its long-term trends.",
-    "platformButton": "About Essential Climate Variables",
+    "platformButton": "About Essential Variables",
     "tableTitle": "Essential Ocean and Climate Variables",
     "timelineRange": "Measured from space",
     "yearLabel": "Year",

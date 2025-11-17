@@ -683,7 +683,7 @@ function App() {
               bestPractices: 2,
             },
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+            deliveryAreas: ['climate', 'oceanhealth'],
           },
           {
             iconSrc: '/icons/network/dbcp_moored.svg',
