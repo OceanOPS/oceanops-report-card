@@ -14,24 +14,25 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { asset } from '../utils/assets'
 
 // Delivery area configuration matching NetworkCard component
 const DELIVERY_AREAS = [
   {
     key: 'climate',
-    icon: '/icons/climate.png',
+    icon: asset('/icons/climate.png'),
     labelKey: 'networks.deliveryAreas.climate',
     sectionId: 'amoc-section',
   },
   {
     key: 'operational',
-    icon: '/icons/operational_services.png',
+    icon: asset('/icons/operational_services.png'),
     labelKey: 'networks.deliveryAreas.operational',
     sectionId: 'elnino-section',
   },
   {
     key: 'oceanhealth',
-    icon: '/icons/ocean_health.png',
+    icon: asset('/icons/ocean_health.png'),
     labelKey: 'networks.deliveryAreas.oceanhealth',
     sectionId: 'oceanhealth-section',
   },
