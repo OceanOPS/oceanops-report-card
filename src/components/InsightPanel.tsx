@@ -64,10 +64,11 @@
  * ```
  */
 
-import { ReactNode, useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from './Button'
+import ContentModal from './ContentModal'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -120,6 +121,10 @@ interface StatItem {
   description: string
   linkText?: string
   linkUrl?: string
+  infoModal?: {
+    title: string
+    content: ReactNode
+  }
 }
 
 interface InsightPanelProps {
@@ -160,6 +165,7 @@ export default function InsightPanel({
   const sectionRef = useRef<HTMLElement>(null)
   const largeNumberRef = useRef<HTMLParagraphElement>(null)
   const statNumberRefs = useRef<(HTMLParagraphElement | null)[]>([])
+  const [openModalIndex, setOpenModalIndex] = useState<number | null>(null)
 
   // Helper function to extract numeric value from string (e.g., "129" from "129" or "45" from "$45M")
   const extractNumber = (text: string): number => {
@@ -319,9 +325,33 @@ export default function InsightPanel({
                       <p ref={(el) => (statNumberRefs.current[index] = el)} className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}>
                         {stat.number}
                       </p>
-                      <p className={`text-sm sm:text-base font-normal ${textColor}`}>
-                        {stat.description}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className={`text-sm sm:text-base font-normal ${textColor}`}>
+                          {stat.description}
+                        </p>
+                        {stat.infoModal && (
+                          <button
+                            onClick={() => setOpenModalIndex(index)}
+                            className={`${textColor} opacity-70 hover:opacity-100 transition-opacity flex-shrink-0`}
+                            aria-label="More information"
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <line x1="12" y1="16" x2="12" y2="12" />
+                              <line x1="12" y1="8" x2="12.01" y2="8" />
+                            </svg>
+                          </button>
+                        )}
+                      </div>
                       {stat.linkText && stat.linkUrl && (
                         <a
                           href={stat.linkUrl}
@@ -344,9 +374,33 @@ export default function InsightPanel({
                         <p ref={(el) => (statNumberRefs.current[index + 2] = el)} className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}>
                           {stat.number}
                         </p>
-                        <p className={`text-sm sm:text-base font-normal ${textColor}`}>
-                          {stat.description}
-                        </p>
+                        <div className="flex items-center gap-2">
+                          <p className={`text-sm sm:text-base font-normal ${textColor}`}>
+                            {stat.description}
+                          </p>
+                          {stat.infoModal && (
+                            <button
+                              onClick={() => setOpenModalIndex(index + 2)}
+                              className={`${textColor} opacity-70 hover:opacity-100 transition-opacity flex-shrink-0`}
+                              aria-label="More information"
+                            >
+                              <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="16" x2="12" y2="12" />
+                                <line x1="12" y1="8" x2="12.01" y2="8" />
+                              </svg>
+                            </button>
+                          )}
+                        </div>
                         {stat.linkText && stat.linkUrl && (
                           <a
                             href={stat.linkUrl}
@@ -366,6 +420,22 @@ export default function InsightPanel({
           </div>
         </div>
       </div>
+
+      {/* Info Modals */}
+      {stats?.map((stat, index) =>
+        stat.infoModal ? (
+          <ContentModal
+            key={index}
+            isOpen={openModalIndex === index}
+            onClose={() => setOpenModalIndex(null)}
+            title={stat.infoModal.title}
+            maxWidth="lg"
+            backgroundColor="bg-goos-blue-900"
+          >
+            {stat.infoModal.content}
+          </ContentModal>
+        ) : null
+      )}
     </section>
   )
 }
