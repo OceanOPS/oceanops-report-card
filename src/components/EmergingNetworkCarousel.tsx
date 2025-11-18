@@ -3,6 +3,7 @@
  *
  * A horizontal scrolling carousel that displays EmergingNetworkCard components.
  * Features optional title with decorative line, navigation arrows, and customizable colors.
+ * Uses Embla Carousel for smooth scrolling, drag support, and infinite loop.
  *
  * @param title - Optional section title (translation key)
  * @param hasLine - Show decorative line above title (default: true)
@@ -51,10 +52,15 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { ReactNode } from 'react'
+import { ReactNode, useCallback, useEffect, useState, useRef } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import EmergingNetworkCard from './EmergingNetworkCard'
 import CarouselArrow from './CarouselArrow'
 import { GalleryImage } from './ImageGallery'
+
+gsap.registerPlugin(ScrollTrigger)
 
 type DeliveryAreaKey = 'climate' | 'operational' | 'oceanhealth'
 
@@ -66,6 +72,8 @@ interface EmergingNetworkCardData {
   imageAlt?: string
   // For gallery
   images?: GalleryImage[]
+  modalTitle?: string
+  modalContent?: ReactNode
   // For video
   videoType?: 'youtube' | 'local'
   videoId?: string
@@ -74,12 +82,13 @@ interface EmergingNetworkCardData {
   iconSrc: string
   iconAlt: string
   titleKey: string
-  descriptionKey: string
-  modalTitle: string
-  modalContent: ReactNode
-  viewMoreTextKey: string
+  paragraph1Key: string
+  paragraph2Key: string
   deliveryAreasLabelKey: string
   deliveryAreas: DeliveryAreaKey[]
+  // Optional external link
+  externalLinkUrl?: string
+  externalLinkTextKey?: string
 }
 
 interface EmergingNetworkCarouselProps {
@@ -122,52 +131,192 @@ export default function EmergingNetworkCarousel({
   className = '',
 }: EmergingNetworkCarouselProps) {
   const { t } = useTranslation()
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
+
+  // Embla Carousel setup - Simple and standard
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: false,
+    slidesToScroll: 1,
+    breakpoints: {
+      '(min-width: 768px)': { slidesToScroll: 1 },
+      '(min-width: 1024px)': { slidesToScroll: 1 },
+    },
+  })
+
+  // Update selected index, scroll snaps, and arrow states
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+      setCanScrollPrev(emblaApi.canScrollPrev())
+      setCanScrollNext(emblaApi.canScrollNext())
+    }
+
+    const onInit = () => {
+      setScrollSnaps(emblaApi.scrollSnapList())
+      setCanScrollPrev(emblaApi.canScrollPrev())
+      setCanScrollNext(emblaApi.canScrollNext())
+    }
+
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onInit)
+
+    onSelect()
+    onInit()
+
+    return () => {
+      emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onInit)
+    }
+  }, [emblaApi])
+
+  // Arrow navigation handlers
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
+  // Scroll to specific index
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index)
+  }, [emblaApi])
+
+  // Animate cards cascading from left on scroll
+  useEffect(() => {
+    if (!carouselRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations for users who prefer reduced motion
+      return
+    }
+
+    const ctx = gsap.context(() => {
+      const cardElements = carouselRef.current?.querySelectorAll('.emerging-card-slide')
+      if (!cardElements || cardElements.length === 0) return
+
+      gsap.fromTo(
+        Array.from(cardElements),
+        {
+          opacity: 0,
+          x: -100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          stagger: 0.15, // 150ms between each card
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: carouselRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+        }
+      )
+    }, carouselRef)
+
+    return () => ctx.revert()
+  }, [cards.length])
 
   return (
-    <section className={`${backgroundColor} py-12 ${className}`}>
+    <section className={`${backgroundColor} py-6 sm:py-8 md:py-12 ${className}`}>
       {/* Header Section */}
-      <div className="px-12 md:px-16 mx-auto flex flex-col gap-5">
-        <div className="h-8 w-5 opacity-75"></div>
+      <div className="px-4 sm:px-8 md:px-12 lg:px-16 mx-auto flex flex-col gap-5">
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {/* Title Section */}
         {title && (
-          <div>
-            <div className="flex justify-between items-start gap-8">
-              <div className="flex flex-col gap-6">
-                {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
-                <h3 className={`text-4xl font-extrabold ${titleColor} leading-10`}>
-                  {t(title)}
-                </h3>
-              </div>
-              <div className="flex gap-4 mt-8">
-                <CarouselArrow direction="left" color={arrowColor} />
-                <CarouselArrow direction="right" color={arrowColor} />
-              </div>
-            </div>
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+            {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
+            <h3
+              className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
+              dangerouslySetInnerHTML={{ __html: t(title) }}
+            />
           </div>
         )}
 
-        <div className="h-8 w-5 opacity-75"></div>
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
       </div>
 
-      {/* Horizontal Scroll Container */}
-      <div className="overflow-x-auto px-12 md:px-16 pb-4">
-        <div className="flex gap-12 min-w-max">
+      {/* Embla Carousel Container */}
+      <div className="overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 pb-3 sm:pb-4" ref={emblaRef}>
+        <div ref={carouselRef} className="flex gap-12 cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
-            <EmergingNetworkCard
+            <div
               key={index}
-              {...card}
-              backgroundColor={cardBackgroundColor}
-              textColor={cardTextColor}
-              buttonBgColor={buttonBgColor}
-              buttonTextColor={buttonTextColor}
-              buttonIconBgColor={buttonIconBgColor}
-              buttonIconColor={buttonIconColor}
-              tooltipBgColor={tooltipBgColor}
-              tooltipTextColor={tooltipTextColor}
-              overlayIconColor={overlayIconColor}
+              className="emerging-card-slide flex-[0_0_100%] min-w-0 flex"
+            >
+              <EmergingNetworkCard
+                {...card}
+                backgroundColor={cardBackgroundColor}
+                textColor={cardTextColor}
+                buttonBgColor={buttonBgColor}
+                buttonTextColor={buttonTextColor}
+                buttonIconBgColor={buttonIconBgColor}
+                buttonIconColor={buttonIconColor}
+                tooltipBgColor={tooltipBgColor}
+                tooltipTextColor={tooltipTextColor}
+                overlayIconColor={overlayIconColor}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Controls: Dots (left) + Arrows (right) */}
+      <div className="flex justify-between items-center px-4 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4">
+        {/* Pagination Dots - Left aligned - One dot per snap point */}
+        <div className="flex gap-2">
+          {scrollSnaps.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === selectedIndex
+                  ? 'bg-white w-8'
+                  : 'bg-white opacity-30 hover:opacity-50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+        </div>
+
+        {/* Navigation Arrows - Right aligned */}
+        <div className="flex gap-4">
+          <button
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className={`transition-opacity ${!canScrollPrev ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          >
+            <CarouselArrow
+              direction="left"
+              color={arrowColor}
+              onClick={() => {}}
+            />
+          </button>
+          <button
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className={`transition-opacity ${!canScrollNext ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          >
+            <CarouselArrow
+              direction="right"
+              color={arrowColor}
+              onClick={() => {}}
+            />
+          </button>
         </div>
       </div>
     </section>

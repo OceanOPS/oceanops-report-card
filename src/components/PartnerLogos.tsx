@@ -65,16 +65,16 @@ export default function PartnerLogos({ variant = 'white', className = '' }: Part
   }
 
   return (
-    <div className={`flex justify-between items-center flex-wrap ${className}`}>
+    <div className={`w-full flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-0 ${className}`}>
       {/* Left side logos */}
-      <div className="flex gap-8 items-center flex-wrap">
+      <div className="flex gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center flex-wrap justify-start">
         {leftLogos.map((logo, index) => (
           <a
             key={index}
             href={logo.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-20 transition-opacity hover:opacity-70"
+            className="h-12 sm:h-14 md:h-16 lg:h-20 transition-opacity hover:opacity-70"
           >
             <img
               src={logo.src}
@@ -85,19 +85,22 @@ export default function PartnerLogos({ variant = 'white', className = '' }: Part
         ))}
       </div>
 
-      {/* Right side logo - OceanOPS */}
-      <a
-        href={rightLogo.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="h-20 transition-opacity hover:opacity-70"
-      >
-        <img
-          src={rightLogo.src}
-          alt={rightLogo.alt}
-          className="h-full w-auto object-contain opacity-90"
-        />
-      </a>
+      {/* Right side logo - OceanOPS with "Powered by" */}
+      <div className="flex flex-col items-start gap-2 sm:items-end">
+        <span className="text-xs sm:text-sm text-white opacity-70 font-light">{t('cover.poweredBy')}</span>
+        <a
+          href={rightLogo.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="h-12 sm:h-14 md:h-16 lg:h-20 transition-opacity hover:opacity-70"
+        >
+          <img
+            src={rightLogo.src}
+            alt={rightLogo.alt}
+            className="h-full w-auto object-contain opacity-90"
+          />
+        </a>
+      </div>
     </div>
   )
 }

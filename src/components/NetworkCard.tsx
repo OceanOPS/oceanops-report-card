@@ -3,14 +3,14 @@
  *
  * A card component that displays network information with ratings and delivery areas.
  * Designed to be used within NetworkCarousel or standalone.
- * Supports half-star ratings (0, 0.5, 1, 1.5, 2, 2.5, 3).
+ * Supports half-star ratings (0, 0.5, 1, 1.5, 2, 2.5, 3) or text labels.
  *
  * @param iconSrc - URL to network icon/logo image (required)
  * @param iconAlt - Alt text for icon (translatable key) (required)
  * @param titleKey - Translation key for network title (required)
  * @param networkUrl - URL to network page (required)
  * @param networkLinkKey - Translation key for "View Network" link text (required)
- * @param ratings - Object with rating values (0-3, supports 0.5 increments) (required)
+ * @param ratings - Object with rating values (0-3 for stars, or string for text like "Not applicable") (required)
  * @param deliveryAreasLabelKey - Translation key for "GOOS delivery areas" label text (required)
  * @param deliveryAreas - Array of 1-3 delivery area keys: 'climate', 'operational', 'oceanhealth' (required)
  * @param backgroundColor - Tailwind background color (default: 'bg-goos-blue-800')
@@ -18,12 +18,13 @@
  * @param accentColor - Tailwind color for stars and links (default: 'text-goos-orange-500')
  * @param iconBgColor - Tailwind background color for delivery area icons (default: 'bg-goos-light-blue-shade-200')
  * @param iconTextColor - Tailwind text color for delivery area icon SVGs (default: 'text-goos-deep-blue')
- * @param tooltipBgColor - Tailwind background color for tooltip (default: 'bg-goos-blue-900')
- * @param tooltipTextColor - Tailwind text color for tooltip (default: 'text-white')
+ * @param tooltipBgColor - Tailwind background color for tooltip (default: 'bg-goos-deep-blue')
+ * @param tooltipTextColor - Tailwind text color for tooltip (default: 'text-goos-white')
  * @param className - Optional additional Tailwind classes
  *
  * @example
  * ```tsx
+ * // With numeric ratings (shows stars)
  * <NetworkCard
  *   iconSrc="/images/network-icon.png"
  *   iconAlt="networks.argo.iconAlt"
@@ -39,9 +40,24 @@
  *   }}
  *   deliveryAreasLabelKey="networks.deliveryAreasLabel"
  *   deliveryAreas={['climate', 'operational', 'oceanhealth']}
- *   backgroundColor="bg-goos-blue-800"
- *   textColor="text-white"
- *   accentColor="text-goos-orange-500"
+ * />
+ *
+ * // With text labels (shows text)
+ * <NetworkCard
+ *   iconSrc="/images/network-icon.png"
+ *   iconAlt="networks.emerging.iconAlt"
+ *   titleKey="networks.emerging.title"
+ *   networkUrl="https://example.com/emerging"
+ *   networkLinkKey="networks.viewNetwork"
+ *   ratings={{
+ *     implementationStatus: "Not applicable",
+ *     realTime: 2,
+ *     archivedHighQuality: "N/A",
+ *     metadata: 1,
+ *     bestPractices: "Not applicable"
+ *   }}
+ *   deliveryAreasLabelKey="networks.deliveryAreasLabel"
+ *   deliveryAreas={['climate']}
  * />
  * ```
  */
@@ -69,11 +85,11 @@ const DELIVERY_AREAS_CONFIG = {
 type DeliveryAreaKey = keyof typeof DELIVERY_AREAS_CONFIG
 
 interface NetworkRatings {
-  implementationStatus: number
-  realTime: number
-  archivedHighQuality: number
-  metadata: number
-  bestPractices: number
+  implementationStatus: number | string
+  realTime: number | string
+  archivedHighQuality: number | string
+  metadata: number | string
+  bestPractices: number | string
 }
 
 interface NetworkCardProps {
@@ -107,10 +123,10 @@ export default function NetworkCard({
   backgroundColor = 'bg-goos-blue-800',
   textColor = 'text-white',
   accentColor = 'text-goos-orange-500',
-  iconBgColor = 'bg-goos-light-blue-shade-200',
+  iconBgColor = 'bg-goos-cyan-200',
   iconTextColor = 'text-goos-deep-blue',
   tooltipBgColor = 'bg-goos-blue-900',
-  tooltipTextColor = 'text-white',
+  tooltipTextColor = 'text-goos-white',
   className = '',
 }: NetworkCardProps) {
   const { t } = useTranslation()
@@ -156,8 +172,20 @@ export default function NetworkCard({
     return stars
   }
 
+  // Helper function to render rating (stars or text)
+  const renderRating = (rating: number | string) => {
+    if (typeof rating === 'string') {
+      return (
+        <span className={`${textColor} text-sm italic opacity-70`}>
+          {rating}
+        </span>
+      )
+    }
+    return renderStars(rating)
+  }
+
   return (
-    <article className={`${backgroundColor} p-6 flex flex-col gap-6 w-[420px] ${className}`}>
+    <article className={`${backgroundColor} p-6 flex flex-col gap-6 w-full h-full ${className}`}>
       {/* Icon and Title */}
       <div className="flex flex-col gap-4 min-h-[88px]">
         <div className="h-[71px] w-[70px]">
@@ -189,43 +217,74 @@ export default function NetworkCard({
       {/* Ratings */}
       <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.implementationStatus')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.implementationStatus')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.implementationStatus')}
+            </p>
+          </Tooltip>
           <div className="flex gap-1">
-            {renderStars(ratings.implementationStatus)}
+            {renderRating(ratings.implementationStatus)}
           </div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.realTime')}:
-          </p>
-          <div className="flex gap-1">{renderStars(ratings.realTime)}</div>
+          <Tooltip
+            content={t('networks.ratingsTooltips.realTime')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.realTime')}
+            </p>
+          </Tooltip>
+          <div className="flex gap-1">{renderRating(ratings.realTime)}</div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.archivedHighQuality')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.archivedHighQuality')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.archivedHighQuality')}
+            </p>
+          </Tooltip>
           <div className="flex gap-1">
-            {renderStars(ratings.archivedHighQuality)}
+            {renderRating(ratings.archivedHighQuality)}
           </div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.metadata')}:
-          </p>
-          <div className="flex gap-1">{renderStars(ratings.metadata)}</div>
+          <Tooltip
+            content={t('networks.ratingsTooltips.metadata')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+            allowHtml={true}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.metadata')}
+            </p>
+          </Tooltip>
+          <div className="flex gap-1">{renderRating(ratings.metadata)}</div>
         </div>
 
         <div className="flex justify-between items-center">
-          <p className={`flex-1 ${textColor} text-base`}>
-            {t('networks.ratings.bestPractices')}:
-          </p>
+          <Tooltip
+            content={t('networks.ratingsTooltips.bestPractices')}
+            backgroundColor={tooltipBgColor}
+            textColor={tooltipTextColor}
+          >
+            <p className={`flex-1 ${textColor} text-base underline decoration-dotted decoration-white/30 cursor-help`}>
+              {t('networks.ratings.bestPractices')}
+            </p>
+          </Tooltip>
           <div className="flex gap-1">
-            {renderStars(ratings.bestPractices)}
+            {renderRating(ratings.bestPractices)}
           </div>
         </div>
       </div>
@@ -248,12 +307,12 @@ export default function NetworkCard({
                 textColor={tooltipTextColor}
               >
                 <div
-                  className={`${iconBgColor} rounded-full p-2 w-12 h-12 flex items-center justify-center cursor-pointer transition-transform hover:scale-110`}
+                  className={`${iconBgColor} rounded-full p-1.5 sm:p-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center cursor-pointer transition-transform hover:scale-110`}
                 >
                   <img
                     src={area.icon}
                     alt={t(area.labelKey)}
-                    className={`w-6 h-6 object-contain ${iconTextColor}`}
+                    className={`object-contain ${iconTextColor}`}
                   />
                 </div>
               </Tooltip>

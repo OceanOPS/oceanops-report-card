@@ -124,8 +124,52 @@ export default {
         '7xl': ['72px', '72px'],
         '8xl': ['96px', '96px'],
         '9xl': ['128px', '128px'],
-      }
+      },
+      keyframes: {
+        expandIn: {
+          '0%': { opacity: '0', transform: 'scaleY(0.95)' },
+          '100%': { opacity: '1', transform: 'scaleY(1)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeInDown: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        expandIn: 'expandIn 0.3s ease-out',
+        fadeIn: 'fadeIn 0.2s ease-out',
+        fadeInDown: 'fadeInDown 0.3s ease-out',
+        fadeInUp: 'fadeInUp 0.4s ease-out',
+      },
+      animationDelay: {
+        '100': '100ms',
+        '200': '200ms',
+        '300': '300ms',
+      },
     }
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.animation-delay-100': {
+          'animation-delay': '100ms',
+        },
+        '.animation-delay-200': {
+          'animation-delay': '200ms',
+        },
+        '.animation-delay-300': {
+          'animation-delay': '300ms',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 }

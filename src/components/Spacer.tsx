@@ -6,6 +6,7 @@
  *
  * @param size - Preset size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' (optional)
  * @param height - Custom height in pixels or Tailwind spacing (overrides size)
+ * @param backgroundColor - Tailwind background color class (default: transparent)
  * @param className - Optional additional Tailwind classes
  *
  * Preset sizes:
@@ -26,29 +27,33 @@
  *
  * // Using custom height with Tailwind spacing
  * <Spacer height="h-24" />
+ *
+ * // With background color to match surrounding modules
+ * <Spacer size="lg" backgroundColor="bg-goos-blue-900" />
  * ```
  */
 
 interface SpacerProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   height?: string
+  backgroundColor?: string
   className?: string
 }
 
-export default function Spacer({ size = 'md', height, className = '' }: SpacerProps) {
-  // Preset size mappings
+export default function Spacer({ size = 'md', height, backgroundColor = '', className = '' }: SpacerProps) {
+  // Preset size mappings with responsive values
   const sizeMap = {
-    xs: 'h-4',   // 1rem / 16px
-    sm: 'h-8',   // 2rem / 32px
-    md: 'h-16',  // 4rem / 64px
-    lg: 'h-24',  // 6rem / 96px
-    xl: 'h-32',  // 8rem / 128px
-    '2xl': 'h-40', // 10rem / 160px
+    xs: 'h-1 sm:h-2 md:h-4',        // 4px -> 8px -> 16px
+    sm: 'h-2 sm:h-4 md:h-8',        // 8px -> 16px -> 32px
+    md: 'h-3 sm:h-6 md:h-16',       // 12px -> 24px -> 64px
+    lg: 'h-4 sm:h-8 md:h-24',       // 16px -> 32px -> 96px
+    xl: 'h-6 sm:h-12 md:h-32',      // 24px -> 48px -> 128px
+    '2xl': 'h-8 sm:h-16 md:h-40',   // 32px -> 64px -> 160px
   }
 
   // If custom height is provided, use it; otherwise use preset size
   const heightClass = height ? (height.startsWith('h-') ? height : '') : sizeMap[size]
   const customStyle = height && !height.startsWith('h-') ? { height } : undefined
 
-  return <div className={`w-full ${heightClass} ${className}`} style={customStyle} />
+  return <div className={`w-full ${heightClass} ${backgroundColor} ${className}`} style={customStyle} />
 }

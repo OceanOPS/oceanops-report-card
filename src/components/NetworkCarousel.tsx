@@ -3,6 +3,7 @@
  *
  * A horizontal scrolling carousel that displays NetworkCard components.
  * Features optional title with decorative line and customizable colors.
+ * Uses Embla Carousel for smooth scrolling, drag support, and arrow navigation.
  *
  * @param title - Optional section title (translation key)
  * @param hasLine - Show decorative line above title (default: true)
@@ -56,15 +57,21 @@
  */
 
 import { useTranslation } from 'react-i18next'
+import { useCallback, useEffect, useState, useRef } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import NetworkCard from './NetworkCard'
 import CarouselArrow from './CarouselArrow'
 
+gsap.registerPlugin(ScrollTrigger)
+
 interface NetworkRatings {
-  implementationStatus: number
-  realTime: number
-  archivedHighQuality: number
-  metadata: number
-  bestPractices: number
+  implementationStatus: number | string
+  realTime: number | string
+  archivedHighQuality: number | string
+  metadata: number | string
+  bestPractices: number | string
 }
 
 type DeliveryAreaKey = 'climate' | 'operational' | 'oceanhealth'
@@ -112,53 +119,195 @@ export default function NetworkCarousel({
   className = '',
 }: NetworkCarouselProps) {
   const { t } = useTranslation()
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
+
+  // Embla Carousel setup - Simple and standard
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: false,
+    slidesToScroll: 1,
+    breakpoints: {
+      '(min-width: 768px)': { slidesToScroll: 2 },
+      '(min-width: 1024px)': { slidesToScroll: 3 },
+    },
+  })
+
+  // Update selected index, scroll snaps, and arrow states
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+      setCanScrollPrev(emblaApi.canScrollPrev())
+      setCanScrollNext(emblaApi.canScrollNext())
+    }
+
+    const onInit = () => {
+      setScrollSnaps(emblaApi.scrollSnapList())
+      setCanScrollPrev(emblaApi.canScrollPrev())
+      setCanScrollNext(emblaApi.canScrollNext())
+    }
+
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onInit)
+
+    onSelect()
+    onInit()
+
+    return () => {
+      emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onInit)
+    }
+  }, [emblaApi])
+
+  // Arrow navigation handlers
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
+  // Scroll to specific snap point
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index)
+  }, [emblaApi])
+
+  // Animate cards cascading from left on scroll
+  useEffect(() => {
+    if (!carouselRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      // No animations for users who prefer reduced motion
+      return
+    }
+
+    const ctx = gsap.context(() => {
+      const cardElements = carouselRef.current?.querySelectorAll('.network-card-slide')
+      if (!cardElements || cardElements.length === 0) return
+
+      gsap.fromTo(
+        Array.from(cardElements),
+        {
+          opacity: 0,
+          x: -100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          stagger: 0.15, // 150ms between each card
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: carouselRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+        }
+      )
+    }, carouselRef)
+
+    return () => ctx.revert()
+  }, [cards.length])
 
   return (
     <section className={`${backgroundColor} py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
         {/* Top spacer */}
-        <div className="h-8 w-5 opacity-75"></div>
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {/* Title Section */}
         {title && (
-          <div className="px-12 md:px-16">
-            <div className="flex justify-between items-start gap-8">
-              <div className="flex flex-col gap-6">
-                {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
-                <h3 className={`text-4xl font-extrabold ${titleColor} leading-10`}>
-                  {t(title)}
-                </h3>
-              </div>
-              <div className="flex gap-4 mt-8">
-                <CarouselArrow direction="left" color={arrowColor} />
-                <CarouselArrow direction="right" color={arrowColor} />
-              </div>
+          <div className="px-4 sm:px-8 md:px-12 lg:px-16">
+            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+              {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
+              <h3
+                className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
+                dangerouslySetInnerHTML={{ __html: t(title) }}
+              />
             </div>
           </div>
         )}
 
-        <div className="h-8 w-5 opacity-75"></div>
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
       </div>
 
-      {/* Horizontal Scroll Container */}
-      <div className="overflow-x-auto pb-4 px-12 md:px-16">
-        <div className="flex gap-8 min-w-max items-stretch">
+      {/* Embla Carousel Container */}
+      <div className="overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 pb-3 sm:pb-4" ref={emblaRef}>
+        <div ref={carouselRef} className="flex gap-10 cursor-grab active:cursor-grabbing items-stretch">
           {cards.map((card, index) => (
-            <NetworkCard
+            <div
               key={index}
-              {...card}
-              backgroundColor={cardBackgroundColor}
-              textColor={cardTextColor}
-              accentColor={cardAccentColor}
-              tooltipBgColor={tooltipBgColor}
-              tooltipTextColor={tooltipTextColor}
-            />
+              className="network-card-slide flex-[0_0_100%] min-w-0 flex md:flex-[0_0_calc(50%-20px)] lg:flex-[0_0_calc(33.333%-27px)]"
+            >
+              <NetworkCard
+                {...card}
+                backgroundColor={cardBackgroundColor}
+                textColor={cardTextColor}
+                accentColor={cardAccentColor}
+                tooltipBgColor={tooltipBgColor}
+                tooltipTextColor={tooltipTextColor}
+              />
+            </div>
           ))}
         </div>
       </div>
 
+      {/* Navigation Controls: Dots (left) + Arrows (right) */}
+      <div className="flex justify-between items-center px-4 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4">
+        {/* Pagination Dots - Left aligned - One dot per snap point */}
+        <div className="flex gap-2">
+          {scrollSnaps.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === selectedIndex
+                  ? 'bg-white w-8'
+                  : 'bg-white opacity-30 hover:opacity-50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Navigation Arrows - Right aligned */}
+        <div className="flex gap-4">
+          <button
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className={`transition-opacity ${!canScrollPrev ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          >
+            <CarouselArrow
+              direction="left"
+              color={arrowColor}
+              onClick={() => {}}
+            />
+          </button>
+          <button
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className={`transition-opacity ${!canScrollNext ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          >
+            <CarouselArrow
+              direction="right"
+              color={arrowColor}
+              onClick={() => {}}
+            />
+          </button>
+        </div>
+      </div>
+
       {/* Bottom spacer */}
-      <div className="h-8 w-5 opacity-75"></div>
+      <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
     </section>
   )
 }

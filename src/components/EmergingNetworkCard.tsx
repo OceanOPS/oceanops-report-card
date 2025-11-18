@@ -14,10 +14,10 @@
  * @param iconSrc - URL to network icon (required)
  * @param iconAlt - Alt text for icon (translatable key) (required)
  * @param titleKey - Translation key for network title (required)
- * @param descriptionKey - Translation key for description text (required)
- * @param modalTitle - Title for the modal (translatable key) (required)
- * @param modalContent - React node content for the modal (required)
- * @param viewMoreTextKey - Translation key for "View More" button text (required)
+ * @param paragraph1Key - Translation key for first paragraph (required)
+ * @param paragraph2Key - Translation key for second paragraph (required)
+ * @param modalContent - React node content for the modal (optional)
+ * @param externalLinkTextKey - Translation key for external link button text (optional)
  * @param deliveryAreasLabelKey - Translation key for "GOOS delivery areas" label text (required)
  * @param deliveryAreas - Array of 1-3 delivery area keys: 'climate', 'operational', 'oceanhealth' (required)
  * @param backgroundColor - Tailwind background color (default: 'bg-goos-blue-800')
@@ -63,7 +63,8 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import Button from './Button'
 import Tooltip from './Tooltip'
 import { GalleryImage } from './ImageGallery'
@@ -96,6 +97,7 @@ interface EmergingNetworkCardProps {
   imageAlt?: string
   // For gallery
   images?: GalleryImage[]
+  modalContent?: React.ReactNode
   // For video
   videoType?: 'youtube' | 'local'
   videoId?: string
@@ -104,12 +106,13 @@ interface EmergingNetworkCardProps {
   iconSrc: string
   iconAlt: string
   titleKey: string
-  descriptionKey: string
-  modalTitle: string
-  modalContent: ReactNode
-  viewMoreTextKey: string
+  paragraph1Key: string
+  paragraph2Key: string
   deliveryAreasLabelKey: string
   deliveryAreas: DeliveryAreaKey[]
+  // Optional external link
+  externalLinkUrl?: string
+  externalLinkTextKey?: string
   backgroundColor?: string
   textColor?: string
   buttonBgColor?: string
@@ -127,18 +130,19 @@ export default function EmergingNetworkCard({
   imageSrc,
   imageAlt,
   images,
+  modalContent,
   videoType,
   videoId,
   previewImage,
   iconSrc,
   iconAlt,
   titleKey,
-  descriptionKey,
-  modalTitle,
-  modalContent,
-  viewMoreTextKey,
+  paragraph1Key,
+  paragraph2Key,
   deliveryAreasLabelKey,
   deliveryAreas,
+  externalLinkUrl,
+  externalLinkTextKey,
   backgroundColor = 'bg-goos-blue-800',
   textColor = 'text-white',
   buttonBgColor = 'bg-goos-white',
@@ -151,23 +155,34 @@ export default function EmergingNetworkCard({
   className = '',
 }: EmergingNetworkCardProps) {
   const { t } = useTranslation()
-  const [isMediaModalOpen, setIsMediaModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Limit delivery areas to 1-3
   const limitedAreas = deliveryAreas.slice(0, 3)
 
+  // Get first sentence from paragraph
+  const getFirstSentence = (text: string) => {
+    // Remove HTML tags for sentence detection
+    const plainText = text.replace(/<[^>]*>/g, '')
+    // Find first sentence ending with . ! or ?
+    const match = plainText.match(/^[^.!?]+[.!?]/)
+    return match ? match[0] : plainText.substring(0, 200) // Fallback to 200 chars
+  }
+
+  const truncatedText = getFirstSentence(t(paragraph1Key))
+
   // Get the preview image for the media section
   const getPreviewImageSrc = () => {
     if (mediaType === 'image') return imageSrc || ''
-    if (mediaType === 'gallery') return images?.[0]?.src || ''
+    if (mediaType === 'gallery') return images?.[0]?.src || imageSrc || ''
     if (mediaType === 'video') return previewImage || ''
     return ''
   }
 
   return (
-    <article className={`${backgroundColor} flex w-full max-w-6xl h-[542px] overflow-hidden ${className}`}>
-      {/* Left Section - Media */}
-      <div className="flex-1 relative">
+    <article className={`${backgroundColor} flex flex-col lg:flex-row w-full h-full overflow-hidden ${className}`}>
+      {/* Top/Left Section - Media */}
+      <div className="flex-1 relative min-h-[300px] lg:min-h-0">
         {/* Preview Image */}
         <img
           src={getPreviewImageSrc()}
@@ -175,52 +190,52 @@ export default function EmergingNetworkCard({
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Overlay for gallery or video */}
-        {(mediaType === 'gallery' || mediaType === 'video') && (
-          <div
-            className="absolute inset-0 flex items-center justify-center cursor-pointer group"
-            onClick={() => setIsMediaModalOpen(true)}
-          >
+        {/* Overlay - always clickable to open modal */}
+        <div
+          className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+          onClick={() => setIsModalOpen(true)}
+        >
             {/* Semi-transparent overlay on hover */}
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity" />
 
-            {/* Icon */}
-            <div className={`relative z-10 w-20 h-20 ${overlayIconColor} rounded-full flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity`}>
-              {mediaType === 'video' ? (
-                // Play icon for video
-                <svg
-                  className="w-8 h-8 text-white ml-1"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              ) : (
-                // Gallery icon (overlapping images)
-                <svg
-                  className="w-6 h-6"
-                  viewBox="0 0 23 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.5 3.25H22.25V21.75H3.75V18.5H0V0H18.5V3.25ZM18.5 18.5H5.75V19.75H20.25V5.25H18.5V18.5Z"
-                    fill="#F0F0F0"
-                  />
-                </svg>
-              )}
-            </div>
-          </div>
-        )}
+            {/* Icon - show gallery or video icon if applicable */}
+            {(mediaType === 'gallery' || mediaType === 'video') && (
+              <div className={`relative z-10 w-20 h-20 ${overlayIconColor} rounded-full flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity`}>
+                {mediaType === 'video' ? (
+                  // Play icon for video
+                  <svg
+                    className="w-8 h-8 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                ) : (
+                  // Gallery icon (overlapping images)
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 23 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.5 3.25H22.25V21.75H3.75V18.5H0V0H18.5V3.25ZM18.5 18.5H5.75V19.75H20.25V5.25H18.5V18.5Z"
+                      fill="#F0F0F0"
+                    />
+                  </svg>
+                )}
+              </div>
+            )}
+        </div>
       </div>
 
-      {/* Right Section - Content */}
+      {/* Bottom/Right Section - Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <div className="px-[53px] py-8 space-y-8">
+        <div className="px-6 sm:px-8 md:px-10 lg:px-12 py-8 sm:py-10 md:py-12 lg:py-16 space-y-4 sm:space-y-6 md:space-y-8">
           {/* Header Section */}
-          <div className="space-y-5">
+          <div className="space-y-3 sm:space-y-4 md:space-y-5">
             {/* Network Icon */}
-            <div className="w-[90px] h-[92px]">
+            <div className="w-[60px] h-[50px] sm:w-[70px] sm:h-[60px] md:w-[85px] md:h-[72px]">
               <img
                 src={iconSrc}
                 alt={t(iconAlt)}
@@ -229,38 +244,42 @@ export default function EmergingNetworkCard({
             </div>
 
             {/* Title */}
-            <h2 className={`${textColor} text-3xl font-extrabold leading-9`}>
+            <h2 className={`${textColor} text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight`}>
               {t(titleKey)}
             </h2>
           </div>
 
-          {/* Description and Button */}
-          <div className="space-y-6">
-            {/* Description */}
-            <p className={`${textColor} text-base leading-6`}>
-              {t(descriptionKey)}
-            </p>
+          {/* Description - First sentence with inline more link */}
+          <p className={`${textColor} text-sm sm:text-base md:text-lg leading-relaxed`}>
+            {truncatedText}..{' '}
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="text-goos-orange-500 hover:underline cursor-pointer"
+            >
+              more
+            </button>
+          </p>
 
-            {/* View More Button */}
+          {/* External Link Button (if provided) */}
+          {externalLinkUrl && externalLinkTextKey && (
             <div className="flex">
               <Button
-                variant="modal"
-                label={t(viewMoreTextKey)}
-                modalTitle={t(modalTitle)}
-                modalContent={modalContent}
+                variant="link"
+                label={t(externalLinkTextKey)}
+                url={externalLinkUrl}
                 bgColor={buttonBgColor}
                 textColor={buttonTextColor}
                 iconBgColor={buttonIconBgColor}
                 iconColor={buttonIconColor}
               />
             </div>
-          </div>
+          )}
 
           {/* GOOS Delivery Areas */}
-          <div className="space-y-4">
-            <p className={`${textColor} text-sm`}>{t(deliveryAreasLabelKey)}:</p>
+          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+            <p className={`${textColor} text-xs sm:text-sm`}>{t(deliveryAreasLabelKey)}:</p>
 
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               {limitedAreas.map((areaKey) => {
                 const area = DELIVERY_AREAS_CONFIG[areaKey]
                 return (
@@ -270,11 +289,11 @@ export default function EmergingNetworkCard({
                     backgroundColor={tooltipBgColor}
                     textColor={tooltipTextColor}
                   >
-                    <div className="bg-goos-cyan-200 rounded-full p-2 w-12 h-12 flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
+                    <div className="bg-goos-cyan-200 rounded-full p-1.5 sm:p-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
                       <img
                         src={area.icon}
                         alt={t(area.labelKey)}
-                        className="w-6 h-6 object-contain"
+                        className="object-contain"
                       />
                     </div>
                   </Tooltip>
@@ -285,72 +304,84 @@ export default function EmergingNetworkCard({
         </div>
       </div>
 
-      {/* Media Modal - Gallery uses ContentModal, Video uses simple modal */}
-      {mediaType === 'gallery' && (
+      {/* Unified Modal - Shows image/gallery/video + content */}
+      {createPortal(
         <ContentModal
-          isOpen={isMediaModalOpen}
-          onClose={() => setIsMediaModalOpen(false)}
-          title={t(modalTitle)}
-          maxWidth="2xl"
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Emerging Networks"
+          maxWidth="lg"
+          backgroundColor="bg-goos-blue-900"
         >
-          {modalContent}
-        </ContentModal>
-      )}
+          <div className="space-y-4 sm:space-y-6">
+            {/* If there's custom modalContent (for gallery), use it entirely */}
+            {modalContent ? (
+              <div>{modalContent}</div>
+            ) : (
+              <>
+                {/* Media Section - for simple image or video */}
+                <div className="w-full">
+                  {mediaType === 'image' && imageSrc && (
+                    <img
+                      src={imageSrc}
+                      alt={t(imageAlt || 'Network image')}
+                      className="w-full h-auto object-cover rounded"
+                    />
+                  )}
+                  {mediaType === 'video' && videoId && videoType && (
+                    <div className="aspect-video w-full bg-black rounded overflow-hidden">
+                      {videoType === 'youtube' ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0`}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          title="YouTube video player"
+                        />
+                      ) : (
+                        <video
+                          src={videoId}
+                          controls
+                          className="w-full h-full"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
+                    </div>
+                  )}
+                </div>
 
-      {mediaType === 'video' && isMediaModalOpen && videoId && videoType && (
-        <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 p-4"
-          onClick={() => setIsMediaModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsMediaModalOpen(false)}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
-              aria-label="Close video"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+                {/* Text Content */}
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-goos-orange-500">{t(titleKey)}</h3>
+                  <p
+                    className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: t(paragraph1Key) }}
+                  />
+                  <p className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed">
+                    {t(paragraph2Key)}
+                  </p>
+                </div>
 
-            {/* Video Container */}
-            <div className="aspect-video w-full bg-black">
-              {videoType === 'youtube' ? (
-                <iframe
-                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="YouTube video player"
-                />
-              ) : (
-                <video
-                  src={videoId}
-                  controls
-                  autoPlay
-                  className="w-full h-full"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              )}
-            </div>
+                {/* External Link Button (if provided) */}
+                {externalLinkUrl && externalLinkTextKey && (
+                  <div className="flex">
+                    <Button
+                      variant="link"
+                      label={t(externalLinkTextKey)}
+                      url={externalLinkUrl}
+                      bgColor="bg-goos-orange-600"
+                      textColor="text-white"
+                      iconBgColor="bg-white"
+                      iconColor="text-goos-orange-600"
+                    />
+                  </div>
+                )}
+              </>
+            )}
           </div>
-        </div>
+        </ContentModal>,
+        document.body
       )}
     </article>
   )

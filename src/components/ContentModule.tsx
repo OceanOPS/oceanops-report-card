@@ -63,9 +63,14 @@
  * ```
  */
 
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import VideoModal from './VideoModal'
 import ContentModal from './ContentModal'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Button configuration types
 type ButtonConfig =
@@ -98,13 +103,15 @@ type ButtonConfig =
 
 interface ContentModuleProps {
   layout?: 'split' | 'full-width'
-  titleLevel: 'h2' | 'h3'
+  titleLevel?: 'h2' | 'h3'
   kicker?: string
-  title: string
+  title?: string
   subtitle?: string
   introduction?: string
+  introductionKeys?: string[]  // Array of translation keys for multiple paragraphs
   button?: ButtonConfig
   hasLine?: boolean
+  stickyTitle?: boolean  // Enable/disable sticky title in split layout (default: true)
   backgroundColor?: string
   titleColor?: string
   textColor?: string
@@ -121,8 +128,10 @@ export default function ContentModule({
   title,
   subtitle,
   introduction,
+  introductionKeys,
   button,
   hasLine = true,
+  stickyTitle = true,
   backgroundColor = 'bg-goos-white',
   titleColor = 'text-goos-blue-900',
   textColor = 'text-goos-gray-800',
@@ -131,18 +140,66 @@ export default function ContentModule({
   rightColumn,
   className = '',
 }: ContentModuleProps) {
+  const { t } = useTranslation()
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const [isContentModalOpen, setIsContentModalOpen] = useState(false)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  // Scroll reveal animation for content
+  useEffect(() => {
+    if (!contentRef.current) return
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const ctx = gsap.context(() => {
+      // Animate all direct children of content area
+      const elements = contentRef.current?.children
+      if (!elements) return
+
+      if (prefersReducedMotion) {
+        // No animations - show content immediately
+        gsap.set(Array.from(elements), {
+          opacity: 1,
+          y: 0,
+        })
+      } else {
+        // Animate normally
+        gsap.fromTo(
+          Array.from(elements),
+          {
+            opacity: 0,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: contentRef.current,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        )
+      }
+    }, contentRef)
+
+    return () => ctx.revert()
+  }, [children, rightColumn])
 
   // Title sizes based on level
   const titleSizes = {
     h2: {
-      main: 'text-5xl',
+      main: 'text-3xl sm:text-4xl md:text-5xl',
       lineHeight: 'leading-[1.2]',
     },
     h3: {
-      main: 'text-4xl',
-      lineHeight: 'leading-10',
+      main: 'text-2xl sm:text-3xl md:text-4xl',
+      lineHeight: 'leading-[1.2]',
     },
   }
 
@@ -155,7 +212,7 @@ export default function ContentModule({
     const defaultTextColor = button.textColor || 'text-white'
     const defaultBgColor = button.bgColor || 'bg-goos-blue-700'
 
-    const baseClasses = `inline-flex items-center gap-2 px-5 py-2 ${defaultTextColor} ${defaultBgColor} font-roboto-condensed uppercase text-lg font-semibold hover:opacity-90 transition-opacity`
+    const baseClasses = `inline-flex items-center gap-2 px-5 py-2 ${defaultTextColor} ${defaultBgColor} font-roboto-condensed uppercase text-base sm:text-lg font-semibold hover:opacity-90 transition-opacity`
 
     // External link button
     if (button.type === 'link') {
@@ -246,65 +303,88 @@ export default function ContentModule({
     return null
   }
 
+  // Check if there's any title content to render
+  const hasTitleContent = title || kicker || subtitle || introduction || introductionKeys || button
+
   // Render title section (reusable for both layouts)
-  const renderTitleSection = () => (
-    <div className="flex flex-col gap-6 mb-24">
-      {/* Decorative Line */}
-      {hasLine && <div className={`${lineColor} h-2 w-32`}></div>}
+  const renderTitleSection = () => {
+    if (!hasTitleContent) return null
 
-      {/* Titles */}
-      <div className="flex flex-col gap-1">
-        {kicker && (
-          <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
-            {kicker}
-          </p>
-        )}
+    return (
+      <div className="flex flex-col gap-6 mb-6 sm:mb-8 md:mb-12 lg:mb-32">
+        {/* Decorative Line */}
+        {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
 
-        <p className={`${sizes.main} font-extrabold ${titleColor} ${sizes.lineHeight}`}>
-          {title}
-        </p>
+        {/* Titles */}
+        <div className="flex flex-col gap-1">
+          {kicker && (
+            <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
+              {kicker}
+            </p>
+          )}
 
-        {subtitle && (
-          <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
-            {subtitle}
-          </p>
-        )}
+          {title && (
+            <p className={`${sizes.main} font-extrabold ${titleColor} ${sizes.lineHeight}`}>
+              {title}
+            </p>
+          )}
 
-        {introduction && (
-          <p className={`text-xl font-semibold ${textColor} mt-1`}>
-            {introduction}
-          </p>
-        )}
+          {subtitle && (
+            <p className={`${sizes.main} font-normal ${titleColor} ${sizes.lineHeight}`}>
+              {subtitle}
+            </p>
+          )}
+
+          {/* Single introduction paragraph (legacy support) */}
+          {introduction && !introductionKeys && (
+            <p className={`text-base sm:text-lg md:text-xl font-normal ${textColor} mt-1`}>
+              {introduction}
+            </p>
+          )}
+
+          {/* Multiple introduction paragraphs from translation keys */}
+          {introductionKeys && introductionKeys.length > 0 && (
+            <div className="flex flex-col gap-4 mt-8">
+              {introductionKeys.map((key, index) => (
+                <p key={index} className={`text-base sm:text-lg md:text-xl font-normal ${textColor} leading-relaxed`}>
+                  {t(key)}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Optional Button */}
+        {button && <div className="mt-1">{renderButton()}</div>}
       </div>
-
-      {/* Optional Button */}
-      {button && <div className="mt-1">{renderButton()}</div>}
-    </div>
-  )
+    )
+  }
 
   // Split layout (default): Sticky title on left, content on right
   if (layout === 'split') {
     return (
-      <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
-        <div className="mx-auto flex gap-5 flex-col lg:flex-row">
-          {/* Left Column - Sticky Title */}
-          <div className="lg:basis-1/2 flex flex-col gap-5 lg:sticky lg:top-0 lg:self-start z-10">
-            {/* Top spacer */}
-            <div className="h-8 w-5 opacity-75"></div>
+      <section className={`relative z-10 ${backgroundColor} px-4 sm:px-8 md:px-12 lg:px-16 py-0 ${className}`}>
+        <div className="mx-auto flex gap-0 lg:gap-16 flex-col lg:flex-row">
+          {/* Left Column - Title (sticky by default, can be disabled) */}
+          {hasTitleContent && (
+            <div className={`lg:basis-1/2 flex flex-col gap-5 ${stickyTitle ? 'lg:sticky lg:top-16 lg:self-start' : ''} z-10`}>
+              {/* Top spacer */}
+              <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
-            {renderTitleSection()}
-          </div>
+              {renderTitleSection()}
+            </div>
+          )}
 
           {/* Right Column - Content */}
-          <div className="lg:basis-1/2 flex flex-col gap-5">
-            {/* Top spacer */}
-            <div className="h-8 w-5 opacity-75"></div>
+          <div ref={contentRef} className={`${hasTitleContent ? 'lg:basis-1/2' : 'w-full'} flex flex-col gap-5`}>
+            {/* Top spacer - hidden in mobile when title is present, visible in desktop */}
+            <div className={`${hasTitleContent ? 'h-0 lg:h-8' : 'h-4 sm:h-6 md:h-8'} w-5 opacity-75`}></div>
 
             {/* Dynamic content blocks */}
             {children}
 
             {/* Bottom spacer */}
-            <div className="h-8 w-5 opacity-75"></div>
+            <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
           </div>
         </div>
       </section>
@@ -313,32 +393,34 @@ export default function ContentModule({
 
   // Full-width layout: Title at top, content in two columns below
   return (
-    <section className={`${backgroundColor} px-12 md:px-16 py-0 ${className}`}>
+    <section className={`relative z-10 ${backgroundColor} px-4 sm:px-8 md:px-12 lg:px-16 py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
-        {/* Title Section - Full Width */}
-        <div className="flex flex-col gap-5 max-w-2xl">
-          <div className="h-8 w-5 opacity-75"></div>
-          {renderTitleSection()}
-        </div>
+        {/* Title Section - Full Width (only if has title content) */}
+        {hasTitleContent && (
+          <div className="flex flex-col gap-5 max-w-2xl">
+            <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
+            {renderTitleSection()}
+          </div>
+        )}
 
         {/* Content in 2 Columns */}
-        <div className="flex gap-5 flex-col lg:flex-row -mt-24">
+        <div className={`flex gap-8 md:gap-12 lg:gap-16 flex-col lg:flex-row ${hasTitleContent ? 'lg:-mt-24' : ''}`}>
           {/* Left Column */}
           <div className="lg:basis-1/2 flex flex-col gap-5">
-            <div className="h-8 w-5 opacity-75"></div>
+            {!hasTitleContent && <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>}
 
             {children}
           </div>
 
           {/* Right Column */}
           <div className="lg:basis-1/2 flex flex-col gap-5">
-            <div className="h-8 w-5 opacity-75"></div>
+            {!hasTitleContent && <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>}
 
             {rightColumn}
           </div>
         </div>
 
-        <div className="h-8 w-5 opacity-75"></div>
+        <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
       </div>
     </section>
   )
