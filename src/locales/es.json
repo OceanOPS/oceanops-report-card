@@ -243,7 +243,9 @@
       "stats": {
         "stat1": {
           "number": "64",
-          "description": "países contribuyentes"
+          "description": "países contribuyentes",
+          "infoModalTitle": "Acerca del conteo de países contribuyentes",
+          "infoModalContent": "En esta edición, el número de Estados Miembros contribuyentes aparece inferior al de la Tarjeta de Reporte GOOS 2023. Esto se debe principalmente a la aplicación de criterios operacionales actualizados para las estaciones GLOSS, según lo acordado con el Equipo Directivo de GLOSS, y a una revisión de cómo se contabilizan las contribuciones de la UE a GOOS—tratando a la Unión Europea como una sola entidad en lugar de como 27 países individuales, como se hacía anteriormente. Esta metodología refinada se mantendrá en futuras ediciones del Informe de Estado de GOOS."
         },
         "stat2": {
           "number": "13",
