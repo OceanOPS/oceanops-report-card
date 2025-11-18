@@ -144,17 +144,16 @@ export default function MenuSidebar({
       gsap.set(buttonRef.current, { opacity: show ? 1 : 0, scale: 1, x: 0 })
     } else {
       if (show) {
-        // Animate from right with bounce - delayed to appear after cover animations
+        // Animate from right - slide in from outside screen with subtle bounce
         gsap.fromTo(
           buttonRef.current,
-          { opacity: 0, scale: 0.5, x: 100 },
+          { x: 150, opacity: 0 },  // Start completely off-screen (right side), invisible
           {
-            opacity: 1,
-            scale: 1,
             x: 0,
-            duration: 0.6,
-            ease: 'back.out(1.7)',
-            delay: 1.8  // Wait longer for cover animations to finish
+            opacity: 1,
+            duration: 0.7,
+            ease: 'back.out(1.2)',  // Subtle bounce
+            delay: 1.4  // Adjusted for overlapping cover animations
           }
         )
       } else {

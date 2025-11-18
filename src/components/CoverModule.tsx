@@ -107,46 +107,45 @@ export default function CoverModule({
           gsap.set(fadeOverlayRef.current, { opacity: 0 })
         }
       } else {
-        // Animate normally with improved dynamics
+        // Animate normally - fully sequential
         // Create a timeline for sequential animations
         const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
 
-        // Animate background video zoom out - faster and more abrupt
+        // 1. Animate background video zoom out FIRST
         if (backgroundMediaRef.current) {
           tl.fromTo(
             backgroundMediaRef.current,
             { scale: 1.4 },
-            { scale: 1, duration: 0.9, ease: 'power3.out' },
-            0  // Start immediately
+            { scale: 1, duration: 0.9, ease: 'power3.out' }
           )
         }
 
-        // Animate logo from top - faster and more abrupt
+        // 2. THEN animate logo from top - overlaps with end of video zoom
         tl.fromTo(
           logoRef.current,
           { opacity: 0, y: -30, scale: 0.9 },
           { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.7)' },
-          0.1  // Very quick after zoom starts
+          '-=0.3'  // Start 0.3s before video zoom finishes
         )
 
-        // Animate title - faster and more abrupt
+        // 3. Animate title - overlaps significantly with logo
         tl.fromTo(
           titleRef.current,
           { opacity: 0, scale: 0.95, y: 20 },
           { opacity: 1, scale: 1, y: 0, duration: 0.5 },
-          '-=0.3' // Less overlap, faster sequence
+          '-=0.35'  // Start 0.35s before logo finishes - more overlap
         )
 
-        // Animate partner logos - faster and more abrupt
+        // 4. Animate partner logos - overlaps significantly with title
         tl.fromTo(
           partnerLogosRef.current,
           { opacity: 0, y: 30 },
           { opacity: 1, y: 0, duration: 0.4 },
-          '-=0.2' // Less overlap, faster sequence
+          '-=0.35'  // Start 0.35s before title finishes - more overlap
         )
 
         // Wait for entrance animations to complete, then set up scroll animations
-        tl.add(() => {
+        tl.eventCallback('onComplete', () => {
           // Fade overlay effect: Cover fades to dark blue as content scrolls over it
           if (fadeOverlayRef.current) {
             gsap.fromTo(
