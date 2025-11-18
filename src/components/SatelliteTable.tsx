@@ -12,7 +12,7 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from './Button'
@@ -23,6 +23,24 @@ export default function SatelliteTable() {
   const { t } = useTranslation()
   const tableRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
+
+  // Satellite modal collapsible states
+  const [expandedVariables, setExpandedVariables] = useState({
+    sst: false,
+    sss: false,
+    seaLevel: false,
+    winds: false,
+    seaIce: false,
+    seaState: false,
+    oceanColor: false,
+  })
+
+  const toggleVariable = (variable: keyof typeof expandedVariables) => {
+    setExpandedVariables(prev => ({
+      ...prev,
+      [variable]: !prev[variable]
+    }))
+  }
 
   // Data for satellite variables
   const satelliteData = [
@@ -396,79 +414,272 @@ export default function SatelliteTable() {
 
                 {/* SST */}
                 <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2">
+                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                     {t('satelliteObservations.platformModal.variables.sst.title')}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.variables.sst.content')}
+                  <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
+                    {t('satelliteObservations.platformModal.variables.sst.description')}
                   </p>
+
+                  {/* More button when collapsed */}
+                  {!expandedVariables.sst && (
+                    <button
+                      onClick={() => toggleVariable('sst')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      {t('satelliteObservations.platformModal.moreButton')}
+                    </button>
+                  )}
+
+                  {/* Collapsible Content */}
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      expandedVariables.sst ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
+                      {t('satelliteObservations.platformModal.variables.sst.detailedContent')}
+                    </p>
+                    <p className="text-xs sm:text-sm italic text-white mb-3">
+                      {t('satelliteObservations.platformModal.variables.sst.author')}
+                    </p>
+
+                    {/* Less button at the end of expanded content */}
+                    <button
+                      onClick={() => toggleVariable('sst')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      Less...
+                    </button>
+                  </div>
                 </div>
 
                 {/* SSS */}
                 <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2">
+                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                     {t('satelliteObservations.platformModal.variables.sss.title')}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.variables.sss.content')}
+                  <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
+                    {t('satelliteObservations.platformModal.variables.sss.description')}
                   </p>
+
+                  {!expandedVariables.sss && (
+                    <button
+                      onClick={() => toggleVariable('sss')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      {t('satelliteObservations.platformModal.moreButton')}
+                    </button>
+                  )}
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      expandedVariables.sss ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
+                      {t('satelliteObservations.platformModal.variables.sss.detailedContent')}
+                    </p>
+                    <p className="text-xs sm:text-sm italic text-white mb-3">
+                      {t('satelliteObservations.platformModal.variables.sss.author')}
+                    </p>
+                    <button
+                      onClick={() => toggleVariable('sss')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      Less...
+                    </button>
+                  </div>
                 </div>
 
                 {/* Sea Level */}
                 <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2">
+                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                     {t('satelliteObservations.platformModal.variables.seaLevel.title')}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.variables.seaLevel.content')}
+                  <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
+                    {t('satelliteObservations.platformModal.variables.seaLevel.description')}
                   </p>
+
+                  {!expandedVariables.seaLevel && (
+                    <button
+                      onClick={() => toggleVariable('seaLevel')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      {t('satelliteObservations.platformModal.moreButton')}
+                    </button>
+                  )}
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      expandedVariables.seaLevel ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
+                      {t('satelliteObservations.platformModal.variables.seaLevel.detailedContent')}
+                    </p>
+                    <p className="text-xs sm:text-sm italic text-white mb-3">
+                      {t('satelliteObservations.platformModal.variables.seaLevel.author')}
+                    </p>
+                    <button
+                      onClick={() => toggleVariable('seaLevel')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      Less...
+                    </button>
+                  </div>
                 </div>
 
                 {/* Winds */}
                 <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2">
+                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                     {t('satelliteObservations.platformModal.variables.winds.title')}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.variables.winds.content')}
+                  <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
+                    {t('satelliteObservations.platformModal.variables.winds.description')}
                   </p>
+
+                  {!expandedVariables.winds && (
+                    <button
+                      onClick={() => toggleVariable('winds')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      {t('satelliteObservations.platformModal.moreButton')}
+                    </button>
+                  )}
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      expandedVariables.winds ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
+                      {t('satelliteObservations.platformModal.variables.winds.detailedContent')}
+                    </p>
+                    <p className="text-xs sm:text-sm italic text-white mb-3">
+                      {t('satelliteObservations.platformModal.variables.winds.author')}
+                    </p>
+                    <button
+                      onClick={() => toggleVariable('winds')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      Less...
+                    </button>
+                  </div>
                 </div>
 
                 {/* Sea Ice */}
                 <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2">
+                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                     {t('satelliteObservations.platformModal.variables.seaIce.title')}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.variables.seaIce.content')}
+                  <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
+                    {t('satelliteObservations.platformModal.variables.seaIce.description')}
                   </p>
+
+                  {!expandedVariables.seaIce && (
+                    <button
+                      onClick={() => toggleVariable('seaIce')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      {t('satelliteObservations.platformModal.moreButton')}
+                    </button>
+                  )}
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      expandedVariables.seaIce ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
+                      {t('satelliteObservations.platformModal.variables.seaIce.detailedContent')}
+                    </p>
+                    <p className="text-xs sm:text-sm italic text-white mb-3">
+                      {t('satelliteObservations.platformModal.variables.seaIce.author')}
+                    </p>
+                    <button
+                      onClick={() => toggleVariable('seaIce')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      Less...
+                    </button>
+                  </div>
                 </div>
 
                 {/* Sea State */}
                 <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2">
+                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                     {t('satelliteObservations.platformModal.variables.seaState.title')}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.variables.seaState.content')}
+                  <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
+                    {t('satelliteObservations.platformModal.variables.seaState.description')}
                   </p>
+
+                  {!expandedVariables.seaState && (
+                    <button
+                      onClick={() => toggleVariable('seaState')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      {t('satelliteObservations.platformModal.moreButton')}
+                    </button>
+                  )}
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      expandedVariables.seaState ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
+                      {t('satelliteObservations.platformModal.variables.seaState.detailedContent')}
+                    </p>
+                    <p className="text-xs sm:text-sm italic text-white mb-3">
+                      {t('satelliteObservations.platformModal.variables.seaState.author')}
+                    </p>
+                    <button
+                      onClick={() => toggleVariable('seaState')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      Less...
+                    </button>
+                  </div>
                 </div>
 
                 {/* Ocean Color */}
                 <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2">
+                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
                     {t('satelliteObservations.platformModal.variables.oceanColor.title')}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.variables.oceanColor.content')}
+                  <p className="text-sm sm:text-base leading-relaxed text-white mb-2">
+                    {t('satelliteObservations.platformModal.variables.oceanColor.description')}
                   </p>
-                </div>
 
-                {/* Note Section */}
-                <div className="pt-3 sm:pt-4 border-t border-gray-300">
-                  <p className="text-sm sm:text-base leading-relaxed text-white">
-                    {t('satelliteObservations.platformModal.note')}
-                  </p>
+                  {!expandedVariables.oceanColor && (
+                    <button
+                      onClick={() => toggleVariable('oceanColor')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      {t('satelliteObservations.platformModal.moreButton')}
+                    </button>
+                  )}
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      expandedVariables.oceanColor ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
+                      {t('satelliteObservations.platformModal.variables.oceanColor.detailedContent')}
+                    </p>
+                    <p className="text-xs sm:text-sm italic text-white mb-3">
+                      {t('satelliteObservations.platformModal.variables.oceanColor.author')}
+                    </p>
+                    <button
+                      onClick={() => toggleVariable('oceanColor')}
+                      className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+                    >
+                      Less...
+                    </button>
+                  </div>
                 </div>
               </div>
             }
