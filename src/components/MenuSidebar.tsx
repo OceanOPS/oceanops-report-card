@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import Button from './Button'
+import { asset } from '../utils/assets'
 
 /**
  * MenuSidebar Component
@@ -371,26 +372,20 @@ export default function MenuSidebar({
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
 
-          {/* Download PDF button with SOON badge */}
+          {/* Download PDF button */}
           <div className="mb-6">
-            <div className="relative inline-block">
-              <Button
-                variant="download"
-                label={t('menu.downloadPdf')}
-                onClick={() => {
-                  // TODO: Uncomment and update the URL when PDF is ready
-                  // const pdfUrl = 'https://example.com/path-to-your-report.pdf'
-                  // window.open(pdfUrl, '_blank')
-                }}
-                textColor="text-white"
-                bgColor="bg-goos-blue-700"
-                iconColor="text-goos-blue-700"
-                iconBgColor="bg-white"
-              />
-              <span className="absolute -top-2 -right-2 bg-goos-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                {t('menu.comingSoon')}
-              </span>
-            </div>
+            <Button
+              variant="download"
+              label={t('menu.downloadPdf')}
+              onClick={() => {
+                const pdfUrl = asset('/goosreport2025.pdf')
+                window.open(pdfUrl, '_blank')
+              }}
+              textColor="text-white"
+              bgColor="bg-goos-blue-700"
+              iconColor="text-goos-blue-700"
+              iconBgColor="bg-white"
+            />
           </div>
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
