@@ -661,16 +661,6 @@
       "title": "Essential Climate and Ocean Variables observed from space",
       "introduction": "This document provides additional information on the adequacy, continuity, and requirements of satellite observations for each Essential Ocean and Climate Variable, as contributed by the satellite ocean observing community. It summarizes the current status and future outlook of satellite measurements for each variable, outlining key achievements, challenges, and planned missions.",
       "moreButton": "More…",
-      "contactsTitle": "Contacts",
-      "contacts": {
-        "sst": "SST: Jorge Vazquez (jorge.vazquez@jpl.nasa.gov), Christina Gonzalez-Haro (cgharo@icm.csic.es)",
-        "sss": "SSS: Severine Fournier (severine.fournier@jpl.nasa.gov)",
-        "seaLevel": "Sea Level: Severine Fournier (severine.fournier@jpl.nasa.gov)",
-        "seaState": "Sea State: Lotfi Aouf (lotfi.aouf@meteo.fr)",
-        "winds": "Winds: Mark Bourassa (bourassa@coaps.fsu.edu); Tong Lee (tlee@jpl.nasa.gov)",
-        "seaIce": "Sea Ice: Ted Maksym (tmaksym@whoi.edu); Stephen Howell (stephen.howell@ec.gc.ca); Walter Meier (walt@colorado.edu)",
-        "oceanColor": "Ocean Color: Christine Lee (christine.lee@jpl.nasa.gov)"
-      },
       "variables": {
         "sst": {
           "title": "SEA SURFACE TEMPERATURE:",
