@@ -19,6 +19,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import GoosLogo from './GoosLogo'
+import { asset } from '../utils/assets'
 
 interface PreloaderProps {
   onComplete: () => void
@@ -195,7 +196,7 @@ export default function Preloader({ onComplete, videoUrl }: PreloaderProps) {
         <div
           className="absolute inset-0 h-full"
           style={{
-            backgroundImage: 'url(/backgrounds/thinkstockPhotos-618219270-trace.png)',
+            backgroundImage: `url(${asset('/backgrounds/thinkstockPhotos-618219270-trace.webp')})`,
             backgroundSize: isMobile ? '150%' : '75%',
             backgroundPosition: isMobile ? 'center center' : 'calc(100% + 200px) center',
             backgroundRepeat: 'no-repeat',
