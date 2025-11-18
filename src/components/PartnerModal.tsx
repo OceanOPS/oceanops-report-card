@@ -307,6 +307,13 @@ export default function PartnerModal({
           </button>
         </div>
 
+        {/* Introduction */}
+        <div className="bg-goos-blue-900 px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+          <p className="text-sm sm:text-base text-goos-white leading-relaxed">
+            {t('partners.introduction')}
+          </p>
+        </div>
+
         {/* Content */}
         <div className="space-y-1 bg-goos-blue-900">
           {countries.map((country) => {
