@@ -108,11 +108,17 @@ export default function PartnerModal({
 }: PartnerModalProps) {
   const { t } = useTranslation()
   const [expandedCountry, setExpandedCountry] = useState<string | null>(null)
+  const [failedFlags, setFailedFlags] = useState<Set<string>>(new Set())
   const countryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const cardsGridRef = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const expandedContentRef = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const overlayRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
+
+  // Handle flag load error
+  const handleFlagError = (countryCode: string) => {
+    setFailedFlags(prev => new Set(prev).add(countryCode))
+  }
 
   // Close on ESC key
   useEffect(() => {
@@ -325,12 +331,13 @@ export default function PartnerModal({
                     >
                       <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
                         <div className="flex items-center gap-2 sm:gap-3">
-                          {showFlags && country.countryCode && (
+                          {showFlags && country.countryCode && !failedFlags.has(country.countryCode) && (
                             <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
                               <img
                                 src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                                 alt={`${country.name} ${t('common.flag')}`}
                                 className="w-full h-full object-cover"
+                                onError={() => handleFlagError(country.countryCode!)}
                               />
                             </div>
                           )}
@@ -410,12 +417,13 @@ export default function PartnerModal({
                     <div className="flex items-center justify-between w-full">
                       <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
                         <div className="flex items-center gap-2 sm:gap-3">
-                          {showFlags && country.countryCode && (
+                          {showFlags && country.countryCode && !failedFlags.has(country.countryCode) && (
                             <div className="flex-shrink-0 w-8 h-5 sm:w-10 sm:h-6 transition-transform duration-300 hover:scale-110">
                               <img
                                 src={`https://flagcdn.com/w40/${country.countryCode.toLowerCase()}.png`}
                                 alt={`${country.name} ${t('common.flag')}`}
                                 className="w-full h-full object-cover"
+                                onError={() => handleFlagError(country.countryCode!)}
                               />
                             </div>
                           )}
