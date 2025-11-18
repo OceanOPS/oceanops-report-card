@@ -239,17 +239,6 @@ npm run build
 4. Push to the branch (`git push origin _featureName`)
 5. Open a Pull Request to `staging` branch
 
-## License
-
-[Add license information here]
-
-## Acknowledgments
-
-- **GOOS** - Global Ocean Observing System
-- **OceanOPS** - Ocean Observing System monitoring center
-- **UNESCO IOC** - Intergovernmental Oceanographic Commission
-- **WMO** - World Meteorological Organization
-
 ---
 
 **Built with** ⚛️ React • ⚡️ Vite • 🔷 TypeScript • 🎨 Tailwind CSS
