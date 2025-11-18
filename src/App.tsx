@@ -372,7 +372,7 @@ function App() {
         quote={t('content.section1.quote.text')}
         authorName={t('content.section1.quote.authorName')}
         authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc="/images/belbeoch.webp"
+        imageSrc={asset("/images/belbeoch.webp")}
         imageAlt="M. Belbéoch"
         height="fullscreen"
         imagePosition="left"
@@ -1293,7 +1293,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: '-MKKMU3_siw',
-            previewImage: '/images/fvon.webp',
+            previewImage: asset('/images/fvon.webp'),
             imageAlt: 'emerging.fvon.imageAlt',
             iconSrc: asset('/icons/network/fishing_vessels.svg'),
             iconAlt: 'emerging.fvon.iconAlt',
@@ -1310,7 +1310,7 @@ function App() {
             mediaType: 'video',
             videoType: 'youtube',
             videoId: 'NoEK7XwOMeU',
-            previewImage: '/images/smart_cables.webp',
+            previewImage: asset('/images/smart_cables.webp'),
             imageAlt: 'emerging.smartCables.imageAlt',
             iconSrc: asset('/icons/network/smart_cables.svg'),
             iconAlt: 'emerging.smartCables.iconAlt',
@@ -1325,7 +1325,7 @@ function App() {
           {
             // SOCONET - Third (Simple image - showing only first photo)
             mediaType: 'image',
-            imageSrc: '/images/soconet.webp',
+            imageSrc: asset('/images/soconet.webp'),
             imageAlt: 'emerging.soconet.imageAlt',
             modalTitle: 'emerging.soconet.title',
             modalContent: (
@@ -1372,7 +1372,7 @@ function App() {
           {
             // SUN Fleet - Fourth (Simple image)
             mediaType: 'image',
-            imageSrc: '/images/sunfleet.webp',
+            imageSrc: asset('/images/sunfleet.webp'),
             imageAlt: 'emerging.sunFleet.imageAlt',
             iconSrc: asset('/icons/network/sun_fleet.svg'),
             iconAlt: 'emerging.sunFleet.iconAlt',
@@ -1608,7 +1608,7 @@ function App() {
         quote={t('amoc.quote2.text')}
         authorName={t('amoc.quote2.author')}
         authorTitle={t('amoc.quote2.position')}
-        imageSrc="/images/yao.webp"
+        imageSrc={asset("/images/yao.webp")}
         imageAlt="Dr. Yao Fu"
         height="fullscreen"
         imagePosition="left"
@@ -1696,7 +1696,7 @@ function App() {
           <ImageGallery
             images={[
               {
-                src: '/images/operational3.webp',
+                src: asset('/images/operational3.webp'),
                 alt: 'Operational observation 3',
                 caption: ''
               }
@@ -1833,7 +1833,7 @@ function App() {
         quote={t('elNino.quote3.text')}
         authorName={t('elNino.quote3.author')}
         authorTitle={t('elNino.quote3.position')}
-        imageSrc="/images/monica.webp"
+        imageSrc={asset("/images/monica.webp")}
         imageAlt="Monica Alvarado Niño"
         height="fullscreen"
         imagePosition="left"
@@ -1892,7 +1892,7 @@ function App() {
           <ImageGallery
             images={[
               {
-                src: '/images/oh1.webp',
+                src: asset('/images/oh1.webp'),
                 alt: 'Ocean health observation 1',
                 caption: ''
               }
@@ -2054,7 +2054,7 @@ function App() {
         quote={t('oceanHealth.quote2.text')}
         authorName={t('oceanHealth.quote2.author')}
         authorTitle={t('oceanHealth.quote2.position')}
-        imageSrc="/images/clive.webp"
+        imageSrc={asset("/images/clive.webp")}
         imageAlt="Dr. Clive McMahon"
         height="fullscreen"
         imagePosition="left"
@@ -2149,7 +2149,7 @@ function App() {
         <VideoModal
           videoType="youtube"
           videoId="ki5EsC2BHO0"
-          previewImage="/images/10k.webp"
+          previewImage={asset("/images/10k.webp")}
           previewAlt="10,000 Ships for the Ocean"
           aspectRatio="video"
         />
@@ -2215,15 +2215,15 @@ function App() {
       <ImageGrid
         images={[
           {
-            src: '/images/content.webp',
+            src: asset('/images/content.webp'),
             alt: t('hero.images.image1'),
           },
           {
-            src: '/images/content2.webp',
+            src: asset('/images/content2.webp'),
             alt: t('hero.images.image2'),
           },
           {
-            src: '/images/content3.webp',
+            src: asset('/images/content3.webp'),
             alt: t('hero.images.image3'),
           },
         ]}
