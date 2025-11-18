@@ -32,7 +32,7 @@
  *     {
  *       imageSrc: '/images/smart-cables.jpg',
  *       imageAlt: 'emerging.smartCables.imageAlt',
- *       iconSrc: '/icons/smart-cables.png',
+ *       iconSrc: asset('/icons/smart-cables.png'),
  *       iconAlt: 'emerging.smartCables.iconAlt',
  *       titleKey: 'emerging.smartCables.title',
  *       descriptionKey: 'emerging.smartCables.description',
