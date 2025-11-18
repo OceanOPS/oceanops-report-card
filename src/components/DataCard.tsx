@@ -141,7 +141,7 @@ export default function DataCard({
           <img
             src={iconSrc}
             alt={iconAlt}
-            className="object-contain w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
+            className="object-contain"
           />
         </div>
 
