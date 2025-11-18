@@ -1553,16 +1553,16 @@ function App() {
             headers={[t('amoc.eovTable.physicsTitle')]}
             rows={[
               [
-                { icon: '/icons/physics/Surface-temperature.png', legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-temperature.png', legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Surface-currents.png', legend: 'Surface currents', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-currents.png', legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-currents.png'), legend: 'Surface currents', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-currents.png'), legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
               ],
               [
-                { icon: '/icons/physics/Surface-salinity.png', legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-salinity.png', legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Surface-height.png', legend: 'Sea surface height', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Surface-heat-flux.png', legend: 'Surface heat flux', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-height.png'), legend: 'Sea surface height', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-heat-flux.png'), legend: 'Surface heat flux', iconSize: 'w-16 h-16' },
               ]
             ]}
             borderColor="border-goos-blue-700"
@@ -1583,10 +1583,10 @@ function App() {
             headers={[t('amoc.eovTable.biogeochemistryTitle')]}
             rows={[
               [
-                { icon: '/icons/biogeochemistry/Oxygen.png', legend: 'Oxygen', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biogeochemistry/Inorganic-carbon.png', legend: 'Inorganic carbon', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biogeochemistry/Dissolved-organic-carbon.png', legend: 'Dissolved organic carbon', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biogeochemistry/Nutrients.png', legend: 'Nutrients', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biogeochemistry/Oxygen.png'), legend: 'Oxygen', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biogeochemistry/Inorganic-carbon.png'), legend: 'Inorganic carbon', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biogeochemistry/Dissolved-organic-carbon.png'), legend: 'Dissolved organic carbon', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biogeochemistry/Nutrients.png'), legend: 'Nutrients', iconSize: 'w-16 h-16' },
               ]
             ]}
             borderColor="border-goos-orange-600"
@@ -1782,15 +1782,15 @@ function App() {
             headers={[t('elNino.eovTable.physicsTitle')]}
             rows={[
               [
-                { icon: '/icons/physics/Surface-temperature.png', legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-temperature.png', legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Surface-currents.png', legend: 'Surface currents', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-currents.png', legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-currents.png'), legend: 'Surface currents', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-currents.png'), legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
               ],
               [
-                { icon: '/icons/physics/Surface-salinity.png', legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-salinity.png', legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Surface-height.png', legend: 'Sea surface height', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-height.png'), legend: 'Sea surface height', iconSize: 'w-16 h-16' },
                 { icon: '', legend: '' },
               ]
             ]}
@@ -1812,7 +1812,7 @@ function App() {
             headers={[t('elNino.eovTable.biologyTitle')]}
             rows={[
               [
-                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biology_and_ecosystems/Fish.png'), legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
               ]
             ]}
             borderColor="border-goos-green-700"
@@ -1951,10 +1951,10 @@ function App() {
             headers={[t('oceanHealth.eovTable.biologyTitle')]}
             rows={[
               [
-                { icon: '/icons/biology_and_ecosystems/Marine-mammals.png', legend: 'Marine mammal abundance and distribution', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Sea-turtles.png', legend: 'Sea turtle abundance and distribution', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Seabirds.png', legend: 'Seabird abundance and distribution', iconSize: 'w-16 h-16' },
-                { icon: '/icons/biology_and_ecosystems/Fish.png', legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biology_and_ecosystems/Marine-mammals.png'), legend: 'Marine mammal abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biology_and_ecosystems/Sea-turtles.png'), legend: 'Sea turtle abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biology_and_ecosystems/Seabirds.png'), legend: 'Seabird abundance and distribution', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biology_and_ecosystems/Fish.png'), legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
               ]
             ]}
             borderColor="border-goos-green-700"
@@ -1972,10 +1972,10 @@ function App() {
             headers={[t('oceanHealth.eovTable.physicsTitle')]}
             rows={[
               [
-                { icon: '/icons/physics/Surface-temperature.png', legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-temperature.png', legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Surface-salinity.png', legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
-                { icon: '/icons/physics/Subsurface-salinity.png', legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
               ]
             ]}
             borderColor="border-goos-blue-700"

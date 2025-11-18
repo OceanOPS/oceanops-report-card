@@ -46,23 +46,24 @@
 import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import { asset } from '../utils/assets'
 
 // Fixed network types with their icons and translation keys
 const FIXED_NETWORKS = [
-  { key: 'driftingBuoys', icon: '/icons/network/dbcp_drifters.svg', labelKey: 'partners.networks.driftingBuoys' },
-  { key: 'argo', icon: '/icons/network/argo.svg', labelKey: 'partners.networks.argo' },
-  { key: 'oceanGliders', icon: '/icons/network/ocean_gliders.svg', labelKey: 'partners.networks.oceanGliders' },
-  { key: 'aniBOS', icon: '/icons/network/ani_bos.svg', labelKey: 'partners.networks.aniBOS' },
-  { key: 'fvon', icon: '/icons/network/soop.svg', labelKey: 'partners.networks.fvon' },
-  { key: 'sotVos', icon: '/icons/network/vos.svg', labelKey: 'partners.networks.sotVos' },
-  { key: 'sotAsap', icon: '/icons/network/asap.svg', labelKey: 'partners.networks.sotAsap' },
-  { key: 'sot', icon: '/icons/network/xbt-soop.svg', labelKey: 'partners.networks.sot' },
-  { key: 'goShip', icon: '/icons/network/go_ship.svg', labelKey: 'partners.networks.goShip' },
-  { key: 'gloss', icon: '/icons/network/gloss.svg', labelKey: 'partners.networks.gloss' },
-  { key: 'oceanSites', icon: '/icons/network/ocean_sites.svg', labelKey: 'partners.networks.oceanSites' },
-  { key: 'mooredBuoys', icon: '/icons/network/dbcp_moored.svg', labelKey: 'partners.networks.mooredBuoys' },
-  { key: 'tsunamiBuoys', icon: '/icons/network/tsunami_buoys.svg', labelKey: 'partners.networks.tsunamiBuoys' },
-  { key: 'hfRadars', icon: '/icons/network/hf_radar.svg', labelKey: 'partners.networks.hfRadars' },
+  { key: 'driftingBuoys', icon: asset('/icons/network/dbcp_drifters.svg'), labelKey: 'partners.networks.driftingBuoys' },
+  { key: 'argo', icon: asset('/icons/network/argo.svg'), labelKey: 'partners.networks.argo' },
+  { key: 'oceanGliders', icon: asset('/icons/network/ocean_gliders.svg'), labelKey: 'partners.networks.oceanGliders' },
+  { key: 'aniBOS', icon: asset('/icons/network/ani_bos.svg'), labelKey: 'partners.networks.aniBOS' },
+  { key: 'fvon', icon: asset('/icons/network/soop.svg'), labelKey: 'partners.networks.fvon' },
+  { key: 'sotVos', icon: asset('/icons/network/vos.svg'), labelKey: 'partners.networks.sotVos' },
+  { key: 'sotAsap', icon: asset('/icons/network/asap.svg'), labelKey: 'partners.networks.sotAsap' },
+  { key: 'sot', icon: asset('/icons/network/xbt-soop.svg'), labelKey: 'partners.networks.sot' },
+  { key: 'goShip', icon: asset('/icons/network/go_ship.svg'), labelKey: 'partners.networks.goShip' },
+  { key: 'gloss', icon: asset('/icons/network/gloss.svg'), labelKey: 'partners.networks.gloss' },
+  { key: 'oceanSites', icon: asset('/icons/network/ocean_sites.svg'), labelKey: 'partners.networks.oceanSites' },
+  { key: 'mooredBuoys', icon: asset('/icons/network/dbcp_moored.svg'), labelKey: 'partners.networks.mooredBuoys' },
+  { key: 'tsunamiBuoys', icon: asset('/icons/network/tsunami_buoys.svg'), labelKey: 'partners.networks.tsunamiBuoys' },
+  { key: 'hfRadars', icon: asset('/icons/network/hf_radar.svg'), labelKey: 'partners.networks.hfRadars' },
 ] as const
 
 type NetworkKey = typeof FIXED_NETWORKS[number]['key']
