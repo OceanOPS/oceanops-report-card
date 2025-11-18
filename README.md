@@ -1,6 +1,6 @@
-# OceanOPS Report Card - GOOS Status Report 2024
+# OceanOPS Report Card - GOOS Status Report 2025
 
-Interactive web application presenting the Global Ocean Observing System (GOOS) Status Report 2024. Built with React, TypeScript, and modern web technologies to deliver an engaging, multilingual experience showcasing ocean observing networks and their contributions to climate, operational services, and ocean health.
+Interactive web application presenting the Global Ocean Observing System (GOOS) Status Report 2025. Built with React, TypeScript, and modern web technologies to deliver an engaging, multilingual experience showcasing ocean observing networks and their contributions to climate, operational services, and ocean health.
 
 ## Features
 
@@ -50,8 +50,10 @@ npm run dev
 ```
 
 The application will start at different URLs depending on your branch:
-- **staging**: `http://localhost:5173/` (root deployment for Netlify)
-- **main**: `http://localhost:5173/demos/report-card/` (subdirectory deployment for production)
+- **staging** or **feature branches**: `http://localhost:5173/` (root deployment)
+- **main**: `http://localhost:5173/demos/report-card/` (subdirectory deployment)
+
+Both use the same code with `asset()` helper - only `vite.config.ts` differs.
 
 ### Build for Production
 
@@ -83,7 +85,8 @@ oceanops-report-card/
 ├── src/
 │   ├── components/          # 30+ React components
 │   ├── locales/            # Translation files (en, es, fr)
-│   ├── utils/              # Utility functions (asset path helpers)
+│   ├── utils/              # Utility functions
+│   │   └── assets.ts       # asset() helper for base URL resolution
 │   ├── App.tsx             # Main application
 │   ├── main.tsx            # Application entry point
 │   ├── i18n.ts             # i18next configuration
@@ -104,9 +107,33 @@ feature-branches → staging (testing/preview) → main (production)
 - **staging** - Default branch for development and testing (deployed to Netlify)
 - **main** - Production branch (deployed to subdirectory)
 
-**Important**: `staging` and `main` have different configurations:
-- `staging`: Deploys to root URL (`/`) for Netlify
-- `main`: Deploys to subdirectory (`/demos/report-card/`) for production
+### Unified Codebase with Divergent Configuration
+
+Both branches use **identical code** with the `asset()` helper function for all asset paths. The only difference is the `vite.config.ts` configuration:
+
+**staging** (`vite.config.ts`):
+```ts
+export default defineConfig({
+  plugins: [react()],
+  // No base path - deploys to root
+})
+```
+- `BASE_URL` = `/`
+- `asset('/images/photo.jpg')` → `/images/photo.jpg`
+- Deployed to: `https://oceanops-report-card.netlify.app/`
+
+**main** (`vite.config.ts`):
+```ts
+export default defineConfig({
+  plugins: [react()],
+  base: '/demos/report-card/',
+})
+```
+- `BASE_URL` = `/demos/report-card/`
+- `asset('/images/photo.jpg')` → `/demos/report-card/images/photo.jpg`
+- Deployed to: `https://oceanops.org/demos/report-card/`
+
+This approach allows seamless cherry-picking of commits between branches without manual path adjustments.
 
 ## Deployment
 
@@ -195,9 +222,11 @@ Usage:
 
 ### Git Workflow
 1. Create feature branch from `staging`
-2. Develop and test locally
+2. Develop and test locally (use `asset()` for all asset paths)
 3. Create PR to `staging` for testing
-4. After approval, merge `staging` to `main` for production
+4. After approval, cherry-pick commits to `main` (no manual edits needed!)
+
+**Note**: Since both branches use `asset()`, cherry-picking commits from `staging` to `main` requires no manual path adjustments. Only `vite.config.ts` differs between branches.
 
 ### Commit Messages
 Use clear, descriptive commit messages:
