@@ -25,6 +25,7 @@ import ContentBox from './components/ContentBox'
 import MenuSidebar from './components/MenuSidebar'
 import DeliveryAreasNav from './components/DeliveryAreasNav'
 import ColorStripes from './components/ColorStripes'
+import { asset } from './utils/assets'
 
 function App() {
   const { t } = useTranslation()
@@ -235,7 +236,7 @@ function App() {
         backgroundBlendMode="normal"   // Uses luminosity of video with color of background
         // Background Image or Video
         mediaType="video"
-        backgroundMedia="/videos/video.mp4"
+        backgroundMedia={asset("/videos/video.mp4")}
         // Animation control - starts after preloader finishes
         startAnimation={!isLoading}
       />
@@ -299,7 +300,7 @@ function App() {
         </p>
 
         <ImageCaption
-          src="/images/intro1.webp"
+          src={asset("/images/intro1.webp")}
           alt={t('content.section1.intro1ImageAlt')}
           aspectRatio="video"
           objectFit="cover"
@@ -606,7 +607,7 @@ function App() {
           lineColor="bg-goos-orange-500"
         cards={[
           {
-            iconSrc: '/icons/network/vos.svg',
+            iconSrc: asset('/icons/network/vos.svg'),
             iconAlt: 'networks.sotVos.iconAlt',
             titleKey: 'networks.sotVos.title',
             networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#VOS',
@@ -622,7 +623,7 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: '/icons/network/xbt-soop.svg',
+            iconSrc: asset('/icons/network/xbt-soop.svg'),
             iconAlt: 'networks.sotXbt.iconAlt',
             titleKey: 'networks.sotXbt.title',
             networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
@@ -638,7 +639,7 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: '/icons/network/asap.svg',
+            iconSrc: asset('/icons/network/asap.svg'),
             iconAlt: 'networks.sotAsap.iconAlt',
             titleKey: 'networks.sotAsap.title',
             networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
@@ -654,7 +655,7 @@ function App() {
             deliveryAreas: ['operational'],
           },
           {
-            iconSrc: '/icons/network/go_ship.svg',
+            iconSrc: asset('/icons/network/go_ship.svg'),
             iconAlt: 'networks.goShip.iconAlt',
             titleKey: 'networks.goShip.title',
             networkUrl: 'http://www.go-ship.org/',
@@ -670,7 +671,7 @@ function App() {
             deliveryAreas: ['climate', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/gloss.svg',
+            iconSrc: asset('/icons/network/gloss.svg'),
             iconAlt: 'networks.gloss.iconAlt',
             titleKey: 'networks.gloss.title',
             networkUrl: 'https://gloss-sealevel.org/',
@@ -686,7 +687,7 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: '/icons/network/ocean_sites.svg',
+            iconSrc: asset('/icons/network/ocean_sites.svg'),
             iconAlt: 'networks.oceanSites.iconAlt',
             titleKey: 'networks.oceanSites.title',
             networkUrl: 'https://www.ocean-ops.org/oceansites/',
@@ -702,7 +703,7 @@ function App() {
             deliveryAreas: ['climate', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/dbcp_moored.svg',
+            iconSrc: asset('/icons/network/dbcp_moored.svg'),
             iconAlt: 'networks.dbcpMoored.iconAlt',
             titleKey: 'networks.dbcpMoored.title',
             networkUrl: 'https://www.ocean-ops.org/dbcp/',
@@ -718,7 +719,7 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/tsunami_buoys.svg',
+            iconSrc: asset('/icons/network/tsunami_buoys.svg'),
             iconAlt: 'networks.dbcpTsunami.iconAlt',
             titleKey: 'networks.dbcpTsunami.title',
             networkUrl: 'https://www.ocean-ops.org/dbcp/',
@@ -734,7 +735,7 @@ function App() {
             deliveryAreas: ['operational'],
           },
           {
-            iconSrc: '/icons/network/hf_radar.svg',
+            iconSrc: asset('/icons/network/hf_radar.svg'),
             iconAlt: 'networks.hfRadar.iconAlt',
             titleKey: 'networks.hfRadar.title',
             networkUrl: 'http://global-hfradar.org/',
@@ -750,7 +751,7 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/dbcp_drifters.svg',
+            iconSrc: asset('/icons/network/dbcp_drifters.svg'),
             iconAlt: 'networks.dbcpDrifting.iconAlt',
             titleKey: 'networks.dbcpDrifting.title',
             networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
@@ -766,7 +767,7 @@ function App() {
             deliveryAreas: ['climate', 'operational'],
           },
           {
-            iconSrc: '/icons/network/argo.svg',
+            iconSrc: asset('/icons/network/argo.svg'),
             iconAlt: 'networks.argo.iconAlt',
             titleKey: 'networks.argo.title',
             networkUrl: 'https://argo.ucsd.edu/',
@@ -782,7 +783,7 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/ocean_gliders.svg',
+            iconSrc: asset('/icons/network/ocean_gliders.svg'),
             iconAlt: 'networks.gliders.iconAlt',
             titleKey: 'networks.gliders.title',
             networkUrl: 'https://www.oceangliders.org/',
@@ -798,7 +799,7 @@ function App() {
             deliveryAreas: ['climate', 'operational', 'oceanhealth'],
           },
           {
-            iconSrc: '/icons/network/ani_bos.svg',
+            iconSrc: asset('/icons/network/ani_bos.svg'),
             iconAlt: 'networks.anibos.iconAlt',
             titleKey: 'networks.anibos.title',
             networkUrl: 'https://anibos.com/',
@@ -1193,84 +1194,84 @@ function App() {
             {
               number: "108",
               tagKey: "dataCards.card1.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Seabirds.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Seabirds.png"),
               iconAlt: t('dataCards.card1.iconAlt'),
               titleKey: "dataCards.card1.title",
             },
             {
               number: "224",
               tagKey: "dataCards.card2.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Fish.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Fish.png"),
               iconAlt: t('dataCards.card2.iconAlt'),
               titleKey: "dataCards.card2.title",
             },
             {
               number: "59",
               tagKey: "dataCards.card3.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Hard-coral.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Hard-coral.png"),
               iconAlt: t('dataCards.card3.iconAlt'),
               titleKey: "dataCards.card3.title",
             },
             {
               number: "192",
               tagKey: "dataCards.card4.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Invertebrates.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Invertebrates.png"),
               iconAlt: t('dataCards.card4.iconAlt'),
               titleKey: "dataCards.card4.title",
             },
             {
               number: "120",
               tagKey: "dataCards.card5.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Macroalgae.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Macroalgae.png"),
               iconAlt: t('dataCards.card5.iconAlt'),
               titleKey: "dataCards.card5.title",
             },
             {
               number: "184",
               tagKey: "dataCards.card6.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Marine-mammals.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Marine-mammals.png"),
               iconAlt: t('dataCards.card6.iconAlt'),
               titleKey: "dataCards.card6.title",
             },
             {
               number: "18",
               tagKey: "dataCards.card7.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Mangroves.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Mangroves.png"),
               iconAlt: t('dataCards.card7.iconAlt'),
               titleKey: "dataCards.card7.title",
             },
             {
               number: "99",
               tagKey: "dataCards.card8.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Microbes.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Microbes.png"),
               iconAlt: t('dataCards.card8.iconAlt'),
               titleKey: "dataCards.card8.title",
             },
             {
               number: "230",
               tagKey: "dataCards.card9.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Phytoplankton.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Phytoplankton.png"),
               iconAlt: t('dataCards.card9.iconAlt'),
               titleKey: "dataCards.card9.title",
             },
             {
               number: "75",
               tagKey: "dataCards.card10.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Seagrass.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Seagrass.png"),
               iconAlt: t('dataCards.card10.iconAlt'),
               titleKey: "dataCards.card10.title",
             },
             {
               number: "78",
               tagKey: "dataCards.card11.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Sea-turtles.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Sea-turtles.png"),
               iconAlt: t('dataCards.card11.iconAlt'),
               titleKey: "dataCards.card11.title",
             },
             {
               number: "188",
               tagKey: "dataCards.card12.tag",
-              iconSrc: "/icons/biology_and_ecosystems/Zooplankton.png",
+              iconSrc: asset("/icons/biology_and_ecosystems/Zooplankton.png"),
               iconAlt: t('dataCards.card12.iconAlt'),
               titleKey: "dataCards.card12.title",
             },
@@ -1294,7 +1295,7 @@ function App() {
             videoId: '-MKKMU3_siw',
             previewImage: '/images/fvon.webp',
             imageAlt: 'emerging.fvon.imageAlt',
-            iconSrc: '/icons/network/fishing_vessels.svg',
+            iconSrc: asset('/icons/network/fishing_vessels.svg'),
             iconAlt: 'emerging.fvon.iconAlt',
             titleKey: 'emerging.fvon.title',
             paragraph1Key: 'emerging.fvon.paragraph1',
@@ -1311,7 +1312,7 @@ function App() {
             videoId: 'NoEK7XwOMeU',
             previewImage: '/images/smart_cables.webp',
             imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: '/icons/network/smart_cables.svg',
+            iconSrc: asset('/icons/network/smart_cables.svg'),
             iconAlt: 'emerging.smartCables.iconAlt',
             titleKey: 'emerging.smartCables.title',
             paragraph1Key: 'emerging.smartCables.paragraph1',
@@ -1330,7 +1331,7 @@ function App() {
             modalContent: (
               <div className="flex flex-col gap-5">
                 <img
-                  src="/images/soconet.webp"
+                  src={asset("/images/soconet.webp")}
                   alt="SOCONET"
                   className="w-full h-auto object-cover rounded"
                 />
@@ -1358,7 +1359,7 @@ function App() {
                 </div>
               </div>
             ),
-            iconSrc: '/icons/network/surface_ocean_co2.svg',
+            iconSrc: asset('/icons/network/surface_ocean_co2.svg'),
             iconAlt: 'emerging.soconet.iconAlt',
             titleKey: 'emerging.soconet.title',
             paragraph1Key: 'emerging.soconet.paragraph1WithLink',
@@ -1373,7 +1374,7 @@ function App() {
             mediaType: 'image',
             imageSrc: '/images/sunfleet.webp',
             imageAlt: 'emerging.sunFleet.imageAlt',
-            iconSrc: '/icons/network/sun_fleet.svg',
+            iconSrc: asset('/icons/network/sun_fleet.svg'),
             iconAlt: 'emerging.sunFleet.iconAlt',
             titleKey: 'emerging.sunFleet.title',
             paragraph1Key: 'emerging.sunFleet.paragraph1',
@@ -1467,7 +1468,7 @@ function App() {
         {/* Image - Climate 1 */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/climate1.webp"
+            src={asset("/images/climate1.webp")}
             alt="Climate observation"
             caption=""
           />
@@ -1484,7 +1485,7 @@ function App() {
         {/* Image 1 - AMOC time series */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/climate2.webp"
+            src={asset("/images/climate2.webp")}
             alt={t('amoc.imageCaption')}
             caption={t('amoc.imageCaption')}
             aspectRatio="auto"
@@ -1664,7 +1665,7 @@ function App() {
         {/* Image - Operational 1 */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/operational1.webp"
+            src={asset("/images/operational1.webp")}
             alt="Operational observation"
             caption=""
           />
@@ -1762,7 +1763,7 @@ function App() {
         {/* Image - El Niño Forecast */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/operational2.webp"
+            src={asset("/images/operational2.webp")}
             alt={t('elNino.imageCaption')}
           caption={t('elNino.imageCaption')}
           aspectRatio="auto"
@@ -1915,7 +1916,7 @@ function App() {
         {/* Image - Seal foraging trips */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src="/images/imos_anim_230624.gif"
+            src={asset("/images/imos_anim_230624.gif")}
             alt={t('oceanHealth.imageCaption')}
           caption={t('oceanHealth.imageCaption')}
           aspectRatio="auto"
@@ -2107,7 +2108,7 @@ function App() {
        <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
        {/* Single Image */}
         <ImageCaption
-          src="/images/sa1.webp"
+          src={asset("/images/sa1.webp")}
           alt="South Africa observation"
           aspectRatio="video"
           objectFit="cover"

@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { asset } from '../utils/assets'
 
 // Registrar el plugin de ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -24,9 +25,9 @@ export default function ColorStripes({
   stripeColors,
   className = '',
   deliveryAreas = [
-    { iconSrc: '/icons/climate.png', iconAlt: 'Climate', textKey: 'networks.deliveryAreas.climate', sectionId: 'amoc-section' },
-    { iconSrc: '/icons/operational_services.png', iconAlt: 'Operational Services', textKey: 'networks.deliveryAreas.operational', sectionId: 'elnino-section' },
-    { iconSrc: '/icons/ocean_health.png', iconAlt: 'Ocean Health', textKey: 'networks.deliveryAreas.oceanhealth', sectionId: 'oceanhealth-section' },
+    { iconSrc: asset('/icons/climate.png'), iconAlt: 'Climate', textKey: 'networks.deliveryAreas.climate', sectionId: 'amoc-section' },
+    { iconSrc: asset('/icons/operational_services.png'), iconAlt: 'Operational Services', textKey: 'networks.deliveryAreas.operational', sectionId: 'elnino-section' },
+    { iconSrc: asset('/icons/ocean_health.png'), iconAlt: 'Ocean Health', textKey: 'networks.deliveryAreas.oceanhealth', sectionId: 'oceanhealth-section' },
   ],
   stripeHeight = ''
 }: ColorStripesProps) {

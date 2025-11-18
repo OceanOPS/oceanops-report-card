@@ -16,14 +16,14 @@
  * @example
  * ```tsx
  * <ImageCaption
- *   src="/images/ocean-research.jpg"
+ *   src={asset("/images/ocean-research.jpg")}
  *   alt="Ocean research vessel"
  *   caption="Photo by John Doe / Ocean Institute"
  * />
  *
  * // Square image with contain fit
  * <ImageCaption
- *   src="/images/logo.png"
+ *   src={asset("/images/logo.png")}
  *   alt="Organization logo"
  *   aspectRatio="square"
  *   objectFit="contain"
@@ -31,7 +31,7 @@
  *
  * // No caption
  * <ImageCaption
- *   src="/images/chart.jpg"
+ *   src={asset("/images/chart.jpg")}
  *   alt="Data chart"
  * />
  * ```

@@ -23,7 +23,7 @@
  *   year="2025"
  *   yearColor="text-goos-orange"
  *   backgroundColor="bg-goos-blue-900"
- *   backgroundMedia="/backgrounds/ocean.jpg"
+ *   backgroundMedia={asset("/backgrounds/ocean.jpg")}
  *   backgroundOpacity={50}
  *   backgroundPosition="top right"
  *   backgroundSize="cover"

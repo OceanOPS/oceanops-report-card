@@ -27,7 +27,7 @@
  *   lineColor="bg-goos-orange-500"
  *   cards={[
  *     {
- *       iconSrc: '/images/argo.png',
+ *       iconSrc: asset('/images/argo.png'),
  *       iconAlt: 'networks.argo.iconAlt',
  *       titleKey: 'networks.argo.title',
  *       networkUrl: 'https://argo.ucsd.edu',
