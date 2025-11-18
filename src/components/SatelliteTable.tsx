@@ -396,22 +396,6 @@ export default function SatelliteTable() {
                   </p>
                 </div>
 
-                {/* Contacts Section */}
-                <div>
-                  <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">
-                    {t('satelliteObservations.platformModal.contactsTitle')}
-                  </h3>
-                  <div className="space-y-1 text-sm sm:text-base text-white">
-                    <p>{t('satelliteObservations.platformModal.contacts.sst')}</p>
-                    <p>{t('satelliteObservations.platformModal.contacts.sss')}</p>
-                    <p>{t('satelliteObservations.platformModal.contacts.seaLevel')}</p>
-                    <p>{t('satelliteObservations.platformModal.contacts.winds')}</p>
-                    <p>{t('satelliteObservations.platformModal.contacts.seaIce')}</p>
-                    <p>{t('satelliteObservations.platformModal.contacts.seaState')}</p>
-                    <p>{t('satelliteObservations.platformModal.contacts.oceanColor')}</p>
-                  </div>
-                </div>
-
                 {/* SST */}
                 <div>
                   <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3">

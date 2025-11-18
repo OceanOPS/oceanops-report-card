@@ -249,7 +249,9 @@
       "stats": {
         "stat1": {
           "number": "64",
-          "description": "contributing countries"
+          "description": "contributing countries",
+          "infoModalTitle": "About Contributing Countries Count",
+          "infoModalContent": "In this edition, the number of contributing Member States appears lower than in the 2023 GOOS Report Card. This is primarily due to the application of updated operational criteria for GLOSS stations, as agreed with the GLOSS Steering Team, and a revision of how EU contributions to GOOS are counted—treating the European Union as a single entity rather than as 27 individual countries, as previously done. This refined methodology will be maintained in future editions of the GOOS Status Report."
         },
         "stat2": {
           "number": "17",
@@ -661,16 +663,6 @@
       "title": "Essential Climate and Ocean Variables observed from space",
       "introduction": "This document provides additional information on the adequacy, continuity, and requirements of satellite observations for each Essential Ocean and Climate Variable, as contributed by the satellite ocean observing community. It summarizes the current status and future outlook of satellite measurements for each variable, outlining key achievements, challenges, and planned missions.",
       "moreButton": "More…",
-      "contactsTitle": "Contacts",
-      "contacts": {
-        "sst": "SST: Jorge Vazquez (jorge.vazquez@jpl.nasa.gov), Christina Gonzalez-Haro (cgharo@icm.csic.es)",
-        "sss": "SSS: Severine Fournier (severine.fournier@jpl.nasa.gov)",
-        "seaLevel": "Sea Level: Severine Fournier (severine.fournier@jpl.nasa.gov)",
-        "seaState": "Sea State: Lotfi Aouf (lotfi.aouf@meteo.fr)",
-        "winds": "Winds: Mark Bourassa (bourassa@coaps.fsu.edu); Tong Lee (tlee@jpl.nasa.gov)",
-        "seaIce": "Sea Ice: Ted Maksym (tmaksym@whoi.edu); Stephen Howell (stephen.howell@ec.gc.ca); Walter Meier (walt@colorado.edu)",
-        "oceanColor": "Ocean Color: Christine Lee (christine.lee@jpl.nasa.gov)"
-      },
       "variables": {
         "sst": {
           "title": "SEA SURFACE TEMPERATURE:",
@@ -833,6 +825,7 @@
   },
   "partners": {
     "title": "Our Partners",
+    "introduction": "In this edition, the number of contributing Member States appears lower than in the 2023 GOOS Report Card. This is primarily due to the application of updated operational criteria for GLOSS stations, as agreed with the GLOSS Steering Team, and a revision of how EU contributions to GOOS are counted—treating the European Union as a single entity rather than as 27 individual countries, as previously done. This refined methodology will be maintained in future editions of the GOOS Status Report.",
     "networksLabel": "Networks",
     "platformsLabel": "Platforms",
     "viewFullListButton": "VIEW FULL LIST",

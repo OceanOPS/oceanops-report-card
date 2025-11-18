@@ -403,6 +403,14 @@ function App() {
             {
               number: t('content.section1.stats.stat1.number'),
               description: t('content.section1.stats.stat1.description'),
+              infoModal: {
+                title: t('content.section1.stats.stat1.infoModalTitle'),
+                content: (
+                  <p className="text-sm sm:text-base text-goos-white leading-relaxed">
+                    {t('content.section1.stats.stat1.infoModalContent')}
+                  </p>
+                ),
+              },
             },
             {
               number: t('content.section1.stats.stat2.number'),
