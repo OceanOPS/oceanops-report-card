@@ -22,6 +22,7 @@
  */
 
 import { useTranslation } from 'react-i18next'
+import { asset } from '../utils/assets'
 
 interface PartnerLogosProps {
   variant?: 'white' | 'color'
@@ -36,29 +37,29 @@ export default function PartnerLogos({ variant = 'white', className = '' }: Part
 
   const leftLogos = [
     {
-      src: `/logos/unesco${logoSuffix}.png`,
+      src: asset(`/logos/unesco${logoSuffix}.png`),
       alt: t('cover.logos.unesco'),
       url: 'http://www.ioc-unesco.org/',
     },
     {
-      src: `/logos/wmo${logoSuffix}.png`,
+      src: asset(`/logos/wmo${logoSuffix}.png`),
       alt: t('cover.logos.wmo'),
       url: 'http://www.wmo.int/',
     },
     {
-      src: `/logos/unep${logoSuffix}.png`,
+      src: asset(`/logos/unep${logoSuffix}.png`),
       alt: t('cover.logos.unep'),
       url: 'https://www.unep.org/',
     },
     {
-      src: `/logos/isc${logoSuffix}.png`,
+      src: asset(`/logos/isc${logoSuffix}.png`),
       alt: t('cover.logos.isc'),
       url: 'https://council.science/',
     },
   ]
 
   const rightLogo = {
-    src: `/logos/oceanops${logoSuffix}.png`,
+    src: asset(`/logos/oceanops${logoSuffix}.png`),
     alt: t('cover.logos.oceanops'),
     url: 'https://www.ocean-ops.org/',
   }

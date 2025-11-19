@@ -64,19 +64,20 @@
 
 import { useTranslation } from 'react-i18next'
 import Tooltip from './Tooltip'
+import { asset } from '../utils/assets'
 
 // Fixed GOOS delivery areas configuration
 const DELIVERY_AREAS_CONFIG = {
   climate: {
-    icon: '/icons/climate.png',
+    icon: asset('/icons/climate.png'),
     labelKey: 'networks.deliveryAreas.climate',
   },
   operational: {
-    icon: '/icons/operational_services.png',
+    icon: asset('/icons/operational_services.png'),
     labelKey: 'networks.deliveryAreas.operational',
   },
   oceanhealth: {
-    icon: '/icons/ocean_health.png',
+    icon: asset('/icons/ocean_health.png'),
     labelKey: 'networks.deliveryAreas.oceanhealth',
   },
 } as const

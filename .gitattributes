@@ -1,0 +1,3 @@
+# Protect vite.config.ts in main branch during merges
+# This ensures main always keeps its version with base: '/demos/report-card/'
+vite.config.ts merge=ours
