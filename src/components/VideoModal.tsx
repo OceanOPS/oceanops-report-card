@@ -234,7 +234,7 @@ export default function VideoModal({
             onClick={(e) => e.stopPropagation()}
           >
             {/* Video Container */}
-            <div className="relative w-full h-full bg-black flex items-center justify-center" style={{ maxHeight: '90vh' }}>
+            <div className="relative w-full aspect-video bg-black flex items-center justify-center" style={{ maxHeight: '90vh' }}>
               {/* Close Button - Inside video container */}
               <button
                 onClick={closeModal}
