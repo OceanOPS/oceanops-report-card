@@ -353,7 +353,24 @@ export default function EmergingNetworkCard({
                         <div className="plyr-card-wrapper">
                           <style>{`
                             .plyr-card-wrapper .plyr {
+                              width: 100% !important;
+                              height: 100% !important;
                               --plyr-color-main: #F48B25;
+                            }
+                            .plyr-card-wrapper .plyr video {
+                              width: 100% !important;
+                              height: 100% !important;
+                              object-fit: contain !important;
+                            }
+                            .plyr-card-wrapper .plyr__video-wrapper {
+                              padding-bottom: 0 !important;
+                              height: 100% !important;
+                            }
+                            .plyr-card-wrapper .plyr__controls {
+                              position: absolute !important;
+                              bottom: 0 !important;
+                              left: 0 !important;
+                              right: 0 !important;
                             }
                           `}</style>
                           <Plyr
