@@ -259,6 +259,8 @@ export default function VideoModal({
                   ref={videoRef}
                   src={videoId}
                   controls
+                  controlsList="nodownload"
+                  disablePictureInPicture
                   autoPlay
                   className="w-full h-full"
                 >

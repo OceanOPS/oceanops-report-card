@@ -341,6 +341,8 @@ export default function EmergingNetworkCard({
                         <video
                           src={videoId}
                           controls
+                          controlsList="nodownload"
+                          disablePictureInPicture
                           className="w-full h-full"
                         >
                           Your browser does not support the video tag.
