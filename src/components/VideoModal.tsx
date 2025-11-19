@@ -37,8 +37,11 @@
  */
 
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import Plyr from 'plyr-react'
+import 'plyr-react/plyr.css'
 
 interface VideoModalProps {
   videoType?: 'youtube' | 'local'
@@ -73,7 +76,7 @@ export default function VideoModal({
 
   // Use controlled or internal state
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const plyrRef = useRef<any>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
@@ -104,10 +107,10 @@ export default function VideoModal({
       setInternalIsOpen(false)
     }
 
-    // Stop local video
-    if (videoType === 'local' && videoRef.current) {
-      videoRef.current.pause()
-      videoRef.current.currentTime = 0
+    // Stop local video (Plyr)
+    if (videoType === 'local' && plyrRef.current?.plyr) {
+      plyrRef.current.plyr.pause()
+      plyrRef.current.plyr.currentTime = 0
     }
 
     // Stop YouTube video by reloading iframe
@@ -170,6 +173,15 @@ export default function VideoModal({
   // Build YouTube embed URL
   const youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`
 
+  // Plyr options - hide download, pip, and settings
+  const plyrOptions = {
+    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+    settings: [], // Hide settings menu (removes playback speed)
+    autoplay: true,
+    clickToPlay: true,
+    hideControls: true,
+  }
+
   return (
     <>
       {/* Preview with Play Button - Only show if not controlled */}
@@ -210,64 +222,96 @@ export default function VideoModal({
       )}
 
       {/* Modal */}
-      {isOpen && (
+      {isOpen && createPortal(
         <div
           ref={overlayRef}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 p-4"
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black bg-opacity-80 p-4"
           onClick={closeModal}
         >
           <div
             ref={modalRef}
-            className="relative w-full max-w-5xl"
+            className="relative w-full max-w-5xl max-h-[90vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              onClick={closeModal}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-              aria-label={t('common.closeVideo')}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
             {/* Video Container */}
-            <div className="aspect-video w-full bg-black">
+            <div className="relative w-full h-full bg-black flex items-center justify-center" style={{ maxHeight: '90vh' }}>
+              {/* Close Button - Inside video container */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-[100] bg-black bg-opacity-50 rounded-full p-2"
+                aria-label={t('common.closeVideo')}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+
               {videoType === 'youtube' ? (
                 <iframe
                   ref={iframeRef}
                   src={youtubeEmbedUrl}
-                  className="w-full h-full"
+                  className="w-full h-full max-h-[90vh]"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   title="YouTube video player"
                 />
               ) : (
-                <video
-                  ref={videoRef}
-                  src={videoId}
-                  controls
-                  autoPlay
-                  className="w-full h-full"
-                >
-                  {t('common.videoNotSupported')}
-                </video>
+                <div className="plyr-video-wrapper" style={{
+                  width: '100%',
+                  maxHeight: '90vh',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <style>{`
+                    .plyr-video-wrapper .plyr {
+                      width: 100% !important;
+                      height: auto !important;
+                      max-height: 90vh !important;
+                      --plyr-color-main: #F48B25;
+                    }
+                    .plyr-video-wrapper .plyr video {
+                      width: 100% !important;
+                      height: auto !important;
+                      max-height: 90vh !important;
+                      object-fit: contain !important;
+                    }
+                    .plyr-video-wrapper .plyr__video-wrapper {
+                      padding-bottom: 0 !important;
+                      height: auto !important;
+                    }
+                  `}</style>
+                  <Plyr
+                    ref={plyrRef}
+                    source={{
+                      type: 'video',
+                      sources: [
+                        {
+                          src: videoId,
+                          type: 'video/mp4',
+                        },
+                      ],
+                    }}
+                    options={plyrOptions}
+                  />
+                </div>
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   )

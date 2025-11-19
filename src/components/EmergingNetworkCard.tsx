@@ -63,12 +63,14 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import Button from './Button'
 import Tooltip from './Tooltip'
 import { GalleryImage } from './ImageGallery'
 import ContentModal from './ContentModal'
+import Plyr from 'plyr-react'
+import 'plyr-react/plyr.css'
 
 // Reuse the same delivery areas configuration from NetworkCard
 const DELIVERY_AREAS_CONFIG = {
@@ -155,6 +157,15 @@ export default function EmergingNetworkCard({
 }: EmergingNetworkCardProps) {
   const { t } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const plyrRef = useRef<any>(null)
+
+  // Plyr options - hide download, pip, and settings
+  const plyrOptions = {
+    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+    settings: [], // Hide settings menu (removes playback speed)
+    clickToPlay: true,
+    hideControls: true,
+  }
 
   // Limit delivery areas to 1-3
   const limitedAreas = deliveryAreas.slice(0, 3)
@@ -338,13 +349,26 @@ export default function EmergingNetworkCard({
                           title="YouTube video player"
                         />
                       ) : (
-                        <video
-                          src={videoId}
-                          controls
-                          className="w-full h-full"
-                        >
-                          Your browser does not support the video tag.
-                        </video>
+                        <div className="plyr-card-wrapper">
+                          <style>{`
+                            .plyr-card-wrapper .plyr {
+                              --plyr-color-main: #F48B25;
+                            }
+                          `}</style>
+                          <Plyr
+                            ref={plyrRef}
+                            source={{
+                              type: 'video',
+                              sources: [
+                                {
+                                  src: videoId,
+                                  type: 'video/mp4',
+                                },
+                              ],
+                            }}
+                            options={plyrOptions}
+                          />
+                        </div>
                       )}
                     </div>
                   )}
