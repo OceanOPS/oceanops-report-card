@@ -349,8 +349,13 @@ export default function EmergingNetworkCard({
                           title="YouTube video player"
                         />
                       ) : (
-                        <div className="plyr-card-wrapper">
+                        <div className="plyr-card-wrapper w-full h-full">
                           <style>{`
+                            .plyr-card-wrapper {
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            }
                             .plyr-card-wrapper .plyr {
                               width: 100% !important;
                               height: 100% !important;
