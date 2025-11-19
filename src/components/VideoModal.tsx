@@ -263,8 +263,7 @@ export default function VideoModal({
                   ref={iframeRef}
                   src={youtubeEmbedUrl}
                   className="w-full h-full max-h-[90vh]"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   title="YouTube video player"
                 />
               ) : (

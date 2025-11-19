@@ -345,13 +345,17 @@ export default function EmergingNetworkCard({
                         <iframe
                           src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0`}
                           className="w-full h-full"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                           title="YouTube video player"
                         />
                       ) : (
-                        <div className="plyr-card-wrapper">
+                        <div className="plyr-card-wrapper w-full h-full">
                           <style>{`
+                            .plyr-card-wrapper {
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            }
                             .plyr-card-wrapper .plyr {
                               width: 100% !important;
                               height: 100% !important;

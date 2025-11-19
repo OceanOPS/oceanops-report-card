@@ -32,10 +32,16 @@ export default function CarouselArrow({
   className = '',
 }: CarouselArrowProps) {
   return (
-    <button
+    <div
       onClick={onClick}
       className={`cursor-pointer transition-opacity hover:opacity-70 ${className}`}
-      aria-label={`Navigate ${direction}`}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onClick?.()
+        }
+      }}
     >
       <svg
         width="38"
@@ -50,6 +56,6 @@ export default function CarouselArrow({
           fill={color}
         />
       </svg>
-    </button>
+    </div>
   )
 }
