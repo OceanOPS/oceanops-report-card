@@ -291,6 +291,12 @@ export default function VideoModal({
                       padding-bottom: 0 !important;
                       height: 100% !important;
                     }
+                    .plyr-video-wrapper .plyr__controls {
+                      position: absolute !important;
+                      bottom: 0 !important;
+                      left: 0 !important;
+                      right: 0 !important;
+                    }
                   `}</style>
                   <Plyr
                     ref={plyrRef}
