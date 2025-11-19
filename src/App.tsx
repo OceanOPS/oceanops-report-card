@@ -1299,8 +1299,8 @@ function App() {
           {
             // FVON - First (Video)
             mediaType: 'video',
-            videoType: 'youtube',
-            videoId: '-MKKMU3_siw',
+            videoType: 'local',
+            videoId: asset('/videos/fvon.mp4'),
             previewImage: asset('/images/fvon.webp'),
             imageAlt: 'emerging.fvon.imageAlt',
             iconSrc: asset('/icons/network/fishing_vessels.svg'),
@@ -1316,8 +1316,8 @@ function App() {
           {
             // SMART Cables - Second (Video)
             mediaType: 'video',
-            videoType: 'youtube',
-            videoId: 'NoEK7XwOMeU',
+            videoType: 'local',
+            videoId: asset('/videos/smart-cables.mp4'),
             previewImage: asset('/images/smart_cables.webp'),
             imageAlt: 'emerging.smartCables.imageAlt',
             iconSrc: asset('/icons/network/smart_cables.svg'),
@@ -2155,8 +2155,8 @@ function App() {
  <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
         {/* Video - 10,000 Ships */}
         <VideoModal
-          videoType="youtube"
-          videoId="ki5EsC2BHO0"
+          videoType="local"
+          videoId={asset("/videos/10k-ships.mp4")}
           previewImage={asset("/images/10k.webp")}
           previewAlt="10,000 Ships for the Ocean"
           aspectRatio="video"
