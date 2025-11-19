@@ -268,8 +268,7 @@ export default function VideoModal({
                   title="YouTube video player"
                 />
               ) : (
-                <div className="plyr-video-wrapper" style={{
-                  width: '100%',
+                <div className="plyr-video-wrapper aspect-video w-full" style={{
                   maxHeight: '90vh',
                   display: 'flex',
                   alignItems: 'center',
@@ -278,19 +277,19 @@ export default function VideoModal({
                   <style>{`
                     .plyr-video-wrapper .plyr {
                       width: 100% !important;
-                      height: auto !important;
+                      height: 100% !important;
                       max-height: 90vh !important;
                       --plyr-color-main: #F48B25;
                     }
                     .plyr-video-wrapper .plyr video {
                       width: 100% !important;
-                      height: auto !important;
+                      height: 100% !important;
                       max-height: 90vh !important;
                       object-fit: contain !important;
                     }
                     .plyr-video-wrapper .plyr__video-wrapper {
                       padding-bottom: 0 !important;
-                      height: auto !important;
+                      height: 100% !important;
                     }
                   `}</style>
                   <Plyr
