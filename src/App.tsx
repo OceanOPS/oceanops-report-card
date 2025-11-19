@@ -163,7 +163,7 @@ function App() {
       {isLoading && (
         <Preloader
           onComplete={() => setIsLoading(false)}
-          videoUrl="/videos/video.mp4"
+          videoUrl={asset("/videos/video.mp4")}
         />
       )}
 
