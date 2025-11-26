@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import GoosLogo from '../../src/components/GoosLogo';
 
 const meta = {
-  title: 'Utility/GoosLogo',
+  title: 'Brand/GoosLogo',
   component: GoosLogo,
   parameters: {
     layout: 'centered',
@@ -20,8 +20,11 @@ const meta = {
     },
     className: {
       control: 'text',
-      description: 'Optional Tailwind classes for custom styling',
+      description: 'Optional additional Tailwind classes (e.g., margins, borders)',
     },
+  },
+  args: {
+    variant: 'color',
   },
 } satisfies Meta<typeof GoosLogo>;
 
@@ -29,52 +32,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * White logo variant - ideal for dark backgrounds
+ * Default GOOS Logo
+ *
+ * The logo has fixed responsive heights (h-16 on mobile → h-28 on desktop).
+ *
+ * Use the controls below to:
+ * - **variant**: Switch between white and color versions
+ * - **url**: Add an optional URL to make it clickable
+ * - **className**: Add additional styling (margins, borders, etc.)
  */
-export const WhiteLogo: Story = {
-  args: {
-    variant: 'white',
-  },
-  parameters: {
-    backgrounds: { default: 'dark' },
-  },
-};
-
-/**
- * Color logo variant - ideal for light backgrounds
- */
-export const ColorLogo: Story = {
+export const Default: Story = {
   args: {
     variant: 'color',
-  },
-};
-
-/**
- * Logo with external link - clickable and opens in new tab
- */
-export const WithLink: Story = {
-  args: {
-    variant: 'color',
-    url: 'https://goosocean.org/',
-  },
-};
-
-/**
- * Custom size using className
- */
-export const CustomSize: Story = {
-  args: {
-    variant: 'color',
-    className: 'h-40',
-  },
-};
-
-/**
- * Small size
- */
-export const Small: Story = {
-  args: {
-    variant: 'color',
-    className: 'h-12',
   },
 };

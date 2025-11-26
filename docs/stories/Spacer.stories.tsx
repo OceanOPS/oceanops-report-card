@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Spacer from '../../src/components/Spacer';
 
 const meta = {
-  title: 'Utility/Spacer',
+  title: 'Components/Spacer',
   component: Spacer,
   parameters: {
     layout: 'fullscreen',
@@ -19,13 +19,24 @@ const meta = {
       description: 'Custom height (pixels or Tailwind class)',
     },
     backgroundColor: {
-      control: 'text',
-      description: 'Tailwind background color class',
+      control: 'select',
+      options: [
+        'transparent',
+        'bg-goos-blue-900', 'bg-goos-blue-800', 'bg-goos-blue-700', 'bg-goos-blue-600', 'bg-goos-blue-500', 'bg-goos-blue-400', 'bg-goos-blue-300', 'bg-goos-blue-200', 'bg-goos-blue-100',
+        'bg-goos-cyan-900', 'bg-goos-cyan-800', 'bg-goos-cyan-700', 'bg-goos-cyan-600', 'bg-goos-cyan-500', 'bg-goos-cyan-400', 'bg-goos-cyan-300', 'bg-goos-cyan-200', 'bg-goos-cyan-100',
+        'bg-goos-orange-900', 'bg-goos-orange-800', 'bg-goos-orange-700', 'bg-goos-orange-600', 'bg-goos-orange-500', 'bg-goos-orange-400', 'bg-goos-orange-300', 'bg-goos-orange-200', 'bg-goos-orange-100',
+        'bg-goos-green-900', 'bg-goos-green-800', 'bg-goos-green-700', 'bg-goos-green-600', 'bg-goos-green-500', 'bg-goos-green-400', 'bg-goos-green-300', 'bg-goos-green-200', 'bg-goos-green-100',
+        'bg-goos-gray-900', 'bg-goos-gray-800', 'bg-goos-gray-700', 'bg-goos-gray-600', 'bg-goos-gray-500', 'bg-goos-gray-400', 'bg-goos-gray-300', 'bg-goos-gray-200', 'bg-goos-gray-100',
+      ],
+      description: 'GOOS background color (use lighter shades for dividers)',
     },
     className: {
       control: 'text',
       description: 'Optional additional Tailwind classes',
     },
+  },
+  args: {
+    size: 'md',
   },
   decorators: [
     (Story) => (
@@ -42,136 +53,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Extra small spacing - 4px to 16px responsive
+ * Default Spacer
+ *
+ * Creates vertical spacing between sections.
+ *
+ * Use the controls below to:
+ * - Select preset size: xs, sm, md, lg, xl, 2xl (responsive spacing)
+ * - Set custom height: '100px' or 'h-32'
+ * - Add background color: 'bg-goos-blue-700'
+ * - Add custom classes with className
+ *
+ * Preset sizes (mobile → desktop):
+ * - xs: 4px → 16px
+ * - sm: 8px → 32px
+ * - md: 12px → 64px (default)
+ * - lg: 16px → 96px
+ * - xl: 24px → 128px
+ * - 2xl: 32px → 160px
  */
-export const ExtraSmall: Story = {
-  args: {
-    size: 'xs',
-  },
-};
-
-/**
- * Small spacing - 8px to 32px responsive
- */
-export const Small: Story = {
-  args: {
-    size: 'sm',
-  },
-};
-
-/**
- * Medium spacing - 12px to 64px responsive (default)
- */
-export const Medium: Story = {
+export const Default: Story = {
   args: {
     size: 'md',
   },
-};
-
-/**
- * Large spacing - 16px to 96px responsive
- */
-export const Large: Story = {
-  args: {
-    size: 'lg',
-  },
-};
-
-/**
- * Extra large spacing - 24px to 128px responsive
- */
-export const ExtraLarge: Story = {
-  args: {
-    size: 'xl',
-  },
-};
-
-/**
- * 2X Large spacing - 32px to 160px responsive
- */
-export const TwoExtraLarge: Story = {
-  args: {
-    size: '2xl',
-  },
-};
-
-/**
- * Custom height with pixels
- */
-export const CustomPixels: Story = {
-  args: {
-    height: '100px',
-  },
-};
-
-/**
- * Custom height with Tailwind class
- */
-export const CustomTailwind: Story = {
-  args: {
-    height: 'h-32',
-  },
-};
-
-/**
- * With background color to match surrounding modules
- */
-export const WithBackground: Story = {
-  args: {
-    size: 'lg',
-    backgroundColor: 'bg-goos-blue-700',
-  },
-};
-
-/**
- * All sizes comparison - shows visual difference between all preset sizes
- */
-export const AllSizes: Story = {
-  render: () => (
-    <div className="p-4">
-      <div className="space-y-8">
-        <div>
-          <p className="text-sm mb-2 font-semibold">XS (4-16px)</p>
-          <div className="bg-blue-100 p-2">Section 1</div>
-          <Spacer size="xs" backgroundColor="bg-red-200" />
-          <div className="bg-blue-100 p-2">Section 2</div>
-        </div>
-
-        <div>
-          <p className="text-sm mb-2 font-semibold">SM (8-32px)</p>
-          <div className="bg-blue-100 p-2">Section 1</div>
-          <Spacer size="sm" backgroundColor="bg-red-200" />
-          <div className="bg-blue-100 p-2">Section 2</div>
-        </div>
-
-        <div>
-          <p className="text-sm mb-2 font-semibold">MD (12-64px)</p>
-          <div className="bg-blue-100 p-2">Section 1</div>
-          <Spacer size="md" backgroundColor="bg-red-200" />
-          <div className="bg-blue-100 p-2">Section 2</div>
-        </div>
-
-        <div>
-          <p className="text-sm mb-2 font-semibold">LG (16-96px)</p>
-          <div className="bg-blue-100 p-2">Section 1</div>
-          <Spacer size="lg" backgroundColor="bg-red-200" />
-          <div className="bg-blue-100 p-2">Section 2</div>
-        </div>
-
-        <div>
-          <p className="text-sm mb-2 font-semibold">XL (24-128px)</p>
-          <div className="bg-blue-100 p-2">Section 1</div>
-          <Spacer size="xl" backgroundColor="bg-red-200" />
-          <div className="bg-blue-100 p-2">Section 2</div>
-        </div>
-
-        <div>
-          <p className="text-sm mb-2 font-semibold">2XL (32-160px)</p>
-          <div className="bg-blue-100 p-2">Section 1</div>
-          <Spacer size="2xl" backgroundColor="bg-red-200" />
-          <div className="bg-blue-100 p-2">Section 2</div>
-        </div>
-      </div>
-    </div>
-  ),
 };

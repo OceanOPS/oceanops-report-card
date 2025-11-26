@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Tooltip from '../../src/components/Tooltip';
 
 const meta = {
-  title: 'Utility/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
     layout: 'centered',
@@ -14,12 +14,27 @@ const meta = {
       description: 'Tooltip text content (can be translation key)',
     },
     backgroundColor: {
-      control: 'text',
-      description: 'Tailwind background color class',
+      control: 'select',
+      options: [
+        'bg-goos-blue-900', 'bg-goos-blue-800', 'bg-goos-blue-700', 'bg-goos-blue-600', 'bg-goos-blue-500', 'bg-goos-blue-400', 'bg-goos-blue-300', 'bg-goos-blue-200', 'bg-goos-blue-100',
+        'bg-goos-cyan-900', 'bg-goos-cyan-800', 'bg-goos-cyan-700', 'bg-goos-cyan-600', 'bg-goos-cyan-500', 'bg-goos-cyan-400', 'bg-goos-cyan-300', 'bg-goos-cyan-200', 'bg-goos-cyan-100',
+        'bg-goos-orange-900', 'bg-goos-orange-800', 'bg-goos-orange-700', 'bg-goos-orange-600', 'bg-goos-orange-500', 'bg-goos-orange-400', 'bg-goos-orange-300', 'bg-goos-orange-200', 'bg-goos-orange-100',
+        'bg-goos-green-900', 'bg-goos-green-800', 'bg-goos-green-700', 'bg-goos-green-600', 'bg-goos-green-500', 'bg-goos-green-400', 'bg-goos-green-300', 'bg-goos-green-200', 'bg-goos-green-100',
+        'bg-goos-gray-900', 'bg-goos-gray-800', 'bg-goos-gray-700', 'bg-goos-gray-600', 'bg-goos-gray-500', 'bg-goos-gray-400', 'bg-goos-gray-300', 'bg-goos-gray-200', 'bg-goos-gray-100',
+      ],
+      description: 'GOOS color palette for tooltip background',
     },
     textColor: {
-      control: 'text',
-      description: 'Tailwind text color class',
+      control: 'select',
+      options: [
+        'text-white',
+        'text-goos-blue-900', 'text-goos-blue-800', 'text-goos-blue-700', 'text-goos-blue-600', 'text-goos-blue-500', 'text-goos-blue-400', 'text-goos-blue-300', 'text-goos-blue-200', 'text-goos-blue-100',
+        'text-goos-cyan-900', 'text-goos-cyan-800', 'text-goos-cyan-700', 'text-goos-cyan-600', 'text-goos-cyan-500', 'text-goos-cyan-400', 'text-goos-cyan-300', 'text-goos-cyan-200', 'text-goos-cyan-100',
+        'text-goos-orange-900', 'text-goos-orange-800', 'text-goos-orange-700', 'text-goos-orange-600', 'text-goos-orange-500', 'text-goos-orange-400', 'text-goos-orange-300', 'text-goos-orange-200', 'text-goos-orange-100',
+        'text-goos-green-900', 'text-goos-green-800', 'text-goos-green-700', 'text-goos-green-600', 'text-goos-green-500', 'text-goos-green-400', 'text-goos-green-300', 'text-goos-green-200', 'text-goos-green-100',
+        'text-goos-gray-900', 'text-goos-gray-800', 'text-goos-gray-700', 'text-goos-gray-600', 'text-goos-gray-500', 'text-goos-gray-400', 'text-goos-gray-300', 'text-goos-gray-200', 'text-goos-gray-100',
+      ],
+      description: 'Text color (usually white for dark backgrounds)',
     },
     allowHtml: {
       control: 'boolean',
@@ -30,139 +45,39 @@ const meta = {
       description: 'Optional additional Tailwind classes',
     },
   },
+  args: {
+    content: 'Climate',
+    backgroundColor: 'bg-goos-blue-900',
+    textColor: 'text-white',
+  },
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Basic tooltip - follows cursor on hover
+ * Default Tooltip
+ *
+ * Tooltips follow the cursor on hover and are commonly used for:
+ * - **GOOS Delivery Area icons**: Climate, Operational Services, Ocean Health
+ * - **Acronyms and abbreviations**: Expand terms like "GOOS" on hover
+ *
+ * Use the controls below to customize:
+ * - **content**: Tooltip text
+ * - **backgroundColor**: GOOS background color
+ * - **textColor**: Text color (usually white for dark backgrounds)
+ *
+ * Hover over the icon to see the tooltip.
  */
-export const Basic: Story = {
+export const Default: Story = {
   args: {
-    content: 'This is a basic tooltip that follows your cursor',
+    content: 'Climate',
+    backgroundColor: 'bg-goos-blue-900',
+    textColor: 'text-white',
     children: (
-      <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-        Hover over me
-      </button>
-    ),
-  },
-};
-
-/**
- * Tooltip on icon - common use case for delivery area icons
- */
-export const OnIcon: Story = {
-  args: {
-    content: 'Climate Delivery Area',
-    children: (
-      <div className="w-12 h-12 bg-goos-cyan-200 rounded-full flex items-center justify-center cursor-pointer">
-        <svg className="w-6 h-6 text-goos-blue-700" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z" />
-        </svg>
+      <div className="w-14 h-14 bg-goos-cyan-200 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
+        <span className="text-2xl">🌊</span>
       </div>
-    ),
-  },
-};
-
-/**
- * Custom colors - orange tooltip
- */
-export const CustomColors: Story = {
-  args: {
-    content: 'Custom styled tooltip with orange background',
-    backgroundColor: 'bg-goos-orange-500',
-    textColor: 'text-white',
-    children: (
-      <button className="px-4 py-2 bg-gray-200 text-gray-800 rounded">
-        Custom colored tooltip
-      </button>
-    ),
-  },
-};
-
-/**
- * Blue tooltip variant
- */
-export const BlueTooltip: Story = {
-  args: {
-    content: 'This tooltip has a blue background',
-    backgroundColor: 'bg-goos-blue-700',
-    textColor: 'text-white',
-    children: (
-      <button className="px-4 py-2 bg-gray-200 text-gray-800 rounded">
-        Blue tooltip
-      </button>
-    ),
-  },
-};
-
-/**
- * Long text - automatically wraps at max-width
- */
-export const LongText: Story = {
-  args: {
-    content: 'This is a much longer tooltip text that will automatically wrap when it reaches the maximum width of 300 pixels. It ensures readability even with longer descriptions.',
-    children: (
-      <button className="px-4 py-2 bg-blue-500 text-white rounded">
-        Long text tooltip
-      </button>
-    ),
-  },
-};
-
-/**
- * With HTML content - allows clickable links
- */
-export const WithHtmlLinks: Story = {
-  args: {
-    content: 'Visit our website at https://goosocean.org for more information',
-    allowHtml: true,
-    children: (
-      <button className="px-4 py-2 bg-green-500 text-white rounded">
-        Tooltip with link
-      </button>
-    ),
-  },
-};
-
-/**
- * Multiple tooltips - showing different use cases together
- */
-export const MultipleTooltips: Story = {
-  render: () => (
-    <div className="flex gap-4 items-center flex-wrap">
-      <Tooltip content="Operational Services">
-        <div className="w-14 h-14 bg-goos-cyan-200 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
-          <span className="text-2xl">🌊</span>
-        </div>
-      </Tooltip>
-
-      <Tooltip content="Climate Monitoring" backgroundColor="bg-goos-orange-500">
-        <div className="w-14 h-14 bg-goos-orange-200 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
-          <span className="text-2xl">🌡️</span>
-        </div>
-      </Tooltip>
-
-      <Tooltip content="Ocean Health" backgroundColor="bg-goos-green-700">
-        <div className="w-14 h-14 bg-goos-green-200 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
-          <span className="text-2xl">🐠</span>
-        </div>
-      </Tooltip>
-    </div>
-  ),
-};
-
-/**
- * On text - tooltip can wrap any element
- */
-export const OnText: Story = {
-  args: {
-    content: 'Global Ocean Observing System',
-    children: (
-      <span className="text-blue-600 underline cursor-help">
-        GOOS
-      </span>
     ),
   },
 };

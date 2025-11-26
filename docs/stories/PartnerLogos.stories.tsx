@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import PartnerLogos from '../../src/components/PartnerLogos';
 
 const meta = {
-  title: 'Utility/PartnerLogos',
+  title: 'Brand/PartnerLogos',
   component: PartnerLogos,
   parameters: {
     layout: 'padded',
@@ -19,40 +19,26 @@ const meta = {
       description: 'Optional Tailwind classes for custom styling',
     },
   },
+  args: {
+    variant: 'color',
+  },
 } satisfies Meta<typeof PartnerLogos>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * White logos variant - ideal for dark backgrounds.
+ * Default Partner Logos
+ *
  * Shows UNESCO IOC, WMO, UN Environment, ISC on the left,
  * and OceanOPS with "Powered by" label on the right.
+ *
+ * Use the controls below to:
+ * - Switch between white and color variants
+ * - Customize spacing with className (e.g., 'gap-8', 'gap-12')
  */
-export const WhiteLogos: Story = {
-  args: {
-    variant: 'white',
-  },
-  parameters: {
-    backgrounds: { default: 'dark' },
-  },
-};
-
-/**
- * Color logos variant - ideal for light backgrounds.
- */
-export const ColorLogos: Story = {
+export const Default: Story = {
   args: {
     variant: 'color',
-  },
-};
-
-/**
- * With custom gap spacing between logos
- */
-export const CustomSpacing: Story = {
-  args: {
-    variant: 'color',
-    className: 'gap-8',
   },
 };
