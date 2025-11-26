@@ -1,0 +1,28 @@
+{
+  "name": "oceanops-report-card-docs",
+  "version": "1.0.0",
+  "description": "Storybook documentation for OceanOPS Report Card components",
+  "private": true,
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "i18next": "^23.7.0",
+    "postcss": "^8.4.32",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^14.0.0",
+    "storybook": "^8.6.14",
+    "tailwindcss": "^3.4.0",
+    "vite": "^5.0.8"
+  }
+}
