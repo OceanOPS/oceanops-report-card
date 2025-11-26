@@ -7,7 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const config: StorybookConfig = {
   stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    '@storybook/blocks',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -24,6 +25,10 @@ const config: StorybookConfig = {
         'react-dom': path.resolve(__dirname, '../node_modules/react-dom'),
         'react-i18next': path.resolve(__dirname, '../node_modules/react-i18next'),
       };
+    }
+    // Serve static assets from main project's public folder
+    if (!config.publicDir) {
+      config.publicDir = path.resolve(__dirname, '../../public');
     }
     return config;
   },
