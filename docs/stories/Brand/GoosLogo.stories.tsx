@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import GoosLogo from '../../src/components/GoosLogo';
+import GoosLogo from '../../../src/components/GoosLogo';
 
 const meta = {
   title: 'Brand/GoosLogo',
