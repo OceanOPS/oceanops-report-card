@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ImageGallery from '../../../src/components/ImageGallery';
 
 const meta = {
-  title: 'Components/ImageGallery',
+  title: 'Components/Media/ImageGallery',
   component: ImageGallery,
   parameters: {
     layout: 'padded',

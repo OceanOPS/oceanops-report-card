@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import EmergingNetworkCard from '../../../src/components/EmergingNetworkCard';
 
 const meta = {
-  title: 'Components/EmergingNetworkCard',
+  title: 'Components/Network/EmergingNetworkCard',
   component: EmergingNetworkCard,
   parameters: {
     layout: 'fullscreen',

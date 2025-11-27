@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NetworkCard from '../../../src/components/NetworkCard';
 
 const meta = {
-  title: 'Components/NetworkCard',
+  title: 'Components/Network/NetworkCard',
   component: NetworkCard,
   parameters: {
     layout: 'centered',
@@ -130,5 +130,126 @@ export const WithTextRatings: Story = {
     backgroundColor: 'bg-goos-blue-800',
     textColor: 'text-white',
     accentColor: 'text-goos-orange-500',
+  },
+};
+
+/**
+ * All Delivery Areas
+ *
+ * Shows a network that contributes to all three GOOS delivery areas:
+ * - Climate
+ * - Operational Services
+ * - Ocean Health
+ */
+export const AllDeliveryAreas: Story = {
+  args: {
+    iconSrc: '/icons/climate.png',
+    iconAlt: 'Global Network',
+    titleKey: 'GLOBAL OCEAN OBSERVING NETWORK',
+    networkUrl: 'https://www.goosocean.org',
+    networkLinkKey: 'View Network',
+    ratings: {
+      implementationStatus: 3,
+      realTime: 3,
+      archivedHighQuality: 2.5,
+      metadata: 3,
+      bestPractices: 2,
+    },
+    deliveryAreasLabelKey: 'GOOS Delivery Areas',
+    deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+    backgroundColor: 'bg-goos-blue-800',
+    textColor: 'text-white',
+    accentColor: 'text-goos-orange-500',
+  },
+};
+
+/**
+ * Different Color Schemes
+ *
+ * Shows network cards with different GOOS color backgrounds
+ */
+export const ColorVariants: Story = {
+  render: () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <NetworkCard
+        iconSrc="/icons/climate.png"
+        iconAlt="Climate Network"
+        titleKey="CLIMATE NETWORK"
+        networkUrl="https://www.goosocean.org"
+        networkLinkKey="View Network"
+        ratings={{
+          implementationStatus: 3,
+          realTime: 2.5,
+          archivedHighQuality: 3,
+          metadata: 2,
+          bestPractices: 1.5,
+        }}
+        deliveryAreasLabelKey="GOOS Delivery Areas"
+        deliveryAreas={['climate']}
+        backgroundColor="bg-goos-blue-800"
+        textColor="text-white"
+        accentColor="text-goos-orange-500"
+      />
+      <NetworkCard
+        iconSrc="/icons/operational_services.png"
+        iconAlt="Operational Network"
+        titleKey="OPERATIONAL SERVICES NETWORK"
+        networkUrl="https://www.goosocean.org"
+        networkLinkKey="View Network"
+        ratings={{
+          implementationStatus: 2.5,
+          realTime: 3,
+          archivedHighQuality: 2,
+          metadata: 2.5,
+          bestPractices: 2,
+        }}
+        deliveryAreasLabelKey="GOOS Delivery Areas"
+        deliveryAreas={['operational']}
+        backgroundColor="bg-goos-cyan-700"
+        textColor="text-white"
+        accentColor="text-goos-orange-500"
+      />
+      <NetworkCard
+        iconSrc="/icons/ocean_health.png"
+        iconAlt="Ocean Health Network"
+        titleKey="OCEAN HEALTH NETWORK"
+        networkUrl="https://www.goosocean.org"
+        networkLinkKey="View Network"
+        ratings={{
+          implementationStatus: 2,
+          realTime: 2,
+          archivedHighQuality: 2.5,
+          metadata: 1.5,
+          bestPractices: 2,
+        }}
+        deliveryAreasLabelKey="GOOS Delivery Areas"
+        deliveryAreas={['oceanhealth']}
+        backgroundColor="bg-goos-green-700"
+        textColor="text-white"
+        accentColor="text-goos-cyan-500"
+      />
+      <NetworkCard
+        iconSrc="/icons/climate.png"
+        iconAlt="Dark Network"
+        titleKey="DEEP OCEAN NETWORK"
+        networkUrl="https://www.goosocean.org"
+        networkLinkKey="View Network"
+        ratings={{
+          implementationStatus: 1.5,
+          realTime: 1,
+          archivedHighQuality: 2,
+          metadata: 1,
+          bestPractices: 1.5,
+        }}
+        deliveryAreasLabelKey="GOOS Delivery Areas"
+        deliveryAreas={['climate', 'operational']}
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-white"
+        accentColor="text-goos-orange-500"
+      />
+    </div>
+  ),
+  parameters: {
+    layout: 'padded',
   },
 };

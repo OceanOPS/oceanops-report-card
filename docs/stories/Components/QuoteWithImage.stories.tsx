@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import QuoteWithImage from '../../../src/components/QuoteWithImage';
 
 const meta = {
-  title: 'Components/QuoteWithImage',
+  title: 'Components/Content/QuoteWithImage',
   component: QuoteWithImage,
   parameters: {
     layout: 'fullscreen',

@@ -25,7 +25,7 @@ const ModalWrapper = (args: any) => {
 };
 
 const meta = {
-  title: 'Components/ContentModal',
+  title: 'Components/Interactive/ContentModal',
   component: ContentModal,
   parameters: {
     layout: 'centered',

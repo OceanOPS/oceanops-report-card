@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ImageGrid from '../../../src/components/ImageGrid';
 
 const meta = {
-  title: 'Components/ImageGrid',
+  title: 'Components/Media/ImageGrid',
   component: ImageGrid,
   parameters: {
     layout: 'fullscreen',

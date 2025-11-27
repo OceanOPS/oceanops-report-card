@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import IconTable from '../../../src/components/IconTable';
 
 const meta = {
-  title: 'Components/IconTable',
+  title: 'Components/Data/IconTable',
   component: IconTable,
   parameters: {
     layout: 'padded',

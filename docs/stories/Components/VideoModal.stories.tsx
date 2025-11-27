@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import VideoModal from '../../../src/components/VideoModal';
 
 const meta = {
-  title: 'Components/VideoModal',
+  title: 'Components/Media/VideoModal',
   component: VideoModal,
   parameters: {
     layout: 'centered',

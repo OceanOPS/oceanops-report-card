@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from '../../../src/components/Button';
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Components/Interactive/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -81,7 +81,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Default Button
+ * Default Button - Link variant
  *
  * Buttons support three variants:
  * - **link**: External link (with arrow icon)
@@ -101,5 +101,151 @@ export const Default: Story = {
     textColor: 'text-white',
     iconBgColor: 'bg-white',
     iconColor: 'text-goos-orange-500',
+  },
+};
+
+/**
+ * All Button Variants
+ *
+ * Shows all three button types side by side:
+ * - Link button (arrow icon)
+ * - Video button (play icon)
+ * - Modal button (info icon)
+ */
+export const AllVariants: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 items-start">
+      <Button
+        variant="link"
+        label="External Link"
+        url="https://www.goosocean.org"
+        bgColor="bg-goos-orange-500"
+        textColor="text-white"
+        iconBgColor="bg-white"
+        iconColor="text-goos-orange-500"
+      />
+      <Button
+        variant="video"
+        label="Watch Video"
+        videoType="local"
+        videoId="/videos/belbeoch.mp4"
+        bgColor="bg-goos-blue-700"
+        textColor="text-white"
+        iconBgColor="bg-white"
+        iconColor="text-goos-blue-700"
+      />
+      <Button
+        variant="modal"
+        label="Learn More"
+        modalContent={
+          <div>
+            <h3 className="text-xl font-bold mb-4">Modal Content</h3>
+            <p>This is example content for the modal button variant.</p>
+          </div>
+        }
+        bgColor="bg-goos-cyan-700"
+        textColor="text-white"
+        iconBgColor="bg-white"
+        iconColor="text-goos-cyan-700"
+      />
+    </div>
+  ),
+};
+
+/**
+ * GOOS Color Palette
+ *
+ * Shows buttons in each main GOOS color:
+ * - Blue (primary brand color)
+ * - Cyan (secondary)
+ * - Orange (accent)
+ * - Green (success/health)
+ */
+export const GOOSColors: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 items-start">
+      <Button
+        variant="link"
+        label="Blue Button"
+        url="https://www.goosocean.org"
+        bgColor="bg-goos-blue-700"
+        textColor="text-white"
+        iconBgColor="bg-white"
+        iconColor="text-goos-blue-700"
+      />
+      <Button
+        variant="link"
+        label="Cyan Button"
+        url="https://www.goosocean.org"
+        bgColor="bg-goos-cyan-700"
+        textColor="text-white"
+        iconBgColor="bg-white"
+        iconColor="text-goos-cyan-700"
+      />
+      <Button
+        variant="link"
+        label="Orange Button"
+        url="https://www.goosocean.org"
+        bgColor="bg-goos-orange-500"
+        textColor="text-white"
+        iconBgColor="bg-white"
+        iconColor="text-goos-orange-500"
+      />
+      <Button
+        variant="link"
+        label="Green Button"
+        url="https://www.goosocean.org"
+        bgColor="bg-goos-green-700"
+        textColor="text-white"
+        iconBgColor="bg-white"
+        iconColor="text-goos-green-700"
+      />
+    </div>
+  ),
+};
+
+/**
+ * Dark Background
+ *
+ * Demonstrates button contrast on dark backgrounds.
+ * Common use case in the OceanOPS Report Card design.
+ */
+export const DarkBackground: Story = {
+  render: () => (
+    <div className="bg-goos-blue-900 p-8 rounded-lg">
+      <div className="flex flex-col gap-4 items-start">
+        <Button
+          variant="link"
+          label="Orange on Dark"
+          url="https://www.goosocean.org"
+          bgColor="bg-goos-orange-500"
+          textColor="text-white"
+          iconBgColor="bg-white"
+          iconColor="text-goos-orange-500"
+        />
+        <Button
+          variant="link"
+          label="Cyan on Dark"
+          url="https://www.goosocean.org"
+          bgColor="bg-goos-cyan-700"
+          textColor="text-white"
+          iconBgColor="bg-white"
+          iconColor="text-goos-cyan-700"
+        />
+        <Button
+          variant="video"
+          label="Watch Video"
+          videoType="local"
+          videoId="/videos/belbeoch.mp4"
+          bgColor="bg-white"
+          textColor="text-goos-blue-900"
+          iconBgColor="bg-goos-blue-900"
+          iconColor="text-white"
+        />
+      </div>
+    </div>
+  ),
+  parameters: {
+    layout: 'padded',
   },
 };

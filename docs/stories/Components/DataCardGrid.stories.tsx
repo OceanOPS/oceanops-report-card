@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import DataCardGrid from '../../../src/components/DataCardGrid';
 
 const meta = {
-  title: 'Components/DataCardGrid',
+  title: 'Components/Data/DataCardGrid',
   component: DataCardGrid,
   parameters: {
     layout: 'padded',

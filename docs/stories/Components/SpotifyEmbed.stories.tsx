@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SpotifyEmbed from '../../../src/components/SpotifyEmbed';
 
 const meta = {
-  title: 'Components/SpotifyEmbed',
+  title: 'Components/Media/SpotifyEmbed',
   component: SpotifyEmbed,
   parameters: {
     layout: 'padded',

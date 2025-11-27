@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import LogoStrip from '../../../src/components/LogoStrip';
 
 const meta = {
-  title: 'Components/LogoStrip',
+  title: 'Components/Utility/LogoStrip',
   component: LogoStrip,
   parameters: {
     layout: 'fullscreen',

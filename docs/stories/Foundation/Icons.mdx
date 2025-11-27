@@ -1,0 +1,224 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundation/Icons" />
+
+# Icon Library
+
+The OceanOPS Report Card uses a comprehensive icon library representing various ocean observing categories, networks, and delivery areas. All icons are located in `/public/icons/` and can be used throughout the application.
+
+---
+
+## Delivery Areas
+
+The three main GOOS Delivery Areas, each with a unique icon:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '24px', marginTop: '24px' }}>
+  <div style={{ textAlign: 'center', padding: '16px', backgroundColor: '#12336E', borderRadius: '8px' }}>
+    <img src="/icons/climate.png" alt="Climate" style={{ width: '80px', height: '80px', margin: '0 auto' }} />
+    <p style={{ marginTop: '12px', color: 'white', fontSize: '14px', fontWeight: 'bold' }}>Climate</p>
+    <code style={{ fontSize: '11px', color: '#93C5FD' }}>/icons/climate.png</code>
+  </div>
+  <div style={{ textAlign: 'center', padding: '16px', backgroundColor: '#12336E', borderRadius: '8px' }}>
+    <img src="/icons/operational_services.png" alt="Operational Services" style={{ width: '80px', height: '80px', margin: '0 auto' }} />
+    <p style={{ marginTop: '12px', color: 'white', fontSize: '14px', fontWeight: 'bold' }}>Operational Services</p>
+    <code style={{ fontSize: '11px', color: '#93C5FD' }}>/icons/operational_services.png</code>
+  </div>
+  <div style={{ textAlign: 'center', padding: '16px', backgroundColor: '#12336E', borderRadius: '8px' }}>
+    <img src="/icons/ocean_health.png" alt="Ocean Health" style={{ width: '80px', height: '80px', margin: '0 auto' }} />
+    <p style={{ marginTop: '12px', color: 'white', fontSize: '14px', fontWeight: 'bold' }}>Ocean Health</p>
+    <code style={{ fontSize: '11px', color: '#93C5FD' }}>/icons/ocean_health.png</code>
+  </div>
+</div>
+
+---
+
+## Physics (12 icons)
+
+Physical ocean observation variables:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '24px' }}>
+  {[
+    'Bottom-pressure',
+    'Sea-ice',
+    'Sea-state',
+    'Subsurface-currents',
+    'Subsurface-salinity',
+    'Subsurface-temperature',
+    'Surface-currents',
+    'Surface-heat-flux',
+    'Surface-height',
+    'Surface-salinity',
+    'Surface-stress',
+    'Surface-temperature'
+  ].map(icon => (
+    <div key={icon} style={{ textAlign: 'center', padding: '12px', backgroundColor: '#0B1E42', borderRadius: '8px' }}>
+      <img src={`/icons/physics/${icon}.png`} alt={icon} style={{ width: '60px', height: '60px', margin: '0 auto' }} />
+      <p style={{ marginTop: '8px', color: 'white', fontSize: '12px' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#67E8F9' }}>/icons/physics/{icon}.png</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## Biogeochemistry (8 icons)
+
+Chemical and biochemical ocean variables:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '24px' }}>
+  {[
+    'Dissolved-organic-carbon',
+    'Inorganic-carbon',
+    'Nitrous-oxide',
+    'Nutrients',
+    'Oxygen',
+    'Particulate-matter',
+    'Stable-carbon-isotopes',
+    'Transient-tracers'
+  ].map(icon => (
+    <div key={icon} style={{ textAlign: 'center', padding: '12px', backgroundColor: '#0B1E42', borderRadius: '8px' }}>
+      <img src={`/icons/biogeochemistry/${icon}.png`} alt={icon} style={{ width: '60px', height: '60px', margin: '0 auto' }} />
+      <p style={{ marginTop: '8px', color: 'white', fontSize: '12px' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#67E8F9' }}>/icons/biogeochemistry/{icon}.png</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## Biology and Ecosystems (12 icons)
+
+Marine life and ecosystem observation categories:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '24px' }}>
+  {[
+    'Fish',
+    'Hard-coral',
+    'Invertebrates',
+    'Macroalgae',
+    'Mangroves',
+    'Marine-mammals',
+    'Microbes',
+    'Phytoplankton',
+    'Sea-turtles',
+    'Seabirds',
+    'Seagrass',
+    'Zooplankton'
+  ].map(icon => (
+    <div key={icon} style={{ textAlign: 'center', padding: '12px', backgroundColor: '#0B1E42', borderRadius: '8px' }}>
+      <img src={`/icons/biology_and_ecosystems/${icon}.png`} alt={icon} style={{ width: '60px', height: '60px', margin: '0 auto' }} />
+      <p style={{ marginTop: '8px', color: 'white', fontSize: '12px' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#67E8F9' }}>/icons/biology_and_ecosystems/{icon}.png</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## Cross Disciplinary (3 icons)
+
+Cross-cutting observation categories:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '24px' }}>
+  {[
+    'Marine-debris',
+    'Ocean-colour',
+    'Ocean-sound'
+  ].map(icon => (
+    <div key={icon} style={{ textAlign: 'center', padding: '12px', backgroundColor: '#0B1E42', borderRadius: '8px' }}>
+      <img src={`/icons/cross_disciplinary/${icon}.png`} alt={icon} style={{ width: '60px', height: '60px', margin: '0 auto' }} />
+      <p style={{ marginTop: '8px', color: 'white', fontSize: '12px' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#67E8F9' }}>/icons/cross_disciplinary/{icon}.png</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## Networks (17 icons)
+
+Ocean observing network logos (SVG format):
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '24px', marginBottom: '40px' }}>
+  {[
+    { id: 'ani_bos', name: 'Animal Borne Ocean Sensors' },
+    { id: 'argo', name: 'Argo Floats' },
+    { id: 'asap', name: 'ASAP' },
+    { id: 'dbcp_drifters', name: 'DBCP Drifters' },
+    { id: 'dbcp_moored', name: 'DBCP Moored Buoys' },
+    { id: 'fishing_vessels', name: 'Fishing Vessels' },
+    { id: 'gloss', name: 'GLOSS' },
+    { id: 'go_ship', name: 'GO-SHIP' },
+    { id: 'hf_radar', name: 'HF Radar' },
+    { id: 'ocean_gliders', name: 'Ocean Gliders' },
+    { id: 'ocean_sites', name: 'OceanSITES' },
+    { id: 'smart_cables', name: 'Smart Cables' },
+    { id: 'soop', name: 'SOOP' },
+    { id: 'sun_fleet', name: 'Sun Fleet' },
+    { id: 'surface_ocean_co2', name: 'Surface Ocean CO2' },
+    { id: 'tsunami_buoys', name: 'Tsunami Buoys' },
+    { id: 'vos', name: 'VOS' },
+    { id: 'xbt-soop', name: 'XBT-SOOP' }
+  ].map(network => (
+    <div key={network.id} style={{ textAlign: 'center', padding: '12px', backgroundColor: '#0B1E42', borderRadius: '8px' }}>
+      <img src={`/icons/network/${network.id}.svg`} alt={network.name} style={{ width: '60px', height: '60px', margin: '0 auto' }} />
+      <p style={{ marginTop: '8px', color: 'white', fontSize: '12px' }}>{network.name}</p>
+      <code style={{ fontSize: '10px', color: '#67E8F9' }}>/icons/network/{network.id}.svg</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## Usage
+
+Import icons in your React components by referencing the path from the public folder:
+
+```jsx
+// Delivery area icon
+<img src="/icons/climate.png" alt="Climate" />
+
+// Physics icon
+<img src="/icons/physics/Surface-temperature.png" alt="Surface Temperature" />
+
+// Network logo
+<img src="/icons/network/argo.svg" alt="Argo Network" />
+```
+
+### With i18n Alt Text
+
+For accessibility, use translation keys for alt text:
+
+```jsx
+import { useTranslation } from 'react-i18next';
+
+function MyComponent() {
+  const { t } = useTranslation();
+
+  return (
+    <img
+      src="/icons/climate.png"
+      alt={t('icons.climate')}
+    />
+  );
+}
+```
+
+### Icon Sizing
+
+Common sizing patterns used throughout the app:
+
+- **Small (16-24px)**: Inline icons, tooltips
+- **Medium (40-60px)**: Card icons, grid displays
+- **Large (80-120px)**: Hero sections, feature highlights
+
+```jsx
+// Small
+<img src="/icons/climate.png" className="w-6 h-6" />
+
+// Medium
+<img src="/icons/climate.png" className="w-12 h-12" />
+
+// Large
+<img src="/icons/climate.png" className="w-20 h-20" />
+```
