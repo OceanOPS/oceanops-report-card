@@ -12,7 +12,7 @@ The OceanOPS Report Card uses a comprehensive icon library representing various 
 
 The three main GOOS Delivery Areas, each with a unique icon:
 
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '24px', marginTop: '24px', marginBottom: '32px' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '24px', marginTop: '24px', marginBottom: '32px' }}>
   <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
     <div style={{ width: '80px', height: '80px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <img src="/icons/climate.png" alt="Climate" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
@@ -42,7 +42,7 @@ The three main GOOS Delivery Areas, each with a unique icon:
 
 Physical ocean observation variables:
 
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginTop: '24px', marginBottom: '32px' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '20px', marginTop: '24px', marginBottom: '32px' }}>
   {[
     'Bottom-pressure',
     'Sea-ice',
@@ -57,12 +57,12 @@ Physical ocean observation variables:
     'Surface-stress',
     'Surface-temperature'
   ].map(icon => (
-    <div key={icon} style={{ textAlign: 'center', padding: '16px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
-      <div style={{ width: '60px', height: '60px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div key={icon} style={{ textAlign: 'center', padding: '20px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
+      <div style={{ width: '70px', height: '70px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src={`/icons/physics/${icon}.png`} alt={icon} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
       </div>
-      <p style={{ marginTop: '8px', color: '#1F2937', fontSize: '12px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
-      <code style={{ fontSize: '9px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '4px' }}>/icons/physics/{icon}.png</code>
+      <p style={{ marginTop: '10px', color: '#1F2937', fontSize: '13px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '6px' }}>/icons/physics/{icon}.png</code>
     </div>
   ))}
 </div>
@@ -73,7 +73,7 @@ Physical ocean observation variables:
 
 Chemical and biochemical ocean variables:
 
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginTop: '24px', marginBottom: '32px' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '20px', marginTop: '24px', marginBottom: '32px' }}>
   {[
     'Dissolved-organic-carbon',
     'Inorganic-carbon',
@@ -84,12 +84,12 @@ Chemical and biochemical ocean variables:
     'Stable-carbon-isotopes',
     'Transient-tracers'
   ].map(icon => (
-    <div key={icon} style={{ textAlign: 'center', padding: '16px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
-      <div style={{ width: '60px', height: '60px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div key={icon} style={{ textAlign: 'center', padding: '20px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
+      <div style={{ width: '70px', height: '70px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src={`/icons/biogeochemistry/${icon}.png`} alt={icon} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
       </div>
-      <p style={{ marginTop: '8px', color: '#1F2937', fontSize: '12px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
-      <code style={{ fontSize: '9px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '4px' }}>/icons/biogeochemistry/{icon}.png</code>
+      <p style={{ marginTop: '10px', color: '#1F2937', fontSize: '13px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '6px' }}>/icons/biogeochemistry/{icon}.png</code>
     </div>
   ))}
 </div>
@@ -100,7 +100,7 @@ Chemical and biochemical ocean variables:
 
 Marine life and ecosystem observation categories:
 
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginTop: '24px', marginBottom: '32px' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '20px', marginTop: '24px', marginBottom: '32px' }}>
   {[
     'Fish',
     'Hard-coral',
@@ -115,12 +115,12 @@ Marine life and ecosystem observation categories:
     'Seagrass',
     'Zooplankton'
   ].map(icon => (
-    <div key={icon} style={{ textAlign: 'center', padding: '16px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
-      <div style={{ width: '60px', height: '60px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div key={icon} style={{ textAlign: 'center', padding: '20px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
+      <div style={{ width: '70px', height: '70px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src={`/icons/biology_and_ecosystems/${icon}.png`} alt={icon} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
       </div>
-      <p style={{ marginTop: '8px', color: '#1F2937', fontSize: '12px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
-      <code style={{ fontSize: '9px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '4px' }}>/icons/biology_and_ecosystems/{icon}.png</code>
+      <p style={{ marginTop: '10px', color: '#1F2937', fontSize: '13px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '6px' }}>/icons/biology_and_ecosystems/{icon}.png</code>
     </div>
   ))}
 </div>
@@ -131,18 +131,18 @@ Marine life and ecosystem observation categories:
 
 Cross-cutting observation categories:
 
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginTop: '24px', marginBottom: '32px' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '20px', marginTop: '24px', marginBottom: '32px' }}>
   {[
     'Marine-debris',
     'Ocean-colour',
     'Ocean-sound'
   ].map(icon => (
-    <div key={icon} style={{ textAlign: 'center', padding: '16px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
-      <div style={{ width: '60px', height: '60px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div key={icon} style={{ textAlign: 'center', padding: '20px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
+      <div style={{ width: '70px', height: '70px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src={`/icons/cross_disciplinary/${icon}.png`} alt={icon} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
       </div>
-      <p style={{ marginTop: '8px', color: '#1F2937', fontSize: '12px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
-      <code style={{ fontSize: '9px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '4px' }}>/icons/cross_disciplinary/{icon}.png</code>
+      <p style={{ marginTop: '10px', color: '#1F2937', fontSize: '13px', fontWeight: '500' }}>{icon.replace(/-/g, ' ')}</p>
+      <code style={{ fontSize: '10px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '6px' }}>/icons/cross_disciplinary/{icon}.png</code>
     </div>
   ))}
 </div>
@@ -153,7 +153,7 @@ Cross-cutting observation categories:
 
 Ocean observing network logos (SVG format):
 
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginTop: '24px', marginBottom: '40px' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '20px', marginTop: '24px', marginBottom: '40px' }}>
   {[
     { id: 'ani_bos', name: 'Animal Borne Ocean Sensors' },
     { id: 'argo', name: 'Argo Floats' },
@@ -174,12 +174,12 @@ Ocean observing network logos (SVG format):
     { id: 'vos', name: 'VOS' },
     { id: 'xbt-soop', name: 'XBT-SOOP' }
   ].map(network => (
-    <div key={network.id} style={{ textAlign: 'center', padding: '16px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
-      <div style={{ width: '60px', height: '60px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div key={network.id} style={{ textAlign: 'center', padding: '20px', backgroundColor: '#F3F4F6', borderRadius: '8px' }}>
+      <div style={{ width: '70px', height: '70px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src={`/icons/network/${network.id}.svg`} alt={network.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
       </div>
-      <p style={{ marginTop: '8px', color: '#1F2937', fontSize: '12px', fontWeight: '500' }}>{network.name}</p>
-      <code style={{ fontSize: '9px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '4px' }}>/icons/network/{network.id}.svg</code>
+      <p style={{ marginTop: '10px', color: '#1F2937', fontSize: '13px', fontWeight: '500' }}>{network.name}</p>
+      <code style={{ fontSize: '10px', color: '#6B7280', wordBreak: 'break-all', display: 'block', marginTop: '6px' }}>/icons/network/{network.id}.svg</code>
     </div>
   ))}
 </div>
