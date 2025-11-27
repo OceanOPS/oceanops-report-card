@@ -72,10 +72,55 @@ npm run preview
 - `npm run lint` - Run ESLint on all TypeScript files
 - `npm run preview` - Preview production build locally
 
+## Storybook Documentation
+
+Interactive component documentation is available via Storybook. It includes:
+
+- 📚 **30+ Component Stories** - Complete documentation for all React components
+- 🎨 **Figma Integration** - Embedded Figma designs for each component
+- 🎭 **Live Examples** - Interactive component variants and use cases
+- 📐 **Design System** - Complete GOOS color palette and typography reference
+- 🖼️ **Design Prototypes** - Interactive prototypes of the full report
+
+### Running Storybook
+
+```bash
+# Navigate to docs folder
+cd docs
+
+# Install dependencies (first time only)
+npm install
+
+# Start Storybook
+npm run storybook
+```
+
+Storybook will start at `http://localhost:6006`
+
+### Storybook Structure
+
+- **01. Introduction** - Project overview, complete report layout, and credits
+- **02. Design System** - Figma designs and interactive prototypes
+- **03. Foundation** - Colors, typography, spacing, and icons
+- **04. Brand** - GOOS logo and partner logos
+- **05. Components** - All 30+ React components with Figma designs
+- **06. Layout** - Layout modules and carousels
+
+Each component story includes:
+- Embedded Figma design
+- Interactive controls to test props
+- Multiple variants and use cases
+- Links to open designs directly in Figma
+
 ## Project Structure
 
 ```
 oceanops-report-card/
+├── docs/                      # Storybook documentation (isolated)
+│   ├── .storybook/           # Storybook configuration
+│   ├── stories/              # Component stories with Figma embeds
+│   ├── package.json          # Storybook dependencies
+│   └── tailwind.config.js    # Storybook-specific Tailwind config
 ├── public/                    # Static assets
 │   ├── backgrounds/          # Background images
 │   ├── icons/               # Network, physics, and biology icons

@@ -1,0 +1,136 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="01. Introduction/Welcome" />
+
+# Global Ocean Observing System Status Report 2025 - Component Library
+
+Welcome to the **Global Ocean Observing System Status Report 2025** component documentation. This Storybook showcases all UI components used in the GOOS Status Report.
+
+## About This Project
+
+The Global Ocean Observing System Status Report 2025 is a multilingual web application presenting the status of global ocean observing networks. Built with modern web technologies and following the GOOS design system.
+
+## What You'll Find Here
+
+### **Brand**
+Official GOOS logos and partner branding elements used throughout the application.
+
+### **Foundation**
+Design system fundamentals:
+- **Colors**: GOOS color palette with 5 main colors (Blue, Cyan, Orange, Green, Gray)
+- **Typography**: Roboto and Roboto Condensed typefaces
+
+### **Components**
+Reusable UI components organized by purpose:
+- **Data**: Tables, cards, and statistics displays
+- **Media**: Images, galleries, and video players
+- **Interactive**: Buttons, modals, and navigation
+- **Content**: Quote blocks, content boxes
+
+### **Layout**
+Large structural components:
+- Cover module, content sections, carousels, delivery areas
+
+## GOOS Design System
+
+The project uses a comprehensive design system with:
+- **5 color palettes** × 9 shades each (45 total colors)
+- **Responsive design** (mobile-first approach)
+- **3 languages**: English, Spanish, French
+- **Accessibility** built-in
+
+## Tech Stack
+
+- **React 18** + **TypeScript 5**
+- **Tailwind CSS 3** for styling
+- **react-i18next** for internationalization
+- **GSAP** for animations
+- **Embla Carousel** for carousels
+
+## Getting Started
+
+1. **Browse components** in the sidebar
+2. **Interact with controls** in the "Controls" panel to modify props
+3. **View code** in the "Story" panel
+4. **Check accessibility** using the A11y addon (coming soon)
+
+## How to Use Components
+
+All components follow these patterns:
+
+### Translation Keys
+Components accept translation keys (not translated text):
+```tsx
+<Button
+  variant="link"
+  label="View Network"  // Direct text in Storybook
+  // In real app: label={t('networks.viewNetwork')}
+/>
+```
+
+### GOOS Colors
+Use Tailwind classes from the GOOS palette:
+```tsx
+bgColor="bg-goos-blue-700"
+textColor="text-white"
+```
+
+### Responsive Props
+Many components have responsive behavior built-in using Tailwind breakpoints.
+
+## Complete Report Layout
+
+View the full report layout design and interactive prototype in Figma:
+
+### Full Layout Design
+
+<iframe
+  style={{border: '1px solid rgba(0, 0, 0, 0.1)', borderRadius: '8px', marginTop: '20px', marginBottom: '20px'}}
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1950-29856"
+  allowFullScreen
+></iframe>
+
+**[→ Open Full Layout in Figma](https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1950-29856&t=lyDcrmhzDWxp62H7-4)**
+
+### Interactive Prototype
+
+Explore the full interactive prototype with scrolling and navigation:
+
+<iframe
+  style={{border: '1px solid rgba(0, 0, 0, 0.1)', borderRadius: '8px', marginTop: '20px', marginBottom: '20px'}}
+  width="100%"
+  height="600"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?page-id=1237%3A5520&node-id=1950-29856&viewport=186%2C168%2C0.08&t=A04zBHXlltYU1k8s-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1950%3A29856"
+  allowFullScreen
+></iframe>
+
+**[→ Open Interactive Prototype in Figma](https://www.figma.com/proto/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?page-id=1237%3A5520&node-id=1950-29856&viewport=186%2C168%2C0.08&t=A04zBHXlltYU1k8s-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1950%3A29856)**
+
+---
+
+## Useful Links
+
+- [OceanOPS Website](https://www.ocean-ops.org)
+- [GOOS Ocean Portal](https://www.goosocean.org)
+- [GitHub Repository](https://github.com/OceanOPS/oceanops-report-card)
+
+## Tips
+
+- Use the **Canvas** tab to interact with components
+- Use the **Docs** tab to see auto-generated documentation
+- Use **Controls** to experiment with different props
+- Check **Actions** to see event callbacks
+
+---
+
+## Credits
+
+**Design & Code**: Diego Cataldo
+
+---
+
+**Version**: 1.0
+**Last Updated**: November 2025
+**Storybook Version**: 8.6.14
