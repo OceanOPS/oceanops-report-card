@@ -1,0 +1,126 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="03. Foundation/Spacing" />
+
+# Spacing System
+
+The OceanOPS Report Card uses a consistent spacing system based on Tailwind CSS defaults and the **Spacer** component.
+
+## Spacer Component
+
+The `Spacer` component provides vertical spacing between sections with predefined sizes.
+
+### Sizes Available
+
+| Size | Tailwind Class | Height | Use Case |
+|------|---------------|--------|----------|
+| **xs** | `h-4` | 16px | Minimal spacing within components |
+| **sm** | `h-8` | 32px | Between related elements |
+| **md** | `h-16` | 64px | Between subsections |
+| **lg** | `h-24` | 96px | Between major sections |
+| **xl** | `h-32` | 128px | Between large content blocks |
+
+### Usage
+
+```tsx
+import Spacer from '@/components/Spacer'
+
+<ContentModule>
+  {/* Content */}
+</ContentModule>
+
+<Spacer size="lg" />
+
+<ContentModule>
+  {/* More content */}
+</ContentModule>
+```
+
+## Tailwind Spacing Scale
+
+The project uses Tailwind's default spacing scale (0.25rem = 4px increments):
+
+### Common Spacing Values
+
+<div style={{ fontFamily: 'monospace', fontSize: '14px' }}>
+
+| Class | Value | Pixels |
+|-------|-------|--------|
+| `p-0` | 0 | 0px |
+| `p-1` | 0.25rem | 4px |
+| `p-2` | 0.5rem | 8px |
+| `p-3` | 0.75rem | 12px |
+| `p-4` | 1rem | 16px |
+| `p-6` | 1.5rem | 24px |
+| `p-8` | 2rem | 32px |
+| `p-12` | 3rem | 48px |
+| `p-16` | 4rem | 64px |
+| `p-24` | 6rem | 96px |
+| `p-32` | 8rem | 128px |
+
+</div>
+
+**Note**: Works with `p` (padding), `m` (margin), `gap`, and directional variants (`pt`, `pl`, `mx`, etc.)
+
+## Visual Examples
+
+### Extra Small (xs)
+<div style={{ height: '16px', background: 'linear-gradient(90deg, #157FD2 0%, #157FD2 100%)', marginBottom: '16px' }}></div>
+
+### Small (sm)
+<div style={{ height: '32px', background: 'linear-gradient(90deg, #157FD2 0%, #157FD2 100%)', marginBottom: '16px' }}></div>
+
+### Medium (md)
+<div style={{ height: '64px', background: 'linear-gradient(90deg, #157FD2 0%, #157FD2 100%)', marginBottom: '16px' }}></div>
+
+### Large (lg)
+<div style={{ height: '96px', background: 'linear-gradient(90deg, #157FD2 0%, #157FD2 100%)', marginBottom: '16px' }}></div>
+
+### Extra Large (xl)
+<div style={{ height: '128px', background: 'linear-gradient(90deg, #157FD2 0%, #157FD2 100%)' }}></div>
+
+## Component Spacing Patterns
+
+### ContentModule Gaps
+
+ContentModule uses consistent internal spacing:
+- **Title to content**: `gap-4` (16px) on mobile, `gap-8` (32px) on desktop
+- **Paragraph spacing**: `space-y-4` (16px between elements)
+- **Section padding**: `px-4` (16px) on mobile, `px-8` (32px) on desktop
+
+### Grid Gaps
+
+- **ImageGrid**: `gap-4` (16px)
+- **StatsGrid**: `gap-4` (16px)
+- **DataCardGrid**: `gap-6` (24px)
+- **InsightGrid**: `gap-6` (24px)
+
+### Responsive Spacing
+
+Many components use responsive spacing:
+
+```tsx
+className="p-4 md:p-6 lg:p-8"
+// Mobile: 16px
+// Tablet: 24px
+// Desktop: 32px
+```
+
+## Best Practices
+
+### ✅ Do
+- Use `Spacer` component for vertical spacing between major sections
+- Use Tailwind spacing utilities for component internal spacing
+- Use consistent values from the spacing scale
+- Consider responsive spacing for better mobile experience
+
+### ❌ Don't
+- Avoid custom pixel values (use Tailwind scale instead)
+- Don't mix different spacing systems
+- Avoid excessive nesting of spacing utilities
+
+---
+
+**See also:**
+- [Spacer Component](/docs/components-spacer--docs)
+- [Tailwind Spacing Documentation](https://tailwindcss.com/docs/padding)
