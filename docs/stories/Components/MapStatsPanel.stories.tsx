@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import MapStatsPanel from '../../../src/components/MapStatsPanel';
 
 const meta = {
-  title: 'Components/Data/MapStatsPanel',
+  title: '05. Components/Data/MapStatsPanel',
   component: MapStatsPanel,
   parameters: {
     layout: 'fullscreen',

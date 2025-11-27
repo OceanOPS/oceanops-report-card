@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Tooltip from '../../../src/components/Tooltip';
 
 const meta = {
-  title: 'Components/Interactive/Tooltip',
+  title: '05. Components/Interactive/Tooltip',
   component: Tooltip,
   parameters: {
     layout: 'centered',

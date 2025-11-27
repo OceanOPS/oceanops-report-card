@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import InsightPanel from '../../../src/components/InsightPanel';
 
 const meta = {
-  title: 'Components/Data/InsightPanel',
+  title: '05. Components/Data/InsightPanel',
   component: InsightPanel,
   parameters: {
     layout: 'fullscreen',

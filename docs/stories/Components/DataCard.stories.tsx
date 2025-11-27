@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import DataCard from '../../../src/components/DataCard';
 
 const meta = {
-  title: 'Components/Data/DataCard',
+  title: '05. Components/Data/DataCard',
   component: DataCard,
   parameters: {
     layout: 'centered',

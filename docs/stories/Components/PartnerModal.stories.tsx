@@ -25,7 +25,7 @@ const ModalWrapper = (args: any) => {
 };
 
 const meta = {
-  title: 'Components/Interactive/PartnerModal',
+  title: '05. Components/Interactive/PartnerModal',
   component: PartnerModal,
   parameters: {
     layout: 'centered',

@@ -197,7 +197,7 @@ const DeliveryAreasSection = () => {
 };
 
 const meta = {
-  title: 'Layout/DeliveryAreasSection',
+  title: '06. Layout/DeliveryAreasSection',
   component: DeliveryAreasSection,
   parameters: {
     layout: 'fullscreen',

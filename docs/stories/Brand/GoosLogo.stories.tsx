@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import GoosLogo from '../../../src/components/GoosLogo';
 
 const meta = {
-  title: 'Brand/GoosLogo',
+  title: '04. Brand/GoosLogo',
   component: GoosLogo,
   parameters: {
     layout: 'centered',

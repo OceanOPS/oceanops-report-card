@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SatelliteTable from '../../../src/components/SatelliteTable';
 
 const meta = {
-  title: 'Components/Data/SatelliteTable',
+  title: '05. Components/Data/SatelliteTable',
   component: SatelliteTable,
   parameters: {
     layout: 'fullscreen',

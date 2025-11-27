@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import QuoteBlock from '../../../src/components/QuoteBlock';
 
 const meta = {
-  title: 'Components/Content/QuoteBlock',
+  title: '05. Components/Content/QuoteBlock',
   component: QuoteBlock,
   parameters: {
     layout: 'padded',

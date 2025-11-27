@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ImageCaption from '../../../src/components/ImageCaption';
 
 const meta = {
-  title: 'Components/Media/ImageCaption',
+  title: '05. Components/Media/ImageCaption',
   component: ImageCaption,
   parameters: {
     layout: 'padded',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Spacer from '../../../src/components/Spacer';
 
 const meta = {
-  title: 'Components/Utility/Spacer',
+  title: '05. Components/Utility/Spacer',
   component: Spacer,
   parameters: {
     layout: 'fullscreen',

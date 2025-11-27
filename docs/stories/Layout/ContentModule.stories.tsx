@@ -9,7 +9,7 @@ import InsightPanel from '../../../src/components/InsightPanel';
 import DataCardGrid from '../../../src/components/DataCardGrid';
 
 const meta = {
-  title: 'Layout/ContentModule',
+  title: '06. Layout/ContentModule',
   component: ContentModule,
   parameters: {
     layout: 'fullscreen',

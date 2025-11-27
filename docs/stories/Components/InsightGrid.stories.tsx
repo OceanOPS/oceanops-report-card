@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import InsightGrid from '../../../src/components/InsightGrid';
 
 const meta = {
-  title: 'Components/Data/InsightGrid',
+  title: '05. Components/Data/InsightGrid',
   component: InsightGrid,
   parameters: {
     layout: 'fullscreen',

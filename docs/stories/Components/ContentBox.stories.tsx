@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ContentBox from '../../../src/components/ContentBox';
 
 const meta = {
-  title: 'Components/Content/ContentBox',
+  title: '05. Components/Content/ContentBox',
   component: ContentBox,
   parameters: {
     layout: 'padded',

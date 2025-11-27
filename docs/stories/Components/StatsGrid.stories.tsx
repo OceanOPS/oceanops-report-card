@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import StatsGrid from '../../../src/components/StatsGrid';
 
 const meta = {
-  title: 'Components/Data/StatsGrid',
+  title: '05. Components/Data/StatsGrid',
   component: StatsGrid,
   parameters: {
     layout: 'padded',

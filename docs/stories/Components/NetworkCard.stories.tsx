@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NetworkCard from '../../../src/components/NetworkCard';
 
 const meta = {
-  title: 'Components/Network/NetworkCard',
+  title: '05. Components/Network/NetworkCard',
   component: NetworkCard,
   parameters: {
     layout: 'centered',

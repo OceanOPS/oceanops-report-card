@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import PartnerLogos from '../../../src/components/PartnerLogos';
 
 const meta = {
-  title: 'Brand/PartnerLogos',
+  title: '04. Brand/PartnerLogos',
   component: PartnerLogos,
   parameters: {
     layout: 'padded',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import MenuSidebar from '@/components/MenuSidebar';
 
 const meta = {
-  title: 'Components/Interactive/MenuSidebar',
+  title: '05. Components/Interactive/MenuSidebar',
   component: MenuSidebar,
   parameters: {
     layout: 'fullscreen',

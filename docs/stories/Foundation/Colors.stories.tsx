@@ -123,7 +123,7 @@ const ColorPalette = ({ showHex = true, showClasses = true }: ColorPaletteProps)
 };
 
 const meta = {
-  title: 'Foundation/Colors',
+  title: '03. Foundation/Colors',
   component: ColorPalette,
   parameters: {
     layout: 'padded',

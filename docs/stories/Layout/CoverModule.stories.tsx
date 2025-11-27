@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import CoverModule from '../../../src/components/CoverModule';
 
 const meta = {
-  title: 'Layout/CoverModule',
+  title: '06. Layout/CoverModule',
   component: CoverModule,
   parameters: {
     layout: 'fullscreen',
