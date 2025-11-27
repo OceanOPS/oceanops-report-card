@@ -127,6 +127,37 @@ const meta = {
   component: ColorPalette,
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: `
+GOOS color system with 5 main colors, each with 9 shades (100-900).
+
+## Figma Design - Primary Colors
+
+<iframe
+  style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 20px; margin-bottom: 20px;"
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1223-1451"
+  allowfullscreen
+></iframe>
+
+**[→ Open Primary Colors in Figma](https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1223-1451&t=lyDcrmhzDWxp62H7-4)**
+
+## Figma Design - Color Shades
+
+<iframe
+  style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 20px; margin-bottom: 20px;"
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1223-1203"
+  allowfullscreen
+></iframe>
+
+**[→ Open Color Shades in Figma](https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1223-1203&t=lyDcrmhzDWxp62H7-4)**
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

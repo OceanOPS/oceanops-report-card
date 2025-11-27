@@ -29,6 +29,25 @@ const meta = {
   component: PartnerModal,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Modal displaying partner countries with platform counts per network.
+
+## Figma Design
+
+<iframe
+  style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 20px; margin-bottom: 20px;"
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=2050-8839"
+  allowfullscreen
+></iframe>
+
+**[→ Open in Figma](https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=2050-8839&t=lyDcrmhzDWxp62H7-4)**
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

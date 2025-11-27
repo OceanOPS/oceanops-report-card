@@ -6,6 +6,37 @@ const meta = {
   component: CoverModule,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+Full-screen cover component with title, year, logos, and customizable background media.
+
+## Figma Design
+
+<iframe
+  style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 20px; margin-bottom: 20px;"
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1330-821"
+  allowfullscreen
+></iframe>
+
+**[→ Open in Figma](https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1330-821&t=lyDcrmhzDWxp62H7-4)**
+
+## Interactive Prototype
+
+<iframe
+  style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 20px; margin-bottom: 20px;"
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?page-id=1237%3A5520&node-id=1237-5523&viewport=186%2C168%2C0.08&t=TBYkuIk7QmD2DPX5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1237%3A5523"
+  allowfullscreen
+></iframe>
+
+**[→ Open Prototype in Figma](https://www.figma.com/proto/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?page-id=1237%3A5520&node-id=1237-5523&viewport=186%2C168%2C0.08&t=TBYkuIk7QmD2DPX5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1237%3A5523)**
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

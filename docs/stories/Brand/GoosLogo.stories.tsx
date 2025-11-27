@@ -6,6 +6,25 @@ const meta = {
   component: GoosLogo,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+GOOS official logo component with two color variants.
+
+## Figma Design
+
+<iframe
+  style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 20px; margin-bottom: 20px;"
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1223-1884"
+  allowfullscreen
+></iframe>
+
+**[→ Open in Figma](https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1223-1884&t=TLsKfb2iMRfoqQx2-4)**
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

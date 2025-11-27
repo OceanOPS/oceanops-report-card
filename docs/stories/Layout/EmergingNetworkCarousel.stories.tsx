@@ -6,6 +6,25 @@ const meta = {
   component: EmergingNetworkCarousel,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+Horizontal scrolling carousel for emerging ocean observing networks with rich media.
+
+## Figma Design
+
+<iframe
+  style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; margin-top: 20px; margin-bottom: 20px;"
+  width="100%"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1853-12728"
+  allowfullscreen
+></iframe>
+
+**[→ Open in Figma](https://www.figma.com/design/JdNQkdV9E6lLtXAY15GM1L/Goos-Report-Card?node-id=1853-12728&t=lyDcrmhzDWxp62H7-4)**
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
