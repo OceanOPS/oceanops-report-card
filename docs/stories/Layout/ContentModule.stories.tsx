@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ContentModule from '../../../src/components/ContentModule';
+import ImageGallery from '../../../src/components/ImageGallery';
+import DataTable from '../../../src/components/DataTable';
+import IconTable from '../../../src/components/IconTable';
+import ImageGrid from '../../../src/components/ImageGrid';
+import QuoteBlock from '../../../src/components/QuoteBlock';
+import InsightPanel from '../../../src/components/InsightPanel';
+import DataCardGrid from '../../../src/components/DataCardGrid';
 
 const meta = {
   title: 'Layout/ContentModule',
@@ -217,6 +224,127 @@ export const DarkVariant: Story = {
         <p className="text-base leading-relaxed text-white">
           These innovations promise better understanding of ocean processes, improved forecasts, and more
           effective management of marine resources and ecosystems.
+        </p>
+      </div>
+    ),
+  },
+};
+
+/**
+ * Complete Section - Real example with multiple components
+ *
+ * Shows how ContentModule is used in practice with various nested components:
+ * - ImageGallery for visual documentation
+ * - DataTable for statistics
+ * - QuoteBlock for expert perspectives
+ * - InsightPanel for key metrics
+ */
+export const CompleteSection: Story = {
+  args: {
+    layout: 'split',
+    titleLevel: 'h2',
+    kicker: 'Ocean Observing Networks',
+    title: 'Global Ocean Data Systems',
+    subtitle: 'Monitoring the State of Our Ocean',
+    introduction: 'An integrated network of platforms provides essential ocean observations supporting climate services, operational forecasting, and ocean health assessments.',
+    hasLine: true,
+    lineColor: 'bg-goos-orange-500',
+    backgroundColor: 'bg-white',
+    titleColor: 'text-goos-blue-900',
+    textColor: 'text-goos-gray-800',
+    button: {
+      type: 'link',
+      label: 'View Full Report',
+      url: 'https://www.goosocean.org',
+      textColor: 'text-white',
+      bgColor: 'bg-goos-orange-600',
+    },
+    children: (
+      <div className="space-y-8">
+        {/* Introduction paragraph */}
+        <p className="text-base leading-relaxed">
+          The Global Ocean Observing System (GOOS) coordinates observations from autonomous floats,
+          drifting buoys, moored stations, research vessels, and satellites to provide comprehensive
+          ocean data.
+        </p>
+
+        {/* Image gallery */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-goos-blue-900">Field Operations</h3>
+          <ImageGallery
+            images={[
+              { src: '/images/content.jpg', caption: 'Argo float deployment from research vessel' },
+              { src: '/images/content2.jpg', caption: 'Moored buoy system in the Pacific' },
+              { src: '/images/content3.jpg', caption: 'Ocean glider recovery operations' },
+            ]}
+            arrowColor="bg-goos-cyan-500"
+            dotColor="bg-goos-cyan-500"
+          />
+        </div>
+
+        {/* Data table */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-goos-blue-900">Regional Coverage</h3>
+          <p className="text-base leading-relaxed">
+            Active platforms by ocean basin providing real-time and delayed-mode data.
+          </p>
+          <DataTable
+            columns={4}
+            headers={['Region', 'Argo Floats', 'Drifting Buoys', 'Moored Buoys']}
+            rows={[
+              ['Atlantic', '1,245', '856', '124'],
+              ['Pacific', '2,567', '1,423', '298'],
+              ['Indian', '892', '534', '87'],
+              ['Southern', '456', '289', '34'],
+              ['Arctic', '123', '98', '12'],
+            ]}
+            headerBgColor="bg-goos-blue-800"
+            headerTextColor="text-white"
+            rowBgColor="bg-white"
+            rowTextColor="text-goos-gray-900"
+            borderColor="border-goos-gray-300"
+            firstColumnBold={true}
+          />
+        </div>
+
+        {/* Quote block */}
+        <QuoteBlock
+          variant="quote"
+          quote="Ocean observations are the foundation of our ability to understand climate variability, predict weather, and manage marine resources sustainably."
+          author="Dr. Mathieu Belbéoch"
+          affiliation="OceanOPS Technical Coordinator"
+          logoSrc="/logos/goos-logo.png"
+          backgroundColor="bg-goos-gray-100"
+          textColor="text-goos-blue-900"
+        />
+
+        {/* Insight panel */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-goos-blue-900">Data Impact</h3>
+          <InsightPanel
+            title="Forecast Improvement"
+            titleKey=""
+            featuredNumber="90%"
+            featuredDescription="of weather forecast skill comes from ocean data"
+            featuredNumberColor="text-goos-orange-500"
+            featuredDescriptionColor="text-goos-gray-800"
+            hasLine={true}
+            lineColor="bg-goos-orange-500"
+            backgroundColor="bg-goos-gray-100"
+            supportingStats={[
+              { number: '3-7', description: 'days extended forecast accuracy', link: '' },
+              { number: '50%', description: 'reduction in ship routing costs', link: '' },
+              { number: '24hrs', description: 'advance coastal flood warning', link: '' },
+            ]}
+            supportingNumberColor="text-goos-blue-900"
+            supportingDescriptionColor="text-goos-gray-700"
+          />
+        </div>
+
+        {/* Final paragraph */}
+        <p className="text-base leading-relaxed">
+          This integrated observing system provides the foundation for climate services, operational
+          forecasting, and ocean health assessments used by governments, researchers, and industry worldwide.
         </p>
       </div>
     ),

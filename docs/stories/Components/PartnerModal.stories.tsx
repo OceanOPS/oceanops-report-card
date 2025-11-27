@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import PartnerModal from '../../../src/components/PartnerModal';
-import Button from '../../../src/components/Button';
+import PartnerModal from '@/components/PartnerModal';
 
 // Wrapper component to manage modal state
 const ModalWrapper = (args: any) => {
@@ -9,13 +8,12 @@ const ModalWrapper = (args: any) => {
 
   return (
     <div className="p-8">
-      <Button
-        variant="primary"
-        label="Open Partner Countries"
+      <button
         onClick={() => setIsOpen(true)}
-        bgColor="bg-goos-orange-600"
-        textColor="text-white"
-      />
+        className="px-6 py-3 bg-goos-orange-500 text-white font-semibold rounded-lg hover:bg-goos-orange-600 transition-colors"
+      >
+        Open Partner Countries
+      </button>
 
       <PartnerModal
         {...args}
@@ -85,6 +83,7 @@ export const Default: Story = {
     countries: [
       {
         name: 'France',
+        countryCode: 'fr', // ISO 3166-1 alpha-2 code for flag display
         description: 'Leading contributor to global ocean observing systems',
         networks: {
           driftingBuoys: 150,
@@ -105,6 +104,7 @@ export const Default: Story = {
       },
       {
         name: 'United States',
+        countryCode: 'us', // ISO 3166-1 alpha-2 code for flag display
         description: 'Major ocean observation network operator',
         networks: {
           driftingBuoys: 300,
@@ -125,6 +125,7 @@ export const Default: Story = {
       },
       {
         name: 'Japan',
+        countryCode: 'jp', // ISO 3166-1 alpha-2 code for flag display
         description: 'Advanced tsunami and ocean monitoring systems',
         networks: {
           driftingBuoys: 80,

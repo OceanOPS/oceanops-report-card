@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import ContentModal from '../../../src/components/ContentModal';
-import Button from '../../../src/components/Button';
+import ContentModal from '@/components/ContentModal';
 
 // Wrapper component to manage modal state
 const ModalWrapper = (args: any) => {
@@ -9,13 +8,12 @@ const ModalWrapper = (args: any) => {
 
   return (
     <div className="p-8">
-      <Button
-        variant="primary"
-        label="Open Modal"
+      <button
         onClick={() => setIsOpen(true)}
-        bgColor="bg-goos-orange-600"
-        textColor="text-white"
-      />
+        className="px-6 py-3 bg-goos-orange-500 text-white font-semibold rounded-lg hover:bg-goos-orange-600 transition-colors"
+      >
+        Open Modal
+      </button>
 
       <ContentModal
         {...args}

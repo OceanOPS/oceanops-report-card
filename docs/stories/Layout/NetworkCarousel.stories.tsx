@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NetworkCarousel from '../../../src/components/NetworkCarousel';
 
 const meta = {
-  title: 'Components/NetworkCarousel',
+  title: 'Layout/NetworkCarousel',
   component: NetworkCarousel,
   parameters: {
     layout: 'fullscreen',

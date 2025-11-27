@@ -1,30 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
-import MenuSidebar from '../../../src/components/MenuSidebar';
-import Button from '../../../src/components/Button';
-
-// Wrapper component to manage menu state
-const MenuWrapper = (args: any) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="p-8">
-      <Button
-        variant="primary"
-        label="Open Menu"
-        onClick={() => setIsOpen(true)}
-        bgColor="bg-goos-orange-600"
-        textColor="text-white"
-      />
-
-      <MenuSidebar
-        {...args}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
-    </div>
-  );
-};
+import MenuSidebar from '@/components/MenuSidebar';
 
 const meta = {
   title: 'Components/MenuSidebar',
@@ -37,10 +12,6 @@ const meta = {
     menuItems: {
       control: 'object',
       description: 'Array of menu items with title keys and accent colors',
-    },
-    show: {
-      control: 'boolean',
-      description: 'Controls visibility and entrance animation',
     },
   },
 } satisfies Meta<typeof MenuSidebar>;
@@ -65,12 +36,10 @@ type Story = StoryObj<typeof meta>;
  *
  * Use the controls to customize:
  * - Menu items (sections with colors)
- * - Show/hide animation
  *
- * **Note**: Click "Open Menu" button to see the sidebar
+ * **Note**: Click the hamburger icon (floating globe on the right) to open the sidebar.
  */
 export const Default: Story = {
-  render: (args) => <MenuWrapper {...args} />,
   args: {
     menuItems: [
       { id: 'introduction-section', titleKey: 'Introduction', accentColor: 'bg-goos-orange-500' },
@@ -79,6 +48,5 @@ export const Default: Story = {
       { id: 'partners-section', titleKey: 'Partner Countries', accentColor: 'bg-goos-green-500' },
       { id: 'conclusion-section', titleKey: 'Looking Forward', accentColor: 'bg-goos-orange-700' },
     ],
-    show: true,
   },
 };

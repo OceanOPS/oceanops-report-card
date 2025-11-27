@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import EmergingNetworkCarousel from '../../../src/components/EmergingNetworkCarousel';
 
 const meta = {
-  title: 'Components/EmergingNetworkCarousel',
+  title: 'Layout/EmergingNetworkCarousel',
   component: EmergingNetworkCarousel,
   parameters: {
     layout: 'fullscreen',
