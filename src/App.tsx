@@ -1357,7 +1357,7 @@ function App() {
                     <Button
                       variant="link"
                       label={t('networks.viewNetwork')}
-                      url="https://www.aoml.noaa.gov/ocd/gcc/SOCONET/"
+                      url="https://www.ioccp.org/soconet"
                       bgColor="bg-goos-orange-600"
                       textColor="text-white"
                       iconBgColor="bg-white"
@@ -1372,7 +1372,7 @@ function App() {
             titleKey: 'emerging.soconet.title',
             paragraph1Key: 'emerging.soconet.paragraph1WithLink',
             paragraph2Key: 'emerging.soconet.paragraph2',
-            externalLinkUrl: 'https://www.aoml.noaa.gov/ocd/gcc/SOCONET/',
+            externalLinkUrl: 'https://www.ioccp.org/soconet',
             externalLinkTextKey: 'networks.viewNetwork',
             deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
             deliveryAreas: ['climate', 'oceanhealth'],
