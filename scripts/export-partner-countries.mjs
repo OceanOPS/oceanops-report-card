@@ -29,8 +29,14 @@ import {
 import { fetchGoShipCountsByCountry } from './partner-export/goShipLines.mjs'
 import { fetchLineNetworkCountsFromDatabase } from './partner-export/lineProgramCounts.mjs'
 import {
+  fetchPlatformLocationCountsFromDatabase,
+  PLATFORM_LOCATION_NETWORK_KEYS,
+  totalCountryCounts,
+} from './partner-export/platformLocationCounts.mjs'
+import {
   EXPORT_EDITION_LABEL,
   GO_SHIP_SELECTED_LINE_NAMES,
+  SOT_SELECTED_LINE_NAMES,
   printExportCriteriaSummary,
 } from './partner-export/exportConfig.mjs'
 import {
@@ -231,12 +237,27 @@ async function exportCounts(source) {
     process.stderr.write(`  ${networkKey}… `)
 
     if (source === 'api') {
-      const mergedFilters = API_MERGED_NETWORK_FILTERS[networkKey]
-      if (mergedFilters) {
-        byNetwork[networkKey] = await fetchApiCountsByCountryMerged(apiUrl, mergedFilters)
+      if (PLATFORM_LOCATION_NETWORK_KEYS.includes(networkKey)) {
+        const dbCounts = fetchPlatformLocationCountsFromDatabase(networkKey)
+        const dbTotal = totalCountryCounts(dbCounts)
+        if (dbCounts !== null && dbTotal > 0) {
+          byNetwork[networkKey] = dbCounts
+          process.stderr.write('postgres+date ')
+        } else {
+          if (dbCounts !== null && dbTotal === 0) {
+            process.stderr.write('no DB date rows — API status-only ')
+          }
+          const mergedFilters = API_MERGED_NETWORK_FILTERS[networkKey]
+          byNetwork[networkKey] = await fetchApiCountsByCountryMerged(apiUrl, mergedFilters)
+        }
       } else {
-        const exp = API_NETWORK_FILTERS[networkKey]
-        byNetwork[networkKey] = await fetchApiCountsByCountry(apiUrl, exp)
+        const mergedFilters = API_MERGED_NETWORK_FILTERS[networkKey]
+        if (mergedFilters) {
+          byNetwork[networkKey] = await fetchApiCountsByCountryMerged(apiUrl, mergedFilters)
+        } else {
+          const exp = API_NETWORK_FILTERS[networkKey]
+          byNetwork[networkKey] = await fetchApiCountsByCountry(apiUrl, exp)
+        }
       }
     } else {
       const where = ARCGIS_NETWORK_FILTERS[networkKey]
@@ -408,6 +429,7 @@ async function main() {
     process.stdout.write(output)
     printExportCriteriaSummary(byNetwork, {
       GO_SHIP_SELECTED_LINE_NAMES,
+      SOT_SELECTED_LINE_NAMES,
       EXPORT_EDITION_LABEL,
     })
     return
@@ -418,6 +440,7 @@ async function main() {
 
   printExportCriteriaSummary(byNetwork, {
     GO_SHIP_SELECTED_LINE_NAMES,
+    SOT_SELECTED_LINE_NAMES,
     EXPORT_EDITION_LABEL,
   })
 }

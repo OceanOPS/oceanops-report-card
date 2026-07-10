@@ -6,7 +6,7 @@
  */
 
 import { spawnSync } from 'node:child_process'
-import { GO_SHIP_SELECTED_LINE_NAMES } from './exportConfig.mjs'
+import { GO_SHIP_SELECTED_LINE_NAMES, SOT_SELECTED_LINE_NAMES } from './exportConfig.mjs'
 
 /** @type {Record<string, string>} */
 export const LINE_NETWORK_FAMILIES = {
@@ -72,7 +72,7 @@ export function resolveDatabaseUrl() {
 }
 
 /** @param {string} sql @returns {Record<string, number> | null} */
-function queryCountryCounts(sql) {
+export function queryCountryCounts(sql) {
   const config = parseDatabaseUrl(resolveDatabaseUrl())
   if (!config) return null
 
@@ -131,6 +131,10 @@ export function fetchLineNetworkCountsFromDatabase(networkKey, selectedLineNames
       selectedLineNames !== undefined ?
         selectedLineNames
       : GO_SHIP_SELECTED_LINE_NAMES
+    : networkKey === 'sot' ?
+      selectedLineNames !== undefined ?
+        selectedLineNames
+      : SOT_SELECTED_LINE_NAMES
     : selectedLineNames
 
   return fetchLineProgramCountsFromDatabase(lineFamily, names)

@@ -5,6 +5,9 @@
  * - Most networks: operational platforms (ptf_status = 6 / OPERATIONAL)
  * - GO-SHIP: manually selected design line names, then country via line_program
  *
+ * Platform status codes (ptf_status): see partner-export/ptfStatus.mjs
+ *   0 PROBABLE | 1 CONFIRMED | 2 REGISTERED | 4 INACTIVE | 5 CLOSED | 6 OPERATIONAL
+ *
  * Override path: PARTNER_EXPORT_CONFIG=/path/to/custom.mjs
  */
 
@@ -64,6 +67,41 @@ export const GO_SHIP_SELECTED_LINE_NAMES = [
   'SR04',
 ]
 
+/**
+ * SOOP XBT-SOOP lines included in the report (manual selection, 2025 layer table).
+ * Set to null to count all SOOP XBT Line entries with line_program attribution.
+ */
+export const SOT_SELECTED_LINE_NAMES = [
+  'AX07',
+  'AX08',
+  'AX10',
+  'AX97',
+  'AX32',
+  'AX22',
+  'AX25',
+  'IX01',
+  'IX21',
+  'PX09',
+  'PX11',
+  'PX13',
+  'IX22',
+  'PX02',
+  'PX06',
+  'PX30',
+  'PX31',
+  'PX34',
+  'PX37',
+  'PX40',
+  'PX39',
+  'IX28',
+  'PX36',
+]
+
+/** Minimum latest location date (2025 layer table). Edit per edition. */
+export const OCEAN_GLIDERS_MIN_LAST_LOC_DATE = '2024-01-01'
+export const ANIBOS_MIN_LAST_LOC_DATE = '2025-01-01'
+export const FVON_MIN_LAST_LOC_DATE = '2025-01-01'
+
 /** Label shown in the end-of-run summary (e.g. report card edition). */
 export const EXPORT_EDITION_LABEL = process.env.PARTNER_EXPORT_EDITION ?? 'report-card'
 
@@ -84,18 +122,24 @@ export const NETWORK_CRITERIA = {
   },
   oceanGliders: {
     type: 'platform_merged',
-    summary: 'OceanGliders network — OPERATIONAL + PROBABLE + CONFIRMED',
-    sqlHint: 'ptf_loc_n: master_program=OceanGliders, ptf_status IN (0,1,6)',
+    summary:
+      'OceanGliders — REGISTERED + OPERATIONAL + INACTIVE + CLOSED, latest_loc_date >= 2024-01-01',
+    sqlHint:
+      "ptf_loc_n: master_program='OceanGliders', ptf_status IN (2,6,4,5), latest_loc_date >= '2024-01-01'",
   },
   aniBOS: {
     type: 'platform_merged',
-    summary: 'AniBOS network — PROBABLE animal-borne platforms',
-    sqlHint: 'ptf_loc_n: ptf_family=ANIMAL, ptf_status IN (0,1)',
+    summary:
+      'AniBOS — REGISTERED + OPERATIONAL + INACTIVE + CLOSED, latest_loc_date >= 2025-01-01',
+    sqlHint:
+      "ptf_loc_n: ptf_family='ANIMAL', ptf_status IN (2,6,4,5), latest_loc_date >= '2025-01-01'",
   },
   fvon: {
     type: 'platform_merged',
-    summary: 'FVON network — CONFIRMED + PROBABLE (not OPERATIONAL)',
-    sqlHint: "ptf_loc_n: network LIKE '%FVON%', ptf_status IN (0,1)",
+    summary:
+      'FVON — REGISTERED + OPERATIONAL + INACTIVE + CLOSED, latest_loc_date >= 2025-01-01',
+    sqlHint:
+      "ptf_loc_n: network LIKE '%FVON%', ptf_status IN (2,6,4,5), latest_loc_date >= '2025-01-01'",
   },
   sotVos: {
     type: 'platform_operational',
@@ -109,8 +153,8 @@ export const NETWORK_CRITERIA = {
   },
   sot: {
     type: 'line_program',
-    summary: 'SOOP XBT design lines — line_program → program.country',
-    sqlHint: "line + line_program WHERE line_family='SOOP XBT Line'",
+    summary: 'SOOP XBT design lines — manual name list, then line_program → program.country',
+    sqlHint: "line + line_program WHERE line_family='SOOP XBT Line' AND name IN (...selected lines...)",
   },
   goShip: {
     type: 'go_ship_selected_lines',
@@ -123,9 +167,9 @@ export const NETWORK_CRITERIA = {
     sqlHint: "ptf_loc_n: network LIKE '%GLOSS%', ptf_status=6",
   },
   oceanSites: {
-    type: 'platform_operational',
-    summary: 'OPERATIONAL OceanSITES moorings',
-    sqlHint: "ptf_loc_n: network LIKE '%OceanSITES%', ptf_status=6",
+    type: 'platform_merged',
+    summary: 'OceanSITES moorings — OPERATIONAL or INACTIVE',
+    sqlHint: 'ptf_loc_n: network LIKE \'%OceanSITES%\', ptf_status IN (4=INACTIVE, 6=OPERATIONAL)',
   },
   mooredBuoys: {
     type: 'platform_operational',
@@ -139,17 +183,18 @@ export const NETWORK_CRITERIA = {
   },
   hfRadars: {
     type: 'platform_operational',
-    summary: 'OPERATIONAL HF radars',
-    sqlHint: "ptf_loc_n: ptf_type='HF_RADAR', ptf_status=6",
+    summary: 'All HF radars (no status filter)',
+    sqlHint: "ptf_loc_n: ptf_type='HF_RADAR'",
   },
 }
 
 /**
  * @param {Record<string, Record<string, number>>} byNetwork
- * @param {{ GO_SHIP_SELECTED_LINE_NAMES?: string[] | null, EXPORT_EDITION_LABEL?: string }} [config]
+ * @param {{ GO_SHIP_SELECTED_LINE_NAMES?: string[] | null, SOT_SELECTED_LINE_NAMES?: string[] | null, EXPORT_EDITION_LABEL?: string }} [config]
  */
 export function printExportCriteriaSummary(byNetwork, config = {}) {
-  const selectedLines = config.GO_SHIP_SELECTED_LINE_NAMES ?? GO_SHIP_SELECTED_LINE_NAMES
+  const selectedGoShipLines = config.GO_SHIP_SELECTED_LINE_NAMES ?? GO_SHIP_SELECTED_LINE_NAMES
+  const selectedSotLines = config.SOT_SELECTED_LINE_NAMES ?? SOT_SELECTED_LINE_NAMES
   const edition = config.EXPORT_EDITION_LABEL ?? EXPORT_EDITION_LABEL
 
   process.stderr.write('\n── Export criteria summary ──\n')
@@ -165,11 +210,19 @@ export function printExportCriteriaSummary(byNetwork, config = {}) {
   }
 
   process.stderr.write('\ngoShip — selected lines\n')
-  if (selectedLines?.length) {
-    process.stderr.write(`  Count: ${selectedLines.length} lines\n`)
-    process.stderr.write(`  Names: ${selectedLines.join(', ')}\n`)
+  if (selectedGoShipLines?.length) {
+    process.stderr.write(`  Count: ${selectedGoShipLines.length} lines\n`)
+    process.stderr.write(`  Names: ${selectedGoShipLines.join(', ')}\n`)
   } else {
     process.stderr.write('  Count: all GO-SHIP Line rows with line_program (no name filter)\n')
+  }
+
+  process.stderr.write('\nsot — selected lines\n')
+  if (selectedSotLines?.length) {
+    process.stderr.write(`  Count: ${selectedSotLines.length} lines\n`)
+    process.stderr.write(`  Names: ${selectedSotLines.join(', ')}\n`)
+  } else {
+    process.stderr.write('  Count: all SOOP XBT Line rows with line_program (no name filter)\n')
   }
 
   process.stderr.write('\n')

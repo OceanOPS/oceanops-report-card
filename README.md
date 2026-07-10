@@ -94,15 +94,17 @@ node scripts/export-partner-countries.mjs --source=arcgis --dry-run
 1. **OceanOPS Java API** (preferred) — uses operational platform queries with `program.country.code2` attribution, matching how partner statistics are compiled internally.
 2. **ArcGIS REST** (fallback) — uses the public `PtfLocations` latest-locations layer when the API is unavailable (e.g. CI).
 
-**GO-SHIP / SOT exception:** These networks are monitored via design lines, not platforms. Per-country counts come from PostgreSQL (`line_program → program.country`) for the `GO-SHIP Line` and `SOOP XBT Line` families.
-
-**FVON exception:** FVON vessels use `CONFIRMED` + `PROBABLE` status (ArcGIS `ptf_status IN (0,1)`), not `OPERATIONAL`.
-
-**AniBOS / OceanGliders:** Many platforms are tracked as `PROBABLE` rather than `OPERATIONAL`. AniBOS uses `PROBABLE` on the AniBOS network; OceanGliders merges `OPERATIONAL`, `PROBABLE`, and `CONFIRMED`.
+**GO-SHIP / SOT exception:** These networks are monitored via design lines, not platforms. Per-country counts come from PostgreSQL (`line_program → program.country`) for manually selected line names in `exportConfig.mjs`.
 
 **Tsunami buoys:** API filter uses platform type `Tsunameter Buoy` (not `Tsunameter`).
 
-Set `OCEANOPS_DATABASE_URL` when exporting line-based networks (defaults to local docker Postgres).
+**HF radars:** All platforms of type HF Radar (no status filter).
+
+**OceanSITES exception:** Counts include `OPERATIONAL` and `INACTIVE` platforms.
+
+**FVON / AniBOS / OceanGliders:** Layer-table statuses (REGISTERED, OPERATIONAL, INACTIVE, CLOSED). The script tries Postgres first to apply `latest_loc_date` cutoffs; if the DB has no matching rows (common on dev dumps), it falls back to the API without the date filter and logs `no DB date rows — API status-only`.
+
+**OceanSITES exception:** Counts include `OPERATIONAL` and `INACTIVE` platforms.
 
 Set `PARTNER_EXPORT_EDITION` to label the run in the criteria summary (e.g. `2026-report-card`).
 
@@ -111,6 +113,8 @@ Set `PARTNER_EXPORT_EDITION` to label the run in the criteria summary (e.g. `202
 Edit **`scripts/partner-export/exportConfig.mjs`** before each edition:
 
 - **`GO_SHIP_SELECTED_LINE_NAMES`** — manual GO-SHIP line list (same workflow as your colleague’s `WHERE name IN (...)` SQL). Set to `null` to count all GO-SHIP lines with `line_program`.
+- **`SOT_SELECTED_LINE_NAMES`** — manual SOOP XBT line list for the `sot` network. Set to `null` to count all SOOP XBT lines with `line_program`.
+- **`OCEAN_GLIDERS_MIN_LAST_LOC_DATE`**, **`ANIBOS_MIN_LAST_LOC_DATE`**, **`FVON_MIN_LAST_LOC_DATE`** — latest location cutoffs for the 2025 layer table.
 - **`NETWORK_CRITERIA`** — human-readable summary + SQL hints per network (mirrors the colleague’s `ptf_loc_n` / `goship_design_goship_1` queries).
 - **`EXPORT_EDITION_LABEL`** — default edition label (overridable via `PARTNER_EXPORT_EDITION`).
 
