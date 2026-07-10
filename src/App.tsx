@@ -23,6 +23,9 @@ import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
 import MenuSidebar from './components/MenuSidebar'
+
+const MAP_SRC =
+  import.meta.env.VITE_MAP_SRC ?? 'https://www.ocean-ops.org/demos/simple-arcgis-map/'
 import DeliveryAreasNav from './components/DeliveryAreasNav'
 import ColorStripes from './components/ColorStripes'
 import { asset } from './utils/assets'
@@ -436,7 +439,7 @@ function App() {
       <div id="map-section">
       {/* Interactive ArcGIS map - Full width */}
       <MapStatsPanel
-        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
+        mapSrc={MAP_SRC}
         mapAlt={t('operationalPlatforms.mapAlt')}
         mapType="iframe"
         mapHeight={600}
