@@ -55,6 +55,26 @@ The application will start at different URLs depending on your branch:
 
 Both use the same code with `asset()` helper - only `vite.config.ts` differs.
 
+### Local embedded map
+
+The Operational Platforms globe is an iframe to [oceanops-simple-map](https://github.com/OceanOPS/oceanops-simple-map). By default it loads the production URL. To test map changes locally, create a `.env.local` file (gitignored):
+
+```bash
+VITE_MAP_SRC=http://localhost:5174/demos/simple-arcgis-map/
+```
+
+Then run both apps:
+
+```bash
+# Terminal 1 — map (port 5174)
+cd ../oceanops-simple-map && npm run dev
+
+# Terminal 2 — report card (port 5173)
+npm run dev
+```
+
+Restart the report card dev server after creating or editing `.env.local`. Remove the file (or unset `VITE_MAP_SRC`) to use the production map again.
+
 ### Build for Production
 
 ```bash
