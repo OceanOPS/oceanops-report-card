@@ -248,12 +248,14 @@
           "infoModalContent": "Dans cette édition, le nombre d'États membres contributeurs semble inférieur à celui de la Carte de Rapport GOOS 2023. Cela est principalement dû à l'application de critères opérationnels mis à jour pour les stations GLOSS, comme convenu avec l'équipe directrice de GLOSS, et à une révision de la façon dont les contributions de l'UE au GOOS sont comptabilisées—traitant l'Union européenne comme une seule entité plutôt que comme 27 pays individuels, comme cela se faisait auparavant. Cette méthodologie affinée sera maintenue dans les futures éditions du Rapport de Statut GOOS."
         },
         "stat2": {
-          "number": "13",
-          "description": "réseaux mondiaux d'observation des océans (+4 émergents)"
+          "number": "17",
+          "description": "réseaux mondiaux d'observation des océans",
+          "evolution": "+4 émergents"
         },
         "stat3": {
-          "number": "9,897",
-          "description": "plateformes d'observation des océans"
+          "number": "9,389",
+          "description": "plateformes d'observation des océans",
+          "evolution": "+477 vs 2024"
         },
         "stat4": {
           "number": "120,000+",

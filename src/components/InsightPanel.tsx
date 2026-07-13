@@ -119,12 +119,103 @@ type ButtonConfig =
 interface StatItem {
   number: string
   description: string
+  evolution?: string
+  evolutionDirection?: 'up' | 'down' | 'neutral'
   linkText?: string
   linkUrl?: string
   infoModal?: {
     title: string
     content: ReactNode
   }
+}
+
+function StatEvolutionBadge({
+  evolution,
+  direction = 'up',
+}: {
+  evolution: string
+  direction?: 'up' | 'down' | 'neutral'
+}) {
+  const arrow = direction === 'up' ? '↑' : direction === 'down' ? '↓' : null
+
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full bg-goos-green-700/35 px-2.5 py-1 text-xs sm:text-sm font-medium text-white whitespace-nowrap">
+      {arrow && <span aria-hidden="true">{arrow}</span>}
+      <span>{evolution}</span>
+    </span>
+  )
+}
+
+function StatBlock({
+  stat,
+  numberRef,
+  numberColor,
+  textColor,
+  linkColor,
+  onInfoClick,
+}: {
+  stat: StatItem
+  numberRef: (el: HTMLParagraphElement | null) => void
+  numberColor: string
+  textColor: string
+  linkColor: string
+  onInfoClick?: () => void
+}) {
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex flex-wrap items-start gap-2 sm:gap-3">
+        <p
+          ref={numberRef}
+          className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}
+        >
+          {stat.number}
+        </p>
+        {stat.evolution && (
+          <StatEvolutionBadge
+            evolution={stat.evolution}
+            direction={stat.evolutionDirection}
+          />
+        )}
+      </div>
+      <div className="flex items-center gap-2">
+        <p className={`text-sm sm:text-base font-normal ${textColor}`}>
+          {stat.description}
+        </p>
+        {stat.infoModal && onInfoClick && (
+          <button
+            onClick={onInfoClick}
+            className={`${textColor} opacity-70 hover:opacity-100 transition-opacity flex-shrink-0`}
+            aria-label="More information"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </button>
+        )}
+      </div>
+      {stat.linkText && stat.linkUrl && (
+        <a
+          href={stat.linkUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`text-sm sm:text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+        >
+          {stat.linkText} <span className="text-xs">⧉</span>
+        </a>
+      )}
+    </div>
+  )
 }
 
 interface InsightPanelProps {
@@ -321,48 +412,19 @@ export default function InsightPanel({
                 {/* Top Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   {stats.slice(0, 2).map((stat, index) => (
-                    <div key={index} className="flex flex-col gap-2">
-                      <p ref={(el) => (statNumberRefs.current[index] = el)} className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}>
-                        {stat.number}
-                      </p>
-                      <div className="flex items-center gap-2">
-                        <p className={`text-sm sm:text-base font-normal ${textColor}`}>
-                          {stat.description}
-                        </p>
-                        {stat.infoModal && (
-                          <button
-                            onClick={() => setOpenModalIndex(index)}
-                            className={`${textColor} opacity-70 hover:opacity-100 transition-opacity flex-shrink-0`}
-                            aria-label="More information"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <circle cx="12" cy="12" r="10" />
-                              <line x1="12" y1="16" x2="12" y2="12" />
-                              <line x1="12" y1="8" x2="12.01" y2="8" />
-                            </svg>
-                          </button>
-                        )}
-                      </div>
-                      {stat.linkText && stat.linkUrl && (
-                        <a
-                          href={stat.linkUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`text-sm sm:text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
-                        >
-                          {stat.linkText} <span className="text-xs">⧉</span>
-                        </a>
-                      )}
-                    </div>
+                    <StatBlock
+                      key={index}
+                      stat={stat}
+                      numberRef={(el) => {
+                        statNumberRefs.current[index] = el
+                      }}
+                      numberColor={numberColor}
+                      textColor={textColor}
+                      linkColor={linkColor}
+                      onInfoClick={
+                        stat.infoModal ? () => setOpenModalIndex(index) : undefined
+                      }
+                    />
                   ))}
                 </div>
 
@@ -370,48 +432,19 @@ export default function InsightPanel({
                 {stats.length > 2 && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                     {stats.slice(2, 4).map((stat, index) => (
-                      <div key={index + 2} className="flex flex-col gap-2">
-                        <p ref={(el) => (statNumberRefs.current[index + 2] = el)} className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}>
-                          {stat.number}
-                        </p>
-                        <div className="flex items-center gap-2">
-                          <p className={`text-sm sm:text-base font-normal ${textColor}`}>
-                            {stat.description}
-                          </p>
-                          {stat.infoModal && (
-                            <button
-                              onClick={() => setOpenModalIndex(index + 2)}
-                              className={`${textColor} opacity-70 hover:opacity-100 transition-opacity flex-shrink-0`}
-                              aria-label="More information"
-                            >
-                              <svg
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <circle cx="12" cy="12" r="10" />
-                                <line x1="12" y1="16" x2="12" y2="12" />
-                                <line x1="12" y1="8" x2="12.01" y2="8" />
-                              </svg>
-                            </button>
-                          )}
-                        </div>
-                        {stat.linkText && stat.linkUrl && (
-                          <a
-                            href={stat.linkUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`text-sm sm:text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
-                          >
-                            {stat.linkText} <span className="text-xs">⧉</span>
-                          </a>
-                        )}
-                      </div>
+                      <StatBlock
+                        key={index + 2}
+                        stat={stat}
+                        numberRef={(el) => {
+                          statNumberRefs.current[index + 2] = el
+                        }}
+                        numberColor={numberColor}
+                        textColor={textColor}
+                        linkColor={linkColor}
+                        onInfoClick={
+                          stat.infoModal ? () => setOpenModalIndex(index + 2) : undefined
+                        }
+                      />
                     ))}
                   </div>
                 )}

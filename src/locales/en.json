@@ -255,11 +255,13 @@
         },
         "stat2": {
           "number": "17",
-          "description": "global ocean observing networks (including 4 emerging)"
+          "description": "global ocean observing networks",
+          "evolution": "+4 emerging"
         },
         "stat3": {
           "number": "9,389",
-          "description": "ocean observing platforms"
+          "description": "ocean observing platforms",
+          "evolution": "+477 vs 2024"
         },
         "stat4": {
           "number": "120,000+",
