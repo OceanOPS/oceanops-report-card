@@ -531,6 +531,54 @@
       "title": "AniBOS",
       "iconAlt": "Réseau AniBOS - Capteurs océaniques embarqués sur animaux marins"
     },
+    "comparison": {
+      "title": "Matrice de comparaison des réseaux",
+      "description": "Triez et filtrez tous les réseaux <i>in situ</i> matures par indicateur de performance. YoY indique l'évolution du score numérique moyen par rapport à la Report Card 2024.",
+      "searchPlaceholder": "Rechercher des réseaux...",
+      "filters": {
+        "all": "Tous",
+        "climate": "Climat",
+        "operational": "Services opérationnels",
+        "oceanhealth": "Santé des océans"
+      },
+      "networksShown": "{{count}} réseaux affichés",
+      "noResults": "Aucun réseau ne correspond à votre recherche ou filtre.",
+      "applications": "Applications",
+      "coverage": "Couverture",
+      "targets": "Objectifs",
+      "maturity": "Maturité",
+      "tapForDetails": "Appuyez pour voir applications et couverture",
+      "tapToReturn": "Appuyez pour revenir",
+      "flipToDetails": "Afficher les détails du réseau",
+      "flipBack": "Afficher les notes du réseau",
+      "mobileHint": "Appuyez sur une fiche pour la retourner et voir les applications, la couverture et les objectifs.",
+      "desktopExpandHint": "Cliquez sur une ligne pour afficher les applications, la couverture et les objectifs.",
+      "columns": {
+        "network": "Réseau",
+        "yoy": "YoY"
+      }
+    },
+    "details": {
+      "pending": "Contenu éditorial en attente pour cette édition.",
+      "argo": {
+        "applications": "Variabilité de la chaleur océanique de la couche supérieure, anomalies saisonnières de contenu calorique, modèles climatiques et océaniques saisonniers, variabilité de la circulation dans la couche supérieure, suivi de l'évolution de la biogéochimie, NWP court/moyen/long terme.",
+        "coverage": "Du pôle Nord au pôle Sud, de la surface au fond.",
+        "targets": "4 700 flotteurs (OneArgo).",
+        "maturity": "Avancé."
+      },
+      "dbcpMoored": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "goShip": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "dbcpTsunami": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "hfRadar": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "dbcpDrifting": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "gloss": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "oceanSites": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "gliders": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "anibos": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sotVos": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sotXbt": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sotAsap": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." }
+    },
     "argoLegacy": {
       "title": "Argo",
       "iconAlt": "Réseau Argo - Réseau mondial de flotteurs profilants mesurant la température et la salinité de l'océan"

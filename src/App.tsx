@@ -10,7 +10,8 @@ import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import NetworkCarousel from './components/NetworkCarousel'
+import MatureNetworksSection from './components/MatureNetworksSection'
+import { sortedMatureNetworks } from './data/matureNetworks'
 import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
 import IconTable from './components/IconTable'
@@ -612,222 +613,8 @@ function App() {
       </div>
       </div>
 
-      {/* NetworkCarousel */}
-      <div id="networks-section">
-        <NetworkCarousel
-          title="networks.title"
-          hasLine={true}
-          lineColor="bg-goos-orange-500"
-        cards={[
-          {
-            iconSrc: asset('/icons/network/vos.svg'),
-            iconAlt: 'networks.sotVos.iconAlt',
-            titleKey: 'networks.sotVos.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#VOS',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 3,
-              realTime: 2.5,
-              archivedHighQuality: 2,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/xbt-soop.svg'),
-            iconAlt: 'networks.sotXbt.iconAlt',
-            titleKey: 'networks.sotXbt.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2,
-              realTime: 2.5,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/asap.svg'),
-            iconAlt: 'networks.sotAsap.iconAlt',
-            titleKey: 'networks.sotAsap.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: t('satelliteObservations.statuses.noTarget'),
-              realTime: 2.5,
-              archivedHighQuality: t('satelliteObservations.statuses.noArchive'),
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/go_ship.svg'),
-            iconAlt: 'networks.goShip.iconAlt',
-            titleKey: 'networks.goShip.title',
-            networkUrl: 'http://www.go-ship.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: t('satelliteObservations.statuses.notApplicable'),
-              archivedHighQuality: 2.5,
-              metadata: 1.5,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/gloss.svg'),
-            iconAlt: 'networks.gloss.iconAlt',
-            titleKey: 'networks.gloss.title',
-            networkUrl: 'https://gloss-sealevel.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2,
-              archivedHighQuality: 3,
-              metadata: 0.5,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/ocean_sites.svg'),
-            iconAlt: 'networks.oceanSites.iconAlt',
-            titleKey: 'networks.oceanSites.title',
-            networkUrl: 'https://www.ocean-ops.org/oceansites/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: t('satelliteObservations.statuses.notCoreMission'),
-              archivedHighQuality: 2.5,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/dbcp_moored.svg'),
-            iconAlt: 'networks.dbcpMoored.iconAlt',
-            titleKey: 'networks.dbcpMoored.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: t('satelliteObservations.statuses.noTarget'),
-              realTime: 2.5,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 2.5,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/tsunami_buoys.svg'),
-            iconAlt: 'networks.dbcpTsunami.iconAlt',
-            titleKey: 'networks.dbcpTsunami.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: 3,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/hf_radar.svg'),
-            iconAlt: 'networks.hfRadar.iconAlt',
-            titleKey: 'networks.hfRadar.title',
-            networkUrl: 'http://global-hfradar.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2.5,
-              archivedHighQuality: 1.5,
-              metadata: 3,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/dbcp_drifters.svg'),
-            iconAlt: 'networks.dbcpDrifting.iconAlt',
-            titleKey: 'networks.dbcpDrifting.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: 2.5,
-              archivedHighQuality: 2.5,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/argo.svg'),
-            iconAlt: 'networks.argo.iconAlt',
-            titleKey: 'networks.argo.title',
-            networkUrl: 'https://argo.ucsd.edu/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 3,
-              realTime: 3,
-              archivedHighQuality: 3,
-              metadata: 3,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/ocean_gliders.svg'),
-            iconAlt: 'networks.gliders.iconAlt',
-            titleKey: 'networks.gliders.title',
-            networkUrl: 'https://www.oceangliders.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2,
-              archivedHighQuality: 1.5,
-              metadata: 3,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/ani_bos.svg'),
-            iconAlt: 'networks.anibos.iconAlt',
-            titleKey: 'networks.anibos.title',
-            networkUrl: 'https://anibos.com/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 0.5,
-              realTime: 1.5,
-              archivedHighQuality: 1.5,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-        ]}
+      <MatureNetworksSection
+        networks={sortedMatureNetworks}
         backgroundColor="bg-goos-blue-900"
         titleColor="text-white"
         cardBackgroundColor="bg-goos-blue-800"
@@ -835,8 +622,9 @@ function App() {
         cardAccentColor="text-goos-orange-500"
         tooltipBgColor="text-goos-white"
         tooltipTextColor="bg-goos-blue-900"
+        arrowColor="#F0F0F0"
+        lineColor="bg-goos-orange-500"
       />
-      </div>
 
       {/* Indicators Definition Button */}
       <div className="flex justify-center bg-goos-blue-900">

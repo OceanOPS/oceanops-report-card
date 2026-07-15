@@ -518,6 +518,90 @@
     "anibos": {
       "title": "Animal borne sensors – AniBOS",
       "iconAlt": "AniBOS Network - Animal-borne ocean sensors collecting data from marine mammals"
+    },
+    "comparison": {
+      "title": "Network comparison matrix",
+      "description": "Sort and filter all mature <i>in situ</i> networks by performance indicator. YoY shows change in average numeric score vs the 2024 Report Card.",
+      "searchPlaceholder": "Search networks...",
+      "filters": {
+        "all": "All",
+        "climate": "Climate",
+        "operational": "Operational Services",
+        "oceanhealth": "Ocean Health"
+      },
+      "networksShown": "{{count}} networks shown",
+      "noResults": "No networks match your search or filter.",
+      "applications": "Applications",
+      "coverage": "Coverage",
+      "targets": "Targets",
+      "maturity": "Maturity",
+      "tapForDetails": "Tap card for applications & coverage",
+      "tapToReturn": "Tap to return",
+      "flipToDetails": "Show network details",
+      "flipBack": "Show network ratings",
+      "mobileHint": "Tap a card to flip it and view applications, coverage, and targets.",
+      "desktopExpandHint": "Click a row to expand applications, coverage, and targets.",
+      "columns": {
+        "network": "Network",
+        "yoy": "YoY"
+      }
+    },
+    "details": {
+      "pending": "Editorial content pending for this edition.",
+      "argo": {
+        "applications": "Upper ocean heat content variability, seasonal heat content anomalies, seasonal climate and ocean forecast models, circulation variability in the upper ocean, monitoring changing biogeochemistry, short/medium/long NWP.",
+        "coverage": "From pole to pole, surface to bottom.",
+        "targets": "4,700 floats (OneArgo).",
+        "maturity": "Advanced."
+      },
+      "dbcpMoored": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "goShip": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "dbcpTsunami": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "hfRadar": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "dbcpDrifting": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "gloss": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "oceanSites": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "gliders": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "anibos": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "sotVos": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "sotXbt": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "sotAsap": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      }
     }
   },
   "emerging": {
