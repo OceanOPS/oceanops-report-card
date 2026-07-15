@@ -55,6 +55,26 @@ The application will start at different URLs depending on your branch:
 
 Both use the same code with `asset()` helper - only `vite.config.ts` differs.
 
+### Local embedded map
+
+The Operational Platforms globe is an iframe to [oceanops-simple-map](https://github.com/OceanOPS/oceanops-simple-map). By default it loads the production URL. To test map changes locally, create a `.env.local` file (gitignored):
+
+```bash
+VITE_MAP_SRC=http://localhost:5174/demos/simple-arcgis-map/
+```
+
+Then run both apps:
+
+```bash
+# Terminal 1 — map (port 5174)
+cd ../oceanops-simple-map && npm run dev
+
+# Terminal 2 — report card (port 5173)
+npm run dev
+```
+
+Restart the report card dev server after creating or editing `.env.local`. Remove the file (or unset `VITE_MAP_SRC`) to use the production map again.
+
 ### Build for Production
 
 ```bash
@@ -71,6 +91,58 @@ npm run preview
 - `npm run build` - Type-check with TypeScript and build for production
 - `npm run lint` - Run ESLint on all TypeScript files
 - `npm run preview` - Preview production build locally
+- `npm run export:partners` - Regenerate `src/data/partnerCountries.ts` from OceanOPS
+- `npm run export:partners:dry-run` - Print exported data without writing the file
+
+### Partner country export (build-time)
+
+Platform counts in the **Our Partners** modal can be regenerated from OceanOPS instead of hand-editing `src/data/partnerCountries.ts`.
+
+```bash
+# Requires OceanOPS API (local docker or internal URL)
+OCEANOPS_API_URL=http://localhost:8080/data npm run export:partners
+
+# Preview output
+npm run export:partners:dry-run
+
+# Force public ArcGIS REST fallback (no Java API needed)
+node scripts/export-partner-countries.mjs --source=arcgis --dry-run
+```
+
+**Data sources (auto-detected):**
+
+1. **OceanOPS Java API** (preferred) — uses operational platform queries with `program.country.code2` attribution, matching how partner statistics are compiled internally.
+2. **ArcGIS REST** (fallback) — uses the public `PtfLocations` latest-locations layer when the API is unavailable (e.g. CI).
+
+**GO-SHIP / SOT exception:** These networks are monitored via design lines, not platforms. Per-country counts come from PostgreSQL (`line_program → program.country`) for manually selected line names in `exportConfig.mjs`.
+
+**Tsunami buoys:** API filter uses platform type `Tsunameter Buoy` (not `Tsunameter`).
+
+**HF radars:** All platforms of type HF Radar (no status filter).
+
+**OceanSITES exception:** Counts include `OPERATIONAL` and `INACTIVE` platforms.
+
+**FVON / AniBOS / OceanGliders:** Layer-table statuses (REGISTERED, OPERATIONAL, INACTIVE, CLOSED). The script tries Postgres first to apply `latest_loc_date` cutoffs; if the DB has no matching rows (common on dev dumps), it falls back to the API without the date filter and logs `no DB date rows — API status-only`.
+
+**OceanSITES exception:** Counts include `OPERATIONAL` and `INACTIVE` platforms.
+
+Set `PARTNER_EXPORT_EDITION` to label the run in the criteria summary (e.g. `2026-report-card`).
+
+### Configuring export criteria
+
+Edit **`scripts/partner-export/exportConfig.mjs`** before each edition:
+
+- **`GO_SHIP_SELECTED_LINE_NAMES`** — manual GO-SHIP line list (same workflow as your colleague’s `WHERE name IN (...)` SQL). Set to `null` to count all GO-SHIP lines with `line_program`.
+- **`SOT_SELECTED_LINE_NAMES`** — manual SOOP XBT line list for the `sot` network. Set to `null` to count all SOOP XBT lines with `line_program`.
+- **`OCEAN_GLIDERS_MIN_LAST_LOC_DATE`**, **`ANIBOS_MIN_LAST_LOC_DATE`**, **`FVON_MIN_LAST_LOC_DATE`** — latest location cutoffs for the 2025 layer table.
+- **`NETWORK_CRITERIA`** — human-readable summary + SQL hints per network (mirrors the colleague’s `ptf_loc_n` / `goship_design_goship_1` queries).
+- **`EXPORT_EDITION_LABEL`** — default edition label (overridable via `PARTNER_EXPORT_EDITION`).
+
+After every run (including `--dry-run`), the script prints an **Export criteria summary** to stderr: per-network totals, criteria description, SQL hint, and the full GO-SHIP line name list in use.
+
+Network filter definitions live in `scripts/partner-export/networkFilters.mjs`. Editorial metadata (e.g. EU description) is preserved from the existing file and `scripts/partner-export/countryMeta.mjs`.
+
+**Note:** Map sidebar counts in the embedded ArcGIS iframe are computed live by `ocean-ops.org/demos/simple-arcgis-map/` and are not part of this export.
 
 ## Storybook Documentation
 

@@ -248,12 +248,14 @@
           "infoModalContent": "En esta edición, el número de Estados Miembros contribuyentes aparece inferior al de la Tarjeta de Reporte GOOS 2023. Esto se debe principalmente a la aplicación de criterios operacionales actualizados para las estaciones GLOSS, según lo acordado con el Equipo Directivo de GLOSS, y a una revisión de cómo se contabilizan las contribuciones de la UE a GOOS—tratando a la Unión Europea como una sola entidad en lugar de como 27 países individuales, como se hacía anteriormente. Esta metodología refinada se mantendrá en futuras ediciones del Informe de Estado de GOOS."
         },
         "stat2": {
-          "number": "13",
-          "description": "redes globales de observación del océano (+4 emergentes)"
+          "number": "17",
+          "description": "redes globales de observación del océano",
+          "evolution": "+4 emergentes"
         },
         "stat3": {
-          "number": "9,897",
-          "description": "plataformas de observación del océano"
+          "number": "9,389",
+          "description": "plataformas de observación del océano",
+          "evolution": "+477 vs 2024"
         },
         "stat4": {
           "number": "120,000+",
@@ -471,6 +473,54 @@
     "anibos": {
       "title": "AniBOS",
       "iconAlt": "Red AniBOS - Sensores oceánicos transportados por animales marinos"
+    },
+    "comparison": {
+      "title": "Matriz de comparación de redes",
+      "description": "Ordene y filtre todas las redes <i>in situ</i> maduras por indicador de rendimiento. YoY muestra el cambio en la puntuación numérica media frente a la Report Card 2024.",
+      "searchPlaceholder": "Buscar redes...",
+      "filters": {
+        "all": "Todas",
+        "climate": "Clima",
+        "operational": "Servicios operacionales",
+        "oceanhealth": "Salud del océano"
+      },
+      "networksShown": "{{count}} redes mostradas",
+      "noResults": "Ninguna red coincide con su búsqueda o filtro.",
+      "applications": "Aplicaciones",
+      "coverage": "Cobertura",
+      "targets": "Objetivos",
+      "maturity": "Madurez",
+      "tapForDetails": "Toque la tarjeta para ver aplicaciones y cobertura",
+      "tapToReturn": "Toque para volver",
+      "flipToDetails": "Mostrar detalles de la red",
+      "flipBack": "Mostrar calificaciones de la red",
+      "mobileHint": "Toque una tarjeta para voltearla y ver aplicaciones, cobertura y objetivos.",
+      "desktopExpandHint": "Haga clic en una fila para ver aplicaciones, cobertura y objetivos.",
+      "columns": {
+        "network": "Red",
+        "yoy": "YoY"
+      }
+    },
+    "details": {
+      "pending": "Contenido editorial pendiente para esta edición.",
+      "argo": {
+        "applications": "Variabilidad del contenido de calor del océano superior, anomalías estacionales de contenido calorífico, modelos estacionales de pronóstico climático y oceánico, variabilidad de la circulación en el océano superior, seguimiento de la biogeoquímica cambiante, NWP corto/medio/largo plazo.",
+        "coverage": "De polo a polo, de la superficie al fondo.",
+        "targets": "4.700 flotadores (OneArgo).",
+        "maturity": "Avanzado."
+      },
+      "dbcpMoored": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "goShip": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "dbcpTsunami": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "hfRadar": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "dbcpDrifting": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "gloss": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "oceanSites": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "gliders": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "anibos": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "sotVos": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "sotXbt": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "sotAsap": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." }
     },
     "argoLegacy": {
       "title": "Argo",

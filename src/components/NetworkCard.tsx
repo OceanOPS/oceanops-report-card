@@ -65,6 +65,8 @@
 import { useTranslation } from 'react-i18next'
 import Tooltip from './Tooltip'
 import { asset } from '../utils/assets'
+import { isRatingStatusKey, resolveRatingLabel } from '../utils/networkRatings'
+import type { RatingValue } from '../types/matureNetworks'
 
 // Fixed GOOS delivery areas configuration
 const DELIVERY_AREAS_CONFIG = {
@@ -85,11 +87,11 @@ const DELIVERY_AREAS_CONFIG = {
 type DeliveryAreaKey = keyof typeof DELIVERY_AREAS_CONFIG
 
 interface NetworkRatings {
-  implementationStatus: number | string
-  realTime: number | string
-  archivedHighQuality: number | string
-  metadata: number | string
-  bestPractices: number | string
+  implementationStatus: RatingValue
+  realTime: RatingValue
+  archivedHighQuality: RatingValue
+  metadata: RatingValue
+  bestPractices: RatingValue
 }
 
 interface NetworkCardProps {
@@ -109,6 +111,7 @@ interface NetworkCardProps {
   tooltipBgColor?: string
   tooltipTextColor?: string
   className?: string
+  onNetworkLinkClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
 export default function NetworkCard({
@@ -128,6 +131,7 @@ export default function NetworkCard({
   tooltipBgColor = 'bg-goos-blue-900',
   tooltipTextColor = 'text-goos-white',
   className = '',
+  onNetworkLinkClick,
 }: NetworkCardProps) {
   const { t } = useTranslation()
 
@@ -173,11 +177,12 @@ export default function NetworkCard({
   }
 
   // Helper function to render rating (stars or text)
-  const renderRating = (rating: number | string) => {
+  const renderRating = (rating: RatingValue) => {
     if (typeof rating === 'string') {
+      const label = isRatingStatusKey(rating) ? resolveRatingLabel(rating, t) : rating
       return (
         <span className={`${textColor} text-sm italic opacity-70`}>
-          {rating}
+          {label}
         </span>
       )
     }
@@ -204,6 +209,7 @@ export default function NetworkCard({
             href={networkUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={onNetworkLinkClick}
             className={`${accentColor} text-base underline decoration-dotted`}
           >
             {t(networkLinkKey)} <span className="text-xs">⧉</span>

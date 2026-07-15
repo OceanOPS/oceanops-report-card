@@ -1,0 +1,83 @@
+/**
+ * Static country metadata merged into generated partnerCountries.ts.
+ * Counts are exported from OceanOPS; these fields are editorial / structural.
+ */
+
+/** @type {Record<string, { name: string, countryCode: string, description?: string }>} */
+export const COUNTRY_META_OVERRIDES = {
+  EU: {
+    name: 'European Union',
+    countryCode: 'EU',
+    description:
+      'Platforms operated by Euro-Argo ERIC, EMSO ERIC, EUMETNET, EUMETSAT.',
+  },
+}
+
+/** ISO 3166-1 alpha-2 → display name (common GOOS partners). */
+/** @type {Record<string, string>} */
+export const ISO_COUNTRY_NAMES = {
+  AR: 'Argentina',
+  AU: 'Australia',
+  BS: 'Bahamas',
+  BD: 'Bangladesh',
+  BE: 'Belgium',
+  BM: 'Bermuda',
+  BR: 'Brazil',
+  BG: 'Bulgaria',
+  CA: 'Canada',
+  CL: 'Chile',
+  CN: 'China',
+  CO: 'Colombia',
+  CK: 'Cook Islands',
+  HR: 'Croatia',
+  CU: 'Cuba',
+  DK: 'Denmark',
+  EU: 'European Union',
+  FI: 'Finland',
+  FR: 'France',
+  DE: 'Germany',
+  GR: 'Greece',
+  IS: 'Iceland',
+  IN: 'India',
+  ID: 'Indonesia',
+  IE: 'Ireland',
+  IL: 'Israel',
+  IT: 'Italy',
+  JP: 'Japan',
+  JO: 'Jordan',
+  KI: 'Kiribati',
+  KR: 'Korea (Republic Of)',
+  MT: 'Malta',
+  MH: 'Marshall Islands',
+  MU: 'Mauritius',
+  MX: 'Mexico',
+  FM: 'Micronesia (Federated States Of)',
+  NR: 'Nauru',
+  NL: 'Netherlands',
+  NZ: 'New Zealand',
+  NO: 'Norway',
+  PA: 'Panama',
+  PG: 'Papua New Guinea',
+  PE: 'Peru',
+  PH: 'Philippines',
+  PL: 'Poland',
+  PT: 'Portugal',
+  PR: 'Puerto Rico',
+  RU: 'Russia',
+  SG: 'Singapore',
+  SI: 'Slovenia',
+  ZA: 'South Africa',
+  ES: 'Spain',
+  SE: 'Sweden',
+  TH: 'Thailand',
+  TO: 'Tonga',
+  TV: 'Tuvalu',
+  UA: 'Ukraine',
+  AE: 'United Arab Emirates',
+  GB: 'United Kingdom',
+  US: 'United States',
+  UY: 'Uruguay',
+  VU: 'Vanuatu',
+  VN: 'Viet Nam',
+  WF: 'Wallis And Futuna Islands',
+}
