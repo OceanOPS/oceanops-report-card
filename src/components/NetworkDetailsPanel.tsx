@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import type { MatureNetwork } from '../types/matureNetworks'
+import type { InSituNetwork } from '../types/inSituNetworks'
 
 interface NetworkDetailsPanelProps {
-  network: MatureNetwork
+  network: InSituNetwork
   layout?: 'stack' | 'grid'
   textColor?: string
   accentColor?: string

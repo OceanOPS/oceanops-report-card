@@ -531,9 +531,25 @@
       "title": "AniBOS",
       "iconAlt": "Réseau AniBOS - Capteurs océaniques embarqués sur animaux marins"
     },
+    "fvon": {
+      "title": "Sondes sur bateaux de pêche – FVON",
+      "iconAlt": "Réseau FVON - Observation océanique depuis navires de pêche"
+    },
+    "smartCables": {
+      "title": "Câbles sous-marins SMART",
+      "iconAlt": "Réseau SMART Cables - Câbles sous-marins de surveillance scientifique"
+    },
+    "soconet": {
+      "title": "CO₂ de surface océanique – SOCONET",
+      "iconAlt": "Réseau SOCONET - Observation du CO₂ de surface océanique"
+    },
+    "sunFleet": {
+      "title": "Flotte de surface sans équipage – SUN Fleet",
+      "iconAlt": "Réseau SUN Fleet - Véhicules de surface sans équipage"
+    },
     "comparison": {
       "title": "Matrice de comparaison des réseaux",
-      "description": "Triez et filtrez tous les réseaux <i>in situ</i> matures par indicateur de performance. YoY indique l'évolution du score numérique moyen par rapport à la Report Card 2024.",
+      "description": "Triez et filtrez les réseaux <i>in situ</i> matures et émergents par indicateur de performance. YoY indique l'évolution du score numérique moyen par rapport à la Report Card 2024.",
       "searchPlaceholder": "Rechercher des réseaux...",
       "filters": {
         "all": "Tous",
@@ -541,16 +557,22 @@
         "operational": "Services opérationnels",
         "oceanhealth": "Santé des océans"
       },
+      "legendLabel": "Légende",
+      "legendMature": "Réseaux matures",
+      "legendEmerging": "Réseaux émergents (surlignés)",
+      "emergingBadge": "Émergent",
       "networksShown": "{{count}} réseaux affichés",
       "noResults": "Aucun réseau ne correspond à votre recherche ou filtre.",
       "applications": "Applications",
       "coverage": "Couverture",
       "targets": "Objectifs",
       "maturity": "Maturité",
-      "tapForDetails": "Appuyez pour voir applications et couverture",
+      "tapForDetails": "Appuyez pour voir applications et plus",
+      "tapForRatings": "Appuyez pour voir les notes et plus",
       "tapToReturn": "Appuyez pour revenir",
       "flipToDetails": "Afficher les détails du réseau",
       "flipBack": "Afficher les notes du réseau",
+      "mobileTitle": "Réseaux <i>in situ</i>",
       "mobileHint": "Appuyez sur une fiche pour la retourner et voir les applications, la couverture et les objectifs.",
       "desktopExpandHint": "Cliquez sur une ligne pour afficher les applications, la couverture et les objectifs.",
       "columns": {
@@ -577,7 +599,11 @@
       "anibos": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
       "sotVos": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
       "sotXbt": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
-      "sotAsap": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." }
+      "sotAsap": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "fvon": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "smartCables": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "soconet": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sunFleet": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." }
     },
     "argoLegacy": {
       "title": "Argo",
@@ -705,7 +731,8 @@
       "noTarget": "Pas d'objectif",
       "noArchive": "Pas d'archive",
       "notApplicable": "Non applicable",
-      "notCoreMission": "Pas une mission centrale mais existante"
+      "notCoreMission": "Pas une mission centrale mais existante",
+      "notYetRated": "Pas encore évalué"
     }
   },
   "operationalPlatforms": {

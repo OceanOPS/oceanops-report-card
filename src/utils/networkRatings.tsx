@@ -1,11 +1,12 @@
 import type { TFunction } from 'i18next'
-import type { RatingStatusKey, RatingValue } from '../types/matureNetworks'
+import type { RatingStatusKey, RatingValue } from '../types/inSituNetworks'
 
 const RATING_STATUS_KEYS: RatingStatusKey[] = [
   'noTarget',
   'noArchive',
   'notApplicable',
   'notCoreMission',
+  'notYetRated',
 ]
 
 export function isRatingStatusKey(value: RatingValue): value is RatingStatusKey {

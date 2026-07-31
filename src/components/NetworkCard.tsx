@@ -66,7 +66,7 @@ import { useTranslation } from 'react-i18next'
 import Tooltip from './Tooltip'
 import { asset } from '../utils/assets'
 import { isRatingStatusKey, resolveRatingLabel } from '../utils/networkRatings'
-import type { RatingValue } from '../types/matureNetworks'
+import type { RatingValue } from '../types/inSituNetworks'
 
 // Fixed GOOS delivery areas configuration
 const DELIVERY_AREAS_CONFIG = {

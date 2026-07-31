@@ -1,16 +1,26 @@
-import type { MatureNetwork } from '../types/matureNetworks'
+import type { InSituNetwork, NetworkRatings } from '../types/inSituNetworks'
 
 /**
- * Mature in situ network data for the report card.
+ * In situ network data (mature + emerging) for the report card matrix/cards.
  *
  * Ratings and delivery areas are editorial (OceanOPS / GOOS evaluation).
+ * Emerging networks use notYetRated until editorial scores are available.
  * Applications, coverage and YoY will be enriched when editorial content is available.
- * Regenerate ratings from API in a future export script if needed.
  */
-export const matureNetworks: MatureNetwork[] = [
+
+const EMERGING_PENDING_RATINGS: NetworkRatings = {
+  implementationStatus: 'notYetRated',
+  realTime: 'notYetRated',
+  archivedHighQuality: 'notYetRated',
+  metadata: 'notYetRated',
+  bestPractices: 'notYetRated',
+}
+
+export const inSituNetworks: InSituNetwork[] = [
   {
     id: 'argo',
     sortOrder: 1,
+    maturity: 'mature',
     iconPath: '/icons/network/argo.svg',
     iconAlt: 'networks.argo.iconAlt',
     titleKey: 'networks.argo.title',
@@ -34,6 +44,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'dbcpMoored',
     sortOrder: 2,
+    maturity: 'mature',
     iconPath: '/icons/network/dbcp_moored.svg',
     iconAlt: 'networks.dbcpMoored.iconAlt',
     titleKey: 'networks.dbcpMoored.title',
@@ -55,6 +66,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'goShip',
     sortOrder: 3,
+    maturity: 'mature',
     iconPath: '/icons/network/go_ship.svg',
     iconAlt: 'networks.goShip.iconAlt',
     titleKey: 'networks.goShip.title',
@@ -76,6 +88,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'dbcpTsunami',
     sortOrder: 4,
+    maturity: 'mature',
     iconPath: '/icons/network/tsunami_buoys.svg',
     iconAlt: 'networks.dbcpTsunami.iconAlt',
     titleKey: 'networks.dbcpTsunami.title',
@@ -97,6 +110,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'hfRadar',
     sortOrder: 5,
+    maturity: 'mature',
     iconPath: '/icons/network/hf_radar.svg',
     iconAlt: 'networks.hfRadar.iconAlt',
     titleKey: 'networks.hfRadar.title',
@@ -118,6 +132,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'dbcpDrifting',
     sortOrder: 6,
+    maturity: 'mature',
     iconPath: '/icons/network/dbcp_drifters.svg',
     iconAlt: 'networks.dbcpDrifting.iconAlt',
     titleKey: 'networks.dbcpDrifting.title',
@@ -139,6 +154,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'gloss',
     sortOrder: 7,
+    maturity: 'mature',
     iconPath: '/icons/network/gloss.svg',
     iconAlt: 'networks.gloss.iconAlt',
     titleKey: 'networks.gloss.title',
@@ -160,6 +176,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'oceanSites',
     sortOrder: 8,
+    maturity: 'mature',
     iconPath: '/icons/network/ocean_sites.svg',
     iconAlt: 'networks.oceanSites.iconAlt',
     titleKey: 'networks.oceanSites.title',
@@ -181,6 +198,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'gliders',
     sortOrder: 9,
+    maturity: 'mature',
     iconPath: '/icons/network/ocean_gliders.svg',
     iconAlt: 'networks.gliders.iconAlt',
     titleKey: 'networks.gliders.title',
@@ -202,6 +220,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'anibos',
     sortOrder: 10,
+    maturity: 'mature',
     iconPath: '/icons/network/ani_bos.svg',
     iconAlt: 'networks.anibos.iconAlt',
     titleKey: 'networks.anibos.title',
@@ -223,6 +242,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'sotVos',
     sortOrder: 11,
+    maturity: 'mature',
     iconPath: '/icons/network/vos.svg',
     iconAlt: 'networks.sotVos.iconAlt',
     titleKey: 'networks.sotVos.title',
@@ -244,6 +264,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'sotXbt',
     sortOrder: 12,
+    maturity: 'mature',
     iconPath: '/icons/network/xbt-soop.svg',
     iconAlt: 'networks.sotXbt.iconAlt',
     titleKey: 'networks.sotXbt.title',
@@ -265,6 +286,7 @@ export const matureNetworks: MatureNetwork[] = [
   {
     id: 'sotAsap',
     sortOrder: 13,
+    maturity: 'mature',
     iconPath: '/icons/network/asap.svg',
     iconAlt: 'networks.sotAsap.iconAlt',
     titleKey: 'networks.sotAsap.title',
@@ -283,8 +305,72 @@ export const matureNetworks: MatureNetwork[] = [
       coverage: 'networks.details.sotAsap.coverage',
     },
   },
+  {
+    id: 'fvon',
+    sortOrder: 14,
+    maturity: 'emerging',
+    iconPath: '/icons/network/fishing_vessels.svg',
+    iconAlt: 'networks.fvon.iconAlt',
+    titleKey: 'networks.fvon.title',
+    networkUrl: 'https://www.fvon.org/',
+    ratings: EMERGING_PENDING_RATINGS,
+    deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+    yoy: null,
+    detailsKeys: {
+      applications: 'networks.details.fvon.applications',
+      coverage: 'networks.details.fvon.coverage',
+    },
+  },
+  {
+    id: 'smartCables',
+    sortOrder: 15,
+    maturity: 'emerging',
+    iconPath: '/icons/network/smart_cables.svg',
+    iconAlt: 'networks.smartCables.iconAlt',
+    titleKey: 'networks.smartCables.title',
+    networkUrl: 'https://www.smartcables.org/',
+    ratings: EMERGING_PENDING_RATINGS,
+    deliveryAreas: ['climate', 'operational'],
+    yoy: null,
+    detailsKeys: {
+      applications: 'networks.details.smartCables.applications',
+      coverage: 'networks.details.smartCables.coverage',
+    },
+  },
+  {
+    id: 'soconet',
+    sortOrder: 16,
+    maturity: 'emerging',
+    iconPath: '/icons/network/surface_ocean_co2.svg',
+    iconAlt: 'networks.soconet.iconAlt',
+    titleKey: 'networks.soconet.title',
+    networkUrl: 'https://www.ioccp.org/soconet',
+    ratings: EMERGING_PENDING_RATINGS,
+    deliveryAreas: ['climate', 'oceanhealth'],
+    yoy: null,
+    detailsKeys: {
+      applications: 'networks.details.soconet.applications',
+      coverage: 'networks.details.soconet.coverage',
+    },
+  },
+  {
+    id: 'sunFleet',
+    sortOrder: 17,
+    maturity: 'emerging',
+    iconPath: '/icons/network/sun_fleet.svg',
+    iconAlt: 'networks.sunFleet.iconAlt',
+    titleKey: 'networks.sunFleet.title',
+    networkUrl: 'https://airseaobs.org/sun-fleet',
+    ratings: EMERGING_PENDING_RATINGS,
+    deliveryAreas: ['climate', 'operational', 'oceanhealth'],
+    yoy: null,
+    detailsKeys: {
+      applications: 'networks.details.sunFleet.applications',
+      coverage: 'networks.details.sunFleet.coverage',
+    },
+  },
 ]
 
-export const sortedMatureNetworks = [...matureNetworks].sort(
+export const sortedInSituNetworks = [...inSituNetworks].sort(
   (a, b) => a.sortOrder - b.sortOrder,
 )

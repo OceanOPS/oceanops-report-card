@@ -1,10 +1,13 @@
 export type DeliveryAreaKey = 'climate' | 'operational' | 'oceanhealth'
 
+export type NetworkMaturity = 'mature' | 'emerging'
+
 export type RatingStatusKey =
   | 'noTarget'
   | 'noArchive'
   | 'notApplicable'
   | 'notCoreMission'
+  | 'notYetRated'
 
 export type RatingValue = number | RatingStatusKey
 
@@ -16,16 +19,17 @@ export interface NetworkRatings {
   bestPractices: RatingValue
 }
 
-export interface MatureNetworkDetailsKeys {
+export interface InSituNetworkDetailsKeys {
   applications: string
   coverage: string
   targets?: string
   maturity?: string
 }
 
-export interface MatureNetwork {
+export interface InSituNetwork {
   id: string
   sortOrder: number
+  maturity: NetworkMaturity
   iconPath: string
   iconAlt: string
   titleKey: string
@@ -33,7 +37,7 @@ export interface MatureNetwork {
   ratings: NetworkRatings
   deliveryAreas: DeliveryAreaKey[]
   yoy: number | null
-  detailsKeys: MatureNetworkDetailsKeys
+  detailsKeys: InSituNetworkDetailsKeys
 }
 
 export type DeliveryAreaFilter = 'all' | DeliveryAreaKey

@@ -474,9 +474,25 @@
       "title": "AniBOS",
       "iconAlt": "Red AniBOS - Sensores oceánicos transportados por animales marinos"
     },
+    "fvon": {
+      "title": "Embarcaciones pesqueras – FVON",
+      "iconAlt": "Red FVON - Observación oceánica desde embarcaciones pesqueras"
+    },
+    "smartCables": {
+      "title": "Cables submarinos SMART",
+      "iconAlt": "Red SMART Cables - Cables submarinos de monitoreo científico"
+    },
+    "soconet": {
+      "title": "CO₂ de superficie oceánica – SOCONET",
+      "iconAlt": "Red SOCONET - Observación de CO₂ de superficie oceánica"
+    },
+    "sunFleet": {
+      "title": "Flota de superficie no tripulada – SUN Fleet",
+      "iconAlt": "Red SUN Fleet - Vehículos de superficie no tripulados"
+    },
     "comparison": {
       "title": "Matriz de comparación de redes",
-      "description": "Ordene y filtre todas las redes <i>in situ</i> maduras por indicador de rendimiento. YoY muestra el cambio en la puntuación numérica media frente a la Report Card 2024.",
+      "description": "Ordene y filtre redes <i>in situ</i> maduras y emergentes por indicador de rendimiento. YoY muestra el cambio en la puntuación numérica media frente a la Report Card 2024.",
       "searchPlaceholder": "Buscar redes...",
       "filters": {
         "all": "Todas",
@@ -484,16 +500,22 @@
         "operational": "Servicios operacionales",
         "oceanhealth": "Salud del océano"
       },
+      "legendLabel": "Leyenda",
+      "legendMature": "Redes maduras",
+      "legendEmerging": "Redes emergentes (resaltadas)",
+      "emergingBadge": "Emergente",
       "networksShown": "{{count}} redes mostradas",
       "noResults": "Ninguna red coincide con su búsqueda o filtro.",
       "applications": "Aplicaciones",
       "coverage": "Cobertura",
       "targets": "Objetivos",
       "maturity": "Madurez",
-      "tapForDetails": "Toque la tarjeta para ver aplicaciones y cobertura",
+      "tapForDetails": "Toque la tarjeta para ver aplicaciones y más",
+      "tapForRatings": "Toque la tarjeta para ver calificaciones y más",
       "tapToReturn": "Toque para volver",
       "flipToDetails": "Mostrar detalles de la red",
       "flipBack": "Mostrar calificaciones de la red",
+      "mobileTitle": "Redes <i>in situ</i>",
       "mobileHint": "Toque una tarjeta para voltearla y ver aplicaciones, cobertura y objetivos.",
       "desktopExpandHint": "Haga clic en una fila para ver aplicaciones, cobertura y objetivos.",
       "columns": {
@@ -520,7 +542,11 @@
       "anibos": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
       "sotVos": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
       "sotXbt": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
-      "sotAsap": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." }
+      "sotAsap": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "fvon": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "smartCables": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "soconet": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
+      "sunFleet": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." }
     },
     "argoLegacy": {
       "title": "Argo",
@@ -716,7 +742,8 @@
       "noTarget": "Sin objetivo",
       "noArchive": "Sin archivo",
       "notApplicable": "No aplicable",
-      "notCoreMission": "No es una misión central pero existe"
+      "notCoreMission": "No es una misión central pero existe",
+      "notYetRated": "Aún no evaluado"
     }
   },
   "operationalPlatforms": {

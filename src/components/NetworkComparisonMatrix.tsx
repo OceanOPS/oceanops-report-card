@@ -4,7 +4,7 @@ import Tooltip from './Tooltip'
 import NetworkDetailsPanel from './NetworkDetailsPanel'
 import { asset } from '../utils/assets'
 import { RatingCell } from '../utils/networkRatings'
-import type { DeliveryAreaFilter, MatureNetwork } from '../types/matureNetworks'
+import type { DeliveryAreaFilter, InSituNetwork } from '../types/inSituNetworks'
 
 const DELIVERY_AREAS_CONFIG = {
   climate: {
@@ -31,8 +31,17 @@ const FILTER_OPTIONS: DeliveryAreaFilter[] = [
 const COLUMN_COUNT = 8
 
 interface NetworkComparisonMatrixProps {
-  networks: MatureNetwork[]
+  networks: InSituNetwork[]
   className?: string
+}
+
+function rowBackgroundClass(isEmerging: boolean, isExpanded: boolean): string {
+  if (isEmerging) {
+    return isExpanded
+      ? 'bg-goos-blue-500/50'
+      : 'bg-goos-blue-600/45 hover:bg-goos-blue-500/45'
+  }
+  return isExpanded ? 'bg-goos-blue-800' : 'hover:bg-goos-blue-800/50'
 }
 
 export default function NetworkComparisonMatrix({
@@ -157,8 +166,30 @@ export default function NetworkComparisonMatrix({
         <table className="w-full min-w-[1100px] border-collapse">
           <thead>
             <tr className="border-b border-white/20">
-              <th className="text-left text-white text-sm font-semibold p-3 min-w-[220px]">
-                {t('networks.comparison.columns.network')}
+              <th className="text-left text-white text-sm font-semibold p-3 min-w-[220px] align-bottom">
+                <div className="flex flex-col gap-2">
+                  <span>{t('networks.comparison.columns.network')}</span>
+                  <div
+                    className="flex flex-col gap-1.5 text-xs font-normal text-white/70"
+                    role="group"
+                    aria-label={t('networks.comparison.legendLabel')}
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <span
+                        className="inline-block h-3 w-5 shrink-0 rounded-sm bg-goos-blue-800 border border-white/20"
+                        aria-hidden="true"
+                      />
+                      {t('networks.comparison.legendMature')}
+                    </span>
+                    <span className="inline-flex items-center gap-2">
+                      <span
+                        className="inline-block h-3 w-5 shrink-0 rounded-sm bg-goos-blue-500/50 border border-goos-blue-300/70"
+                        aria-hidden="true"
+                      />
+                      {t('networks.comparison.legendEmerging')}
+                    </span>
+                  </div>
+                </div>
               </th>
               {ratingColumns.map((column) => (
                 <th
@@ -187,6 +218,7 @@ export default function NetworkComparisonMatrix({
           <tbody>
             {filteredNetworks.map((network) => {
               const isExpanded = expandedNetworkId === network.id
+              const isEmerging = network.maturity === 'emerging'
 
               return (
                 <Fragment key={network.id}>
@@ -201,11 +233,10 @@ export default function NetworkComparisonMatrix({
                         toggleExpanded(network.id)
                       }
                     }}
-                    className={`border-b border-white/10 transition-colors cursor-pointer ${
-                      isExpanded
-                        ? 'bg-goos-blue-800'
-                        : 'hover:bg-goos-blue-800/50'
-                    }`}
+                    className={`border-b border-white/10 transition-colors cursor-pointer ${rowBackgroundClass(
+                      isEmerging,
+                      isExpanded,
+                    )}`}
                   >
                     <td className="p-3">
                       <div className="flex items-center gap-3">
@@ -224,6 +255,11 @@ export default function NetworkComparisonMatrix({
                         />
                         <div>
                           <p className="text-white text-sm font-medium">{t(network.titleKey)}</p>
+                          {isEmerging && (
+                            <p className="text-goos-blue-200 text-[11px] font-medium uppercase tracking-wide">
+                              {t('networks.comparison.emergingBadge')}
+                            </p>
+                          )}
                           <a
                             href={network.networkUrl}
                             target="_blank"
@@ -283,7 +319,12 @@ export default function NetworkComparisonMatrix({
                     </td>
                   </tr>
                   {isExpanded && (
-                    <tr key={`${network.id}-details`} className="border-b border-white/10 bg-goos-blue-800">
+                    <tr
+                      key={`${network.id}-details`}
+                      className={`border-b border-white/10 ${
+                        isEmerging ? 'bg-goos-blue-500/50' : 'bg-goos-blue-800'
+                      }`}
+                    >
                       <td colSpan={COLUMN_COUNT} className="p-4 md:p-6">
                         <NetworkDetailsPanel network={network} layout="grid" />
                       </td>

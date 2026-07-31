@@ -519,9 +519,25 @@
       "title": "Animal borne sensors – AniBOS",
       "iconAlt": "AniBOS Network - Animal-borne ocean sensors collecting data from marine mammals"
     },
+    "fvon": {
+      "title": "Fishing vessels – FVON",
+      "iconAlt": "FVON Network - Fishing vessel ocean observing network"
+    },
+    "smartCables": {
+      "title": "SMART subsea cables",
+      "iconAlt": "SMART Cables Network - Science monitoring and reliable telecommunications subsea cables"
+    },
+    "soconet": {
+      "title": "Surface ocean CO₂ – SOCONET",
+      "iconAlt": "SOCONET Network - Surface ocean CO₂ observing network"
+    },
+    "sunFleet": {
+      "title": "Surface UNcrewed Fleet – SUN Fleet",
+      "iconAlt": "SUN Fleet Network - Uncrewed surface vehicles observing the ocean"
+    },
     "comparison": {
       "title": "Network comparison matrix",
-      "description": "Sort and filter all mature <i>in situ</i> networks by performance indicator. YoY shows change in average numeric score vs the 2024 Report Card.",
+      "description": "Sort and filter mature and emerging <i>in situ</i> networks by performance indicator. YoY shows change in average numeric score vs the 2024 Report Card.",
       "searchPlaceholder": "Search networks...",
       "filters": {
         "all": "All",
@@ -529,16 +545,22 @@
         "operational": "Operational Services",
         "oceanhealth": "Ocean Health"
       },
+      "legendLabel": "Legend",
+      "legendMature": "Mature networks",
+      "legendEmerging": "Emerging networks (highlighted)",
+      "emergingBadge": "Emerging",
       "networksShown": "{{count}} networks shown",
       "noResults": "No networks match your search or filter.",
       "applications": "Applications",
       "coverage": "Coverage",
       "targets": "Targets",
       "maturity": "Maturity",
-      "tapForDetails": "Tap card for applications & coverage",
+      "tapForDetails": "Tap card for applications & more",
+      "tapForRatings": "Tap card for ratings & more",
       "tapToReturn": "Tap to return",
       "flipToDetails": "Show network details",
       "flipBack": "Show network ratings",
+      "mobileTitle": "<i>In situ</i> networks",
       "mobileHint": "Tap a card to flip it and view applications, coverage, and targets.",
       "desktopExpandHint": "Click a row to expand applications, coverage, and targets.",
       "columns": {
@@ -599,6 +621,22 @@
         "coverage": "Editorial content pending for this edition."
       },
       "sotAsap": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "fvon": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "smartCables": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "soconet": {
+        "applications": "Editorial content pending for this edition.",
+        "coverage": "Editorial content pending for this edition."
+      },
+      "sunFleet": {
         "applications": "Editorial content pending for this edition.",
         "coverage": "Editorial content pending for this edition."
       }
@@ -743,7 +781,8 @@
       "noTarget": "No target",
       "noArchive": "No archive",
       "notApplicable": "Not applicable",
-      "notCoreMission": "Not a core mission but existent"
+      "notCoreMission": "Not a core mission but existent",
+      "notYetRated": "Not yet rated"
     },
     "platformModal": {
       "title": "Essential Climate and Ocean Variables observed from space",

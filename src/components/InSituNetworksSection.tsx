@@ -6,12 +6,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import CarouselArrow from './CarouselArrow'
 import FlipNetworkCard from './FlipNetworkCard'
 import NetworkComparisonMatrix from './NetworkComparisonMatrix'
-import type { MatureNetwork } from '../types/matureNetworks'
+import type { InSituNetwork } from '../types/inSituNetworks'
 
 gsap.registerPlugin(ScrollTrigger)
 
-interface MatureNetworksSectionProps {
-  networks: MatureNetwork[]
+interface InSituNetworksSectionProps {
+  networks: InSituNetwork[]
   backgroundColor?: string
   titleColor?: string
   cardBackgroundColor?: string
@@ -23,7 +23,7 @@ interface MatureNetworksSectionProps {
   lineColor?: string
 }
 
-export default function MatureNetworksSection({
+export default function InSituNetworksSection({
   networks,
   backgroundColor = 'bg-goos-blue-900',
   titleColor = 'text-white',
@@ -34,7 +34,7 @@ export default function MatureNetworksSection({
   tooltipTextColor = 'bg-goos-blue-900',
   arrowColor = '#F0F0F0',
   lineColor = 'bg-goos-orange-500',
-}: MatureNetworksSectionProps) {
+}: InSituNetworksSectionProps) {
   const { t } = useTranslation()
   const carouselRef = useRef<HTMLDivElement>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -136,11 +136,31 @@ export default function MatureNetworksSection({
               <div className={`${lineColor} h-2 w-20 sm:w-24`} />
               <h3
                 className={`text-2xl sm:text-3xl font-extrabold ${titleColor} leading-tight`}
-                dangerouslySetInnerHTML={{ __html: t('networks.title') }}
+                dangerouslySetInnerHTML={{ __html: t('networks.comparison.mobileTitle') }}
               />
               <p className={`${titleColor} opacity-80 text-sm`}>
                 {t('networks.comparison.mobileHint')}
               </p>
+              <div
+                className="flex flex-wrap items-center gap-3 text-xs text-white/80"
+                role="group"
+                aria-label={t('networks.comparison.legendLabel')}
+              >
+                <span className="inline-flex items-center gap-2">
+                  <span
+                    className="inline-block h-3 w-5 rounded-sm bg-goos-blue-800 border border-white/20"
+                    aria-hidden="true"
+                  />
+                  {t('networks.comparison.legendMature')}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span
+                    className="inline-block h-3 w-5 rounded-sm bg-goos-blue-500/50 border border-goos-blue-300/70"
+                    aria-hidden="true"
+                  />
+                  {t('networks.comparison.legendEmerging')}
+                </span>
+              </div>
             </div>
           </div>
           <div className="h-4 sm:h-6 w-5 opacity-75" />
@@ -155,7 +175,11 @@ export default function MatureNetworksSection({
               >
                 <FlipNetworkCard
                   network={network}
-                  backgroundColor={cardBackgroundColor}
+                  backgroundColor={
+                    network.maturity === 'emerging'
+                      ? 'bg-goos-blue-600'
+                      : cardBackgroundColor
+                  }
                   textColor={cardTextColor}
                   accentColor={cardAccentColor}
                   tooltipBgColor={tooltipBgColor}

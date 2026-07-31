@@ -3,10 +3,46 @@ import { useTranslation } from 'react-i18next'
 import NetworkCard from './NetworkCard'
 import NetworkDetailsPanel from './NetworkDetailsPanel'
 import { asset } from '../utils/assets'
-import type { MatureNetwork } from '../types/matureNetworks'
+import type { InSituNetwork } from '../types/inSituNetworks'
+
+/** Stacked cards — common “flip card” affordance */
+function FlipCardsIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`shrink-0 ${className}`}
+      aria-hidden
+    >
+      <rect
+        x="2"
+        y="4"
+        width="11"
+        height="11"
+        rx="1"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        opacity="0.45"
+      />
+      <rect
+        x="5"
+        y="2"
+        width="11"
+        height="11"
+        rx="1"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        fill="none"
+      />
+    </svg>
+  )
+}
 
 interface FlipNetworkCardProps {
-  network: MatureNetwork
+  network: InSituNetwork
   backgroundColor?: string
   textColor?: string
   accentColor?: string
@@ -40,23 +76,27 @@ export default function FlipNetworkCard({
     event.stopPropagation()
   }
 
+  const caption = isFlipped
+    ? t('networks.comparison.tapForRatings')
+    : t('networks.comparison.tapForDetails')
+
   return (
-    <div className={`w-full h-full ${className}`}>
+    <div className={`w-full h-full flex flex-col ${className}`}>
       <div
         role="button"
         tabIndex={0}
         onClick={toggleFlip}
         onKeyDown={handleKeyDown}
-        className="w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-goos-orange-500 rounded-sm cursor-pointer"
+        className="w-full flex-1 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-goos-orange-500 rounded-sm cursor-pointer active:scale-[0.995] transition-transform"
         aria-label={
           isFlipped
             ? t('networks.comparison.flipBack')
             : t('networks.comparison.flipToDetails')
         }
       >
-        <div className="relative w-full h-full min-h-[520px] [perspective:1000px]">
+        <div className="relative w-full min-h-[520px] h-full [perspective:1000px]">
           <div
-            className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${
+            className={`relative w-full h-full min-h-[520px] transition-transform duration-500 [transform-style:preserve-3d] ${
               isFlipped ? '[transform:rotateY(180deg)]' : ''
             }`}
           >
@@ -79,9 +119,6 @@ export default function FlipNetworkCard({
                 onNetworkLinkClick={stopPropagation}
                 className="h-full"
               />
-              <p className={`${accentColor} text-xs text-center mt-2 opacity-80`}>
-                {t('networks.comparison.tapForDetails')}
-              </p>
             </div>
 
             {/* Back */}
@@ -96,9 +133,6 @@ export default function FlipNetworkCard({
                 />
                 <div>
                   <h4 className={`${textColor} text-lg font-semibold`}>{t(network.titleKey)}</h4>
-                  <p className={`${accentColor} text-sm mt-1`}>
-                    {t('networks.comparison.tapToReturn')}
-                  </p>
                 </div>
               </div>
 
@@ -114,6 +148,13 @@ export default function FlipNetworkCard({
           </div>
         </div>
       </div>
+
+      <p
+        className={`${accentColor} mt-3 flex items-center justify-center gap-2 text-sm font-medium`}
+      >
+        <FlipCardsIcon className={accentColor} />
+        <span>{caption}</span>
+      </p>
     </div>
   )
 }

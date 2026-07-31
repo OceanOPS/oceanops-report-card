@@ -10,8 +10,8 @@ import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import MatureNetworksSection from './components/MatureNetworksSection'
-import { sortedMatureNetworks } from './data/matureNetworks'
+import InSituNetworksSection from './components/InSituNetworksSection'
+import { sortedInSituNetworks } from './data/inSituNetworks'
 import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
 import IconTable from './components/IconTable'
@@ -613,8 +613,8 @@ function App() {
       </div>
       </div>
 
-      <MatureNetworksSection
-        networks={sortedMatureNetworks}
+      <InSituNetworksSection
+        networks={sortedInSituNetworks}
         backgroundColor="bg-goos-blue-900"
         titleColor="text-white"
         cardBackgroundColor="bg-goos-blue-800"

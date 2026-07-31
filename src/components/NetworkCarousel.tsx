@@ -63,7 +63,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import NetworkCard from './NetworkCard'
 import CarouselArrow from './CarouselArrow'
-import type { RatingValue } from '../types/matureNetworks'
+import type { RatingValue } from '../types/inSituNetworks'
 
 gsap.registerPlugin(ScrollTrigger)
 
