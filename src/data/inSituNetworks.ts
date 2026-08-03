@@ -1,4 +1,5 @@
-import type { InSituNetwork, NetworkRatings } from '../types/inSituNetworks'
+import type { InSituNetwork, InSituNetworkRecord, NetworkRatings } from '../types/inSituNetworks'
+import { NETWORK_ESSENTIAL_VARIABLES } from './networkEssentialVariables'
 
 /**
  * In situ network data (mature + emerging) for the report card matrix/cards.
@@ -16,7 +17,7 @@ const EMERGING_PENDING_RATINGS: NetworkRatings = {
   bestPractices: 'notYetRated',
 }
 
-export const inSituNetworks: InSituNetwork[] = [
+export const inSituNetworks: InSituNetworkRecord[] = [
   {
     id: 'argo',
     sortOrder: 1,
@@ -371,6 +372,9 @@ export const inSituNetworks: InSituNetwork[] = [
   },
 ]
 
-export const sortedInSituNetworks = [...inSituNetworks].sort(
-  (a, b) => a.sortOrder - b.sortOrder,
-)
+export const sortedInSituNetworks: InSituNetwork[] = [...inSituNetworks]
+  .map((network) => ({
+    ...network,
+    essentialVariables: NETWORK_ESSENTIAL_VARIABLES[network.id] ?? [],
+  }))
+  .sort((a, b) => a.sortOrder - b.sortOrder)

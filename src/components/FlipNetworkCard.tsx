@@ -81,27 +81,27 @@ export default function FlipNetworkCard({
     : t('networks.comparison.tapForDetails')
 
   return (
-    <div className={`w-full h-full flex flex-col ${className}`}>
+    <div className={`w-full flex flex-col ${className}`}>
       <div
         role="button"
         tabIndex={0}
         onClick={toggleFlip}
         onKeyDown={handleKeyDown}
-        className="w-full flex-1 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-goos-orange-500 rounded-sm cursor-pointer active:scale-[0.995] transition-transform"
+        className="w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-goos-orange-500 rounded-sm cursor-pointer active:scale-[0.995] transition-transform"
         aria-label={
           isFlipped
             ? t('networks.comparison.flipBack')
             : t('networks.comparison.flipToDetails')
         }
       >
-        <div className="relative w-full min-h-[520px] h-full [perspective:1000px]">
+        <div className="relative w-full [perspective:1000px]">
           <div
-            className={`relative w-full h-full min-h-[520px] transition-transform duration-500 [transform-style:preserve-3d] ${
+            className={`relative w-full transition-transform duration-500 [transform-style:preserve-3d] ${
               isFlipped ? '[transform:rotateY(180deg)]' : ''
             }`}
           >
-            {/* Front */}
-            <div className="absolute inset-0 [backface-visibility:hidden]">
+            {/* Front — in flow so card height matches content (no fixed min-height) */}
+            <div className="relative [backface-visibility:hidden]">
               <NetworkCard
                 iconSrc={asset(network.iconPath)}
                 iconAlt={network.iconAlt}
@@ -111,21 +111,22 @@ export default function FlipNetworkCard({
                 ratings={network.ratings}
                 deliveryAreasLabelKey="networks.deliveryAreasLabel"
                 deliveryAreas={network.deliveryAreas}
+                essentialVariables={network.essentialVariables}
+                showEssentialVariables
                 backgroundColor={backgroundColor}
                 textColor={textColor}
                 accentColor={accentColor}
                 tooltipBgColor={tooltipBgColor}
                 tooltipTextColor={tooltipTextColor}
                 onNetworkLinkClick={stopPropagation}
-                className="h-full"
               />
             </div>
 
-            {/* Back */}
+            {/* Back — fills front height; scroll if details are longer */}
             <div
-              className={`absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] ${backgroundColor} p-6 flex flex-col gap-5 h-full`}
+              className={`absolute inset-0 overflow-y-auto overscroll-contain [backface-visibility:hidden] [transform:rotateY(180deg)] ${backgroundColor} p-6 flex flex-col gap-5`}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 shrink-0">
                 <img
                   src={asset(network.iconPath)}
                   alt={t(network.iconAlt)}
@@ -136,13 +137,12 @@ export default function FlipNetworkCard({
                 </div>
               </div>
 
-              <div className="h-[1px] bg-white opacity-20" />
+              <div className="h-[1px] bg-white opacity-20 shrink-0" />
 
               <NetworkDetailsPanel
                 network={network}
                 textColor={textColor}
                 accentColor={accentColor}
-                className="overflow-y-auto flex-1"
               />
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function FlipNetworkCard({
       </div>
 
       <p
-        className={`${accentColor} mt-3 flex items-center justify-center gap-2 text-sm font-medium`}
+        className={`${accentColor} mt-3 shrink-0 flex items-center justify-center gap-2 text-sm font-medium px-1`}
       >
         <FlipCardsIcon className={accentColor} />
         <span>{caption}</span>

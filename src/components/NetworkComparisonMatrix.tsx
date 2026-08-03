@@ -4,7 +4,11 @@ import Tooltip from './Tooltip'
 import NetworkDetailsPanel from './NetworkDetailsPanel'
 import { asset } from '../utils/assets'
 import { RatingCell } from '../utils/networkRatings'
-import type { DeliveryAreaFilter, InSituNetwork } from '../types/inSituNetworks'
+import type { DeliveryAreaFilter, EssentialVariableFilter, InSituNetwork } from '../types/inSituNetworks'
+import {
+  collectEssentialVariableOptions,
+  essentialVariableLabelKey,
+} from '../utils/essentialVariables'
 
 const DELIVERY_AREAS_CONFIG = {
   climate: {
@@ -28,7 +32,7 @@ const FILTER_OPTIONS: DeliveryAreaFilter[] = [
   'oceanhealth',
 ]
 
-const COLUMN_COUNT = 8
+const COLUMN_COUNT = 7
 
 interface NetworkComparisonMatrixProps {
   networks: InSituNetwork[]
@@ -51,16 +55,27 @@ export default function NetworkComparisonMatrix({
   const { t } = useTranslation()
   const [searchQuery, setSearchQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState<DeliveryAreaFilter>('all')
+  const [activeVariableFilter, setActiveVariableFilter] =
+    useState<EssentialVariableFilter>('all')
   const [expandedNetworkId, setExpandedNetworkId] = useState<string | null>(null)
+
+  const essentialVariableOptions = useMemo(
+    () => collectEssentialVariableOptions(networks),
+    [networks],
+  )
 
   const filteredNetworks = useMemo(() => {
     const query = searchQuery.trim().toLowerCase()
 
     return networks.filter((network) => {
-      const matchesFilter =
+      const matchesDeliveryFilter =
         activeFilter === 'all' || network.deliveryAreas.includes(activeFilter)
 
-      if (!matchesFilter) return false
+      const matchesVariableFilter =
+        activeVariableFilter === 'all' ||
+        network.essentialVariables.includes(activeVariableFilter)
+
+      if (!matchesDeliveryFilter || !matchesVariableFilter) return false
       if (!query) return true
 
       const searchableText = [
@@ -69,13 +84,14 @@ export default function NetworkComparisonMatrix({
         t(network.detailsKeys.coverage),
         network.detailsKeys.targets ? t(network.detailsKeys.targets) : '',
         network.detailsKeys.maturity ? t(network.detailsKeys.maturity) : '',
+        ...network.essentialVariables.map((key) => t(essentialVariableLabelKey(key))),
       ]
         .join(' ')
         .toLowerCase()
 
       return searchableText.includes(query)
     })
-  }, [networks, activeFilter, searchQuery, t])
+  }, [networks, activeFilter, activeVariableFilter, searchQuery, t])
 
   const toggleExpanded = (networkId: string) => {
     setExpandedNetworkId((current) => (current === networkId ? null : networkId))
@@ -137,24 +153,65 @@ export default function NetworkComparisonMatrix({
           aria-label={t('networks.comparison.searchPlaceholder')}
         />
 
-        <div className="flex flex-wrap gap-2">
-          {FILTER_OPTIONS.map((filter) => {
-            const isActive = activeFilter === filter
-            return (
-              <button
-                key={filter}
-                type="button"
-                onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'bg-goos-orange-500 text-white'
-                    : 'bg-goos-blue-800 text-white border border-white/20 hover:border-white/40'
-                }`}
-              >
-                {t(`networks.comparison.filters.${filter}`)}
-              </button>
-            )
-          })}
+        <div className="flex flex-col gap-2">
+          <p className="text-white/80 text-xs font-semibold uppercase tracking-wide">
+            {t('networks.deliveryAreasLabel')}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {FILTER_OPTIONS.map((filter) => {
+              const isActive = activeFilter === filter
+              return (
+                <button
+                  key={filter}
+                  type="button"
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-goos-orange-500 text-white'
+                      : 'bg-goos-blue-800 text-white border border-white/20 hover:border-white/40'
+                  }`}
+                >
+                  {t(`networks.comparison.filters.${filter}`)}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <p className="text-white/80 text-xs font-semibold uppercase tracking-wide">
+            {t('networks.essentialVariablesLabel')}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setActiveVariableFilter('all')}
+              className={`px-4 py-2 text-sm font-medium transition-colors ${
+                activeVariableFilter === 'all'
+                  ? 'bg-goos-orange-500 text-white'
+                  : 'bg-goos-blue-800 text-white border border-white/20 hover:border-white/40'
+              }`}
+            >
+              {t('networks.comparison.filters.all')}
+            </button>
+            {essentialVariableOptions.map((variableKey) => {
+              const isActive = activeVariableFilter === variableKey
+              return (
+                <button
+                  key={variableKey}
+                  type="button"
+                  onClick={() => setActiveVariableFilter(variableKey)}
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-goos-orange-500 text-white'
+                      : 'bg-goos-blue-800 text-white border border-white/20 hover:border-white/40'
+                  }`}
+                >
+                  {t(essentialVariableLabelKey(variableKey))}
+                </button>
+              )
+            })}
+          </div>
         </div>
 
         <p className="text-white/70 text-sm">
@@ -207,9 +264,6 @@ export default function NetworkComparisonMatrix({
                   </Tooltip>
                 </th>
               ))}
-              <th className="text-center text-white text-sm font-semibold p-3 min-w-[80px]">
-                {t('networks.comparison.columns.yoy')}
-              </th>
               <th className="text-center text-white text-sm font-semibold p-3 min-w-[140px]">
                 {t('networks.deliveryAreasLabel')}
               </th>
@@ -285,15 +339,6 @@ export default function NetworkComparisonMatrix({
                         </div>
                       </td>
                     ))}
-                    <td className="p-3 text-center align-middle">
-                      {network.yoy === null ? (
-                        <span className="text-white/60 text-sm">N/A</span>
-                      ) : (
-                        <span className="text-emerald-400 text-sm font-medium">
-                          ↑ +{network.yoy.toFixed(1)}
-                        </span>
-                      )}
-                    </td>
                     <td className="p-3">
                       <div className="flex justify-center gap-2">
                         {network.deliveryAreas.map((areaKey) => {

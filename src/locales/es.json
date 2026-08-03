@@ -378,6 +378,24 @@
     "title": "Redes del Sistema Global de Observación del Océano",
     "viewNetwork": "Ver Red",
     "deliveryAreasLabel": "Áreas de entrega GOOS",
+    "essentialVariablesLabel": "Variables esenciales",
+    "essentialVariables": {
+      "temperature": "Temperatura",
+      "salinity": "Salinidad",
+      "pressure": "Presión",
+      "chlorophyll": "Clorofila",
+      "ph": "pH",
+      "oxygen": "Oxígeno",
+      "carbonDioxide": "Dióxido de carbono (CO₂)",
+      "seaLevel": "Nivel del mar",
+      "currents": "Corrientes",
+      "waves": "Olas",
+      "wind": "Viento",
+      "nutrients": "Nutrientes",
+      "humidity": "Humedad",
+      "seaIce": "Hielo marino",
+      "biodiversity": "Biodiversidad"
+    },
     "deliveryAreas": {
       "climate": "Clima",
       "operational": "Servicios Operacionales",
@@ -492,7 +510,7 @@
     },
     "comparison": {
       "title": "Matriz de comparación de redes",
-      "description": "Ordene y filtre redes <i>in situ</i> maduras y emergentes por indicador de rendimiento. YoY muestra el cambio en la puntuación numérica media frente a la Report Card 2024.",
+      "description": "Ordene y filtre redes <i>in situ</i> maduras y emergentes por indicador de rendimiento.",
       "searchPlaceholder": "Buscar redes...",
       "filters": {
         "all": "Todas",

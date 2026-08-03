@@ -167,11 +167,11 @@ export default function InSituNetworksSection({
         </div>
 
         <div className="overflow-hidden px-4 sm:px-8 pb-3" ref={emblaRef}>
-          <div ref={carouselRef} className="flex gap-6 cursor-grab active:cursor-grabbing items-stretch">
+          <div ref={carouselRef} className="flex gap-6 cursor-grab active:cursor-grabbing items-start">
             {networks.map((network) => (
               <div
                 key={network.id}
-                className="network-card-slide flex-[0_0_100%] min-w-0 flex"
+                className="network-card-slide flex-[0_0_100%] min-w-0 flex self-start"
               >
                 <FlipNetworkCard
                   network={network}
