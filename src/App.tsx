@@ -2,8 +2,6 @@ import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import Preloader from './components/Preloader'
 import CoverModule from './components/CoverModule'
-import PartnerModal from './components/PartnerModal'
-import { partnerCountries } from './data/partnerCountries'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
@@ -34,7 +32,6 @@ import { asset } from './utils/assets'
 function App() {
   const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(true)
-  const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
 
   // Indicators modal collapsible states
   const [expandedIndicators, setExpandedIndicators] = useState({
@@ -216,14 +213,6 @@ function App() {
 
       {/* DeliveryAreasNav - Fixed navigation for Value of Ocean Observations sections */}
       <DeliveryAreasNav />
-
-      {/* Partner Modal Component - Outside z-10 context to appear above all */}
-      <PartnerModal
-        isOpen={isPartnerModalOpen}
-        onClose={() => setIsPartnerModalOpen(false)}
-        countries={partnerCountries}
-        showFlags={true}
-      />
 
       {/* Cover - Sticky container for parallax effect */}
       <div id="home" className="sticky top-0 h-screen">
@@ -1991,17 +1980,6 @@ function App() {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-start sm:items-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
           <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
           <p className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-goos-white font-roboto-condensed font-normal leading-[1.3] flex-1">{t('callToAction.memberStatesText')}</p>
-        </div>
-
-        {/* Button below */}
-        <div className="mb-6 sm:mb-8">
-          <Button
-            variant="action"
-            label={t('partners.viewFullListButton')}
-            onClick={() => setIsPartnerModalOpen(true)}
-            textColor="text-white"
-            bgColor="bg-goos-blue-700"
-          />
         </div>
 
         {/* Acknowledgment text */}

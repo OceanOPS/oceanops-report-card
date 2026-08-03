@@ -91,12 +91,14 @@ npm run preview
 - `npm run build` - Type-check with TypeScript and build for production
 - `npm run lint` - Run ESLint on all TypeScript files
 - `npm run preview` - Preview production build locally
-- `npm run export:partners` - Regenerate `src/data/partnerCountries.ts` from OceanOPS
-- `npm run export:partners:dry-run` - Print exported data without writing the file
+- `npm run export:partners` - Regenerate partner data via **[oceanops-data-exports](../oceanops-data-exports)** (`partnerCountries.ts` + simple-map JSON)
+- `npm run export:partners:dry-run` - Preview export without writing files
 
 ### Partner country export (build-time)
 
-Platform counts in the **Our Partners** modal can be regenerated from OceanOPS instead of hand-editing `src/data/partnerCountries.ts`.
+Platform counts for the **globe country filter** are in `oceanops-simple-map/public/data/partnerCountries.json`. The report card **Call to Action** no longer includes “View full list”; use the embedded map to explore countries by network.
+
+The file `src/data/partnerCountries.ts` is still generated for Storybook (`PartnerModal`) and legacy references until those are removed.
 
 ```bash
 # Requires OceanOPS API (local docker or internal URL)
@@ -106,7 +108,9 @@ OCEANOPS_API_URL=http://localhost:8080/data npm run export:partners
 npm run export:partners:dry-run
 
 # Force public ArcGIS REST fallback (no Java API needed)
-node scripts/export-partner-countries.mjs --source=arcgis --dry-run
+npm run export:partners:dry-run -- --source=arcgis
+# Or from ../oceanops-data-exports:
+# node export-partner-countries.mjs --source=arcgis --dry-run
 ```
 
 **Data sources (auto-detected):**
@@ -130,7 +134,7 @@ Set `PARTNER_EXPORT_EDITION` to label the run in the criteria summary (e.g. `202
 
 ### Configuring export criteria
 
-Edit **`scripts/partner-export/exportConfig.mjs`** before each edition:
+Edit **`../oceanops-data-exports/partner-export/exportConfig.mjs`** before each edition:
 
 - **`GO_SHIP_SELECTED_LINE_NAMES`** — manual GO-SHIP line list (same workflow as your colleague’s `WHERE name IN (...)` SQL). Set to `null` to count all GO-SHIP lines with `line_program`.
 - **`SOT_SELECTED_LINE_NAMES`** — manual SOOP XBT line list for the `sot` network. Set to `null` to count all SOOP XBT lines with `line_program`.
@@ -140,7 +144,7 @@ Edit **`scripts/partner-export/exportConfig.mjs`** before each edition:
 
 After every run (including `--dry-run`), the script prints an **Export criteria summary** to stderr: per-network totals, criteria description, SQL hint, and the full GO-SHIP line name list in use.
 
-Network filter definitions live in `scripts/partner-export/networkFilters.mjs`. Editorial metadata (e.g. EU description) is preserved from the existing file and `scripts/partner-export/countryMeta.mjs`.
+Network filter definitions live in `../oceanops-data-exports/partner-export/networkFilters.mjs`. Editorial metadata (e.g. EU description) is preserved from the existing file and `../oceanops-data-exports/partner-export/countryMeta.mjs`.
 
 **Note:** Map sidebar counts in the embedded ArcGIS iframe are computed live by `ocean-ops.org/demos/simple-arcgis-map/` and are not part of this export.
 

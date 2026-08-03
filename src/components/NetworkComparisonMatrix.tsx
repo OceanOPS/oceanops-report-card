@@ -224,28 +224,29 @@ export default function NetworkComparisonMatrix({
           <thead>
             <tr className="border-b border-white/20">
               <th className="text-left text-white text-sm font-semibold p-3 min-w-[220px] align-bottom">
-                <div className="flex flex-col gap-2">
-                  <span>{t('networks.comparison.columns.network')}</span>
-                  <div
-                    className="flex flex-col gap-1.5 text-xs font-normal text-white/70"
-                    role="group"
-                    aria-label={t('networks.comparison.legendLabel')}
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      <span
-                        className="inline-block h-3 w-5 shrink-0 rounded-sm bg-goos-blue-800 border border-white/20"
-                        aria-hidden="true"
-                      />
-                      {t('networks.comparison.legendMature')}
-                    </span>
-                    <span className="inline-flex items-center gap-2">
-                      <span
-                        className="inline-block h-3 w-5 shrink-0 rounded-sm bg-goos-blue-500/50 border border-goos-blue-300/70"
-                        aria-hidden="true"
-                      />
-                      {t('networks.comparison.legendEmerging')}
-                    </span>
-                  </div>
+                <div
+                  className="flex flex-row flex-wrap items-center gap-x-3 gap-y-1"
+                  role="group"
+                  aria-label={t('networks.comparison.legendLabel')}
+                >
+                  <span className="shrink-0">{t('networks.comparison.columns.network')}</span>
+                  <span className="hidden sm:inline text-white/30 font-normal" aria-hidden="true">
+                    ·
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-normal text-white/70">
+                    <span
+                      className="inline-block h-3 w-5 shrink-0 rounded-sm bg-goos-blue-800 border border-white/20"
+                      aria-hidden="true"
+                    />
+                    {t('networks.comparison.legendMature')}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-normal text-white/70">
+                    <span
+                      className="inline-block h-3 w-5 shrink-0 rounded-sm bg-goos-blue-500/50 border border-goos-blue-300/70"
+                      aria-hidden="true"
+                    />
+                    {t('networks.comparison.legendEmerging')}
+                  </span>
                 </div>
               </th>
               {ratingColumns.map((column) => (

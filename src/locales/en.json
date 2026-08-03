@@ -554,7 +554,7 @@
       "iconAlt": "SUN Fleet Network - Uncrewed surface vehicles observing the ocean"
     },
     "comparison": {
-      "title": "Network comparison matrix",
+      "title": "In situ networks",
       "description": "Sort and filter mature and emerging <i>in situ</i> networks by performance indicator.",
       "searchPlaceholder": "Search networks...",
       "filters": {
