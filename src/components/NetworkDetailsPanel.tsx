@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import type { InSituNetwork } from '../types/inSituNetworks'
+import type { InSituNetwork, InSituNetworkDetailsKeys } from '../types/inSituNetworks'
 
 interface NetworkDetailsPanelProps {
   network: InSituNetwork
@@ -8,6 +8,23 @@ interface NetworkDetailsPanelProps {
   accentColor?: string
   className?: string
 }
+
+const DETAIL_FIELD_ORDER: {
+  key: keyof InSituNetworkDetailsKeys
+  labelKey: string
+}[] = [
+  { key: 'applications', labelKey: 'networks.comparison.applications' },
+  { key: 'coverage', labelKey: 'networks.comparison.coverage' },
+  { key: 'essentialVariablesMeasured', labelKey: 'networks.comparison.essentialVariablesMeasured' },
+  { key: 'implementationProgress', labelKey: 'networks.comparison.implementationProgress' },
+  { key: 'platformType', labelKey: 'networks.comparison.platformType' },
+  { key: 'samplingFrequency', labelKey: 'networks.comparison.samplingFrequency' },
+  { key: 'activityTrend', labelKey: 'networks.comparison.activityTrend' },
+  { key: 'targets', labelKey: 'networks.comparison.targets' },
+  { key: 'maturity', labelKey: 'networks.comparison.maturity' },
+  { key: 'challenges', labelKey: 'networks.comparison.challenges' },
+  { key: 'opportunities', labelKey: 'networks.comparison.opportunities' },
+]
 
 export default function NetworkDetailsPanel({
   network,
@@ -18,32 +35,11 @@ export default function NetworkDetailsPanel({
 }: NetworkDetailsPanelProps) {
   const { t } = useTranslation()
 
-  const fields = [
-    {
-      key: 'applications',
-      labelKey: 'networks.comparison.applications',
-      valueKey: network.detailsKeys.applications,
-    },
-    {
-      key: 'coverage',
-      labelKey: 'networks.comparison.coverage',
-      valueKey: network.detailsKeys.coverage,
-    },
-    ...(network.detailsKeys.targets
-      ? [{
-          key: 'targets',
-          labelKey: 'networks.comparison.targets',
-          valueKey: network.detailsKeys.targets,
-        }]
-      : []),
-    ...(network.detailsKeys.maturity
-      ? [{
-          key: 'maturity',
-          labelKey: 'networks.comparison.maturity',
-          valueKey: network.detailsKeys.maturity,
-        }]
-      : []),
-  ]
+  const fields = DETAIL_FIELD_ORDER.flatMap(({ key, labelKey }) => {
+    const valueKey = network.detailsKeys[key]
+    if (!valueKey) return []
+    return [{ key, labelKey, valueKey }]
+  })
 
   return (
     <div

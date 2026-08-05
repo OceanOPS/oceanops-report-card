@@ -555,7 +555,7 @@
     },
     "comparison": {
       "title": "In situ networks",
-      "description": "Sort and filter mature and emerging <i>in situ</i> networks by performance indicator.",
+      "description": "Sort and filter networks by delivery areas and essential variables measured.",
       "searchPlaceholder": "Search networks...",
       "filters": {
         "all": "All",
@@ -568,11 +568,18 @@
       "legendEmerging": "Emerging",
       "emergingBadge": "Emerging",
       "networksShown": "{{count}} networks shown",
-      "noResults": "No networks match your search or filter.",
+      "noResults": "No networks match the selected filters.",
       "applications": "Applications",
       "coverage": "Coverage",
+      "essentialVariablesMeasured": "Essential variables measured",
+      "implementationProgress": "Implementation status",
+      "platformType": "Platform type",
+      "samplingFrequency": "Sampling frequency",
+      "activityTrend": "Activity trend",
       "targets": "Targets",
       "maturity": "Maturity",
+      "challenges": "Challenges",
+      "opportunities": "Opportunities",
       "tapForDetails": "Tap a card to flip and view more details",
       "tapForRatings": "Tap a card to flip and view more details",
       "tapToReturn": "Tap to return",
@@ -589,10 +596,15 @@
     "details": {
       "pending": "Editorial content pending for this edition.",
       "argo": {
-        "applications": "Upper ocean heat content variability, seasonal heat content anomalies, seasonal climate and ocean forecast models, circulation variability in the upper ocean, monitoring changing biogeochemistry, short/medium/long NWP.",
-        "coverage": "From pole to pole, surface to bottom.",
-        "targets": "4,700 floats (OneArgo).",
-        "maturity": "Advanced."
+        "applications": "Ocean Heat Content monitoring, seasonal forecasting, and short- to long-range Numerical Weather Prediction.",
+        "coverage": "Global ocean, from surface to 6,000 m depth.",
+        "essentialVariablesMeasured": "Temperature, Salinity, Oxygen, Nitrate, pH, chlorophyll-a, Irradiance, Suspended Particles.",
+        "implementationProgress": "56% of the target array (4,700 floats) achieved.",
+        "platformType": "Autonomous profiling floats: Core Argo (0–2,000 m), Deep Argo (to 6,000 m), and Biogeochemical (BGC) Argo with biogeochemical sensors.",
+        "samplingFrequency": "Every 10 days.",
+        "activityTrend": "Stable core array; BGC Argo expansion slowed due to funding constraints, with Deep Argo growth remaining limited.",
+        "challenges": "Reliance on a limited number of contributors; funding gaps affecting BGC expansion; slow Deep Argo implementation; Exclusive Economic Zone deployment restrictions.",
+        "opportunities": "Argo BioEco expansion through new technologies, including UVP plankton sensors, hyperspectral radiometry, and active acoustic observations."
       },
       "dbcpMoored": {
         "applications": "Editorial content pending for this edition.",

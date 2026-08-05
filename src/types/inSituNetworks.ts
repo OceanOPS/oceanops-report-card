@@ -44,6 +44,13 @@ export interface InSituNetworkDetailsKeys {
   coverage: string
   targets?: string
   maturity?: string
+  essentialVariablesMeasured?: string
+  implementationProgress?: string
+  platformType?: string
+  samplingFrequency?: string
+  activityTrend?: string
+  challenges?: string
+  opportunities?: string
 }
 
 export interface InSituNetwork {

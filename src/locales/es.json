@@ -510,7 +510,7 @@
     },
     "comparison": {
       "title": "Matriz de comparación de redes",
-      "description": "Ordene y filtre redes <i>in situ</i> maduras y emergentes por indicador de rendimiento.",
+      "description": "Ordene y filtre redes por áreas de entrega y variables esenciales medidas.",
       "searchPlaceholder": "Buscar redes...",
       "filters": {
         "all": "Todas",
@@ -523,11 +523,18 @@
       "legendEmerging": "Redes emergentes (resaltadas)",
       "emergingBadge": "Emergente",
       "networksShown": "{{count}} redes mostradas",
-      "noResults": "Ninguna red coincide con su búsqueda o filtro.",
+      "noResults": "Ninguna red coincide con los filtros seleccionados.",
       "applications": "Aplicaciones",
       "coverage": "Cobertura",
+      "essentialVariablesMeasured": "Variables esenciales medidas",
+      "implementationProgress": "Estado de implementación",
+      "platformType": "Tipo de plataforma",
+      "samplingFrequency": "Frecuencia de muestreo",
+      "activityTrend": "Tendencia de actividad",
       "targets": "Objetivos",
       "maturity": "Madurez",
+      "challenges": "Desafíos",
+      "opportunities": "Oportunidades",
       "tapForDetails": "Toque la tarjeta para ver aplicaciones y más",
       "tapForRatings": "Toque la tarjeta para ver calificaciones y más",
       "tapToReturn": "Toque para volver",
@@ -544,10 +551,15 @@
     "details": {
       "pending": "Contenido editorial pendiente para esta edición.",
       "argo": {
-        "applications": "Variabilidad del contenido de calor del océano superior, anomalías estacionales de contenido calorífico, modelos estacionales de pronóstico climático y oceánico, variabilidad de la circulación en el océano superior, seguimiento de la biogeoquímica cambiante, NWP corto/medio/largo plazo.",
-        "coverage": "De polo a polo, de la superficie al fondo.",
-        "targets": "4.700 flotadores (OneArgo).",
-        "maturity": "Avanzado."
+        "applications": "Ocean Heat Content monitoring, seasonal forecasting, and short- to long-range Numerical Weather Prediction.",
+        "coverage": "Global ocean, from surface to 6,000 m depth.",
+        "essentialVariablesMeasured": "Temperature, Salinity, Oxygen, Nitrate, pH, chlorophyll-a, Irradiance, Suspended Particles.",
+        "implementationProgress": "56% of the target array (4,700 floats) achieved.",
+        "platformType": "Autonomous profiling floats: Core Argo (0–2,000 m), Deep Argo (to 6,000 m), and Biogeochemical (BGC) Argo with biogeochemical sensors.",
+        "samplingFrequency": "Every 10 days.",
+        "activityTrend": "Stable core array; BGC Argo expansion slowed due to funding constraints, with Deep Argo growth remaining limited.",
+        "challenges": "Reliance on a limited number of contributors; funding gaps affecting BGC expansion; slow Deep Argo implementation; Exclusive Economic Zone deployment restrictions.",
+        "opportunities": "Argo BioEco expansion through new technologies, including UVP plankton sensors, hyperspectral radiometry, and active acoustic observations."
       },
       "dbcpMoored": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },
       "goShip": { "applications": "Contenido editorial pendiente para esta edición.", "coverage": "Contenido editorial pendiente para esta edición." },

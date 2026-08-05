@@ -53,7 +53,6 @@ export default function NetworkComparisonMatrix({
   className = '',
 }: NetworkComparisonMatrixProps) {
   const { t } = useTranslation()
-  const [searchQuery, setSearchQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState<DeliveryAreaFilter>('all')
   const [activeVariableFilter, setActiveVariableFilter] =
     useState<EssentialVariableFilter>('all')
@@ -65,8 +64,6 @@ export default function NetworkComparisonMatrix({
   )
 
   const filteredNetworks = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase()
-
     return networks.filter((network) => {
       const matchesDeliveryFilter =
         activeFilter === 'all' || network.deliveryAreas.includes(activeFilter)
@@ -75,23 +72,9 @@ export default function NetworkComparisonMatrix({
         activeVariableFilter === 'all' ||
         network.essentialVariables.includes(activeVariableFilter)
 
-      if (!matchesDeliveryFilter || !matchesVariableFilter) return false
-      if (!query) return true
-
-      const searchableText = [
-        t(network.titleKey),
-        t(network.detailsKeys.applications),
-        t(network.detailsKeys.coverage),
-        network.detailsKeys.targets ? t(network.detailsKeys.targets) : '',
-        network.detailsKeys.maturity ? t(network.detailsKeys.maturity) : '',
-        ...network.essentialVariables.map((key) => t(essentialVariableLabelKey(key))),
-      ]
-        .join(' ')
-        .toLowerCase()
-
-      return searchableText.includes(query)
+      return matchesDeliveryFilter && matchesVariableFilter
     })
-  }, [networks, activeFilter, activeVariableFilter, searchQuery, t])
+  }, [networks, activeFilter, activeVariableFilter])
 
   const toggleExpanded = (networkId: string) => {
     setExpandedNetworkId((current) => (current === networkId ? null : networkId))
@@ -137,22 +120,10 @@ export default function NetworkComparisonMatrix({
             className="text-white/80 text-sm sm:text-base max-w-4xl"
             dangerouslySetInnerHTML={{ __html: t('networks.comparison.description') }}
           />
-          <p className="text-white/60 text-sm">
-            {t('networks.comparison.desktopExpandHint')}
-          </p>
         </div>
       </div>
 
       <div className="px-4 sm:px-8 md:px-12 lg:px-16 pb-6 flex flex-col gap-4">
-        <input
-          type="search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder={t('networks.comparison.searchPlaceholder')}
-          className="w-full max-w-md bg-goos-blue-800 border border-white/20 text-white placeholder:text-white/50 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-goos-orange-500"
-          aria-label={t('networks.comparison.searchPlaceholder')}
-        />
-
         <div className="flex flex-col gap-2">
           <p className="text-white/80 text-xs font-semibold uppercase tracking-wide">
             {t('networks.deliveryAreasLabel')}
@@ -214,9 +185,6 @@ export default function NetworkComparisonMatrix({
           </div>
         </div>
 
-        <p className="text-white/70 text-sm">
-          {t('networks.comparison.networksShown', { count: filteredNetworks.length })}
-        </p>
       </div>
 
       <div className="px-4 sm:px-8 md:px-12 lg:px-16 pb-10 overflow-x-auto">

@@ -38,8 +38,13 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     detailsKeys: {
       applications: 'networks.details.argo.applications',
       coverage: 'networks.details.argo.coverage',
-      targets: 'networks.details.argo.targets',
-      maturity: 'networks.details.argo.maturity',
+      essentialVariablesMeasured: 'networks.details.argo.essentialVariablesMeasured',
+      implementationProgress: 'networks.details.argo.implementationProgress',
+      platformType: 'networks.details.argo.platformType',
+      samplingFrequency: 'networks.details.argo.samplingFrequency',
+      activityTrend: 'networks.details.argo.activityTrend',
+      challenges: 'networks.details.argo.challenges',
+      opportunities: 'networks.details.argo.opportunities',
     },
   },
   {
