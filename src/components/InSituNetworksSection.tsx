@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import CarouselArrow from './CarouselArrow'
 import FlipNetworkCard from './FlipNetworkCard'
 import NetworkComparisonMatrix from './NetworkComparisonMatrix'
+import EmergingNetworkMediaModal from './EmergingNetworkMediaModal'
 import type { InSituNetwork } from '../types/inSituNetworks'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -37,6 +38,7 @@ export default function InSituNetworksSection({
 }: InSituNetworksSectionProps) {
   const { t } = useTranslation()
   const carouselRef = useRef<HTMLDivElement>(null)
+  const [emergingMediaNetworkId, setEmergingMediaNetworkId] = useState<string | null>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
   const [canScrollPrev, setCanScrollPrev] = useState(false)
@@ -122,9 +124,17 @@ export default function InSituNetworksSection({
 
   return (
     <div id="networks-section">
+      <EmergingNetworkMediaModal
+        networkId={emergingMediaNetworkId}
+        onClose={() => setEmergingMediaNetworkId(null)}
+      />
+
       {/* Desktop: comparison matrix */}
       <div className="hidden md:block">
-        <NetworkComparisonMatrix networks={networks} />
+        <NetworkComparisonMatrix
+          networks={networks}
+          onOpenEmergingMedia={setEmergingMediaNetworkId}
+        />
       </div>
 
       {/* Mobile: flip cards carousel */}
@@ -184,6 +194,7 @@ export default function InSituNetworksSection({
                   accentColor={cardAccentColor}
                   tooltipBgColor={tooltipBgColor}
                   tooltipTextColor={tooltipTextColor}
+                  onOpenEmergingMedia={setEmergingMediaNetworkId}
                 />
               </div>
             ))}

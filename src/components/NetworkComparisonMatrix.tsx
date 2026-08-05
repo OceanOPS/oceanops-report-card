@@ -9,6 +9,7 @@ import {
   collectEssentialVariableOptions,
   essentialVariableLabelKey,
 } from '../utils/essentialVariables'
+import { hasEmergingNetworkMedia } from '../data/emergingNetworkMedia'
 
 const DELIVERY_AREAS_CONFIG = {
   climate: {
@@ -37,6 +38,7 @@ const COLUMN_COUNT = 7
 interface NetworkComparisonMatrixProps {
   networks: InSituNetwork[]
   className?: string
+  onOpenEmergingMedia?: (networkId: string) => void
 }
 
 function rowBackgroundClass(isEmerging: boolean, isExpanded: boolean): string {
@@ -51,6 +53,7 @@ function rowBackgroundClass(isEmerging: boolean, isExpanded: boolean): string {
 export default function NetworkComparisonMatrix({
   networks,
   className = '',
+  onOpenEmergingMedia,
 }: NetworkComparisonMatrixProps) {
   const { t } = useTranslation()
   const [activeFilter, setActiveFilter] = useState<DeliveryAreaFilter>('all')
@@ -283,15 +286,36 @@ export default function NetworkComparisonMatrix({
                               {t('networks.comparison.emergingBadge')}
                             </p>
                           )}
-                          <a
-                            href={network.networkUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-goos-orange-500 text-xs underline decoration-dotted"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {t('networks.viewNetwork')}
-                          </a>
+                          <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                            <a
+                              href={network.networkUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-goos-orange-500 text-xs underline decoration-dotted"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {t('networks.viewNetwork')}
+                            </a>
+                            {isEmerging &&
+                              hasEmergingNetworkMedia(network.id) &&
+                              onOpenEmergingMedia && (
+                                <>
+                                  <span className="text-white/30 text-xs" aria-hidden="true">
+                                    ·
+                                  </span>
+                                  <button
+                                    type="button"
+                                    className="text-goos-orange-500 text-xs underline decoration-dotted hover:opacity-90"
+                                    onClick={(event) => {
+                                      event.stopPropagation()
+                                      onOpenEmergingMedia(network.id)
+                                    }}
+                                  >
+                                    {t('emerging.moreLink')}
+                                  </button>
+                                </>
+                              )}
+                          </div>
                         </div>
                       </div>
                     </td>
@@ -340,7 +364,22 @@ export default function NetworkComparisonMatrix({
                       }`}
                     >
                       <td colSpan={COLUMN_COUNT} className="p-4 md:p-6">
-                        <NetworkDetailsPanel network={network} layout="grid" />
+                        <div className="flex flex-col gap-4">
+                          {isEmerging &&
+                            hasEmergingNetworkMedia(network.id) &&
+                            onOpenEmergingMedia && (
+                              <div>
+                                <button
+                                  type="button"
+                                  onClick={() => onOpenEmergingMedia(network.id)}
+                                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-goos-orange-500 text-white hover:bg-goos-orange-600 transition-colors"
+                                >
+                                  {t('emerging.viewMore')}
+                                </button>
+                              </div>
+                            )}
+                          <NetworkDetailsPanel network={network} layout="grid" />
+                        </div>
                       </td>
                     </tr>
                   )}

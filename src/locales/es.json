@@ -509,7 +509,7 @@
       "iconAlt": "Red SUN Fleet - Vehículos de superficie no tripulados"
     },
     "comparison": {
-      "title": "Matriz de comparación de redes",
+      "title": "Redes in situ",
       "description": "Ordene y filtre redes por áreas de entrega y variables esenciales medidas.",
       "searchPlaceholder": "Buscar redes...",
       "filters": {
@@ -601,6 +601,8 @@
   },
   "emerging": {
     "title": "Redes Emergentes",
+    "modalTitle": "Redes emergentes",
+    "moreLink": "más",
     "viewMore": "Ver Más",
     "watchVideo": "Ver Video",
     "fvon": {

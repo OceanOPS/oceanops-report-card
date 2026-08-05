@@ -381,7 +381,7 @@
     "partner8": "Partner Organization 8"
   },
   "networks": {
-    "title": "<i>In situ</i> mature networks",
+    "title": "In situ networks",
     "viewNetwork": "View Network",
     "deliveryAreasLabel": "GOOS delivery areas",
     "essentialVariablesLabel": "Essential variables",
@@ -674,6 +674,8 @@
   },
   "emerging": {
     "title": " <i>In situ</i> emerging networks",
+    "modalTitle": "Emerging Networks",
+    "moreLink": "more",
     "viewMore": "View More",
     "watchVideo": "Watch Video",
     "fvon": {

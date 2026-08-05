@@ -10,7 +10,6 @@ import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
 import InSituNetworksSection from './components/InSituNetworksSection'
 import { sortedInSituNetworks } from './data/inSituNetworks'
-import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
 import Spacer from './components/Spacer'
 import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
@@ -97,7 +96,6 @@ function App() {
       'networks-section',
       'satellite-section',
       'data-section',
-      'emerging-section',
       'value-section',
       'amoc-section',
       'elnino-section',
@@ -189,10 +187,9 @@ function App() {
             subItems: [
               { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-500' },
               { id: 'map-section', titleKey: 'menu.platformMap', accentColor: 'bg-goos-orange-500', icon: 'globe' },
-              { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'networks-section', titleKey: 'networks.comparison.title', accentColor: 'bg-goos-orange-500' },
               { id: 'satellite-section', titleKey: 'satelliteObservations.title', accentColor: 'bg-goos-orange-500' },
               { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
-              { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-orange-500' },
             ],
           },
           {
@@ -1078,124 +1075,6 @@ function App() {
         />
           <Spacer size="sm" />
         </ContentModule>
-      </div>
-
-      {/* EmergingNetworkCarousel - Emerging GOOS Networks */}
-      <div id="emerging-section">
-        <EmergingNetworkCarousel
-          title="emerging.title"
-          hasLine={true}
-          lineColor="bg-goos-orange-500"
-        cards={[
-          {
-            // FVON - First (Video)
-            mediaType: 'video',
-            videoType: 'local',
-            videoId: asset('/videos/fvon.mp4'),
-            previewImage: asset('/images/fvon.webp'),
-            imageAlt: 'emerging.fvon.imageAlt',
-            iconSrc: asset('/icons/network/fishing_vessels.svg'),
-            iconAlt: 'emerging.fvon.iconAlt',
-            titleKey: 'emerging.fvon.title',
-            paragraph1Key: 'emerging.fvon.paragraph1',
-            paragraph2Key: 'emerging.fvon.paragraph2',
-            externalLinkUrl: 'https://www.fvon.org/',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', `oceanhealth`],
-          },
-          {
-            // SMART Cables - Second (Video)
-            mediaType: 'video',
-            videoType: 'local',
-            videoId: asset('/videos/smart-cables.mp4'),
-            previewImage: asset('/images/smart_cables.webp'),
-            imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: asset('/icons/network/smart_cables.svg'),
-            iconAlt: 'emerging.smartCables.iconAlt',
-            titleKey: 'emerging.smartCables.title',
-            paragraph1Key: 'emerging.smartCables.paragraph1',
-            paragraph2Key: 'emerging.smartCables.paragraph2',
-            externalLinkUrl: 'https://www.smartcables.org/',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            // SOCONET - Third (Simple image - showing only first photo)
-            mediaType: 'image',
-            imageSrc: asset('/images/soconet.webp'),
-            imageAlt: 'emerging.soconet.imageAlt',
-            modalTitle: 'emerging.soconet.title',
-            modalContent: (
-              <div className="flex flex-col gap-5">
-                <img
-                  src={asset("/images/soconet.webp")}
-                  alt="SOCONET"
-                  className="w-full h-auto object-cover rounded"
-                />
-                <div className="flex flex-col gap-4 mt-4">
-                  <h3 className="text-2xl font-bold text-goos-orange-500">{t('emerging.soconet.title')}</h3>
-                  <p
-                    className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: t('emerging.soconet.paragraph1WithLink') }}
-                  />
-                  <p className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed">
-                    {t('emerging.soconet.paragraph2')}
-                  </p>
-                  {/* External Link Button */}
-                  <div className="flex">
-                    <Button
-                      variant="link"
-                      label={t('networks.viewNetwork')}
-                      url="https://www.ioccp.org/soconet"
-                      bgColor="bg-goos-orange-600"
-                      textColor="text-white"
-                      iconBgColor="bg-white"
-                      iconColor="text-goos-orange-600"
-                    />
-                  </div>
-                </div>
-              </div>
-            ),
-            iconSrc: asset('/icons/network/surface_ocean_co2.svg'),
-            iconAlt: 'emerging.soconet.iconAlt',
-            titleKey: 'emerging.soconet.title',
-            paragraph1Key: 'emerging.soconet.paragraph1WithLink',
-            paragraph2Key: 'emerging.soconet.paragraph2',
-            externalLinkUrl: 'https://www.ioccp.org/soconet',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            // SUN Fleet - Fourth (Simple image)
-            mediaType: 'image',
-            imageSrc: asset('/images/sunfleet.webp'),
-            imageAlt: 'emerging.sunFleet.imageAlt',
-            iconSrc: asset('/icons/network/sun_fleet.svg'),
-            iconAlt: 'emerging.sunFleet.iconAlt',
-            titleKey: 'emerging.sunFleet.title',
-            paragraph1Key: 'emerging.sunFleet.paragraph1',
-            paragraph2Key: 'emerging.sunFleet.paragraph2',
-            externalLinkUrl: 'https://airseaobs.org/sun-fleet',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-        ]}
-        backgroundColor="bg-goos-blue-900"
-        titleColor="text-white"
-        cardBackgroundColor="bg-goos-blue-800"
-        cardTextColor="text-white"
-        buttonBgColor="bg-goos-blue-900"
-        buttonTextColor="text-white"
-        buttonIconBgColor="bg-goos-white"
-        buttonIconColor="text-goos-blue-700"
-        tooltipBgColor="text-goos-white"
-        tooltipTextColor="bg-goos-blue-900"
-        arrowColor="#F0F0F0"
-      />
       </div>
 
         <Spacer size="md" backgroundColor="bg-goos-white"/>

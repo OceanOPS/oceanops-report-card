@@ -566,7 +566,7 @@
       "iconAlt": "Réseau SUN Fleet - Véhicules de surface sans équipage"
     },
     "comparison": {
-      "title": "Matrice de comparaison des réseaux",
+      "title": "Réseaux in situ",
       "description": "Triez et filtrez les réseaux par domaines de prestation et variables essentielles mesurées.",
       "searchPlaceholder": "Rechercher des réseaux...",
       "filters": {
@@ -658,6 +658,8 @@
   },
   "emerging": {
     "title": "Réseaux Émergents",
+    "modalTitle": "Réseaux émergents",
+    "moreLink": "plus",
     "viewMore": "Voir Plus",
     "watchVideo": "Regarder la Vidéo",
     "fvon": {
