@@ -28,6 +28,7 @@ const MAP_SRC =
 import DeliveryAreasNav from './components/DeliveryAreasNav'
 import ColorStripes from './components/ColorStripes'
 import { asset } from './utils/assets'
+import { scrollToSection } from './utils/scrollToSection'
 
 function App() {
   const { t } = useTranslation()
@@ -63,20 +64,25 @@ function App() {
 
   // Handle deep linking - scroll to section if hash is present in URL
   useEffect(() => {
-    const hash = window.location.hash.slice(1) // Remove the #
-    if (hash) {
-      // Delay to ensure DOM is fully rendered and page is ready
+    const scrollToHash = (behavior: ScrollBehavior = 'smooth') => {
+      const hash = window.location.hash.slice(1)
+      if (!hash) return
+      ;(window as any).isScrollingProgrammatically = true
+      scrollToSection(hash, { behavior })
       setTimeout(() => {
-        (window as any).isScrollingProgrammatically = true
-        const element = document.getElementById(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-        // Reset flag after scroll animation completes
-        setTimeout(() => {
-          (window as any).isScrollingProgrammatically = false
-        }, 1000)
-      }, 500)
+        ;(window as any).isScrollingProgrammatically = false
+      }, 1000)
+    }
+
+    // Delay initial scroll until layout is ready (overrides browser default anchor jump)
+    const initialTimer = setTimeout(() => scrollToHash('smooth'), 500)
+
+    const onHashChange = () => scrollToHash('smooth')
+    window.addEventListener('hashchange', onHashChange)
+
+    return () => {
+      clearTimeout(initialTimer)
+      window.removeEventListener('hashchange', onHashChange)
     }
   }, [])
 
@@ -87,6 +93,7 @@ function App() {
       'overview-section',
       'insitu-section',
       'stats-section',
+      'map-section',
       'networks-section',
       'satellite-section',
       'data-section',
@@ -181,6 +188,7 @@ function App() {
             accentColor: 'bg-goos-orange-500',
             subItems: [
               { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-500' },
+              { id: 'map-section', titleKey: 'menu.platformMap', accentColor: 'bg-goos-orange-500', icon: 'globe' },
               { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
               { id: 'satellite-section', titleKey: 'satelliteObservations.title', accentColor: 'bg-goos-orange-500' },
               { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
@@ -428,13 +436,14 @@ function App() {
         />
       </div>
 
-      <div id="map-section">
-      {/* Interactive ArcGIS map - Full width */}
+      <div>
+      {/* Interactive ArcGIS map — anchor on iframe for centered deep links (#map-section) */}
       <MapStatsPanel
+        scrollAnchorId="map-section"
         mapSrc={MAP_SRC}
         mapAlt={t('operationalPlatforms.mapAlt')}
         mapType="iframe"
-        mapHeight={600}
+        mapHeight="full"
         fullWidth={true}
         backgroundColor="bg-goos-blue-900"
       />

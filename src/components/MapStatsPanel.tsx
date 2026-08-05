@@ -85,6 +85,8 @@ interface MapStatsPanelProps {
   numberColor?: string
   linkColor?: string
   className?: string
+  /** Element id for deep links / menu scroll (placed on the map iframe wrapper) */
+  scrollAnchorId?: string
 }
 
 export default function MapStatsPanel({
@@ -103,6 +105,7 @@ export default function MapStatsPanel({
   numberColor = 'text-goos-orange-500',
   linkColor = 'text-goos-orange-500',
   className = '',
+  scrollAnchorId,
 }: MapStatsPanelProps) {
   const { t } = useTranslation()
 
@@ -117,14 +120,23 @@ export default function MapStatsPanel({
 
   // Check if using full viewport height
   const isFullHeight = mapHeight === 'full'
-  const sectionHeightClass = isFullHeight ? 'min-h-screen' : ''
+  const isMapOnly = !hasStats && !title
+  const sectionHeightClass = isFullHeight ? 'min-h-[100svh]' : ''
+  const mapViewportClass = isFullHeight
+    ? isMapOnly
+      ? 'h-[min(100svh,900px)]'
+      : 'h-full min-h-[480px]'
+    : 'h-[600px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'
 
   // Padding classes based on fullWidth prop
   const paddingClass = fullWidth ? '' : 'px-4 sm:px-8 md:px-12 lg:px-16'
 
   return (
-    <section className={`${backgroundColor} ${paddingClass} py-0 flex flex-col ${sectionHeightClass} ${className}`}>
+    <section
+      className={`${backgroundColor} ${paddingClass} py-0 flex flex-col ${sectionHeightClass} ${isMapOnly && isFullHeight ? 'justify-center' : ''} ${className}`}
+    >
       {/* Header Section */}
+      {!isMapOnly && (
       <div className="flex flex-col gap-5 flex-shrink-0">
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
@@ -138,6 +150,7 @@ export default function MapStatsPanel({
           </div>
         )}
       </div>
+      )}
 
       {/* Content: Stats and Map - Takes remaining space and centers */}
       <div className={`flex gap-5 md:gap-8 lg:gap-12 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0`}>
@@ -170,18 +183,21 @@ export default function MapStatsPanel({
         )}
 
         {/* Right Column - Map (50% width if stats, 100% width if no stats) */}
-        <div className={`${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : 'flex-1 h-full'} w-full self-stretch min-h-0`}>
+        <div
+          id={scrollAnchorId}
+          className={`${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : 'flex-1 w-full self-stretch min-h-0 flex flex-col justify-center'} w-full`}
+        >
           {mapType === 'image' ? (
             <img
               src={mapSrc}
               alt={altText}
-              className={`w-full object-cover rounded ${isFullHeight ? 'h-full' : 'h-[600px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
+              className={`w-full object-cover rounded ${mapViewportClass}`}
             />
           ) : (
             <iframe
               src={mapSrc}
               title={altText}
-              className={`w-full border-0 rounded ${isFullHeight ? 'h-full' : 'h-[600px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
+              className={`w-full border-0 rounded ${mapViewportClass}`}
               loading="lazy"
             />
           )}
@@ -189,7 +205,9 @@ export default function MapStatsPanel({
       </div>
 
       {/* Bottom spacer */}
+      {!isMapOnly && (
       <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75 flex-shrink-0"></div>
+      )}
     </section>
   )
 }

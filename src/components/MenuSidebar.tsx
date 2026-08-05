@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import Button from './Button'
 import { asset } from '../utils/assets'
+import { scrollToSection } from '../utils/scrollToSection'
 
 /**
  * MenuSidebar Component
@@ -29,8 +30,34 @@ export interface MenuItem {
   id?: string // Section ID for smooth scrolling
   titleKey: string
   accentColor: string
+  icon?: 'globe'
   onClick?: () => void
   subItems?: MenuItem[] // Optional sub-items for hierarchical menu
+}
+
+function MenuGlobeIcon() {
+  return (
+    <svg
+      className="h-5 w-5 shrink-0 text-goos-orange-500"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M3 12h18M12 3c2.5 2.8 3.8 6 4 9s-1.5 6.2-4 9M12 3c-2.5 2.8-3.8 6-4 9s1.5 6.2 4 9"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+function MenuItemIcon({ icon }: { icon: MenuItem['icon'] }) {
+  if (icon === 'globe') return <MenuGlobeIcon />
+  return null
 }
 
 interface MenuSidebarProps {
@@ -218,7 +245,9 @@ export default function MenuSidebar({
         // Scroll to section if ID is provided
         const element = document.getElementById(sectionId)
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          scrollToSection(sectionId, {
+            behavior: 'smooth',
+          })
         }
 
         // Reset flag after scroll animation completes
@@ -342,10 +371,10 @@ export default function MenuSidebar({
                   className="cursor-pointer hover:opacity-80 transition-opacity pt-1 sm:pt-2"
                 >
                   <div className={`${item.accentColor} h-1 w-6 sm:w-8 mb-1`}></div>
-                  <h2
-                    className="text-xl sm:text-2xl font-normal"
-                    dangerouslySetInnerHTML={{ __html: t(item.titleKey) }}
-                  />
+                  <h2 className="text-xl sm:text-2xl font-normal flex items-center gap-2">
+                    {item.icon ? <MenuItemIcon icon={item.icon} /> : null}
+                    <span dangerouslySetInnerHTML={{ __html: t(item.titleKey) }} />
+                  </h2>
                 </div>
 
                 {/* Sub Items */}
@@ -357,10 +386,10 @@ export default function MenuSidebar({
                         onClick={() => handleMenuItemClick(subItem)}
                         className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
                       >
-                        <h3
-                          className="text-base sm:text-lg font-light"
-                          dangerouslySetInnerHTML={{ __html: t(subItem.titleKey) }}
-                        />
+                        <h3 className="text-base sm:text-lg font-light flex items-center gap-2">
+                          {subItem.icon ? <MenuItemIcon icon={subItem.icon} /> : null}
+                          <span dangerouslySetInnerHTML={{ __html: t(subItem.titleKey) }} />
+                        </h3>
                       </div>
                     ))}
                   </div>

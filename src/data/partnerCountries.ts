@@ -7,7 +7,7 @@
  * Data source: OceanOPS operational platform metadata (program country attribution)
  * GO-SHIP / SOT: design lines via line_program → program.country (not platforms)
  * FVON / AniBOS / OceanGliders: monitored platforms include PROBABLE status (not only OPERATIONAL)
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-04
  *
  * Note: goShip can be:
  * - A number (0 or positive): GO-SHIP design line count for the country
@@ -183,7 +183,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "India",
     countryCode: "IN",
-    networks: { driftingBuoys: 3, argo: 116, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, sot: 0, goShip: 0, gloss: 5, oceanSites: 12, mooredBuoys: 11, tsunamiBuoys: 1, hfRadars: 10 }
+    networks: { driftingBuoys: 3, argo: 117, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, sot: 0, goShip: 0, gloss: 5, oceanSites: 12, mooredBuoys: 11, tsunamiBuoys: 1, hfRadars: 10 }
   },
   {
     name: "Indonesia",
@@ -208,7 +208,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "Japan",
     countryCode: "JP",
-    networks: { driftingBuoys: 13, argo: 147, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 150, sotAsap: 1, sot: 0, goShip: 0, gloss: 14, oceanSites: 5, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 22 }
+    networks: { driftingBuoys: 13, argo: 147, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 151, sotAsap: 1, sot: 0, goShip: 0, gloss: 14, oceanSites: 5, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 22 }
   },
   {
     name: "Jordan",
@@ -378,7 +378,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "United States",
     countryCode: "US",
-    networks: { driftingBuoys: 936, argo: 2475, oceanGliders: 431, aniBOS: 10, fvon: 334, sotVos: 615, sotAsap: 0, sot: 18, goShip: 0, gloss: 24, oceanSites: 181, mooredBuoys: 181, tsunamiBuoys: 32, hfRadars: 172 }
+    networks: { driftingBuoys: 935, argo: 2473, oceanGliders: 431, aniBOS: 10, fvon: 334, sotVos: 615, sotAsap: 0, sot: 18, goShip: 0, gloss: 24, oceanSites: 181, mooredBuoys: 181, tsunamiBuoys: 32, hfRadars: 172 }
   },
   {
     name: "Uruguay",
@@ -388,7 +388,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "Vanuatu",
     countryCode: "VU",
-    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, sot: 0, goShip: 0, gloss: 1, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
+    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 1, sotAsap: 0, sot: 0, goShip: 0, gloss: 1, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
   },
   {
     name: "Viet Nam",

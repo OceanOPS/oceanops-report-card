@@ -96,7 +96,7 @@ npm run preview
 
 ### Partner country export (build-time)
 
-Platform counts for the **globe country filter** are in `oceanops-simple-map/public/data/partnerCountries.json`. The report card **Call to Action** no longer includes “View full list”; use the embedded map to explore countries by network.
+Platform counts for the **globe country filter** are in `oceanops-simple-map/src/data/partnerCountries.json`. The report card **Call to Action** no longer includes “View full list”; use the embedded map to explore countries by network.
 
 The file `src/data/partnerCountries.ts` is still generated for Storybook (`PartnerModal`) and legacy references until those are removed.
 
