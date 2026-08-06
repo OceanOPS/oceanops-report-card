@@ -26,6 +26,28 @@ const DETAIL_FIELD_ORDER: {
   { key: 'opportunities', labelKey: 'networks.comparison.opportunities' },
 ]
 
+/** Desktop matrix: two stacked columns (not row-major grid) — matches flip-card reading order. */
+const GRID_LEFT_COLUMN_KEYS: (keyof InSituNetworkDetailsKeys)[] = [
+  'applications',
+  'coverage',
+  'essentialVariablesMeasured',
+  'platformType',
+  'activityTrend',
+  'opportunities',
+]
+
+const GRID_RIGHT_COLUMN_KEYS: (keyof InSituNetworkDetailsKeys)[] = [
+  'implementationProgress',
+  'samplingFrequency',
+  'targets',
+  'maturity',
+  'challenges',
+]
+
+const DETAIL_FIELD_BY_KEY = Object.fromEntries(
+  DETAIL_FIELD_ORDER.map((field) => [field.key, field]),
+) as Record<keyof InSituNetworkDetailsKeys, (typeof DETAIL_FIELD_ORDER)[number]>
+
 export default function NetworkDetailsPanel({
   network,
   layout = 'stack',
@@ -41,24 +63,38 @@ export default function NetworkDetailsPanel({
     return [{ key, labelKey, valueKey }]
   })
 
+  const fieldsForColumnKeys = (columnKeys: (keyof InSituNetworkDetailsKeys)[]) =>
+    columnKeys.flatMap((key) => {
+      const valueKey = network.detailsKeys[key]
+      if (!valueKey) return []
+      const meta = DETAIL_FIELD_BY_KEY[key]
+      return [{ key, labelKey: meta.labelKey, valueKey }]
+    })
+
+  const renderField = (field: { key: string; labelKey: string; valueKey: string }) => (
+    <div key={field.key}>
+      <p className={`${accentColor} text-sm font-semibold uppercase tracking-wide`}>
+        {t(field.labelKey)}
+      </p>
+      <p className={`${textColor} text-sm mt-2 leading-relaxed`}>{t(field.valueKey)}</p>
+    </div>
+  )
+
+  if (layout === 'grid') {
+    const leftFields = fieldsForColumnKeys(GRID_LEFT_COLUMN_KEYS)
+    const rightFields = fieldsForColumnKeys(GRID_RIGHT_COLUMN_KEYS)
+
+    return (
+      <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 ${className}`}>
+        <div className="flex flex-col gap-4 md:gap-6">{leftFields.map(renderField)}</div>
+        <div className="flex flex-col gap-4 md:gap-6">{rightFields.map(renderField)}</div>
+      </div>
+    )
+  }
+
   return (
-    <div
-      className={`${
-        layout === 'grid'
-          ? 'grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'
-          : 'flex flex-col gap-4'
-      } ${className}`}
-    >
-      {fields.map((field) => (
-        <div key={field.key}>
-          <p className={`${accentColor} text-sm font-semibold uppercase tracking-wide`}>
-            {t(field.labelKey)}
-          </p>
-          <p className={`${textColor} text-sm mt-2 leading-relaxed`}>
-            {t(field.valueKey)}
-          </p>
-        </div>
-      ))}
+    <div className={`flex flex-col gap-4 ${className}`}>
+      {fields.map(renderField)}
     </div>
   )
 }

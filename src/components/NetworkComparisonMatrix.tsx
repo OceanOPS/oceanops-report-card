@@ -267,12 +267,10 @@ export default function NetworkComparisonMatrix({
                     <td className="p-3">
                       <div className="flex items-center gap-3">
                         <span
-                          className={`text-goos-orange-500 text-xs shrink-0 transition-transform ${
-                            isExpanded ? 'rotate-90' : ''
-                          }`}
+                          className="text-goos-orange-500 text-base font-bold leading-none shrink-0 w-4 text-center tabular-nums"
                           aria-hidden="true"
                         >
-                          ▶
+                          {isExpanded ? '−' : '+'}
                         </span>
                         <img
                           src={asset(network.iconPath)}
