@@ -30,10 +30,12 @@ import { asset } from './utils/assets'
 import { scrollToSection } from './utils/scrollToSection'
 import {
   contributingCountries,
+  platformsDeltaVs2024,
   totalPlatforms,
 } from './utils/partnerCountryStats'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
+const platformDeltaLabel = `${platformsDeltaVs2024 >= 0 ? '+' : ''}${fmt(platformsDeltaVs2024)}`
 
 function App() {
   const { t } = useTranslation()
@@ -424,7 +426,10 @@ function App() {
             {
               number: fmt(totalPlatforms),
               description: t('content.section1.stats.stat3.description'),
-              evolution: t('content.section1.stats.stat3.evolution', { defaultValue: '' }) || undefined,
+              evolution: t('content.section1.stats.stat3.evolutionVs2024', {
+                delta: platformDeltaLabel,
+              }),
+              evolutionDirection: platformsDeltaVs2024 >= 0 ? 'up' : 'down',
             },
             {
               number: t('content.section1.stats.stat4.number'),

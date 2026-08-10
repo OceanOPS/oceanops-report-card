@@ -261,7 +261,7 @@
         "stat3": {
           "number": "9,389",
           "description": "ocean observing platforms",
-          "evolution": "+477 vs 2024"
+          "evolutionVs2024": "{{delta}} vs 2024"
         },
         "stat4": {
           "number": "120,000+",
