@@ -151,26 +151,6 @@ export default function InSituNetworksSection({
               <p className={`${titleColor} opacity-80 text-sm`}>
                 {t('networks.comparison.mobileHint')}
               </p>
-              <div
-                className="flex flex-wrap items-center gap-3 text-xs text-white/80"
-                role="group"
-                aria-label={t('networks.comparison.legendLabel')}
-              >
-                <span className="inline-flex items-center gap-2">
-                  <span
-                    className="inline-block h-3 w-5 rounded-sm bg-goos-blue-800 border border-white/20"
-                    aria-hidden="true"
-                  />
-                  {t('networks.comparison.legendMature')}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <span
-                    className="inline-block h-3 w-5 rounded-sm bg-goos-blue-500/50 border border-goos-blue-300/70"
-                    aria-hidden="true"
-                  />
-                  {t('networks.comparison.legendEmerging')}
-                </span>
-              </div>
             </div>
           </div>
           <div className="h-4 sm:h-6 w-5 opacity-75" />
@@ -185,11 +165,7 @@ export default function InSituNetworksSection({
               >
                 <FlipNetworkCard
                   network={network}
-                  backgroundColor={
-                    network.maturity === 'emerging'
-                      ? 'bg-goos-blue-600'
-                      : cardBackgroundColor
-                  }
+                  backgroundColor={cardBackgroundColor}
                   textColor={cardTextColor}
                   accentColor={cardAccentColor}
                   tooltipBgColor={tooltipBgColor}

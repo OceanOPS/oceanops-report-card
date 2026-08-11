@@ -564,9 +564,8 @@
         "oceanhealth": "Ocean Health"
       },
       "legendLabel": "Legend",
-      "legendMature": "Mature",
-      "legendEmerging": "Emerging",
-      "emergingBadge": "Emerging",
+      "sectionMature": "Mature networks",
+      "sectionEmerging": "Emerging networks",
       "networksShown": "{{count}} networks shown",
       "noResults": "No networks match the selected filters.",
       "applications": "Applications",

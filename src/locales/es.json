@@ -519,9 +519,8 @@
         "oceanhealth": "Salud del océano"
       },
       "legendLabel": "Leyenda",
-      "legendMature": "Redes maduras",
-      "legendEmerging": "Redes emergentes (resaltadas)",
-      "emergingBadge": "Emergente",
+      "sectionMature": "Redes maduras",
+      "sectionEmerging": "Redes emergentes",
       "networksShown": "{{count}} redes mostradas",
       "noResults": "Ninguna red coincide con los filtros seleccionados.",
       "applications": "Aplicaciones",
