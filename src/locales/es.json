@@ -780,6 +780,19 @@
     }
   },
   "operationalPlatforms": {
-    "mapAlt": "Mapa de distribución global de plataformas"
+    "mapAlt": "Mapa de distribución global de plataformas",
+    "programShipMatrix": {
+      "title": "País programa × País del buque",
+      "description": "Tabla cruzada de plataformas operacionales por país programa (atribución de red) y bandera del buque en el despliegue. Solo se incluyen plataformas con ambos atributos.",
+      "loading": "Cargando matriz programa / buque…",
+      "error": "No se pudo cargar la matriz programa / buque desde los datos del mapa.",
+      "summary": "{{total}} plataformas con buque · {{mismatches}} donde país programa ≠ bandera del buque",
+      "mismatchesOnly": "Solo discrepancias (programa ≠ buque)",
+      "programCountry": "País programa",
+      "shipCountry": "País del buque",
+      "platforms": "Plataformas",
+      "empty": "Ninguna combinación coincide con los filtros actuales.",
+      "footnote": "Solo se muestran pares programa / buque con valores. Filas naranjas: mismo país programa y bandera; azules: atribución distinta. El filtrado del mapa sigue usando solo el país programa."
+    }
   }
 }

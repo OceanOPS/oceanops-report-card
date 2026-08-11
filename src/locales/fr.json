@@ -769,6 +769,19 @@
     }
   },
   "operationalPlatforms": {
-    "mapAlt": "Carte de distribution mondiale des plateformes"
+    "mapAlt": "Carte de distribution mondiale des plateformes",
+    "programShipMatrix": {
+      "title": "Pays programme × Pays navire",
+      "description": "Tableau croisé des plateformes opérationnelles par pays programme (attribution réseau) et pavillon du navire au déploiement. Seules les plateformes avec les deux attributs sont incluses.",
+      "loading": "Chargement de la matrice programme / navire…",
+      "error": "Impossible de charger la matrice programme / navire depuis les données cartographiques.",
+      "summary": "{{total}} plateformes attribuées à un navire · {{mismatches}} où pays programme ≠ pavillon",
+      "mismatchesOnly": "Écarts uniquement (programme ≠ navire)",
+      "programCountry": "Pays programme",
+      "shipCountry": "Pays navire",
+      "platforms": "Plateformes",
+      "empty": "Aucune combinaison ne correspond aux filtres actuels.",
+      "footnote": "Seules les paires programme / navire non nulles sont affichées. Lignes orange : même pays programme et pavillon ; bleues : attributions différentes. Le filtrage cartographique utilise toujours le pays programme."
+    }
   }
 }

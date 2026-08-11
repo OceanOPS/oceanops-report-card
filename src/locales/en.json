@@ -714,6 +714,19 @@
   },
   "operationalPlatforms": {
     "mapAlt": "Global platform distribution map",
+    "programShipMatrix": {
+      "title": "Program country × Ship country",
+      "description": "Cross-tabulation of operational platforms by program country (network attribution) and ship flag country at deployment. Only platforms with both attributes are included.",
+      "loading": "Loading program / ship matrix…",
+      "error": "Could not load the program / ship matrix from map data.",
+      "summary": "{{total}} ship-attributed platforms · {{mismatches}} where program country ≠ ship flag",
+      "mismatchesOnly": "Mismatches only (program ≠ ship)",
+      "programCountry": "Program country",
+      "shipCountry": "Ship country",
+      "platforms": "Platforms",
+      "empty": "No combinations match the current filters.",
+      "footnote": "Only non-zero program / ship pairs are shown. Orange rows: same program and ship flag; blue rows: different attribution. Map filtering still uses program country only."
+    },
     "platformButton": "About operational platform definitions",
     "platformModal": {
       "title": "Operational Platform Definitions",
