@@ -8,7 +8,7 @@ import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import ProgramShipMatrix from './components/ProgramShipMatrix'
+// import ProgramShipMatrix from './components/ProgramShipMatrix'
 import InSituNetworksSection from './components/InSituNetworksSection'
 import { sortedInSituNetworks } from './data/inSituNetworks'
 import Spacer from './components/Spacer'
@@ -457,7 +457,8 @@ function App() {
         backgroundColor="bg-goos-blue-900"
       />
 
-      <ProgramShipMatrix mapBaseUrl={MAP_SRC} />
+      {/* Program × ship matrix — hidden until map GeoJSON on Netlify includes country_ship */}
+      {/* <ProgramShipMatrix mapBaseUrl={MAP_SRC} /> */}
 
       {/* Operational Platforms Definition Button */}
       <div className="flex justify-center bg-goos-blue-900 pb-4 sm:pb-6 md:pb-8">
