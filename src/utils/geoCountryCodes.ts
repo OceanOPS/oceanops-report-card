@@ -25,7 +25,7 @@ const GEO_COUNTRY_ISO: Record<string, string> = {
   FRANCE: 'FR',
   GERMANY: 'DE',
   GREECE: 'GR',
-  'HONG KONG': 'HK',
+  'HONG KONG': 'CN',
   ICELAND: 'IS',
   INDIA: 'IN',
   INDONESIA: 'ID',
