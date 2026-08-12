@@ -8,7 +8,7 @@ import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import ProgramShipMatrix from './components/ProgramShipMatrix'
+// import ProgramShipMatrix from './components/ProgramShipMatrix'
 import OperationalPlatformDefinitionsModal from './components/OperationalPlatformDefinitionsModal'
 import InSituNetworksSection from './components/InSituNetworksSection'
 import { sortedInSituNetworks } from './data/inSituNetworks'
@@ -474,7 +474,8 @@ function App() {
         />
       </div>
 
-      <ProgramShipMatrix mapBaseUrl={MAP_SRC} />
+      {/* Program × ship matrix — hidden for now */}
+      {/* <ProgramShipMatrix mapBaseUrl={MAP_SRC} /> */}
       </div>
 
       <InSituNetworksSection
