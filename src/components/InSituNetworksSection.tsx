@@ -4,7 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import CarouselArrow from './CarouselArrow'
-import FlipNetworkCard from './FlipNetworkCard'
+import FlipNetworkCard, { FlipCardsIcon } from './FlipNetworkCard'
 import NetworkComparisonMatrix from './NetworkComparisonMatrix'
 import EmergingNetworkMediaModal from './EmergingNetworkMediaModal'
 import type { InSituNetwork } from '../types/inSituNetworks'
@@ -148,8 +148,9 @@ export default function InSituNetworksSection({
                 className={`text-2xl sm:text-3xl font-extrabold ${titleColor} leading-tight`}
                 dangerouslySetInnerHTML={{ __html: t('networks.comparison.mobileTitle') }}
               />
-              <p className={`${titleColor} opacity-80 text-sm`}>
-                {t('networks.comparison.mobileHint')}
+              <p className={`${titleColor} opacity-80 text-sm flex items-center gap-2`}>
+                <FlipCardsIcon className={cardAccentColor} />
+                <span>{t('networks.comparison.mobileHint')}</span>
               </p>
             </div>
           </div>

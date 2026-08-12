@@ -578,6 +578,8 @@
       "legendLabel": "Légende",
       "sectionMature": "Réseaux matures",
       "sectionEmerging": "Réseaux émergents",
+      "matureNetworkLabel": "Réseau mature",
+      "emergingNetworkLabel": "Réseau émergent",
       "networksShown": "{{count}} réseaux affichés",
       "noResults": "Aucun réseau ne correspond aux filtres sélectionnés.",
       "applications": "Applications",
@@ -775,12 +777,22 @@
       "loading": "Chargement de la matrice programme / navire…",
       "error": "Impossible de charger la matrice programme / navire depuis les données cartographiques.",
       "summary": "{{total}} plateformes attribuées à un navire · {{mismatches}} où pays programme ≠ pavillon",
+      "statsPairs": "{{count}} paires",
+      "statsMismatchShare": "{{pct}} % d'écarts",
+      "statsSameShare": "{{pct}} % même pavillon",
       "mismatchesOnly": "Écarts uniquement (programme ≠ navire)",
-      "programCountry": "Pays programme",
-      "shipCountry": "Pays navire",
+      "programCountry": "Programme",
+      "shipCountry": "Pavillon",
       "platforms": "Plateformes",
+      "shareTotal": "Du total",
+      "shareTotalHint": "Part de l'ensemble des plateformes attribuées à un navire",
+      "shareProgram": "Du programme",
+      "shareProgramHint": "Part au sein des plateformes de ce pays programme",
+      "columnGuide": "Du total = part de toutes les plateformes avec navire. Du programme = part au sein de ce pays programme.",
+      "legendSame": "Même programme et pavillon",
+      "legendDifferent": "Attribution différente",
       "empty": "Aucune combinaison ne correspond aux filtres actuels.",
-      "footnote": "Seules les paires programme / navire non nulles sont affichées. Lignes orange : même pays programme et pavillon ; bleues : attributions différentes. Le filtrage cartographique utilise toujours le pays programme."
+      "footnote": "Tri par nombre de plateformes. Le filtrage cartographique utilise le pays programme uniquement."
     }
   }
 }

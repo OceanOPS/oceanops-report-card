@@ -7,7 +7,7 @@ import type { InSituNetwork } from '../types/inSituNetworks'
 import { hasEmergingNetworkMedia } from '../data/emergingNetworkMedia'
 
 /** Stacked cards — common “flip card” affordance */
-function FlipCardsIcon({ className = '' }: { className?: string }) {
+export function FlipCardsIcon({ className = '' }: { className?: string }) {
   return (
     <svg
       width="18"
@@ -79,12 +79,21 @@ export default function FlipNetworkCard({
     event.stopPropagation()
   }
 
-  const caption = isFlipped
-    ? t('networks.comparison.tapForRatings')
-    : t('networks.comparison.tapForDetails')
-
   return (
     <div className={`w-full flex flex-col ${className}`}>
+      <p
+        className={`mb-2 px-1 font-bold uppercase tracking-[0.14em] ${
+          network.maturity === 'emerging'
+            ? 'text-goos-cyan-300 text-sm sm:text-base'
+            : 'text-goos-blue-500 text-sm'
+        }`}
+      >
+        {t(
+          network.maturity === 'emerging'
+            ? 'networks.comparison.emergingNetworkLabel'
+            : 'networks.comparison.matureNetworkLabel',
+        )}
+      </p>
       <div
         role="button"
         tabIndex={0}
@@ -166,13 +175,6 @@ export default function FlipNetworkCard({
           </div>
         </div>
       </div>
-
-      <p
-        className={`${accentColor} mt-3 shrink-0 flex items-center justify-center gap-2 text-sm font-medium px-1`}
-      >
-        <FlipCardsIcon className={accentColor} />
-        <span>{caption}</span>
-      </p>
     </div>
   )
 }

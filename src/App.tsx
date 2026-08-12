@@ -8,7 +8,8 @@ import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-// import ProgramShipMatrix from './components/ProgramShipMatrix'
+import ProgramShipMatrix from './components/ProgramShipMatrix'
+import OperationalPlatformDefinitionsModal from './components/OperationalPlatformDefinitionsModal'
 import InSituNetworksSection from './components/InSituNetworksSection'
 import { sortedInSituNetworks } from './data/inSituNetworks'
 import Spacer from './components/Spacer'
@@ -457,9 +458,6 @@ function App() {
         backgroundColor="bg-goos-blue-900"
       />
 
-      {/* Program × ship matrix — hidden until map GeoJSON on Netlify includes country_ship */}
-      {/* <ProgramShipMatrix mapBaseUrl={MAP_SRC} /> */}
-
       {/* Operational Platforms Definition Button */}
       <div className="flex justify-center bg-goos-blue-900 pb-4 sm:pb-6 md:pb-8">
         <Button
@@ -468,159 +466,15 @@ function App() {
           modalTitle={t('operationalPlatforms.platformModal.title')}
           modalMaxWidth="lg"
           modalBackgroundColor="bg-goos-blue-900"
-          modalContent={
-            <div className="flex flex-col gap-4 sm:gap-6">
-              {/* Intro */}
-              <p className="text-base sm:text-lg leading-relaxed text-white">
-                {t('operationalPlatforms.platformModal.intro')}
-              </p>
-
-              {/* Ship-Based Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.shipBased.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Fixed Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.fixedPlatforms.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Mobile Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.mobilePlatforms.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          }
+          modalContent={<OperationalPlatformDefinitionsModal />}
           textColor="text-white"
           bgColor="bg-goos-orange-600"
           iconColor="text-goos-orange-600"
           iconBgColor="bg-white"
         />
       </div>
+
+      <ProgramShipMatrix mapBaseUrl={MAP_SRC} />
       </div>
 
       <InSituNetworksSection

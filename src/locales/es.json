@@ -521,6 +521,8 @@
       "legendLabel": "Leyenda",
       "sectionMature": "Redes maduras",
       "sectionEmerging": "Redes emergentes",
+      "matureNetworkLabel": "Red madura",
+      "emergingNetworkLabel": "Red emergente",
       "networksShown": "{{count}} redes mostradas",
       "noResults": "Ninguna red coincide con los filtros seleccionados.",
       "applications": "Aplicaciones",
@@ -786,12 +788,22 @@
       "loading": "Cargando matriz programa / buque…",
       "error": "No se pudo cargar la matriz programa / buque desde los datos del mapa.",
       "summary": "{{total}} plataformas con buque · {{mismatches}} donde país programa ≠ bandera del buque",
+      "statsPairs": "{{count}} pares",
+      "statsMismatchShare": "{{pct}} % discrepancias",
+      "statsSameShare": "{{pct}} % misma bandera",
       "mismatchesOnly": "Solo discrepancias (programa ≠ buque)",
-      "programCountry": "País programa",
-      "shipCountry": "País del buque",
+      "programCountry": "Programa",
+      "shipCountry": "Bandera",
       "platforms": "Plataformas",
+      "shareTotal": "Del total",
+      "shareTotalHint": "Proporción de todas las plataformas con buque atribuido",
+      "shareProgram": "Del programa",
+      "shareProgramHint": "Proporción dentro de las plataformas de ese país programa",
+      "columnGuide": "Del total = proporción de todas las plataformas con buque. Del programa = proporción dentro de ese país programa.",
+      "legendSame": "Mismo programa y bandera",
+      "legendDifferent": "Atribución distinta",
       "empty": "Ninguna combinación coincide con los filtros actuales.",
-      "footnote": "Solo se muestran pares programa / buque con valores. Filas naranjas: mismo país programa y bandera; azules: atribución distinta. El filtrado del mapa sigue usando solo el país programa."
+      "footnote": "Ordenado por número de plataformas. El filtrado del mapa usa solo el país programa."
     }
   }
 }

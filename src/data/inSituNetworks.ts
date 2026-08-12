@@ -6,6 +6,7 @@ import { NETWORK_ESSENTIAL_VARIABLES } from './networkEssentialVariables'
  *
  * Ratings and delivery areas are editorial (OceanOPS / GOOS evaluation).
  * Emerging networks use notYetRated until editorial scores are available.
+ * sortOrder: oldest → newest within mature (1–13), then emerging (14–17), matching last year's carousel order.
  * Applications, coverage and YoY will be enriched when editorial content is available.
  */
 
@@ -20,7 +21,7 @@ const EMERGING_PENDING_RATINGS: NetworkRatings = {
 export const inSituNetworks: InSituNetworkRecord[] = [
   {
     id: 'argo',
-    sortOrder: 1,
+    sortOrder: 11,
     maturity: 'mature',
     iconPath: '/icons/network/argo.svg',
     iconAlt: 'networks.argo.iconAlt',
@@ -49,7 +50,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'dbcpMoored',
-    sortOrder: 2,
+    sortOrder: 7,
     maturity: 'mature',
     iconPath: '/icons/network/dbcp_moored.svg',
     iconAlt: 'networks.dbcpMoored.iconAlt',
@@ -71,7 +72,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'goShip',
-    sortOrder: 3,
+    sortOrder: 4,
     maturity: 'mature',
     iconPath: '/icons/network/go_ship.svg',
     iconAlt: 'networks.goShip.iconAlt',
@@ -93,7 +94,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'dbcpTsunami',
-    sortOrder: 4,
+    sortOrder: 8,
     maturity: 'mature',
     iconPath: '/icons/network/tsunami_buoys.svg',
     iconAlt: 'networks.dbcpTsunami.iconAlt',
@@ -115,7 +116,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'hfRadar',
-    sortOrder: 5,
+    sortOrder: 9,
     maturity: 'mature',
     iconPath: '/icons/network/hf_radar.svg',
     iconAlt: 'networks.hfRadar.iconAlt',
@@ -137,7 +138,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'dbcpDrifting',
-    sortOrder: 6,
+    sortOrder: 10,
     maturity: 'mature',
     iconPath: '/icons/network/dbcp_drifters.svg',
     iconAlt: 'networks.dbcpDrifting.iconAlt',
@@ -159,7 +160,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'gloss',
-    sortOrder: 7,
+    sortOrder: 5,
     maturity: 'mature',
     iconPath: '/icons/network/gloss.svg',
     iconAlt: 'networks.gloss.iconAlt',
@@ -181,7 +182,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'oceanSites',
-    sortOrder: 8,
+    sortOrder: 6,
     maturity: 'mature',
     iconPath: '/icons/network/ocean_sites.svg',
     iconAlt: 'networks.oceanSites.iconAlt',
@@ -203,7 +204,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'gliders',
-    sortOrder: 9,
+    sortOrder: 12,
     maturity: 'mature',
     iconPath: '/icons/network/ocean_gliders.svg',
     iconAlt: 'networks.gliders.iconAlt',
@@ -225,7 +226,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'anibos',
-    sortOrder: 10,
+    sortOrder: 13,
     maturity: 'mature',
     iconPath: '/icons/network/ani_bos.svg',
     iconAlt: 'networks.anibos.iconAlt',
@@ -247,7 +248,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'sotVos',
-    sortOrder: 11,
+    sortOrder: 1,
     maturity: 'mature',
     iconPath: '/icons/network/vos.svg',
     iconAlt: 'networks.sotVos.iconAlt',
@@ -269,7 +270,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'sotXbt',
-    sortOrder: 12,
+    sortOrder: 2,
     maturity: 'mature',
     iconPath: '/icons/network/xbt-soop.svg',
     iconAlt: 'networks.sotXbt.iconAlt',
@@ -291,7 +292,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
   },
   {
     id: 'sotAsap',
-    sortOrder: 13,
+    sortOrder: 3,
     maturity: 'mature',
     iconPath: '/icons/network/asap.svg',
     iconAlt: 'networks.sotAsap.iconAlt',

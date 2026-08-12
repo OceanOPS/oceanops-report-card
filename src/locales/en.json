@@ -566,6 +566,8 @@
       "legendLabel": "Legend",
       "sectionMature": "Mature networks",
       "sectionEmerging": "Emerging networks",
+      "matureNetworkLabel": "Mature network",
+      "emergingNetworkLabel": "Emerging network",
       "networksShown": "{{count}} networks shown",
       "noResults": "No networks match the selected filters.",
       "applications": "Applications",
@@ -719,12 +721,22 @@
       "loading": "Loading program / ship matrix…",
       "error": "Could not load the program / ship matrix from map data.",
       "summary": "{{total}} ship-attributed platforms · {{mismatches}} where program country ≠ ship flag",
+      "statsPairs": "{{count}} pairs",
+      "statsMismatchShare": "{{pct}}% mismatched",
+      "statsSameShare": "{{pct}}% same flag",
       "mismatchesOnly": "Mismatches only (program ≠ ship)",
-      "programCountry": "Program country",
-      "shipCountry": "Ship country",
+      "programCountry": "Program",
+      "shipCountry": "Ship flag",
       "platforms": "Platforms",
+      "shareTotal": "Of all",
+      "shareTotalHint": "Share of all ship-attributed platforms",
+      "shareProgram": "Of program",
+      "shareProgramHint": "Share within this program country's platforms",
+      "columnGuide": "Of all = share of every ship-attributed platform. Of program = share within that program country.",
+      "legendSame": "Same program & ship flag",
+      "legendDifferent": "Different attribution",
       "empty": "No combinations match the current filters.",
-      "footnote": "Only non-zero program / ship pairs are shown. Orange rows: same program and ship flag; blue rows: different attribution. Map filtering still uses program country only."
+      "footnote": "Sorted by platform count. Map filtering uses program country only."
     },
     "platformButton": "About operational platform definitions",
     "platformModal": {
@@ -739,7 +751,7 @@
           },
           "oceanographic": {
             "title": "Ship based oceanographic – SOT/XBT-SOOP",
-            "content": "XBT-SOOP-lines sampled since 2024"
+            "content": "XBT-SOOP-lines sampled since {{year}}"
           },
           "aerological": {
             "title": "Ship based aerological – SOT/ASAP",
@@ -750,11 +762,11 @@
           "title": "Fixed",
           "repeatedTransects": {
             "title": "Repeated transects – GO-SHIP",
-            "content": "Core GO-SHIP lines sampled since 2015"
+            "content": "Core GO-SHIP lines sampled since {{year}}"
           },
           "fishingVessels": {
             "title": "Fishing vessels – FVON",
-            "content": "Fishing vessels that have been deployed since 1 January 2025"
+            "content": "Fishing vessels that have been deployed since {{date}}"
           },
           "seaLevelGauges": {
             "title": "Sea level gauges – GLOSS",
@@ -789,11 +801,11 @@
           },
           "gliders": {
             "title": "Gliders – OceanGliders",
-            "content": "Gliders that have been deployed since 1 January 2024"
+            "content": "Gliders that have been deployed since {{date}}"
           },
           "animalBorne": {
             "title": "Animal borne sensors – AniBOS",
-            "content": "Animal-borne sensors that have been deployed since 1 January 2025"
+            "content": "Animal-borne sensors that have been deployed since {{date}}"
           }
         }
       }
