@@ -45,21 +45,11 @@ function rowBackgroundClass(isExpanded: boolean): string {
   return isExpanded ? 'bg-goos-blue-800' : 'hover:bg-goos-blue-800/50'
 }
 
-function SectionHeaderRow({
-  label,
-  variant,
-}: {
-  label: string
-  variant: 'mature' | 'emerging'
-}) {
+function SectionHeaderRow({ label }: { label: string }) {
   return (
     <tr>
       <td colSpan={COLUMN_COUNT} className="px-3 pt-6 pb-3">
-        <p
-          className={`font-bold uppercase tracking-[0.14em] text-sm ${
-            variant === 'emerging' ? 'text-goos-cyan-300' : 'text-goos-blue-500'
-          }`}
-        >
+        <p className="font-bold uppercase tracking-[0.14em] text-sm text-goos-blue-500">
           {label}
         </p>
       </td>
@@ -380,19 +370,13 @@ export default function NetworkComparisonMatrix({
           <tbody>
             {matureNetworks.length > 0 && (
               <>
-                <SectionHeaderRow
-                  label={t('networks.comparison.sectionMature')}
-                  variant="mature"
-                />
+                <SectionHeaderRow label={t('networks.comparison.sectionMature')} />
                 {renderNetworkRows(matureNetworks)}
               </>
             )}
             {emergingNetworks.length > 0 && (
               <>
-                <SectionHeaderRow
-                  label={t('networks.comparison.sectionEmerging')}
-                  variant="emerging"
-                />
+                <SectionHeaderRow label={t('networks.comparison.sectionEmerging')} />
                 {renderNetworkRows(emergingNetworks)}
               </>
             )}
