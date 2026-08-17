@@ -244,7 +244,7 @@
         "stat1": {
           "number": "64",
           "description": "países contribuyentes",
-          "evolutionVs2024": "{{delta}} vs 2024",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Acerca del conteo de países contribuyentes",
           "infoModalContent": "En esta edición, el número de Estados Miembros contribuyentes aparece inferior al de la Tarjeta de Reporte GOOS 2023. Esto se debe principalmente a la aplicación de criterios operacionales actualizados para las estaciones GLOSS, según lo acordado con el Equipo Directivo de GLOSS, y a una revisión de cómo se contabilizan las contribuciones de la UE a GOOS—tratando a la Unión Europea como una sola entidad en lugar de como 27 países individuales, como se hacía anteriormente. Esta metodología refinada se mantendrá en futuras ediciones del Informe de Estado de GOOS."
         },
@@ -256,7 +256,7 @@
         "stat3": {
           "number": "9,389",
           "description": "plataformas de observación del océano",
-          "evolutionVs2024": "{{delta}} vs 2024"
+          "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
           "number": "120,000+",
@@ -737,7 +737,7 @@
     "menuLabel": "Menú",
     "pastReports": "Reportes Anteriores",
     "pastReportsLinks": {
-      "2024": "Tarjeta de Reporte 2024",
+      "2025": "Tarjeta de Reporte 2025",
       "2023": "Tarjeta de Reporte 2023",
       "2022": "Tarjeta de Reporte 2022",
       "2021": "Tarjeta de Reporte 2021"

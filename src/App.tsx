@@ -32,14 +32,15 @@ import { asset } from './utils/assets'
 import { scrollToSection } from './utils/scrollToSection'
 import {
   contributingCountries,
-  countriesDeltaVs2024,
-  platformsDeltaVs2024,
+  countriesDeltaVsLastYear,
+  LAST_REPORT_YEAR,
+  platformsDeltaVsLastYear,
   totalPlatforms,
 } from './utils/partnerCountryStats'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
-const platformDeltaLabel = `${platformsDeltaVs2024 >= 0 ? '+' : ''}${fmt(platformsDeltaVs2024)}`
-const countryDeltaLabel = `${countriesDeltaVs2024 >= 0 ? '+' : ''}${fmt(countriesDeltaVs2024)}`
+const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
+const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(countriesDeltaVsLastYear)}`
 
 function App() {
   const { t } = useTranslation()
@@ -413,10 +414,11 @@ function App() {
             {
               number: fmt(contributingCountries),
               description: t('content.section1.stats.stat1.description'),
-              evolution: t('content.section1.stats.stat1.evolutionVs2024', {
+              evolution: t('content.section1.stats.stat1.evolutionVsLastYear', {
                 delta: countryDeltaLabel,
+                year: LAST_REPORT_YEAR,
               }),
-              evolutionDirection: countriesDeltaVs2024 >= 0 ? 'up' : 'down',
+              evolutionDirection: countriesDeltaVsLastYear >= 0 ? 'up' : 'down',
               infoModal: {
                 title: t('content.section1.stats.stat1.infoModalTitle'),
                 content: (
@@ -434,10 +436,11 @@ function App() {
             {
               number: fmt(totalPlatforms),
               description: t('content.section1.stats.stat3.description'),
-              evolution: t('content.section1.stats.stat3.evolutionVs2024', {
+              evolution: t('content.section1.stats.stat3.evolutionVsLastYear', {
                 delta: platformDeltaLabel,
+                year: LAST_REPORT_YEAR,
               }),
-              evolutionDirection: platformsDeltaVs2024 >= 0 ? 'up' : 'down',
+              evolutionDirection: platformsDeltaVsLastYear >= 0 ? 'up' : 'down',
             },
             {
               number: t('content.section1.stats.stat4.number'),

@@ -15,12 +15,15 @@ for (const { networks } of partnerCountries) {
 
 export { contributingCountries, totalPlatforms }
 
-/** 2024 GOOS Report Card operational platform total (same methodology family). */
-export const PLATFORMS_2024 = 9389
+/** Previous GOOS Status Report edition used as baseline (update when a new report is published). */
+export const LAST_REPORT_YEAR = '2025'
 
-export const platformsDeltaVs2024 = totalPlatforms - PLATFORMS_2024
+/** Previous report operational platform total (same methodology family). */
+export const PLATFORMS_LAST_YEAR = 9389
 
-/** 2024 GOOS Report Card contributing countries count (same methodology family). */
-export const CONTRIBUTING_COUNTRIES_2024 = 64
+export const platformsDeltaVsLastYear = totalPlatforms - PLATFORMS_LAST_YEAR
 
-export const countriesDeltaVs2024 = contributingCountries - CONTRIBUTING_COUNTRIES_2024
+/** Previous report contributing countries count (same methodology family). */
+export const CONTRIBUTING_COUNTRIES_LAST_YEAR = 64
+
+export const countriesDeltaVsLastYear = contributingCountries - CONTRIBUTING_COUNTRIES_LAST_YEAR

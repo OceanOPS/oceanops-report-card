@@ -250,7 +250,7 @@
         "stat1": {
           "number": "64",
           "description": "contributing countries",
-          "evolutionVs2024": "{{delta}} vs 2024",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "About Contributing Countries Count",
           "infoModalContent": "In this edition, the number of contributing Member States appears lower than in the 2023 GOOS Report Card. This is primarily due to the application of updated operational criteria for GLOSS stations, as agreed with the GLOSS Steering Team, and a revision of how EU contributions to GOOS are counted—treating the European Union as a single entity rather than as 27 individual countries, as previously done. This refined methodology will be maintained in future editions of the GOOS Status Report."
         },
@@ -262,7 +262,7 @@
         "stat3": {
           "number": "9,389",
           "description": "ocean observing platforms",
-          "evolutionVs2024": "{{delta}} vs 2024"
+          "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
           "number": "120,000+",
@@ -991,6 +991,7 @@
     "closeMenu": "Close menu",
     "pastReports": "Past Reports",
     "pastReportsLinks": {
+      "2025": "Report Card 2025",
       "2023": "Report Card 2023",
       "2022": "Report Card 2022",
       "2021": "Report Card 2021",
