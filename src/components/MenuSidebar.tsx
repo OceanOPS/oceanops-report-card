@@ -266,19 +266,31 @@ export default function MenuSidebar({
 
   return (
     <>
-      {/* Hamburger Menu Button - Fixed Top Right */}
+      {/* Menu button — icon + label so purpose is clear */}
       <button
         ref={buttonRef}
-        onClick={() => externalIsOpen !== undefined ? onClose?.() : setInternalIsOpen(true)}
-        className={`fixed right-4 sm:right-8 md:right-12 lg:right-16 z-50 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-goos-blue-700 hover:bg-goos-blue-600 flex flex-col items-center justify-center gap-1.5 sm:gap-2 rounded-full transition-all duration-300 ${
+        onClick={() => {
+          if (externalIsOpen !== undefined) {
+            onClose?.()
+          } else {
+            setInternalIsOpen((prev) => !prev)
+          }
+        }}
+        className={`fixed right-4 sm:right-8 md:right-12 lg:right-16 z-50 flex items-center gap-2.5 pl-3 pr-4 py-2.5 sm:gap-3 sm:pl-4 sm:pr-5 sm:py-3 bg-goos-blue-700 hover:bg-goos-blue-600 rounded-full transition-all duration-300 shadow-md ${
           isDeliveryNavVisible ? 'top-16' : 'top-4'
         } sm:top-8 md:top-12 lg:top-16`}
         style={{ opacity: 0 }}
         aria-label={t('menu.openMenu')}
+        aria-expanded={isOpen}
       >
-        <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
-        <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
-        <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
+        <span className="flex flex-col items-center justify-center gap-1 shrink-0" aria-hidden="true">
+          <span className="w-4 sm:w-5 h-0.5 bg-goos-white rounded-full" />
+          <span className="w-4 sm:w-5 h-0.5 bg-goos-white rounded-full" />
+          <span className="w-4 sm:w-5 h-0.5 bg-goos-white rounded-full" />
+        </span>
+        <span className="text-sm sm:text-base font-semibold text-goos-white whitespace-nowrap">
+          {t('menu.menuLabel')}
+        </span>
       </button>
 
       {/* Overlay */}
