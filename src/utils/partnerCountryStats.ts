@@ -19,3 +19,8 @@ export { contributingCountries, totalPlatforms }
 export const PLATFORMS_2024 = 9389
 
 export const platformsDeltaVs2024 = totalPlatforms - PLATFORMS_2024
+
+/** 2024 GOOS Report Card contributing countries count (same methodology family). */
+export const CONTRIBUTING_COUNTRIES_2024 = 64
+
+export const countriesDeltaVs2024 = contributingCountries - CONTRIBUTING_COUNTRIES_2024
