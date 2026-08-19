@@ -1,5 +1,8 @@
-import { partnerCountries, type PartnerCountry } from '../data/partnerCountries'
-import { countContributingCountries } from './contributingCountriesCount'
+import {
+  partnerCountries,
+  CONTRIBUTING_COUNTRIES,
+  type PartnerCountry,
+} from '../data/partnerCountries'
 
 function platforms(networks: PartnerCountry['networks']): number {
   return Object.values(networks).reduce((sum, n) => sum + (n > 0 ? n : 0), 0)
@@ -11,9 +14,9 @@ for (const { networks } of partnerCountries) {
   totalPlatforms += platforms(networks)
 }
 
-const contributingCountries = countContributingCountries(partnerCountries)
+export const contributingCountries = CONTRIBUTING_COUNTRIES
 
-export { contributingCountries, totalPlatforms }
+export { totalPlatforms }
 
 /** Previous GOOS Status Report edition used as baseline (update when a new report is published). */
 export const LAST_REPORT_YEAR = '2025'

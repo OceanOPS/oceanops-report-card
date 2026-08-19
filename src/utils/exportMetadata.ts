@@ -8,6 +8,11 @@ export type ExportMetadata = {
   FVON_MIN_LOC_DATE: string
   SOOP_XBT_SAMPLED_SINCE: string
   GOSHIP_SAMPLED_SINCE: string
+  OBS_DAYS_WINDOW?: string
+  OBSERVATIONS_PER_DAY_AVG?: number
+  OBSERVATIONS_DAYS_WINDOW?: number
+  OBSERVATIONS_DAYS_WITH_DATA?: number
+  OBSERVATIONS_TOTAL?: number
 }
 
 /** Fallback when export-metadata.json is missing (matches edition.values.json). */
@@ -18,6 +23,7 @@ export const DEFAULT_EXPORT_METADATA: ExportMetadata = {
   FVON_MIN_LOC_DATE: '2025-01-01',
   SOOP_XBT_SAMPLED_SINCE: '2024-01-01',
   GOSHIP_SAMPLED_SINCE: '2015-01-01',
+  OBS_DAYS_WINDOW: '365',
 }
 
 let cached: ExportMetadata | null = null

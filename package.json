@@ -9,7 +9,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "export:partners": "npm run export:partners --prefix ../oceanops-data-exports",
-    "export:partners:dry-run": "npm run export:partners:dry-run --prefix ../oceanops-data-exports"
+    "export:partners:dry-run": "npm run export:partners:dry-run --prefix ../oceanops-data-exports",
+    "export:observations": "npm run export:observations --prefix ../oceanops-data-exports",
+    "export:observations:dry-run": "npm run export:observations:dry-run --prefix ../oceanops-data-exports"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.2.8",

@@ -37,6 +37,7 @@ import {
   platformsDeltaVsLastYear,
   totalPlatforms,
 } from './utils/partnerCountryStats'
+import { formatObservationsPerDay } from './utils/formatObservationsPerDay'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
@@ -443,7 +444,7 @@ function App() {
               evolutionDirection: platformsDeltaVsLastYear >= 0 ? 'up' : 'down',
             },
             {
-              number: t('content.section1.stats.stat4.number'),
+              number: formatObservationsPerDay(),
               description: t('content.section1.stats.stat4.description'),
             },
           ]}
