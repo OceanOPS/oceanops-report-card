@@ -17,3 +17,15 @@ export const OBSERVATIONS_DAYS_WITH_DATA = 241
 
 /** Total observations in the window. */
 export const OBSERVATIONS_TOTAL = 25410384
+
+/** Inclusive start of the averaging window (ISO date). */
+export const OBSERVATIONS_PERIOD_START = '2025-12-22'
+
+/** Inclusive end of the averaging window (ISO date). */
+export const OBSERVATIONS_PERIOD_END = '2026-08-18'
+
+/** Same methodology, previous-year aligned window (for stat4 YoY badge). */
+export const OBSERVATIONS_PER_DAY_AVG_LAST_YEAR = 122400
+
+/** Delta vs previous year (obs/day). */
+export const OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR = -16963

@@ -37,14 +37,19 @@ import {
   platformsDeltaVsLastYear,
   totalPlatforms,
 } from './utils/partnerCountryStats'
-import { formatObservationsPerDay } from './utils/formatObservationsPerDay'
+import { formatObservationsDelta, formatObservationsPerDay, formatObservationsPeriod } from './utils/formatObservationsPerDay'
+import { OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR } from './data/editionStats'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
 const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(countriesDeltaVsLastYear)}`
 
 function App() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const obsLocale =
+    i18n.language === 'fr' ? 'fr-FR' : i18n.language === 'es' ? 'es-ES' : 'en-US'
+  const observationsPeriod = formatObservationsPeriod(obsLocale)
+  const observationsDeltaLabel = formatObservationsDelta(OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR)
   const [isLoading, setIsLoading] = useState(true)
 
   // Indicators modal collapsible states
@@ -445,7 +450,14 @@ function App() {
             },
             {
               number: formatObservationsPerDay(),
+              numberClassName: 'text-3xl sm:text-4xl md:text-5xl',
               description: t('content.section1.stats.stat4.description'),
+              periodNote: t('content.section1.stats.stat4.periodNote', observationsPeriod),
+              evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
+                delta: observationsDeltaLabel,
+                year: LAST_REPORT_YEAR,
+              }),
+              evolutionDirection: OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR >= 0 ? 'up' : 'down',
             },
           ]}
           backgroundColor="bg-goos-blue-900"

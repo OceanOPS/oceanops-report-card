@@ -1,0 +1,213 @@
+{
+  "exportedAt": "2026-08-18",
+  "methodology": "source hierarchy (GTS MF obs subsets + GDAC/IOOS/VOTO + AniBOS + FVON + tsunami OSMC)",
+  "bootstrapNote": "Partial bootstrap from gts-network-obs-yoy.json (GTS networks, calendar YTD). GDAC/AniBOS/FVON rows pending — re-run npm run export:observations on prod.",
+  "headline": {
+    "currentAvgPerDay": 105437,
+    "previousAvgPerDay": 122400,
+    "deltaAvg": -16963
+  },
+  "headlinePeriod": {
+    "current": "2025-12-22 → 2026-08-18",
+    "daysWindow": 240
+  },
+  "currentYear": 2026,
+  "previousYear": 2025,
+  "currentPeriod": "2026-01-01 → 2026-08-18",
+  "previousPeriod": "2025-01-01 → 2025-08-18",
+  "networks": [
+    {
+      "id": "dbcp-moored",
+      "label": "DBCP moored buoys",
+      "current": {
+        "avgPerDay": 47114,
+        "daysWithData": 228,
+        "total": 10741895
+      },
+      "previous": {
+        "avgPerDay": 59231,
+        "daysWithData": 230,
+        "total": 13623079
+      },
+      "deltaAvg": -12117,
+      "deltaPct": -20.5,
+      "source": "GTS MF"
+    },
+    {
+      "id": "tsunameter",
+      "label": "DBCP tsunameter buoys",
+      "current": {
+        "avgPerDay": 3508,
+        "daysWithData": 228,
+        "total": 799838
+      },
+      "previous": {
+        "avgPerDay": 4375,
+        "daysWithData": 230,
+        "total": 1006321
+      },
+      "deltaAvg": -867,
+      "deltaPct": -19.8,
+      "source": "GTS OSMC"
+    },
+    {
+      "id": "dbcp-drifting",
+      "label": "DBCP drifting buoys",
+      "current": {
+        "avgPerDay": 29226,
+        "daysWithData": 228,
+        "total": 6663509
+      },
+      "previous": {
+        "avgPerDay": 34743,
+        "daysWithData": 230,
+        "total": 7990858
+      },
+      "deltaAvg": -5517,
+      "deltaPct": -15.9,
+      "source": "GTS MF"
+    },
+    {
+      "id": "vos",
+      "label": "VOS (SOT)",
+      "current": {
+        "avgPerDay": 20800,
+        "daysWithData": 228,
+        "total": 4742471
+      },
+      "previous": {
+        "avgPerDay": 21248,
+        "daysWithData": 230,
+        "total": 4887148
+      },
+      "deltaAvg": -448,
+      "deltaPct": -2.1,
+      "source": "GTS MF"
+    },
+    {
+      "id": "soop-xbt",
+      "label": "SOOP XBT (SOT)",
+      "current": {
+        "avgPerDay": 16,
+        "daysWithData": 158,
+        "total": 2538
+      },
+      "previous": {
+        "avgPerDay": 12,
+        "daysWithData": 166,
+        "total": 1981
+      },
+      "deltaAvg": 4,
+      "deltaPct": 33.3,
+      "source": "GTS MF"
+    },
+    {
+      "id": "argo-gdac",
+      "label": "Argo (GDAC)",
+      "source": "GDAC",
+      "pendingProdExport": true,
+      "current": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "previous": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "deltaAvg": null,
+      "deltaPct": null
+    },
+    {
+      "id": "gliders-gdac",
+      "label": "OceanGliders (GDAC)",
+      "source": "GDAC",
+      "pendingProdExport": true,
+      "current": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "previous": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "deltaAvg": null,
+      "deltaPct": null
+    },
+    {
+      "id": "gliders-ioos",
+      "label": "OceanGliders (IOOS)",
+      "source": "IOOS",
+      "pendingProdExport": true,
+      "current": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "previous": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "deltaAvg": null,
+      "deltaPct": null
+    },
+    {
+      "id": "gliders-voto",
+      "label": "OceanGliders (VOTO)",
+      "source": "VOTO",
+      "pendingProdExport": true,
+      "current": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "previous": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "deltaAvg": null,
+      "deltaPct": null
+    },
+    {
+      "id": "anibos",
+      "label": "AniBOS",
+      "source": "AniBOS/MEOP",
+      "pendingProdExport": true,
+      "current": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "previous": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "deltaAvg": null,
+      "deltaPct": null
+    },
+    {
+      "id": "fvon",
+      "label": "FVON (fishing vessels)",
+      "source": "FishyData",
+      "pendingProdExport": true,
+      "current": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "previous": {
+        "avgPerDay": null,
+        "daysWithData": null,
+        "total": null
+      },
+      "deltaAvg": null,
+      "deltaPct": null
+    }
+  ]
+}

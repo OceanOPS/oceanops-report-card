@@ -119,6 +119,8 @@ type ButtonConfig =
 interface StatItem {
   number: string
   description: string
+  periodNote?: string
+  numberClassName?: string
   evolution?: string
   evolutionDirection?: 'up' | 'down' | 'neutral'
   linkText?: string
@@ -137,9 +139,17 @@ function StatEvolutionBadge({
   direction?: 'up' | 'down' | 'neutral'
 }) {
   const arrow = direction === 'up' ? '↑' : direction === 'down' ? '↓' : null
+  const toneClass =
+    direction === 'down'
+      ? 'bg-red-600/35'
+      : direction === 'neutral'
+        ? 'bg-goos-gray-600/35'
+        : 'bg-goos-green-700/35'
 
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-goos-green-700/35 px-2.5 py-1 text-xs sm:text-sm font-medium text-white whitespace-nowrap">
+    <span
+      className={`inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-xs sm:text-sm font-medium text-white whitespace-nowrap ${toneClass}`}
+    >
       {arrow && <span aria-hidden="true">{arrow}</span>}
       <span>{evolution}</span>
     </span>
@@ -163,10 +173,10 @@ function StatBlock({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex flex-wrap items-start gap-2 sm:gap-3">
+      <div className="flex flex-nowrap items-center gap-2">
         <p
           ref={numberRef}
-          className={`text-4xl sm:text-5xl md:text-6xl font-light leading-tight ${numberColor}`}
+          className={`font-light leading-none ${stat.numberClassName ?? 'text-4xl sm:text-5xl md:text-6xl'} ${numberColor}`}
         >
           {stat.number}
         </p>
@@ -204,6 +214,11 @@ function StatBlock({
           </button>
         )}
       </div>
+      {stat.periodNote && (
+        <p className={`text-xs sm:text-sm font-normal opacity-75 ${textColor}`}>
+          {stat.periodNote}
+        </p>
+      )}
       {stat.linkText && stat.linkUrl && (
         <a
           href={stat.linkUrl}
