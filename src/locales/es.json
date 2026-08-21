@@ -465,8 +465,8 @@
       "iconAlt": "Red SOT/VOS - Observaciones meteorológicas desde barcos voluntarios"
     },
     "sotXbt": {
-      "title": "Oceanográfico basado en barcos – SOT/XBT-SOOP",
-      "iconAlt": "Red SOT/XBT-SOOP - Perfiles de temperatura del océano desde líneas de barcos"
+      "title": "Oceanográfico basado en barcos – SOT/Ocean TraX",
+      "iconAlt": "Red SOT/Ocean TraX — perfiles oceanográficos desde líneas de barcos"
     },
     "sotAsap": {
       "title": "Parámetros aire-mar basados en barcos – SOT/ASAP",

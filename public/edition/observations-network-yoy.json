@@ -183,7 +183,7 @@
     },
     {
       "id": "soop-xbt",
-      "label": "SOOP XBT (SOT)",
+      "label": "Ocean TraX (SOT)",
       "source": "GTS MF",
       "current": {
         "avgPerDay": 16,

@@ -510,8 +510,8 @@
       "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
     },
     "sotXbt": {
-      "title": "Ship based oceanographic – SOT/XBT-SOOP",
-      "iconAlt": "SOT/XBT-SOOP Network - Ship of Opportunity Programme with XBT temperature profiling"
+      "title": "Ship based oceanographic – SOT/Ocean TraX",
+      "iconAlt": "SOT/Ocean TraX — Ship of Opportunity Programme temperature profile lines"
     },
     "sotAsap": {
       "title": "Ship based aerological – SOT/ASAP",
@@ -770,8 +770,8 @@
             "content": "Ship based meteorological stations that have delivered data to the GTS within the last 30 days"
           },
           "oceanographic": {
-            "title": "Ship based oceanographic – SOT/XBT-SOOP",
-            "content": "XBT-SOOP-lines sampled since {{year}}"
+            "title": "Ship based oceanographic – SOT/Ocean TraX",
+            "content": "Ocean TraX lines sampled since {{year}}"
           },
           "aerological": {
             "title": "Ship based aerological – SOT/ASAP",
@@ -1042,7 +1042,7 @@
       "fvon": "Fishing vessels – FVON",
       "sotVos": "Ship based meteorological – SOT/VOS",
       "sotAsap": "Ship based aerological – SOT/ASAP",
-      "sot": "Ship based oceanographic – SOT/XBT-SOOP",
+      "sot": "Ship based oceanographic – SOT/Ocean TraX",
       "goShip": "Repeated transects – GO-SHIP",
       "gloss": "Sea level gauges – GLOSS",
       "oceanSites": "Time series sites – OceanSITES",

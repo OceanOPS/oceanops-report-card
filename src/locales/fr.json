@@ -522,8 +522,8 @@
       "iconAlt": "Réseau SOT/VOS - Observations météorologiques depuis navires volontaires"
     },
     "sotXbt": {
-      "title": "Océanographique basé sur navires – SOT/XBT-SOOP",
-      "iconAlt": "Réseau SOT/XBT-SOOP - Profils de température de l'océan depuis lignes de navires"
+      "title": "Océanographique basé sur navires – SOT/Ocean TraX",
+      "iconAlt": "Réseau SOT/Ocean TraX — lignes de profils océanographiques depuis navires"
     },
     "sotAsap": {
       "title": "Paramètres air-mer basés sur navires – SOT/ASAP",
