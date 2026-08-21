@@ -3,6 +3,7 @@ import {
   OBSERVATIONS_PERIOD_END,
   OBSERVATIONS_PERIOD_START,
   OBSERVATIONS_PER_DAY_AVG,
+  OBSERVATIONS_PER_DAY_AVG_LAST_YEAR,
 } from '../data/editionStats'
 
 /** Headline format for stat4 (rounded daily average). */
@@ -10,7 +11,7 @@ export function formatObservationsPerDay(
   avg = OBSERVATIONS_PER_DAY_AVG,
   locale = 'en-US',
 ): string {
-  return avg.toLocaleString(locale)
+  return `${avg.toLocaleString(locale)}+`
 }
 
 /** Compact delta for stat4 badge (e.g. -17k) when values are large. */
@@ -21,6 +22,27 @@ export function formatObservationsDelta(delta: number): string {
     return `${delta >= 0 ? '+' : '-'}${k}k`
   }
   return `${delta >= 0 ? '+' : ''}${delta.toLocaleString('en-US')}`
+}
+
+/** YoY delta as percentage for stat4 badge (e.g. -14%). */
+export function formatObservationsDeltaPct(
+  delta: number,
+  baseline = OBSERVATIONS_PER_DAY_AVG_LAST_YEAR,
+): string {
+  if (!baseline) return formatObservationsDelta(delta)
+  const pct = (delta / baseline) * 100
+  const rounded = Math.round(pct)
+  const sign = rounded >= 0 ? '+' : ''
+  return `${sign}${rounded}%`
+}
+
+/** Compact daily average for network YoY popup (e.g. 59k, 492). */
+export function formatNetworkAvgPerDay(value: number, locale = 'en-US'): string {
+  const abs = Math.abs(value)
+  if (abs >= 1000) {
+    return `${Math.round(value / 1000)}k`
+  }
+  return value.toLocaleString(locale)
 }
 
 /** Localized period label for stat4 (rolling window dates). */

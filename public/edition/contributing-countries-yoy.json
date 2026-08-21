@@ -1,0 +1,41 @@
+{
+  "exportedAt": "2026-08-20",
+  "previousYear": "2025",
+  "previousSource": "baseline",
+  "baselineMissing": false,
+  "currentCount": 65,
+  "previousCount": 64,
+  "delta": 1,
+  "appeared": [
+    {
+      "iso": "FJ",
+      "name": "Fiji"
+    },
+    {
+      "iso": "FO",
+      "name": "Faroe Islands"
+    },
+    {
+      "iso": "GW",
+      "name": "Guinea-Bissau"
+    },
+    {
+      "iso": "TZ",
+      "name": "Tanzania"
+    }
+  ],
+  "disappeared": [
+    {
+      "iso": "BD",
+      "name": "Bangladesh"
+    },
+    {
+      "iso": "BE",
+      "name": "Belgium"
+    },
+    {
+      "iso": "PA",
+      "name": "Panama"
+    }
+  ]
+}

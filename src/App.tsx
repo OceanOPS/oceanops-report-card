@@ -37,8 +37,10 @@ import {
   platformsDeltaVsLastYear,
   totalPlatforms,
 } from './utils/partnerCountryStats'
-import { formatObservationsDelta, formatObservationsPerDay, formatObservationsPeriod } from './utils/formatObservationsPerDay'
+import { formatObservationsDeltaPct, formatObservationsPerDay, formatObservationsPeriod } from './utils/formatObservationsPerDay'
 import { OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR } from './data/editionStats'
+import { networksWithYoy, useEditionYoy } from './utils/editionYoy'
+import { CountriesYoyDetail, NetworkYoyDetail } from './components/StatEvolutionDetail'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
@@ -49,7 +51,9 @@ function App() {
   const obsLocale =
     i18n.language === 'fr' ? 'fr-FR' : i18n.language === 'es' ? 'es-ES' : 'en-US'
   const observationsPeriod = formatObservationsPeriod(obsLocale)
-  const observationsDeltaLabel = formatObservationsDelta(OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR)
+  const observationsDeltaLabel = formatObservationsDeltaPct(OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR)
+  const { networkYoy, countriesYoy } = useEditionYoy()
+  const networkYoyRows = networksWithYoy(networkYoy.networks)
   const [isLoading, setIsLoading] = useState(true)
 
   // Indicators modal collapsible states
@@ -425,6 +429,11 @@ function App() {
                 year: LAST_REPORT_YEAR,
               }),
               evolutionDirection: countriesDeltaVsLastYear >= 0 ? 'up' : 'down',
+              evolutionDetail:
+                !countriesYoy.baselineMissing &&
+                (countriesYoy.appeared.length > 0 || countriesYoy.disappeared.length > 0) ? (
+                  <CountriesYoyDetail data={countriesYoy} />
+                ) : undefined,
               infoModal: {
                 title: t('content.section1.stats.stat1.infoModalTitle'),
                 content: (
@@ -458,6 +467,12 @@ function App() {
                 year: LAST_REPORT_YEAR,
               }),
               evolutionDirection: OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR >= 0 ? 'up' : 'down',
+              evolutionDetail: networkYoyRows.length > 0 ? (
+                <NetworkYoyDetail
+                  networks={networkYoyRows}
+                  year={networkYoy.previousYear}
+                />
+              ) : undefined,
             },
           ]}
           backgroundColor="bg-goos-blue-900"

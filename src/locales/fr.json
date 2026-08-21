@@ -241,6 +241,13 @@
       "statsTitle": "Les réseaux en chiffres",
       "statsIntro": "Notre communauté mondiale de fournisseurs et d'opérateurs travaillent ensemble pour fournir des informations océaniques essentielles chaque jour.",
       "stats": {
+        "evolutionDetail": {
+          "networksTitle": "Évolution par réseau vs {{year}}",
+          "networkAvgRange": "{{previous}} moy/j → {{current}}",
+          "countriesTitle": "Changements de pays vs {{year}}",
+          "appeared": "Nouveaux ({{count}})",
+          "disappeared": "Ne contribuent plus ({{count}})"
+        },
         "stat1": {
           "number": "64",
           "description": "pays contributeurs",

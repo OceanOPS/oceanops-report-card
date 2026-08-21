@@ -11,7 +11,7 @@ export default function OperationalPlatformDefinitionsModal() {
   const locale = i18n.language
 
   const xbtYear = yearFromIso(metadata.SOOP_XBT_SAMPLED_SINCE)
-  const goShipYear = yearFromIso(metadata.GOSHIP_SAMPLED_SINCE)
+  const goShipYear = yearFromIso(metadata.GOSHIP_EDITION_SINCE ?? metadata.GOSHIP_SAMPLED_SINCE ?? '2025-01-01')
   const glidersDate = formatDeploymentDate(metadata.OCEAN_GLIDERS_MIN_LOC_DATE, locale)
   const fvonDate = formatDeploymentDate(metadata.FVON_MIN_LOC_DATE, locale)
   const anibosDate = formatDeploymentDate(metadata.ANIBOS_MIN_LOC_DATE, locale)

@@ -247,6 +247,13 @@
       "statsIntro": "Our global community of providers and operators are working together to deliver essential ocean information every day.",
       "statsIntro2": "The current numbers and map show operational observations from mostly mature ocean observing networks feeding into OceanOPS. In future editions, GOOS aims to fully integrate all emerging networks as well as biological and ecosystem observations into this display.",
       "stats": {
+        "evolutionDetail": {
+          "networksTitle": "Change by network vs {{year}}",
+          "networkAvgRange": "{{previous}} avg/day → {{current}}",
+          "countriesTitle": "Country changes vs {{year}}",
+          "appeared": "New ({{count}})",
+          "disappeared": "No longer contributing ({{count}})"
+        },
         "stat1": {
           "number": "64",
           "description": "contributing countries",

@@ -69,6 +69,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from './Button'
 import ContentModal from './ContentModal'
+import Tooltip from './Tooltip'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -123,6 +124,7 @@ interface StatItem {
   numberClassName?: string
   evolution?: string
   evolutionDirection?: 'up' | 'down' | 'neutral'
+  evolutionDetail?: ReactNode
   linkText?: string
   linkUrl?: string
   infoModal?: {
@@ -171,8 +173,10 @@ function StatBlock({
   linkColor: string
   onInfoClick?: () => void
 }) {
-  return (
-    <div className="flex flex-col gap-2">
+  const block = (
+    <div
+      className={`flex flex-col gap-2 ${stat.evolutionDetail ? 'cursor-help' : ''}`}
+    >
       <div className="flex flex-nowrap items-center gap-2">
         <p
           ref={numberRef}
@@ -231,6 +235,23 @@ function StatBlock({
       )}
     </div>
   )
+
+  if (stat.evolutionDetail) {
+    return (
+      <Tooltip
+        contentNode={stat.evolutionDetail}
+        maxWidthClass="max-w-[340px]"
+        placement="left"
+        className="block w-full"
+        backgroundColor="bg-goos-blue-900"
+        textColor="text-goos-white"
+      >
+        {block}
+      </Tooltip>
+    )
+  }
+
+  return block
 }
 
 interface InsightPanelProps {
