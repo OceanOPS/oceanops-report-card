@@ -459,8 +459,9 @@ function App() {
             },
             {
               number: formatObservationsPerDay(),
-              numberClassName: 'text-3xl sm:text-4xl md:text-5xl',
-              description: t('content.section1.stats.stat4.description', observationsPeriod),
+              numberClassName: 'text-4xl sm:text-5xl',
+              description: t('content.section1.stats.stat4.description'),
+              descriptionDetail: t('content.section1.stats.stat4.descriptionDetail', observationsPeriod),
               evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
                 delta: observationsDeltaLabel,
                 year: LAST_REPORT_YEAR,
@@ -481,6 +482,8 @@ function App() {
           linkColor="text-goos-white"
         />
       </div>
+
+      <Spacer size="lg" backgroundColor="bg-goos-blue-900" />
 
       <div>
       {/* Interactive ArcGIS map — anchor on iframe for centered deep links (#map-section) */}

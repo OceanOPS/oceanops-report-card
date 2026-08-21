@@ -120,6 +120,8 @@ type ButtonConfig =
 interface StatItem {
   number: string
   description: string
+  /** Secondary line under description (e.g. averaging period). */
+  descriptionDetail?: string
   numberClassName?: string
   evolution?: string
   evolutionDirection?: 'up' | 'down' | 'neutral'
@@ -142,14 +144,14 @@ function StatEvolutionBadge({
   const arrow = direction === 'up' ? '↑' : direction === 'down' ? '↓' : null
   const toneClass =
     direction === 'down'
-      ? 'bg-red-600/35'
+      ? 'text-red-300'
       : direction === 'neutral'
-        ? 'bg-goos-gray-600/35'
-        : 'bg-goos-green-700/35'
+        ? 'text-white/70'
+        : 'text-goos-green-400'
 
   return (
     <span
-      className={`inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-xs sm:text-sm font-medium text-white whitespace-nowrap ${toneClass}`}
+      className={`inline-flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-white/[0.06] px-2 py-0.5 text-[11px] sm:text-xs font-semibold tabular-nums whitespace-nowrap ${toneClass}`}
     >
       {arrow && <span aria-hidden="true">{arrow}</span>}
       <span>{evolution}</span>
@@ -174,35 +176,23 @@ function StatBlock({
 }) {
   const block = (
     <div
-      className={`flex flex-col gap-2 ${stat.evolutionDetail ? 'cursor-help' : ''}`}
+      className={`flex h-full flex-col gap-1.5 ${stat.evolutionDetail ? 'cursor-help' : ''}`}
     >
-      <div className="flex flex-nowrap items-center gap-2">
+      <div className="flex items-center gap-1.5">
         <p
-          ref={numberRef}
-          className={`font-light leading-none ${stat.numberClassName ?? 'text-4xl sm:text-5xl md:text-6xl'} ${numberColor}`}
+          className={`text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] opacity-60 ${textColor}`}
         >
-          {stat.number}
-        </p>
-        {stat.evolution && (
-          <StatEvolutionBadge
-            evolution={stat.evolution}
-            direction={stat.evolutionDirection}
-          />
-        )}
-      </div>
-      <div className="flex items-center gap-2">
-        <p className={`text-sm sm:text-base font-normal ${textColor}`}>
           {stat.description}
         </p>
         {stat.infoModal && onInfoClick && (
           <button
             onClick={onInfoClick}
-            className={`${textColor} opacity-70 hover:opacity-100 transition-opacity flex-shrink-0`}
+            className={`${textColor} shrink-0 opacity-50 transition-opacity hover:opacity-100`}
             aria-label="More information"
           >
             <svg
-              width="18"
-              height="18"
+              width="15"
+              height="15"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -217,12 +207,34 @@ function StatBlock({
           </button>
         )}
       </div>
+
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <p
+          ref={numberRef}
+          className={`font-light tabular-nums leading-none tracking-tight ${stat.numberClassName ?? 'text-5xl sm:text-6xl'} ${numberColor}`}
+        >
+          {stat.number}
+        </p>
+        {stat.evolution && (
+          <StatEvolutionBadge
+            evolution={stat.evolution}
+            direction={stat.evolutionDirection}
+          />
+        )}
+      </div>
+
+      {stat.descriptionDetail && (
+        <p className={`text-xs sm:text-sm leading-snug opacity-55 ${textColor}`}>
+          {stat.descriptionDetail}
+        </p>
+      )}
+
       {stat.linkText && stat.linkUrl && (
         <a
           href={stat.linkUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={`text-sm sm:text-base ${linkColor} underline decoration-dotted flex items-center gap-1`}
+          className={`mt-1 text-sm ${linkColor} underline decoration-dotted underline-offset-2 flex items-center gap-1`}
         >
           {stat.linkText} <span className="text-xs">⧉</span>
         </a>
@@ -236,7 +248,7 @@ function StatBlock({
         contentNode={stat.evolutionDetail}
         maxWidthClass="max-w-[340px]"
         placement="left"
-        className="block w-full"
+        className="block w-full h-full"
         backgroundColor="bg-goos-blue-900"
         textColor="text-goos-white"
       >
@@ -386,23 +398,20 @@ export default function InsightPanel({
         {/* Top spacer */}
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
-        {/* Title Section */}
-        {title && (
-          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-6 sm:mb-8 md:mb-12">
-            {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
-            <h3
-              className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
-              dangerouslySetInnerHTML={{ __html: title }}
-            />
-          </div>
-        )}
-
-        {/* Content: Large Number + Stats Grid */}
-        <div className="flex gap-8 md:gap-12 lg:gap-16 flex-col lg:flex-row">
-          {/* Left: Large Number with Button OR Custom Content - 50% width */}
-          <div className="lg:basis-1/2 flex flex-col gap-4">
+        {/* Content: left copy + stats */}
+        <div className="flex flex-col lg:flex-row lg:items-end gap-8 md:gap-10 lg:gap-12">
+          {/* Left: title, large number, or custom content */}
+          <div className="lg:basis-1/2 flex flex-col gap-4 sm:gap-5">
+            {title && (
+              <div className="flex flex-col gap-4 sm:gap-5">
+                {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
+                <h3
+                  className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                />
+              </div>
+            )}
             {leftContent ? (
-              // Custom content on the left
               <div className={`${textColor}`}>
                 {leftContent}
               </div>
@@ -419,7 +428,6 @@ export default function InsightPanel({
                   )}
                 </div>
 
-                {/* Optional Button */}
                 {button && (
                   <div className="self-start">
                     <Button {...button} />
@@ -429,56 +437,30 @@ export default function InsightPanel({
             )}
           </div>
 
-          {/* Right: Stats Grid 2x2 or Custom Content - 50% width */}
-          <div className="lg:basis-1/2 flex flex-col gap-8">
+          {/* Right: stats or custom content — left-aligned, bottom-aligned with copy */}
+          <div className="lg:basis-1/2 w-full">
             {rightContent ? (
-              // Custom content (e.g., text paragraph)
               <div className={`${textColor}`}>
                 {rightContent}
               </div>
             ) : stats ? (
-              // Stats Grid 2x2
-              <>
-                {/* Top Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                  {stats.slice(0, 2).map((stat, index) => (
-                    <StatBlock
-                      key={index}
-                      stat={stat}
-                      numberRef={(el) => {
-                        statNumberRefs.current[index] = el
-                      }}
-                      numberColor={numberColor}
-                      textColor={textColor}
-                      linkColor={linkColor}
-                      onInfoClick={
-                        stat.infoModal ? () => setOpenModalIndex(index) : undefined
-                      }
-                    />
-                  ))}
-                </div>
-
-                {/* Bottom Row */}
-                {stats.length > 2 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                    {stats.slice(2, 4).map((stat, index) => (
-                      <StatBlock
-                        key={index + 2}
-                        stat={stat}
-                        numberRef={(el) => {
-                          statNumberRefs.current[index + 2] = el
-                        }}
-                        numberColor={numberColor}
-                        textColor={textColor}
-                        linkColor={linkColor}
-                        onInfoClick={
-                          stat.infoModal ? () => setOpenModalIndex(index + 2) : undefined
-                        }
-                      />
-                    ))}
-                  </div>
-                )}
-              </>
+              <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-start gap-x-10 gap-y-5 sm:gap-y-6 text-left">
+                {stats.slice(0, 4).map((stat, index) => (
+                  <StatBlock
+                    key={index}
+                    stat={stat}
+                    numberRef={(el) => {
+                      statNumberRefs.current[index] = el
+                    }}
+                    numberColor={numberColor}
+                    textColor={textColor}
+                    linkColor={linkColor}
+                    onInfoClick={
+                      stat.infoModal ? () => setOpenModalIndex(index) : undefined
+                    }
+                  />
+                ))}
+              </div>
             ) : null}
           </div>
         </div>

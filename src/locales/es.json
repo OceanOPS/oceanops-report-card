@@ -266,7 +266,8 @@
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
-          "description": "observaciones oceánicas por día, prom. {{start}} – {{end}}",
+          "description": "observaciones oceánicas por día",
+          "descriptionDetail": "prom. {{start}} – {{end}}",
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         }
       },
