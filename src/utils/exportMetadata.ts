@@ -9,7 +9,8 @@ export type ExportMetadata = {
   SOOP_XBT_SAMPLED_SINCE: string
   GOSHIP_EDITION_SINCE?: string
   GOSHIP_SAMPLED_SINCE?: string
-  OBS_DAYS_WINDOW?: string
+  OBS_PERIOD_SINCE?: string
+  OBS_PERIOD_UNTIL?: string
   OBSERVATIONS_PER_DAY_AVG?: number
   OBSERVATIONS_DAYS_WINDOW?: number
   OBSERVATIONS_DAYS_WITH_DATA?: number
@@ -24,7 +25,8 @@ export const DEFAULT_EXPORT_METADATA: ExportMetadata = {
   FVON_MIN_LOC_DATE: '2025-01-01',
   SOOP_XBT_SAMPLED_SINCE: '2024-01-01',
   GOSHIP_EDITION_SINCE: '2025-01-01',
-  OBS_DAYS_WINDOW: '365',
+  OBS_PERIOD_SINCE: '2025-01-01',
+  OBS_PERIOD_UNTIL: '2025-10-01',
 }
 
 let cached: ExportMetadata | null = null

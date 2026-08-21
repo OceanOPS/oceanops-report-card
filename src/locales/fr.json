@@ -267,7 +267,7 @@
         },
         "stat4": {
           "description": "observations océaniques par jour",
-          "periodNote": "Moy. {{days}} j · {{start}} – {{end}}",
+          "periodNote": "{{start}} – {{end}}",
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         }
       },

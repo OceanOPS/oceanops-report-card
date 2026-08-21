@@ -273,7 +273,7 @@
         },
         "stat4": {
           "description": "ocean observations per day",
-          "periodNote": "{{days}}-day avg. · {{start}} – {{end}}",
+          "periodNote": "{{start}} – {{end}}",
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         }
       },

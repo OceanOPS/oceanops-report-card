@@ -1,5 +1,4 @@
 import {
-  OBSERVATIONS_DAYS_WINDOW,
   OBSERVATIONS_PERIOD_END,
   OBSERVATIONS_PERIOD_START,
   OBSERVATIONS_PER_DAY_AVG,
@@ -45,7 +44,7 @@ export function formatNetworkAvgPerDay(value: number, locale = 'en-US'): string 
   return value.toLocaleString(locale)
 }
 
-/** Localized period label for stat4 (rolling window dates). */
+/** Localized period label for stat4 (edition observation window). */
 export function formatObservationsPeriod(locale = 'en-US') {
   const dateOpts: Intl.DateTimeFormatOptions = {
     month: 'short',
@@ -54,7 +53,6 @@ export function formatObservationsPeriod(locale = 'en-US') {
   const start = new Date(`${OBSERVATIONS_PERIOD_START}T12:00:00`)
   const end = new Date(`${OBSERVATIONS_PERIOD_END}T12:00:00`)
   return {
-    days: OBSERVATIONS_DAYS_WINDOW,
     start: start.toLocaleDateString(locale, dateOpts),
     end: end.toLocaleDateString(locale, dateOpts),
   }
