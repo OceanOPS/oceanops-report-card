@@ -460,8 +460,7 @@ function App() {
             {
               number: formatObservationsPerDay(),
               numberClassName: 'text-3xl sm:text-4xl md:text-5xl',
-              description: t('content.section1.stats.stat4.description'),
-              periodNote: t('content.section1.stats.stat4.periodNote', observationsPeriod),
+              description: t('content.section1.stats.stat4.description', observationsPeriod),
               evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
                 delta: observationsDeltaLabel,
                 year: LAST_REPORT_YEAR,

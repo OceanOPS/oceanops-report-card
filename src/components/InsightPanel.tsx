@@ -120,7 +120,6 @@ type ButtonConfig =
 interface StatItem {
   number: string
   description: string
-  periodNote?: string
   numberClassName?: string
   evolution?: string
   evolutionDirection?: 'up' | 'down' | 'neutral'
@@ -218,11 +217,6 @@ function StatBlock({
           </button>
         )}
       </div>
-      {stat.periodNote && (
-        <p className={`text-xs sm:text-sm font-normal opacity-75 ${textColor}`}>
-          {stat.periodNote}
-        </p>
-      )}
       {stat.linkText && stat.linkUrl && (
         <a
           href={stat.linkUrl}
