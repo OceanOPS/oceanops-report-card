@@ -6,9 +6,9 @@
   "currentPeriod": "2026-01-01 → 2026-08-24",
   "previousPeriod": "2025-01-01 → 2025-08-24",
   "headline": {
-    "currentAvgPerDay": 106087,
+    "currentAvgPerDay": 105638,
     "previousAvgPerDay": 125233,
-    "deltaAvg": -19146
+    "deltaAvg": -19595
   },
   "networks": [
     {
@@ -169,17 +169,17 @@
       "label": "Argo (GDAC)",
       "source": "GDAC",
       "current": {
-        "avgPerDay": 501,
-        "daysWithData": 235,
-        "total": 117657
+        "avgPerDay": 499,
+        "daysWithData": 236,
+        "total": 117830
       },
       "previous": {
         "avgPerDay": 492,
         "daysWithData": 236,
         "total": 116171
       },
-      "deltaAvg": 9,
-      "deltaPct": 1.8
+      "deltaAvg": 7,
+      "deltaPct": 1.4
     },
     {
       "id": "soop-xbt",

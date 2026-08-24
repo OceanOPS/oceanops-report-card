@@ -341,7 +341,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "United States",
     countryCode: "US",
-    networks: { driftingBuoys: 933, argo: 2474, oceanGliders: 62, aniBOS: 0, fvon: 210, sotVos: 621, sotAsap: 0, sot: 0, goShip: 4, gloss: 24, oceanSites: 181, mooredBuoys: 179, tsunamiBuoys: 31, hfRadars: 172 }
+    networks: { driftingBuoys: 933, argo: 2474, oceanGliders: 62, aniBOS: 0, fvon: 210, sotVos: 621, sotAsap: 0, sot: 0, goShip: 3, gloss: 24, oceanSites: 181, mooredBuoys: 179, tsunamiBuoys: 31, hfRadars: 172 }
   },
   {
     name: "Uruguay",

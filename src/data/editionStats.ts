@@ -7,16 +7,16 @@
  */
 
 /** Daily average of ocean observations in the edition period (source hierarchy). */
-export const OBSERVATIONS_PER_DAY_AVG = 106087
+export const OBSERVATIONS_PER_DAY_AVG = 105638
 
 /** Inclusive span of the averaging period in days (derived from start/end). */
 export const OBSERVATIONS_DAYS_WINDOW = 235
 
 /** Days with at least one observation in the window. */
-export const OBSERVATIONS_DAYS_WITH_DATA = 235
+export const OBSERVATIONS_DAYS_WITH_DATA = 236
 
 /** Total observations in the window. */
-export const OBSERVATIONS_TOTAL = 24930377
+export const OBSERVATIONS_TOTAL = 24930550
 
 /** Inclusive start of the averaging window (ISO date). */
 export const OBSERVATIONS_PERIOD_START = '2026-01-01'
@@ -27,5 +27,5 @@ export const OBSERVATIONS_PERIOD_END = '2026-08-24'
 export const OBSERVATIONS_PER_DAY_AVG_LAST_YEAR = 125233
 
 /** Delta vs previous year (obs/day). */
-export const OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR = -19146
+export const OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR = -19595
 
