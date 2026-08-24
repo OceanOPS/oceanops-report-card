@@ -3,28 +3,29 @@
  * Regenerate: npm run export:observations (from oceanops-data-exports or oceanops-report-card)
  *
  * Source: observations-export/queries.mjs (source hierarchy, edition-period average)
- * Last updated: 2026-08-21
+ * Last updated: 2026-08-24
  */
 
 /** Daily average of ocean observations in the edition period (source hierarchy). */
-export const OBSERVATIONS_PER_DAY_AVG = 105941
+export const OBSERVATIONS_PER_DAY_AVG = 106087
 
 /** Inclusive span of the averaging period in days (derived from start/end). */
-export const OBSERVATIONS_DAYS_WINDOW = 598
+export const OBSERVATIONS_DAYS_WINDOW = 235
 
 /** Days with at least one observation in the window. */
-export const OBSERVATIONS_DAYS_WITH_DATA = 240
+export const OBSERVATIONS_DAYS_WITH_DATA = 235
 
 /** Total observations in the window. */
-export const OBSERVATIONS_TOTAL = 25425743
+export const OBSERVATIONS_TOTAL = 24930377
 
 /** Inclusive start of the averaging window (ISO date). */
-export const OBSERVATIONS_PERIOD_START = '2025-01-01'
+export const OBSERVATIONS_PERIOD_START = '2026-01-01'
 
 /** Inclusive end of the averaging window (ISO date). */
-export const OBSERVATIONS_PERIOD_END = '2026-08-21'
+export const OBSERVATIONS_PERIOD_END = '2026-08-24'
 /** Same methodology, previous-year aligned window (for stat4 YoY badge). */
-export const OBSERVATIONS_PER_DAY_AVG_LAST_YEAR = 124806
+export const OBSERVATIONS_PER_DAY_AVG_LAST_YEAR = 125233
 
 /** Delta vs previous year (obs/day). */
-export const OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR = -18865
+export const OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR = -19146
+
