@@ -22,9 +22,15 @@ export type ObservationsNetworkYoy = {
   networks: NetworkYoyRow[]
 }
 
+export type CountryYoyNetwork = {
+  id: string
+  count: number
+}
+
 export type CountryYoyEntry = {
   iso: string
   name: string
+  networks?: CountryYoyNetwork[]
 }
 
 export type ContributingCountriesYoy = {

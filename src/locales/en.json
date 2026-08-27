@@ -252,7 +252,8 @@
           "networkAvgRange": "{{previous}} avg/day → {{current}}",
           "countriesTitle": "Country changes vs {{year}}",
           "appeared": "New ({{count}})",
-          "disappeared": "No longer contributing ({{count}})"
+          "disappeared": "No longer contributing ({{count}})",
+          "countryNetworkCount": "{{network}} ({{count}})"
         },
         "stat1": {
           "number": "64",

@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-08-24",
+  "exportedAt": "2026-08-27",
   "previousYear": "2025",
   "previousSource": "baseline",
   "baselineMissing": false,
@@ -9,33 +9,64 @@
   "appeared": [
     {
       "iso": "FJ",
-      "name": "Fiji"
+      "name": "Fiji",
+      "networks": [
+        {
+          "id": "fvon",
+          "count": 26
+        },
+        {
+          "id": "gloss",
+          "count": 1
+        }
+      ]
     },
     {
       "iso": "FO",
-      "name": "Faroe Islands"
+      "name": "Faroe Islands",
+      "networks": [
+        {
+          "id": "fvon",
+          "count": 13
+        }
+      ]
     },
     {
       "iso": "GW",
-      "name": "Guinea-Bissau"
+      "name": "Guinea-Bissau",
+      "networks": [
+        {
+          "id": "fvon",
+          "count": 1
+        }
+      ]
     },
     {
       "iso": "TZ",
-      "name": "Tanzania"
+      "name": "Tanzania",
+      "networks": [
+        {
+          "id": "fvon",
+          "count": 25
+        }
+      ]
     }
   ],
   "disappeared": [
     {
       "iso": "BD",
-      "name": "Bangladesh"
+      "name": "Bangladesh",
+      "networks": []
     },
     {
       "iso": "BE",
-      "name": "Belgium"
+      "name": "Belgium",
+      "networks": []
     },
     {
       "iso": "PA",
-      "name": "Panama"
+      "name": "Panama",
+      "networks": []
     }
   ]
 }

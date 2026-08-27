@@ -35,13 +35,9 @@ export function formatObservationsDeltaPct(
   return `${sign}${rounded}%`
 }
 
-/** Compact daily average for network YoY popup (e.g. 59k, 492). */
+/** Daily average for network YoY popup (full number so small changes stay visible). */
 export function formatNetworkAvgPerDay(value: number, locale = 'en-US'): string {
-  const abs = Math.abs(value)
-  if (abs >= 1000) {
-    return `${Math.round(value / 1000)}k`
-  }
-  return value.toLocaleString(locale)
+  return Math.round(value).toLocaleString(locale)
 }
 
 /** Localized period label for stat4 (edition observation window). */
