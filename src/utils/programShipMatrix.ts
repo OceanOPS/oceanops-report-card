@@ -1,4 +1,4 @@
-import { getGeoCountryLabel } from './geoCountryLabels'
+import { getGeoCountryLabel, normalizeGeoCountryKey } from './geoCountryLabels'
 
 /** Point/image platform layers with program + ship country (matches simple-map filter set). */
 export const MATRIX_LAYER_IDS = [
@@ -76,9 +76,11 @@ export async function buildProgramShipMatrixFromGeojson(
     if (result.status !== 'fulfilled') continue
 
     for (const feature of result.value) {
-      const program = feature.properties?.country_name?.trim()
-      const ship = feature.properties?.country_ship?.trim()
-      if (!program || !ship || ship === 'UNKNOWN') continue
+      const programRaw = feature.properties?.country_name?.trim()
+      const shipRaw = feature.properties?.country_ship?.trim()
+      const program = programRaw ? normalizeGeoCountryKey(programRaw) : null
+      const ship = shipRaw ? normalizeGeoCountryKey(shipRaw) : null
+      if (!program || !ship) continue
 
       const key = `${program}\0${ship}`
       counts.set(key, (counts.get(key) ?? 0) + 1)
