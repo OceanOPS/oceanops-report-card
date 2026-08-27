@@ -251,6 +251,10 @@
         "count": 7
       },
       {
+        "id": "mooredBuoys",
+        "count": 3
+      },
+      {
         "id": "hfRadars",
         "count": 19
       }
@@ -302,7 +306,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 5
+        "count": 7
       },
       {
         "id": "hfRadars",
@@ -346,7 +350,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 15
+        "count": 16
       },
       {
         "id": "hfRadars",
@@ -438,7 +442,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 33
+        "count": 34
       },
       {
         "id": "hfRadars",
@@ -574,7 +578,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 9
+        "count": 10
       },
       {
         "id": "hfRadars",
@@ -615,6 +619,10 @@
       {
         "id": "oceanSites",
         "count": 2
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 1
       },
       {
         "id": "hfRadars",
@@ -763,6 +771,10 @@
       {
         "id": "oceanSites",
         "count": 5
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 1
       },
       {
         "id": "hfRadars",
@@ -950,7 +962,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 179
+        "count": 232
       },
       {
         "id": "tsunamiBuoys",
