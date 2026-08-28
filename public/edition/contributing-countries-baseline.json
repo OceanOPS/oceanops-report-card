@@ -66,7 +66,909 @@
     "WF",
     "ZA"
   ],
-  "source": "partnerCountries-v2025.ts",
-  "generatedAt": "2026-08-20",
+  "networksByIso": {
+    "AE": [
+      {
+        "id": "hfRadars",
+        "count": 2
+      }
+    ],
+    "AR": [
+      {
+        "id": "gloss",
+        "count": 4
+      }
+    ],
+    "AU": [
+      {
+        "id": "driftingBuoys",
+        "count": 49
+      },
+      {
+        "id": "argo",
+        "count": 292
+      },
+      {
+        "id": "oceanGliders",
+        "count": 37
+      },
+      {
+        "id": "aniBOS",
+        "count": 57
+      },
+      {
+        "id": "fvon",
+        "count": 68
+      },
+      {
+        "id": "sotVos",
+        "count": 29
+      },
+      {
+        "id": "sot",
+        "count": 6
+      },
+      {
+        "id": "gloss",
+        "count": 15
+      },
+      {
+        "id": "oceanSites",
+        "count": 2
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 33
+      },
+      {
+        "id": "tsunamiBuoys",
+        "count": 4
+      },
+      {
+        "id": "hfRadars",
+        "count": 12
+      }
+    ],
+    "BD": [
+      {
+        "id": "fvon",
+        "count": 4
+      }
+    ],
+    "BE": [
+      {
+        "id": "oceanGliders",
+        "count": 1
+      }
+    ],
+    "BG": [
+      {
+        "id": "argo",
+        "count": 11
+      }
+    ],
+    "BM": [
+      {
+        "id": "oceanGliders",
+        "count": 1
+      },
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "BR": [
+      {
+        "id": "argo",
+        "count": 5
+      },
+      {
+        "id": "gloss",
+        "count": 1
+      },
+      {
+        "id": "oceanSites",
+        "count": 1
+      },
+      {
+        "id": "hfRadars",
+        "count": 2
+      }
+    ],
+    "BS": [
+      {
+        "id": "fvon",
+        "count": 1
+      }
+    ],
+    "CA": [
+      {
+        "id": "driftingBuoys",
+        "count": 3
+      },
+      {
+        "id": "argo",
+        "count": 204
+      },
+      {
+        "id": "oceanGliders",
+        "count": 70
+      },
+      {
+        "id": "sotVos",
+        "count": 33
+      },
+      {
+        "id": "gloss",
+        "count": 5
+      },
+      {
+        "id": "oceanSites",
+        "count": 5
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 34
+      },
+      {
+        "id": "hfRadars",
+        "count": 13
+      }
+    ],
+    "CK": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "CL": [
+      {
+        "id": "sotVos",
+        "count": 2
+      },
+      {
+        "id": "gloss",
+        "count": 6
+      },
+      {
+        "id": "tsunamiBuoys",
+        "count": 2
+      }
+    ],
+    "CN": [
+      {
+        "id": "driftingBuoys",
+        "count": 4
+      },
+      {
+        "id": "argo",
+        "count": 83
+      },
+      {
+        "id": "sotVos",
+        "count": 55
+      },
+      {
+        "id": "gloss",
+        "count": 5
+      },
+      {
+        "id": "oceanSites",
+        "count": 7
+      },
+      {
+        "id": "hfRadars",
+        "count": 19
+      }
+    ],
+    "CO": [
+      {
+        "id": "argo",
+        "count": 1
+      }
+    ],
+    "CU": [
+      {
+        "id": "gloss",
+        "count": 3
+      }
+    ],
+    "DE": [
+      {
+        "id": "argo",
+        "count": 282
+      },
+      {
+        "id": "oceanGliders",
+        "count": 10
+      },
+      {
+        "id": "sotVos",
+        "count": 323
+      },
+      {
+        "id": "gloss",
+        "count": 1
+      },
+      {
+        "id": "oceanSites",
+        "count": 43
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 7
+      },
+      {
+        "id": "hfRadars",
+        "count": 3
+      }
+    ],
+    "DK": [
+      {
+        "id": "argo",
+        "count": 7
+      },
+      {
+        "id": "gloss",
+        "count": 3
+      },
+      {
+        "id": "oceanSites",
+        "count": 4
+      }
+    ],
+    "ES": [
+      {
+        "id": "argo",
+        "count": 31
+      },
+      {
+        "id": "oceanGliders",
+        "count": 39
+      },
+      {
+        "id": "sotVos",
+        "count": 1
+      },
+      {
+        "id": "gloss",
+        "count": 2
+      },
+      {
+        "id": "oceanSites",
+        "count": 2
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 14
+      },
+      {
+        "id": "hfRadars",
+        "count": 32
+      }
+    ],
+    "EU": [
+      {
+        "id": "driftingBuoys",
+        "count": 89
+      },
+      {
+        "id": "argo",
+        "count": 33
+      },
+      {
+        "id": "sotVos",
+        "count": 1
+      },
+      {
+        "id": "sotAsap",
+        "count": 12
+      },
+      {
+        "id": "oceanSites",
+        "count": 3
+      }
+    ],
+    "FI": [
+      {
+        "id": "argo",
+        "count": 3
+      }
+    ],
+    "FM": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "FR": [
+      {
+        "id": "driftingBuoys",
+        "count": 2
+      },
+      {
+        "id": "argo",
+        "count": 289
+      },
+      {
+        "id": "oceanGliders",
+        "count": 58
+      },
+      {
+        "id": "aniBOS",
+        "count": 2
+      },
+      {
+        "id": "sotVos",
+        "count": 56
+      },
+      {
+        "id": "gloss",
+        "count": 12
+      },
+      {
+        "id": "oceanSites",
+        "count": 6
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 33
+      },
+      {
+        "id": "hfRadars",
+        "count": 9
+      }
+    ],
+    "GB": [
+      {
+        "id": "argo",
+        "count": 118
+      },
+      {
+        "id": "oceanGliders",
+        "count": 20
+      },
+      {
+        "id": "sotVos",
+        "count": 178
+      },
+      {
+        "id": "gloss",
+        "count": 3
+      },
+      {
+        "id": "oceanSites",
+        "count": 41
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 81
+      },
+      {
+        "id": "hfRadars",
+        "count": 4
+      }
+    ],
+    "GR": [
+      {
+        "id": "argo",
+        "count": 6
+      },
+      {
+        "id": "sotVos",
+        "count": 1
+      },
+      {
+        "id": "oceanSites",
+        "count": 1
+      },
+      {
+        "id": "hfRadars",
+        "count": 2
+      }
+    ],
+    "HR": [
+      {
+        "id": "hfRadars",
+        "count": 6
+      }
+    ],
+    "ID": [
+      {
+        "id": "argo",
+        "count": 1
+      },
+      {
+        "id": "hfRadars",
+        "count": 2
+      }
+    ],
+    "IE": [
+      {
+        "id": "argo",
+        "count": 9
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 5
+      },
+      {
+        "id": "hfRadars",
+        "count": 4
+      }
+    ],
+    "IL": [
+      {
+        "id": "gloss",
+        "count": 1
+      },
+      {
+        "id": "hfRadars",
+        "count": 4
+      }
+    ],
+    "IN": [
+      {
+        "id": "driftingBuoys",
+        "count": 3
+      },
+      {
+        "id": "argo",
+        "count": 97
+      },
+      {
+        "id": "gloss",
+        "count": 5
+      },
+      {
+        "id": "oceanSites",
+        "count": 12
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 12
+      },
+      {
+        "id": "tsunamiBuoys",
+        "count": 1
+      },
+      {
+        "id": "hfRadars",
+        "count": 10
+      }
+    ],
+    "IS": [
+      {
+        "id": "gloss",
+        "count": 1
+      },
+      {
+        "id": "oceanSites",
+        "count": 1
+      }
+    ],
+    "IT": [
+      {
+        "id": "driftingBuoys",
+        "count": 23
+      },
+      {
+        "id": "argo",
+        "count": 93
+      },
+      {
+        "id": "oceanGliders",
+        "count": 5
+      },
+      {
+        "id": "gloss",
+        "count": 1
+      },
+      {
+        "id": "oceanSites",
+        "count": 2
+      },
+      {
+        "id": "hfRadars",
+        "count": 27
+      }
+    ],
+    "JO": [
+      {
+        "id": "hfRadars",
+        "count": 1
+      }
+    ],
+    "JP": [
+      {
+        "id": "driftingBuoys",
+        "count": 21
+      },
+      {
+        "id": "argo",
+        "count": 157
+      },
+      {
+        "id": "sotVos",
+        "count": 142
+      },
+      {
+        "id": "sotAsap",
+        "count": 1
+      },
+      {
+        "id": "sot",
+        "count": 2
+      },
+      {
+        "id": "gloss",
+        "count": 14
+      },
+      {
+        "id": "oceanSites",
+        "count": 5
+      },
+      {
+        "id": "hfRadars",
+        "count": 22
+      }
+    ],
+    "KI": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "KR": [
+      {
+        "id": "driftingBuoys",
+        "count": 9
+      },
+      {
+        "id": "argo",
+        "count": 10
+      },
+      {
+        "id": "sotVos",
+        "count": 16
+      },
+      {
+        "id": "gloss",
+        "count": 1
+      },
+      {
+        "id": "oceanSites",
+        "count": 27
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 30
+      },
+      {
+        "id": "hfRadars",
+        "count": 25
+      }
+    ],
+    "MH": [
+      {
+        "id": "gloss",
+        "count": 3
+      }
+    ],
+    "MT": [
+      {
+        "id": "hfRadars",
+        "count": 4
+      }
+    ],
+    "MU": [
+      {
+        "id": "gloss",
+        "count": 3
+      }
+    ],
+    "MX": [
+      {
+        "id": "oceanGliders",
+        "count": 4
+      },
+      {
+        "id": "hfRadars",
+        "count": 1
+      }
+    ],
+    "NL": [
+      {
+        "id": "argo",
+        "count": 31
+      },
+      {
+        "id": "sotVos",
+        "count": 12
+      },
+      {
+        "id": "oceanSites",
+        "count": 8
+      },
+      {
+        "id": "hfRadars",
+        "count": 2
+      }
+    ],
+    "NO": [
+      {
+        "id": "argo",
+        "count": 32
+      },
+      {
+        "id": "oceanGliders",
+        "count": 3
+      },
+      {
+        "id": "sotVos",
+        "count": 2
+      },
+      {
+        "id": "gloss",
+        "count": 6
+      },
+      {
+        "id": "oceanSites",
+        "count": 3
+      },
+      {
+        "id": "hfRadars",
+        "count": 8
+      }
+    ],
+    "NR": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "NZ": [
+      {
+        "id": "driftingBuoys",
+        "count": 2
+      },
+      {
+        "id": "argo",
+        "count": 17
+      },
+      {
+        "id": "gloss",
+        "count": 3
+      },
+      {
+        "id": "tsunamiBuoys",
+        "count": 10
+      }
+    ],
+    "PE": [
+      {
+        "id": "oceanGliders",
+        "count": 4
+      },
+      {
+        "id": "oceanSites",
+        "count": 2
+      }
+    ],
+    "PG": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "PH": [
+      {
+        "id": "gloss",
+        "count": 3
+      }
+    ],
+    "PL": [
+      {
+        "id": "argo",
+        "count": 11
+      }
+    ],
+    "PR": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "PT": [
+      {
+        "id": "argo",
+        "count": 1
+      },
+      {
+        "id": "sotVos",
+        "count": 1
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 6
+      },
+      {
+        "id": "hfRadars",
+        "count": 10
+      }
+    ],
+    "RU": [
+      {
+        "id": "sotVos",
+        "count": 10
+      },
+      {
+        "id": "gloss",
+        "count": 5
+      },
+      {
+        "id": "hfRadars",
+        "count": 1
+      }
+    ],
+    "SE": [
+      {
+        "id": "oceanGliders",
+        "count": 123
+      },
+      {
+        "id": "sotVos",
+        "count": 6
+      },
+      {
+        "id": "gloss",
+        "count": 2
+      },
+      {
+        "id": "hfRadars",
+        "count": 2
+      }
+    ],
+    "SG": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "SI": [
+      {
+        "id": "hfRadars",
+        "count": 2
+      }
+    ],
+    "TH": [
+      {
+        "id": "gloss",
+        "count": 2
+      },
+      {
+        "id": "tsunamiBuoys",
+        "count": 1
+      },
+      {
+        "id": "hfRadars",
+        "count": 6
+      }
+    ],
+    "TO": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "TV": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "UA": [
+      {
+        "id": "argo",
+        "count": 6
+      }
+    ],
+    "US": [
+      {
+        "id": "driftingBuoys",
+        "count": 1049
+      },
+      {
+        "id": "argo",
+        "count": 2311
+      },
+      {
+        "id": "oceanGliders",
+        "count": 223
+      },
+      {
+        "id": "aniBOS",
+        "count": 10
+      },
+      {
+        "id": "fvon",
+        "count": 109
+      },
+      {
+        "id": "sotVos",
+        "count": 732
+      },
+      {
+        "id": "sot",
+        "count": 3
+      },
+      {
+        "id": "gloss",
+        "count": 24
+      },
+      {
+        "id": "oceanSites",
+        "count": 181
+      },
+      {
+        "id": "mooredBuoys",
+        "count": 226
+      },
+      {
+        "id": "tsunamiBuoys",
+        "count": 29
+      },
+      {
+        "id": "hfRadars",
+        "count": 172
+      }
+    ],
+    "UY": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "VN": [
+      {
+        "id": "hfRadars",
+        "count": 3
+      }
+    ],
+    "VU": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "WF": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ],
+    "ZA": [
+      {
+        "id": "sotVos",
+        "count": 1
+      },
+      {
+        "id": "sotAsap",
+        "count": 1
+      },
+      {
+        "id": "gloss",
+        "count": 2
+      }
+    ],
+    "PA": [
+      {
+        "id": "gloss",
+        "count": 1
+      }
+    ]
+  },
+  "source": "partner-2025-pa.ts",
+  "generatedAt": "2026-08-28",
   "note": "Auto-generated by bootstrap-contributing-countries-baseline.mjs. Re-run npm run export:partners to refresh YoY."
 }

@@ -56,17 +56,32 @@
     {
       "iso": "BD",
       "name": "Bangladesh",
-      "networks": []
+      "networks": [
+        {
+          "id": "fvon",
+          "count": 4
+        }
+      ]
     },
     {
       "iso": "BE",
       "name": "Belgium",
-      "networks": []
+      "networks": [
+        {
+          "id": "oceanGliders",
+          "count": 1
+        }
+      ]
     },
     {
       "iso": "PA",
       "name": "Panama",
-      "networks": []
+      "networks": [
+        {
+          "id": "gloss",
+          "count": 1
+        }
+      ]
     }
   ]
 }

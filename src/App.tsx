@@ -447,6 +447,7 @@ function App() {
               number: t('content.section1.stats.stat2.number'),
               description: t('content.section1.stats.stat2.description'),
               evolution: t('content.section1.stats.stat2.evolution', { defaultValue: '' }) || undefined,
+              evolutionDirection: 'neutral',
             },
             {
               number: fmt(totalPlatforms),
