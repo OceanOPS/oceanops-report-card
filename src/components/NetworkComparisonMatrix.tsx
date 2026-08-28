@@ -4,7 +4,7 @@ import Tooltip from './Tooltip'
 import NetworkDetailsPanel from './NetworkDetailsPanel'
 import { asset } from '../utils/assets'
 import { RatingCell } from '../utils/networkRatings'
-import type { DeliveryAreaFilter, EssentialVariableFilter, InSituNetwork } from '../types/inSituNetworks'
+import type { DeliveryAreaFilter, EssentialVariableKey, InSituNetwork } from '../types/inSituNetworks'
 import {
   collectEssentialVariableOptions,
   essentialVariableLabelKey,
@@ -64,8 +64,9 @@ export default function NetworkComparisonMatrix({
 }: NetworkComparisonMatrixProps) {
   const { t } = useTranslation()
   const [activeFilter, setActiveFilter] = useState<DeliveryAreaFilter>('all')
-  const [activeVariableFilter, setActiveVariableFilter] =
-    useState<EssentialVariableFilter>('all')
+  const [selectedVariableFilters, setSelectedVariableFilters] = useState<
+    EssentialVariableKey[]
+  >([])
   const [expandedNetworkId, setExpandedNetworkId] = useState<string | null>(null)
 
   const essentialVariableOptions = useMemo(
@@ -73,18 +74,28 @@ export default function NetworkComparisonMatrix({
     [networks],
   )
 
+  const toggleVariableFilter = (variableKey: EssentialVariableKey) => {
+    setSelectedVariableFilters((current) =>
+      current.includes(variableKey)
+        ? current.filter((key) => key !== variableKey)
+        : [...current, variableKey],
+    )
+  }
+
   const filteredNetworks = useMemo(() => {
     return networks.filter((network) => {
       const matchesDeliveryFilter =
         activeFilter === 'all' || network.deliveryAreas.includes(activeFilter)
 
       const matchesVariableFilter =
-        activeVariableFilter === 'all' ||
-        network.essentialVariables.includes(activeVariableFilter)
+        selectedVariableFilters.length === 0 ||
+        selectedVariableFilters.every((variableKey) =>
+          network.essentialVariables.includes(variableKey),
+        )
 
       return matchesDeliveryFilter && matchesVariableFilter
     })
-  }, [networks, activeFilter, activeVariableFilter])
+  }, [networks, activeFilter, selectedVariableFilters])
 
   const matureNetworks = useMemo(
     () => filteredNetworks.filter((network) => network.maturity !== 'emerging'),
@@ -309,9 +320,10 @@ export default function NetworkComparisonMatrix({
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
-              onClick={() => setActiveVariableFilter('all')}
+              onClick={() => setSelectedVariableFilters([])}
+              aria-pressed={selectedVariableFilters.length === 0}
               className={`px-4 py-2 text-sm font-medium transition-colors ${
-                activeVariableFilter === 'all'
+                selectedVariableFilters.length === 0
                   ? 'bg-goos-orange-500 text-white'
                   : 'bg-goos-blue-800 text-white border border-white/20 hover:border-white/40'
               }`}
@@ -319,12 +331,13 @@ export default function NetworkComparisonMatrix({
               {t('networks.comparison.filters.all')}
             </button>
             {essentialVariableOptions.map((variableKey) => {
-              const isActive = activeVariableFilter === variableKey
+              const isActive = selectedVariableFilters.includes(variableKey)
               return (
                 <button
                   key={variableKey}
                   type="button"
-                  onClick={() => setActiveVariableFilter(variableKey)}
+                  onClick={() => toggleVariableFilter(variableKey)}
+                  aria-pressed={isActive}
                   className={`px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
                       ? 'bg-goos-orange-500 text-white'
