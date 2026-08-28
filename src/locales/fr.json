@@ -621,6 +621,7 @@
       "flipBack": "Afficher les notes du réseau",
       "mobileTitle": "Réseaux <i>in situ</i>",
       "mobileHint": "Appuyez sur une fiche pour la retourner et voir les applications, la couverture et les objectifs.",
+      "mobileDesktopHint": "Consultez la version web pour une autre vue de cette section et plus de fonctionnalités.",
       "desktopExpandHint": "Cliquez sur une ligne pour afficher les applications, la couverture et les objectifs.",
       "columns": {
         "network": "Réseau",

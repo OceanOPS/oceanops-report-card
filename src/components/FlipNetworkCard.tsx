@@ -1,4 +1,4 @@
-import { useState, type KeyboardEvent, type MouseEvent } from 'react'
+import { useState, type KeyboardEvent, type MouseEvent, type WheelEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import NetworkCard from './NetworkCard'
 import NetworkDetailsPanel from './NetworkDetailsPanel'
@@ -79,6 +79,22 @@ export default function FlipNetworkCard({
     event.stopPropagation()
   }
 
+  const handleBackWheel = (event: WheelEvent<HTMLDivElement>) => {
+    const back = event.currentTarget
+    const canScrollVertically = back.scrollHeight > back.clientHeight + 1
+    if (!canScrollVertically) return
+
+    const scrollingUp = event.deltaY < 0 && back.scrollTop <= 0
+    const scrollingDown =
+      event.deltaY > 0 &&
+      back.scrollTop + back.clientHeight >= back.scrollHeight - 1
+
+    if (scrollingUp || scrollingDown) {
+      event.preventDefault()
+      window.scrollBy({ top: event.deltaY, behavior: 'auto' })
+    }
+  }
+
   return (
     <div className={`w-full flex flex-col ${className}`}>
       <p
@@ -113,7 +129,11 @@ export default function FlipNetworkCard({
             }`}
           >
             {/* Front — in flow so card height matches content (no fixed min-height) */}
-            <div className="relative [backface-visibility:hidden]">
+            <div
+              className={`relative [backface-visibility:hidden] ${
+                isFlipped ? 'pointer-events-none' : 'pointer-events-auto'
+              }`}
+            >
               <NetworkCard
                 iconSrc={asset(network.iconPath)}
                 iconAlt={network.iconAlt}
@@ -136,7 +156,10 @@ export default function FlipNetworkCard({
 
             {/* Back — fills front height; scroll if details are longer */}
             <div
-              className={`absolute inset-0 overflow-y-auto overscroll-contain [backface-visibility:hidden] [transform:rotateY(180deg)] ${backgroundColor} p-6 flex flex-col gap-5`}
+              className={`absolute inset-0 overflow-y-auto overscroll-y-auto [backface-visibility:hidden] [transform:rotateY(180deg)] ${backgroundColor} p-6 flex flex-col gap-5 ${
+                isFlipped ? 'pointer-events-auto' : 'pointer-events-none'
+              }`}
+              onWheel={handleBackWheel}
             >
               <div className="flex items-start gap-4 shrink-0">
                 <img

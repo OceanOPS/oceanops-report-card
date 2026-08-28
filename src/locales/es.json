@@ -564,6 +564,7 @@
       "flipBack": "Mostrar calificaciones de la red",
       "mobileTitle": "Redes <i>in situ</i>",
       "mobileHint": "Toque una tarjeta para voltearla y ver aplicaciones, cobertura y objetivos.",
+      "mobileDesktopHint": "Consulte la versión web de escritorio para otra vista de esta sección y más funcionalidades.",
       "desktopExpandHint": "Haga clic en una fila para ver aplicaciones, cobertura y objetivos.",
       "columns": {
         "network": "Red",

@@ -43,6 +43,11 @@ export default function InSituNetworksSection({
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(false)
+  const [showMobileNetworks, setShowMobileNetworks] = useState(() =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(max-width: 767px)').matches
+      : false,
+  )
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
@@ -92,7 +97,7 @@ export default function InSituNetworksSection({
   )
 
   useEffect(() => {
-    if (!carouselRef.current) return
+    if (!showMobileNetworks || !carouselRef.current) return
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) return
@@ -120,7 +125,15 @@ export default function InSituNetworksSection({
     }, carouselRef)
 
     return () => ctx.revert()
-  }, [networks.length])
+  }, [networks.length, showMobileNetworks])
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)')
+    const updateView = () => setShowMobileNetworks(mediaQuery.matches)
+    updateView()
+    mediaQuery.addEventListener('change', updateView)
+    return () => mediaQuery.removeEventListener('change', updateView)
+  }, [])
 
   return (
     <div id="networks-section">
@@ -130,15 +143,16 @@ export default function InSituNetworksSection({
       />
 
       {/* Desktop: comparison matrix */}
-      <div className="hidden md:block">
+      {!showMobileNetworks && (
         <NetworkComparisonMatrix
           networks={networks}
           onOpenEmergingMedia={setEmergingMediaNetworkId}
         />
-      </div>
+      )}
 
       {/* Mobile: flip cards carousel */}
-      <section className={`md:hidden ${backgroundColor} py-0`}>
+      {showMobileNetworks && (
+      <section className={`${backgroundColor} py-0`}>
         <div className="mx-auto flex flex-col gap-5">
           <div className="h-4 sm:h-6 w-5 opacity-75" />
           <div className="px-4 sm:px-8">
@@ -151,6 +165,9 @@ export default function InSituNetworksSection({
               <p className={`${titleColor} opacity-80 text-sm flex items-center gap-2`}>
                 <FlipCardsIcon className={cardAccentColor} />
                 <span>{t('networks.comparison.mobileHint')}</span>
+              </p>
+              <p className={`${titleColor} opacity-70 text-sm leading-relaxed`}>
+                {t('networks.comparison.mobileDesktopHint')}
               </p>
             </div>
           </div>
@@ -216,6 +233,7 @@ export default function InSituNetworksSection({
 
         <div className="h-4 sm:h-6 w-5 opacity-75" />
       </section>
+      )}
     </div>
   )
 }

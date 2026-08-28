@@ -609,6 +609,7 @@
       "flipBack": "Show network ratings",
       "mobileTitle": "<i>In situ</i> networks",
       "mobileHint": "Tap a card to flip it and view applications, coverage, and targets.",
+      "mobileDesktopHint": "Try the desktop web version for an alternate view of this section and more features.",
       "desktopExpandHint": "Click a row to expand applications, coverage, and targets.",
       "columns": {
         "network": "Network",

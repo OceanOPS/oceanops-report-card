@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useMemo, useState, type WheelEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import Tooltip from './Tooltip'
 import NetworkDetailsPanel from './NetworkDetailsPanel'
@@ -34,6 +34,17 @@ const FILTER_OPTIONS: DeliveryAreaFilter[] = [
 ]
 
 const COLUMN_COUNT = 7
+
+function forwardVerticalWheelOnHorizontalScroller(
+  event: WheelEvent<HTMLDivElement>,
+): void {
+  const { deltaX, deltaY, currentTarget } = event
+  if (Math.abs(deltaY) <= Math.abs(deltaX)) return
+  if (currentTarget.scrollWidth <= currentTarget.clientWidth + 1) return
+
+  event.preventDefault()
+  window.scrollBy({ top: deltaY, behavior: 'auto' })
+}
 
 interface NetworkComparisonMatrixProps {
   networks: InSituNetwork[]
@@ -352,7 +363,10 @@ export default function NetworkComparisonMatrix({
         </div>
       </div>
 
-      <div className="px-4 sm:px-8 md:px-12 lg:px-16 pb-10 overflow-x-auto">
+      <div
+        className="px-4 sm:px-8 md:px-12 lg:px-16 pb-10 overflow-x-auto overflow-y-visible overscroll-x-contain"
+        onWheel={forwardVerticalWheelOnHorizontalScroller}
+      >
         <table className="w-full min-w-[1100px] border-collapse">
           <thead>
             <tr className="border-b border-white/20">
