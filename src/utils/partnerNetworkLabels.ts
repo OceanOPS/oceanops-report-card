@@ -9,7 +9,7 @@ export const PARTNER_NETWORK_KEYS = [
   'fvon',
   'sotVos',
   'sotAsap',
-  'sot',
+  'oceantrax',
   'goShip',
   'gloss',
   'oceanSites',

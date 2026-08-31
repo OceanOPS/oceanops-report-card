@@ -783,7 +783,7 @@
       "fvon": "Sondas en barcos pesqueros - FVON",
       "sotVos": "Meteorológico basado en barcos - SOT/VOS",
       "sotAsap": "Meteorológico basado en barcos - SOT/ASAP",
-      "sot": "Oceanográfico basado en barcos - SOT",
+      "oceantrax": "Oceanográfico basado en barcos - SOT",
       "goShip": "Transectos repetidos - GO-SHIP",
       "gloss": "Mareógrafos - GLOSS",
       "oceanSites": "Sitios de series temporales - OceanSITES",

@@ -1044,7 +1044,7 @@
       "fvon": "Fishing vessels – FVON",
       "sotVos": "Ship based meteorological – SOT/VOS",
       "sotAsap": "Ship based aerological – SOT/ASAP",
-      "sot": "Ship based oceanographic – SOT/Ocean TraX",
+      "oceantrax": "Ship based oceanographic – SOT/Ocean TraX",
       "goShip": "Repeated transects – GO-SHIP",
       "gloss": "Sea level gauges – GLOSS",
       "oceanSites": "Time series sites – OceanSITES",

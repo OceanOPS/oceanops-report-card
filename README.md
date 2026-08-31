@@ -137,7 +137,7 @@ Set `PARTNER_EXPORT_EDITION` to label the run in the criteria summary (e.g. `202
 Edit **`../oceanops-data-exports/partner-export/exportConfig.mjs`** before each edition:
 
 - **`GO_SHIP_SELECTED_LINE_NAMES`** — manual GO-SHIP line list (same workflow as your colleague’s `WHERE name IN (...)` SQL). Set to `null` to count all GO-SHIP lines with `line_program`.
-- **`SOT_SELECTED_LINE_NAMES`** — manual SOOP XBT line list for the `sot` network. Set to `null` to count all SOOP XBT lines with `line_program`.
+- **Ocean TraX (`oceantrax`)** — partner counts from `../oceanops-data-exports/partner-export/manual/oceantrax.json` (ISO → integer).
 - **`OCEAN_GLIDERS_MIN_LAST_LOC_DATE`**, **`ANIBOS_MIN_LAST_LOC_DATE`**, **`FVON_MIN_LAST_LOC_DATE`** — latest location cutoffs for the 2025 layer table.
 - **`NETWORK_CRITERIA`** — human-readable summary + SQL hints per network (mirrors the colleague’s `ptf_loc_n` / `goship_design_goship_1` queries).
 - **`EXPORT_EDITION_LABEL`** — default edition label (overridable via `PARTNER_EXPORT_EDITION`).
