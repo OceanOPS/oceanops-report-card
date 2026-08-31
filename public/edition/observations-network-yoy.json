@@ -1,14 +1,14 @@
 {
-  "exportedAt": "2026-08-27",
+  "exportedAt": "2026-08-31",
   "methodology": "source hierarchy (GTS MF obs subsets + GDAC/IOOS/VOTO + AniBOS + FVON + tsunami OSMC)",
   "currentYear": 2026,
   "previousYear": 2025,
-  "currentPeriod": "2026-01-01 → 2026-08-27",
-  "previousPeriod": "2025-01-01 → 2025-08-27",
+  "currentPeriod": "2026-01-01 → 2026-08-31",
+  "previousPeriod": "2025-01-01 → 2025-08-31",
   "headline": {
-    "currentAvgPerDay": 105810,
-    "previousAvgPerDay": 125338,
-    "deltaAvg": -19528
+    "currentAvgPerDay": 106639,
+    "previousAvgPerDay": 125463,
+    "deltaAvg": -18824
   },
   "networks": [
     {
@@ -84,16 +84,16 @@
       "label": "DBCP moored buoys",
       "source": "GTS MF",
       "current": {
-        "avgPerDay": 47321,
-        "daysWithData": 237,
-        "total": 11215044
+        "avgPerDay": 47396,
+        "daysWithData": 241,
+        "total": 11422464
       },
       "previous": {
-        "avgPerDay": 59520,
-        "daysWithData": 239,
-        "total": 14225331
+        "avgPerDay": 59637,
+        "daysWithData": 243,
+        "total": 14491882
       },
-      "deltaAvg": -12199,
+      "deltaAvg": -12241,
       "deltaPct": -20.5
     },
     {
@@ -101,50 +101,50 @@
       "label": "DBCP tsunameter buoys",
       "source": "GTS OSMC",
       "current": {
-        "avgPerDay": 3506,
-        "daysWithData": 237,
-        "total": 830912
+        "avgPerDay": 3505,
+        "daysWithData": 241,
+        "total": 844779
       },
       "previous": {
-        "avgPerDay": 4382,
-        "daysWithData": 239,
-        "total": 1047417
+        "avgPerDay": 4385,
+        "daysWithData": 243,
+        "total": 1065631
       },
-      "deltaAvg": -876,
-      "deltaPct": -20
+      "deltaAvg": -880,
+      "deltaPct": -20.1
     },
     {
       "id": "dbcp-drifting",
       "label": "DBCP drifting buoys",
       "source": "GTS MF",
       "current": {
-        "avgPerDay": 29193,
-        "daysWithData": 237,
-        "total": 6918785
+        "avgPerDay": 29499,
+        "daysWithData": 241,
+        "total": 7109170
       },
       "previous": {
-        "avgPerDay": 34692,
-        "daysWithData": 239,
-        "total": 8291402
+        "avgPerDay": 34672,
+        "daysWithData": 243,
+        "total": 8425316
       },
-      "deltaAvg": -5499,
-      "deltaPct": -15.9
+      "deltaAvg": -5173,
+      "deltaPct": -14.9
     },
     {
       "id": "vos",
       "label": "VOS (SOT)",
       "source": "GTS MF",
       "current": {
-        "avgPerDay": 20826,
-        "daysWithData": 237,
-        "total": 4935648
+        "avgPerDay": 20837,
+        "daysWithData": 241,
+        "total": 5021687
       },
       "previous": {
-        "avgPerDay": 21295,
-        "daysWithData": 239,
-        "total": 5089492
+        "avgPerDay": 21311,
+        "daysWithData": 243,
+        "total": 5178694
       },
-      "deltaAvg": -469,
+      "deltaAvg": -474,
       "deltaPct": -2.2
     },
     {
@@ -169,14 +169,14 @@
       "label": "Argo (GDAC)",
       "source": "GDAC",
       "current": {
-        "avgPerDay": 500,
-        "daysWithData": 239,
-        "total": 119543
+        "avgPerDay": 501,
+        "daysWithData": 242,
+        "total": 121347
       },
       "previous": {
-        "avgPerDay": 492,
-        "daysWithData": 239,
-        "total": 117654
+        "avgPerDay": 493,
+        "daysWithData": 243,
+        "total": 119684
       },
       "deltaAvg": 8,
       "deltaPct": 1.6
@@ -187,13 +187,13 @@
       "source": "GTS MF",
       "current": {
         "avgPerDay": 16,
-        "daysWithData": 159,
-        "total": 2543
+        "daysWithData": 162,
+        "total": 2587
       },
       "previous": {
         "avgPerDay": 12,
-        "daysWithData": 175,
-        "total": 2071
+        "daysWithData": 177,
+        "total": 2097
       },
       "deltaAvg": 4,
       "deltaPct": 33.3
