@@ -169,17 +169,17 @@
       "label": "Argo (GDAC)",
       "source": "GDAC",
       "current": {
-        "avgPerDay": 501,
-        "daysWithData": 242,
-        "total": 121347
+        "avgPerDay": 500,
+        "daysWithData": 243,
+        "total": 121513
       },
       "previous": {
         "avgPerDay": 493,
         "daysWithData": 243,
         "total": 119684
       },
-      "deltaAvg": 8,
-      "deltaPct": 1.6
+      "deltaAvg": 7,
+      "deltaPct": 1.4
     },
     {
       "id": "soop-xbt",
