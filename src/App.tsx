@@ -29,7 +29,7 @@ const MAP_SRC =
 import DeliveryAreasNav from './components/DeliveryAreasNav'
 import ColorStripes from './components/ColorStripes'
 import { asset } from './utils/assets'
-import { scrollToSection } from './utils/scrollToSection'
+import { navigateToSection } from './utils/scrollToSection'
 import {
   contributingCountries,
   countriesDeltaVsLastYear,
@@ -90,10 +90,11 @@ function App() {
       const hash = window.location.hash.slice(1)
       if (!hash) return
       ;(window as any).isScrollingProgrammatically = true
-      scrollToSection(hash, { behavior })
-      setTimeout(() => {
-        ;(window as any).isScrollingProgrammatically = false
-      }, 1000)
+      void navigateToSection(hash, { behavior }).finally(() => {
+        setTimeout(() => {
+          ;(window as any).isScrollingProgrammatically = false
+        }, 1000)
+      })
     }
 
     // Delay initial scroll until layout is ready (overrides browser default anchor jump)

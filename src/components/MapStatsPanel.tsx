@@ -60,7 +60,21 @@
  * ```
  */
 
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import {
+  EXIT_MAP_EMBED_FULLSCREEN,
+  MAP_FULLSCREEN_MESSAGE,
+  setMapEmbedFullscreen,
+} from '../utils/mapEmbedFullscreen'
+
+function mapOriginFromSrc(mapSrc: string): string | null {
+  try {
+    return new URL(mapSrc, window.location.href).origin
+  } catch {
+    return null
+  }
+}
 
 interface StatItem {
   number: string
@@ -108,6 +122,62 @@ export default function MapStatsPanel({
   scrollAnchorId,
 }: MapStatsPanelProps) {
   const { t } = useTranslation()
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const [mapFullscreen, setMapFullscreen] = useState(false)
+
+  const exitMapFullscreen = useCallback(() => {
+    setMapFullscreen(false)
+    iframeRef.current?.contentWindow?.postMessage(
+      { type: MAP_FULLSCREEN_MESSAGE, active: false },
+      '*'
+    )
+  }, [])
+
+  useEffect(() => {
+    setMapEmbedFullscreen(mapFullscreen)
+  }, [mapFullscreen])
+
+  useEffect(() => () => setMapEmbedFullscreen(false), [])
+
+  useEffect(() => {
+    if (mapType !== 'iframe') return
+    const onExit = () => exitMapFullscreen()
+    window.addEventListener(EXIT_MAP_EMBED_FULLSCREEN, onExit)
+    return () => window.removeEventListener(EXIT_MAP_EMBED_FULLSCREEN, onExit)
+  }, [mapType, exitMapFullscreen])
+
+  useEffect(() => {
+    if (mapType !== 'iframe') return
+
+    const expectedOrigin = mapOriginFromSrc(mapSrc)
+    const onMessage = (event: MessageEvent) => {
+      if (event.data?.type !== MAP_FULLSCREEN_MESSAGE) return
+      if (typeof event.data.active !== 'boolean') return
+      if (expectedOrigin && event.origin !== expectedOrigin) return
+      setMapFullscreen(event.data.active)
+    }
+
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [mapSrc, mapType])
+
+  useEffect(() => {
+    if (!mapFullscreen) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      exitMapFullscreen()
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [mapFullscreen, exitMapFullscreen])
 
   // Check if stats panel should be shown
   const hasStats = stats && stats.length > 0
@@ -185,20 +255,27 @@ export default function MapStatsPanel({
         {/* Right Column - Map (50% width if stats, 100% width if no stats) */}
         <div
           id={scrollAnchorId}
-          className={`${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : 'flex-1 w-full self-stretch min-h-0 flex flex-col justify-center'} w-full`}
+          className={`${
+            mapFullscreen
+              ? 'fixed inset-0 z-[9999] bg-goos-blue-900'
+              : `${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : 'flex-1 w-full self-stretch min-h-0 flex flex-col justify-center'} w-full`
+          }`}
         >
           {mapType === 'image' ? (
             <img
               src={mapSrc}
               alt={altText}
-              className={`w-full object-cover rounded ${mapViewportClass}`}
+              className={`w-full object-cover rounded ${mapFullscreen ? 'h-full' : mapViewportClass}`}
             />
           ) : (
             <iframe
+              ref={iframeRef}
               src={mapSrc}
               title={altText}
-              className={`w-full border-0 rounded ${mapViewportClass}`}
+              className={`w-full border-0 ${mapFullscreen ? 'h-full rounded-none' : `rounded ${mapViewportClass}`}`}
               loading="lazy"
+              allow="fullscreen"
+              allowFullScreen
             />
           )}
         </div>

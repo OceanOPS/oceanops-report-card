@@ -1,3 +1,5 @@
+import { exitMapEmbedFullscreen } from './mapEmbedFullscreen'
+
 export type SectionScrollBlock = ScrollLogicalPosition
 
 const SECTION_SCROLL_BLOCK: Record<string, SectionScrollBlock> = {
@@ -20,4 +22,16 @@ export function scrollToSection(
     block: options?.block ?? getSectionScrollBlock(sectionId),
   })
   return true
+}
+
+/** Leave map fullscreen (if active), wait for layout, then scroll to a section. */
+export async function navigateToSection(
+  sectionId: string,
+  options?: { behavior?: ScrollBehavior; block?: SectionScrollBlock }
+): Promise<boolean> {
+  await exitMapEmbedFullscreen()
+  await new Promise<void>((resolve) => {
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+  })
+  return scrollToSection(sectionId, options)
 }

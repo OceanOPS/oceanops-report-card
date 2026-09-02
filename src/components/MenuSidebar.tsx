@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import Button from './Button'
 import { asset } from '../utils/assets'
-import { scrollToSection } from '../utils/scrollToSection'
+import { navigateToSection } from '../utils/scrollToSection'
 
 /**
  * MenuSidebar Component
@@ -234,26 +234,24 @@ export default function MenuSidebar({
       // Close menu first to see the scroll animation
       setIsOpen()
 
-      // Small delay to let menu close animation start
+      // Small delay to let menu close animation start, then exit map fullscreen and scroll
       setTimeout(() => {
-        // Mark that we're scrolling programmatically to prevent scroll spy from updating hash
-        (window as any).isScrollingProgrammatically = true
+        void (async () => {
+          ;(window as any).isScrollingProgrammatically = true
 
-        // Update URL hash for deep linking using replaceState to avoid history clutter
-        window.history.replaceState(null, '', `#${sectionId}`)
+          window.history.replaceState(null, '', `#${sectionId}`)
 
-        // Scroll to section if ID is provided
-        const element = document.getElementById(sectionId)
-        if (element) {
-          scrollToSection(sectionId, {
-            behavior: 'smooth',
-          })
-        }
+          const element = document.getElementById(sectionId)
+          if (element) {
+            await navigateToSection(sectionId, {
+              behavior: 'smooth',
+            })
+          }
 
-        // Reset flag after scroll animation completes
-        setTimeout(() => {
-          (window as any).isScrollingProgrammatically = false
-        }, 1000)
+          setTimeout(() => {
+            ;(window as any).isScrollingProgrammatically = false
+          }, 1000)
+        })()
       }, 300) // Match menu transition duration
     } else {
       setIsOpen()
