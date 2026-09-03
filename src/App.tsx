@@ -37,10 +37,10 @@ import {
   platformsDeltaVsLastYear,
   totalPlatforms,
 } from './utils/partnerCountryStats'
-import { formatObservationsDeltaPct, formatObservationsPerDay, formatObservationsPeriod } from './utils/formatObservationsPerDay'
+import { formatObservationsDeltaPct, formatObservationsPerDay } from './utils/formatObservationsPerDay'
 import { OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR } from './data/editionStats'
 import { networksWithYoy, useEditionYoy } from './utils/editionYoy'
-import { CountriesYoyDetail, NetworkYoyDetail } from './components/StatEvolutionDetail'
+import { CountriesYoyDetail, ObservationsYoyDetail } from './components/StatEvolutionDetail'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
@@ -48,9 +48,6 @@ const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(coun
 
 function App() {
   const { t, i18n } = useTranslation()
-  const obsLocale =
-    i18n.language === 'fr' ? 'fr-FR' : i18n.language === 'es' ? 'es-ES' : 'en-US'
-  const observationsPeriod = formatObservationsPeriod(obsLocale)
   const observationsDeltaLabel = formatObservationsDeltaPct(OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR)
   const { networkYoy, countriesYoy } = useEditionYoy()
   const networkYoyRows = networksWithYoy(networkYoy.networks)
@@ -463,18 +460,17 @@ function App() {
               number: formatObservationsPerDay(),
               numberClassName: 'text-4xl sm:text-5xl',
               description: t('content.section1.stats.stat4.description'),
-              descriptionDetail: t('content.section1.stats.stat4.descriptionDetail', observationsPeriod),
               evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
                 delta: observationsDeltaLabel,
                 year: LAST_REPORT_YEAR,
               }),
               evolutionDirection: OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR >= 0 ? 'up' : 'down',
-              evolutionDetail: networkYoyRows.length > 0 ? (
-                <NetworkYoyDetail
+              evolutionDetail: (
+                <ObservationsYoyDetail
+                  data={networkYoy}
                   networks={networkYoyRows}
-                  year={networkYoy.previousYear}
                 />
-              ) : undefined,
+              ),
             },
           ]}
           backgroundColor="bg-goos-blue-900"

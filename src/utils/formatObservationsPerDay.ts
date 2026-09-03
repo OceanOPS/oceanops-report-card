@@ -40,16 +40,54 @@ export function formatNetworkAvgPerDay(value: number, locale = 'en-US'): string 
   return Math.round(value).toLocaleString(locale)
 }
 
-/** Localized period label for stat4 (edition observation window). */
-export function formatObservationsPeriod(locale = 'en-US') {
+function shiftIsoYear(isoDate: string, deltaYears: number): string {
+  const date = new Date(`${isoDate}T12:00:00`)
+  date.setFullYear(date.getFullYear() + deltaYears)
+  return date.toISOString().slice(0, 10)
+}
+
+/** Localized date range, e.g. "Jan 2026 – Aug 2026". */
+export function formatPeriodRange(
+  startIso: string,
+  endIso: string,
+  locale = 'en-US',
+): string {
   const dateOpts: Intl.DateTimeFormatOptions = {
     month: 'short',
     year: 'numeric',
   }
-  const start = new Date(`${OBSERVATIONS_PERIOD_START}T12:00:00`)
-  const end = new Date(`${OBSERVATIONS_PERIOD_END}T12:00:00`)
-  return {
-    start: start.toLocaleDateString(locale, dateOpts),
-    end: end.toLocaleDateString(locale, dateOpts),
-  }
+  const start = new Date(`${startIso}T12:00:00`)
+  const end = new Date(`${endIso}T12:00:00`)
+  return `${start.toLocaleDateString(locale, dateOpts)} – ${end.toLocaleDateString(locale, dateOpts)}`
+}
+
+/** Parse export label "2026-01-01 → 2026-08-31" for display. */
+export function formatExportPeriodRange(period: string, locale = 'en-US'): string {
+  const parts = period.split('→').map((part) => part.trim())
+  if (parts.length !== 2) return period
+  return formatPeriodRange(parts[0], parts[1], locale)
+}
+
+/** Localized current edition observation window, e.g. "Jan 2026 – Aug 2026". */
+export function formatObservationsPeriodRange(locale = 'en-US'): string {
+  return formatPeriodRange(
+    OBSERVATIONS_PERIOD_START,
+    OBSERVATIONS_PERIOD_END,
+    locale,
+  )
+}
+
+/** Current vs previous-year aligned window (same month span). */
+export function formatAlignedYoyPeriods(locale = 'en-US') {
+  const currentRange = formatPeriodRange(
+    OBSERVATIONS_PERIOD_START,
+    OBSERVATIONS_PERIOD_END,
+    locale,
+  )
+  const previousRange = formatPeriodRange(
+    shiftIsoYear(OBSERVATIONS_PERIOD_START, -1),
+    shiftIsoYear(OBSERVATIONS_PERIOD_END, -1),
+    locale,
+  )
+  return { currentRange, previousRange }
 }

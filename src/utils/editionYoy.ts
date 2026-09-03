@@ -18,7 +18,15 @@ export type NetworkYoyRow = {
 
 export type ObservationsNetworkYoy = {
   exportedAt: string
+  currentYear?: number
   previousYear: number
+  currentPeriod?: string
+  previousPeriod?: string
+  headline?: {
+    currentAvgPerDay: number
+    previousAvgPerDay: number
+    deltaAvg: number
+  }
   networks: NetworkYoyRow[]
 }
 

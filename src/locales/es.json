@@ -242,6 +242,10 @@
       "statsIntro": "Nuestra comunidad global de proveedores y operadores trabajan juntos para entregar información oceánica esencial todos los días.",
       "stats": {
         "evolutionDetail": {
+          "observationsPeriodTitle": "Comparación interanual",
+          "observationsPeriodIntro": "Promedio diario en la misma ventana calendario cada año (alineada con la fecha de exportación).",
+          "observationsPeriodLine": "{{year}} ({{range}}): {{avg}} prom/día",
+          "observationsPeriodChange": "Cambio: {{signedDelta}} prom/día ({{pct}} vs {{year}})",
           "networksTitle": "Cambio por red vs {{year}}",
           "networkAvgRange": "{{previous}} prom/día → {{current}}",
           "countriesTitle": "Cambios de países vs {{year}}",

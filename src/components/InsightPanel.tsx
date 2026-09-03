@@ -142,17 +142,17 @@ function StatEvolutionBadge({
   direction?: 'up' | 'down' | 'neutral'
 }) {
   const arrow = direction === 'up' ? '↑' : direction === 'down' ? '↓' : null
+  const baseClass =
+    'inline-flex shrink-0 items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] sm:text-xs font-semibold tabular-nums whitespace-nowrap'
   const toneClass =
     direction === 'down'
-      ? 'text-red-300'
+      ? 'text-goos-blue-300 border-goos-blue-300/30 bg-goos-blue-300/10'
       : direction === 'neutral'
-        ? 'text-white/70'
-        : 'text-goos-green-400'
+        ? 'text-white/70 border-white/10 bg-white/[0.06]'
+        : 'text-goos-cyan-400 border-goos-cyan-400/35 bg-goos-cyan-500/10'
 
   return (
-    <span
-      className={`inline-flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-white/[0.06] px-2 py-0.5 text-[11px] sm:text-xs font-semibold tabular-nums whitespace-nowrap ${toneClass}`}
-    >
+    <span className={`${baseClass} ${toneClass}`}>
       {arrow && <span aria-hidden="true">{arrow}</span>}
       <span>{evolution}</span>
     </span>
@@ -246,7 +246,7 @@ function StatBlock({
     return (
       <Tooltip
         contentNode={stat.evolutionDetail}
-        maxWidthClass="max-w-[340px]"
+        maxWidthClass="max-w-[380px]"
         placement="left"
         className="block w-full h-full"
         backgroundColor="bg-goos-blue-900"

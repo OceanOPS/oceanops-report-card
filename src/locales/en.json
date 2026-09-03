@@ -248,6 +248,10 @@
       "statsIntro2": "The current numbers and map show operational observations from mostly mature ocean observing networks feeding into OceanOPS. In future editions, GOOS aims to fully integrate all emerging networks as well as biological and ecosystem observations into this display.",
       "stats": {
         "evolutionDetail": {
+          "observationsPeriodTitle": "Year-over-year comparison",
+          "observationsPeriodIntro": "Daily average over the same calendar window each year (aligned with the export date).",
+          "observationsPeriodLine": "{{year}} ({{range}}): {{avg}} avg/day",
+          "observationsPeriodChange": "Change: {{signedDelta}} avg/day ({{pct}} vs {{year}})",
           "networksTitle": "Change by network vs {{year}}",
           "networkAvgRange": "{{previous}} avg/day → {{current}}",
           "countriesTitle": "Country changes vs {{year}}",

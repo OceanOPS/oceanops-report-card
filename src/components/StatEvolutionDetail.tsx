@@ -1,22 +1,103 @@
 import { useTranslation } from 'react-i18next'
-import type { ContributingCountriesYoy, CountryYoyEntry, NetworkYoyRow } from '../utils/editionYoy'
+import type { ContributingCountriesYoy, CountryYoyEntry, NetworkYoyRow, ObservationsNetworkYoy } from '../utils/editionYoy'
 import { resolveCountryDisplayName } from '../utils/countryDisplayName'
-import { formatNetworkAvgPerDay } from '../utils/formatObservationsPerDay'
+import {
+  formatExportPeriodRange,
+  formatNetworkAvgPerDay,
+  formatObservationsDeltaPct,
+  formatAlignedYoyPeriods,
+} from '../utils/formatObservationsPerDay'
+import {
+  OBSERVATIONS_PER_DAY_AVG,
+  OBSERVATIONS_PER_DAY_AVG_LAST_YEAR,
+  OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR,
+} from '../data/editionStats'
 import { partnerNetworkLabelKey, sortCountryYoyNetworks } from '../utils/partnerNetworkLabels'
+
+export function ObservationsYoyDetail({
+  data,
+  networks,
+}: {
+  data: ObservationsNetworkYoy
+  networks: NetworkYoyRow[]
+}) {
+  const { t, i18n } = useTranslation()
+  const locale =
+    i18n.language === 'fr' ? 'fr-FR' : i18n.language === 'es' ? 'es-ES' : 'en-US'
+
+  const fallbackPeriods = formatAlignedYoyPeriods(locale)
+  const currentRange = data.currentPeriod
+    ? formatExportPeriodRange(data.currentPeriod, locale)
+    : fallbackPeriods.currentRange
+  const previousRange = data.previousPeriod
+    ? formatExportPeriodRange(data.previousPeriod, locale)
+    : fallbackPeriods.previousRange
+
+  const currentAvg = data.headline?.currentAvgPerDay ?? OBSERVATIONS_PER_DAY_AVG
+  const previousAvg = data.headline?.previousAvgPerDay ?? OBSERVATIONS_PER_DAY_AVG_LAST_YEAR
+  const deltaAvg = data.headline?.deltaAvg ?? OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR
+  const deltaPct = formatObservationsDeltaPct(deltaAvg)
+
+  return (
+    <div className="space-y-3 text-left text-goos-white">
+      <div className="space-y-1.5">
+        <p className="text-xs font-semibold uppercase tracking-wide text-goos-white/90">
+          {t('content.section1.stats.evolutionDetail.observationsPeriodTitle')}
+        </p>
+        <p className="text-xs leading-relaxed text-goos-white/75">
+          {t('content.section1.stats.evolutionDetail.observationsPeriodIntro')}
+        </p>
+        <ul className="space-y-1 text-sm">
+          <li className="tabular-nums">
+            {t('content.section1.stats.evolutionDetail.observationsPeriodLine', {
+              year: data.currentYear ?? new Date().getFullYear(),
+              range: currentRange,
+              avg: formatNetworkAvgPerDay(currentAvg, i18n.language),
+            })}
+          </li>
+          <li className="tabular-nums">
+            {t('content.section1.stats.evolutionDetail.observationsPeriodLine', {
+              year: data.previousYear,
+              range: previousRange,
+              avg: formatNetworkAvgPerDay(previousAvg, i18n.language),
+            })}
+          </li>
+        </ul>
+        <p
+          className={`text-sm font-medium tabular-nums ${
+            deltaAvg >= 0 ? 'text-goos-cyan-400' : 'text-goos-blue-300'
+          }`}
+        >
+          {t('content.section1.stats.evolutionDetail.observationsPeriodChange', {
+            signedDelta: `${deltaAvg >= 0 ? '+' : '−'}${formatNetworkAvgPerDay(Math.abs(deltaAvg), i18n.language)}`,
+            pct: deltaPct,
+            year: data.previousYear,
+          })}
+        </p>
+      </div>
+
+      {networks.length > 0 && (
+        <NetworkYoyDetail networks={networks} year={data.previousYear} nested />
+      )}
+    </div>
+  )
+}
 
 export function NetworkYoyDetail({
   networks,
   year,
+  nested = false,
 }: {
   networks: NetworkYoyRow[]
   year: number | string
+  nested?: boolean
 }) {
   const { t, i18n } = useTranslation()
 
   if (networks.length === 0) return null
 
   return (
-    <div className="space-y-2 text-left text-goos-white">
+    <div className={`space-y-2 text-left text-goos-white ${nested ? 'pt-1 border-t border-white/10' : ''}`}>
       <p className="text-xs font-semibold uppercase tracking-wide text-goos-white/90">
         {t('content.section1.stats.evolutionDetail.networksTitle', { year })}
       </p>
@@ -35,7 +116,7 @@ export function NetworkYoyDetail({
               <span className="text-sm text-goos-white/90">{row.label}</span>
               <span
                 className={`shrink-0 text-sm font-medium tabular-nums ${
-                  delta >= 0 ? 'text-goos-green-300' : 'text-red-300'
+                  delta >= 0 ? 'text-goos-cyan-400' : 'text-goos-blue-300'
                 }`}
               >
                 {changeLabel}
@@ -93,7 +174,7 @@ export function CountriesYoyDetail({ data }: { data: ContributingCountriesYoy })
       </p>
       {data.appeared.length > 0 && (
         <div>
-          <p className="text-xs font-medium text-goos-green-300 mb-1">
+          <p className="text-xs font-medium text-goos-cyan-400 mb-1">
             {t('content.section1.stats.evolutionDetail.appeared', {
               count: data.appeared.length,
             })}
@@ -105,7 +186,7 @@ export function CountriesYoyDetail({ data }: { data: ContributingCountriesYoy })
       )}
       {data.disappeared.length > 0 && (
         <div>
-          <p className="text-xs font-medium text-red-300 mb-1">
+          <p className="text-xs font-medium text-goos-blue-300 mb-1">
             {t('content.section1.stats.evolutionDetail.disappeared', {
               count: data.disappeared.length,
             })}
