@@ -65,6 +65,7 @@ import { useTranslation } from 'react-i18next'
 import {
   EXIT_MAP_EMBED_FULLSCREEN,
   MAP_FULLSCREEN_MESSAGE,
+  MAP_RESIZE_MESSAGE,
   setMapEmbedFullscreen,
 } from '../utils/mapEmbedFullscreen'
 
@@ -123,7 +124,12 @@ export default function MapStatsPanel({
 }: MapStatsPanelProps) {
   const { t } = useTranslation()
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const mapHostRef = useRef<HTMLDivElement>(null)
   const [mapFullscreen, setMapFullscreen] = useState(false)
+
+  const notifyMapResize = useCallback(() => {
+    iframeRef.current?.contentWindow?.postMessage({ type: MAP_RESIZE_MESSAGE }, '*')
+  }, [])
 
   const exitMapFullscreen = useCallback(() => {
     setMapFullscreen(false)
@@ -179,6 +185,26 @@ export default function MapStatsPanel({
     }
   }, [mapFullscreen, exitMapFullscreen])
 
+  useEffect(() => {
+    if (mapType !== 'iframe' || mapFullscreen) return
+
+    const host = mapHostRef.current
+    if (!host) return
+
+    notifyMapResize()
+
+    const observer = new ResizeObserver(() => {
+      notifyMapResize()
+    })
+    observer.observe(host)
+
+    window.addEventListener('resize', notifyMapResize)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', notifyMapResize)
+    }
+  }, [mapType, mapFullscreen, notifyMapResize])
+
   // Check if stats panel should be shown
   const hasStats = stats && stats.length > 0
 
@@ -188,13 +214,15 @@ export default function MapStatsPanel({
   // Ensure exactly 4 stats (take first 4 if more provided)
   const gridStats = hasStats ? stats.slice(0, 4) : []
 
-  // Check if using full viewport height
+  // Exact viewport height for embedded map (menu + globe fill the screen).
+  const viewportHeightClass = 'h-[100dvh] max-h-[100dvh]'
   const isFullHeight = mapHeight === 'full'
   const isMapOnly = !hasStats && !title
-  const sectionHeightClass = isFullHeight ? 'min-h-[100svh]' : ''
+  const sectionHeightClass =
+    isFullHeight && isMapOnly ? viewportHeightClass : isFullHeight ? 'min-h-[100dvh]' : ''
   const mapViewportClass = isFullHeight
     ? isMapOnly
-      ? 'h-[min(100svh,900px)]'
+      ? 'h-full min-h-0'
       : 'h-full min-h-[480px]'
     : 'h-[600px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'
 
@@ -223,7 +251,7 @@ export default function MapStatsPanel({
       )}
 
       {/* Content: Stats and Map - Takes remaining space and centers */}
-      <div className={`flex gap-5 md:gap-8 lg:gap-12 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0`}>
+      <div className={`flex gap-5 md:gap-8 lg:gap-12 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0 ${isMapOnly && isFullHeight ? 'h-full' : ''}`}>
         {/* Left Column - Stats Grid 2x2 (50% width) - Only show if stats exist */}
         {hasStats && (
           <div className="lg:basis-1/2 flex items-center">
@@ -254,11 +282,12 @@ export default function MapStatsPanel({
 
         {/* Right Column - Map (50% width if stats, 100% width if no stats) */}
         <div
+          ref={mapHostRef}
           id={scrollAnchorId}
           className={`${
             mapFullscreen
               ? 'fixed inset-0 z-[9999] bg-goos-blue-900'
-              : `${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : 'flex-1 w-full self-stretch min-h-0 flex flex-col justify-center'} w-full`
+              : `${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : `${viewportHeightClass} sticky top-0 z-20 flex flex-col`} w-full`
           }`}
         >
           {mapType === 'image' ? (
@@ -272,10 +301,11 @@ export default function MapStatsPanel({
               ref={iframeRef}
               src={mapSrc}
               title={altText}
-              className={`w-full border-0 ${mapFullscreen ? 'h-full rounded-none' : `rounded ${mapViewportClass}`}`}
+              className={`w-full flex-1 min-h-0 border-0 ${mapFullscreen ? 'h-full rounded-none' : `rounded ${mapViewportClass}`}`}
               loading="lazy"
               allow="fullscreen"
               allowFullScreen
+              onLoad={notifyMapResize}
             />
           )}
         </div>

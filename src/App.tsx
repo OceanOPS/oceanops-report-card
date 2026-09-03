@@ -47,7 +47,7 @@ const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(pla
 const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(countriesDeltaVsLastYear)}`
 
 function App() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const observationsDeltaLabel = formatObservationsDeltaPct(OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR)
   const { networkYoy, countriesYoy } = useEditionYoy()
   const networkYoyRows = networksWithYoy(networkYoy.networks)

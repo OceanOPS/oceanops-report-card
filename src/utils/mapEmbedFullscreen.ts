@@ -1,4 +1,5 @@
 export const MAP_FULLSCREEN_MESSAGE = 'oceanops-simple-map-fullscreen'
+export const MAP_RESIZE_MESSAGE = 'oceanops-map-resize'
 
 export const EXIT_MAP_EMBED_FULLSCREEN = 'oceanops-exit-map-embed-fullscreen'
 export const MAP_EMBED_FULLSCREEN_STATE = 'oceanops-map-embed-fullscreen-state'
