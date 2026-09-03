@@ -60,7 +60,22 @@
  * ```
  */
 
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import {
+  EXIT_MAP_EMBED_FULLSCREEN,
+  MAP_FULLSCREEN_MESSAGE,
+  MAP_RESIZE_MESSAGE,
+  setMapEmbedFullscreen,
+} from '../utils/mapEmbedFullscreen'
+
+function mapOriginFromSrc(mapSrc: string): string | null {
+  try {
+    return new URL(mapSrc, window.location.href).origin
+  } catch {
+    return null
+  }
+}
 
 interface StatItem {
   number: string
@@ -85,6 +100,8 @@ interface MapStatsPanelProps {
   numberColor?: string
   linkColor?: string
   className?: string
+  /** Element id for deep links / menu scroll (placed on the map iframe wrapper) */
+  scrollAnchorId?: string
 }
 
 export default function MapStatsPanel({
@@ -103,8 +120,90 @@ export default function MapStatsPanel({
   numberColor = 'text-goos-orange-500',
   linkColor = 'text-goos-orange-500',
   className = '',
+  scrollAnchorId,
 }: MapStatsPanelProps) {
   const { t } = useTranslation()
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const mapHostRef = useRef<HTMLDivElement>(null)
+  const [mapFullscreen, setMapFullscreen] = useState(false)
+
+  const notifyMapResize = useCallback(() => {
+    iframeRef.current?.contentWindow?.postMessage({ type: MAP_RESIZE_MESSAGE }, '*')
+  }, [])
+
+  const exitMapFullscreen = useCallback(() => {
+    setMapFullscreen(false)
+    iframeRef.current?.contentWindow?.postMessage(
+      { type: MAP_FULLSCREEN_MESSAGE, active: false },
+      '*'
+    )
+  }, [])
+
+  useEffect(() => {
+    setMapEmbedFullscreen(mapFullscreen)
+  }, [mapFullscreen])
+
+  useEffect(() => () => setMapEmbedFullscreen(false), [])
+
+  useEffect(() => {
+    if (mapType !== 'iframe') return
+    const onExit = () => exitMapFullscreen()
+    window.addEventListener(EXIT_MAP_EMBED_FULLSCREEN, onExit)
+    return () => window.removeEventListener(EXIT_MAP_EMBED_FULLSCREEN, onExit)
+  }, [mapType, exitMapFullscreen])
+
+  useEffect(() => {
+    if (mapType !== 'iframe') return
+
+    const expectedOrigin = mapOriginFromSrc(mapSrc)
+    const onMessage = (event: MessageEvent) => {
+      if (event.data?.type !== MAP_FULLSCREEN_MESSAGE) return
+      if (typeof event.data.active !== 'boolean') return
+      if (expectedOrigin && event.origin !== expectedOrigin) return
+      setMapFullscreen(event.data.active)
+    }
+
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [mapSrc, mapType])
+
+  useEffect(() => {
+    if (!mapFullscreen) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      exitMapFullscreen()
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [mapFullscreen, exitMapFullscreen])
+
+  useEffect(() => {
+    if (mapType !== 'iframe' || mapFullscreen) return
+
+    const host = mapHostRef.current
+    if (!host) return
+
+    notifyMapResize()
+
+    const observer = new ResizeObserver(() => {
+      notifyMapResize()
+    })
+    observer.observe(host)
+
+    window.addEventListener('resize', notifyMapResize)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', notifyMapResize)
+    }
+  }, [mapType, mapFullscreen, notifyMapResize])
 
   // Check if stats panel should be shown
   const hasStats = stats && stats.length > 0
@@ -115,16 +214,27 @@ export default function MapStatsPanel({
   // Ensure exactly 4 stats (take first 4 if more provided)
   const gridStats = hasStats ? stats.slice(0, 4) : []
 
-  // Check if using full viewport height
+  // Exact viewport height for embedded map (menu + globe fill the screen).
+  const viewportHeightClass = 'h-[100dvh] max-h-[100dvh]'
   const isFullHeight = mapHeight === 'full'
-  const sectionHeightClass = isFullHeight ? 'min-h-screen' : ''
+  const isMapOnly = !hasStats && !title
+  const sectionHeightClass =
+    isFullHeight && isMapOnly ? viewportHeightClass : isFullHeight ? 'min-h-[100dvh]' : ''
+  const mapViewportClass = isFullHeight
+    ? isMapOnly
+      ? 'h-full min-h-0'
+      : 'h-full min-h-[480px]'
+    : 'h-[600px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'
 
   // Padding classes based on fullWidth prop
   const paddingClass = fullWidth ? '' : 'px-4 sm:px-8 md:px-12 lg:px-16'
 
   return (
-    <section className={`${backgroundColor} ${paddingClass} py-0 flex flex-col ${sectionHeightClass} ${className}`}>
+    <section
+      className={`${backgroundColor} ${paddingClass} py-0 flex flex-col ${sectionHeightClass} ${isMapOnly && isFullHeight ? 'justify-center' : ''} ${className}`}
+    >
       {/* Header Section */}
+      {!isMapOnly && (
       <div className="flex flex-col gap-5 flex-shrink-0">
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
@@ -138,9 +248,10 @@ export default function MapStatsPanel({
           </div>
         )}
       </div>
+      )}
 
       {/* Content: Stats and Map - Takes remaining space and centers */}
-      <div className={`flex gap-5 md:gap-8 lg:gap-12 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0`}>
+      <div className={`flex gap-5 md:gap-8 lg:gap-12 flex-col ${hasStats ? 'lg:flex-row' : ''} flex-1 ${hasStats ? 'lg:items-center' : ''} min-h-0 ${isMapOnly && isFullHeight ? 'h-full' : ''}`}>
         {/* Left Column - Stats Grid 2x2 (50% width) - Only show if stats exist */}
         {hasStats && (
           <div className="lg:basis-1/2 flex items-center">
@@ -170,26 +281,40 @@ export default function MapStatsPanel({
         )}
 
         {/* Right Column - Map (50% width if stats, 100% width if no stats) */}
-        <div className={`${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : 'flex-1 h-full'} w-full self-stretch min-h-0`}>
+        <div
+          ref={mapHostRef}
+          id={scrollAnchorId}
+          className={`${
+            mapFullscreen
+              ? 'fixed inset-0 z-[9999] bg-goos-blue-900'
+              : `${hasStats ? 'lg:basis-1/2 flex items-stretch aspect-square lg:aspect-auto' : `${viewportHeightClass} sticky top-0 z-20 flex flex-col`} w-full`
+          }`}
+        >
           {mapType === 'image' ? (
             <img
               src={mapSrc}
               alt={altText}
-              className={`w-full object-cover rounded ${isFullHeight ? 'h-full' : 'h-[600px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
+              className={`w-full object-cover rounded ${mapFullscreen ? 'h-full' : mapViewportClass}`}
             />
           ) : (
             <iframe
+              ref={iframeRef}
               src={mapSrc}
               title={altText}
-              className={`w-full border-0 rounded ${isFullHeight ? 'h-full' : 'h-[600px] sm:h-[500px] md:h-[600px] lg:h-[800px] xl:h-[1000px]'}`}
+              className={`w-full flex-1 min-h-0 border-0 ${mapFullscreen ? 'h-full rounded-none' : `rounded ${mapViewportClass}`}`}
               loading="lazy"
+              allow="fullscreen"
+              allowFullScreen
+              onLoad={notifyMapResize}
             />
           )}
         </div>
       </div>
 
       {/* Bottom spacer */}
+      {!isMapOnly && (
       <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75 flex-shrink-0"></div>
+      )}
     </section>
   )
 }

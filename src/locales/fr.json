@@ -1,7 +1,7 @@
 {
   "cover": {
     "title": "Rapport",
-    "year": "2025",
+    "year": "2026",
     "logos": {
       "goos": "Logo GOOS",
       "oceanops": "Logo OceanOPS",
@@ -209,7 +209,7 @@
     "paragraph2": "Auteurs: OceanOPS, Groupe de Coordination des Observations du GOOS, Panels GOOS-BGC et BioEco, Panel OOPC, Secrétariats de l'OMM et de la COI/UNESCO<br/>Rapport GOOS No. GOOS-300.",
     "paragraph3": "Remerciements particuliers à tous les éditeurs et auteurs: Corrine Almeida, Mathieu Belbéoch, Lance Braasch, Forest Collins, Thomas J. Cuff, Brad de Young, J. Emmett Duffy, Björn Fiedler, Darin Figurskey, Severine Fournier, Sarah Grimes, Emma Heslop, Long Jiang, Johannes Karstensen, Elizabeth Kent, Roxy Mathew Koll, Arne Körtzinger, David Legler, Belén Martin Miguez, Ivanice Monteiro, Lina Mtwana Nordlund, Clare Nullis, Joanna Post, Regina Rodrigues, Emanuela Rusciano, Alex Sen Gupta, Raquel Somavilla, Sabrina Speich, Laura Stukonyte, David Wyatt, Weidong Yu, Ann-Christine Zinkann.",
     "paragraph4": "Vidéo de couverture: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a><br/>Photos: Abeeku Acquah (EDF); SMART Cables; NOAA-PMEL; Charles Darwin University, Elysium EPL and Oceanus Collective Ltd Pty; Shutterstock; Peter Brown; Monica Alvarado Niño, Clive McMahon, OceanOPS",
-    "paragraph5": "Design + Code par Diego Cataldo"
+    "paragraph5": "Design + Code : Thomas Mignon (auparavant Diego Cataldo)"
   },
   "content": {
     "section1": {
@@ -241,23 +241,39 @@
       "statsTitle": "Les réseaux en chiffres",
       "statsIntro": "Notre communauté mondiale de fournisseurs et d'opérateurs travaillent ensemble pour fournir des informations océaniques essentielles chaque jour.",
       "stats": {
+        "evolutionDetail": {
+          "observationsPeriodTitle": "Comparaison d'une année sur l'autre",
+          "observationsPeriodIntro": "Moyenne journalière sur la même fenêtre calendaire chaque année (alignée sur la date d'export).",
+          "observationsPeriodLine": "{{year}} ({{range}}) : {{avg}} moy/j",
+          "observationsPeriodChange": "Évolution : {{signedDelta}} moy/j ({{pct}} vs {{year}})",
+          "networksTitle": "Évolution par réseau vs {{year}}",
+          "networkAvgRange": "{{previous}} moy/j → {{current}}",
+          "countriesTitle": "Changements de pays vs {{year}}",
+          "appeared": "Nouveaux ({{count}})",
+          "disappeared": "Ne contribuent plus ({{count}})",
+          "countryNetworkCount": "{{network}} ({{count}})"
+        },
         "stat1": {
           "number": "64",
           "description": "pays contributeurs",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "À propos du décompte des pays contributeurs",
           "infoModalContent": "Dans cette édition, le nombre d'États membres contributeurs semble inférieur à celui de la Carte de Rapport GOOS 2023. Cela est principalement dû à l'application de critères opérationnels mis à jour pour les stations GLOSS, comme convenu avec l'équipe directrice de GLOSS, et à une révision de la façon dont les contributions de l'UE au GOOS sont comptabilisées—traitant l'Union européenne comme une seule entité plutôt que comme 27 pays individuels, comme cela se faisait auparavant. Cette méthodologie affinée sera maintenue dans les futures éditions du Rapport de Statut GOOS."
         },
         "stat2": {
-          "number": "13",
-          "description": "réseaux mondiaux d'observation des océans (+4 émergents)"
+          "number": "17",
+          "description": "réseaux mondiaux d'observation des océans",
+          "evolution": "dont émergents"
         },
         "stat3": {
-          "number": "9,897",
-          "description": "plateformes d'observation des océans"
+          "number": "9,389",
+          "description": "plateformes d'observation des océans",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
-          "number": "120,000+",
-          "description": "observations océaniques par jour"
+          "description": "observations océaniques par jour",
+          "descriptionDetail": "moy. {{start}} – {{end}}",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}"
         }
       },
       "table": {
@@ -433,6 +449,35 @@
     "title": "Réseaux du Système Mondial d'Observation des Océans",
     "viewNetwork": "Voir le Réseau",
     "deliveryAreasLabel": "Domaines de livraison GOOS",
+    "essentialVariablesLabel": "Variables essentielles",
+    "essentialVariables": {
+      "seaSurfaceTemperature": "Température de surface de la mer",
+      "subsurfaceTemperature": "Température sous-surface",
+      "seaSurfaceSalinity": "Salinité de surface de la mer",
+      "subsurfaceSalinity": "Salinité sous-surface",
+      "surfaceCurrents": "Courants de surface",
+      "subsurfaceCurrents": "Courants de sous-surface",
+      "seaState": "État de la mer",
+      "seaSurfaceHeight": "Hauteur de la surface de la mer",
+      "heatFlux": "Flux de chaleur de surface océanique",
+      "seaIce": "Glace de mer",
+      "surfaceStress": "Contrainte de surface océanique",
+      "oceanBottomPressure": "Pression de fond océanique",
+      "inorganicCarbon": "Carbone inorganique",
+      "oxygen": "Oxygène",
+      "nutrients": "Nutriments",
+      "nitrousOxide": "Protoxyde d'azote",
+      "particulateMatter": "Matière particulaire",
+      "transientTracers": "Traceurs transitoires",
+      "oceanColour": "Couleur de l'océan",
+      "surfaceWind": "Vent de surface",
+      "surfaceWaterVapour": "Vapeur d'eau de surface",
+      "surfaceAirTemperature": "Température de l'air de surface",
+      "airPressure": "Pression atmosphérique",
+      "upperAirWind": "Vent en altitude",
+      "upperAirWaterVapour": "Vapeur d'eau en altitude",
+      "upperAirTemperature": "Température de l'air en altitude"
+    },
     "deliveryAreas": {
       "climate": "Climat",
       "operational": "Services Opérationnels",
@@ -482,8 +527,8 @@
       "iconAlt": "Réseau SOT/VOS - Observations météorologiques depuis navires volontaires"
     },
     "sotXbt": {
-      "title": "Océanographique basé sur navires – SOT/XBT-SOOP",
-      "iconAlt": "Réseau SOT/XBT-SOOP - Profils de température de l'océan depuis lignes de navires"
+      "title": "Océanographique basé sur navires – SOT/Ocean TraX",
+      "iconAlt": "Réseau SOT/Ocean TraX — lignes de profils océanographiques depuis navires"
     },
     "sotAsap": {
       "title": "Paramètres air-mer basés sur navires – SOT/ASAP",
@@ -529,6 +574,94 @@
       "title": "AniBOS",
       "iconAlt": "Réseau AniBOS - Capteurs océaniques embarqués sur animaux marins"
     },
+    "fvon": {
+      "title": "Sondes sur bateaux de pêche – FVON",
+      "iconAlt": "Réseau FVON - Observation océanique depuis navires de pêche"
+    },
+    "smartCables": {
+      "title": "Câbles sous-marins SMART",
+      "iconAlt": "Réseau SMART Cables - Câbles sous-marins de surveillance scientifique"
+    },
+    "soconet": {
+      "title": "CO₂ de surface océanique – SOCONET",
+      "iconAlt": "Réseau SOCONET - Observation du CO₂ de surface océanique"
+    },
+    "sunFleet": {
+      "title": "Flotte de surface sans équipage – SUN Fleet",
+      "iconAlt": "Réseau SUN Fleet - Véhicules de surface sans équipage"
+    },
+    "comparison": {
+      "title": "Réseaux in situ",
+      "description": "Triez et filtrez les réseaux par domaines de prestation et variables essentielles mesurées.",
+      "searchPlaceholder": "Rechercher des réseaux...",
+      "filters": {
+        "all": "Tous",
+        "climate": "Climat",
+        "operational": "Services opérationnels",
+        "oceanhealth": "Santé des océans"
+      },
+      "legendLabel": "Légende",
+      "sectionMature": "Réseaux matures",
+      "sectionEmerging": "Réseaux émergents",
+      "matureNetworkLabel": "Réseau mature",
+      "emergingNetworkLabel": "Réseau émergent",
+      "networksShown": "{{count}} réseaux affichés",
+      "noResults": "Aucun réseau ne correspond aux filtres sélectionnés.",
+      "applications": "Applications",
+      "coverage": "Couverture",
+      "essentialVariablesMeasured": "Variables essentielles mesurées",
+      "implementationProgress": "État de mise en œuvre",
+      "platformType": "Type de plateforme",
+      "samplingFrequency": "Fréquence d'échantillonnage",
+      "activityTrend": "Tendance d'activité",
+      "targets": "Objectifs",
+      "maturity": "Maturité",
+      "challenges": "Défis",
+      "opportunities": "Opportunités",
+      "tapForDetails": "Appuyez pour voir applications et plus",
+      "tapForRatings": "Appuyez pour voir les notes et plus",
+      "tapToReturn": "Appuyez pour revenir",
+      "flipToDetails": "Afficher les détails du réseau",
+      "flipBack": "Afficher les notes du réseau",
+      "mobileTitle": "Réseaux <i>in situ</i>",
+      "mobileHint": "Appuyez sur une fiche pour la retourner et voir les applications, la couverture et les objectifs.",
+      "mobileDesktopHint": "Consultez la version web pour une autre vue de cette section et plus de fonctionnalités.",
+      "desktopExpandHint": "Cliquez sur une ligne pour afficher les applications, la couverture et les objectifs.",
+      "columns": {
+        "network": "Réseau",
+        "yoy": "YoY"
+      }
+    },
+    "details": {
+      "pending": "Contenu éditorial en attente pour cette édition.",
+      "argo": {
+        "applications": "Ocean Heat Content monitoring, seasonal forecasting, and short- to long-range Numerical Weather Prediction.",
+        "coverage": "Global ocean, from surface to 6,000 m depth.",
+        "essentialVariablesMeasured": "Temperature, Salinity, Oxygen, Nitrate, pH, chlorophyll-a, Irradiance, Suspended Particles.",
+        "implementationProgress": "56% of the target array (4,700 floats) achieved.",
+        "platformType": "Autonomous profiling floats: Core Argo (0–2,000 m), Deep Argo (to 6,000 m), and Biogeochemical (BGC) Argo with biogeochemical sensors.",
+        "samplingFrequency": "Every 10 days.",
+        "activityTrend": "Stable core array; BGC Argo expansion slowed due to funding constraints, with Deep Argo growth remaining limited.",
+        "challenges": "Reliance on a limited number of contributors; funding gaps affecting BGC expansion; slow Deep Argo implementation; Exclusive Economic Zone deployment restrictions.",
+        "opportunities": "Argo BioEco expansion through new technologies, including UVP plankton sensors, hyperspectral radiometry, and active acoustic observations."
+      },
+      "dbcpMoored": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "goShip": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "dbcpTsunami": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "hfRadar": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "dbcpDrifting": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "gloss": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "oceanSites": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "gliders": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "anibos": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sotVos": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sotXbt": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sotAsap": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "fvon": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "smartCables": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "soconet": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." },
+      "sunFleet": { "applications": "Contenu éditorial en attente pour cette édition.", "coverage": "Contenu éditorial en attente pour cette édition." }
+    },
     "argoLegacy": {
       "title": "Argo",
       "iconAlt": "Réseau Argo - Réseau mondial de flotteurs profilants mesurant la température et la salinité de l'océan"
@@ -552,6 +685,8 @@
   },
   "emerging": {
     "title": "Réseaux Émergents",
+    "modalTitle": "Réseaux émergents",
+    "moreLink": "plus",
     "viewMore": "Voir Plus",
     "watchVideo": "Regarder la Vidéo",
     "fvon": {
@@ -600,10 +735,12 @@
     "overview": "Aperçu",
     "inSituStatus": "État et mises à jour du système d'observation in situ",
     "networksByNumbers": "Réseaux en chiffres",
+    "platformMap": "Carte interactive des plateformes",
     "downloadPdf": "TÉLÉCHARGER PDF",
+    "menuLabel": "Menu",
     "pastReports": "Rapports Précédents",
     "pastReportsLinks": {
-      "2024": "Carte de Rapport 2024",
+      "2025": "Carte de Rapport 2025",
       "2023": "Carte de Rapport 2023",
       "2022": "Carte de Rapport 2022",
       "2021": "Carte de Rapport 2021"
@@ -639,7 +776,8 @@
       "fvon": "Sondes sur bateaux de pêche - FVON",
       "sotVos": "Météorologique basé sur navires - SOT/VOS",
       "sotAsap": "Météorologique basé sur navires - SOT/ASAP",
-      "sot": "Océanographique basé sur navires - SOT",
+      "soconet": "Navires - SOCONET",
+      "oceantrax": "Océanographique basé sur navires - SOT",
       "goShip": "Transects répétés - GO-SHIP",
       "gloss": "Marégraphes - GLOSS",
       "oceanSites": "Sites de séries temporelles - OceanSITES",
@@ -655,10 +793,34 @@
       "noTarget": "Pas d'objectif",
       "noArchive": "Pas d'archive",
       "notApplicable": "Non applicable",
-      "notCoreMission": "Pas une mission centrale mais existante"
+      "notCoreMission": "Pas une mission centrale mais existante",
+      "notYetRated": "Pas encore évalué"
     }
   },
   "operationalPlatforms": {
-    "mapAlt": "Carte de distribution mondiale des plateformes"
+    "mapAlt": "Carte de distribution mondiale des plateformes",
+    "programShipMatrix": {
+      "title": "Pays programme × Pays navire",
+      "description": "Tableau croisé des plateformes opérationnelles par pays programme (attribution réseau) et pavillon du navire au déploiement. Seules les plateformes avec les deux attributs sont incluses.",
+      "loading": "Chargement de la matrice programme / navire…",
+      "error": "Impossible de charger la matrice programme / navire depuis les données cartographiques.",
+      "summary": "{{total}} plateformes attribuées à un navire · {{mismatches}} où pays programme ≠ pavillon",
+      "statsPairs": "{{count}} paires",
+      "statsMismatchShare": "{{pct}} % d'écarts",
+      "statsSameShare": "{{pct}} % même pavillon",
+      "mismatchesOnly": "Écarts uniquement (programme ≠ navire)",
+      "programCountry": "Programme",
+      "shipCountry": "Pavillon",
+      "platforms": "Plateformes",
+      "shareTotal": "Du total",
+      "shareTotalHint": "Part de l'ensemble des plateformes attribuées à un navire",
+      "shareProgram": "Du programme",
+      "shareProgramHint": "Part au sein des plateformes de ce pays programme",
+      "columnGuide": "Du total = part de toutes les plateformes avec navire. Du programme = part au sein de ce pays programme.",
+      "legendSame": "Même programme et pavillon",
+      "legendDifferent": "Attribution différente",
+      "empty": "Aucune combinaison ne correspond aux filtres actuels.",
+      "footnote": "Tri par nombre de plateformes. Le filtrage cartographique utilise le pays programme uniquement."
+    }
   }
 }

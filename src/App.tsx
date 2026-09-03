@@ -2,16 +2,16 @@ import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import Preloader from './components/Preloader'
 import CoverModule from './components/CoverModule'
-import PartnerModal from './components/PartnerModal'
-import { partnerCountries } from './data/partnerCountries'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import NetworkCarousel from './components/NetworkCarousel'
-import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
+// import ProgramShipMatrix from './components/ProgramShipMatrix'
+import OperationalPlatformDefinitionsModal from './components/OperationalPlatformDefinitionsModal'
+import InSituNetworksSection from './components/InSituNetworksSection'
+import { sortedInSituNetworks } from './data/inSituNetworks'
 import Spacer from './components/Spacer'
 import IconTable from './components/IconTable'
 import SpotifyEmbed from './components/SpotifyEmbed'
@@ -23,14 +23,35 @@ import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
 import MenuSidebar from './components/MenuSidebar'
+
+const MAP_SRC =
+  import.meta.env.VITE_MAP_SRC ?? 'https://www.ocean-ops.org/demos/simple-arcgis-map/'
 import DeliveryAreasNav from './components/DeliveryAreasNav'
 import ColorStripes from './components/ColorStripes'
 import { asset } from './utils/assets'
+import { navigateToSection } from './utils/scrollToSection'
+import {
+  contributingCountries,
+  countriesDeltaVsLastYear,
+  LAST_REPORT_YEAR,
+  platformsDeltaVsLastYear,
+  totalPlatforms,
+} from './utils/partnerCountryStats'
+import { formatObservationsDeltaPct, formatObservationsPerDay } from './utils/formatObservationsPerDay'
+import { OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR } from './data/editionStats'
+import { networksWithYoy, useEditionYoy } from './utils/editionYoy'
+import { CountriesYoyDetail, ObservationsYoyDetail } from './components/StatEvolutionDetail'
+
+const fmt = (n: number) => n.toLocaleString('en-US')
+const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
+const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(countriesDeltaVsLastYear)}`
 
 function App() {
   const { t } = useTranslation()
+  const observationsDeltaLabel = formatObservationsDeltaPct(OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR)
+  const { networkYoy, countriesYoy } = useEditionYoy()
+  const networkYoyRows = networksWithYoy(networkYoy.networks)
   const [isLoading, setIsLoading] = useState(true)
-  const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
 
   // Indicators modal collapsible states
   const [expandedIndicators, setExpandedIndicators] = useState({
@@ -62,20 +83,26 @@ function App() {
 
   // Handle deep linking - scroll to section if hash is present in URL
   useEffect(() => {
-    const hash = window.location.hash.slice(1) // Remove the #
-    if (hash) {
-      // Delay to ensure DOM is fully rendered and page is ready
-      setTimeout(() => {
-        (window as any).isScrollingProgrammatically = true
-        const element = document.getElementById(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-        // Reset flag after scroll animation completes
+    const scrollToHash = (behavior: ScrollBehavior = 'smooth') => {
+      const hash = window.location.hash.slice(1)
+      if (!hash) return
+      ;(window as any).isScrollingProgrammatically = true
+      void navigateToSection(hash, { behavior }).finally(() => {
         setTimeout(() => {
-          (window as any).isScrollingProgrammatically = false
+          ;(window as any).isScrollingProgrammatically = false
         }, 1000)
-      }, 500)
+      })
+    }
+
+    // Delay initial scroll until layout is ready (overrides browser default anchor jump)
+    const initialTimer = setTimeout(() => scrollToHash('smooth'), 500)
+
+    const onHashChange = () => scrollToHash('smooth')
+    window.addEventListener('hashchange', onHashChange)
+
+    return () => {
+      clearTimeout(initialTimer)
+      window.removeEventListener('hashchange', onHashChange)
     }
   }, [])
 
@@ -86,10 +113,10 @@ function App() {
       'overview-section',
       'insitu-section',
       'stats-section',
+      'map-section',
       'networks-section',
       'satellite-section',
       'data-section',
-      'emerging-section',
       'value-section',
       'amoc-section',
       'elnino-section',
@@ -180,10 +207,10 @@ function App() {
             accentColor: 'bg-goos-orange-500',
             subItems: [
               { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-500' },
-              { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'map-section', titleKey: 'menu.platformMap', accentColor: 'bg-goos-orange-500', icon: 'globe' },
+              { id: 'networks-section', titleKey: 'networks.comparison.title', accentColor: 'bg-goos-orange-500' },
               { id: 'satellite-section', titleKey: 'satelliteObservations.title', accentColor: 'bg-goos-orange-500' },
               { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
-              { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-orange-500' },
             ],
           },
           {
@@ -212,14 +239,6 @@ function App() {
 
       {/* DeliveryAreasNav - Fixed navigation for Value of Ocean Observations sections */}
       <DeliveryAreasNav />
-
-      {/* Partner Modal Component - Outside z-10 context to appear above all */}
-      <PartnerModal
-        isOpen={isPartnerModalOpen}
-        onClose={() => setIsPartnerModalOpen(false)}
-        countries={partnerCountries}
-        showFlags={true}
-      />
 
       {/* Cover - Sticky container for parallax effect */}
       <div id="home" className="sticky top-0 h-screen">
@@ -401,8 +420,18 @@ function App() {
           }
           stats={[
             {
-              number: t('content.section1.stats.stat1.number'),
+              number: fmt(contributingCountries),
               description: t('content.section1.stats.stat1.description'),
+              evolution: t('content.section1.stats.stat1.evolutionVsLastYear', {
+                delta: countryDeltaLabel,
+                year: LAST_REPORT_YEAR,
+              }),
+              evolutionDirection: countriesDeltaVsLastYear >= 0 ? 'up' : 'down',
+              evolutionDetail:
+                !countriesYoy.baselineMissing &&
+                (countriesYoy.appeared.length > 0 || countriesYoy.disappeared.length > 0) ? (
+                  <CountriesYoyDetail data={countriesYoy} />
+                ) : undefined,
               infoModal: {
                 title: t('content.section1.stats.stat1.infoModalTitle'),
                 content: (
@@ -415,14 +444,33 @@ function App() {
             {
               number: t('content.section1.stats.stat2.number'),
               description: t('content.section1.stats.stat2.description'),
+              evolution: t('content.section1.stats.stat2.evolution', { defaultValue: '' }) || undefined,
+              evolutionDirection: 'neutral',
             },
             {
-              number: t('content.section1.stats.stat3.number'),
+              number: fmt(totalPlatforms),
               description: t('content.section1.stats.stat3.description'),
+              evolution: t('content.section1.stats.stat3.evolutionVsLastYear', {
+                delta: platformDeltaLabel,
+                year: LAST_REPORT_YEAR,
+              }),
+              evolutionDirection: platformsDeltaVsLastYear >= 0 ? 'up' : 'down',
             },
             {
-              number: t('content.section1.stats.stat4.number'),
+              number: formatObservationsPerDay(),
+              numberClassName: 'text-4xl sm:text-5xl',
               description: t('content.section1.stats.stat4.description'),
+              evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
+                delta: observationsDeltaLabel,
+                year: LAST_REPORT_YEAR,
+              }),
+              evolutionDirection: OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR >= 0 ? 'up' : 'down',
+              evolutionDetail: (
+                <ObservationsYoyDetail
+                  data={networkYoy}
+                  networks={networkYoyRows}
+                />
+              ),
             },
           ]}
           backgroundColor="bg-goos-blue-900"
@@ -433,13 +481,16 @@ function App() {
         />
       </div>
 
-      <div id="map-section">
-      {/* Interactive ArcGIS map - Full width */}
+      <Spacer size="lg" backgroundColor="bg-goos-blue-900" />
+
+      <div>
+      {/* Interactive ArcGIS map — anchor on iframe for centered deep links (#map-section) */}
       <MapStatsPanel
-        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
+        scrollAnchorId="map-section"
+        mapSrc={MAP_SRC}
         mapAlt={t('operationalPlatforms.mapAlt')}
         mapType="iframe"
-        mapHeight={600}
+        mapHeight="full"
         fullWidth={true}
         backgroundColor="bg-goos-blue-900"
       />
@@ -452,377 +503,20 @@ function App() {
           modalTitle={t('operationalPlatforms.platformModal.title')}
           modalMaxWidth="lg"
           modalBackgroundColor="bg-goos-blue-900"
-          modalContent={
-            <div className="flex flex-col gap-4 sm:gap-6">
-              {/* Intro */}
-              <p className="text-base sm:text-lg leading-relaxed text-white">
-                {t('operationalPlatforms.platformModal.intro')}
-              </p>
-
-              {/* Ship-Based Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.shipBased.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Fixed Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.fixedPlatforms.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Mobile Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.mobilePlatforms.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          }
+          modalContent={<OperationalPlatformDefinitionsModal />}
           textColor="text-white"
           bgColor="bg-goos-orange-600"
           iconColor="text-goos-orange-600"
           iconBgColor="bg-white"
         />
       </div>
+
+      {/* Program × ship matrix — hidden for now */}
+      {/* <ProgramShipMatrix mapBaseUrl={MAP_SRC} /> */}
       </div>
 
-      {/* NetworkCarousel */}
-      <div id="networks-section">
-        <NetworkCarousel
-          title="networks.title"
-          hasLine={true}
-          lineColor="bg-goos-orange-500"
-        cards={[
-          {
-            iconSrc: asset('/icons/network/vos.svg'),
-            iconAlt: 'networks.sotVos.iconAlt',
-            titleKey: 'networks.sotVos.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#VOS',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 3,
-              realTime: 2.5,
-              archivedHighQuality: 2,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/xbt-soop.svg'),
-            iconAlt: 'networks.sotXbt.iconAlt',
-            titleKey: 'networks.sotXbt.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2,
-              realTime: 2.5,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/asap.svg'),
-            iconAlt: 'networks.sotAsap.iconAlt',
-            titleKey: 'networks.sotAsap.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: t('satelliteObservations.statuses.noTarget'),
-              realTime: 2.5,
-              archivedHighQuality: t('satelliteObservations.statuses.noArchive'),
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/go_ship.svg'),
-            iconAlt: 'networks.goShip.iconAlt',
-            titleKey: 'networks.goShip.title',
-            networkUrl: 'http://www.go-ship.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: t('satelliteObservations.statuses.notApplicable'),
-              archivedHighQuality: 2.5,
-              metadata: 1.5,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/gloss.svg'),
-            iconAlt: 'networks.gloss.iconAlt',
-            titleKey: 'networks.gloss.title',
-            networkUrl: 'https://gloss-sealevel.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2,
-              archivedHighQuality: 3,
-              metadata: 0.5,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/ocean_sites.svg'),
-            iconAlt: 'networks.oceanSites.iconAlt',
-            titleKey: 'networks.oceanSites.title',
-            networkUrl: 'https://www.ocean-ops.org/oceansites/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: t('satelliteObservations.statuses.notCoreMission'),
-              archivedHighQuality: 2.5,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/dbcp_moored.svg'),
-            iconAlt: 'networks.dbcpMoored.iconAlt',
-            titleKey: 'networks.dbcpMoored.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: t('satelliteObservations.statuses.noTarget'),
-              realTime: 2.5,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 2.5,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/tsunami_buoys.svg'),
-            iconAlt: 'networks.dbcpTsunami.iconAlt',
-            titleKey: 'networks.dbcpTsunami.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: 3,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/hf_radar.svg'),
-            iconAlt: 'networks.hfRadar.iconAlt',
-            titleKey: 'networks.hfRadar.title',
-            networkUrl: 'http://global-hfradar.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2.5,
-              archivedHighQuality: 1.5,
-              metadata: 3,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/dbcp_drifters.svg'),
-            iconAlt: 'networks.dbcpDrifting.iconAlt',
-            titleKey: 'networks.dbcpDrifting.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: 2.5,
-              archivedHighQuality: 2.5,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/argo.svg'),
-            iconAlt: 'networks.argo.iconAlt',
-            titleKey: 'networks.argo.title',
-            networkUrl: 'https://argo.ucsd.edu/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 3,
-              realTime: 3,
-              archivedHighQuality: 3,
-              metadata: 3,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/ocean_gliders.svg'),
-            iconAlt: 'networks.gliders.iconAlt',
-            titleKey: 'networks.gliders.title',
-            networkUrl: 'https://www.oceangliders.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2,
-              archivedHighQuality: 1.5,
-              metadata: 3,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/ani_bos.svg'),
-            iconAlt: 'networks.anibos.iconAlt',
-            titleKey: 'networks.anibos.title',
-            networkUrl: 'https://anibos.com/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 0.5,
-              realTime: 1.5,
-              archivedHighQuality: 1.5,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-        ]}
+      <InSituNetworksSection
+        networks={sortedInSituNetworks}
         backgroundColor="bg-goos-blue-900"
         titleColor="text-white"
         cardBackgroundColor="bg-goos-blue-800"
@@ -830,8 +524,9 @@ function App() {
         cardAccentColor="text-goos-orange-500"
         tooltipBgColor="text-goos-white"
         tooltipTextColor="bg-goos-blue-900"
+        arrowColor="#F0F0F0"
+        lineColor="bg-goos-orange-500"
       />
-      </div>
 
       {/* Indicators Definition Button */}
       <div className="flex justify-center bg-goos-blue-900">
@@ -1287,124 +982,6 @@ function App() {
         />
           <Spacer size="sm" />
         </ContentModule>
-      </div>
-
-      {/* EmergingNetworkCarousel - Emerging GOOS Networks */}
-      <div id="emerging-section">
-        <EmergingNetworkCarousel
-          title="emerging.title"
-          hasLine={true}
-          lineColor="bg-goos-orange-500"
-        cards={[
-          {
-            // FVON - First (Video)
-            mediaType: 'video',
-            videoType: 'local',
-            videoId: asset('/videos/fvon.mp4'),
-            previewImage: asset('/images/fvon.webp'),
-            imageAlt: 'emerging.fvon.imageAlt',
-            iconSrc: asset('/icons/network/fishing_vessels.svg'),
-            iconAlt: 'emerging.fvon.iconAlt',
-            titleKey: 'emerging.fvon.title',
-            paragraph1Key: 'emerging.fvon.paragraph1',
-            paragraph2Key: 'emerging.fvon.paragraph2',
-            externalLinkUrl: 'https://www.fvon.org/',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', `oceanhealth`],
-          },
-          {
-            // SMART Cables - Second (Video)
-            mediaType: 'video',
-            videoType: 'local',
-            videoId: asset('/videos/smart-cables.mp4'),
-            previewImage: asset('/images/smart_cables.webp'),
-            imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: asset('/icons/network/smart_cables.svg'),
-            iconAlt: 'emerging.smartCables.iconAlt',
-            titleKey: 'emerging.smartCables.title',
-            paragraph1Key: 'emerging.smartCables.paragraph1',
-            paragraph2Key: 'emerging.smartCables.paragraph2',
-            externalLinkUrl: 'https://www.smartcables.org/',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            // SOCONET - Third (Simple image - showing only first photo)
-            mediaType: 'image',
-            imageSrc: asset('/images/soconet.webp'),
-            imageAlt: 'emerging.soconet.imageAlt',
-            modalTitle: 'emerging.soconet.title',
-            modalContent: (
-              <div className="flex flex-col gap-5">
-                <img
-                  src={asset("/images/soconet.webp")}
-                  alt="SOCONET"
-                  className="w-full h-auto object-cover rounded"
-                />
-                <div className="flex flex-col gap-4 mt-4">
-                  <h3 className="text-2xl font-bold text-goos-orange-500">{t('emerging.soconet.title')}</h3>
-                  <p
-                    className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: t('emerging.soconet.paragraph1WithLink') }}
-                  />
-                  <p className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed">
-                    {t('emerging.soconet.paragraph2')}
-                  </p>
-                  {/* External Link Button */}
-                  <div className="flex">
-                    <Button
-                      variant="link"
-                      label={t('networks.viewNetwork')}
-                      url="https://www.ioccp.org/soconet"
-                      bgColor="bg-goos-orange-600"
-                      textColor="text-white"
-                      iconBgColor="bg-white"
-                      iconColor="text-goos-orange-600"
-                    />
-                  </div>
-                </div>
-              </div>
-            ),
-            iconSrc: asset('/icons/network/surface_ocean_co2.svg'),
-            iconAlt: 'emerging.soconet.iconAlt',
-            titleKey: 'emerging.soconet.title',
-            paragraph1Key: 'emerging.soconet.paragraph1WithLink',
-            paragraph2Key: 'emerging.soconet.paragraph2',
-            externalLinkUrl: 'https://www.ioccp.org/soconet',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            // SUN Fleet - Fourth (Simple image)
-            mediaType: 'image',
-            imageSrc: asset('/images/sunfleet.webp'),
-            imageAlt: 'emerging.sunFleet.imageAlt',
-            iconSrc: asset('/icons/network/sun_fleet.svg'),
-            iconAlt: 'emerging.sunFleet.iconAlt',
-            titleKey: 'emerging.sunFleet.title',
-            paragraph1Key: 'emerging.sunFleet.paragraph1',
-            paragraph2Key: 'emerging.sunFleet.paragraph2',
-            externalLinkUrl: 'https://airseaobs.org/sun-fleet',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-        ]}
-        backgroundColor="bg-goos-blue-900"
-        titleColor="text-white"
-        cardBackgroundColor="bg-goos-blue-800"
-        cardTextColor="text-white"
-        buttonBgColor="bg-goos-blue-900"
-        buttonTextColor="text-white"
-        buttonIconBgColor="bg-goos-white"
-        buttonIconColor="text-goos-blue-700"
-        tooltipBgColor="text-goos-white"
-        tooltipTextColor="bg-goos-blue-900"
-        arrowColor="#F0F0F0"
-      />
       </div>
 
         <Spacer size="md" backgroundColor="bg-goos-white"/>
@@ -2196,19 +1773,10 @@ function App() {
 
         {/* Number and description in same line */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-start sm:items-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
-          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
+          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">
+            {fmt(contributingCountries)}
+          </p>
           <p className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-goos-white font-roboto-condensed font-normal leading-[1.3] flex-1">{t('callToAction.memberStatesText')}</p>
-        </div>
-
-        {/* Button below */}
-        <div className="mb-6 sm:mb-8">
-          <Button
-            variant="action"
-            label={t('partners.viewFullListButton')}
-            onClick={() => setIsPartnerModalOpen(true)}
-            textColor="text-white"
-            bgColor="bg-goos-blue-700"
-          />
         </div>
 
         {/* Acknowledgment text */}
