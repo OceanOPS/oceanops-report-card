@@ -57,6 +57,7 @@ const FIXED_NETWORKS = [
   { key: 'fvon', icon: asset('/icons/network/soop.svg'), labelKey: 'partners.networks.fvon' },
   { key: 'sotVos', icon: asset('/icons/network/vos.svg'), labelKey: 'partners.networks.sotVos' },
   { key: 'sotAsap', icon: asset('/icons/network/asap.svg'), labelKey: 'partners.networks.sotAsap' },
+  { key: 'soconet', icon: asset('/icons/network/vos.svg'), labelKey: 'partners.networks.soconet' },
   { key: 'oceantrax', icon: asset('/icons/network/xbt-soop.svg'), labelKey: 'partners.networks.oceantrax' },
   { key: 'goShip', icon: asset('/icons/network/go_ship.svg'), labelKey: 'partners.networks.goShip' },
   { key: 'gloss', icon: asset('/icons/network/gloss.svg'), labelKey: 'partners.networks.gloss' },
@@ -76,6 +77,7 @@ interface CountryNetworks {
   fvon: number
   sotVos: number
   sotAsap: number
+  soconet?: number
   oceantrax: number
   goShip: number
   gloss: number
