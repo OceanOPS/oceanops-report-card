@@ -1,11 +1,11 @@
 {
-  "exportedAt": "2026-08-31",
+  "exportedAt": "2026-09-07",
   "previousYear": "2025",
   "previousSource": "baseline",
   "baselineMissing": false,
-  "currentCount": 65,
+  "currentCount": 66,
   "previousCount": 64,
-  "delta": 1,
+  "delta": 2,
   "appeared": [
     {
       "iso": "FJ",
@@ -60,16 +60,6 @@
         {
           "id": "fvon",
           "count": 4
-        }
-      ]
-    },
-    {
-      "iso": "BE",
-      "name": "Belgium",
-      "networks": [
-        {
-          "id": "oceanGliders",
-          "count": 1
         }
       ]
     },
