@@ -414,7 +414,8 @@ function App() {
               />
             </>
           }
-          statsLayout="one-row"
+          statsLayout="two-over-one-centered"
+          statsLabelPosition="below"
           stats={[
             {
               number: fmt(contributingCountries),

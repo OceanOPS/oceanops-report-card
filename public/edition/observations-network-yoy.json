@@ -7,27 +7,10 @@
   "previousPeriod": "2025-01-01 → 2025-09-10",
   "headline": {
     "currentAvgPerDay": 106438,
-    "previousAvgPerDay": 125760,
-    "deltaAvg": -19322
+    "previousAvgPerDay": 125775,
+    "deltaAvg": -19337
   },
   "networks": [
-    {
-      "id": "gliders-ioos",
-      "label": "OceanGliders (IOOS)",
-      "source": "IOOS",
-      "current": {
-        "avgPerDay": 268,
-        "daysWithData": 238,
-        "total": 63713
-      },
-      "previous": {
-        "avgPerDay": 0,
-        "daysWithData": 0,
-        "total": 0
-      },
-      "deltaAvg": 268,
-      "deltaPct": null
-    },
     {
       "id": "gliders-voto",
       "label": "OceanGliders (VOTO)",
@@ -78,6 +61,23 @@
       },
       "deltaAvg": 0,
       "deltaPct": null
+    },
+    {
+      "id": "gliders-ioos",
+      "label": "OceanGliders (IOOS)",
+      "source": "IOOS",
+      "current": {
+        "avgPerDay": 268,
+        "daysWithData": 238,
+        "total": 63713
+      },
+      "previous": {
+        "avgPerDay": 400,
+        "daysWithData": 10,
+        "total": 4004
+      },
+      "deltaAvg": -132,
+      "deltaPct": -33
     },
     {
       "id": "dbcp-moored",
