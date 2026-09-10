@@ -1,11 +1,11 @@
 {
-  "exportedAt": "2026-09-07",
+  "exportedAt": "2026-09-10",
   "previousYear": "2025",
   "previousSource": "baseline",
   "baselineMissing": false,
-  "currentCount": 66,
+  "currentCount": 67,
   "previousCount": 64,
-  "delta": 2,
+  "delta": 3,
   "appeared": [
     {
       "iso": "FJ",
@@ -48,21 +48,15 @@
         {
           "id": "fvon",
           "count": 25
+        },
+        {
+          "id": "gloss",
+          "count": 1
         }
       ]
     }
   ],
   "disappeared": [
-    {
-      "iso": "BD",
-      "name": "Bangladesh",
-      "networks": [
-        {
-          "id": "fvon",
-          "count": 4
-        }
-      ]
-    },
     {
       "iso": "PA",
       "name": "Panama",

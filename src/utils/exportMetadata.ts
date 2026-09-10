@@ -7,6 +7,7 @@ export type ExportMetadata = {
   ANIBOS_MIN_LOC_DATE: string
   FVON_MIN_LOC_DATE: string
   SOOP_XBT_SAMPLED_SINCE: string
+  ROLLING_12M_SINCE?: string
   GOSHIP_EDITION_SINCE?: string
   GOSHIP_SAMPLED_SINCE?: string
   OBS_PERIOD_SINCE?: string

@@ -268,12 +268,12 @@
         },
         "stat2": {
           "number": "17",
-          "description": "global ocean observing networks",
+          "description": "global observing networks",
           "evolution": "including emerging"
         },
         "stat3": {
           "number": "9,389",
-          "description": "ocean observing platforms",
+          "description": "operational & ref. sites",
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
@@ -768,71 +768,66 @@
     "platformModal": {
       "title": "Operational Platform Definitions",
       "intro": "The map shows operational platforms. The criteria for operational status vary depending on the observing network. The applied rules are as follows:",
-      "categories": {
-        "shipBased": {
-          "title": "Ship",
-          "meteorological": {
-            "title": "Ship based meteorological – SOT/VOS",
-            "content": "Ship based meteorological stations that have delivered data to the GTS within the last 30 days"
-          },
-          "oceanographic": {
-            "title": "Ship based oceanographic – SOT/Ocean TraX",
-            "content": "Ocean TraX lines sampled since {{year}}"
-          },
-          "aerological": {
-            "title": "Ship based aerological – SOT/ASAP",
-            "content": "Ship based aerological stations that have delivered data to the GTS within the last 30 days"
-          }
+      "networks": {
+        "vos": {
+          "title": "Ship based meteorological – VOS",
+          "content": "Platforms with operational status in the Voluntary Observing Ship (VOS) network"
         },
-        "fixedPlatforms": {
-          "title": "Fixed",
-          "repeatedTransects": {
-            "title": "Repeated transects – GO-SHIP",
-            "content": "Core GO-SHIP lines sampled since {{year}}"
-          },
-          "fishingVessels": {
-            "title": "Fishing vessels – FVON",
-            "content": "Fishing vessels that have been deployed since {{date}}"
-          },
-          "seaLevelGauges": {
-            "title": "Sea level gauges – GLOSS",
-            "content": "GLOSS stations that have provided monthly mean sea level data within the last 5 years"
-          },
-          "timeSeriesSites": {
-            "title": "Time series sites – OceanSITES",
-            "content": "All OceanSITES moorings that are not closed"
-          },
-          "mooredBuoys": {
-            "title": "Moored buoys – DBCP/MB",
-            "content": "Moored buoys that have delivered data to the GTS within the last 30 days"
-          },
-          "tsunamiBuoys": {
-            "title": "Tsunami buoys – DBCP/TSU",
-            "content": "Tsunami buoys that have delivered data to the GTS within the last 30 days"
-          },
-          "hfRadars": {
-            "title": "High Frequency radars – HF radars",
-            "content": "All HF radars registered at OceanOPS"
-          }
+        "oceantrax": {
+          "title": "Ship based oceanographic – Ocean TraX",
+          "content": "Active lines from the current Ocean TraX network design"
         },
-        "mobilePlatforms": {
-          "title": "Mobile",
-          "driftingBuoys": {
-            "title": "Drifting buoys – DBCP/GDA",
-            "content": "Drifting buoys that have delivered data to the GTS within the last 30 days"
-          },
-          "profilingFloats": {
-            "title": "Profiling floats – Argo",
-            "content": "Argo floats that have delivered data to a GDAC within the last 30 days"
-          },
-          "gliders": {
-            "title": "Gliders – OceanGliders",
-            "content": "Gliders that have been deployed since {{date}}"
-          },
-          "animalBorne": {
-            "title": "Animal borne sensors – AniBOS",
-            "content": "Animal-borne sensors that have been deployed since {{date}}"
-          }
+        "asap": {
+          "title": "Ship based aerological – ASAP",
+          "content": "Platforms with operational status in the Automated Shipboard Aerological Programme (ASAP)"
+        },
+        "soconet": {
+          "title": "Surface ocean CO₂ – SOCONET",
+          "content": "SOCONET ships (registered or operational) and SOCONET moorings in the network"
+        },
+        "goship": {
+          "title": "Repeated transects – GO-SHIP",
+          "content": "All core GO-SHIP design lines. Solid lines were sampled in the last 12 months (since {{date}}); dashed lines were not"
+        },
+        "fvon": {
+          "title": "Fishing vessels – FVON",
+          "content": "FVON platforms with a location report in the last 12 months (since {{date}})"
+        },
+        "gloss": {
+          "title": "Sea level gauges – GLOSS",
+          "content": "GLOSS stations with operational status"
+        },
+        "oceansites": {
+          "title": "Time series sites – OceanSITES",
+          "content": "OceanSITES moorings with operational or inactive status (not closed)"
+        },
+        "moored_buoys": {
+          "title": "Moored buoys – MB",
+          "content": "Moored buoys with operational status in the DBCP moored buoy network"
+        },
+        "tsunami_buoys": {
+          "title": "Tsunami buoys – TSU",
+          "content": "Tsunameter buoys with operational status"
+        },
+        "hf_radars": {
+          "title": "High Frequency radars - HF radars",
+          "content": "All HF radars registered at OceanOPS"
+        },
+        "drifting_buoys": {
+          "title": "Drifting buoys – GDA",
+          "content": "Drifting buoys with operational status"
+        },
+        "argo": {
+          "title": "Profiling floats – Argo",
+          "content": "Argo floats with operational status"
+        },
+        "oceangliders": {
+          "title": "Gliders – OceanGliders",
+          "content": "OceanGliders platforms with a location report in the last 12 months (since {{date}})"
+        },
+        "anibos": {
+          "title": "Animal borne sensors - AniBOS",
+          "content": "Animal-borne sensors or AniBOS network platforms with a location report in the last 12 months (since {{date}})"
         }
       }
     }

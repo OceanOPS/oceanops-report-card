@@ -37,10 +37,8 @@ import {
   platformsDeltaVsLastYear,
   totalPlatforms,
 } from './utils/partnerCountryStats'
-import { formatObservationsDeltaPct, formatObservationsPerDay } from './utils/formatObservationsPerDay'
-import { OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR } from './data/editionStats'
-import { networksWithYoy, useEditionYoy } from './utils/editionYoy'
-import { CountriesYoyDetail, ObservationsYoyDetail } from './components/StatEvolutionDetail'
+import { useEditionYoy } from './utils/editionYoy'
+import { CountriesYoyDetail } from './components/StatEvolutionDetail'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
@@ -48,9 +46,7 @@ const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(coun
 
 function App() {
   const { t } = useTranslation()
-  const observationsDeltaLabel = formatObservationsDeltaPct(OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR)
-  const { networkYoy, countriesYoy } = useEditionYoy()
-  const networkYoyRows = networksWithYoy(networkYoy.networks)
+  const { countriesYoy } = useEditionYoy()
   const [isLoading, setIsLoading] = useState(true)
 
   // Indicators modal collapsible states
@@ -401,7 +397,7 @@ function App() {
       />
 <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
-      {/* Stats Grid - 4x1 */}
+      {/* Stats Grid — 3 metrics (observations/day kept in export pipeline only) */}
       <div id="stats-section">
         <InsightPanel
           title={t('content.section1.statsTitle')}
@@ -418,6 +414,7 @@ function App() {
               />
             </>
           }
+          statsLayout="one-row"
           stats={[
             {
               number: fmt(contributingCountries),
@@ -455,22 +452,6 @@ function App() {
                 year: LAST_REPORT_YEAR,
               }),
               evolutionDirection: platformsDeltaVsLastYear >= 0 ? 'up' : 'down',
-            },
-            {
-              number: formatObservationsPerDay(),
-              numberClassName: 'text-4xl sm:text-5xl',
-              description: t('content.section1.stats.stat4.description'),
-              evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
-                delta: observationsDeltaLabel,
-                year: LAST_REPORT_YEAR,
-              }),
-              evolutionDirection: OBSERVATIONS_PER_DAY_DELTA_VS_LAST_YEAR >= 0 ? 'up' : 'down',
-              evolutionDetail: (
-                <ObservationsYoyDetail
-                  data={networkYoy}
-                  networks={networkYoyRows}
-                />
-              ),
             },
           ]}
           backgroundColor="bg-goos-blue-900"

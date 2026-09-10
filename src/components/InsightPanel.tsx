@@ -166,6 +166,7 @@ function StatBlock({
   textColor,
   linkColor,
   onInfoClick,
+  align = 'left',
 }: {
   stat: StatItem
   numberRef: (el: HTMLParagraphElement | null) => void
@@ -173,14 +174,17 @@ function StatBlock({
   textColor: string
   linkColor: string
   onInfoClick?: () => void
+  align?: 'left' | 'center'
 }) {
   const block = (
     <div
-      className={`flex h-full flex-col gap-1.5 ${stat.evolutionDetail ? 'cursor-help' : ''}`}
+      className={`flex h-full flex-col gap-1.5 ${align === 'center' ? 'items-center text-center' : ''} ${stat.evolutionDetail ? 'cursor-help' : ''}`}
     >
-      <div className="flex items-center gap-1.5">
+      <div
+        className={`flex min-h-[2.75rem] gap-1.5 ${align === 'center' ? 'items-center justify-center' : 'items-start'}`}
+      >
         <p
-          className={`text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] opacity-60 ${textColor}`}
+          className={`text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] opacity-60 leading-snug ${textColor}`}
         >
           {stat.description}
         </p>
@@ -208,10 +212,12 @@ function StatBlock({
         )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+      <div
+        className={`flex flex-nowrap items-center gap-x-3 ${align === 'center' ? 'justify-center' : ''}`}
+      >
         <p
           ref={numberRef}
-          className={`font-light tabular-nums leading-none tracking-tight ${stat.numberClassName ?? 'text-5xl sm:text-6xl'} ${numberColor}`}
+          className={`shrink-0 font-light tabular-nums leading-none tracking-tight ${stat.numberClassName ?? 'text-5xl sm:text-6xl'} ${numberColor}`}
         >
           {stat.number}
         </p>
@@ -260,6 +266,8 @@ function StatBlock({
   return block
 }
 
+type StatsLayout = 'grid' | 'two-over-one-centered' | 'one-row'
+
 interface InsightPanelProps {
   title?: string
   hasLine?: boolean
@@ -268,6 +276,8 @@ interface InsightPanelProps {
   largeNumberDescription?: string
   button?: ButtonConfig
   stats?: StatItem[]
+  /** `two-over-one-centered`: 2 stats on top row, 3rd below left. `one-row`: all stats in one row (wraps on small screens). */
+  statsLayout?: StatsLayout
   rightContent?: ReactNode
   leftContent?: ReactNode
   backgroundColor?: string
@@ -286,6 +296,7 @@ export default function InsightPanel({
   largeNumberDescription,
   button,
   stats,
+  statsLayout = 'grid',
   rightContent,
   leftContent,
   backgroundColor = 'bg-goos-blue-700',
@@ -392,78 +403,144 @@ export default function InsightPanel({
 
     return () => ctx.revert()
   }, [largeNumber, stats])
+
+  const titleBlock = title ? (
+    <div className="flex flex-col gap-4 sm:gap-5">
+      {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
+      <h3
+        className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+    </div>
+  ) : null
+
+  const oneRowStats =
+    stats && statsLayout === 'one-row' ? (
+      <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-start sm:justify-between sm:gap-x-6 lg:gap-x-8 xl:gap-x-10">
+        {stats.slice(0, 4).map((stat, index) => (
+          <div
+            key={index}
+            className={
+              index === 2
+                ? 'min-w-0 flex-[1.2] basis-0 sm:min-w-[11rem] lg:min-w-[13rem]'
+                : 'min-w-0 flex-1 basis-0 sm:min-w-[9rem] lg:min-w-[10rem]'
+            }
+          >
+            <StatBlock
+              stat={stat}
+              align="center"
+              numberRef={(el) => {
+                statNumberRefs.current[index] = el
+              }}
+              numberColor={numberColor}
+              textColor={textColor}
+              linkColor={linkColor}
+              onInfoClick={stat.infoModal ? () => setOpenModalIndex(index) : undefined}
+            />
+          </div>
+        ))}
+      </div>
+    ) : null
+
+  const useTextStatsGrid = Boolean(title && leftContent && oneRowStats)
+
+  const statsPanel =
+    rightContent ? (
+      <div className={`${textColor}`}>{rightContent}</div>
+    ) : stats ? (
+      oneRowStats ? (
+        oneRowStats
+      ) : statsLayout === 'two-over-one-centered' && stats.length >= 3 ? (
+                <div className="grid w-full max-w-md sm:max-w-lg grid-cols-1 sm:grid-cols-2 items-start gap-x-10 gap-y-8 text-left lg:-ml-2 xl:ml-0">
+                  {stats.map((stat, index) => (
+                    <div
+                      key={index}
+                      className={index === 2 ? 'sm:col-start-1' : undefined}
+                    >
+                      <StatBlock
+                        stat={stat}
+                        numberRef={(el) => {
+                          statNumberRefs.current[index] = el
+                        }}
+                        numberColor={numberColor}
+                        textColor={textColor}
+                        linkColor={linkColor}
+                        onInfoClick={
+                          stat.infoModal ? () => setOpenModalIndex(index) : undefined
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-start gap-x-10 gap-y-5 sm:gap-y-6 text-left">
+                  {stats.slice(0, 4).map((stat, index) => (
+                    <StatBlock
+                      key={index}
+                      stat={stat}
+                      numberRef={(el) => {
+                        statNumberRefs.current[index] = el
+                      }}
+                      numberColor={numberColor}
+                      textColor={textColor}
+                      linkColor={linkColor}
+                      onInfoClick={
+                        stat.infoModal ? () => setOpenModalIndex(index) : undefined
+                      }
+                    />
+                  ))}
+                </div>
+              )
+    ) : null
+
   return (
     <section ref={sectionRef} className={`${backgroundColor} px-4 sm:px-8 md:px-12 lg:px-16 py-0 ${className}`}>
       <div className="mx-auto flex flex-col gap-5">
         {/* Top spacer */}
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
-        {/* Content: left copy + stats */}
-        <div className="flex flex-col lg:flex-row lg:items-end gap-8 md:gap-10 lg:gap-12">
-          {/* Left: title, large number, or custom content */}
-          <div className="lg:basis-1/2 flex flex-col gap-4 sm:gap-5">
-            {title && (
-              <div className="flex flex-col gap-4 sm:gap-5">
-                {hasLine && <div className={`${lineColor} h-2 w-20 sm:w-24 md:w-32`}></div>}
-                <h3
-                  className={`text-2xl sm:text-3xl md:text-4xl font-extrabold ${titleColor} leading-tight`}
-                  dangerouslySetInnerHTML={{ __html: title }}
-                />
-              </div>
-            )}
-            {leftContent ? (
-              <div className={`${textColor}`}>
-                {leftContent}
-              </div>
-            ) : (
-              <>
-                <div className={`flex flex-col gap-2 ${textColor}`}>
-                  {largeNumber && (
-                    <p ref={largeNumberRef} className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-tight ${numberColor}`}>
-                      {largeNumber}
-                    </p>
-                  )}
-                  {largeNumberDescription && (
-                    <p className="text-sm sm:text-base font-normal">{largeNumberDescription}</p>
-                  )}
-                </div>
-
-                {button && (
-                  <div className="self-start">
-                    <Button {...button} />
+        {useTextStatsGrid ? (
+          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-2 lg:gap-x-8 xl:gap-x-10">
+            <div className="lg:col-start-1 lg:row-start-1">{titleBlock}</div>
+            <div className={`${textColor} lg:col-start-1 lg:row-start-2`}>{leftContent}</div>
+            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 flex w-full items-center">
+              {oneRowStats}
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col lg:flex-row lg:items-start gap-8 md:gap-10 lg:gap-8 xl:gap-10">
+            <div className="lg:basis-1/2 flex flex-col gap-4 sm:gap-5">
+              {titleBlock}
+              {leftContent ? (
+                <div className={`${textColor}`}>{leftContent}</div>
+              ) : (
+                <>
+                  <div className={`flex flex-col gap-2 ${textColor}`}>
+                    {largeNumber && (
+                      <p
+                        ref={largeNumberRef}
+                        className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-tight ${numberColor}`}
+                      >
+                        {largeNumber}
+                      </p>
+                    )}
+                    {largeNumberDescription && (
+                      <p className="text-sm sm:text-base font-normal">{largeNumberDescription}</p>
+                    )}
                   </div>
-                )}
-              </>
-            )}
-          </div>
 
-          {/* Right: stats or custom content — left-aligned, bottom-aligned with copy */}
-          <div className="lg:basis-1/2 w-full">
-            {rightContent ? (
-              <div className={`${textColor}`}>
-                {rightContent}
-              </div>
-            ) : stats ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-start gap-x-10 gap-y-5 sm:gap-y-6 text-left">
-                {stats.slice(0, 4).map((stat, index) => (
-                  <StatBlock
-                    key={index}
-                    stat={stat}
-                    numberRef={(el) => {
-                      statNumberRefs.current[index] = el
-                    }}
-                    numberColor={numberColor}
-                    textColor={textColor}
-                    linkColor={linkColor}
-                    onInfoClick={
-                      stat.infoModal ? () => setOpenModalIndex(index) : undefined
-                    }
-                  />
-                ))}
-              </div>
-            ) : null}
+                  {button && (
+                    <div className="self-start">
+                      <Button {...button} />
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+
+            <div className="lg:basis-1/2 w-full">{statsPanel}</div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Info Modals */}
