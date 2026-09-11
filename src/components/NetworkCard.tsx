@@ -65,6 +65,9 @@
 import { useTranslation } from 'react-i18next'
 import Tooltip from './Tooltip'
 import { asset } from '../utils/assets'
+import { isRatingStatusKey, resolveRatingLabel } from '../utils/networkRatings'
+import type { EssentialVariableKey, RatingValue } from '../types/inSituNetworks'
+import { essentialVariableLabelKey } from '../utils/essentialVariables'
 
 // Fixed GOOS delivery areas configuration
 const DELIVERY_AREAS_CONFIG = {
@@ -85,11 +88,11 @@ const DELIVERY_AREAS_CONFIG = {
 type DeliveryAreaKey = keyof typeof DELIVERY_AREAS_CONFIG
 
 interface NetworkRatings {
-  implementationStatus: number | string
-  realTime: number | string
-  archivedHighQuality: number | string
-  metadata: number | string
-  bestPractices: number | string
+  implementationStatus: RatingValue
+  realTime: RatingValue
+  archivedHighQuality: RatingValue
+  metadata: RatingValue
+  bestPractices: RatingValue
 }
 
 interface NetworkCardProps {
@@ -101,6 +104,8 @@ interface NetworkCardProps {
   ratings: NetworkRatings
   deliveryAreasLabelKey: string
   deliveryAreas: DeliveryAreaKey[]
+  essentialVariables?: EssentialVariableKey[]
+  showEssentialVariables?: boolean
   backgroundColor?: string
   textColor?: string
   accentColor?: string
@@ -109,6 +114,7 @@ interface NetworkCardProps {
   tooltipBgColor?: string
   tooltipTextColor?: string
   className?: string
+  onNetworkLinkClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
 export default function NetworkCard({
@@ -120,6 +126,8 @@ export default function NetworkCard({
   ratings,
   deliveryAreasLabelKey,
   deliveryAreas,
+  essentialVariables = [],
+  showEssentialVariables = false,
   backgroundColor = 'bg-goos-blue-800',
   textColor = 'text-white',
   accentColor = 'text-goos-orange-500',
@@ -128,6 +136,7 @@ export default function NetworkCard({
   tooltipBgColor = 'bg-goos-blue-900',
   tooltipTextColor = 'text-goos-white',
   className = '',
+  onNetworkLinkClick,
 }: NetworkCardProps) {
   const { t } = useTranslation()
 
@@ -173,21 +182,28 @@ export default function NetworkCard({
   }
 
   // Helper function to render rating (stars or text)
-  const renderRating = (rating: number | string) => {
+  const renderRating = (rating: RatingValue) => {
     if (typeof rating === 'string') {
+      const label = isRatingStatusKey(rating) ? resolveRatingLabel(rating, t) : rating
       return (
         <span className={`${textColor} text-sm italic opacity-70`}>
-          {rating}
+          {label}
         </span>
       )
     }
     return renderStars(rating)
   }
 
+  const compactMobile = showEssentialVariables
+
   return (
-    <article className={`${backgroundColor} p-6 flex flex-col gap-6 w-full h-full ${className}`}>
+    <article
+      className={`${backgroundColor} w-full flex flex-col ${
+        compactMobile ? 'gap-4 p-5' : 'gap-6 p-6'
+      } ${className}`}
+    >
       {/* Icon and Title */}
-      <div className="flex flex-col gap-4 min-h-[88px]">
+      <div className={`flex flex-col gap-3 ${compactMobile ? '' : 'min-h-[88px]'}`}>
         <div className="h-[71px] w-[70px]">
           <img
             src={iconSrc}
@@ -204,6 +220,7 @@ export default function NetworkCard({
             href={networkUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={onNetworkLinkClick}
             className={`${accentColor} text-base underline decoration-dotted`}
           >
             {t(networkLinkKey)} <span className="text-xs">⧉</span>
@@ -293,10 +310,10 @@ export default function NetworkCard({
       <div className="h-[1px] bg-white opacity-20"></div>
 
       {/* GOOS Delivery Areas */}
-      <div className="flex flex-col gap-4">
+      <div className={`flex flex-col ${compactMobile ? 'gap-2' : 'gap-4'}`}>
         <p className={`${textColor} text-sm`}>{t(deliveryAreasLabelKey)}:</p>
 
-        <div className="flex gap-4">
+        <div className="flex gap-3 flex-wrap">
           {limitedAreas.map((areaKey) => {
             const area = DELIVERY_AREAS_CONFIG[areaKey]
             return (
@@ -320,6 +337,20 @@ export default function NetworkCard({
           })}
         </div>
       </div>
+
+      {showEssentialVariables && essentialVariables.length > 0 && (
+        <>
+          <div className="h-[1px] bg-white opacity-20" />
+          <div className="flex flex-col gap-1.5">
+            <p className={`${textColor} text-sm`}>
+              {t('networks.essentialVariablesLabel')}:
+            </p>
+            <p className={`${textColor} text-xs leading-relaxed opacity-90`}>
+              {essentialVariables.map((key) => t(essentialVariableLabelKey(key))).join(', ')}
+            </p>
+          </div>
+        </>
+      )}
     </article>
   )
 }
