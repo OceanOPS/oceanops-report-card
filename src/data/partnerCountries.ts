@@ -42,12 +42,12 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "Argentina",
     countryCode: "AR",
-    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 1, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 4, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
+    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 8, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 4, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
   },
   {
     name: "Australia",
     countryCode: "AU",
-    networks: { driftingBuoys: 48, argo: 286, oceanGliders: 30, aniBOS: 38, fvon: 200, sotVos: 29, sotAsap: 0, soconet: 2, soconetMoorings: 6, oceantrax: 2, goShip: 0, gloss: 15, oceanSites: 16, mooredBuoys: 30, tsunamiBuoys: 4, hfRadars: 12 }
+    networks: { driftingBuoys: 48, argo: 286, oceanGliders: 30, aniBOS: 38, fvon: 200, sotVos: 29, sotAsap: 0, soconet: 10, soconetMoorings: 6, oceantrax: 7, goShip: 0, gloss: 15, oceanSites: 16, mooredBuoys: 30, tsunamiBuoys: 4, hfRadars: 12 }
   },
   {
     name: "Bahamas",
@@ -62,17 +62,17 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "Belgium",
     countryCode: "BE",
-    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 2, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 0, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
+    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 16, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 0, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
   },
   {
     name: "Bermuda",
     countryCode: "BM",
-    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 1, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 2, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 1, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
+    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 1, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 24, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 1, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
   },
   {
     name: "Brazil",
     countryCode: "BR",
-    networks: { driftingBuoys: 0, argo: 11, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 1, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 1, oceanSites: 1, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 2 }
+    networks: { driftingBuoys: 0, argo: 11, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 1, soconetMoorings: 0, oceantrax: 1, goShip: 0, gloss: 1, oceanSites: 1, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 2 }
   },
   {
     name: "Bulgaria",
@@ -82,7 +82,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "Canada",
     countryCode: "CA",
-    networks: { driftingBuoys: 36, argo: 203, oceanGliders: 33, aniBOS: 0, fvon: 0, sotVos: 36, sotAsap: 0, soconet: 0, soconetMoorings: 0, oceantrax: 0, goShip: 1, gloss: 5, oceanSites: 0, mooredBuoys: 34, tsunamiBuoys: 0, hfRadars: 13 }
+    networks: { driftingBuoys: 36, argo: 203, oceanGliders: 33, aniBOS: 0, fvon: 0, sotVos: 36, sotAsap: 0, soconet: 0, soconetMoorings: 0, oceantrax: 1, goShip: 1, gloss: 5, oceanSites: 0, mooredBuoys: 34, tsunamiBuoys: 0, hfRadars: 13 }
   },
   {
     name: "Chile",
@@ -153,12 +153,12 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "France",
     countryCode: "FR",
-    networks: { driftingBuoys: 1, argo: 310, oceanGliders: 29, aniBOS: 1, fvon: 0, sotVos: 51, sotAsap: 0, soconet: 2, soconetMoorings: 0, oceantrax: 1, goShip: 1, gloss: 15, oceanSites: 11, mooredBuoys: 33, tsunamiBuoys: 0, hfRadars: 9 }
+    networks: { driftingBuoys: 1, argo: 310, oceanGliders: 29, aniBOS: 1, fvon: 0, sotVos: 51, sotAsap: 0, soconet: 4, soconetMoorings: 0, oceantrax: 0, goShip: 1, gloss: 15, oceanSites: 11, mooredBuoys: 33, tsunamiBuoys: 0, hfRadars: 9 }
   },
   {
     name: "Germany",
     countryCode: "DE",
-    networks: { driftingBuoys: 10, argo: 279, oceanGliders: 3, aniBOS: 0, fvon: 0, sotVos: 360, sotAsap: 1, soconet: 3, soconetMoorings: 0, oceantrax: 0, goShip: 1, gloss: 1, oceanSites: 65, mooredBuoys: 7, tsunamiBuoys: 0, hfRadars: 3 }
+    networks: { driftingBuoys: 10, argo: 279, oceanGliders: 3, aniBOS: 0, fvon: 0, sotVos: 360, sotAsap: 1, soconet: 19, soconetMoorings: 0, oceantrax: 0, goShip: 1, gloss: 1, oceanSites: 65, mooredBuoys: 7, tsunamiBuoys: 0, hfRadars: 3 }
   },
   {
     name: "Greece",
@@ -173,7 +173,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "Iceland",
     countryCode: "IS",
-    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 10, sotVos: 0, sotAsap: 0, soconet: 1, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 1, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
+    networks: { driftingBuoys: 0, argo: 0, oceanGliders: 0, aniBOS: 0, fvon: 10, sotVos: 0, sotAsap: 0, soconet: 3, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 1, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
   },
   {
     name: "India",
@@ -198,12 +198,12 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "Italy",
     countryCode: "IT",
-    networks: { driftingBuoys: 32, argo: 95, oceanGliders: 1, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 0, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 1, oceanSites: 5, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 27 }
+    networks: { driftingBuoys: 32, argo: 95, oceanGliders: 1, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 0, soconetMoorings: 0, oceantrax: 1, goShip: 0, gloss: 1, oceanSites: 5, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 27 }
   },
   {
     name: "Japan",
     countryCode: "JP",
-    networks: { driftingBuoys: 19, argo: 145, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 146, sotAsap: 1, soconet: 2, soconetMoorings: 0, oceantrax: 0, goShip: 2, gloss: 14, oceanSites: 20, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 22 }
+    networks: { driftingBuoys: 19, argo: 145, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 146, sotAsap: 1, soconet: 37, soconetMoorings: 0, oceantrax: 0, goShip: 2, gloss: 14, oceanSites: 20, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 22 }
   },
   {
     name: "Jordan",
@@ -273,12 +273,12 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "New Zealand",
     countryCode: "NZ",
-    networks: { driftingBuoys: 2, argo: 16, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 1, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 2, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
+    networks: { driftingBuoys: 2, argo: 16, oceanGliders: 0, aniBOS: 0, fvon: 0, sotVos: 0, sotAsap: 0, soconet: 6, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 2, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
   },
   {
     name: "Norway",
     countryCode: "NO",
-    networks: { driftingBuoys: 0, argo: 38, oceanGliders: 2, aniBOS: 0, fvon: 0, sotVos: 2, sotAsap: 0, soconet: 4, soconetMoorings: 0, oceantrax: 0, goShip: 1, gloss: 6, oceanSites: 2, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 8 }
+    networks: { driftingBuoys: 0, argo: 38, oceanGliders: 2, aniBOS: 0, fvon: 0, sotVos: 2, sotAsap: 0, soconet: 61, soconetMoorings: 0, oceantrax: 0, goShip: 1, gloss: 6, oceanSites: 2, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 8 }
   },
   {
     name: "Papua New Guinea",
@@ -343,7 +343,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "South Africa",
     countryCode: "ZA",
-    networks: { driftingBuoys: 0, argo: 4, oceanGliders: 3, aniBOS: 0, fvon: 0, sotVos: 1, sotAsap: 0, soconet: 1, soconetMoorings: 0, oceantrax: 0, goShip: 0, gloss: 2, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
+    networks: { driftingBuoys: 0, argo: 4, oceanGliders: 3, aniBOS: 0, fvon: 0, sotVos: 1, sotAsap: 0, soconet: 5, soconetMoorings: 0, oceantrax: 1, goShip: 0, gloss: 2, oceanSites: 0, mooredBuoys: 0, tsunamiBuoys: 0, hfRadars: 0 }
   },
   {
     name: "Spain",
@@ -393,7 +393,7 @@ export const partnerCountries: PartnerCountry[] = [
   {
     name: "United States",
     countryCode: "US",
-    networks: { driftingBuoys: 1036, argo: 2499, oceanGliders: 145, aniBOS: 0, fvon: 279, sotVos: 583, sotAsap: 0, soconet: 12, soconetMoorings: 39, oceantrax: 5, goShip: 2, gloss: 26, oceanSites: 137, mooredBuoys: 202, tsunamiBuoys: 31, hfRadars: 172 }
+    networks: { driftingBuoys: 1036, argo: 2499, oceanGliders: 145, aniBOS: 0, fvon: 279, sotVos: 583, sotAsap: 0, soconet: 100, soconetMoorings: 39, oceantrax: 19, goShip: 2, gloss: 26, oceanSites: 137, mooredBuoys: 202, tsunamiBuoys: 31, hfRadars: 172 }
   },
   {
     name: "Uruguay",

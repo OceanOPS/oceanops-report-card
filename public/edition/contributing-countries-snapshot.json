@@ -80,7 +80,7 @@
     "AR": [
       {
         "id": "soconet",
-        "count": 1
+        "count": 8
       },
       {
         "id": "gloss",
@@ -114,7 +114,7 @@
       },
       {
         "id": "soconet",
-        "count": 2
+        "count": 10
       },
       {
         "id": "soconetMoorings",
@@ -122,7 +122,7 @@
       },
       {
         "id": "oceantrax",
-        "count": 2
+        "count": 7
       },
       {
         "id": "gloss",
@@ -154,7 +154,7 @@
     "BE": [
       {
         "id": "soconet",
-        "count": 2
+        "count": 16
       }
     ],
     "BG": [
@@ -170,7 +170,7 @@
       },
       {
         "id": "soconet",
-        "count": 2
+        "count": 24
       },
       {
         "id": "gloss",
@@ -184,6 +184,10 @@
       },
       {
         "id": "soconet",
+        "count": 1
+      },
+      {
+        "id": "oceantrax",
         "count": 1
       },
       {
@@ -221,6 +225,10 @@
       {
         "id": "sotVos",
         "count": 36
+      },
+      {
+        "id": "oceantrax",
+        "count": 1
       },
       {
         "id": "goShip",
@@ -324,7 +332,7 @@
       },
       {
         "id": "soconet",
-        "count": 3
+        "count": 19
       },
       {
         "id": "goShip",
@@ -468,11 +476,7 @@
       },
       {
         "id": "soconet",
-        "count": 2
-      },
-      {
-        "id": "oceantrax",
-        "count": 1
+        "count": 4
       },
       {
         "id": "goShip",
@@ -650,7 +654,7 @@
       },
       {
         "id": "soconet",
-        "count": 1
+        "count": 3
       },
       {
         "id": "gloss",
@@ -668,6 +672,10 @@
       },
       {
         "id": "oceanGliders",
+        "count": 1
+      },
+      {
+        "id": "oceantrax",
         "count": 1
       },
       {
@@ -708,7 +716,7 @@
       },
       {
         "id": "soconet",
-        "count": 2
+        "count": 37
       },
       {
         "id": "goShip",
@@ -824,7 +832,7 @@
       },
       {
         "id": "soconet",
-        "count": 4
+        "count": 61
       },
       {
         "id": "goShip",
@@ -860,7 +868,7 @@
       },
       {
         "id": "soconet",
-        "count": 1
+        "count": 6
       },
       {
         "id": "gloss",
@@ -1028,7 +1036,7 @@
       },
       {
         "id": "soconet",
-        "count": 12
+        "count": 100
       },
       {
         "id": "soconetMoorings",
@@ -1036,7 +1044,7 @@
       },
       {
         "id": "oceantrax",
-        "count": 5
+        "count": 19
       },
       {
         "id": "goShip",
@@ -1110,6 +1118,10 @@
       },
       {
         "id": "soconet",
+        "count": 5
+      },
+      {
+        "id": "oceantrax",
         "count": 1
       },
       {
