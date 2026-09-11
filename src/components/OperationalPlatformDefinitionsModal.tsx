@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { formatDeploymentDate, useExportMetadata } from '../utils/exportMetadata'
+import { formatAsOfMonthYear, useExportMetadata } from '../utils/exportMetadata'
 
 /** Legend order (oceanops-simple-map/src/categories.ts), excluding legendHidden companions. */
 const NETWORK_IDS = [
@@ -25,22 +25,9 @@ export default function OperationalPlatformDefinitionsModal() {
   const metadata = useExportMetadata()
   const locale = i18n.language
 
-  const rollingSince = formatDeploymentDate(
-    metadata.ROLLING_12M_SINCE ?? metadata.FVON_MIN_LOC_DATE,
-    locale,
-  )
+  const asOf = formatAsOfMonthYear(metadata.exportedAt, locale)
 
-  const contentParams = (id: (typeof NETWORK_IDS)[number]) => {
-    switch (id) {
-      case 'goship':
-      case 'fvon':
-      case 'oceangliders':
-      case 'anibos':
-        return { date: rollingSince }
-      default:
-        return {}
-    }
-  }
+  const contentParams = () => ({ asOf })
 
   return (
     <div className="flex flex-col gap-4 sm:gap-6">
@@ -55,11 +42,15 @@ export default function OperationalPlatformDefinitionsModal() {
               {t(`operationalPlatforms.platformModal.networks.${id}.title`)}
             </h4>
             <p className="text-sm sm:text-base leading-relaxed text-white">
-              {t(`operationalPlatforms.platformModal.networks.${id}.content`, contentParams(id))}
+              {t(`operationalPlatforms.platformModal.networks.${id}.content`, contentParams())}
             </p>
           </li>
         ))}
       </ul>
+
+      <p className="text-sm sm:text-base leading-relaxed text-white/80 italic">
+        {t('operationalPlatforms.platformModal.operationalFootnote')}
+      </p>
     </div>
   )
 }

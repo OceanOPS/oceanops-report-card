@@ -453,22 +453,37 @@ export default function InsightPanel({
 
   const twoOverOneStats =
     stats && statsLayout === 'two-over-one-centered' && stats.length >= 3 ? (
-      <div className="grid w-full max-w-lg sm:max-w-xl grid-cols-1 sm:grid-cols-2 items-start gap-x-16 sm:gap-x-20 lg:gap-x-28 gap-y-8 text-left lg:-ml-2 xl:ml-0">
-        {stats.slice(0, 3).map((stat, index) => (
-          <div key={index} className={index === 2 ? 'sm:col-start-1' : undefined}>
-            <StatBlock
-              stat={stat}
-              labelPosition={statsLabelPosition}
-              numberRef={(el) => {
-                statNumberRefs.current[index] = el
-              }}
-              numberColor={numberColor}
-              textColor={textColor}
-              linkColor={linkColor}
-              onInfoClick={stat.infoModal ? () => setOpenModalIndex(index) : undefined}
-            />
-          </div>
-        ))}
+      <div className="flex w-full min-w-0 flex-col gap-y-8 lg:gap-y-10 text-left">
+        <div className="flex w-full flex-col gap-y-8 sm:flex-row sm:items-start sm:gap-x-16 lg:gap-x-20 xl:gap-x-24">
+          {stats.slice(0, 2).map((stat, index) => (
+            <div key={index} className="min-w-0 shrink-0">
+              <StatBlock
+                stat={stat}
+                labelPosition={statsLabelPosition}
+                numberRef={(el) => {
+                  statNumberRefs.current[index] = el
+                }}
+                numberColor={numberColor}
+                textColor={textColor}
+                linkColor={linkColor}
+                onInfoClick={stat.infoModal ? () => setOpenModalIndex(index) : undefined}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="min-w-0 w-full sm:max-w-[min(100%,22rem)] lg:max-w-[min(100%,26rem)]">
+          <StatBlock
+            stat={stats[2]}
+            labelPosition={statsLabelPosition}
+            numberRef={(el) => {
+              statNumberRefs.current[2] = el
+            }}
+            numberColor={numberColor}
+            textColor={textColor}
+            linkColor={linkColor}
+            onInfoClick={stats[2].infoModal ? () => setOpenModalIndex(2) : undefined}
+          />
+        </div>
       </div>
     ) : null
 
@@ -540,10 +555,10 @@ export default function InsightPanel({
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {useTextStatsGrid ? (
-          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-2 lg:gap-x-8 xl:gap-x-10">
+          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-x-12 xl:gap-x-16 2xl:gap-x-20">
             <div className="lg:col-start-1 lg:row-start-1">{titleBlock}</div>
-            <div className={`${textColor} lg:col-start-1 lg:row-start-2`}>{leftContent}</div>
-            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 flex w-full items-center">
+            <div className={`${textColor} lg:col-start-1 lg:row-start-2 lg:pr-4 xl:pr-6`}>{leftContent}</div>
+            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 flex w-full min-w-0 items-center lg:pl-2 xl:pl-4">
               {sideStats}
             </div>
           </div>

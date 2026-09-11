@@ -263,11 +263,11 @@
         "stat2": {
           "number": "17",
           "description": "redes globales de observación",
-          "evolution": "incl. emergentes"
+          "evolution": "14 incl."
         },
         "stat3": {
           "number": "9,389",
-          "description": "sitios operacionales y de ref.",
+          "description": "plataformas de observación",
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
@@ -470,8 +470,8 @@
       "iconAlt": "Red SOT/VOS - Observaciones meteorológicas desde barcos voluntarios"
     },
     "sotXbt": {
-      "title": "Oceanográfico basado en barcos – SOT/Ocean TraX",
-      "iconAlt": "Red SOT/Ocean TraX — perfiles oceanográficos desde líneas de barcos"
+      "title": "Oceanográfico basado en barcos – SOT/OceanTraX",
+      "iconAlt": "Red SOT/OceanTraX — perfiles oceanográficos desde líneas de barcos"
     },
     "sotAsap": {
       "title": "Parámetros aire-mar basados en barcos – SOT/ASAP",
@@ -526,8 +526,8 @@
       "iconAlt": "Red SMART Cables - Cables submarinos de monitoreo científico"
     },
     "soconet": {
-      "title": "CO₂ de superficie oceánica – SOCONET",
-      "iconAlt": "Red SOCONET - Observación de CO₂ de superficie oceánica"
+      "title": "CO₂ de superficie oceánica – cruceros y sitios - SOCONET",
+      "iconAlt": "Red SOCONET - Cruceros y sitios de CO₂ de superficie oceánica"
     },
     "sunFleet": {
       "title": "Flota de superficie no tripulada – SUN Fleet",
@@ -833,70 +833,71 @@
       "empty": "Ninguna combinación coincide con los filtros actuales.",
       "footnote": "Ordenado por número de plataformas. El filtrado del mapa usa solo el país programa."
     },
-    "platformButton": "Acerca de las definiciones de plataformas operacionales",
+    "platformButton": "Acerca de la leyenda del mapa",
     "platformModal": {
-      "title": "Definiciones de plataformas operacionales",
-      "intro": "El mapa muestra las plataformas operacionales. Los criterios de estado operacional varían según la red de observación. Las reglas aplicadas son las siguientes:",
+      "title": "Leyenda del mapa",
+      "intro": "El mapa representa la contribución anual de cada red al sistema global de observación. Muestra la última ubicación de plataformas, estaciones, sitios de referencia y líneas seleccionados según criterios específicos de cada red de observación. Las reglas de selección son las siguientes:",
+      "operationalFootnote": "*operacional: transmisión de datos en tiempo real supervisada por OceanOPS.",
       "networks": {
         "vos": {
           "title": "Meteorología embarcada – VOS",
-          "content": "Plataformas con estado operacional en la red Voluntary Observing Ship (VOS)"
+          "content": "Estaciones meteorológicas embarcadas operacionales* en {{asOf}}."
         },
         "oceantrax": {
-          "title": "Oceanografía embarcada – Ocean TraX",
-          "content": "Líneas activas del diseño de red Ocean TraX vigente"
+          "title": "Oceanografía embarcada – OceanTraX",
+          "content": "Líneas XBT muestreadas en los últimos 12 meses."
         },
         "asap": {
           "title": "Aerología embarcada – ASAP",
-          "content": "Plataformas con estado operacional en el Automated Shipboard Aerological Programme (ASAP)"
+          "content": "Estaciones aerológicas embarcadas operacionales* en {{asOf}}."
         },
         "soconet": {
-          "title": "CO₂ superficial oceánico – SOCONET",
-          "content": "Buques SOCONET (registrados u operacionales) y amarraderos SOCONET de la red"
+          "title": "CO₂ superficial oceánico – cruceros y sitios – SOCONET",
+          "content": "Cruceros y sitios que proporcionaron observaciones nuevas o actualizadas a la base de referencia SOCATv2026."
         },
         "goship": {
           "title": "Transectos repetidos – GO-SHIP",
-          "content": "Todas las líneas de referencia GO-SHIP. Las líneas continuas se muestrearon en los últimos 12 meses (desde el {{date}}); las discontinuas no"
+          "content": "Líneas repetidas muestreadas en los últimos 12 meses (líneas continuas). Las líneas discontinuas representan líneas GO-SHIP que se muestrearán en la próxima década."
         },
         "fvon": {
           "title": "Buques pesqueros – FVON",
-          "content": "Plataformas FVON con un informe de posición en los últimos 12 meses (desde el {{date}})"
+          "content": "Estaciones oceánicas en funcionamiento en los últimos 12 meses."
         },
         "gloss": {
           "title": "Mareógrafos – GLOSS",
-          "content": "Estaciones GLOSS con estado operacional"
+          "content": "Estaciones que han proporcionado datos de nivel medio mensual del mar en los últimos 5 años."
         },
         "oceansites": {
           "title": "Sitios de series temporales – OceanSITES",
-          "content": "Amarraderos OceanSITES con estado operacional o inactivo (no cerrados)"
+          "content": "Todos los sitios de series temporales multidisciplinarios hasta la fecha."
         },
         "moored_buoys": {
           "title": "Boyas fijas – MB",
-          "content": "Boyas fijas con estado operacional en la red DBCP de boyas fijas"
+          "content": "Boyas fijas operacionales* en {{asOf}}."
         },
         "tsunami_buoys": {
           "title": "Boyas de tsunami – TSU",
-          "content": "Boyas tsunamímetros con estado operacional"
+          "content": "Boyas tsunamímetros operacionales* en {{asOf}}."
         },
         "hf_radars": {
           "title": "Radares HF – HF radars",
-          "content": "Todos los radares HF registrados en OceanOPS"
+          "content": "Estaciones registradas en OceanOPS."
         },
         "drifting_buoys": {
           "title": "Boyas a la deriva – GDA",
-          "content": "Boyas a la deriva con estado operacional"
+          "content": "Boyas a la deriva operacionales* en {{asOf}}."
         },
         "argo": {
           "title": "Flotadores de perfil – Argo",
-          "content": "Flotadores Argo con estado operacional"
+          "content": "Flotadores de perfil operacionales* en {{asOf}}."
         },
         "oceangliders": {
           "title": "Planeadores – OceanGliders",
-          "content": "Plataformas OceanGliders con un informe de posición en los últimos 12 meses (desde el {{date}})"
+          "content": "Misiones de planeadores en funcionamiento en los últimos 12 meses."
         },
         "anibos": {
           "title": "Sensores embarcados en animales – AniBOS",
-          "content": "Sensores embarcados en animales o plataformas de la red AniBOS con un informe de posición en los últimos 12 meses (desde el {{date}})"
+          "content": "Sensores embarcados en animales en funcionamiento en los últimos 12 meses."
         }
       }
     }

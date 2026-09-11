@@ -269,11 +269,11 @@
         "stat2": {
           "number": "17",
           "description": "global observing networks",
-          "evolution": "including emerging"
+          "evolution": "including 14"
         },
         "stat3": {
           "number": "9,389",
-          "description": "operational & ref. sites",
+          "description": "observing platforms",
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
@@ -515,8 +515,8 @@
       "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
     },
     "sotXbt": {
-      "title": "Ship based oceanographic – SOT/Ocean TraX",
-      "iconAlt": "SOT/Ocean TraX — Ship of Opportunity Programme temperature profile lines"
+      "title": "Ship based oceanographic – SOT/OceanTraX",
+      "iconAlt": "SOT/OceanTraX — Ship of Opportunity Programme temperature profile lines"
     },
     "sotAsap": {
       "title": "Ship based aerological – SOT/ASAP",
@@ -571,8 +571,8 @@
       "iconAlt": "SMART Cables Network - Science monitoring and reliable telecommunications subsea cables"
     },
     "soconet": {
-      "title": "Surface ocean CO₂ – SOCONET",
-      "iconAlt": "SOCONET Network - Surface ocean CO₂ observing network"
+      "title": "Surface ocean CO2 cruises & sites - SOCONET",
+      "iconAlt": "SOCONET Network - Surface ocean CO2 cruises and sites"
     },
     "sunFleet": {
       "title": "Surface UNcrewed Fleet – SUN Fleet",
@@ -764,70 +764,71 @@
       "empty": "No combinations match the current filters.",
       "footnote": "Sorted by platform count. Map filtering uses program country only."
     },
-    "platformButton": "About operational platform definitions",
+    "platformButton": "About map legend",
     "platformModal": {
-      "title": "Operational Platform Definitions",
-      "intro": "The map shows operational platforms. The criteria for operational status vary depending on the observing network. The applied rules are as follows:",
+      "title": "Map Legend",
+      "intro": "The map represents the annual contribution of each network to the global observing system. It shows the latest location of platforms, stations, reference sites and lines selected according to criteria specific to each observing network. The selection rules are as follows:",
+      "operationalFootnote": "*operational: real-time data transmission monitored by OceanOPS.",
       "networks": {
         "vos": {
           "title": "Ship based meteorological – VOS",
-          "content": "Platforms with operational status in the Voluntary Observing Ship (VOS) network"
+          "content": "Ship-based weather stations operational* as of {{asOf}}."
         },
         "oceantrax": {
-          "title": "Ship based oceanographic – Ocean TraX",
-          "content": "Active lines from the current Ocean TraX network design"
+          "title": "Ship based oceanographic – OceanTraX",
+          "content": "XBT lines sampled in the last 12 months."
         },
         "asap": {
           "title": "Ship based aerological – ASAP",
-          "content": "Platforms with operational status in the Automated Shipboard Aerological Programme (ASAP)"
+          "content": "Ship-based aerological stations operational* as of {{asOf}}."
         },
         "soconet": {
-          "title": "Surface ocean CO₂ – SOCONET",
-          "content": "SOCONET ships (registered or operational) and SOCONET moorings in the network"
+          "title": "Surface ocean CO2 cruises & sites - SOCONET",
+          "content": "Cruises and sites that provided new or updated observations to the SOCATv2026 reference database."
         },
         "goship": {
           "title": "Repeated transects – GO-SHIP",
-          "content": "All core GO-SHIP design lines. Solid lines were sampled in the last 12 months (since {{date}}); dashed lines were not"
+          "content": "Repeated lines sampled in the last 12 months (solid lines). Dashed lines represent GO-SHIP lines to be sampled in the next decade."
         },
         "fvon": {
           "title": "Fishing vessels – FVON",
-          "content": "FVON platforms with a location report in the last 12 months (since {{date}})"
+          "content": "Ocean stations operating in the last 12 months."
         },
         "gloss": {
           "title": "Sea level gauges – GLOSS",
-          "content": "GLOSS stations with operational status"
+          "content": "Stations that have provided monthly mean sea level data within the last 5 years."
         },
         "oceansites": {
           "title": "Time series sites – OceanSITES",
-          "content": "OceanSITES moorings with operational or inactive status (not closed)"
+          "content": "All multidisciplinary time series sites to date."
         },
         "moored_buoys": {
           "title": "Moored buoys – MB",
-          "content": "Moored buoys with operational status in the DBCP moored buoy network"
+          "content": "Moored buoys operational* as of {{asOf}}."
         },
         "tsunami_buoys": {
           "title": "Tsunami buoys – TSU",
-          "content": "Tsunameter buoys with operational status"
+          "content": "Tsunameter buoys operational* as of {{asOf}}."
         },
         "hf_radars": {
-          "title": "High Frequency radars - HF radars",
-          "content": "All HF radars registered at OceanOPS"
+          "title": "High Frequency radars – HF radars",
+          "content": "Stations registered at OceanOPS."
         },
         "drifting_buoys": {
           "title": "Drifting buoys – GDA",
-          "content": "Drifting buoys with operational status"
+          "content": "Drifting buoys operational* as of {{asOf}}."
         },
         "argo": {
           "title": "Profiling floats – Argo",
-          "content": "Argo floats with operational status"
+          "content": "Profiling floats operational* as of {{asOf}}."
         },
         "oceangliders": {
           "title": "Gliders – OceanGliders",
-          "content": "OceanGliders platforms with a location report in the last 12 months (since {{date}})"
+          "content": "Glider missions operating in the last 12 months."
         },
         "anibos": {
-          "title": "Animal borne sensors - AniBOS",
-          "content": "Animal-borne sensors or AniBOS network platforms with a location report in the last 12 months (since {{date}})"
+          "title": "Animal borne sensors – AniBOS",
+          "content": "Animal borne sensors operating in the last 12 months."
         }
       }
     }
@@ -1044,7 +1045,7 @@
       "sotVos": "Ship based meteorological – SOT/VOS",
       "sotAsap": "Ship based aerological – SOT/ASAP",
       "soconet": "Ships - SOCONET",
-      "oceantrax": "Ship based oceanographic – SOT/Ocean TraX",
+      "oceantrax": "Ship based oceanographic – SOT/OceanTraX",
       "goShip": "Repeated transects – GO-SHIP",
       "gloss": "Sea level gauges – GLOSS",
       "oceanSites": "Time series sites – OceanSITES",

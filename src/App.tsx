@@ -477,7 +477,7 @@ function App() {
         backgroundColor="bg-goos-blue-900"
       />
 
-      {/* Operational Platforms Definition Button */}
+      {/* Map legend button (below map) */}
       <div className="flex justify-center bg-goos-blue-900 pb-4 sm:pb-6 md:pb-8">
         <Button
           variant="modal"

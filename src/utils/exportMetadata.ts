@@ -46,6 +46,16 @@ export function formatDeploymentDate(isoDate: string, locale: string): string {
   })
 }
 
+/** Month and year for “operational as of …” legend lines (e.g. October 2026). */
+export function formatAsOfMonthYear(isoDate: string, locale: string): string {
+  const date = new Date(`${isoDate}T12:00:00Z`)
+  return date.toLocaleString(locale, {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+}
+
 export async function loadExportMetadata(): Promise<ExportMetadata> {
   if (cached) return cached
 
