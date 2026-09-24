@@ -623,79 +623,191 @@
     "details": {
       "pending": "Editorial content pending for this edition.",
       "argo": {
-        "applications": "Ocean Heat Content monitoring, seasonal forecasting, and short- to long-range Numerical Weather Prediction.",
+        "applications": "Ocean heat content monitoring, seasonal forecasting, and short to long-range Numerical Weather Prediction, carbon budget, living marine resources assessment, ocean acidification study, oxygen minimum zone surveillance.",
         "coverage": "Global ocean, from surface to 6,000 m depth.",
-        "essentialVariablesMeasured": "Temperature, Salinity, Oxygen, Nitrate, pH, chlorophyll-a, Irradiance, Suspended Particles.",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Subsurface Temperature, Sea Surface Salinity, Subsurface Salinity, Subsurface Currents, Inorganic Carbon, Oxygen, Nutrients, Particulate Matter, Ocean Colour, Chla.",
         "implementationProgress": "56% of the target array (4,700 floats) achieved.",
-        "platformType": "Autonomous profiling floats: Core Argo (0–2,000 m), Deep Argo (to 6,000 m), and Biogeochemical (BGC) Argo with biogeochemical sensors.",
+        "platformType": "Autonomous profiling floats: Core Argo (0–2,000 m), Deep Argo (to 6,000 m), and Biogeochemical Argo with biogeochemical sensors.",
         "samplingFrequency": "Every 10 days.",
-        "activityTrend": "Stable core array; BGC Argo expansion slowed due to funding constraints, with Deep Argo growth remaining limited.",
+        "activityTrend": "Stable core array; BGC Argo expansion slowed due to funding constraints, with Deep Argo growth remaining limited. Polar expansion starting.",
         "challenges": "Reliance on a limited number of contributors; funding gaps affecting BGC expansion; slow Deep Argo implementation; Exclusive Economic Zone deployment restrictions.",
-        "opportunities": "Argo BioEco expansion through new technologies, including UVP plankton sensors, hyperspectral radiometry, and active acoustic observations."
+        "opportunities": "Argo BioEco and polar expansion through new technologies, including UVP plankton sensors, hyperspectral radiometry, and active acoustic observations, under ice communication."
       },
       "dbcpMoored": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Weather forecasting, ocean forecasting, climate monitoring, satellite data calibration/validation, and climate and ocean science.",
+        "coverage": "Tropical arrays across all ocean basins; coastal areas elsewhere.",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Subsurface Temperature, Sea Surface Salinity, Subsurface Salinity, Subsurface Currents, Sea State, Ocean Surface Heat Flux, Ocean Surface Stress, Surface Wind Speed and Direction, Surface Water Vapour, Surface Air Temperature, Air Pressure.",
+        "implementationProgress": "~500 moored buoys in operation; major coverage gap in the Southern Hemisphere.",
+        "platformType": "Moored buoys and fixed stations.",
+        "samplingFrequency": "Hourly.",
+        "activityTrend": "Stable, but per latest governmental announcements probably shortly declining.",
+        "challenges": "Deployment and maintenance currently concentrated in developed countries; limited capacity in developing regions. Buoys are reported as operational but without public data or metadata.",
+        "opportunities": "Optimize ship time and coordination across observing networks to reduce deployment and maintenance costs."
       },
       "goShip": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Heat and matter transport, decadal predictability, ocean carbon changes, ocean heat inventory, ocean ventilation, and anthropogenic carbon uptake.",
+        "coverage": "Global ocean.",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Subsurface Temperature, Sea Surface Salinity, Subsurface Salinity, Surface Currents, Subsurface Currents, Inorganic Carbon, Oxygen, Nutrients, Particulate Matter, Transient Tracers, Ocean Colour.",
+        "implementationProgress": "Well implemented with decadal surveys since WOCE (1988).",
+        "platformType": "Global-class research vessels.",
+        "samplingFrequency": "Full-depth observations approximately every 30 nautical miles along ~50 repeated lines.",
+        "activityTrend": "Stable.",
+        "challenges": "Increasing ship-time costs, including fuel costs, decarbonization targets and the need for research vessel fleet renewal.",
+        "opportunities": "Optimize ship time and coordination across observing networks and participating institutes (multi-nation cruises)."
       },
       "dbcpTsunami": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Tsunami detection and early warning.",
+        "coverage": "Global, in tsunami-relevant basins.",
+        "essentialVariablesMeasured": "Sea Surface Height, Ocean Bottom Pressure; some surface buoys also measure Sea Surface Temperature, Sea Level Pressure, and other parameters.",
+        "implementationProgress": "70% of the target achieved.",
+        "platformType": "Bottom pressure recorders with surface buoys.",
+        "samplingFrequency": "Every 15 seconds; data transmitted in real time during tsunami events.",
+        "activityTrend": "Reported stable.",
+        "challenges": "Public real-time data availability most likely lead to underestimation of activity trend.",
+        "opportunities": "Equip surface buoys with additional sensors to support other observing applications; improve synergies in ship time with other networks."
       },
       "hfRadar": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Weather forecasting, operational ocean data and forecasting, climate projection, climate analyses and assessment, fundamental understanding of ocean processes, hazards response/early warning, sustainable management, area-based management tools, environmental assessment and outlook.",
+        "coverage": "No data at OceanOPS.",
+        "essentialVariablesMeasured": "Surface Currents, Sea State, Ocean Surface Stress.",
+        "implementationProgress": "No data at OceanOPS.",
+        "platformType": "High frequency radar systems.",
+        "samplingFrequency": "Most systems output a radial map of currents once an hour, but the temporal sampling could be increased to the order of five–ten minutes. The default sampling captures the diurnal cycle and above.",
+        "activityTrend": "No data at OceanOPS.",
+        "challenges": "No data at OceanOPS.",
+        "opportunities": "No data at OceanOPS."
       },
       "dbcpDrifting": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Weather and ocean forecasting, climate monitoring, satellite data calibration/validation, and climate and ocean science.",
+        "coverage": "Global ocean, between 60°N and 60°S, excluding marginal seas.",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Surface Currents, Sea State, Particulate Matter, Surface Wind Speed and Direction, Surface Air Temperature, Air Pressure.",
+        "implementationProgress": "Close to 100% at global scale, but with too many drifters in the Atlantic and not enough drifters in other ocean basins.",
+        "platformType": "Surface Lagrangian drifters, typically equipped with a drogue centered at 15 m depth; other low-cost drifter designs are also being developed.",
+        "samplingFrequency": "Hourly.",
+        "activityTrend": "Stable.",
+        "challenges": "High reliance on US funding (~75%); decline in surface pressure observations; drifter design constraints, including the use of drogues; instrument beaching and the need for recycling strategies; emerging private observing networks.",
+        "opportunities": "Develop drogue-free drifters for improved wind and wave observations; expand multi-variable observations; use more environmentally friendly materials, including wood and bioplastics."
       },
       "gloss": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Sea level variability and rise monitoring, navigation and early warning systems.",
+        "coverage": "Global ocean and coastlines.",
+        "essentialVariablesMeasured": "Sea Level (Relative Sea Level and Geocentric Sea Level), Air Pressure.",
+        "implementationProgress": "~2,000 stations contributing in real-time, ~35% in the EU. More than 50% of the GLOSS Core Network (GCN: 300 priority locations) implemented; ~10% in the EU.",
+        "platformType": "Fixed tide gauges and GNSS receivers (optional).",
+        "samplingFrequency": "<1 min observations, hourly, daily and monthly means.",
+        "activityTrend": "Increasing number of real-time stations. GCN implementation slowly declining.",
+        "challenges": "Multi-purpose nature and diversity of data portals, data interoperability, and maintenance and training remain key challenges for ensuring long-term, high-quality datasets.",
+        "opportunities": "Strong Member States contribution and international footprint and support for sustaining and developing observing capacity in developing countries."
       },
       "oceanSites": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Climate reference stations (SITES) for physics, biogeochemistry and biology; including Meridional Overturning Circulation, ocean acidification, ocean warming and stratification changes, particle flux; air–sea carbon and gas fluxes; deep-ocean warming and freshening; satellite and Numerical Weather Prediction calibration/validation; ocean sound, full-ocean depth sampling.",
+        "coverage": "Sites are operated in all global ocean.",
+        "essentialVariablesMeasured": "Sea State, Sea Ice, Sea Surface Height, Ocean Bottom Pressure, Surface and Subsurface Temperature and Salinity, Surface and Subsurface Currents, Oxygen, Nutrients, Inorganic Carbon, Particulate Matter, Phytoplankton biomass, Zooplankton biomass, Fish abundance, Marine mammal abundance, Benthic invertebrate abundance, Ocean Sound, Ocean Colour.",
+        "implementationProgress": "Global design is guided by nations' priorities, depending on specific observing requirements (e.g. NWP cal/val); further representative flux reference sites are expected to improve predictions; ocean domain EOV time series and derived quantities (volume flux, heat flux, particle flux) sites extending over several decades.",
+        "platformType": "Mostly moored and bottom mounted platforms; some ship-based operations all at fixed locations. Data is collected with autonomous physical, biogeochemical, ecosystem, geophysical sensors and samplers; ship-based sites also apply laboratory and experimental work.",
+        "samplingFrequency": "From seconds to months (e.g. sediment trap); moorings typically recovered every 1–2 years.",
+        "activityTrend": "Mostly stable.",
+        "challenges": "Changes in national priorities on time series can lead to the loss of long-term time series and network capabilities; need for ship-time require long-term planning of operations.",
+        "opportunities": "Cross-disciplinary ocean climate reference time series; network fosters international partnerships and collaboration on quality assurance, operational aspects, data management; collection of deep sea (>2,000 m) data as well as air–sea flux data. Climate site operations are often augmented with process studies and real-time data transmission to serve various ocean observing application areas besides climate."
       },
       "gliders": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Boundary circulation; hurricane monitoring; global warming; the water cycle; sea ice; carbon cycling; anthropogenic impacts; and marine ecosystems.",
+        "coverage": "Global ocean, including coastal waters.",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Subsurface Temperature, Sea Surface Salinity, Subsurface Salinity, Subsurface Currents, Inorganic Carbon, Oxygen, Nutrients, Particulate Matter, Ocean Colour, Ocean Sound.",
+        "implementationProgress": "58% of the target achieved (target: 100 gliders per day monitored).",
+        "platformType": "Autonomous underwater gliders.",
+        "samplingFrequency": "Every 4 hours.",
+        "activityTrend": "Expanding over the past decade.",
+        "challenges": "Harmonizing data formats across platforms and regions; centralising data from multiple data endpoints; limited support for sustained ocean observing and technical coordination; limited coverage in the Southern Ocean; and restrictions on deployments within Exclusive Economic Zones.",
+        "opportunities": "Increased collaboration across institutions; adoption of new sensor technologies; and integration of artificial intelligence methods."
       },
       "anibos": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Ocean heat content; ocean forecasting; ocean variability; climate change; and biodiversity monitoring.",
+        "coverage": "Regional, subsurface (0–700 m).",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Subsurface Temperature, Sea Surface Salinity, Subsurface Salinity, Oxygen, Ocean Colour.",
+        "implementationProgress": "Excellent coverage in the Southern Ocean, but sparse coverage in other regions.",
+        "platformType": "Animal-borne CTD sensors.",
+        "samplingFrequency": "Hourly.",
+        "activityTrend": "Stable.",
+        "challenges": "Fragile funding sources and high reliance on Australia, France, and the UK; incomplete data from the USA. Deployment is costly due to logistical challenges accessing remote field sites in the polar regions.",
+        "opportunities": "Strong complementarity with Argo, particularly for observations in polar regions and a growing body of sensors deployed in the tropical seas that improve tropical storm and cyclone forecasting."
       },
       "sotVos": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Global and regional Numerical Weather Prediction, forecasts and warnings to safeguard commerce and the protection of life and property at sea, climate monitoring, satellite data calibration/validation, and climate and ocean science.",
+        "coverage": "Global ocean.",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Sea State, Ocean Surface Heat Flux, Sea Ice, Ocean Surface Stress, Surface Wind Speed and Direction, Surface Water Vapour, Surface Air Temperature, Air Pressure.",
+        "implementationProgress": "75% of the target array (2,000 ships); ~1,500 operational voluntary ships reporting monthly and ~2,500 reporting annually.",
+        "platformType": "Manual or automated ship-borne weather stations; ~30% automated.",
+        "samplingFrequency": "Up to hourly for automated systems.",
+        "activityTrend": "Stable.",
+        "challenges": "Limited automation; resources required for data management and maintenance; low or stagnant funding from National Meteorological and Hydrological Services for marine observations.",
+        "opportunities": "Increased public/private investment, including the 10,000 Ships Initiative, with an aspirational target of 10,000 observing ships."
       },
       "sotXbt": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Upper-ocean heat content monitoring, seasonal climate and ocean forecasting, ocean circulation monitoring in the upper ocean, and short-, medium-, and long-range Numerical Weather Prediction (such as El Niño).",
+        "coverage": "Global ocean along selected reference lines.",
+        "essentialVariablesMeasured": "Subsurface Temperature.",
+        "implementationProgress": "Well implemented against the target of ~30 reference lines sampled at least quarterly, but declining with declining funds.",
+        "platformType": "Mostly automated XBT launchers deployed on commercial and research ships, often with a “rider” system.",
+        "samplingFrequency": "4–24 probes deployed per day during a cruise.",
+        "activityTrend": "Declining.",
+        "challenges": "Frequently changing shipping routes and reduced funding.",
+        "opportunities": "Optimize integration with other observing networks; maintain XBT observations in areas where Argo is not effective, such as boundary currents; sustain funding and existing reference lines to maintain the long-term record; facilitate access to ships of opportunity."
       },
       "sotAsap": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Global and regional Numerical Weather Prediction, forecasts and warnings to safeguard commerce and the protection of life and property at sea, climate monitoring and prediction.",
+        "coverage": "Primarily the North Atlantic Ocean, with sustained regional coverage.",
+        "essentialVariablesMeasured": "Upper-air Wind Speed and Direction, Upper-air Water Vapour, Upper-air Temperature.",
+        "implementationProgress": "Implemented to meet EUMETNET standards and requirements; no quantitative target defined.",
+        "platformType": "Semi-automated sounding systems in 10-ft containers or portable launchers, primarily deployed on commercial vessels.",
+        "samplingFrequency": "2 soundings per day per ship.",
+        "activityTrend": "Slightly declining.",
+        "challenges": "Complex logistics, particularly the return and handling of gas bottles.",
+        "opportunities": "Adoption of hydrogen generator technology; expansion of ASAP network through the Global Basic Observing Network (GBON), a fundamental component of the WMO Integrated Global Observing System (WIGOS) designed to address geographical gaps in surface-based observational data."
       },
       "fvon": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Ocean heat content monitoring, short- to long-range ocean–weather prediction, and support to the fishing industry operations, management, and research.",
+        "coverage": "Coastal, shelf and shelf-break regions, boundary currents and frontal zones (0–1,000 m).",
+        "essentialVariablesMeasured": "Subsurface Temperature, Subsurface Salinity, Subsurface dissolved oxygen.",
+        "implementationProgress": "9% of the target implemented and growing (target: 10,000 equipped fishing vessels by 2030); minimal implementation in the EU today. UK, Faroe Islands, and Iceland now all have sizable networks within the EEA.",
+        "platformType": "Fishing vessels with their nets, traps, and lines equipped with oceanographic sensors so that profiles are performed during normal operations.",
+        "samplingFrequency": "Minutes–hours during routine fishing. Variable based on fisheries, from hourly profiling to weekly.",
+        "activityTrend": "Growing.",
+        "challenges": "Initial investment needed to expand FVON, particularly in Europe.",
+        "opportunities": "Strong complementarity with Argo in coastal areas; potential for observations across EEZs; and opportunities to support ocean observing capacity in island and developing countries. Strong connection to fisheries sustainable resource management for livelihoods and food security."
       },
       "smartCables": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Ocean circulation; ocean heat content; tsunami warning; deep-sea ecosystem monitoring; and marine mammal tracking.",
+        "coverage": "Currently none; regional systems are expected to develop over time.",
+        "essentialVariablesMeasured": "Subsurface Temperature, Ocean Bottom Pressure.",
+        "implementationProgress": "No defined target.",
+        "platformType": "Submarine fiber-optic telecommunications cables with modular environmental sensor units.",
+        "samplingFrequency": "High frequency.",
+        "activityTrend": "Increasing.",
+        "challenges": "Developing network maturity and coverage; high deployment costs; national interests; and operational risks, including the inability to easily replace sensor modules.",
+        "opportunities": "Potentially longer sensor lifespans than those of other autonomous platforms; and the extensive reach of telecommunications cables across ocean basins."
       },
       "soconet": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Greenhouse gas monitoring; global carbon assessments; air–sea carbon exchange; ocean acidification; and marine carbon dioxide removal.",
+        "coverage": "Global ocean.",
+        "essentialVariablesMeasured": "Inorganic Carbon, Nutrients, Nitrous Oxide.",
+        "implementationProgress": "66 platforms in 2025 (~30% of the initial goal of 200 active platforms). As an emerging network, SOCONET has not yet established an official implementation target.",
+        "platformType": "Ship-based platforms, moorings, and uncrewed surface vehicles.",
+        "samplingFrequency": "Varies by platform; typically hourly or more frequently.",
+        "activityTrend": "Increasing.",
+        "challenges": "Developing clear standard operating procedures and building capacity to improve measurement quality and entraining additional platforms; providing reference materials and intercalibration resources; conducting intercomparison studies to ensure measurement consistency across programs; and developing protocols for measuring other major greenhouse gases, including nitrous oxide (N₂O) and methane (CH₄).",
+        "opportunities": "Integrating lower-cost, membrane-based pCO₂ sensors, which currently require further development to achieve the accuracy needed."
       },
       "sunFleet": {
-        "applications": "Editorial content pending for this edition.",
-        "coverage": "Editorial content pending for this edition."
+        "applications": "Seasonal forecasting, short- to long-range Numerical Weather Prediction; tropical cyclones and hurricanes monitoring; carbon and ocean acidification; nutrients and biodiversity; surface fluxes.",
+        "coverage": "Global deployments, with regional coverage and concentration in specific areas (e.g. TPOS) or during specific events (e.g. hurricanes).",
+        "essentialVariablesMeasured": "Sea Surface Temperature, Subsurface Temperature, Sea Surface Salinity, Subsurface Salinity, Surface Currents, Subsurface Currents, Sea State, Ocean Surface Heat Flux, Ocean Surface Stress, Inorganic Carbon, Oxygen, Surface Wind Speed and Direction, Surface Water Vapour, Surface Air Temperature, Air Pressure.",
+        "implementationProgress": "No defined target.",
+        "platformType": "Uncrewed autonomous vehicles.",
+        "samplingFrequency": "High frequency.",
+        "activityTrend": "Increasing.",
+        "challenges": "Establishing formal governance structures for the emerging network; defining implementation targets; operating in Exclusive Economic Zones; and ensuring consistent data and metadata standards across manufacturers.",
+        "opportunities": "Working directly with manufacturers to define data and metadata requirements; data buys vs platform ownership."
       }
     }
   },

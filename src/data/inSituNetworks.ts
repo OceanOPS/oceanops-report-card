@@ -18,6 +18,21 @@ const EMERGING_PENDING_RATINGS: NetworkRatings = {
   bestPractices: 'notYetRated',
 }
 
+function networkDetailKeys(id: string) {
+  const base = `networks.details.${id}`
+  return {
+    applications: `${base}.applications`,
+    coverage: `${base}.coverage`,
+    essentialVariablesMeasured: `${base}.essentialVariablesMeasured`,
+    implementationProgress: `${base}.implementationProgress`,
+    platformType: `${base}.platformType`,
+    samplingFrequency: `${base}.samplingFrequency`,
+    activityTrend: `${base}.activityTrend`,
+    challenges: `${base}.challenges`,
+    opportunities: `${base}.opportunities`,
+  }
+}
+
 export const inSituNetworks: InSituNetworkRecord[] = [
   {
     id: 'argo',
@@ -36,17 +51,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: 0.2,
-    detailsKeys: {
-      applications: 'networks.details.argo.applications',
-      coverage: 'networks.details.argo.coverage',
-      essentialVariablesMeasured: 'networks.details.argo.essentialVariablesMeasured',
-      implementationProgress: 'networks.details.argo.implementationProgress',
-      platformType: 'networks.details.argo.platformType',
-      samplingFrequency: 'networks.details.argo.samplingFrequency',
-      activityTrend: 'networks.details.argo.activityTrend',
-      challenges: 'networks.details.argo.challenges',
-      opportunities: 'networks.details.argo.opportunities',
-    },
+    detailsKeys: networkDetailKeys('argo'),
   },
   {
     id: 'dbcpMoored',
@@ -65,10 +70,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: null,
-    detailsKeys: {
-      applications: 'networks.details.dbcpMoored.applications',
-      coverage: 'networks.details.dbcpMoored.coverage',
-    },
+    detailsKeys: networkDetailKeys('dbcpMoored'),
   },
   {
     id: 'goShip',
@@ -87,10 +89,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'oceanhealth'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.goShip.applications',
-      coverage: 'networks.details.goShip.coverage',
-    },
+    detailsKeys: networkDetailKeys('goShip'),
   },
   {
     id: 'dbcpTsunami',
@@ -109,10 +108,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['operational'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.dbcpTsunami.applications',
-      coverage: 'networks.details.dbcpTsunami.coverage',
-    },
+    detailsKeys: networkDetailKeys('dbcpTsunami'),
   },
   {
     id: 'hfRadar',
@@ -131,10 +127,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.hfRadar.applications',
-      coverage: 'networks.details.hfRadar.coverage',
-    },
+    detailsKeys: networkDetailKeys('hfRadar'),
   },
   {
     id: 'dbcpDrifting',
@@ -153,10 +146,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.dbcpDrifting.applications',
-      coverage: 'networks.details.dbcpDrifting.coverage',
-    },
+    detailsKeys: networkDetailKeys('dbcpDrifting'),
   },
   {
     id: 'gloss',
@@ -175,10 +165,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.gloss.applications',
-      coverage: 'networks.details.gloss.coverage',
-    },
+    detailsKeys: networkDetailKeys('gloss'),
   },
   {
     id: 'oceanSites',
@@ -197,10 +184,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'oceanhealth'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.oceanSites.applications',
-      coverage: 'networks.details.oceanSites.coverage',
-    },
+    detailsKeys: networkDetailKeys('oceanSites'),
   },
   {
     id: 'gliders',
@@ -219,10 +203,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.gliders.applications',
-      coverage: 'networks.details.gliders.coverage',
-    },
+    detailsKeys: networkDetailKeys('gliders'),
   },
   {
     id: 'anibos',
@@ -241,10 +222,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.anibos.applications',
-      coverage: 'networks.details.anibos.coverage',
-    },
+    detailsKeys: networkDetailKeys('anibos'),
   },
   {
     id: 'sotVos',
@@ -263,10 +241,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.sotVos.applications',
-      coverage: 'networks.details.sotVos.coverage',
-    },
+    detailsKeys: networkDetailKeys('sotVos'),
   },
   {
     id: 'sotXbt',
@@ -285,10 +260,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['climate', 'operational'],
     yoy: 0.1,
-    detailsKeys: {
-      applications: 'networks.details.sotXbt.applications',
-      coverage: 'networks.details.sotXbt.coverage',
-    },
+    detailsKeys: networkDetailKeys('sotXbt'),
   },
   {
     id: 'sotAsap',
@@ -307,10 +279,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     },
     deliveryAreas: ['operational'],
     yoy: null,
-    detailsKeys: {
-      applications: 'networks.details.sotAsap.applications',
-      coverage: 'networks.details.sotAsap.coverage',
-    },
+    detailsKeys: networkDetailKeys('sotAsap'),
   },
   {
     id: 'fvon',
@@ -323,10 +292,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     ratings: EMERGING_PENDING_RATINGS,
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: null,
-    detailsKeys: {
-      applications: 'networks.details.fvon.applications',
-      coverage: 'networks.details.fvon.coverage',
-    },
+    detailsKeys: networkDetailKeys('fvon'),
   },
   {
     id: 'smartCables',
@@ -339,10 +305,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     ratings: EMERGING_PENDING_RATINGS,
     deliveryAreas: ['climate', 'operational'],
     yoy: null,
-    detailsKeys: {
-      applications: 'networks.details.smartCables.applications',
-      coverage: 'networks.details.smartCables.coverage',
-    },
+    detailsKeys: networkDetailKeys('smartCables'),
   },
   {
     id: 'soconet',
@@ -355,10 +318,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     ratings: EMERGING_PENDING_RATINGS,
     deliveryAreas: ['climate', 'oceanhealth'],
     yoy: null,
-    detailsKeys: {
-      applications: 'networks.details.soconet.applications',
-      coverage: 'networks.details.soconet.coverage',
-    },
+    detailsKeys: networkDetailKeys('soconet'),
   },
   {
     id: 'sunFleet',
@@ -371,10 +331,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     ratings: EMERGING_PENDING_RATINGS,
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: null,
-    detailsKeys: {
-      applications: 'networks.details.sunFleet.applications',
-      coverage: 'networks.details.sunFleet.coverage',
-    },
+    detailsKeys: networkDetailKeys('sunFleet'),
   },
 ]
 
