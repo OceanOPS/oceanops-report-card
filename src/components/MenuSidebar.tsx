@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import Button from './Button'
 import { asset } from '../utils/assets'
+import { navigateToSection } from '../utils/scrollToSection'
 
 /**
  * MenuSidebar Component
@@ -29,8 +30,34 @@ export interface MenuItem {
   id?: string // Section ID for smooth scrolling
   titleKey: string
   accentColor: string
+  icon?: 'globe'
   onClick?: () => void
   subItems?: MenuItem[] // Optional sub-items for hierarchical menu
+}
+
+function MenuGlobeIcon() {
+  return (
+    <svg
+      className="h-5 w-5 shrink-0 text-goos-orange-500"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M3 12h18M12 3c2.5 2.8 3.8 6 4 9s-1.5 6.2-4 9M12 3c-2.5 2.8-3.8 6-4 9s1.5 6.2 4 9"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+function MenuItemIcon({ icon }: { icon: MenuItem['icon'] }) {
+  if (icon === 'globe') return <MenuGlobeIcon />
+  return null
 }
 
 interface MenuSidebarProps {
@@ -207,24 +234,24 @@ export default function MenuSidebar({
       // Close menu first to see the scroll animation
       setIsOpen()
 
-      // Small delay to let menu close animation start
+      // Small delay to let menu close animation start, then exit map fullscreen and scroll
       setTimeout(() => {
-        // Mark that we're scrolling programmatically to prevent scroll spy from updating hash
-        (window as any).isScrollingProgrammatically = true
+        void (async () => {
+          ;(window as any).isScrollingProgrammatically = true
 
-        // Update URL hash for deep linking using replaceState to avoid history clutter
-        window.history.replaceState(null, '', `#${sectionId}`)
+          window.history.replaceState(null, '', `#${sectionId}`)
 
-        // Scroll to section if ID is provided
-        const element = document.getElementById(sectionId)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
+          const element = document.getElementById(sectionId)
+          if (element) {
+            await navigateToSection(sectionId, {
+              behavior: 'smooth',
+            })
+          }
 
-        // Reset flag after scroll animation completes
-        setTimeout(() => {
-          (window as any).isScrollingProgrammatically = false
-        }, 1000)
+          setTimeout(() => {
+            ;(window as any).isScrollingProgrammatically = false
+          }, 1000)
+        })()
       }, 300) // Match menu transition duration
     } else {
       setIsOpen()
@@ -237,19 +264,31 @@ export default function MenuSidebar({
 
   return (
     <>
-      {/* Hamburger Menu Button - Fixed Top Right */}
+      {/* Menu button — icon + label so purpose is clear */}
       <button
         ref={buttonRef}
-        onClick={() => externalIsOpen !== undefined ? onClose?.() : setInternalIsOpen(true)}
-        className={`fixed right-4 sm:right-8 md:right-12 lg:right-16 z-50 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-goos-blue-700 hover:bg-goos-blue-600 flex flex-col items-center justify-center gap-1.5 sm:gap-2 rounded-full transition-all duration-300 ${
+        onClick={() => {
+          if (externalIsOpen !== undefined) {
+            onClose?.()
+          } else {
+            setInternalIsOpen((prev) => !prev)
+          }
+        }}
+        className={`fixed right-4 sm:right-8 md:right-12 lg:right-16 z-50 flex items-center gap-2.5 pl-3 pr-4 py-2.5 sm:gap-3 sm:pl-4 sm:pr-5 sm:py-3 bg-goos-blue-700 hover:bg-goos-blue-600 rounded-full transition-all duration-300 shadow-md ${
           isDeliveryNavVisible ? 'top-16' : 'top-4'
         } sm:top-8 md:top-12 lg:top-16`}
         style={{ opacity: 0 }}
         aria-label={t('menu.openMenu')}
+        aria-expanded={isOpen}
       >
-        <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
-        <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
-        <span className="w-6 sm:w-7 md:w-8 h-0.5 bg-goos-white"></span>
+        <span className="flex flex-col items-center justify-center gap-1 shrink-0" aria-hidden="true">
+          <span className="w-4 sm:w-5 h-0.5 bg-goos-white rounded-full" />
+          <span className="w-4 sm:w-5 h-0.5 bg-goos-white rounded-full" />
+          <span className="w-4 sm:w-5 h-0.5 bg-goos-white rounded-full" />
+        </span>
+        <span className="text-sm sm:text-base font-semibold text-goos-white whitespace-nowrap">
+          {t('menu.menuLabel')}
+        </span>
       </button>
 
       {/* Overlay */}
@@ -342,10 +381,10 @@ export default function MenuSidebar({
                   className="cursor-pointer hover:opacity-80 transition-opacity pt-1 sm:pt-2"
                 >
                   <div className={`${item.accentColor} h-1 w-6 sm:w-8 mb-1`}></div>
-                  <h2
-                    className="text-xl sm:text-2xl font-normal"
-                    dangerouslySetInnerHTML={{ __html: t(item.titleKey) }}
-                  />
+                  <h2 className="text-xl sm:text-2xl font-normal flex items-center gap-2">
+                    {item.icon ? <MenuItemIcon icon={item.icon} /> : null}
+                    <span dangerouslySetInnerHTML={{ __html: t(item.titleKey) }} />
+                  </h2>
                 </div>
 
                 {/* Sub Items */}
@@ -357,10 +396,10 @@ export default function MenuSidebar({
                         onClick={() => handleMenuItemClick(subItem)}
                         className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
                       >
-                        <h3
-                          className="text-base sm:text-lg font-light"
-                          dangerouslySetInnerHTML={{ __html: t(subItem.titleKey) }}
-                        />
+                        <h3 className="text-base sm:text-lg font-light flex items-center gap-2">
+                          {subItem.icon ? <MenuItemIcon icon={subItem.icon} /> : null}
+                          <span dangerouslySetInnerHTML={{ __html: t(subItem.titleKey) }} />
+                        </h3>
                       </div>
                     ))}
                   </div>
@@ -404,6 +443,14 @@ export default function MenuSidebar({
             {/* Past Reports Links */}
             {isPastReportsExpanded && (
               <div className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
+                <a
+                  href="https://www.ocean-ops.org/reportcard2025/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-base sm:text-lg hover:underline transition-all"
+                >
+                  {t('menu.pastReportsLinks.2025')}
+                </a>
                 <a
                   href="https://www.ocean-ops.org/reportcard2023/"
                   target="_blank"
