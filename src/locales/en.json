@@ -879,23 +879,23 @@
     "platformButton": "About map legend",
     "platformModal": {
       "title": "Map Legend",
-      "intro": "The map represents the annual contribution of each network to the global observing system. It shows the latest location of platforms, stations, reference sites and lines selected according to criteria specific to each observing network. The selection rules are as follows:",
+      "intro": "The map represents the annual contribution of each network to the global observing system. It shows the latest location of platforms and reference observatories (lines and sites) selected according to criteria specific to each observing network. The selection rules are as follows:",
       "operationalFootnote": "*operational: real-time data transmission monitored by OceanOPS.",
       "networks": {
         "vos": {
           "title": "Ship based meteorological – VOS",
-          "content": "Ship-based weather stations operational* as of {{asOf}}."
+          "content": "Ship weather stations operational* as of {{asOf}}."
         },
         "oceantrax": {
           "title": "Ship based oceanographic – OceanTraX",
-          "content": "XBT lines sampled in the last 12 months."
+          "content": "Expendable Bathythermograph lines sampled in the last 12 months."
         },
         "asap": {
           "title": "Ship based aerological – ASAP",
-          "content": "Ship-based aerological stations operational* as of {{asOf}}."
+          "content": "Atmospheric Profilers operational* as of {{asOf}}."
         },
         "soconet": {
-          "title": "Surface ocean CO2 cruises & sites - SOCONET",
+          "title": "Surface ocean CO₂ cruises & sites – SOCONET",
           "content": "Cruises and sites that provided new or updated observations to the SOCATv2026 reference database."
         },
         "goship": {
@@ -904,18 +904,18 @@
         },
         "fvon": {
           "title": "Fishing vessels – FVON",
-          "content": "Ocean stations operating in the last 12 months."
+          "content": "Fishing vessels underway systems operating in the last 12 months."
         },
         "gloss": {
           "title": "Sea level gauges – GLOSS",
-          "content": "Stations that have provided monthly mean sea level data within the last 5 years."
+          "content": "Tide gauges that have provided monthly mean sea level data within the last 5 years."
         },
         "oceansites": {
           "title": "Time series sites – OceanSITES",
           "content": "All multidisciplinary time series sites to date."
         },
         "moored_buoys": {
-          "title": "Moored buoys – MB",
+          "title": "Moored buoys – MBN",
           "content": "Moored buoys operational* as of {{asOf}}."
         },
         "tsunami_buoys": {
@@ -924,7 +924,7 @@
         },
         "hf_radars": {
           "title": "High Frequency radars – HF radars",
-          "content": "Stations registered at OceanOPS."
+          "content": "HF radars registered at OceanOPS."
         },
         "drifting_buoys": {
           "title": "Drifting buoys – GDA",
@@ -936,7 +936,7 @@
         },
         "oceangliders": {
           "title": "Gliders – OceanGliders",
-          "content": "Glider missions operating in the last 12 months."
+          "content": "Underwater glider missions operating in the last 12 months."
         },
         "anibos": {
           "title": "Animal borne sensors – AniBOS",

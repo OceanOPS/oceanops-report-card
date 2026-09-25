@@ -825,7 +825,7 @@
     "platformButton": "À propos de la légende de la carte",
     "platformModal": {
       "title": "Légende de la carte",
-      "intro": "La carte représente la contribution annuelle de chaque réseau au système d'observation mondial. Elle montre la dernière position des plateformes, stations, sites de référence et lignes sélectionnés selon des critères propres à chaque réseau d'observation. Les règles de sélection sont les suivantes :",
+      "intro": "La carte représente la contribution annuelle de chaque réseau au système d'observation mondial. Elle montre la dernière position des plateformes et des observatoires de référence (lignes et sites) sélectionnés selon des critères propres à chaque réseau d'observation. Les règles de sélection sont les suivantes :",
       "operationalFootnote": "*opérationnel : transmission de données en temps réel surveillée par OceanOPS.",
       "networks": {
         "vos": {
@@ -834,11 +834,11 @@
         },
         "oceantrax": {
           "title": "Océanographie embarquée – OceanTraX",
-          "content": "Lignes XBT échantillonnées au cours des 12 derniers mois."
+          "content": "Lignes de bathythermographes expédiables échantillonnées au cours des 12 derniers mois."
         },
         "asap": {
           "title": "Aérologie embarquée – ASAP",
-          "content": "Stations aérologiques embarquées opérationnelles* en {{asOf}}."
+          "content": "Profileurs atmosphériques opérationnels* en {{asOf}}."
         },
         "soconet": {
           "title": "CO₂ de surface océanique – croisières et sites – SOCONET",
@@ -850,18 +850,18 @@
         },
         "fvon": {
           "title": "Navires de pêche – FVON",
-          "content": "Stations océaniques en activité au cours des 12 derniers mois."
+          "content": "Systèmes embarqués sur navires de pêche en activité au cours des 12 derniers mois."
         },
         "gloss": {
           "title": "Marégraphes – GLOSS",
-          "content": "Stations ayant fourni des données de niveau marin moyen mensuel au cours des 5 dernières années."
+          "content": "Marégraphes ayant fourni des données de niveau marin moyen mensuel au cours des 5 dernières années."
         },
         "oceansites": {
           "title": "Sites de séries temporelles – OceanSITES",
           "content": "Tous les sites de séries temporelles multidisciplinaires à ce jour."
         },
         "moored_buoys": {
-          "title": "Bouées mouillées – MB",
+          "title": "Bouées mouillées – MBN",
           "content": "Bouées mouillées opérationnelles* en {{asOf}}."
         },
         "tsunami_buoys": {
@@ -870,7 +870,7 @@
         },
         "hf_radars": {
           "title": "Radars HF – HF radars",
-          "content": "Stations enregistrées à OceanOPS."
+          "content": "Radars HF enregistrés à OceanOPS."
         },
         "drifting_buoys": {
           "title": "Bouées dérivantes – GDA",
@@ -882,7 +882,7 @@
         },
         "oceangliders": {
           "title": "Planeurs – OceanGliders",
-          "content": "Missions de planeurs en activité au cours des 12 derniers mois."
+          "content": "Missions de planeurs sous-marins en activité au cours des 12 derniers mois."
         },
         "anibos": {
           "title": "Capteurs embarqués sur animaux – AniBOS",
