@@ -20,28 +20,26 @@ const DETAIL_FIELD_ORDER: {
   { key: 'platformType', labelKey: 'networks.comparison.platformType' },
   { key: 'samplingFrequency', labelKey: 'networks.comparison.samplingFrequency' },
   { key: 'activityTrend', labelKey: 'networks.comparison.activityTrend' },
-  { key: 'targets', labelKey: 'networks.comparison.targets' },
-  { key: 'maturity', labelKey: 'networks.comparison.maturity' },
   { key: 'challenges', labelKey: 'networks.comparison.challenges' },
   { key: 'opportunities', labelKey: 'networks.comparison.opportunities' },
+  { key: 'targets', labelKey: 'networks.comparison.targets' },
+  { key: 'maturity', labelKey: 'networks.comparison.maturity' },
 ]
 
-/** Desktop matrix: two stacked columns (not row-major grid) — matches flip-card reading order. */
+/** Desktop matrix: left column = slide items 1–5, right column = 6–9 (same order as flip-card stack). */
 const GRID_LEFT_COLUMN_KEYS: (keyof InSituNetworkDetailsKeys)[] = [
   'applications',
   'coverage',
   'essentialVariablesMeasured',
+  'implementationProgress',
   'platformType',
-  'activityTrend',
-  'opportunities',
 ]
 
 const GRID_RIGHT_COLUMN_KEYS: (keyof InSituNetworkDetailsKeys)[] = [
-  'implementationProgress',
   'samplingFrequency',
-  'targets',
-  'maturity',
+  'activityTrend',
   'challenges',
+  'opportunities',
 ]
 
 const DETAIL_FIELD_BY_KEY = Object.fromEntries(
