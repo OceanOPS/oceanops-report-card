@@ -43,7 +43,7 @@ export const NETWORK_ESSENTIAL_VARIABLES: Record<string, EssentialVariableKey[]>
     'oceanColour',
   ],
   dbcpTsunami: ['seaSurfaceHeight', 'oceanBottomPressure'],
-  hfRadar: ['surfaceCurrents', 'seaState'],
+  hfRadar: ['surfaceCurrents', 'seaState', 'surfaceStress'],
   dbcpDrifting: [
     'seaSurfaceTemperature',
     'surfaceCurrents',
@@ -97,7 +97,7 @@ export const NETWORK_ESSENTIAL_VARIABLES: Record<string, EssentialVariableKey[]>
   ],
   sotXbt: ['subsurfaceTemperature'],
   sotAsap: ['upperAirWind', 'upperAirWaterVapour', 'upperAirTemperature'],
-  fvon: ['subsurfaceTemperature', 'subsurfaceSalinity'],
+  fvon: ['subsurfaceTemperature', 'subsurfaceSalinity', 'oxygen'],
   smartCables: ['subsurfaceTemperature', 'oceanBottomPressure'],
   soconet: ['inorganicCarbon', 'nutrients', 'nitrousOxide'],
   sunFleet: [
