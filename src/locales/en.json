@@ -543,7 +543,7 @@
       "iconAlt": "DBCP Tsunami Buoys - Tsunami detection and reporting buoys"
     },
     "hfRadar": {
-      "title": "High Frequency radars – HF radars",
+      "title": "High Frequency radars – HF Radar",
       "iconAlt": "HF Radar Network - High Frequency radar coastal current mapping"
     },
     "dbcpDrifting": {
@@ -923,7 +923,7 @@
           "content": "Tsunameter buoys operational* as of {{asOf}}."
         },
         "hf_radars": {
-          "title": "High Frequency radars – HF radars",
+          "title": "High Frequency radars – HF Radar",
           "content": "HF radars registered at OceanOPS."
         },
         "drifting_buoys": {
@@ -1163,7 +1163,7 @@
       "oceanSites": "Time series sites – OceanSITES",
       "mooredBuoys": "Moored buoys – DBCP/MB",
       "tsunamiBuoys": "Tsunami buoys – DBCP/TSU",
-      "hfRadars": "High Frequency radars – HF radars"
+      "hfRadars": "High Frequency radars – HF Radar"
     }
   },
   "languages": {

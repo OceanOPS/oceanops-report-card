@@ -869,7 +869,7 @@
           "content": "Bouées tsunamètres opérationnelles* en {{asOf}}."
         },
         "hf_radars": {
-          "title": "Radars HF – HF radars",
+          "title": "Radars HF – HF Radar",
           "content": "Radars HF enregistrés à OceanOPS."
         },
         "drifting_buoys": {
