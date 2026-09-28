@@ -168,7 +168,7 @@ export default function NetworkComparisonMatrix({
             <td className="p-3">
               <div className="flex items-center gap-3">
                 <span
-                  className="text-goos-orange-500 text-base font-bold leading-none shrink-0 w-4 text-center tabular-nums"
+                  className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/40 bg-transparent text-goos-orange-500 text-xl font-light leading-none select-none"
                   aria-hidden="true"
                 >
                   {isExpanded ? '−' : '+'}

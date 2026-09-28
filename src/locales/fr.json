@@ -266,14 +266,14 @@
           "evolution": "dont 4 réseaux émergents"
         },
         "stat3": {
-          "number": "9,389",
           "description": "plateformes d'observation",
           "evolutionVsLastYear": "{{delta}} vs {{year}}"
         },
         "stat4": {
-          "description": "observations océaniques par jour",
-          "descriptionDetail": "moy. {{start}} – {{end}}",
-          "evolutionVsLastYear": "{{delta}} vs {{year}}"
+          "description": "observatoires de référence",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}",
+          "infoModalTitle": "Observatoires de référence",
+          "infoModalContent": "Réseaux OceanSITES, GLOSS, GO-SHIP, SOCONET et OceanTraX — observations de référence, pluridisciplinaires et de long terme, de la plus haute qualité, pour étalonner et valider les autres systèmes d'observation et évaluer les changements à long terme."
         }
       },
       "table": {

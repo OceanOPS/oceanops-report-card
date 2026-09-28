@@ -34,14 +34,17 @@ import {
   contributingCountries,
   countriesDeltaVsLastYear,
   LAST_REPORT_YEAR,
-  platformsDeltaVsLastYear,
-  totalPlatforms,
+  observingPlatformsDeltaVsLastYear,
+  referenceObservatoriesDeltaVsLastYear,
+  totalObservingPlatforms,
+  totalReferenceObservatories,
 } from './utils/partnerCountryStats'
 import { useEditionYoy } from './utils/editionYoy'
 import { CountriesYoyDetail } from './components/StatEvolutionDetail'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
-const platformDeltaLabel = `${platformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(platformsDeltaVsLastYear)}`
+const observingPlatformDeltaLabel = `${observingPlatformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(observingPlatformsDeltaVsLastYear)}`
+const referenceObservatoryDeltaLabel = `${referenceObservatoriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(referenceObservatoriesDeltaVsLastYear)}`
 const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(countriesDeltaVsLastYear)}`
 
 function App() {
@@ -397,7 +400,7 @@ function App() {
       />
 <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
-      {/* Stats Grid — 3 metrics (observations/day kept in export pipeline only) */}
+      {/* Stats Grid — 4 metrics in 2×2 (observations/day kept in export pipeline only) */}
       <div id="stats-section">
         <InsightPanel
           title={t('content.section1.statsTitle')}
@@ -414,7 +417,6 @@ function App() {
               />
             </>
           }
-          statsLayout="two-over-one-centered"
           statsLabelPosition="below"
           stats={[
             {
@@ -446,13 +448,30 @@ function App() {
               evolutionDirection: 'neutral',
             },
             {
-              number: fmt(totalPlatforms),
+              number: fmt(totalObservingPlatforms),
               description: t('content.section1.stats.stat3.description'),
               evolution: t('content.section1.stats.stat3.evolutionVsLastYear', {
-                delta: platformDeltaLabel,
+                delta: observingPlatformDeltaLabel,
                 year: LAST_REPORT_YEAR,
               }),
-              evolutionDirection: platformsDeltaVsLastYear >= 0 ? 'up' : 'down',
+              evolutionDirection: observingPlatformsDeltaVsLastYear >= 0 ? 'up' : 'down',
+            },
+            {
+              number: fmt(totalReferenceObservatories),
+              description: t('content.section1.stats.stat4.description'),
+              evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
+                delta: referenceObservatoryDeltaLabel,
+                year: LAST_REPORT_YEAR,
+              }),
+              evolutionDirection: referenceObservatoriesDeltaVsLastYear >= 0 ? 'up' : 'down',
+              infoModal: {
+                title: t('content.section1.stats.stat4.infoModalTitle'),
+                content: (
+                  <p className="text-sm sm:text-base text-goos-white leading-relaxed">
+                    {t('content.section1.stats.stat4.infoModalContent')}
+                  </p>
+                ),
+              },
             },
           ]}
           backgroundColor="bg-goos-blue-900"
