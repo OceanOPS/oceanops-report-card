@@ -36,8 +36,10 @@ export type NetworkMaturity = 'mature' | 'emerging'
 export type RatingStatusKey =
   | 'noTarget'
   | 'noArchive'
+  | 'noData'
   | 'notApplicable'
   | 'notCoreMission'
+  | 'notYetImplemented'
   | 'notYetRated'
 
 export type RatingValue = number | RatingStatusKey

@@ -266,14 +266,16 @@
           "evolution": "incl. 4 redes emergentes"
         },
         "stat3": {
-          "description": "plataformas de observación",
-          "evolutionVsLastYear": "{{delta}} vs {{year}}"
+          "description": "plataformas operacionales de observación",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}",
+          "infoModalTitle": "Plataformas operacionales de observación",
+          "infoModalContent": "Redes globales y sistemas regionales que entregan datos en casi tiempo real."
         },
         "stat4": {
           "description": "observatorios de referencia",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Observatorios de referencia",
-          "infoModalContent": "Redes OceanSITES, GLOSS, GO-SHIP, SOCONET y OceanTraX: observaciones de referencia, multidisciplinarias y a largo plazo de la más alta calidad, para calibrar y validar otros sistemas de observación y evaluar cambios a largo plazo."
+          "infoModalContent": "Observaciones de referencia, multidisciplinarias y a largo plazo de la más alta calidad, en modo diferido, para calibrar y validar otros sistemas de observación y evaluar cambios a largo plazo."
         }
       },
       "table": {
@@ -466,56 +468,56 @@
       }
     },
     "sotVos": {
-      "title": "Meteorológico basado en barcos – SOT/VOS",
-      "iconAlt": "Red SOT/VOS - Observaciones meteorológicas desde barcos voluntarios"
+      "title": "Meteorológico basado en barcos – VOS",
+      "iconAlt": "VOS — Observaciones meteorológicas desde barcos voluntarios"
     },
     "sotXbt": {
-      "title": "Oceanográfico basado en barcos – SOT/OceanTraX",
-      "iconAlt": "Red SOT/OceanTraX — perfiles oceanográficos desde líneas de barcos"
+      "title": "Oceanográfico basado en barcos – OceanTraX",
+      "iconAlt": "OceanTraX — perfiles oceanográficos desde líneas de barcos"
     },
     "sotAsap": {
-      "title": "Parámetros aire-mar basados en barcos – SOT/ASAP",
-      "iconAlt": "Red SOT/ASAP - Parámetros aire-mar desde barcos automatizados"
+      "title": "Aerológico basado en barcos – ASAP",
+      "iconAlt": "ASAP — parámetros aerológicos desde barcos automatizados"
     },
     "goShip": {
-      "title": "GO-SHIP",
-      "iconAlt": "Red GO-SHIP - Secciones hidrográficas globales repetidas"
+      "title": "Transectos repetidos – GO-SHIP",
+      "iconAlt": "GO-SHIP — secciones hidrográficas globales repetidas"
     },
     "gloss": {
-      "title": "Nivel del Mar GLOSS",
-      "iconAlt": "Red GLOSS - Sistema global de observación del nivel del mar"
+      "title": "Mareógrafos – GLOSS",
+      "iconAlt": "GLOSS — sistema global de observación del nivel del mar"
     },
     "oceanSites": {
-      "title": "OceanSITES",
-      "iconAlt": "Red OceanSITES - Red global de sitios de series temporales de referencia"
+      "title": "Sitios de series temporales – OceanSITES",
+      "iconAlt": "OceanSITES — red global de sitios de series temporales de referencia"
     },
     "dbcpMoored": {
-      "title": "Boyas Fondeadas DBCP",
-      "iconAlt": "Red DBCP Boyas Fondeadas - Boyas meteorológicas y oceanográficas fondeadas"
+      "title": "Boyas fondeadas – MBN",
+      "iconAlt": "MBN — boyas meteorológicas y oceanográficas fondeadas"
     },
     "dbcpTsunami": {
-      "title": "Boyas de Tsunami DBCP",
-      "iconAlt": "Red DBCP Boyas de Tsunami - Sistema de detección y alerta de tsunamis"
+      "title": "Boyas de tsunami – TSU",
+      "iconAlt": "TSU — sistema de detección y alerta de tsunamis"
     },
     "hfRadar": {
-      "title": "Radar HF",
-      "iconAlt": "Red Radar HF - Radares costeros de alta frecuencia para corrientes superficiales"
+      "title": "Radares de alta frecuencia - HF Radar",
+      "iconAlt": "HF Radar — radares costeros para corrientes superficiales"
     },
     "dbcpDrifting": {
-      "title": "Boyas a la Deriva DBCP",
-      "iconAlt": "Red DBCP Boyas a la Deriva - Red global de boyas derivantes de superficie"
+      "title": "Boyas a la deriva – GDA",
+      "iconAlt": "GDA — red global de boyas derivantes de superficie"
     },
     "argo": {
-      "title": "Argo",
-      "iconAlt": "Red Argo - Red global de flotadores perfiladores que miden temperatura y salinidad del océano"
+      "title": "Flotadores perfiladores – Argo",
+      "iconAlt": "Argo — flotadores que miden temperatura y salinidad del océano"
     },
     "gliders": {
-      "title": "OceanGliders",
-      "iconAlt": "Red OceanGliders - Planeadores submarinos autónomos para observaciones de alta resolución"
+      "title": "Planeadores – OceanGliders",
+      "iconAlt": "OceanGliders — planeadores submarinos autónomos"
     },
     "anibos": {
-      "title": "AniBOS",
-      "iconAlt": "Red AniBOS - Sensores oceánicos transportados por animales marinos"
+      "title": "Sensores en animales - AniBOS",
+      "iconAlt": "AniBOS — sensores oceánicos transportados por animales marinos"
     },
     "fvon": {
       "title": "Embarcaciones pesqueras – FVON",
@@ -526,8 +528,8 @@
       "iconAlt": "Red SMART Cables - Cables submarinos de monitoreo científico"
     },
     "soconet": {
-      "title": "CO₂ de superficie oceánica – cruceros y sitios - SOCONET",
-      "iconAlt": "Red SOCONET - Cruceros y sitios de CO₂ de superficie oceánica"
+      "title": "CO₂ de superficie oceánica - SOCONET",
+      "iconAlt": "SOCONET — red de observación del CO₂ de superficie oceánica"
     },
     "sunFleet": {
       "title": "Flota de superficie no tripulada – SUN Fleet",
@@ -780,21 +782,21 @@
     "networksLabel": "Redes",
     "platformsLabel": "Plataformas",
     "networks": {
-      "driftingBuoys": "Boyas a la deriva - DBCP",
-      "argo": "Flotadores perfiladores - Argo",
-      "oceanGliders": "OceanGliders",
+      "driftingBuoys": "Boyas a la deriva – GDA",
+      "argo": "Flotadores perfiladores – Argo",
+      "oceanGliders": "Planeadores – OceanGliders",
       "aniBOS": "Sensores en animales - AniBOS",
-      "fvon": "Sondas en barcos pesqueros - FVON",
-      "sotVos": "Meteorológico basado en barcos - SOT/VOS",
-      "sotAsap": "Meteorológico basado en barcos - SOT/ASAP",
-      "soconet": "Barcos - SOCONET",
-      "oceantrax": "Oceanográfico basado en barcos - SOT",
-      "goShip": "Transectos repetidos - GO-SHIP",
-      "gloss": "Mareógrafos - GLOSS",
-      "oceanSites": "Sitios de series temporales - OceanSITES",
-      "mooredBuoys": "Boyas fondeadas - DBCP",
-      "tsunamiBuoys": "Boyas de tsunami - DBCP",
-      "hfRadars": "Radares HF"
+      "fvon": "Embarcaciones pesqueras – FVON",
+      "sotVos": "Meteorológico basado en barcos – VOS",
+      "sotAsap": "Aerológico basado en barcos – ASAP",
+      "soconet": "CO₂ de superficie oceánica - SOCONET",
+      "oceantrax": "Oceanográfico basado en barcos – OceanTraX",
+      "goShip": "Transectos repetidos – GO-SHIP",
+      "gloss": "Mareógrafos – GLOSS",
+      "oceanSites": "Sitios de series temporales – OceanSITES",
+      "mooredBuoys": "Boyas fondeadas – MBN",
+      "tsunamiBuoys": "Boyas de tsunami – TSU",
+      "hfRadars": "Radares de alta frecuencia - HF Radar"
     },
     "viewFullListButton": "VER LISTA COMPLETA"
   },
@@ -802,6 +804,8 @@
     "scoringTitle": "PUNTUACIÓN:",
     "statuses": {
       "noTarget": "Sin objetivo",
+      "noData": "Sin datos",
+      "notYetImplemented": "Aún no implementado",
       "noArchive": "Sin archivo",
       "notApplicable": "No aplicable",
       "notCoreMission": "No es una misión central pero existe",

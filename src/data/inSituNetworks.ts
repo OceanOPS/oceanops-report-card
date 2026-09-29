@@ -1,22 +1,14 @@
-import type { InSituNetwork, InSituNetworkRecord, NetworkRatings } from '../types/inSituNetworks'
+import type { InSituNetwork, InSituNetworkRecord } from '../types/inSituNetworks'
 import { NETWORK_ESSENTIAL_VARIABLES } from './networkEssentialVariables'
 
 /**
  * In situ network data (mature + emerging) for the report card matrix/cards.
  *
  * Ratings and delivery areas are editorial (OceanOPS / GOOS evaluation).
- * Emerging networks use notYetRated until editorial scores are available.
+ * Emerging network scores follow the GOOS in situ networks editorial table (2026 edition).
  * sortOrder: oldest → newest within mature (1–13), then emerging (14–17), matching last year's carousel order.
  * Applications, coverage and YoY will be enriched when editorial content is available.
  */
-
-const EMERGING_PENDING_RATINGS: NetworkRatings = {
-  implementationStatus: 'notYetRated',
-  realTime: 'notYetRated',
-  archivedHighQuality: 'notYetRated',
-  metadata: 'notYetRated',
-  bestPractices: 'notYetRated',
-}
 
 function networkDetailKeys(id: string) {
   const base = `networks.details.${id}`
@@ -47,7 +39,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
       realTime: 3,
       archivedHighQuality: 3,
       metadata: 3,
-      bestPractices: 3,
+      bestPractices: 2.5,
     },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: 0.2,
@@ -64,7 +56,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     ratings: {
       implementationStatus: 'noTarget',
       realTime: 2.5,
-      archivedHighQuality: 3,
+      archivedHighQuality: 2.5,
       metadata: 2,
       bestPractices: 2.5,
     },
@@ -119,11 +111,11 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     titleKey: 'networks.hfRadar.title',
     networkUrl: 'http://global-hfradar.org/',
     ratings: {
-      implementationStatus: 1.5,
-      realTime: 2.5,
-      archivedHighQuality: 1.5,
-      metadata: 3,
-      bestPractices: 3,
+      implementationStatus: 'noData',
+      realTime: 'noData',
+      archivedHighQuality: 'noData',
+      metadata: 'noData',
+      bestPractices: 2,
     },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: 0.1,
@@ -138,7 +130,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     titleKey: 'networks.dbcpDrifting.title',
     networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
     ratings: {
-      implementationStatus: 2.5,
+      implementationStatus: 3,
       realTime: 2.5,
       archivedHighQuality: 2.5,
       metadata: 2,
@@ -289,7 +281,13 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconAlt: 'networks.fvon.iconAlt',
     titleKey: 'networks.fvon.title',
     networkUrl: 'https://www.fvon.org/',
-    ratings: EMERGING_PENDING_RATINGS,
+    ratings: {
+      implementationStatus: 0.5,
+      realTime: 1.5,
+      archivedHighQuality: 'noData',
+      metadata: 2.5,
+      bestPractices: 'noData',
+    },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: null,
     detailsKeys: networkDetailKeys('fvon'),
@@ -302,7 +300,13 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconAlt: 'networks.smartCables.iconAlt',
     titleKey: 'networks.smartCables.title',
     networkUrl: 'https://www.smartcables.org/',
-    ratings: EMERGING_PENDING_RATINGS,
+    ratings: {
+      implementationStatus: 'notYetImplemented',
+      realTime: 'notYetImplemented',
+      archivedHighQuality: 'notYetImplemented',
+      metadata: 'notYetImplemented',
+      bestPractices: 'noData',
+    },
     deliveryAreas: ['climate', 'operational'],
     yoy: null,
     detailsKeys: networkDetailKeys('smartCables'),
@@ -315,7 +319,13 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconAlt: 'networks.soconet.iconAlt',
     titleKey: 'networks.soconet.title',
     networkUrl: 'https://www.ioccp.org/soconet',
-    ratings: EMERGING_PENDING_RATINGS,
+    ratings: {
+      implementationStatus: 'noTarget',
+      realTime: 'notApplicable',
+      archivedHighQuality: 3,
+      metadata: 2.5,
+      bestPractices: 0.5,
+    },
     deliveryAreas: ['climate', 'oceanhealth'],
     yoy: null,
     detailsKeys: networkDetailKeys('soconet'),
@@ -328,7 +338,13 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconAlt: 'networks.sunFleet.iconAlt',
     titleKey: 'networks.sunFleet.title',
     networkUrl: 'https://airseaobs.org/sun-fleet',
-    ratings: EMERGING_PENDING_RATINGS,
+    ratings: {
+      implementationStatus: 'noTarget',
+      realTime: 0.5,
+      archivedHighQuality: 0.5,
+      metadata: 0.5,
+      bestPractices: 'noData',
+    },
     deliveryAreas: ['climate', 'operational', 'oceanhealth'],
     yoy: null,
     detailsKeys: networkDetailKeys('sunFleet'),

@@ -272,14 +272,16 @@
           "evolution": "including 4 emerging networks"
         },
         "stat3": {
-          "description": "observing platforms",
-          "evolutionVsLastYear": "{{delta}} vs {{year}}"
+          "description": "observing operational platforms",
+          "evolutionVsLastYear": "{{delta}} vs {{year}}",
+          "infoModalTitle": "Observing operational platforms",
+          "infoModalContent": "Global arrays and regional systems delivering data in near real-time."
         },
         "stat4": {
           "description": "reference observatories",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Reference observatories",
-          "infoModalContent": "OceanSITES, GLOSS, GO-SHIP, SOCONET, and OceanTraX networks — delivering highest-quality reference, long-term and multidisciplinary observations to calibrate and validate other observing systems and assess long-term changes."
+          "infoModalContent": "Delivering highest-quality reference, long-term and multidisciplinary observations in delayed mode to calibrate and validate other observing systems and assess long-term changes."
         }
       },
       "table": {
@@ -511,16 +513,16 @@
       }
     },
     "sotVos": {
-      "title": "Ship based meteorological – SOT/VOS",
-      "iconAlt": "SOT/VOS Network - Voluntary Observing Ships providing meteorological data"
+      "title": "Ship based meteorological – VOS",
+      "iconAlt": "VOS — Voluntary Observing Ships providing meteorological data"
     },
     "sotXbt": {
-      "title": "Ship based oceanographic – SOT/OceanTraX",
-      "iconAlt": "SOT/OceanTraX — Ship of Opportunity Programme temperature profile lines"
+      "title": "Ship based oceanographic – OceanTraX",
+      "iconAlt": "OceanTraX — Ship-based oceanographic temperature profile lines"
     },
     "sotAsap": {
-      "title": "Ship based aerological – SOT/ASAP",
-      "iconAlt": "SOT/ASAP Network - Automated Shipboard Aerological Programme"
+      "title": "Ship based aerological – ASAP",
+      "iconAlt": "ASAP — Automated Shipboard Aerological Programme"
     },
     "goShip": {
       "title": "Repeated transects – GO-SHIP",
@@ -535,20 +537,20 @@
       "iconAlt": "OceanSITES Network - Global network of long-term ocean reference stations"
     },
     "dbcpMoored": {
-      "title": "Moored buoys – DBCP/MB",
-      "iconAlt": "DBCP Moored Buoys - Data Buoy Cooperation Panel moored buoy network"
+      "title": "Moored buoys – MBN",
+      "iconAlt": "MBN — Moored buoy network"
     },
     "dbcpTsunami": {
-      "title": "Tsunami buoys – DBCP/TSU",
-      "iconAlt": "DBCP Tsunami Buoys - Tsunami detection and reporting buoys"
+      "title": "Tsunami buoys – TSU",
+      "iconAlt": "TSU — Tsunami detection and reporting buoys"
     },
     "hfRadar": {
-      "title": "High Frequency radars – HF Radar",
+      "title": "High Frequency radars - HF Radar",
       "iconAlt": "HF Radar Network - High Frequency radar coastal current mapping"
     },
     "dbcpDrifting": {
-      "title": "Drifting buoys – DBCP/GDA",
-      "iconAlt": "DBCP Drifting Buoys - Surface drifting buoy network"
+      "title": "Drifting buoys – GDA",
+      "iconAlt": "GDA — Global Drifter Array surface drifting buoys"
     },
     "argo": {
       "title": "Profiling floats – Argo",
@@ -571,8 +573,8 @@
       "iconAlt": "SMART Cables Network - Science monitoring and reliable telecommunications subsea cables"
     },
     "soconet": {
-      "title": "Surface ocean CO2 cruises & sites - SOCONET",
-      "iconAlt": "SOCONET Network - Surface ocean CO2 cruises and sites"
+      "title": "Surface ocean CO₂ - SOCONET",
+      "iconAlt": "SOCONET — Surface ocean CO₂ observing network"
     },
     "sunFleet": {
       "title": "Surface UNcrewed Fleet – SUN Fleet",
@@ -970,8 +972,10 @@
     "statuses": {
       "noTarget": "No target",
       "noArchive": "No archive",
+      "noData": "No data",
       "notApplicable": "Not applicable",
       "notCoreMission": "Not a core mission but existent",
+      "notYetImplemented": "Not yet implemented",
       "notYetRated": "Not yet rated"
     },
     "platformModal": {
@@ -1149,21 +1153,21 @@
     "viewFullListButton": "VIEW FULL LIST",
     "disclaimer": "Disclaimer: The depiction and use of boundaries, geographic names and related data shown on the OceanOPS map and included in country lists and tables are not warranted to be error free nor do they imply official endorsement or acceptance by the Intergovernmental Oceanographic Commission of UNESCO and the World Meteorological Organization. Statistics in this report are gradually made more accurate by OceanOPS based on data and metadata availability. Please contact <a href=\"mailto:support@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">support@ocean-ops.org</a> for any discrepancies.",
     "networks": {
-      "driftingBuoys": "Drifting buoys – DBCP/GDA",
+      "driftingBuoys": "Drifting buoys – GDA",
       "argo": "Profiling floats – Argo",
       "oceanGliders": "Gliders – OceanGliders",
-      "aniBOS": "Animal borne sensors – AniBOS",
+      "aniBOS": "Animal borne sensors - AniBOS",
       "fvon": "Fishing vessels – FVON",
-      "sotVos": "Ship based meteorological – SOT/VOS",
-      "sotAsap": "Ship based aerological – SOT/ASAP",
-      "soconet": "Ships - SOCONET",
-      "oceantrax": "Ship based oceanographic – SOT/OceanTraX",
+      "sotVos": "Ship based meteorological – VOS",
+      "sotAsap": "Ship based aerological – ASAP",
+      "soconet": "Surface ocean CO₂ - SOCONET",
+      "oceantrax": "Ship based oceanographic – OceanTraX",
       "goShip": "Repeated transects – GO-SHIP",
       "gloss": "Sea level gauges – GLOSS",
       "oceanSites": "Time series sites – OceanSITES",
-      "mooredBuoys": "Moored buoys – DBCP/MB",
-      "tsunamiBuoys": "Tsunami buoys – DBCP/TSU",
-      "hfRadars": "High Frequency radars – HF Radar"
+      "mooredBuoys": "Moored buoys – MBN",
+      "tsunamiBuoys": "Tsunami buoys – TSU",
+      "hfRadars": "High Frequency radars - HF Radar"
     }
   },
   "languages": {

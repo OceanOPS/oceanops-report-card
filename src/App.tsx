@@ -446,6 +446,14 @@ function App() {
             {
               number: fmt(totalObservingPlatforms),
               description: t('content.section1.stats.stat3.description'),
+              infoModal: {
+                title: t('content.section1.stats.stat3.infoModalTitle'),
+                content: (
+                  <p className="text-sm sm:text-base text-goos-white leading-relaxed">
+                    {t('content.section1.stats.stat3.infoModalContent')}
+                  </p>
+                ),
+              },
             },
             {
               number: fmt(totalReferenceObservatories),

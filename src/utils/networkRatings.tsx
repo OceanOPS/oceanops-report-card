@@ -4,8 +4,10 @@ import type { RatingStatusKey, RatingValue } from '../types/inSituNetworks'
 const RATING_STATUS_KEYS: RatingStatusKey[] = [
   'noTarget',
   'noArchive',
+  'noData',
   'notApplicable',
   'notCoreMission',
+  'notYetImplemented',
   'notYetRated',
 ]
 
