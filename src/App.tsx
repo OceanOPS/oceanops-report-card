@@ -34,8 +34,6 @@ import {
   contributingCountries,
   countriesDeltaVsLastYear,
   LAST_REPORT_YEAR,
-  observingPlatformsDeltaVsLastYear,
-  referenceObservatoriesDeltaVsLastYear,
   totalObservingPlatforms,
   totalReferenceObservatories,
 } from './utils/partnerCountryStats'
@@ -43,8 +41,6 @@ import { useEditionYoy } from './utils/editionYoy'
 import { CountriesYoyDetail } from './components/StatEvolutionDetail'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
-const observingPlatformDeltaLabel = `${observingPlatformsDeltaVsLastYear >= 0 ? '+' : ''}${fmt(observingPlatformsDeltaVsLastYear)}`
-const referenceObservatoryDeltaLabel = `${referenceObservatoriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(referenceObservatoriesDeltaVsLastYear)}`
 const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(countriesDeltaVsLastYear)}`
 
 function App() {
@@ -450,20 +446,10 @@ function App() {
             {
               number: fmt(totalObservingPlatforms),
               description: t('content.section1.stats.stat3.description'),
-              evolution: t('content.section1.stats.stat3.evolutionVsLastYear', {
-                delta: observingPlatformDeltaLabel,
-                year: LAST_REPORT_YEAR,
-              }),
-              evolutionDirection: observingPlatformsDeltaVsLastYear >= 0 ? 'up' : 'down',
             },
             {
               number: fmt(totalReferenceObservatories),
               description: t('content.section1.stats.stat4.description'),
-              evolution: t('content.section1.stats.stat4.evolutionVsLastYear', {
-                delta: referenceObservatoryDeltaLabel,
-                year: LAST_REPORT_YEAR,
-              }),
-              evolutionDirection: referenceObservatoriesDeltaVsLastYear >= 0 ? 'up' : 'down',
               infoModal: {
                 title: t('content.section1.stats.stat4.infoModalTitle'),
                 content: (
