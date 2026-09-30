@@ -261,12 +261,13 @@
         "stat2": {
           "number": "17",
           "description": "réseaux mondiaux d'observation",
-          "evolution": "dont 4 réseaux émergents"
+          "evolutionLine1": "dont 4",
+          "evolutionLine2": "émergents"
         },
         "stat3": {
-          "description": "plateformes opérationnelles d'observation",
+          "description": "plateformes opérationnelles",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
-          "infoModalTitle": "Plateformes opérationnelles d'observation",
+          "infoModalTitle": "Plateformes opérationnelles",
           "infoModalContent": "Réseaux mondiaux et systèmes régionaux diffusant des données en quasi temps réel."
         },
         "stat4": {

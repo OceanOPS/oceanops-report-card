@@ -124,6 +124,8 @@ interface StatItem {
   descriptionDetail?: string
   numberClassName?: string
   evolution?: string
+  /** Pill beside the number, rendered on two lines (e.g. emerging networks subtitle). */
+  evolutionLines?: [string, string]
   evolutionDirection?: 'up' | 'down' | 'neutral'
   evolutionDetail?: ReactNode
   linkText?: string
@@ -136,14 +138,14 @@ interface StatItem {
 
 function StatEvolutionBadge({
   evolution,
+  evolutionLines,
   direction = 'up',
 }: {
-  evolution: string
+  evolution?: string
+  evolutionLines?: [string, string]
   direction?: 'up' | 'down' | 'neutral'
 }) {
   const arrow = direction === 'up' ? '↑' : direction === 'down' ? '↓' : null
-  const baseClass =
-    'inline-flex shrink-0 items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] sm:text-xs font-semibold tabular-nums whitespace-nowrap'
   const toneClass =
     direction === 'down'
       ? 'text-goos-blue-300 border-goos-blue-300/30 bg-goos-blue-300/10'
@@ -151,8 +153,23 @@ function StatEvolutionBadge({
         ? 'text-white/70 border-white/10 bg-white/[0.06]'
         : 'text-goos-cyan-400 border-goos-cyan-400/35 bg-goos-cyan-500/10'
 
+  if (evolutionLines) {
+    return (
+      <span
+        className={`inline-flex shrink-0 flex-col items-start gap-0 rounded-xl border px-2.5 py-1.5 text-[11px] sm:text-xs font-semibold leading-snug ${toneClass}`}
+      >
+        <span className="whitespace-nowrap">{evolutionLines[0]}</span>
+        <span className="whitespace-nowrap">{evolutionLines[1]}</span>
+      </span>
+    )
+  }
+
+  if (!evolution) return null
+
   return (
-    <span className={`${baseClass} ${toneClass}`}>
+    <span
+      className={`inline-flex max-w-full items-center gap-1 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] sm:text-xs font-semibold tabular-nums ${toneClass}`}
+    >
       {arrow && <span aria-hidden="true">{arrow}</span>}
       <span>{evolution}</span>
     </span>
@@ -162,14 +179,21 @@ function StatEvolutionBadge({
 function StatInfoButton({
   textColor,
   onInfoClick,
+  inline = false,
 }: {
   textColor: string
   onInfoClick: () => void
+  inline?: boolean
 }) {
   return (
     <button
+      type="button"
       onClick={onInfoClick}
-      className={`${textColor} shrink-0 opacity-50 transition-opacity hover:opacity-100`}
+      className={
+        inline
+          ? `${textColor} ml-1 inline-flex align-middle opacity-50 transition-opacity hover:opacity-100`
+          : `${textColor} shrink-0 opacity-50 transition-opacity hover:opacity-100`
+      }
       aria-label="More information"
     >
       <svg
@@ -209,47 +233,50 @@ function StatBlock({
   align?: 'left' | 'center'
   labelPosition?: 'above' | 'below'
 }) {
+  const hasInlineBadge = Boolean(stat.evolutionLines ?? stat.evolution)
+
   const numberRow = (
     <div
-      className={`flex flex-nowrap items-center gap-x-3 ${align === 'center' ? 'justify-center' : ''}`}
+      className={`flex w-full min-w-0 items-center gap-x-2.5 sm:gap-x-3 ${hasInlineBadge ? 'flex-nowrap' : 'flex-wrap gap-y-2'} ${align === 'center' ? 'justify-center' : ''}`}
     >
       <p
         ref={numberRef}
-        className={`shrink-0 font-light tabular-nums leading-none tracking-tight ${stat.numberClassName ?? 'text-5xl sm:text-6xl'} ${numberColor}`}
+        className={`shrink-0 font-roboto font-bold oldstyle-nums leading-none tracking-normal ${stat.numberClassName ?? 'text-6xl sm:text-7xl md:text-[4.25rem]'} ${numberColor}`}
       >
         {stat.number}
       </p>
-      {stat.evolution && (
+      {stat.evolutionLines ? (
         <StatEvolutionBadge
-          evolution={stat.evolution}
+          evolutionLines={stat.evolutionLines}
           direction={stat.evolutionDirection}
         />
+      ) : (
+        stat.evolution && (
+          <StatEvolutionBadge evolution={stat.evolution} direction={stat.evolutionDirection} />
+        )
       )}
     </div>
   )
 
+  const descriptionTextClass =
+    labelPosition === 'below'
+      ? `text-sm sm:text-base font-normal leading-snug opacity-90 ${textColor}`
+      : `text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] opacity-60 leading-snug ${textColor}`
+
   const descriptionRow = (
-    <div
-      className={`flex gap-1.5 ${align === 'center' ? 'items-center justify-center' : 'items-start'} ${labelPosition === 'above' ? 'min-h-[2.75rem]' : ''}`}
+    <p
+      className={`${descriptionTextClass} ${align === 'center' ? 'text-center' : ''} ${labelPosition === 'above' ? 'min-h-[2.75rem]' : ''}`}
     >
-      <p
-        className={
-          labelPosition === 'below'
-            ? `text-sm sm:text-base font-normal leading-snug opacity-90 ${textColor}`
-            : `text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] opacity-60 leading-snug ${textColor}`
-        }
-      >
-        {stat.description}
-      </p>
+      {stat.description}
       {stat.infoModal && onInfoClick && (
-        <StatInfoButton textColor={textColor} onInfoClick={onInfoClick} />
+        <StatInfoButton textColor={textColor} onInfoClick={onInfoClick} inline />
       )}
-    </div>
+    </p>
   )
 
   const block = (
     <div
-      className={`flex h-full flex-col gap-1.5 ${align === 'center' ? 'items-center text-center' : ''} ${stat.evolutionDetail ? 'cursor-help' : ''}`}
+      className={`flex h-full min-w-0 max-w-full flex-col gap-1.5 ${align === 'center' ? 'items-center text-center' : ''} ${stat.evolutionDetail ? 'cursor-help' : ''}`}
     >
       {labelPosition === 'above' ? (
         <>
@@ -518,48 +545,58 @@ export default function InsightPanel({
 
   const sideStats = twoOverOneStats ?? oneRowStats
 
-  const useTextStatsGrid = Boolean(title && leftContent && sideStats)
+  const defaultStatsGrid =
+    stats && !sideStats ? (
+      <div className="grid w-full grid-cols-1 sm:grid-cols-2 justify-items-stretch gap-x-10 gap-y-8 sm:gap-x-12 sm:gap-y-10 lg:gap-x-14 lg:gap-y-12 text-left">
+        {stats.slice(0, 4).map((stat, index) => (
+          <div key={index} className="min-w-0 max-w-full pr-0.5">
+          <StatBlock
+            stat={stat}
+            labelPosition={statsLabelPosition}
+            numberRef={(el) => {
+              statNumberRefs.current[index] = el
+            }}
+            numberColor={numberColor}
+            textColor={textColor}
+            linkColor={linkColor}
+            onInfoClick={stat.infoModal ? () => setOpenModalIndex(index) : undefined}
+          />
+          </div>
+        ))}
+      </div>
+    ) : null
+
+  const statsGridContent = sideStats ?? defaultStatsGrid
+
+  const useTextStatsGrid = Boolean(title && leftContent && statsGridContent)
 
   const statsPanel =
     rightContent ? (
       <div className={`${textColor}`}>{rightContent}</div>
-    ) : stats ? (
-      sideStats ? (
-        sideStats
-      ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-start gap-x-10 gap-y-5 sm:gap-y-6 text-left">
-                  {stats.slice(0, 4).map((stat, index) => (
-                    <StatBlock
-                      key={index}
-                      stat={stat}
-                      labelPosition={statsLabelPosition}
-                      numberRef={(el) => {
-                        statNumberRefs.current[index] = el
-                      }}
-                      numberColor={numberColor}
-                      textColor={textColor}
-                      linkColor={linkColor}
-                      onInfoClick={
-                        stat.infoModal ? () => setOpenModalIndex(index) : undefined
-                      }
-                    />
-                  ))}
-                </div>
-              )
-    ) : null
+    ) : (
+      statsGridContent
+    )
 
   return (
-    <section ref={sectionRef} className={`${backgroundColor} px-4 sm:px-8 md:px-12 lg:px-16 py-0 ${className}`}>
-      <div className="mx-auto flex flex-col gap-5">
+    <section ref={sectionRef} className={`${backgroundColor} px-6 sm:px-10 md:px-14 lg:px-20 xl:px-24 py-0 ${className}`}>
+      <div className="mx-auto flex w-full max-w-[88rem] flex-col gap-5">
         {/* Top spacer */}
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {useTextStatsGrid ? (
-          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-x-12 xl:gap-x-16 2xl:gap-x-20">
-            <div className="lg:col-start-1 lg:row-start-1">{titleBlock}</div>
-            <div className={`${textColor} lg:col-start-1 lg:row-start-2 lg:pr-4 xl:pr-6`}>{leftContent}</div>
-            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 flex w-full min-w-0 items-center lg:pl-2 xl:pl-4">
-              {sideStats}
+          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center lg:gap-x-12 xl:gap-x-16 2xl:gap-x-24">
+            <div className="flex flex-col gap-6 sm:gap-7 lg:col-start-1 lg:row-start-1">
+              {titleBlock}
+              <div
+                className={`${textColor} font-roboto text-base sm:text-lg md:text-xl leading-relaxed max-w-prose space-y-4`}
+              >
+                {leftContent}
+              </div>
+            </div>
+            <div className="lg:col-start-2 lg:row-start-1 flex w-full min-w-0 items-center justify-center lg:justify-end">
+              <div className="w-full max-w-[34rem] rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-8 py-6 sm:px-10 sm:py-8 lg:px-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                {statsGridContent}
+              </div>
             </div>
           </div>
         ) : (

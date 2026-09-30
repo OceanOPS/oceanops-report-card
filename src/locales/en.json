@@ -267,12 +267,13 @@
         "stat2": {
           "number": "17",
           "description": "global observing networks",
-          "evolution": "including 4 emerging networks"
+          "evolutionLine1": "including 4",
+          "evolutionLine2": "emerging"
         },
         "stat3": {
-          "description": "observing operational platforms",
+          "description": "operational platforms",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
-          "infoModalTitle": "Observing operational platforms",
+          "infoModalTitle": "Operational platforms",
           "infoModalContent": "Global arrays and regional systems delivering data in near real-time."
         },
         "stat4": {

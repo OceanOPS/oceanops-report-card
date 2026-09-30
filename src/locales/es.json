@@ -261,12 +261,13 @@
         "stat2": {
           "number": "17",
           "description": "redes globales de observación",
-          "evolution": "incl. 4 redes emergentes"
+          "evolutionLine1": "incl. 4",
+          "evolutionLine2": "emergentes"
         },
         "stat3": {
-          "description": "plataformas operacionales de observación",
+          "description": "plataformas operacionales",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
-          "infoModalTitle": "Plataformas operacionales de observación",
+          "infoModalTitle": "Plataformas operacionales",
           "infoModalContent": "Redes globales y sistemas regionales que entregan datos en casi tiempo real."
         },
         "stat4": {

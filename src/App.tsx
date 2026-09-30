@@ -404,13 +404,8 @@ function App() {
           lineColor="bg-goos-orange-500"
           leftContent={
             <>
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4">
-                {t('content.section1.statsIntro')}
-              </p>
-              <p
-                className="text-base sm:text-lg md:text-xl leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: t('content.section1.statsIntro2') }}
-              />
+              <p>{t('content.section1.statsIntro')}</p>
+              <p dangerouslySetInnerHTML={{ __html: t('content.section1.statsIntro2') }} />
             </>
           }
           statsLabelPosition="below"
@@ -432,7 +427,10 @@ function App() {
             {
               number: t('content.section1.stats.stat2.number'),
               description: t('content.section1.stats.stat2.description'),
-              evolution: t('content.section1.stats.stat2.evolution', { defaultValue: '' }) || undefined,
+              evolutionLines: [
+                t('content.section1.stats.stat2.evolutionLine1'),
+                t('content.section1.stats.stat2.evolutionLine2'),
+              ],
               evolutionDirection: 'neutral',
             },
             {
