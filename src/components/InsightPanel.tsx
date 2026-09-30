@@ -584,7 +584,7 @@ export default function InsightPanel({
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {useTextStatsGrid ? (
-          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center lg:gap-x-12 xl:gap-x-16 2xl:gap-x-24">
+          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-start lg:gap-x-12 xl:gap-x-16 2xl:gap-x-24">
             <div className="flex flex-col gap-6 sm:gap-7 lg:col-start-1 lg:row-start-1">
               {titleBlock}
               <div
@@ -593,7 +593,8 @@ export default function InsightPanel({
                 {leftContent}
               </div>
             </div>
-            <div className="lg:col-start-2 lg:row-start-1 flex w-full min-w-0 items-center justify-center lg:justify-end">
+            {/* Offset = orange rule (h-2) + gap before title (gap-4 / sm:gap-5) */}
+            <div className="lg:col-start-2 lg:row-start-1 flex w-full min-w-0 justify-center lg:justify-end lg:pt-7 lg:self-start">
               <div className="w-full max-w-[34rem] rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-8 py-6 sm:px-10 sm:py-8 lg:px-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                 {statsGridContent}
               </div>
