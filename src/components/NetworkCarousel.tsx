@@ -63,15 +63,16 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import NetworkCard from './NetworkCard'
 import CarouselArrow from './CarouselArrow'
+import type { RatingValue } from '../types/inSituNetworks'
 
 gsap.registerPlugin(ScrollTrigger)
 
 interface NetworkRatings {
-  implementationStatus: number | string
-  realTime: number | string
-  archivedHighQuality: number | string
-  metadata: number | string
-  bestPractices: number | string
+  implementationStatus: RatingValue
+  realTime: RatingValue
+  archivedHighQuality: RatingValue
+  metadata: RatingValue
+  bestPractices: RatingValue
 }
 
 type DeliveryAreaKey = 'climate' | 'operational' | 'oceanhealth'

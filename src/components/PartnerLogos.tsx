@@ -85,54 +85,24 @@ export default function PartnerLogos({ variant = 'white', className = '' }: Part
         ))}
       </div>
 
-      {/* Right side section */}
-      <div className="flex items-end gap-4 sm:gap-6">
-        {/* QR Code + feedback text */}
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] sm:text-xs text-white opacity-80 text-center leading-tight max-w-[180px]">
-            <a
-              href="https://forms.office.com/e/HSXMhPRnpX"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:opacity-80"
-            >
-              Fill out the GOOS Status Report 2025 Feedback Questionnaire
-            </a>
-          </span>
+      {/* Right side — OceanOPS with "Powered by" */}
+      <div className="flex flex-col items-start gap-2 sm:items-end">
+        <span className="text-xs sm:text-sm text-white opacity-70 font-light">
+          {t('cover.poweredBy')}
+        </span>
 
-          <a
-            href="https://forms.office.com/e/HSXMhPRnpX"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity hover:opacity-80"
-          >
-            <img
-              src={asset("/images/questionaire_qrcode.png")}
-              alt="GOOS Status Report 2025 Feedback Questionnaire QR code"
-              className="h-16 sm:h-24 w-auto object-contain"
-            />
-          </a>
-        </div>
-
-        {/* Right side logo - OceanOPS with "Powered by" */}
-        <div className="flex flex-col items-start gap-2 sm:items-end">
-          <span className="text-xs sm:text-sm text-white opacity-70 font-light">
-            {t('cover.poweredBy')}
-          </span>
-
-          <a
-            href={rightLogo.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="h-12 sm:h-14 md:h-16 lg:h-20 transition-opacity hover:opacity-70"
-          >
-            <img
-              src={rightLogo.src}
-              alt={rightLogo.alt}
-              className="h-full w-auto object-contain opacity-90"
-            />
-          </a>
-        </div>
+        <a
+          href={rightLogo.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="h-12 sm:h-14 md:h-16 lg:h-20 transition-opacity hover:opacity-70"
+        >
+          <img
+            src={rightLogo.src}
+            alt={rightLogo.alt}
+            className="h-full w-auto object-contain opacity-90"
+          />
+        </a>
       </div>
     </div>
   )
