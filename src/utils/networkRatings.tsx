@@ -8,6 +8,7 @@ const RATING_STATUS_KEYS: RatingStatusKey[] = [
   'notApplicable',
   'notCoreMission',
   'notYetImplemented',
+  'network',
   'notYetRated',
 ]
 

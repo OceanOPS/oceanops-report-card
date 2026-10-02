@@ -40,6 +40,7 @@ export type RatingStatusKey =
   | 'notApplicable'
   | 'notCoreMission'
   | 'notYetImplemented'
+  | 'network'
   | 'notYetRated'
 
 export type RatingValue = number | RatingStatusKey
