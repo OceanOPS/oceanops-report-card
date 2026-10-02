@@ -494,7 +494,7 @@
         "requirement1": "monitor and support each network and the GOOS",
         "requirement2": "serve WMO/WIGOS/OSCAR system with quality metadata for all marine systems",
         "requirement3": "capture a common denominator enabling an integrated view, and using reference tables (WIGOS, SeaDataNet, ICES harmonized vocabularies as far as possible.",
-        "scoringIntro": "Metadata score is based on the completeness of each category of the OceanOPS passport (identification, affiliation, operation, hardware). Each category is monitored individually against network-specific criteria, and the overall score represents the average of the category scores over operational platforms. Next year the full Passport scoring (including data end points) will be used.:",
+        "scoringIntro": "Metadata indicator is based on the completeness of each category of the OceanOPS passport (identification, affiliation, operation, hardware). Each category is monitored individually against network-specific criteria, and the overall indicator represents the average of the category indicators over selected platforms. Next year the full Passport completeness indicator (including data end points) will be used.",
         "scoring": "HALF-STAR: 0 < SCORE ≤ 15%\n1 STAR: 15% < SCORE ≤ 30%\n1 STAR & HALF: 30% < SCORE ≤ 50%\n2 STARS: 50% < SCORE ≤ 70%\n2 STARS & HALF: 70% < SCORE ≤ 85%\n3 STARS: SCORE > 85%"
       },
       "bestPractices": {
