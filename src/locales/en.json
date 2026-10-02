@@ -445,7 +445,7 @@
       "realTime": "Data freely available, without any restriction, on Global Telecommunication System of WMO and internet.",
       "archivedHighQuality": "Data of the highest quality available for scientific analysis (e.g. climate studies).",
       "metadata": "Metadata completeness by OceanOPS.",
-      "bestPractices": "Community reviewed and easily accessible documentation encompassing the observations lifecycle."
+      "bestPractices": "Documented and accessible best practices covering the observing lifecycle, supporting consistency, data quality, reproducibility and interoperability."
     },
     "indicatorsButton": "ABOUT INDICATORS DEFINITIONS",
     "indicatorsModal": {
@@ -499,12 +499,12 @@
       },
       "bestPractices": {
         "title": "Best Practices Adoption",
-        "description": "Evaluates adherence to international standards for data collection, processing, and sharing. Networks following best practices ensure data interoperability across systems.",
-        "detailsPart1": "Regarding Best Practices a number of criteria were considered: the generic term \"Best Practices\" cover the observation 'lifecycle' - including deployment, sampling strategy, Standard Operating Procedures , pre-mission preparation (e.g. calibration and validation), data retrieval and formatting, primary quality control and secondary quality control for all the EOVs (and sub-variables) that they sample. There also needs to be clear best practices around data documentation, access and archival.",
-        "detailsPart2": "On top of having the best practices written, the ratings were based on how easily accessible the best practices are outside of the network community.",
-        "detailsPart3": "Additionally, the frequency of the update of the best practice has also been considered.",
-        "scoringIntro": "So, the scoring could be:",
-        "scoring": "1 STAR: standard practices exist, not accessible for larger community, no network agreement on best practices\n2 STARS: best practices in place but only accessible through meeting reports (difficult to find on various websites) or 2-3 manuals are easily available but don't cover the whole observing lifecycle, or very outdated\n3 STARS: community reviewed and easily accessible documentation encompassing the observations lifecycle"
+        "description": "Evaluates the extent to which a network has documented and accessible best practices covering the observing lifecycle. The use of harmonized best practices supports consistency, data quality, reproducibility and interoperability across observing systems.",
+        "detailsPart1": "The assessment considered Best Practices across the observing lifecycle, including, where relevant, deployment and sampling strategies, Standard Operating Procedures (SOPs), pre-mission preparation (e.g., calibration and validation), data retrieval and formatting, primary and secondary quality control for the EOVs and associated sub-variables observed by the network, as well as data documentation, access and archival.",
+        "detailsPart2": "The assessment also considered the extent to which these practices are documented and accessible beyond the network community, evidence of their use or review within the relevant community, and, where information was available, whether the documentation is current or periodically reviewed/updated.",
+        "detailsPart3": "Note: The updated GOOS Practice Endorsement Process was also considered when reviewing the available information. Formal GOOS endorsement is treated separately from the network-level Best Practices rating: a practice may be mature and implemented without having completed the GOOS endorsement process, while the existence of one or more GOOS-endorsed practices does not necessarily demonstrate comprehensive Best Practices coverage across a network's observing lifecycle. Thus, the rating reflects an evidence-informed review of the available documentation at network level rather than formal GOOS endorsement status.",
+        "scoring": "1 STAR: Practices exist within the network, but documentation and/or accessibility are limited, and there is insufficient evidence of agreed Best Practices covering the observing lifecycle.\n\n2 STARS: Best Practices are documented and available for important parts of the observing lifecycle, but coverage and/or accessibility remain incomplete, fragmented or difficult to identify, and/or some documentation may be outdated.\n\n3 STARS: community-reviewed Best Practices are readily accessible and provide comprehensive coverage of the relevant observing lifecycle.",
+        "halfStarsNote": "Half-STARS represent an intermediate assessment where the available evidence falls between two adjacent levels, instead of implying a separate set of criteria."
       },
       "deliveryAreas": {
         "title": "GOOS Delivery Areas",

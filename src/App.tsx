@@ -797,15 +797,15 @@ function App() {
                   <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
                     {t('networks.indicatorsModal.bestPractices.detailsPart3')}
                   </p>
-                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
-                    {t('networks.indicatorsModal.bestPractices.scoringIntro')}
-                  </p>
                   <div className="bg-goos-blue-800 p-3 sm:p-4 rounded border border-goos-blue-700 mb-3">
                     <h4 className="text-base sm:text-lg font-semibold mb-2 text-white uppercase">
                       {t('satelliteObservations.scoringTitle')}
                     </h4>
-                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white mb-3">
                       {t('networks.indicatorsModal.bestPractices.scoring')}
+                    </p>
+                    <p className="text-sm sm:text-base leading-relaxed text-white border-t border-goos-blue-700 pt-3 italic">
+                      {t('networks.indicatorsModal.bestPractices.halfStarsNote')}
                     </p>
                   </div>
 
