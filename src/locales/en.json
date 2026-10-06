@@ -1110,6 +1110,7 @@
     "inSituStatus": "Ocean observing system status and updates",
     "networksByNumbers": "<i>In situ</i> observing networks by the numbers",
     "platformMap": "Interactive platform map",
+    "glossary": "Glossary",
     "downloadPdf": "DOWNLOAD PDF",
     "comingSoon": "SOON",
     "openMenu": "Open menu",
@@ -1168,6 +1169,137 @@
       "mooredBuoys": "Moored buoys – MBN",
       "tsunamiBuoys": "Tsunami buoys – TSU",
       "hfRadars": "High Frequency radars - HF Radar"
+    }
+  },
+  "glossary": {
+    "title": "Glossary",
+    "intro": "Short definitions for terms used throughout this GOOS Status Report. Filter by topic, then tap a term to read its definition.",
+    "categories": {
+      "all": "All terms",
+      "goos": "GOOS & governance",
+      "platforms": "Platforms & observatories",
+      "networks": "Observing networks",
+      "metrics": "Network indicators",
+      "delivery": "Delivery areas",
+      "data": "Data systems"
+    },
+    "terms": {
+      "goos": {
+        "title": "Global Ocean Observing System (GOOS)",
+        "definition": "The sustained, coordinated global system for ocean observations, designed to deliver the data and information needed for climate, operational services, and ocean health applications."
+      },
+      "oceanops": {
+        "title": "OceanOPS",
+        "definition": "The operational monitoring and support centre for GOOS in situ networks. OceanOPS tracks platform activity, metadata, and network performance indicators used in this report."
+      },
+      "inSitu": {
+        "title": "In situ ocean observations",
+        "definition": "Measurements taken in the ocean using platforms such as floats, buoys, ships, moorings, and gliders—as opposed to remote sensing from satellites."
+      },
+      "eov": {
+        "title": "Essential Ocean Variable (EOV)",
+        "definition": "A variable identified by GOOS as critical for monitoring the state of the ocean and supporting science, services, and policy. Networks in this report are linked to the EOVs they measure."
+      },
+      "goosPassport": {
+        "title": "OceanOPS passport",
+        "definition": "Structured metadata describing a platform’s identification, affiliation, operation, hardware, and data endpoints. Metadata completeness indicators in this report are based on passport categories."
+      },
+      "contributingCountry": {
+        "title": "Contributing country",
+        "definition": "A Member State or entity operating or funding platforms that feed operational data into GOOS networks monitored by OceanOPS. Counts follow the methodology described in the partners section."
+      },
+      "operationalPlatform": {
+        "title": "Operational platform",
+        "definition": "A platform in a mature network that meets network-specific activity rules and transmits near real-time data monitored by OceanOPS—shown on the map and counted in headline statistics."
+      },
+      "referenceObservatory": {
+        "title": "Reference observatory",
+        "definition": "Sites or lines delivering highest-quality reference, long-term, and often multidisciplinary observations in delayed mode to calibrate other systems and assess long-term change."
+      },
+      "activePlatform": {
+        "title": "Active platform",
+        "definition": "A platform counted as active for a network according to that network’s rules—for example, an Argo float that sent a profile within the last month, or a GLOSS tide gauge with a monthly mean within five years."
+      },
+      "matureNetwork": {
+        "title": "Mature network",
+        "definition": "An established GOOS in situ network with operational monitoring by OceanOPS, widely adopted targets or self-declared status, and performance ratings in the networks matrix."
+      },
+      "emergingNetwork": {
+        "title": "Emerging network",
+        "definition": "A newer or developing GOOS network that is being integrated into the global system. Emerging networks may have limited OceanOPS monitoring or self-assessed indicators."
+      },
+      "implementationStatus": {
+        "title": "Implementation status",
+        "definition": "A network performance indicator comparing operational activity to a community target, a self-declared target, or a self-assessed status when no target exists."
+      },
+      "realTimeData": {
+        "title": "Real-time data delivery",
+        "definition": "Timely transmission of quality-controlled observations to operational centres, including availability on the WMO Global Telecommunication System (GTS) and on the open internet with interoperable services."
+      },
+      "archivedDelayedMode": {
+        "title": "Archived delayed-mode data",
+        "definition": "Historical observations processed with additional quality control for scientific use (e.g. climate analysis), with raw data preserved and discoverable archives maintained."
+      },
+      "metadataCompleteness": {
+        "title": "Metadata completeness",
+        "definition": "How fully platforms document methods, instruments, affiliation, and operation in OceanOPS metadata, averaged across selected platforms against network-specific criteria."
+      },
+      "bestPractices": {
+        "title": "Best practices adoption",
+        "definition": "The extent to which a network documents and shares harmonized practices across the observing lifecycle—from deployment and calibration to quality control, access, and archival."
+      },
+      "deliveryClimate": {
+        "title": "Climate (delivery area)",
+        "definition": "GOOS application area focused on climate monitoring, variability, and long-term change—including support for climate assessments and Earth system science."
+      },
+      "deliveryOperational": {
+        "title": "Operational services (delivery area)",
+        "definition": "GOOS application area supporting forecasting, safety, and marine operations through timely ocean observations and products."
+      },
+      "deliveryOceanHealth": {
+        "title": "Ocean health (delivery area)",
+        "definition": "GOOS application area addressing marine ecosystems, pollution, and biodiversity through biological, biogeochemical, and ecosystem observations."
+      },
+      "gts": {
+        "title": "Global Telecommunication System (GTS)",
+        "definition": "The WMO system for near real-time exchange of meteorological and oceanographic observations and forecasts among operational centres worldwide."
+      },
+      "argo": {
+        "title": "Argo",
+        "definition": "Global array of profiling floats measuring temperature and salinity throughout the water column, coordinated as a core GOOS network."
+      },
+      "vos": {
+        "title": "Voluntary Observing Ships (VOS)",
+        "definition": "Ship-based meteorological observations from participating vessels, supporting weather and climate services."
+      },
+      "oceantrax": {
+        "title": "OceanTraX",
+        "definition": "Ship-based oceanographic observations, including expendable bathythermograph (XBT) lines and related transect data."
+      },
+      "goship": {
+        "title": "GO-SHIP",
+        "definition": "Global Ocean Ship-based Hydrographic Investigations Program—repeat hydrographic sections for full-depth reference measurements."
+      },
+      "gloss": {
+        "title": "GLOSS",
+        "definition": "Global Sea Level Observing System—coastal and island tide gauges for sea level monitoring and climate records."
+      },
+      "oceansites": {
+        "title": "OceanSITES",
+        "definition": "Global network of multidisciplinary moored time-series reference sites in the open ocean."
+      },
+      "mbn": {
+        "title": "Moored buoy network (MBN)",
+        "definition": "Fixed moorings measuring ocean and atmosphere variables, including DBCP-coordinated moored buoys monitored for real-time delivery."
+      },
+      "gda": {
+        "title": "Global Drifter Array (GDA)",
+        "definition": "Surface drifting buoys measuring sea surface temperature, pressure, and related variables as they move with ocean currents."
+      },
+      "soconet": {
+        "title": "SOCONET",
+        "definition": "Surface Ocean CO₂ Observing Network—platforms and sites measuring surface ocean carbon dioxide for climate and ocean health applications."
+      }
     }
   },
   "languages": {

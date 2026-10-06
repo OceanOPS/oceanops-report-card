@@ -23,6 +23,7 @@ import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
 import MenuSidebar from './components/MenuSidebar'
+import GlossarySection from './components/GlossarySection'
 
 const MAP_SRC =
   import.meta.env.VITE_MAP_SRC ?? 'https://www.ocean-ops.org/demos/simple-arcgis-map/'
@@ -120,6 +121,7 @@ function App() {
       'southafrica-section',
       'ships-section',
       'calltoaction-section',
+      'glossary-section',
       'contact-section'
     ]
 
@@ -228,6 +230,7 @@ function App() {
             ],
           },
           { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-500' },
+          { id: 'glossary-section', titleKey: 'menu.glossary', accentColor: 'bg-goos-blue-900' },
           { id: 'contact-section', titleKey: 'contact.title', accentColor: 'bg-goos-blue-900' },
         ]}
       />
@@ -1790,6 +1793,8 @@ function App() {
         ]}
         columns={3}
       />
+
+      <GlossarySection />
 
       {/* Contact Information */}
       <div id="contact-section">
