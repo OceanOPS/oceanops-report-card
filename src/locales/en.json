@@ -450,7 +450,7 @@
     "indicatorsButton": "ABOUT INDICATORS DEFINITIONS",
     "indicatorsModal": {
       "title": "Network Performance Indicators",
-      "intro": "Each network is evaluated by OceanOPS across five key performance indicators, rated on a scale from 0 to 3 stars. In some cases, a number of metrics are self-assessed by the networks when direct OceanOPS monitoring capacity is missing or information is not available (for example: missing metadata, unknown delayed mode data nodes, or absence of clear targets).",
+      "intro": "Each network is evaluated by OceanOPS across five GOOS core attributes, rated on a scale from 0 to 3 stars. In some cases, a number of metrics are self-assessed by the networks when direct OceanOPS monitoring capacity is missing or information is not available (for example: missing metadata, unknown delayed mode data nodes, or absence of clear targets).",
       "moreButton": "More...",
       "implementationStatus": {
         "title": "Implementation Status",

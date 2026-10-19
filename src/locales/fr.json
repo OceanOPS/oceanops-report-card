@@ -501,7 +501,7 @@
     "indicatorsButton": "À PROPOS DES DÉFINITIONS DES INDICATEURS",
     "indicatorsModal": {
       "title": "Indicateurs de Performance des Réseaux",
-      "intro": "Chaque réseau est évalué sur cinq indicateurs clés de performance, notés sur une échelle de 0 à 3 étoiles:",
+      "intro": "Chaque réseau est évalué par OceanOPS selon cinq attributs essentiels du GOOS, notés sur une échelle de 0 à 3 étoiles. Dans certains cas, plusieurs métriques sont auto-évaluées par les réseaux lorsque la capacité de suivi direct d’OceanOPS est insuffisante ou que l’information n’est pas disponible (par exemple : métadonnées manquantes, nœuds de données en mode différé inconnus ou absence d’objectifs clairs).",
       "implementationStatus": {
         "title": "État de Mise en Œuvre",
         "description": "Mesure la maturité opérationnelle du réseau et sa couverture géographique. Des notes plus élevées indiquent un déploiement mondial plus large et une collecte de données cohérente."

@@ -444,7 +444,7 @@
     "indicatorsButton": "SOBRE DEFINICIONES DE INDICADORES",
     "indicatorsModal": {
       "title": "Indicadores de Rendimiento de Redes",
-      "intro": "Cada red es evaluada en cinco indicadores clave de rendimiento, calificados en una escala de 0 a 3 estrellas:",
+      "intro": "Cada red es evaluada por OceanOPS según cinco atributos esenciales de GOOS, calificados en una escala de 0 a 3 estrellas. En algunos casos, varias métricas son autoevaluadas por las redes cuando falta capacidad de seguimiento directo de OceanOPS o la información no está disponible (por ejemplo: metadatos incompletos, nodos de datos en modo diferido desconocidos o ausencia de objetivos claros).",
       "implementationStatus": {
         "title": "Estado de Implementación",
         "description": "Mide la madurez operacional de la red y su cobertura geográfica. Calificaciones más altas indican un despliegue global más amplio y una recolección de datos consistente."
