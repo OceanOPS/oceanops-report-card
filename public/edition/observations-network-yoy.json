@@ -1,14 +1,14 @@
 {
-  "exportedAt": "2026-10-26",
+  "exportedAt": "2026-10-29",
   "methodology": "source hierarchy (GTS MF obs subsets + GDAC/IOOS/VOTO + AniBOS + FVON + tsunami OSMC)",
   "currentYear": 2026,
   "previousYear": 2025,
-  "currentPeriod": "2026-01-01 → 2026-10-26",
-  "previousPeriod": "2025-01-01 → 2025-10-26",
+  "currentPeriod": "2026-01-01 → 2026-10-29",
+  "previousPeriod": "2025-01-01 → 2025-10-29",
   "headline": {
-    "currentAvgPerDay": 107625,
-    "previousAvgPerDay": 126057,
-    "deltaAvg": -18432
+    "currentAvgPerDay": 107626,
+    "previousAvgPerDay": 125662,
+    "deltaAvg": -18036
   },
   "networks": [
     {
@@ -67,34 +67,34 @@
       "label": "DBCP moored buoys",
       "source": "GTS MF",
       "current": {
-        "avgPerDay": 48361,
-        "daysWithData": 297,
-        "total": 14363134
+        "avgPerDay": 48376,
+        "daysWithData": 300,
+        "total": 14512886
       },
       "previous": {
-        "avgPerDay": 60936,
-        "daysWithData": 297,
-        "total": 18097956
+        "avgPerDay": 60703,
+        "daysWithData": 300,
+        "total": 18210945
       },
-      "deltaAvg": -12575,
-      "deltaPct": -20.6
+      "deltaAvg": -12327,
+      "deltaPct": -20.3
     },
     {
       "id": "tsunameter",
       "label": "DBCP tsunameter buoys",
       "source": "GTS OSMC",
       "current": {
-        "avgPerDay": 3446,
-        "daysWithData": 298,
-        "total": 1026978
+        "avgPerDay": 3456,
+        "daysWithData": 300,
+        "total": 1036777
       },
       "previous": {
-        "avgPerDay": 4326,
-        "daysWithData": 299,
-        "total": 1293368
+        "avgPerDay": 4322,
+        "daysWithData": 302,
+        "total": 1305198
       },
-      "deltaAvg": -880,
-      "deltaPct": -20.3
+      "deltaAvg": -866,
+      "deltaPct": -20
     },
     {
       "id": "dbcp-drifting",
@@ -102,32 +102,32 @@
       "source": "GTS MF",
       "current": {
         "avgPerDay": 29896,
-        "daysWithData": 297,
-        "total": 8879052
+        "daysWithData": 300,
+        "total": 8968657
       },
       "previous": {
-        "avgPerDay": 34437,
-        "daysWithData": 297,
-        "total": 10227937
+        "avgPerDay": 34302,
+        "daysWithData": 300,
+        "total": 10290544
       },
-      "deltaAvg": -4541,
-      "deltaPct": -13.2
+      "deltaAvg": -4406,
+      "deltaPct": -12.8
     },
     {
       "id": "vos",
       "label": "VOS (SOT)",
       "source": "GTS MF",
       "current": {
-        "avgPerDay": 20928,
-        "daysWithData": 296,
-        "total": 6194710
+        "avgPerDay": 20918,
+        "daysWithData": 299,
+        "total": 6254396
       },
       "previous": {
-        "avgPerDay": 21431,
-        "daysWithData": 297,
-        "total": 6364979
+        "avgPerDay": 21409,
+        "daysWithData": 300,
+        "total": 6422577
       },
-      "deltaAvg": -503,
+      "deltaAvg": -491,
       "deltaPct": -2.3
     },
     {
@@ -141,8 +141,8 @@
       },
       "previous": {
         "avgPerDay": 3,
-        "daysWithData": 68,
-        "total": 172
+        "daysWithData": 69,
+        "total": 174
       },
       "deltaAvg": 0,
       "deltaPct": 0
@@ -152,14 +152,14 @@
       "label": "Argo (GDAC)",
       "source": "GDAC",
       "current": {
-        "avgPerDay": 501,
-        "daysWithData": 299,
-        "total": 149667
+        "avgPerDay": 500,
+        "daysWithData": 302,
+        "total": 151144
       },
       "previous": {
-        "avgPerDay": 494,
-        "daysWithData": 299,
-        "total": 147583
+        "avgPerDay": 493,
+        "daysWithData": 302,
+        "total": 149006
       },
       "deltaAvg": 7,
       "deltaPct": 1.4
@@ -170,16 +170,16 @@
       "source": "IOOS",
       "current": {
         "avgPerDay": 291,
-        "daysWithData": 297,
-        "total": 86514
+        "daysWithData": 298,
+        "total": 86713
       },
       "previous": {
-        "avgPerDay": 275,
-        "daysWithData": 299,
-        "total": 82247
+        "avgPerDay": 273,
+        "daysWithData": 302,
+        "total": 82549
       },
-      "deltaAvg": 16,
-      "deltaPct": 5.8
+      "deltaAvg": 18,
+      "deltaPct": 6.6
     },
     {
       "id": "soop-xbt",
@@ -187,13 +187,13 @@
       "source": "GTS MF",
       "current": {
         "avgPerDay": 17,
-        "daysWithData": 213,
-        "total": 3587
+        "daysWithData": 215,
+        "total": 3599
       },
       "previous": {
         "avgPerDay": 14,
-        "daysWithData": 230,
-        "total": 3256
+        "daysWithData": 231,
+        "total": 3262
       },
       "deltaAvg": 3,
       "deltaPct": 21.4
