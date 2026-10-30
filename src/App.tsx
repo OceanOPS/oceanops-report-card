@@ -2,35 +2,55 @@ import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import Preloader from './components/Preloader'
 import CoverModule from './components/CoverModule'
-import PartnerModal from './components/PartnerModal'
-import { partnerCountries } from './data/partnerCountries'
 import ImageGrid from './components/ImageGrid'
 import ContentModule from './components/ContentModule'
 import QuoteBlock from './components/QuoteBlock'
 import QuoteWithImage from './components/QuoteWithImage'
 import InsightPanel from './components/InsightPanel'
 import MapStatsPanel from './components/MapStatsPanel'
-import NetworkCarousel from './components/NetworkCarousel'
-import EmergingNetworkCarousel from './components/EmergingNetworkCarousel'
+// import ProgramShipMatrix from './components/ProgramShipMatrix'
+import OperationalPlatformDefinitionsModal from './components/OperationalPlatformDefinitionsModal'
+import InSituNetworksSection from './components/InSituNetworksSection'
+import { sortedInSituNetworks } from './data/inSituNetworks'
 import Spacer from './components/Spacer'
 import IconTable from './components/IconTable'
-import SpotifyEmbed from './components/SpotifyEmbed'
 import ImageCaption from './components/ImageCaption'
-import ImageGallery from './components/ImageGallery'
-import VideoModal from './components/VideoModal'
 import SatelliteTable from './components/SatelliteTable'
 import Button from './components/Button'
 import DataCardGrid from './components/DataCardGrid'
 import ContentBox from './components/ContentBox'
+import InsituNetworksLearnMore from './components/InsituNetworksLearnMore'
+import InsituObservingArraysSection from './components/InsituObservingArraysSection'
+import InsituReferenceObservatoriesSection from './components/InsituReferenceObservatoriesSection'
+import InsituRegionalEmergingSection from './components/InsituRegionalEmergingSection'
+import InsituAtmosphereLearnMore from './components/InsituAtmosphereLearnMore'
+import InsituGlobalCoverageSection from './components/InsituGlobalCoverageSection'
+import InsituUnlockingValueSection from './components/InsituUnlockingValueSection'
 import MenuSidebar from './components/MenuSidebar'
+
+const MAP_SRC =
+  import.meta.env.VITE_MAP_SRC ?? 'https://www.ocean-ops.org/demos/simple-arcgis-map/'
 import DeliveryAreasNav from './components/DeliveryAreasNav'
 import ColorStripes from './components/ColorStripes'
 import { asset } from './utils/assets'
+import { navigateToSection } from './utils/scrollToSection'
+import {
+  contributingCountries,
+  countriesDeltaVsLastYear,
+  LAST_REPORT_YEAR,
+  totalObservingPlatforms,
+  totalReferenceObservatories,
+} from './utils/partnerCountryStats'
+import { useEditionYoy } from './utils/editionYoy'
+import { CountriesYoyDetail } from './components/StatEvolutionDetail'
+
+const fmt = (n: number) => n.toLocaleString('en-US')
+const countryDeltaLabel = `${countriesDeltaVsLastYear >= 0 ? '+' : ''}${fmt(countriesDeltaVsLastYear)}`
 
 function App() {
   const { t } = useTranslation()
+  const { countriesYoy } = useEditionYoy()
   const [isLoading, setIsLoading] = useState(true)
-  const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
 
   // Indicators modal collapsible states
   const [expandedIndicators, setExpandedIndicators] = useState({
@@ -62,20 +82,26 @@ function App() {
 
   // Handle deep linking - scroll to section if hash is present in URL
   useEffect(() => {
-    const hash = window.location.hash.slice(1) // Remove the #
-    if (hash) {
-      // Delay to ensure DOM is fully rendered and page is ready
-      setTimeout(() => {
-        (window as any).isScrollingProgrammatically = true
-        const element = document.getElementById(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-        // Reset flag after scroll animation completes
+    const scrollToHash = (behavior: ScrollBehavior = 'smooth') => {
+      const hash = window.location.hash.slice(1)
+      if (!hash) return
+      ;(window as any).isScrollingProgrammatically = true
+      void navigateToSection(hash, { behavior }).finally(() => {
         setTimeout(() => {
-          (window as any).isScrollingProgrammatically = false
+          ;(window as any).isScrollingProgrammatically = false
         }, 1000)
-      }, 500)
+      })
+    }
+
+    // Delay initial scroll until layout is ready (overrides browser default anchor jump)
+    const initialTimer = setTimeout(() => scrollToHash('smooth'), 500)
+
+    const onHashChange = () => scrollToHash('smooth')
+    window.addEventListener('hashchange', onHashChange)
+
+    return () => {
+      clearTimeout(initialTimer)
+      window.removeEventListener('hashchange', onHashChange)
     }
   }, [])
 
@@ -86,17 +112,18 @@ function App() {
       'overview-section',
       'insitu-section',
       'stats-section',
+      'map-section',
       'networks-section',
       'satellite-section',
       'data-section',
-      'emerging-section',
       'value-section',
       'amoc-section',
       'elnino-section',
       'oceanhealth-section',
       'strengthening-section',
       'southafrica-section',
-      'ships-section',
+      'community-section',
+      'redwing-section',
       'calltoaction-section',
       'contact-section'
     ]
@@ -180,10 +207,9 @@ function App() {
             accentColor: 'bg-goos-orange-500',
             subItems: [
               { id: 'stats-section', titleKey: 'menu.networksByNumbers', accentColor: 'bg-goos-orange-500' },
-              { id: 'networks-section', titleKey: 'networks.title', accentColor: 'bg-goos-orange-500' },
-              { id: 'satellite-section', titleKey: 'satelliteObservations.title', accentColor: 'bg-goos-orange-500' },
-              { id: 'data-section', titleKey: 'dataBlock.title', accentColor: 'bg-goos-orange-500' },
-              { id: 'emerging-section', titleKey: 'emerging.title', accentColor: 'bg-goos-orange-500' },
+              { id: 'networks-section', titleKey: 'menu.matureEmergingNetworks', accentColor: 'bg-goos-orange-500' },
+              { id: 'satellite-section', titleKey: 'menu.satelliteObservationsMenu', accentColor: 'bg-goos-orange-500' },
+              { id: 'data-section', titleKey: 'menu.biologicalObservationsMenu', accentColor: 'bg-goos-orange-500' },
             ],
           },
           {
@@ -201,8 +227,15 @@ function App() {
             titleKey: 'strengtheningSystem.title',
             accentColor: 'bg-goos-green-700',
             subItems: [
-              { id: 'southafrica-section', titleKey: 'southAfrica.title', accentColor: 'bg-goos-green-700' },
-              { id: 'ships-section', titleKey: 'tenThousandShips.title', accentColor: 'bg-goos-green-700' },
+              { id: 'southafrica-section', titleKey: 'menu.strengtheningCountriesUnite', accentColor: 'bg-goos-green-700' },
+            ],
+          },
+          {
+            id: 'community-section',
+            titleKey: 'menu.communityCollaboration',
+            accentColor: 'bg-goos-green-700',
+            subItems: [
+              { id: 'redwing-section', titleKey: 'menu.redwingStory', accentColor: 'bg-goos-green-700' },
             ],
           },
           { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-500' },
@@ -212,14 +245,6 @@ function App() {
 
       {/* DeliveryAreasNav - Fixed navigation for Value of Ocean Observations sections */}
       <DeliveryAreasNav />
-
-      {/* Partner Modal Component - Outside z-10 context to appear above all */}
-      <PartnerModal
-        isOpen={isPartnerModalOpen}
-        onClose={() => setIsPartnerModalOpen(false)}
-        countries={partnerCountries}
-        showFlags={true}
-      />
 
       {/* Cover - Sticky container for parallax effect */}
       <div id="home" className="sticky top-0 h-screen">
@@ -295,73 +320,15 @@ function App() {
           dangerouslySetInnerHTML={{ __html: t('content.section1.paragraph1') }}
         />
 
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph2')}
-        </p>
-
-        <ImageCaption
-          src={asset("/images/intro1.webp")}
-          alt={t('content.section1.intro1ImageAlt')}
-          aspectRatio="video"
-          objectFit="cover"
-        />
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph3')}
-        </p>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph4a')}{' '}
-          <a
-            href="https://drive.google.com/file/d/1QgcsBXR3AImNOtGtH30SGwyx4gWkvLOP/view"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-goos-orange-500 underline hover:text-goos-orange-400 transition-colors"
-          >
-            OneArgo
-          </a>{' '}
-          {t('content.section1.paragraph4b')}
-        </p>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph5')}
-        </p>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph6')}
-        </p>
-
         <Spacer size="sm" />
 
-        <h4 className="text-lg sm:text-xl md:text-2xl font-extrabold text-goos-orange-500 leading-tight">
-          {t('content.section1.heading1')}
-        </h4>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph7')}
-        </p>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph8')}
-        </p>
-
-        <Spacer size="sm" />
-
-        <h4 className="text-lg sm:text-xl md:text-2xl font-extrabold text-goos-orange-500 leading-tight">
-          {t('content.section1.heading2')}
-        </h4>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph9')}
-        </p>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph10')}
-        </p>
-
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5]">
-          {t('content.section1.paragraph11')}
-        </p>
+        <InsituNetworksLearnMore />
+        <InsituObservingArraysSection />
+        <InsituReferenceObservatoriesSection />
+        <InsituRegionalEmergingSection />
+        <InsituGlobalCoverageSection />
+        <InsituUnlockingValueSection />
+        <InsituAtmosphereLearnMore />
       </ContentModule>
       </div>
 
@@ -372,8 +339,9 @@ function App() {
         quote={t('content.section1.quote.text')}
         authorName={t('content.section1.quote.authorName')}
         authorTitle={t('content.section1.quote.authorTitle')}
-        imageSrc={asset("/images/belbeoch.webp")}
-        imageAlt="M. Belbéoch"
+        imageSrc={asset('/images/report-2026/Arctic_sea_ice_N_Kolodziejczyk_UBO.jpeg')}
+        imageAlt={t('content.section1.quote.imageAlt')}
+        imageCaption={t('content.section1.quote.imageCaption')}
         height="fullscreen"
         imagePosition="left"
         backgroundColor="bg-goos-blue-800"
@@ -382,7 +350,7 @@ function App() {
       />
 <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
-      {/* Stats Grid - 4x1 */}
+      {/* Stats Grid — 4 metrics in 2×2 (observations/day kept in export pipeline only) */}
       <div id="stats-section">
         <InsightPanel
           title={t('content.section1.statsTitle')}
@@ -390,39 +358,60 @@ function App() {
           lineColor="bg-goos-orange-500"
           leftContent={
             <>
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4">
-                {t('content.section1.statsIntro')}
-              </p>
-              <p
-                className="text-base sm:text-lg md:text-xl leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: t('content.section1.statsIntro2') }}
-              />
+              <p>{t('content.section1.statsIntro')}</p>
+              <p>{t('content.section1.statsIntro2')}</p>
+              <p>{t('content.section1.statsIntro3')}</p>
+              <p>{t('content.section1.statsIntro4')}</p>
             </>
           }
+          statsLabelPosition="below"
           stats={[
             {
-              number: t('content.section1.stats.stat1.number'),
+              number: fmt(contributingCountries),
               description: t('content.section1.stats.stat1.description'),
+              evolution: t('content.section1.stats.stat1.evolutionVsLastYear', {
+                delta: countryDeltaLabel,
+                year: LAST_REPORT_YEAR,
+              }),
+              evolutionDirection: countriesDeltaVsLastYear >= 0 ? 'up' : 'down',
+              evolutionDetail:
+                !countriesYoy.baselineMissing &&
+                (countriesYoy.appeared.length > 0 || countriesYoy.disappeared.length > 0) ? (
+                  <CountriesYoyDetail data={countriesYoy} />
+                ) : undefined,
+            },
+            {
+              number: t('content.section1.stats.stat2.number'),
+              description: t('content.section1.stats.stat2.description'),
+              evolutionLines: [
+                t('content.section1.stats.stat2.evolutionLine1'),
+                t('content.section1.stats.stat2.evolutionLine2'),
+              ],
+              evolutionDirection: 'neutral',
+            },
+            {
+              number: fmt(totalObservingPlatforms),
+              description: t('content.section1.stats.stat3.description'),
               infoModal: {
-                title: t('content.section1.stats.stat1.infoModalTitle'),
+                title: t('content.section1.stats.stat3.infoModalTitle'),
                 content: (
                   <p className="text-sm sm:text-base text-goos-white leading-relaxed">
-                    {t('content.section1.stats.stat1.infoModalContent')}
+                    {t('content.section1.stats.stat3.infoModalContent')}
                   </p>
                 ),
               },
             },
             {
-              number: t('content.section1.stats.stat2.number'),
-              description: t('content.section1.stats.stat2.description'),
-            },
-            {
-              number: t('content.section1.stats.stat3.number'),
-              description: t('content.section1.stats.stat3.description'),
-            },
-            {
-              number: t('content.section1.stats.stat4.number'),
+              number: fmt(totalReferenceObservatories),
               description: t('content.section1.stats.stat4.description'),
+              infoModal: {
+                title: t('content.section1.stats.stat4.infoModalTitle'),
+                content: (
+                  <p className="text-sm sm:text-base text-goos-white leading-relaxed">
+                    {t('content.section1.stats.stat4.infoModalContent')}
+                  </p>
+                ),
+              },
             },
           ]}
           backgroundColor="bg-goos-blue-900"
@@ -433,18 +422,21 @@ function App() {
         />
       </div>
 
-      <div id="map-section">
-      {/* Interactive ArcGIS map - Full width */}
+      <Spacer size="lg" backgroundColor="bg-goos-blue-900" />
+
+      <div>
+      {/* Interactive ArcGIS map — anchor on iframe for centered deep links (#map-section) */}
       <MapStatsPanel
-        mapSrc="https://www.ocean-ops.org/demos/simple-arcgis-map/"
+        scrollAnchorId="map-section"
+        mapSrc={MAP_SRC}
         mapAlt={t('operationalPlatforms.mapAlt')}
         mapType="iframe"
-        mapHeight={600}
+        mapHeight="full"
         fullWidth={true}
         backgroundColor="bg-goos-blue-900"
       />
 
-      {/* Operational Platforms Definition Button */}
+      {/* Map legend button (below map) */}
       <div className="flex justify-center bg-goos-blue-900 pb-4 sm:pb-6 md:pb-8">
         <Button
           variant="modal"
@@ -452,377 +444,20 @@ function App() {
           modalTitle={t('operationalPlatforms.platformModal.title')}
           modalMaxWidth="lg"
           modalBackgroundColor="bg-goos-blue-900"
-          modalContent={
-            <div className="flex flex-col gap-4 sm:gap-6">
-              {/* Intro */}
-              <p className="text-base sm:text-lg leading-relaxed text-white">
-                {t('operationalPlatforms.platformModal.intro')}
-              </p>
-
-              {/* Ship-Based Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.shipBased.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.meteorological.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.oceanographic.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.shipBased.aerological.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.repeatedTransects.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.fishingVessels.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Fixed Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.fixedPlatforms.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.seaLevelGauges.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.timeSeriesSites.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.mooredBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.tsunamiBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.fixedPlatforms.hfRadars.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Mobile Platforms */}
-              <div>
-                <h3 className="text-base sm:text-lg text-goos-orange-500 mb-2 sm:mb-3 uppercase">
-                  {t('operationalPlatforms.platformModal.categories.mobilePlatforms.title')}
-                </h3>
-                <ul className="space-y-3 sm:space-y-4 list-disc pl-5 sm:pl-6">
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.driftingBuoys.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.profilingFloats.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.gliders.content')}
-                    </p>
-                  </li>
-                  <li className="text-white">
-                    <h4 className="text-base sm:text-lg font-semibold mb-1 text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.title')}
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-white">
-                      {t('operationalPlatforms.platformModal.categories.mobilePlatforms.animalBorne.content')}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          }
+          modalContent={<OperationalPlatformDefinitionsModal />}
           textColor="text-white"
           bgColor="bg-goos-orange-600"
           iconColor="text-goos-orange-600"
           iconBgColor="bg-white"
         />
       </div>
+
+      {/* Program × ship matrix — hidden for now */}
+      {/* <ProgramShipMatrix mapBaseUrl={MAP_SRC} /> */}
       </div>
 
-      {/* NetworkCarousel */}
-      <div id="networks-section">
-        <NetworkCarousel
-          title="networks.title"
-          hasLine={true}
-          lineColor="bg-goos-orange-500"
-        cards={[
-          {
-            iconSrc: asset('/icons/network/vos.svg'),
-            iconAlt: 'networks.sotVos.iconAlt',
-            titleKey: 'networks.sotVos.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#VOS',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 3,
-              realTime: 2.5,
-              archivedHighQuality: 2,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/xbt-soop.svg'),
-            iconAlt: 'networks.sotXbt.iconAlt',
-            titleKey: 'networks.sotXbt.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2,
-              realTime: 2.5,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/asap.svg'),
-            iconAlt: 'networks.sotAsap.iconAlt',
-            titleKey: 'networks.sotAsap.title',
-            networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: t('satelliteObservations.statuses.noTarget'),
-              realTime: 2.5,
-              archivedHighQuality: t('satelliteObservations.statuses.noArchive'),
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/go_ship.svg'),
-            iconAlt: 'networks.goShip.iconAlt',
-            titleKey: 'networks.goShip.title',
-            networkUrl: 'http://www.go-ship.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: t('satelliteObservations.statuses.notApplicable'),
-              archivedHighQuality: 2.5,
-              metadata: 1.5,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/gloss.svg'),
-            iconAlt: 'networks.gloss.iconAlt',
-            titleKey: 'networks.gloss.title',
-            networkUrl: 'https://gloss-sealevel.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2,
-              archivedHighQuality: 3,
-              metadata: 0.5,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/ocean_sites.svg'),
-            iconAlt: 'networks.oceanSites.iconAlt',
-            titleKey: 'networks.oceanSites.title',
-            networkUrl: 'https://www.ocean-ops.org/oceansites/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: t('satelliteObservations.statuses.notCoreMission'),
-              archivedHighQuality: 2.5,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/dbcp_moored.svg'),
-            iconAlt: 'networks.dbcpMoored.iconAlt',
-            titleKey: 'networks.dbcpMoored.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: t('satelliteObservations.statuses.noTarget'),
-              realTime: 2.5,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 2.5,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/tsunami_buoys.svg'),
-            iconAlt: 'networks.dbcpTsunami.iconAlt',
-            titleKey: 'networks.dbcpTsunami.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: 3,
-              archivedHighQuality: 3,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/hf_radar.svg'),
-            iconAlt: 'networks.hfRadar.iconAlt',
-            titleKey: 'networks.hfRadar.title',
-            networkUrl: 'http://global-hfradar.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2.5,
-              archivedHighQuality: 1.5,
-              metadata: 3,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/dbcp_drifters.svg'),
-            iconAlt: 'networks.dbcpDrifting.iconAlt',
-            titleKey: 'networks.dbcpDrifting.title',
-            networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 2.5,
-              realTime: 2.5,
-              archivedHighQuality: 2.5,
-              metadata: 2,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            iconSrc: asset('/icons/network/argo.svg'),
-            iconAlt: 'networks.argo.iconAlt',
-            titleKey: 'networks.argo.title',
-            networkUrl: 'https://argo.ucsd.edu/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 3,
-              realTime: 3,
-              archivedHighQuality: 3,
-              metadata: 3,
-              bestPractices: 3,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/ocean_gliders.svg'),
-            iconAlt: 'networks.gliders.iconAlt',
-            titleKey: 'networks.gliders.title',
-            networkUrl: 'https://www.oceangliders.org/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 1.5,
-              realTime: 2,
-              archivedHighQuality: 1.5,
-              metadata: 3,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-          {
-            iconSrc: asset('/icons/network/ani_bos.svg'),
-            iconAlt: 'networks.anibos.iconAlt',
-            titleKey: 'networks.anibos.title',
-            networkUrl: 'https://anibos.com/',
-            networkLinkKey: 'networks.viewNetwork',
-            ratings: {
-              implementationStatus: 0.5,
-              realTime: 1.5,
-              archivedHighQuality: 1.5,
-              metadata: 2,
-              bestPractices: 2,
-            },
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-        ]}
+      <InSituNetworksSection
+        networks={sortedInSituNetworks}
         backgroundColor="bg-goos-blue-900"
         titleColor="text-white"
         cardBackgroundColor="bg-goos-blue-800"
@@ -830,8 +465,9 @@ function App() {
         cardAccentColor="text-goos-orange-500"
         tooltipBgColor="text-goos-white"
         tooltipTextColor="bg-goos-blue-900"
+        arrowColor="#F0F0F0"
+        lineColor="bg-goos-orange-500"
       />
-      </div>
 
       {/* Indicators Definition Button */}
       <div className="flex justify-center bg-goos-blue-900">
@@ -899,9 +535,10 @@ function App() {
                     </a>){' '}
                     {t('networks.indicatorsModal.implementationStatus.kpiPart3')}
                   </p>
-                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
-                    {t('networks.indicatorsModal.implementationStatus.activityDefinition')}
-                  </p>
+                  <p
+                    className="text-sm sm:text-base leading-relaxed mb-2 text-white"
+                    dangerouslySetInnerHTML={{ __html: t('networks.indicatorsModal.implementationStatus.activityDefinition') }}
+                  />
                   <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
                     {t('networks.indicatorsModal.implementationStatus.noTargetNote')}
                   </p>
@@ -1117,15 +754,15 @@ function App() {
                   <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
                     {t('networks.indicatorsModal.bestPractices.detailsPart3')}
                   </p>
-                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
-                    {t('networks.indicatorsModal.bestPractices.scoringIntro')}
-                  </p>
                   <div className="bg-goos-blue-800 p-3 sm:p-4 rounded border border-goos-blue-700 mb-3">
                     <h4 className="text-base sm:text-lg font-semibold mb-2 text-white uppercase">
                       {t('satelliteObservations.scoringTitle')}
                     </h4>
-                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white">
+                    <p className="text-sm leading-relaxed whitespace-pre-line font-mono text-white mb-3">
                       {t('networks.indicatorsModal.bestPractices.scoring')}
+                    </p>
+                    <p className="text-sm sm:text-base leading-relaxed text-white border-t border-goos-blue-700 pt-3 italic">
+                      {t('networks.indicatorsModal.bestPractices.halfStarsNote')}
                     </p>
                   </div>
 
@@ -1189,13 +826,17 @@ function App() {
           title={t('dataBlock.title')}
         titleLevel="h3"
         titleColor="text-goos-white"
-        introductionKeys={[
-          'dataBlock.introduction.paragraph1'
-        ]}
         layout="split"
         backgroundColor="bg-goos-blue-900"
         textColor="text-goos-white"
       >
+        <p className="text-base sm:text-lg md:text-xl text-goos-white leading-relaxed mb-4">
+          {t('dataBlock.introduction.paragraph1')}
+        </p>
+        <p
+          className="text-base sm:text-lg md:text-xl text-goos-white leading-relaxed mb-6 sm:mb-8"
+          dangerouslySetInnerHTML={{ __html: t('dataBlock.introduction.paragraph2') }}
+        />
 
         <DataCardGrid
           cards={[
@@ -1289,124 +930,6 @@ function App() {
         </ContentModule>
       </div>
 
-      {/* EmergingNetworkCarousel - Emerging GOOS Networks */}
-      <div id="emerging-section">
-        <EmergingNetworkCarousel
-          title="emerging.title"
-          hasLine={true}
-          lineColor="bg-goos-orange-500"
-        cards={[
-          {
-            // FVON - First (Video)
-            mediaType: 'video',
-            videoType: 'local',
-            videoId: asset('/videos/fvon.mp4'),
-            previewImage: asset('/images/fvon.webp'),
-            imageAlt: 'emerging.fvon.imageAlt',
-            iconSrc: asset('/icons/network/fishing_vessels.svg'),
-            iconAlt: 'emerging.fvon.iconAlt',
-            titleKey: 'emerging.fvon.title',
-            paragraph1Key: 'emerging.fvon.paragraph1',
-            paragraph2Key: 'emerging.fvon.paragraph2',
-            externalLinkUrl: 'https://www.fvon.org/',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', `oceanhealth`],
-          },
-          {
-            // SMART Cables - Second (Video)
-            mediaType: 'video',
-            videoType: 'local',
-            videoId: asset('/videos/smart-cables.mp4'),
-            previewImage: asset('/images/smart_cables.webp'),
-            imageAlt: 'emerging.smartCables.imageAlt',
-            iconSrc: asset('/icons/network/smart_cables.svg'),
-            iconAlt: 'emerging.smartCables.iconAlt',
-            titleKey: 'emerging.smartCables.title',
-            paragraph1Key: 'emerging.smartCables.paragraph1',
-            paragraph2Key: 'emerging.smartCables.paragraph2',
-            externalLinkUrl: 'https://www.smartcables.org/',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational'],
-          },
-          {
-            // SOCONET - Third (Simple image - showing only first photo)
-            mediaType: 'image',
-            imageSrc: asset('/images/soconet.webp'),
-            imageAlt: 'emerging.soconet.imageAlt',
-            modalTitle: 'emerging.soconet.title',
-            modalContent: (
-              <div className="flex flex-col gap-5">
-                <img
-                  src={asset("/images/soconet.webp")}
-                  alt="SOCONET"
-                  className="w-full h-auto object-cover rounded"
-                />
-                <div className="flex flex-col gap-4 mt-4">
-                  <h3 className="text-2xl font-bold text-goos-orange-500">{t('emerging.soconet.title')}</h3>
-                  <p
-                    className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: t('emerging.soconet.paragraph1WithLink') }}
-                  />
-                  <p className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed">
-                    {t('emerging.soconet.paragraph2')}
-                  </p>
-                  {/* External Link Button */}
-                  <div className="flex">
-                    <Button
-                      variant="link"
-                      label={t('networks.viewNetwork')}
-                      url="https://www.ioccp.org/soconet"
-                      bgColor="bg-goos-orange-600"
-                      textColor="text-white"
-                      iconBgColor="bg-white"
-                      iconColor="text-goos-orange-600"
-                    />
-                  </div>
-                </div>
-              </div>
-            ),
-            iconSrc: asset('/icons/network/surface_ocean_co2.svg'),
-            iconAlt: 'emerging.soconet.iconAlt',
-            titleKey: 'emerging.soconet.title',
-            paragraph1Key: 'emerging.soconet.paragraph1WithLink',
-            paragraph2Key: 'emerging.soconet.paragraph2',
-            externalLinkUrl: 'https://www.ioccp.org/soconet',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'oceanhealth'],
-          },
-          {
-            // SUN Fleet - Fourth (Simple image)
-            mediaType: 'image',
-            imageSrc: asset('/images/sunfleet.webp'),
-            imageAlt: 'emerging.sunFleet.imageAlt',
-            iconSrc: asset('/icons/network/sun_fleet.svg'),
-            iconAlt: 'emerging.sunFleet.iconAlt',
-            titleKey: 'emerging.sunFleet.title',
-            paragraph1Key: 'emerging.sunFleet.paragraph1',
-            paragraph2Key: 'emerging.sunFleet.paragraph2',
-            externalLinkUrl: 'https://airseaobs.org/sun-fleet',
-            externalLinkTextKey: 'networks.viewNetwork',
-            deliveryAreasLabelKey: 'networks.deliveryAreasLabel',
-            deliveryAreas: ['climate', 'operational', 'oceanhealth'],
-          },
-        ]}
-        backgroundColor="bg-goos-blue-900"
-        titleColor="text-white"
-        cardBackgroundColor="bg-goos-blue-800"
-        cardTextColor="text-white"
-        buttonBgColor="bg-goos-blue-900"
-        buttonTextColor="text-white"
-        buttonIconBgColor="bg-goos-white"
-        buttonIconColor="text-goos-blue-700"
-        tooltipBgColor="text-goos-white"
-        tooltipTextColor="bg-goos-blue-900"
-        arrowColor="#F0F0F0"
-      />
-      </div>
-
         <Spacer size="md" backgroundColor="bg-goos-white"/>
 
       {/* Value of Ocean Observations */}
@@ -1443,67 +966,61 @@ function App() {
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary - Collapsible */}
-        <ContentBox
-          titleKey="amoc.quickSummary.title"
-          collapsible={true}
-          defaultCollapsed={true}
-          backgroundColor="bg-goos-white"
-          textColor="text-goos-gray-800"
-          titleColor="text-goos-blue-700"
-          buttonBgColor="bg-goos-white"
-           buttonTextColor="text-goos-blue-700"
-          buttonIconColor="text-goos-blue-700"
-          buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-cyan-600" 
-          buttonIconBorderColor = "border-goos-blue-600"
-          padding="p-6"
-          
-        >
-          <div className="space-y-3 sm:space-y-4">
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.climateStability') }} />
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.predictingFuture') }} />
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('amoc.quickSummary.globalPreparedness') }} />
-          </div>
-        </ContentBox>
-
-        <Spacer size="sm" />
-
         {/* Main paragraphs */}
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph1')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.leadParagraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.leadParagraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.leadParagraph3')}</p>
 
-        {/* Image - Climate 1 */}
-        <div className="-mx-4 sm:mx-0">
-          <ImageCaption
-            src={asset("/images/climate1.webp")}
-            alt="Climate observation"
-            caption=""
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.roleOfObservationsTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.roleParagraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.roleParagraph2')}</p>
+
+        {/* EOV Table */}
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.eovTable.title')}</h4>
+
+          <IconTable
+            columns={5}
+            headers={[t('amoc.eovTable.physicsTitle')]}
+            rows={[
+              [
+                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Bottom-pressure.png'), legend: 'Ocean bottom pressure', iconSize: 'w-16 h-16' },
+              ],
+            ]}
+            borderColor="border-goos-blue-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-blue-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-gray-800"
+          />
+
+          <Spacer size="sm" />
+
+          <IconTable
+            columns={4}
+            headers={[t('amoc.eovTable.biogeochemistryTitle')]}
+            rows={[
+              [
+                { icon: asset('/icons/biogeochemistry/Oxygen.png'), legend: 'Oxygen', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biogeochemistry/Inorganic-carbon.png'), legend: 'Inorganic carbon', iconSize: 'w-16 h-16' },
+              ],
+            ]}
+            borderColor="border-goos-orange-600"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-orange-600"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-orange-600"
           />
         </div>
 
-        <Spacer size="sm" />
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.sustainedObservationsParagraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('amoc.sustainedObservationsParagraph2') }} />
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.sustainedObservationsParagraph3')}</p>
 
-        {/* Observations & Benefits */}
-        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.observationsTitle')}</h3>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.paragraph3')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('amoc.paragraph4') }} />
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('amoc.paragraph5')}</p>
-
-        {/* Image 1 - AMOC time series */}
-        <div className="-mx-4 sm:mx-0">
-          <ImageCaption
-            src={asset("/images/climate2.webp")}
-            alt={t('amoc.imageCaption')}
-            caption={t('amoc.imageCaption')}
-            aspectRatio="auto"
-            objectFit="contain"
-          />
-        </div>
-
-        <Spacer size="sm" />
-
-        {/* Quote 1 */}
         <QuoteBlock
           variant="quote"
           quote={t('amoc.quote1.text')}
@@ -1514,11 +1031,27 @@ function App() {
           iconColor="fill-goos-cyan-600"
         />
 
-        <Spacer size="xs" />
+        <Spacer size="sm" />
 
-        {/* Learn More Content Box */}
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.whereObservationsComeFromTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.whereObservationsComeFromParagraph')}</p>
+
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src={asset('/images/report-2026/argo_dep_NP_2022_C_Lique_Ifremer.jpg')}
+            alt={t('amoc.polarArgoDeploymentCaption')}
+            caption={t('amoc.polarArgoDeploymentCaption')}
+          />
+        </div>
+
+        <Spacer size="sm" />
+
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.observingPlatformsParagraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.observingPlatformsParagraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8" dangerouslySetInnerHTML={{ __html: t('amoc.observingPlatformsParagraph3') }} />
+
         <ContentBox
-          titleKey="amoc.learnMore.title"
+          titleKey="amoc.learnMoreBeneathIce.title"
           backgroundColor="bg-goos-white"
           textColor="text-goos-blue-700"
           titleColor="text-goos-blue-700"
@@ -1531,99 +1064,54 @@ function App() {
           buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="mb-4 sm:mb-6">
-            <p className="text-base sm:text-lg leading-relaxed mb-3 sm:mb-4">
-              "{t('amoc.learnMore.content1')}
-            </p>
-            <p className="text-base sm:text-lg leading-relaxed">
-              {t('amoc.learnMore.content2')}"
-            </p>
-          </div>
-          <div className="border-goos-blue-700">
-            <p className="text-sm sm:text-base font-semibold text-goos-blue-700">
-              {t('amoc.learnMore.authorName')}
-            </p>
-            <p className="text-xs sm:text-sm opacity-90">
-              {t('amoc.learnMore.authorPosition')}
-            </p>
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-base sm:text-lg leading-relaxed">{t('amoc.learnMoreBeneathIce.paragraph1')}</p>
+            <p className="text-base sm:text-lg leading-relaxed">{t('amoc.learnMoreBeneathIce.paragraph2')}</p>
+            <p className="text-base sm:text-lg leading-relaxed">{t('amoc.learnMoreBeneathIce.paragraph3')}</p>
+            <p className="text-base sm:text-lg leading-relaxed">{t('amoc.learnMoreBeneathIce.paragraph4')}</p>
           </div>
         </ContentBox>
 
         <Spacer size="sm" />
 
-        {/* EOV Table */}
-        <div className="mb-4 sm:mb-6">
-          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.eovTable.title')}</h4>
-
-          {/* Physics Table */}
-          <IconTable
-            columns={4}
-            headers={[t('amoc.eovTable.physicsTitle')]}
-            rows={[
-              [
-                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Surface-currents.png'), legend: 'Surface currents', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-currents.png'), legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
-              ],
-              [
-                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Surface-height.png'), legend: 'Sea surface height', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Surface-heat-flux.png'), legend: 'Surface heat flux', iconSize: 'w-16 h-16' },
-              ]
-            ]}
-            borderColor="border-goos-blue-700"
-            headerBgColor="bg-goos-white"
-            headerTextColor="text-goos-blue-700"
-            rowBgColor="bg-goos-white"
-            rowTextColor="text-goos-gray-800"
+        <div className="-mx-4 sm:mx-0 space-y-4 sm:space-y-6">
+          <ImageCaption
+            src={asset('/images/report-2026/GOOS_argo_antarctic_option_B_panel_print.png')}
+            alt={t('amoc.polarArgoMapAntarcticAlt')}
+            aspectRatio="auto"
+            objectFit="contain"
           />
-
-          <Spacer size="sm" />
-
-          {/* Additional Variables Section */}
-           <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.eovTable.additionalTitle')}</h4>
-
-          {/* Biogeochemistry Table */}
-          <IconTable
-            columns={4}
-            headers={[t('amoc.eovTable.biogeochemistryTitle')]}
-            rows={[
-              [
-                { icon: asset('/icons/biogeochemistry/Oxygen.png'), legend: 'Oxygen', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/biogeochemistry/Inorganic-carbon.png'), legend: 'Inorganic carbon', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/biogeochemistry/Dissolved-organic-carbon.png'), legend: 'Dissolved organic carbon', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/biogeochemistry/Nutrients.png'), legend: 'Nutrients', iconSize: 'w-16 h-16' },
-              ]
-            ]}
-            borderColor="border-goos-orange-600"
-            headerBgColor="bg-goos-white"
-            headerTextColor="text-goos-orange-600"
-            rowBgColor="bg-goos-white"
-            rowTextColor="text-goos-orange-600"
+          <ImageCaption
+            src={asset('/images/report-2026/GOOS_argo_arctic_option_B_panel_print.png')}
+            alt={t('amoc.polarArgoMapArcticAlt')}
+            aspectRatio="auto"
+            objectFit="contain"
+            caption={t('amoc.polarArgoMapsCaption')}
           />
         </div>
 
-        {/* What's Next */}
+        <Spacer size="sm" />
+
         <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('amoc.whatsNext.title')}</h3>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.whatsNext.paragraph1')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('amoc.whatsNext.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('amoc.whatsNext.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('amoc.whatsNext.paragraph3')}</p>
       </ContentModule>
 
-      {/* Dr. Yao Fu Quote with Image */}
       <QuoteWithImage
         quote={t('amoc.quote2.text')}
         authorName={t('amoc.quote2.author')}
         authorTitle={t('amoc.quote2.position')}
-        imageSrc={asset("/images/yao.webp")}
-        imageAlt="Dr. Yao Fu"
-        height="fullscreen"
+        imageSrc={asset('/images/report-2026/IMG_7441_icebergs_Esmee_van_Wijk.jpeg')}
+        imageAlt={t('amoc.southernOceanIcebergsCaption')}
+        imageCaption={t('amoc.southernOceanIcebergsCaption')}
         imagePosition="left"
-        backgroundColor="bg-goos-cyan-200"
+        height="auto"
+        backgroundColor="bg-goos-cyan-100"
         quoteColor="text-goos-blue-700"
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
+        imageCaptionColor="text-goos-gray-700"
       />
       </div>
 
@@ -1640,48 +1128,66 @@ function App() {
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary - Collapsible */}
-        <ContentBox
-          titleKey="elNino.quickSummary.title"
-          collapsible={true}
-          defaultCollapsed={true}
-          backgroundColor="bg-goos-white"
-          textColor="text-goos-gray-800"
-          titleColor="text-goos-blue-700"
-          buttonBgColor="bg-goos-white"
-          buttonTextColor="text-goos-blue-700"
-          buttonIconColor="text-goos-blue-700"
-          buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-cyan-600"
-          buttonIconBorderColor="border-goos-blue-600"
-          padding="p-6"
-        >
-          <div className="space-y-3 sm:space-y-4">
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.betterForecasts') }} />
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.earlyWarnings') }} />
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('elNino.quickSummary.protectingLivelihoods') }} />
-          </div>
-        </ContentBox>
-
-        <Spacer size="sm" />
-
         {/* Main paragraphs */}
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.paragraph1')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.paragraph2')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('elNino.paragraph3')}</p>
 
-        {/* Image - Operational 1 */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src={asset("/images/operational1.webp")}
-            alt="Operational observation"
-            caption=""
+            src={asset('/images/report-2026/17225191402_8e5d270399_h.jpg')}
+            alt={t('elNino.tuvaluFloodingCaption')}
+            caption={t('elNino.tuvaluFloodingCaption')}
           />
         </div>
 
         <Spacer size="sm" />
 
-        {/* Quote 1 - Juan Miguel Quintana Arena */}
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.roleOfObservationsTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.roleParagraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8" dangerouslySetInnerHTML={{ __html: t('elNino.roleParagraph2') }} />
+
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src={asset('/images/report-2026/image (3).jfif')}
+            alt={t('elNino.tideCalendarsKiribatiCaption')}
+            caption={t('elNino.tideCalendarsKiribatiCaption')}
+          />
+        </div>
+
+        <Spacer size="sm" />
+
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.roleParagraph3')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('elNino.roleParagraph4')}</p>
+
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.eovTable.title')}</h4>
+          <IconTable
+            columns={4}
+            headers={[t('elNino.eovTable.physicsTitle')]}
+            rows={[
+              [
+                { icon: asset('/icons/physics/Surface-height.png'), legend: 'Sea surface height', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Sea-state.png'), legend: 'Sea state (waves)', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Bottom-pressure.png'), legend: 'Atmospheric pressure', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-stress.png'), legend: 'Wind', iconSize: 'w-16 h-16' },
+              ],
+            ]}
+            borderColor="border-goos-blue-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-blue-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-gray-800"
+          />
+        </div>
+
+        <Spacer size="sm" />
+
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.whereObservationsComeFromTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.whereObservationsParagraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.whereObservationsParagraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('elNino.whereObservationsParagraph3')}</p>
+
         <QuoteBlock
           variant="quote"
           quote={t('elNino.quote1.text')}
@@ -1694,35 +1200,8 @@ function App() {
 
         <Spacer size="sm" />
 
-        {/* Observations & Benefits */}
-        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.observationsTitle')}</h3>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.paragraph4')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('elNino.paragraph5')}</p>
-
-        {/* Gallery - Operational observations */}
-        <div className="-mx-4 sm:mx-0">
-          <ImageGallery
-            images={[
-              {
-                src: asset('/images/operational3.webp'),
-                alt: 'Operational observation 3',
-                caption: ''
-              }
-            ]}
-            aspectRatio="video"
-            objectFit="cover"
-            arrowColor="text-goos-white"
-            arrowBgColor="bg-goos-blue-700"
-            dotColor="bg-gray-200"
-            activeDotColor="bg-goos-blue-700"
-          />
-        </div>
-
-        <Spacer size="xs" />
-
-        {/* Learn More Content Box - Monica Alvarado Niño */}
         <ContentBox
-          titleKey="elNino.learnMore.title"
+          titleKey="elNino.learnMoreSatelliteSeaLevel.title"
           backgroundColor="bg-goos-white"
           textColor="text-goos-blue-700"
           titleColor="text-goos-blue-700"
@@ -1735,120 +1214,52 @@ function App() {
           buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="mb-6">
-            <p className="text-lg leading-relaxed mb-4">
-              "{t('elNino.learnMore.content1')}
-            </p>
-            <p className="text-lg leading-relaxed">
-              {t('elNino.learnMore.content2')}"
-            </p>
+          <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+            <p className="text-base sm:text-lg leading-relaxed">{t('elNino.learnMoreSatelliteSeaLevel.paragraph1')}</p>
+            <p className="text-base sm:text-lg leading-relaxed">{t('elNino.learnMoreSatelliteSeaLevel.paragraph2')}</p>
+            <p className="text-base sm:text-lg leading-relaxed">{t('elNino.learnMoreSatelliteSeaLevel.paragraph3')}</p>
           </div>
-          <div className="pt-4">
-            <p className="text-base font-semibold">
-              {t('elNino.learnMore.authorName')}
+          <div>
+            <p className="text-sm sm:text-base font-semibold text-goos-blue-700">
+              {t('elNino.learnMoreSatelliteSeaLevel.authorName')}
             </p>
-            <p className="text-sm opacity-90">
-              {t('elNino.learnMore.authorPosition')}
+            <p className="text-xs sm:text-sm opacity-90 text-goos-blue-700">
+              {t('elNino.learnMoreSatelliteSeaLevel.authorPosition')}
             </p>
           </div>
         </ContentBox>
 
         <Spacer size="sm" />
 
-        {/* Quote 2 - Albert Fischer */}
-        <QuoteBlock
-          variant="quote"
-          quote={t('elNino.quote2.text')}
-          authorName={t('elNino.quote2.author')}
-          authorTitle={t('elNino.quote2.position')}
-          quoteColor="text-goos-blue-700"
-          authorColor="text-goos-blue-700"
-          iconColor="fill-goos-cyan-600"
-        />
-
-        <Spacer size="sm" />
-
-        {/* Image - El Niño Forecast */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src={asset("/images/operational2.webp")}
-            alt={t('elNino.imageCaption')}
-          caption={t('elNino.imageCaption')}
-          aspectRatio="auto"
+            src={asset('/images/report-2026/20250929_121421.jpg')}
+            alt={t('elNino.honiaraSeaLevelStationCaption')}
+            caption={t('elNino.honiaraSeaLevelStationCaption')}
           />
         </div>
 
         <Spacer size="sm" />
 
-        {/* EOV Table */}
-        <div className="mb-4 sm:mb-6">
-          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.eovTable.title')}</h4>
-
-          {/* Physics Table */}
-          <IconTable
-            columns={4}
-            headers={[t('elNino.eovTable.physicsTitle')]}
-            rows={[
-              [
-                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Surface-currents.png'), legend: 'Surface currents', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-currents.png'), legend: 'Subsurface currents', iconSize: 'w-16 h-16' },
-              ],
-              [
-                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Surface-height.png'), legend: 'Sea surface height', iconSize: 'w-16 h-16' },
-                { icon: '', legend: '' },
-              ]
-            ]}
-            borderColor="border-goos-blue-700"
-            headerBgColor="bg-goos-white"
-            headerTextColor="text-goos-blue-700"
-            rowBgColor="bg-goos-white"
-            rowTextColor="text-goos-blue-700"
-          />
-
-          <Spacer size="sm" />
-
-          {/* Additional Variables Section */}
-          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.eovTable.additionalTitle')}</h4>
-
-          {/* Biology Table */}
-          <IconTable
-            columns={1}
-            headers={[t('elNino.eovTable.biologyTitle')]}
-            rows={[
-              [
-                { icon: asset('/icons/biology_and_ecosystems/Fish.png'), legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
-              ]
-            ]}
-            borderColor="border-goos-green-700"
-            headerBgColor="bg-goos-white"
-            headerTextColor="text-goos-green-700"
-            rowBgColor="bg-goos-white"
-            rowTextColor="text-goos-green-700"
-          />
-        </div>
-
-        {/* What's Next */}
         <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('elNino.whatsNext.title')}</h3>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('elNino.whatsNext.paragraph')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('elNino.whatsNext.paragraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8" dangerouslySetInnerHTML={{ __html: t('elNino.whatsNext.paragraph2') }} />
       </ContentModule>
 
-      {/* Monica Alvarado Niño Quote with Image */}
       <QuoteWithImage
-        quote={t('elNino.quote3.text')}
-        authorName={t('elNino.quote3.author')}
-        authorTitle={t('elNino.quote3.position')}
-        imageSrc={asset("/images/monica.webp")}
-        imageAlt="Monica Alvarado Niño"
-        height="fullscreen"
+        quote={t('elNino.quote2.text')}
+        authorName={t('elNino.quote2.author')}
+        authorTitle={t('elNino.quote2.position')}
+        imageSrc={asset('/images/report-2026/49131265961_6f98aaae6c_k.jpg')}
+        imageAlt={t('elNino.tongaCoastalProtectionCaption')}
+        imageCaption={t('elNino.tongaCoastalProtectionCaption')}
         imagePosition="left"
-        backgroundColor="bg-goos-cyan-200"
+        height="auto"
+        backgroundColor="bg-goos-cyan-100"
         quoteColor="text-goos-blue-700"
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
+        imageCaptionColor="text-goos-gray-700"
       />
       </div>
 
@@ -1865,76 +1276,106 @@ function App() {
         textColor="text-goos-gray-800"
         lineColor="bg-goos-cyan-600"
       >
-        {/* Quick Summary - Collapsible */}
-        <ContentBox
-          titleKey="oceanHealth.quickSummary.title"
-          collapsible={true}
-          defaultCollapsed={true}
-          backgroundColor="bg-goos-white"
-          textColor="text-goos-gray-800"
-          titleColor="text-goos-blue-700"
-          buttonBgColor="bg-goos-white"
-          buttonTextColor="text-goos-blue-700"
-          buttonIconColor="text-goos-blue-700"
-          buttonIconBgColor="bg-goos-white"
-          buttonLeftBorderColor="border-goos-cyan-600"
-          buttonIconBorderColor="border-goos-blue-600"
-          padding="p-6"
-        >
-          <div className="space-y-3 sm:space-y-4">
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.realTimeInsights') }} />
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.conservation') }} />
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t('oceanHealth.quickSummary.globalCollaboration') }} />
-          </div>
-        </ContentBox>
-
-        <Spacer size="sm" />
-
         {/* Main paragraphs */}
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.paragraph1')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.paragraph2')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('oceanHealth.paragraph3')}</p>
 
-        {/* Gallery - Ocean Health observations */}
-        <div className="-mx-4 sm:mx-0">
-          <ImageGallery
-            images={[
-              {
-                src: asset('/images/oh1.webp'),
-                alt: 'Ocean health observation 1',
-                caption: ''
-              }
-            ]}
-            aspectRatio="square"
-            objectFit="cover"
-            arrowColor="text-goos-white"
-            arrowBgColor="bg-goos-blue-700"
-            dotColor="bg-gray-200"
-            activeDotColor="bg-goos-blue-700"
-          />
-        </div>
-
-        <Spacer size="xs" />
-
-        {/* Observations & Benefits */}
-        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.observationsTitle')}</h3>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.paragraph4')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('oceanHealth.paragraph5')}</p>
-
-        {/* Image - Seal foraging trips */}
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src={asset("/images/imos_anim_230624.gif")}
-            alt={t('oceanHealth.imageCaption')}
-          caption={t('oceanHealth.imageCaption')}
-          aspectRatio="auto"
-          objectFit="cover"
+            src={asset('/images/report-2026/GCRMN 2025 report figure.png')}
+            alt={t('oceanHealth.gcrmn2025ReportCaption')}
+            caption={t('oceanHealth.gcrmn2025ReportCaption')}
+            aspectRatio="auto"
+            objectFit="contain"
           />
         </div>
 
         <Spacer size="sm" />
 
-        {/* Quote 1 - Dr. Clive McMahon */}
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.roleOfObservationsTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.roleParagraph1')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('oceanHealth.roleParagraph2')}</p>
+
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.eovTable.title')}</h4>
+
+          <IconTable
+            columns={3}
+            headers={[t('oceanHealth.eovTable.biologyTitle')]}
+            rows={[
+              [
+                { icon: asset('/icons/biology_and_ecosystems/Hard-coral.png'), legend: 'Hard coral', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biology_and_ecosystems/Macroalgae.png'), legend: 'Algae', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biology_and_ecosystems/Fish.png'), legend: 'Fish', iconSize: 'w-16 h-16' },
+              ],
+            ]}
+            borderColor="border-goos-green-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-green-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-green-700"
+          />
+
+          <Spacer size="sm" />
+
+          <IconTable
+            columns={3}
+            headers={[t('oceanHealth.eovTable.physicsTitle')]}
+            rows={[
+              [
+                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Bottom-pressure.png'), legend: 'Ocean bottom pressure', iconSize: 'w-16 h-16' },
+              ],
+            ]}
+            borderColor="border-goos-blue-700"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-blue-700"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-gray-800"
+          />
+
+          <Spacer size="sm" />
+
+          <IconTable
+            columns={4}
+            headers={[t('oceanHealth.eovTable.biogeochemistryTitle')]}
+            rows={[
+              [
+                { icon: asset('/icons/biogeochemistry/Inorganic-carbon.png'), legend: 'Inorganic carbon', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/biogeochemistry/Oxygen.png'), legend: 'Oxygen', iconSize: 'w-16 h-16' },
+              ],
+            ]}
+            borderColor="border-goos-orange-600"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-orange-600"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-orange-600"
+          />
+
+          <Spacer size="sm" />
+
+          <IconTable
+            columns={4}
+            headers={[t('oceanHealth.eovTable.crossDisciplinaryTitle')]}
+            rows={[
+              [
+                { icon: asset('/icons/cross_disciplinary/Ocean-colour.png'), legend: 'Ocean colour', iconSize: 'w-16 h-16' },
+              ],
+            ]}
+            borderColor="border-goos-blue-900"
+            headerBgColor="bg-goos-white"
+            headerTextColor="text-goos-blue-900"
+            rowBgColor="bg-goos-white"
+            rowTextColor="text-goos-blue-900"
+          />
+        </div>
+
+        <Spacer size="sm" />
+
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('oceanHealth.informingDecisionsParagraph')}</p>
+
         <QuoteBlock
           variant="quote"
           quote={t('oceanHealth.quote1.text')}
@@ -1947,59 +1388,16 @@ function App() {
 
         <Spacer size="sm" />
 
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('oceanHealth.paragraph6')}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.whereObservationsComeFromTitle')}</h3>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('oceanHealth.whereObservationsParagraph1') }} />
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.whereObservationsParagraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('oceanHealth.whereObservationsParagraph3')}</p>
 
-        {/* EOV Table */}
-        <div className="mb-4 sm:mb-6">
-          <h4 className="text-lg sm:text-xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.eovTable.title')}</h4>
-
-          {/* Biology and Ecosystems Table */}
-          <IconTable
-            columns={4}
-            headers={[t('oceanHealth.eovTable.biologyTitle')]}
-            rows={[
-              [
-                { icon: asset('/icons/biology_and_ecosystems/Marine-mammals.png'), legend: 'Marine mammal abundance and distribution', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/biology_and_ecosystems/Sea-turtles.png'), legend: 'Sea turtle abundance and distribution', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/biology_and_ecosystems/Seabirds.png'), legend: 'Seabird abundance and distribution', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/biology_and_ecosystems/Fish.png'), legend: 'Fish abundance and distribution', iconSize: 'w-16 h-16' },
-              ]
-            ]}
-            borderColor="border-goos-green-700"
-            headerBgColor="bg-goos-white"
-            headerTextColor="text-goos-green-700"
-            rowBgColor="bg-goos-white"
-            rowTextColor="text-goos-green-700"
-          />
-
-          <Spacer size="sm" />
-
-          {/* Physics Table */}
-          <IconTable
-            columns={4}
-            headers={[t('oceanHealth.eovTable.physicsTitle')]}
-            rows={[
-              [
-                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
-              ]
-            ]}
-            borderColor="border-goos-blue-700"
-            headerBgColor="bg-goos-white"
-            headerTextColor="text-goos-blue-700"
-            rowBgColor="bg-goos-white"
-            rowTextColor="text-goos-blue-700"
-          />
-        </div>
-
-        {/* Learn More Content Box */}
         <ContentBox
-          titleKey="oceanHealth.learnMore.title"
+          titleKey="oceanHealth.learnMoreAiCoralMonitoring.title"
           backgroundColor="bg-goos-white"
           textColor="text-goos-blue-700"
-          titleColor="text-goos-white"
+          titleColor="text-goos-blue-700"
           collapsible={true}
           defaultCollapsed={true}
           buttonBgColor="bg-goos-white"
@@ -2009,67 +1407,45 @@ function App() {
           buttonLeftBorderColor="border-goos-cyan-600"
           buttonIconBorderColor="border-goos-blue-600"
         >
-          <div className="mb-6">
-            <p className="text-lg leading-relaxed mb-4">
-              "{t('oceanHealth.learnMore.content1')}
-            </p>
-            <p className="text-lg leading-relaxed">
-              {t('oceanHealth.learnMore.content2')}"
-            </p>
-          </div>
-          <div className="pt-4">
-            <p className="text-base font-semibold">
-              {t('oceanHealth.learnMore.authorName')}
-            </p>
-            <p className="text-sm opacity-90">
-              {t('oceanHealth.learnMore.authorPosition')}
-            </p>
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-base sm:text-lg leading-relaxed">{t('oceanHealth.learnMoreAiCoralMonitoring.paragraph1')}</p>
+            <p className="text-base sm:text-lg leading-relaxed">{t('oceanHealth.learnMoreAiCoralMonitoring.paragraph2')}</p>
+            <p className="text-base sm:text-lg leading-relaxed">{t('oceanHealth.learnMoreAiCoralMonitoring.paragraph3')}</p>
           </div>
         </ContentBox>
 
         <Spacer size="sm" />
 
-        {/* What's Next */}
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src={asset('/images/report-2026/Coral.PNG')}
+            alt={t('oceanHealth.diverCoralStJohnCaption')}
+            caption={t('oceanHealth.diverCoralStJohnCaption')}
+          />
+        </div>
+
+        <Spacer size="sm" />
+
         <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.whatsNext.title')}</h3>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.whatsNext.paragraph1')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.whatsNext.paragraph2')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">{t('oceanHealth.whatsNext.paragraph3')}</p>
-
-        <Spacer size="sm" />
-
-        {/* Learn More Podcast Content Box */}
-        <ContentBox
-          titleKey="oceanHealth.podcastBox.title"
-          backgroundColor="bg-goos-cyan-700"
-          textColor="text-white"
-          titleColor="text-white"
-        >
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
-            {t('oceanHealth.podcastBox.content')}
-          </p>
-
-          {/* Spotify Podcast Embed */}
-          <SpotifyEmbed
-            spotifyId="https://open.spotify.com/episode/7brfq0OYXFWUoILZJaqaSA?si=09ea24d816c44d45"
-            type="episode"
-            height={252}
-          />
-        </ContentBox>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('oceanHealth.whatsNext.paragraph3')}</p>
       </ContentModule>
 
-      {/* Dr. Clive McMahon Quote with Image */}
       <QuoteWithImage
         quote={t('oceanHealth.quote2.text')}
         authorName={t('oceanHealth.quote2.author')}
         authorTitle={t('oceanHealth.quote2.position')}
-        imageSrc={asset("/images/clive.webp")}
-        imageAlt="Dr. Clive McMahon"
-        height="fullscreen"
+        imageSrc={asset('/images/report-2026/NCRMP2025-USVI-Survey-Transect-Krampitz.jpg')}
+        imageAlt={t('oceanHealth.usviBenthicSurveyCaption')}
+        imageCaption={t('oceanHealth.usviBenthicSurveyCaption')}
         imagePosition="left"
-        backgroundColor="bg-goos-cyan-200"
+        height="auto"
+        backgroundColor="bg-goos-cyan-100"
         quoteColor="text-goos-blue-700"
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
+        imageCaptionColor="text-goos-gray-700"
       />
       </div>
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
@@ -2109,15 +1485,57 @@ function App() {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph1')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph2')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph3')}</p>
+
+        <ContentBox
+          titleKey="southAfrica.allianceMembers.title"
+          backgroundColor="bg-goos-white"
+          textColor="text-goos-blue-700"
+          titleColor="text-goos-blue-700"
+          collapsible={true}
+          defaultCollapsed={true}
+          buttonBgColor="bg-goos-white"
+          buttonTextColor="text-goos-blue-700"
+          buttonIconColor="text-goos-blue-700"
+          buttonIconBgColor="bg-goos-white"
+          buttonLeftBorderColor="border-goos-green-700"
+          buttonIconBorderColor="border-goos-blue-600"
+        >
+          <p className="text-base sm:text-lg leading-relaxed">{t('southAfrica.allianceMembers.content')}</p>
+        </ContentBox>
+
+        <Spacer size="sm" />
+
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph4')}</p>
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('southAfrica.paragraph5')}</p>
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">{t('southAfrica.paragraph5')}</p>
+
+        <QuoteBlock
+          variant="quote"
+          quote={t('southAfrica.quote1.text')}
+          authorName={t('southAfrica.quote1.author')}
+          authorTitle={t('southAfrica.quote1.position')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-cyan-600"
+        />
+
+        <Spacer size="sm" />
+
+        <QuoteBlock
+          variant="quote"
+          quote={t('southAfrica.quote2.text')}
+          authorName={t('southAfrica.quote2.author')}
+          authorTitle={t('southAfrica.quote2.position')}
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-cyan-600"
+        />
       </ContentModule>
 
        <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
-       {/* Single Image */}
         <ImageCaption
-          src={asset("/images/sa1.webp")}
-          alt="South Africa observation"
+          src={asset('/images/report-2026/DSC05486_websize.jpg')}
+          alt={t('southAfrica.oceanEyeLaunchCaption')}
+          caption={t('southAfrica.oceanEyeLaunchCaption')}
           aspectRatio="video"
           objectFit="cover"
         />
@@ -2128,47 +1546,78 @@ function App() {
 
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
-      {/* 10,000 Ships for the Ocean Initiative */}
-      <div id="ships-section">
-      <ContentModule
-        title={t('tenThousandShips.title')}
-        titleLevel="h3"
-        // introduction={t('tenThousandShips.contributors')}
-        layout="split"
-        backgroundColor="bg-goos-green-100"
-        titleColor="text-goos-blue-700"
-        textColor="text-goos-gray-800"
-        lineColor="bg-goos-green-700"
-        button={{
-          type: 'link',
-          label: t('tenThousandShips.buttonLabel'),
-          url: 'https://10000ships.org',
-          textColor: 'text-white',
-          bgColor: 'bg-goos-green-700',
-        }}
-      >
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph1') }} />
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('tenThousandShips.paragraph2')}</p>
-        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed mb-3 sm:mb-4 text-goos-green-700 font-roboto-condensed font-normal" dangerouslySetInnerHTML={{ __html: t('tenThousandShips.paragraph3') }} />
-      </ContentModule>
+      {/* Community collaboration — Redwing (2026) */}
+      <div id="community-section" className="bg-goos-green-100">
+        <div id="redwing-section">
+          <ContentModule
+            title={t('communityCollaboration.title')}
+            titleLevel="h2"
+            titleColor="text-goos-blue-700"
+            layout="split"
+            backgroundColor="bg-goos-green-100"
+            textColor="text-goos-gray-800"
+            lineColor="bg-goos-green-700"
+            stickyTitle={false}
+          >
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
+              {t('communityCollaboration.leadParagraph')}
+            </p>
 
- <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-green-100">
-        {/* Video - 10,000 Ships */}
-        <VideoModal
-          videoType="local"
-          videoId={asset("/videos/10k-ships.mp4")}
-          previewImage={asset("/images/10k.webp")}
-          previewAlt="10,000 Ships for the Ocean"
-          aspectRatio="video"
+            <div className="mb-3 sm:mb-4">
+              <div className="bg-goos-green-700 h-1 w-12 sm:w-16 mb-3 sm:mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700">
+                {t('redwing.title')}
+              </h3>
+            </div>
+
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph2')}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
+              {t('redwing.paragraph3')}
+            </p>
+
+            <div className="-mx-4 sm:mx-0 mb-4 sm:mb-6">
+              <ImageCaption
+                src={asset('/images/report-2026/story_map_glider recovery_Joe Gradone_Rutgers University.png')}
+                alt={t('redwing.recoveryMapAlt')}
+                caption={t('redwing.recoveryMapCaption')}
+                aspectRatio="auto"
+                objectFit="contain"
+              />
+            </div>
+
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph4')}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph5')}
+            </p>
+            <p
+              className="text-base sm:text-lg md:text-xl leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: t('redwing.readFullStory') }}
+            />
+          </ContentModule>
+        </div>
+
+        <QuoteWithImage
+          quote={t('redwing.quote.text')}
+          authorName={t('redwing.quote.author')}
+          authorTitle={t('redwing.quote.position')}
+          imageSrc={asset('/images/report-2026/IMG-20260519-WA0006.jpg')}
+          imageAlt={t('redwing.quote.imageAlt')}
+          imageCaption={t('redwing.quote.imageCaption')}
+          imagePosition="left"
+          height="auto"
+          backgroundColor="bg-goos-green-100"
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-green-700"
+          imageCaptionColor="text-goos-gray-700"
         />
       </div>
-      </div>
-      <div className="hidden sm:block">
-        <Spacer size="md" backgroundColor="bg-goos-green-100"/>
-      </div>
-      <div className="hidden sm:block">
-        <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
-      </div>
+
+      <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
       {/* Call to Action */}
       <div id="calltoaction-section">
@@ -2181,62 +1630,69 @@ function App() {
         textColor="text-goos-white"
         lineColor="bg-goos-orange-500"
       >
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph1')}</p>
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph2')}</p>
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-4 sm:mb-6">
+          {t('callToAction.paragraph1')}
+        </p>
+
         <QuoteBlock
-          quote={t('callToAction.quote')}
-          authorName={t('callToAction.quoteAuthor')}
-          authorTitle={t('callToAction.quotePosition')}
-          quoteColor="text-goos-white"
-          authorColor="text-goos-orange-500"
+          quote={t('callToAction.celesteQuote')}
+          quoteColor="text-goos-gray-300"
+          iconColor="fill-goos-gray-500"
+          className="mb-4 sm:mb-6 italic"
         />
 
-              {/* Spacer */}
-      <Spacer size="sm" backgroundColor="bg-goos-blue-900"/>
+        <QuoteBlock
+          quote={t('callToAction.quoteVidar.text')}
+          authorName={t('callToAction.quoteVidar.author')}
+          authorTitle={t('callToAction.quoteVidar.position')}
+          quoteColor="text-goos-white"
+          authorColor="text-goos-orange-500"
+          className="mb-4 sm:mb-6"
+        />
 
-        {/* Number and description in same line */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-start sm:items-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
-          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">64</p>
-          <p className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-goos-white font-roboto-condensed font-normal leading-[1.3] flex-1">{t('callToAction.memberStatesText')}</p>
-        </div>
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-4 sm:mb-6">
+          {t('callToAction.paragraph2')}
+        </p>
 
-        {/* Button below */}
-        <div className="mb-6 sm:mb-8">
-          <Button
-            variant="action"
-            label={t('partners.viewFullListButton')}
-            onClick={() => setIsPartnerModalOpen(true)}
-            textColor="text-white"
-            bgColor="bg-goos-blue-700"
-          />
-        </div>
+        <QuoteBlock
+          quote={t('callToAction.quoteJoanna.text')}
+          authorName={t('callToAction.quoteJoanna.author')}
+          authorTitle={t('callToAction.quoteJoanna.position')}
+          quoteColor="text-goos-white"
+          authorColor="text-goos-orange-500"
+          className="mb-4 sm:mb-6"
+        />
 
-        {/* Acknowledgment text */}
-        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
+        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal mt-4 sm:mt-6">
           {t('callToAction.acknowledgmentText')}
         </p>
       </ContentModule>
       </div>
 
-      <Spacer size="xl" backgroundColor="bg-goos-blue-900"/>
-      {/* Hero Image Grid */}
+      {/* Community in action — above Contacts */}
       <ImageGrid
         images={[
           {
-            src: asset('/images/content.webp'),
-            alt: t('hero.images.image1'),
+            src: asset('/images/report-2026/TAO-service_NOAA.jpg'),
+            alt: t('contact.communityPhotoAlt1'),
           },
           {
-            src: asset('/images/content2.webp'),
-            alt: t('hero.images.image2'),
+            src: asset('/images/report-2026/PHOTO-2026-02-11-20-10-35.jpg'),
+            alt: t('contact.communityPhotoAlt2'),
           },
           {
-            src: asset('/images/content3.webp'),
-            alt: t('hero.images.image3'),
+            src: asset('/images/report-2026/Lesbats-Stephane-2025-Ifremer.jpg'),
+            alt: t('contact.communityPhotoAlt3'),
           },
         ]}
         columns={3}
+        backgroundColor="bg-goos-blue-900"
       />
+      <div className="bg-goos-blue-900 px-4 sm:px-8 md:px-12 lg:px-16 pb-8 sm:pb-10 md:pb-12">
+        <p className="text-sm sm:text-base md:text-lg text-goos-gray-300 leading-relaxed w-full">
+          {t('contact.communityInActionCaption')}
+        </p>
+      </div>
 
       {/* Contact Information */}
       <div id="contact-section">
@@ -2249,11 +1705,25 @@ function App() {
         textColor="text-goos-white"
         hasLine={false}
       >
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }} />
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }} />
-        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('contact.paragraph3')}</p>
-        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }} />
-        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph5') }} />
+        <p
+          className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-4 sm:mb-5"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }}
+        />
+        <p
+          className="text-sm sm:text-base font-normal text-goos-white leading-snug mb-3 sm:mb-4"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }}
+        />
+        <p className="text-sm sm:text-base font-normal text-goos-white leading-snug mb-3 sm:mb-4">
+          {t('contact.paragraph3')}
+        </p>
+        <p
+          className="text-sm sm:text-base font-normal text-goos-white leading-snug mb-3 sm:mb-4"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }}
+        />
+        <p
+          className="text-sm sm:text-base font-normal text-goos-white leading-snug"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph5') }}
+        />
       </ContentModule>
       </div>
 
