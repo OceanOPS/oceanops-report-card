@@ -1,11 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import Spacer from './Spacer'
+import { insituBodyClass } from './insituProseClasses'
 
 const ONE_ARGO_URL =
   'https://drive.google.com/file/d/1QgcsBXR3AImNOtGtH30SGwyx4gWkvLOP/view'
-
-const bodyClass =
-  'text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4'
 
 /** Orange-headed prose block after the in situ “Learn more” accordion (2026 editorial). */
 export default function InsituObservingArraysSection() {
@@ -14,15 +12,15 @@ export default function InsituObservingArraysSection() {
 
   return (
     <>
-      <Spacer size="sm" />
+      <Spacer size="xs" />
 
       <h3 className="text-xl sm:text-2xl font-bold text-goos-orange-500 mb-3 sm:mb-4">
         {t(`${base}.title`)}
       </h3>
 
-      <p className={bodyClass}>{t(`${base}.paragraph1`)}</p>
+      <p className={insituBodyClass}>{t(`${base}.paragraph1`)}</p>
 
-      <p className={bodyClass}>
+      <p className={insituBodyClass}>
         {t(`${base}.paragraph2a`)}{' '}
         <a
           href={ONE_ARGO_URL}
@@ -35,12 +33,12 @@ export default function InsituObservingArraysSection() {
         {t(`${base}.paragraph2b`)}
       </p>
 
-      <p className={bodyClass}>{t(`${base}.paragraph3`)}</p>
-      <p className={bodyClass}>{t(`${base}.paragraph4`)}</p>
-      <p className={bodyClass}>{t(`${base}.paragraph5`)}</p>
-      <p className={bodyClass}>{t(`${base}.paragraph6`)}</p>
+      <p className={insituBodyClass}>{t(`${base}.paragraph3`)}</p>
+      <p className={insituBodyClass}>{t(`${base}.paragraph4`)}</p>
+      <p className={insituBodyClass}>{t(`${base}.paragraph5`)}</p>
+      <p className={insituBodyClass}>{t(`${base}.paragraph6`)}</p>
       <p
-        className={bodyClass}
+        className={insituBodyClass}
         dangerouslySetInnerHTML={{ __html: t(`${base}.paragraph7`) }}
       />
     </>

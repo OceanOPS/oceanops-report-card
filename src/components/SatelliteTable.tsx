@@ -265,9 +265,12 @@ export default function SatelliteTable() {
                       expandedVariables[key] ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    <p className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line">
-                      {t(`satelliteObservations.platformModal.variables.${localeKey}.detailedContent`)}
-                    </p>
+                    <div
+                      className="text-sm sm:text-base leading-relaxed mb-3 text-white whitespace-pre-line"
+                      dangerouslySetInnerHTML={{
+                        __html: t(`satelliteObservations.platformModal.variables.${localeKey}.detailedContent`),
+                      }}
+                    />
                     <p className="text-xs sm:text-sm italic text-white mb-3">
                       {t(`satelliteObservations.platformModal.variables.${localeKey}.author`)}
                     </p>

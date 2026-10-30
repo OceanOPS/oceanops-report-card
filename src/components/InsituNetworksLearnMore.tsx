@@ -6,6 +6,7 @@ import {
   totalObservingPlatforms,
   totalReferenceObservatories,
 } from '../utils/partnerCountryStats'
+import { insituProseParagraphClass } from './insituProseClasses'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 
@@ -27,7 +28,7 @@ function LearnMoreNetworkList({
 
   return (
     <>
-      <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+      <p className={insituProseParagraphClass}>
         {t(theyIncludeKey)}{' '}
         {!expanded && (
           <button
@@ -51,7 +52,7 @@ function LearnMoreNetworkList({
           ))}
         </ul>
         <p
-          className="text-base sm:text-lg md:text-xl leading-relaxed mb-2"
+          className={insituProseParagraphClass}
           dangerouslySetInnerHTML={{ __html: t(summaryKey, summaryVars) }}
         />
         <button
@@ -89,12 +90,12 @@ export default function InsituNetworksLearnMore() {
       padding="p-6"
     >
       <p
-        className="text-base sm:text-lg md:text-xl leading-relaxed italic"
+        className={`${insituProseParagraphClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.intro`) }}
       />
 
       <p
-        className="text-base sm:text-lg md:text-xl leading-relaxed"
+        className={`${insituProseParagraphClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.globalArrays.description`) }}
       />
 
@@ -113,7 +114,7 @@ export default function InsituNetworksLearnMore() {
       <Spacer size="xs" />
 
       <p
-        className="text-base sm:text-lg md:text-xl leading-relaxed"
+        className={`${insituProseParagraphClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.referenceObservatories.description`) }}
       />
 
@@ -133,7 +134,7 @@ export default function InsituNetworksLearnMore() {
       <Spacer size="xs" />
 
       <p
-        className="text-base sm:text-lg md:text-xl leading-relaxed"
+        className={`${insituProseParagraphClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.regionalSystems.description`) }}
       />
 

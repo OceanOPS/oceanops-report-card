@@ -119,9 +119,17 @@ export default function QuoteWithImage({
   // Use translation for default logoAlt
   const altText = logoAlt || t('common.logo')
 
+  const imageColumnClass =
+    imagePosition === 'left' ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-2 lg:row-start-1'
+  const quoteColumnClass = imageSrc
+    ? imagePosition === 'left'
+      ? 'lg:col-start-2 lg:row-start-1'
+      : 'lg:col-start-1 lg:row-start-1'
+    : 'lg:col-span-2'
+
   // Image section - 50% width (only if imageSrc is provided)
   const imageSection = imageSrc ? (
-    <div className="w-full lg:w-1/2 flex flex-col">
+    <div className={`w-full flex flex-col ${imageColumnClass}`}>
       <div className="relative aspect-square max-h-[60vh] lg:max-h-none lg:flex-1 lg:min-h-[280px]">
         <img
           src={imageSrc}
@@ -139,7 +147,9 @@ export default function QuoteWithImage({
 
   // Quote content section - 50% width with image, full width without image
   const quoteSection = (
-    <div className={`${imageSrc ? 'w-full lg:w-1/2' : 'w-full'} ${backgroundColor} flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 ${height === 'fullscreen' && imageSrc ? 'lg:min-h-screen' : ''}`}>
+    <div
+      className={`w-full ${quoteColumnClass} ${backgroundColor} flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 ${height === 'fullscreen' && imageSrc ? 'lg:min-h-screen' : ''}`}
+    >
       <div className="flex flex-col gap-4 sm:gap-5 max-w-[830px]">
         {/* Quote Icon */}
         {showIcon && (
@@ -179,10 +189,11 @@ export default function QuoteWithImage({
 
   return (
     <section className={`${backgroundColor} ${height === 'fullscreen' ? 'sm:min-h-screen' : ''} ${className}`}>
-      <div className={`flex w-full ${height === 'fullscreen' ? 'sm:h-screen lg:h-screen' : heightClass} flex-col lg:flex-row`}>
-        {imageSrc && imagePosition === 'left' && imageSection}
+      <div
+        className={`grid w-full grid-cols-1 lg:grid-cols-2 ${height === 'fullscreen' ? 'sm:min-h-screen lg:min-h-screen' : heightClass}`}
+      >
+        {imageSection}
         {quoteSection}
-        {imageSrc && imagePosition === 'right' && imageSection}
       </div>
     </section>
   )

@@ -27,7 +27,6 @@ import InsituAtmosphereLearnMore from './components/InsituAtmosphereLearnMore'
 import InsituGlobalCoverageSection from './components/InsituGlobalCoverageSection'
 import InsituUnlockingValueSection from './components/InsituUnlockingValueSection'
 import MenuSidebar from './components/MenuSidebar'
-import GlossarySection from './components/GlossarySection'
 
 const MAP_SRC =
   import.meta.env.VITE_MAP_SRC ?? 'https://www.ocean-ops.org/demos/simple-arcgis-map/'
@@ -234,9 +233,9 @@ function App() {
           {
             id: 'community-section',
             titleKey: 'menu.communityCollaboration',
-            accentColor: 'bg-goos-cyan-600',
+            accentColor: 'bg-goos-green-700',
             subItems: [
-              { id: 'redwing-section', titleKey: 'menu.redwingStory', accentColor: 'bg-goos-cyan-600' },
+              { id: 'redwing-section', titleKey: 'menu.redwingStory', accentColor: 'bg-goos-green-700' },
             ],
           },
           { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-500' },
@@ -327,9 +326,9 @@ function App() {
         <InsituObservingArraysSection />
         <InsituReferenceObservatoriesSection />
         <InsituRegionalEmergingSection />
-        <InsituAtmosphereLearnMore />
         <InsituGlobalCoverageSection />
         <InsituUnlockingValueSection />
+        <InsituAtmosphereLearnMore />
       </ContentModule>
       </div>
 
@@ -536,9 +535,10 @@ function App() {
                     </a>){' '}
                     {t('networks.indicatorsModal.implementationStatus.kpiPart3')}
                   </p>
-                  <p className="text-sm sm:text-base leading-relaxed mb-2 text-white">
-                    {t('networks.indicatorsModal.implementationStatus.activityDefinition')}
-                  </p>
+                  <p
+                    className="text-sm sm:text-base leading-relaxed mb-2 text-white"
+                    dangerouslySetInnerHTML={{ __html: t('networks.indicatorsModal.implementationStatus.activityDefinition') }}
+                  />
                   <p className="text-sm sm:text-base leading-relaxed mb-3 text-white">
                     {t('networks.indicatorsModal.implementationStatus.noTargetNote')}
                   </p>
@@ -1416,6 +1416,16 @@ function App() {
 
         <Spacer size="sm" />
 
+        <div className="-mx-4 sm:mx-0">
+          <ImageCaption
+            src={asset('/images/report-2026/Coral.PNG')}
+            alt={t('oceanHealth.diverCoralStJohnCaption')}
+            caption={t('oceanHealth.diverCoralStJohnCaption')}
+          />
+        </div>
+
+        <Spacer size="sm" />
+
         <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700 mb-3 sm:mb-4">{t('oceanHealth.whatsNext.title')}</h3>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.whatsNext.paragraph1')}</p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('oceanHealth.whatsNext.paragraph2')}</p>
@@ -1426,9 +1436,9 @@ function App() {
         quote={t('oceanHealth.quote2.text')}
         authorName={t('oceanHealth.quote2.author')}
         authorTitle={t('oceanHealth.quote2.position')}
-        imageSrc={asset('/images/report-2026/Coral.PNG')}
-        imageAlt={t('oceanHealth.diverCoralStJohnCaption')}
-        imageCaption={t('oceanHealth.diverCoralStJohnCaption')}
+        imageSrc={asset('/images/report-2026/NCRMP2025-USVI-Survey-Transect-Krampitz.jpg')}
+        imageAlt={t('oceanHealth.usviBenthicSurveyCaption')}
+        imageCaption={t('oceanHealth.usviBenthicSurveyCaption')}
         imagePosition="left"
         height="auto"
         backgroundColor="bg-goos-cyan-100"
@@ -1437,15 +1447,6 @@ function App() {
         iconColor="fill-goos-cyan-600"
         imageCaptionColor="text-goos-gray-700"
       />
-
-      <div className="px-0 sm:px-8 md:px-12 lg:px-16 bg-goos-white">
-        <ImageCaption
-          src={asset('/images/report-2026/NCRMP2025-USVI-Survey-Transect-Krampitz.jpg')}
-          alt={t('oceanHealth.usviBenthicSurveyCaption')}
-          caption={t('oceanHealth.usviBenthicSurveyCaption')}
-        />
-        <Spacer size="sm" />
-      </div>
       </div>
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
@@ -1546,40 +1547,77 @@ function App() {
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
       {/* Community collaboration — Redwing (2026) */}
-      <div id="community-section">
-        <ContentModule
-          title={t('communityCollaboration.title')}
-          titleLevel="h2"
-          titleColor="text-goos-blue-700"
-          layout="split"
-          backgroundColor="bg-goos-cyan-100"
-          textColor="text-goos-gray-800"
-          lineColor="bg-goos-cyan-600"
-        >
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-            {t('communityCollaboration.leadParagraph')}
-          </p>
-        </ContentModule>
+      <div id="community-section" className="bg-goos-green-100">
+        <div id="redwing-section">
+          <ContentModule
+            title={t('communityCollaboration.title')}
+            titleLevel="h2"
+            titleColor="text-goos-blue-700"
+            layout="split"
+            backgroundColor="bg-goos-green-100"
+            textColor="text-goos-gray-800"
+            lineColor="bg-goos-green-700"
+            stickyTitle={false}
+          >
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
+              {t('communityCollaboration.leadParagraph')}
+            </p>
+
+            <div className="mb-3 sm:mb-4">
+              <div className="bg-goos-green-700 h-1 w-12 sm:w-16 mb-3 sm:mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700">
+                {t('redwing.title')}
+              </h3>
+            </div>
+
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph2')}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
+              {t('redwing.paragraph3')}
+            </p>
+
+            <div className="-mx-4 sm:mx-0 mb-4 sm:mb-6">
+              <ImageCaption
+                src={asset('/images/report-2026/story_map_glider recovery_Joe Gradone_Rutgers University.png')}
+                alt={t('redwing.recoveryMapAlt')}
+                caption={t('redwing.recoveryMapCaption')}
+                aspectRatio="auto"
+                objectFit="contain"
+              />
+            </div>
+
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph4')}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph5')}
+            </p>
+            <p
+              className="text-base sm:text-lg md:text-xl leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: t('redwing.readFullStory') }}
+            />
+          </ContentModule>
+        </div>
+
+        <QuoteWithImage
+          quote={t('redwing.quote.text')}
+          authorName={t('redwing.quote.author')}
+          authorTitle={t('redwing.quote.position')}
+          imageSrc={asset('/images/report-2026/IMG-20260519-WA0006.jpg')}
+          imageAlt={t('redwing.quote.imageAlt')}
+          imageCaption={t('redwing.quote.imageCaption')}
+          imagePosition="left"
+          height="auto"
+          backgroundColor="bg-goos-green-100"
+          quoteColor="text-goos-blue-700"
+          authorColor="text-goos-blue-700"
+          iconColor="fill-goos-green-700"
+          imageCaptionColor="text-goos-gray-700"
+        />
       </div>
 
-      <div id="redwing-section">
-        <ContentModule
-          title={t('redwing.title')}
-          titleLevel="h3"
-          layout="split"
-          backgroundColor="bg-goos-cyan-100"
-          titleColor="text-goos-blue-700"
-          textColor="text-goos-gray-800"
-          lineColor="bg-goos-cyan-600"
-        >
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('redwing.paragraph1')}</p>
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('redwing.paragraph2')}</p>
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">{t('redwing.paragraph3')}</p>
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed">{t('redwing.paragraph4')}</p>
-        </ContentModule>
-      </div>
-
-      <Spacer size="md" backgroundColor="bg-goos-cyan-100"/>
+      <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
       {/* Call to Action */}
       <div id="calltoaction-section">
@@ -1592,56 +1630,44 @@ function App() {
         textColor="text-goos-white"
         lineColor="bg-goos-orange-500"
       >
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph1')}</p>
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph2')}</p>
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('callToAction.paragraph3')}</p>
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-4 sm:mb-6">
+          {t('callToAction.paragraph1')}
+        </p>
+
         <QuoteBlock
-          quote={t('callToAction.quote')}
-          authorName={t('callToAction.quoteAuthor')}
-          authorTitle={t('callToAction.quotePosition')}
-          quoteColor="text-goos-white"
-          authorColor="text-goos-orange-500"
+          quote={t('callToAction.celesteQuote')}
+          quoteColor="text-goos-gray-300"
+          iconColor="fill-goos-gray-500"
+          className="mb-4 sm:mb-6 italic"
         />
 
-              {/* Spacer */}
-      <Spacer size="sm" backgroundColor="bg-goos-blue-900"/>
+        <QuoteBlock
+          quote={t('callToAction.quoteVidar.text')}
+          authorName={t('callToAction.quoteVidar.author')}
+          authorTitle={t('callToAction.quoteVidar.position')}
+          quoteColor="text-goos-white"
+          authorColor="text-goos-orange-500"
+          className="mb-4 sm:mb-6"
+        />
 
-        {/* Number and description in same line */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-start sm:items-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
-          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-goos-orange-500 leading-none flex-shrink-0">
-            {fmt(contributingCountries)}
-          </p>
-          <p className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-goos-white font-roboto-condensed font-normal leading-[1.3] flex-1">{t('callToAction.memberStatesText')}</p>
-        </div>
+        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-4 sm:mb-6">
+          {t('callToAction.paragraph2')}
+        </p>
 
-        {/* Acknowledgment text */}
-        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal">
+        <QuoteBlock
+          quote={t('callToAction.quoteJoanna.text')}
+          authorName={t('callToAction.quoteJoanna.author')}
+          authorTitle={t('callToAction.quoteJoanna.position')}
+          quoteColor="text-goos-white"
+          authorColor="text-goos-orange-500"
+          className="mb-4 sm:mb-6"
+        />
+
+        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal mt-4 sm:mt-6">
           {t('callToAction.acknowledgmentText')}
         </p>
       </ContentModule>
       </div>
-
-      <Spacer size="xl" backgroundColor="bg-goos-blue-900"/>
-      {/* Hero Image Grid */}
-      <ImageGrid
-        images={[
-          {
-            src: asset('/images/content.webp'),
-            alt: t('hero.images.image1'),
-          },
-          {
-            src: asset('/images/content2.webp'),
-            alt: t('hero.images.image2'),
-          },
-          {
-            src: asset('/images/content3.webp'),
-            alt: t('hero.images.image3'),
-          },
-        ]}
-        columns={3}
-      />
-
-      <GlossarySection />
 
       {/* Community in action — above Contacts */}
       <ImageGrid
@@ -1655,15 +1681,15 @@ function App() {
             alt: t('contact.communityPhotoAlt2'),
           },
           {
-            src: asset('/images/report-2026/Lesbats Stéphane (2025) Ifremer.jpg'),
+            src: asset('/images/report-2026/Lesbats-Stephane-2025-Ifremer.jpg'),
             alt: t('contact.communityPhotoAlt3'),
           },
         ]}
         columns={3}
         backgroundColor="bg-goos-blue-900"
       />
-      <div className="bg-goos-blue-900 px-4 sm:px-8 md:px-12 lg:px-16 pb-6 sm:pb-8">
-        <p className="text-sm sm:text-base text-goos-gray-300 leading-relaxed max-w-5xl">
+      <div className="bg-goos-blue-900 px-4 sm:px-8 md:px-12 lg:px-16 pb-8 sm:pb-10 md:pb-12">
+        <p className="text-sm sm:text-base md:text-lg text-goos-gray-300 leading-relaxed w-full">
           {t('contact.communityInActionCaption')}
         </p>
       </div>
@@ -1679,12 +1705,25 @@ function App() {
         textColor="text-goos-white"
         hasLine={false}
       >
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }} />
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('contact.paragraph2')}</p>
-        <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph3') }} />
-        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }} />
-        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('contact.paragraph5')}</p>
-        <p className="text-sm sm:text-base font-normal text-goos-white leading-[1.5] mb-3 sm:mb-4">{t('contact.paragraph6')}</p>
+        <p
+          className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-4 sm:mb-5"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph1') }}
+        />
+        <p
+          className="text-sm sm:text-base font-normal text-goos-white leading-snug mb-3 sm:mb-4"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph2') }}
+        />
+        <p className="text-sm sm:text-base font-normal text-goos-white leading-snug mb-3 sm:mb-4">
+          {t('contact.paragraph3')}
+        </p>
+        <p
+          className="text-sm sm:text-base font-normal text-goos-white leading-snug mb-3 sm:mb-4"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph4') }}
+        />
+        <p
+          className="text-sm sm:text-base font-normal text-goos-white leading-snug"
+          dangerouslySetInnerHTML={{ __html: t('contact.paragraph5') }}
+        />
       </ContentModule>
       </div>
 

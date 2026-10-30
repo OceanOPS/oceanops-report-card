@@ -93,7 +93,7 @@ export default function ContentBox({
           onClick={() => setIsExpanded(!isExpanded)}
           className={`${buttonBgColor} ${buttonTextColor} ${buttonHoverBgColor} ${buttonLeftBorderColor ? `border-l-4 ${buttonLeftBorderColor}` : ''} px-4 sm:px-6 py-3 sm:py-4 w-full text-left font-regular text-lg sm:text-xl md:text-2xl font-roboto-condensed flex justify-between transition-colors duration-200`}
         >
-          <span>{t(titleKey)}</span>
+          <span dangerouslySetInnerHTML={{ __html: t(titleKey) }} />
           {/* Plus/Minus icon with circular background */}
           <div className={`w-6 h-6 ${buttonIconBgColor} ${buttonIconBorderColor ? `border-2 ${buttonIconBorderColor}` : ''} rounded-full flex items-center justify-center flex-shrink-0 mt-1`}>
             <div className={`${buttonIconColor}`}>
@@ -138,9 +138,10 @@ export default function ContentBox({
     <div className={`${backgroundColor} ${textColor} ${padding} w-full`}>
       {/* Title (optional) */}
       {titleKey && (
-        <h2 className={`text-lg sm:text-xl md:text-2xl font-bold ${titleColor} mb-4 sm:mb-6`}>
-          {t(titleKey)}
-        </h2>
+        <h2
+          className={`text-lg sm:text-xl md:text-2xl font-bold ${titleColor} mb-4 sm:mb-6`}
+          dangerouslySetInnerHTML={{ __html: t(titleKey) }}
+        />
       )}
 
       {/* Content */}

@@ -147,9 +147,10 @@ export default function GlossarySection() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-3 sm:pb-4 text-sm sm:text-base leading-relaxed text-goos-gray-800 pr-9">
-                        {term.definition}
-                      </p>
+                      <p
+                        className="pb-3 sm:pb-4 text-sm sm:text-base leading-relaxed text-goos-gray-800 pr-9"
+                        dangerouslySetInnerHTML={{ __html: term.definition }}
+                      />
                     </div>
                   </div>
                 </div>
