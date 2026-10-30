@@ -126,7 +126,6 @@ function App() {
       'community-section',
       'redwing-section',
       'calltoaction-section',
-      'glossary-section',
       'contact-section'
     ]
 
@@ -241,7 +240,6 @@ function App() {
             ],
           },
           { id: 'calltoaction-section', titleKey: 'callToAction.title', accentColor: 'bg-goos-orange-500' },
-          { id: 'glossary-section', titleKey: 'menu.glossary', accentColor: 'bg-goos-blue-900' },
           { id: 'contact-section', titleKey: 'contact.title', accentColor: 'bg-goos-blue-900' },
         ]}
       />
