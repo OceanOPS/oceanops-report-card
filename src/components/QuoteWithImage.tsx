@@ -77,6 +77,9 @@ interface QuoteWithImageProps {
   authorTitle?: string
   imageSrc?: string
   imageAlt?: string
+  /** Photo credit / caption below the image (same style as ImageCaption). */
+  imageCaption?: string
+  imageCaptionColor?: string
   imagePosition?: 'left' | 'right'
   height?: 'fullscreen' | 'auto'
   logoSrc?: string
@@ -95,6 +98,8 @@ export default function QuoteWithImage({
   authorTitle,
   imageSrc,
   imageAlt = '',
+  imageCaption,
+  imageCaptionColor = 'text-goos-gray-300',
   imagePosition = 'left',
   height = 'fullscreen',
   logoSrc,
@@ -116,12 +121,19 @@ export default function QuoteWithImage({
 
   // Image section - 50% width (only if imageSrc is provided)
   const imageSection = imageSrc ? (
-    <div className={`w-full lg:w-1/2 relative aspect-square max-h-[60vh] lg:max-h-none lg:h-auto lg:aspect-auto`}>
-      <img
-        src={imageSrc}
-        alt={imageAlt}
-        className="absolute inset-0 w-full h-full object-cover object-center"
-      />
+    <div className="w-full lg:w-1/2 flex flex-col">
+      <div className="relative aspect-square max-h-[60vh] lg:max-h-none lg:flex-1 lg:min-h-[280px]">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      </div>
+      {imageCaption ? (
+        <p className={`text-sm ${imageCaptionColor} px-4 sm:px-6 py-3 ${backgroundColor}`}>
+          {imageCaption}
+        </p>
+      ) : null}
     </div>
   ) : null
 

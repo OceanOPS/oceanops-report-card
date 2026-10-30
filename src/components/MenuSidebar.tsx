@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
-import Button from './Button'
-import { asset } from '../utils/assets'
 import { navigateToSection } from '../utils/scrollToSection'
 
 /**
@@ -407,24 +405,6 @@ export default function MenuSidebar({
               </div>
             ))}
           </nav>
-
-          <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
-
-          {/* Download PDF button */}
-          <div className="mb-6">
-            <Button
-              variant="download"
-              label={t('menu.downloadPdf')}
-              onClick={() => {
-                const pdfUrl = asset('/goosreport2025.pdf')
-                window.open(pdfUrl, '_blank')
-              }}
-              textColor="text-white"
-              bgColor="bg-goos-blue-700"
-              iconColor="text-goos-blue-700"
-              iconBgColor="bg-white"
-            />
-          </div>
 
           <div className="w-full h-px bg-goos-white opacity-20 mb-6"></div>
 
