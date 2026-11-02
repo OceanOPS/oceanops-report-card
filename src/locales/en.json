@@ -231,7 +231,7 @@
       "author": "Erica Towle",
       "position": "National Oceanic and Atmospheric Administration, Coral Reef Conservation Program"
     },
-    "usviBenthicSurveyCaption": "Diver Sophie Cook records data during a 2025 benthic survey in the U.S. Virgin Islands. Credit: National Coral Reef Monitoring Program (NCRMP).",
+    "usviBenthicSurveyCaption": "Diver Sophie Cook records data during a 2025 benthic survey in the U.S. Virgin Islands. Credit: National Coral Reef Monitoring Program (NCRMP)",
     "podcastBox": {
       "title": "Learn more:",
       "content": "Listen to the BioEcoOcean podcast with Clive McMahon and Lina Mtwana Nordlund (Uppsala University) where you can hear not only about southern elephant seals as oceanographers, but also the latest advancements in ocean observing of marine life, the importance of coordinated efforts in biodiversity monitoring, and how these insights contribute to global ocean management and conservation."
@@ -263,21 +263,22 @@
   },
   "communityCollaboration": {
     "title": "Community collaboration",
-    "leadParagraph": "Sustaining a global ocean observing system depends on collaboration across countries, institutions and disciplines, bringing together scientists, observing networks, modellers, industry partners, vessel operators and ocean sailors."
+    "leadParagraph": "The global ocean observing system encompasses a diverse community of institutions, scientists, ocean professionals, sailors and industry partners. Its strength lies in the ability of these different actors to work together, combining their expertise and resources to solve challenges that no single group could tackle alone."
   },
   "redwing": {
     "title": "Redwing's recovery and the power of global collaboration",
-    "paragraph2": "In October 2025, Redwing, a long-endurance autonomous underwater glider, began an ambitious mission to become the first autonomous underwater vehicle to circumnavigate the globe. The glider collected oceanographic observations across the Atlantic until January 2026, when an unexpected technical failure left it unable to dive. For four months, Redwing drifted across the ocean while Rutgers University students and modellers from Mercator Ocean International refined drift forecasts to track its movements.",
-    "paragraph3": "The Sentinel Mission team then mobilised the wider ocean observing community to identify a recovery opportunity. Through a chain of contacts involving the National Oceanography Centre, UK, and OceanOPS, the team connected with Malizia Explorer, a sailing research vessel returning from Antarctica. Combining drift forecasts, satellite information and operational expertise, the teams coordinated a successful recovery on 19 May 2026.",
+    "paragraph2": "Sustaining a global ocean observing system depends on collaboration across countries, institutions and disciplines, bringing together scientists, observing networks, modellers, industry partners, vessel operators and ocean sailors.",
+    "paragraph3": "In October 2025, Redwing, a long-endurance autonomous underwater glider, began an ambitious mission to become the first autonomous underwater vehicle to circumnavigate the globe. The glider collected oceanographic observations across the Atlantic until January 2026, when an unexpected technical failure left it unable to dive. For four months, Redwing drifted across the ocean while Rutgers University students and modellers from Mercator Ocean International refined drift forecasts to track its movements.",
+    "paragraph4": "The Sentinel Mission team then mobilised the wider ocean observing community to identify a recovery opportunity. Through a chain of contacts involving the National Oceanography Centre, UK, and OceanOPS, the team connected with Malizia Explorer, a sailing research vessel returning from Antarctica. Combining drift forecasts, satellite information and operational expertise, the teams coordinated a successful recovery on 19 May 2026.",
     "recoveryMapAlt": "Map of Redwing glider track, Malizia Explorer vessel track, and collaboration pathways during recovery",
     "recoveryMapCaption": "Redwing glider track (red), Malizia Explorer sailing research vessel track (orange), and the collaboration pathways during the Redwing recovery (blue). Credit: Joe Gradone, Rutgers University.",
-    "paragraph4": "Beyond the technical success, the recovery highlights the power of international coordination across ocean science, linking students, scientists, industry partners, observing networks, modelling teams and navigators. It also reflects the growing role of autonomous systems in ocean observing, providing sustained, low-impact observations that contribute to our understanding of ocean circulation, climate, ecosystems and biodiversity.",
-    "paragraph5": "As GOOS continues to evolve, strengthening collaboration across the observing community will be essential to making the most of existing capabilities, responding to operational challenges and building a more integrated and resilient global ocean observing system. Redwing is expected to return to the ocean following technical inspection and repairs, with the aim of continuing its extraordinary journey around the world.",
+    "paragraph5": "Beyond the technical success, the recovery highlights the power of international coordination across ocean science, linking students, scientists, industry partners, observing networks, modelling teams and navigators. It also reflects the growing role of autonomous systems in ocean observing, providing sustained, low-impact observations that contribute to our understanding of ocean circulation, climate, ecosystems and biodiversity.",
+    "paragraph6": "As GOOS continues to evolve, strengthening collaboration across the observing community will be essential to making the most of existing capabilities, responding to operational challenges and building a more integrated and resilient global ocean observing system. Redwing is expected to return to the ocean following technical inspection and repairs, with the aim of continuing its extraordinary journey around the world.",
     "readFullStory": "Read the full story: <a href=\"https://goosocean.org/news/redwing-recovery-a-story-of-global-collaboration-and-coordination-in-ocean-observing/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:text-goos-orange-400 transition-colors\">Redwing recovery: a story of global collaboration and coordination in ocean observing</a>.",
     "quote": {
       "text": "Redwing's recovery shows that the future of ocean observing is not only about technology, but about the global community behind it. That coordination to keep the mission alive is itself an innovation.",
       "author": "Joe Gradone",
-      "position": "Assistant Research Professor at Rutgers University.",
+      "position": "Assistant Research Professor at Rutgers University",
       "imageAlt": "Redwing glider recovery",
       "imageCaption": "Redwing glider recovery. Credit: Malizia Explorer"
     }
@@ -294,7 +295,7 @@
     "title": "Call to action",
     "paragraph1": "Sustained and resilient ocean observation is critical for national security, global trade, ocean based energy supply, ocean industries, early warning systems, and marine protection. In short, ocean observation constitutes critical infrastructure for Member States worldwide.",
     "paragraph2": "The system operates across three interdependent levels: (i) national, where observing assets including networks are owned and operated; (ii) regional, where national efforts are connected to broader operational coordination; (iii) global, where coordination is provided through GOOS.",
-    "celesteQuote": "[Placeholder for Celeste Saulo's quote?]",
+    "celesteQuote": "[Placeholder for Celeste Saulo's quote]",
     "quoteVidar": {
       "text": "Strengthening the Global Ocean Observing System is not just a scientific challenge, it is a governance challenge. We need an optimised system that countries can sustain over time, and this will only be possible with stronger investments and closer cooperation with governments.",
       "author": "Vidar Helgesen",
@@ -312,7 +313,7 @@
     "communityPhotoAlt1": "Maintenance of a Tropical Atmosphere Ocean (TAO) buoy",
     "communityPhotoAlt2": "Deployment of an Argo float from the S.A. Agulhas II during the SANAE Antarctic research expedition",
     "communityPhotoAlt3": "Deployment of a CTD rosette during the Chereef 2025 expedition",
-    "communityInActionCaption": "The ocean observing community in action: left, maintenance of a Tropical Atmosphere Ocean (TAO) buoy (Credit: NOAA); center, deployment of an Argo float from the S.A. Agulhas II during the SANAE Antarctic research expedition (2025–2026) (Credit: ACCESS project, funded by the Italian National Antarctic Research Programme); right, deployment of a CTD rosette during the Chereef 2025 expedition (Credit: Stéphane Lesbats / Ifremer, 2025).",
+    "communityInActionCaption": "The ocean observing community in action: left, maintenance of a Tropical Atmosphere Ocean (TAO) buoy. Credit: NOAA; center, deployment of an Argo float from the S.A. Agulhas II during the SANAE Antarctic research expedition (2025–2026). Credit: ACCESS project, PNRA; right, deployment of a CTD rosette during the Chereef 2025 expedition. Credit: Stéphane Lesbats / Ifremer, 2025",
     "paragraph1": "General information: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/><i>In situ</i> networks status: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>GOOS Status Report information: <a href=\"mailto:l.stukonyte@unesco.org\" class=\"text-goos-orange-500 underline hover:no-underline\">l.stukonyte@unesco.org</a> / <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a>",
     "paragraph2": "Authors: GOOS Secretariat, OceanOPS, GOOS Observations Coordination Group<br/>GOOS Report no. 327. DOI: <a href=\"https://doi.org/10.71245/YFVA2935\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">10.71245/YFVA2935</a>",
     "paragraph3": "With special thanks to all contributing authors: Mathieu Belbéoch, Zulfikar Begg, Séverine Fournier, Nicolas Kolodziejczyk, Joanna Post, Bipendra Prakash, Emanuela Rusciano, Laura Stukonytė, Erica Towle, Esmee Van Wijk.",
@@ -392,7 +393,8 @@
       "atmosphereLearnMore": {
         "title": "Learn more: Did you know that GOOS networks observe more than the ocean?",
         "lead": "Above the waves, GOOS networks also monitor the atmosphere.",
-        "paragraph1": "The GOOS networks — Ship based meteorological (VOS) and aerological (ASAP) networks, Sea level gauges (GLOSS), Moored (MBN) and Drifting buoys (GDA), and Surface UNcrewed Fleet (SUN Fleet) — do not just collect essential ocean variables — they also collect atmospheric observations including air temperature, atmospheric pressure, humidity, wind and many other key variables. These observations are part of the suite of data delivered by GOOS for a wider range of operational applications such as weather forecasts and early warning systems. The data also helps us understand the Earth system and to monitor interactions between the ocean and atmosphere."
+        "paragraph1": "The GOOS networks — Ship based meteorological (VOS) and aerological (ASAP) networks, Sea level gauges (GLOSS), Moored (MBN) and Drifting buoys (GDA), and Surface UNcrewed Fleet (SUN Fleet) — do not just collect essential ocean variables — they also collect atmospheric observations including air temperature, atmospheric pressure, humidity, wind and many other key variables.",
+        "paragraph2": "These observations are part of the suite of data delivered by GOOS for a wider range of operational applications such as weather forecasts and early warning systems. The data also helps us understand the Earth system and to monitor interactions between the ocean and atmosphere."
       },
       "globalCoverageProse": {
         "title": "Strengthening global coverage",
@@ -428,7 +430,7 @@
         "authorName": "M. Belbéoch",
         "authorTitle": "OceanOPS Manager",
         "imageAlt": "Arctic sea ice",
-        "imageCaption": "Arctic sea ice. Credit Nicolas Kolodziejczyk, Physical Oceanographer, Laboratoire d’Océanographie Physique et Spatiale, CNRS",
+        "imageCaption": "Arctic sea ice. Credit: Nicolas Kolodziejczyk, Laboratoire d’Océanographie Physique et Spatiale, CNRS",
         "logoAlt": "OceanOPS Logo"
       },
       "statsTitle": "<i>In situ</i> observing networks by the numbers",
@@ -1069,7 +1071,7 @@
     },
     "platformButton": "About map legend",
     "platformModal": {
-      "title": "Map Legend",
+      "title": "About map legend",
       "intro": "The map represents the annual contribution of each network to the global observing system. It shows the latest location of platforms and reference observatories (lines and sites) selected according to criteria specific to each observing network. The selection rules are as follows:",
       "operationalFootnote": "*operational: real-time data transmission monitored by OceanOPS.",
       "networks": {
@@ -1090,19 +1092,19 @@
           "content": "Cruises and sites that provided new or updated observations to the SOCATv2026 reference database."
         },
         "goship": {
-          "title": "Repeated transects – GO-SHIP",
+            "title": "Repeated transects – GO-SHIP",
           "content": "Repeated lines sampled in the last 12 months (solid lines). Dashed lines represent GO-SHIP lines to be sampled in the next decade."
-        },
+          },
         "fvon": {
-          "title": "Fishing vessels – FVON",
+            "title": "Fishing vessels – FVON",
           "content": "Fishing vessels underway systems operating in the last 12 months."
-        },
+          },
         "gloss": {
-          "title": "Sea level gauges – GLOSS",
+            "title": "Sea level gauges – GLOSS",
           "content": "Tide gauges that have provided monthly mean sea level data within the last 5 years."
-        },
+          },
         "oceansites": {
-          "title": "Time series sites – OceanSITES",
+            "title": "Time series sites – OceanSITES",
           "content": "All multidisciplinary time series sites to date."
         },
         "moored_buoys": {
@@ -1122,15 +1124,15 @@
           "content": "Drifting buoys operational* as of {{asOf}}."
         },
         "argo": {
-          "title": "Profiling floats – Argo",
+            "title": "Profiling floats – Argo",
           "content": "Profiling floats operational* as of {{asOf}}."
-        },
+          },
         "oceangliders": {
-          "title": "Gliders – OceanGliders",
+            "title": "Gliders – OceanGliders",
           "content": "Underwater glider missions operating in the last 12 months."
-        },
+          },
         "anibos": {
-          "title": "Animal borne sensors – AniBOS",
+            "title": "Animal borne sensors – AniBOS",
           "content": "Animal borne sensors operating in the last 12 months."
         }
       }

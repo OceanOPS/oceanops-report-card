@@ -840,7 +840,7 @@
     },
     "platformButton": "Acerca de la leyenda del mapa",
     "platformModal": {
-      "title": "Leyenda del mapa",
+      "title": "Acerca de la leyenda del mapa",
       "intro": "El mapa representa la contribución anual de cada red al sistema global de observación. Muestra la última ubicación de plataformas y observatorios de referencia (líneas y sitios) seleccionados según criterios específicos de cada red de observación. Las reglas de selección son las siguientes:",
       "operationalFootnote": "*operacional: transmisión de datos en tiempo real supervisada por OceanOPS.",
       "networks": {

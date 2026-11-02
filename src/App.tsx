@@ -1107,7 +1107,7 @@ function App() {
         imageCaption={t('amoc.southernOceanIcebergsCaption')}
         imagePosition="left"
         height="auto"
-        backgroundColor="bg-goos-cyan-100"
+        backgroundColor="bg-goos-cyan-200"
         quoteColor="text-goos-blue-700"
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
@@ -1217,7 +1217,10 @@ function App() {
           <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
             <p className="text-base sm:text-lg leading-relaxed">{t('elNino.learnMoreSatelliteSeaLevel.paragraph1')}</p>
             <p className="text-base sm:text-lg leading-relaxed">{t('elNino.learnMoreSatelliteSeaLevel.paragraph2')}</p>
-            <p className="text-base sm:text-lg leading-relaxed">{t('elNino.learnMoreSatelliteSeaLevel.paragraph3')}</p>
+            <p
+              className="text-base sm:text-lg leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: t('elNino.learnMoreSatelliteSeaLevel.paragraph3') }}
+            />
           </div>
           <div>
             <p className="text-sm sm:text-base font-semibold text-goos-blue-700">
@@ -1255,7 +1258,7 @@ function App() {
         imageCaption={t('elNino.tongaCoastalProtectionCaption')}
         imagePosition="left"
         height="auto"
-        backgroundColor="bg-goos-cyan-100"
+        backgroundColor="bg-goos-cyan-200"
         quoteColor="text-goos-blue-700"
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
@@ -1441,7 +1444,7 @@ function App() {
         imageCaption={t('oceanHealth.usviBenthicSurveyCaption')}
         imagePosition="left"
         height="auto"
-        backgroundColor="bg-goos-cyan-100"
+        backgroundColor="bg-goos-cyan-200"
         quoteColor="text-goos-blue-700"
         authorColor="text-goos-blue-700"
         iconColor="fill-goos-cyan-600"
@@ -1558,6 +1561,7 @@ function App() {
             textColor="text-goos-gray-800"
             lineColor="bg-goos-green-700"
             stickyTitle={false}
+            includeBottomSpacer={false}
           >
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
               {t('communityCollaboration.leadParagraph')}
@@ -1573,8 +1577,11 @@ function App() {
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
               {t('redwing.paragraph2')}
             </p>
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
               {t('redwing.paragraph3')}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
+              {t('redwing.paragraph4')}
             </p>
 
             <div className="-mx-4 sm:mx-0 mb-4 sm:mb-6">
@@ -1584,17 +1591,18 @@ function App() {
                 caption={t('redwing.recoveryMapCaption')}
                 aspectRatio="auto"
                 objectFit="contain"
+                imageBackgroundClass="bg-goos-green-100"
               />
             </div>
 
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
-              {t('redwing.paragraph4')}
-            </p>
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
               {t('redwing.paragraph5')}
             </p>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph6')}
+            </p>
             <p
-              className="text-base sm:text-lg md:text-xl leading-relaxed"
+              className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 md:mb-10"
               dangerouslySetInnerHTML={{ __html: t('redwing.readFullStory') }}
             />
           </ContentModule>
@@ -1609,18 +1617,17 @@ function App() {
           imageCaption={t('redwing.quote.imageCaption')}
           imagePosition="left"
           height="auto"
-          backgroundColor="bg-goos-green-100"
+          backgroundColor="bg-goos-cyan-200"
           quoteColor="text-goos-blue-700"
           authorColor="text-goos-blue-700"
-          iconColor="fill-goos-green-700"
+          iconColor="fill-goos-cyan-600"
           imageCaptionColor="text-goos-gray-700"
+          className="-mt-px"
         />
       </div>
 
-      <Spacer size="md" backgroundColor="bg-goos-green-100"/>
-
       {/* Call to Action */}
-      <div id="calltoaction-section">
+      <div id="calltoaction-section" className="bg-goos-blue-900">
       <ContentModule
         title={t('callToAction.title')}
         titleLevel="h2"
@@ -1629,6 +1636,7 @@ function App() {
         titleColor="text-goos-white"
         textColor="text-goos-white"
         lineColor="bg-goos-orange-500"
+        className="pt-6 sm:pt-8 md:pt-12 lg:pt-16"
       >
         <p className="text-base sm:text-lg md:text-xl font-normal text-goos-white leading-[1.5] mb-4 sm:mb-6">
           {t('callToAction.paragraph1')}
@@ -1663,7 +1671,7 @@ function App() {
           className="mb-4 sm:mb-6"
         />
 
-        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-normal mt-4 sm:mt-6">
+        <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-goos-orange-500 font-roboto-condensed font-bold mt-4 sm:mt-6">
           {t('callToAction.acknowledgmentText')}
         </p>
       </ContentModule>
@@ -1679,17 +1687,19 @@ function App() {
           {
             src: asset('/images/report-2026/PHOTO-2026-02-11-20-10-35.jpg'),
             alt: t('contact.communityPhotoAlt2'),
+            objectPosition: '38% center',
           },
           {
             src: asset('/images/report-2026/Lesbats-Stephane-2025-Ifremer.jpg'),
             alt: t('contact.communityPhotoAlt3'),
+            objectPosition: '78% 42%',
           },
         ]}
         columns={3}
         backgroundColor="bg-goos-blue-900"
       />
       <div className="bg-goos-blue-900 px-4 sm:px-8 md:px-12 lg:px-16 pb-8 sm:pb-10 md:pb-12">
-        <p className="text-sm sm:text-base md:text-lg text-goos-gray-300 leading-relaxed w-full">
+        <p className="text-sm text-goos-gray-300 leading-relaxed w-full">
           {t('contact.communityInActionCaption')}
         </p>
       </div>

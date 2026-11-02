@@ -829,7 +829,7 @@
     },
     "platformButton": "À propos de la légende de la carte",
     "platformModal": {
-      "title": "Légende de la carte",
+      "title": "À propos de la légende de la carte",
       "intro": "La carte représente la contribution annuelle de chaque réseau au système d'observation mondial. Elle montre la dernière position des plateformes et des observatoires de référence (lignes et sites) sélectionnés selon des critères propres à chaque réseau d'observation. Les règles de sélection sont les suivantes :",
       "operationalFootnote": "*opérationnel : transmission de données en temps réel surveillée par OceanOPS.",
       "networks": {

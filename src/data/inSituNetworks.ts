@@ -128,7 +128,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconPath: '/icons/network/dbcp_drifters.svg',
     iconAlt: 'networks.dbcpDrifting.iconAlt',
     titleKey: 'networks.dbcpDrifting.title',
-    networkUrl: 'https://www.ocean-ops.org/dbcp/platforms/types.html',
+    networkUrl: 'https://dbcp.ocean-ops.org/',
     ratings: {
       implementationStatus: 3,
       realTime: 2.5,
@@ -223,7 +223,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconPath: '/icons/network/vos.svg',
     iconAlt: 'networks.sotVos.iconAlt',
     titleKey: 'networks.sotVos.title',
-    networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#VOS',
+    networkUrl: 'https://sot.ocean-ops.org/vos.html',
     ratings: {
       implementationStatus: 3,
       realTime: 2.5,
@@ -242,7 +242,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconPath: '/icons/network/xbt-soop.svg',
     iconAlt: 'networks.sotXbt.iconAlt',
     titleKey: 'networks.sotXbt.title',
-    networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
+    networkUrl: 'https://sot.ocean-ops.org/oceantrax.html',
     ratings: {
       implementationStatus: 2,
       realTime: 2.5,

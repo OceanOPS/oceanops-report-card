@@ -6,7 +6,7 @@ import {
   totalObservingPlatforms,
   totalReferenceObservatories,
 } from '../utils/partnerCountryStats'
-import { insituProseParagraphClass } from './insituProseClasses'
+import { insituLearnMoreContentClass } from './insituProseClasses'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 
@@ -28,13 +28,13 @@ function LearnMoreNetworkList({
 
   return (
     <>
-      <p className={insituProseParagraphClass}>
+      <p className={insituLearnMoreContentClass}>
         {t(theyIncludeKey)}{' '}
         {!expanded && (
           <button
             type="button"
             onClick={() => setExpanded(true)}
-            className="text-goos-orange-500 hover:underline focus:outline-none align-baseline"
+            className="text-goos-orange-500 hover:underline focus:outline-none align-baseline text-[18px]"
           >
             {t('networks.indicatorsModal.moreButton')}
           </button>
@@ -46,19 +46,19 @@ function LearnMoreNetworkList({
           expanded ? `${maxExpandedHeight} opacity-100` : 'max-h-0 opacity-0'
         }`}
       >
-        <ul className="list-disc list-inside text-base sm:text-lg md:text-xl leading-relaxed space-y-1 mb-3 sm:mb-4">
+        <ul className={`list-disc list-inside ${insituLearnMoreContentClass} space-y-1 mb-3 sm:mb-4`}>
           {networkKeys.map((key) => (
             <li key={key}>{t(key)}</li>
           ))}
         </ul>
         <p
-          className={insituProseParagraphClass}
+          className={insituLearnMoreContentClass}
           dangerouslySetInnerHTML={{ __html: t(summaryKey, summaryVars) }}
         />
         <button
           type="button"
           onClick={() => setExpanded(false)}
-          className="text-goos-orange-500 hover:underline focus:outline-none text-sm sm:text-base"
+          className="text-goos-orange-500 hover:underline focus:outline-none text-[18px]"
         >
           Less...
         </button>
@@ -90,12 +90,12 @@ export default function InsituNetworksLearnMore() {
       padding="p-6"
     >
       <p
-        className={`${insituProseParagraphClass} text-goos-white`}
+        className={`${insituLearnMoreContentClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.intro`) }}
       />
 
       <p
-        className={`${insituProseParagraphClass} text-goos-white`}
+        className={`${insituLearnMoreContentClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.globalArrays.description`) }}
       />
 
@@ -114,7 +114,7 @@ export default function InsituNetworksLearnMore() {
       <Spacer size="xs" />
 
       <p
-        className={`${insituProseParagraphClass} text-goos-white`}
+        className={`${insituLearnMoreContentClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.referenceObservatories.description`) }}
       />
 
@@ -134,7 +134,7 @@ export default function InsituNetworksLearnMore() {
       <Spacer size="xs" />
 
       <p
-        className={`${insituProseParagraphClass} text-goos-white`}
+        className={`${insituLearnMoreContentClass} text-goos-white`}
         dangerouslySetInnerHTML={{ __html: t(`${base}.regionalSystems.description`) }}
       />
 

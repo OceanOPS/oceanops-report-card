@@ -60,6 +60,8 @@ interface ContentBoxProps {
   buttonLeftBorderColor?: string
   /** Tailwind hover background for collapsible trigger (default hover:bg-gray-100). */
   buttonHoverBgColor?: string
+  /** Override collapsible header typography (default: text-lg sm:text-xl md:text-2xl). */
+  collapsibleTitleClassName?: string
   children: React.ReactNode
 }
 
@@ -78,6 +80,7 @@ export default function ContentBox({
   buttonIconBorderColor = '',
   buttonLeftBorderColor = '',
   buttonHoverBgColor = 'hover:bg-gray-100',
+  collapsibleTitleClassName = 'text-lg sm:text-xl md:text-2xl',
   children,
 }: ContentBoxProps) {
   const { t } = useTranslation()
@@ -91,7 +94,7 @@ export default function ContentBox({
         <button
           type="button"
           onClick={() => setIsExpanded(!isExpanded)}
-          className={`${buttonBgColor} ${buttonTextColor} ${buttonHoverBgColor} ${buttonLeftBorderColor ? `border-l-4 ${buttonLeftBorderColor}` : ''} px-4 sm:px-6 py-3 sm:py-4 w-full text-left font-regular text-lg sm:text-xl md:text-2xl font-roboto-condensed flex justify-between transition-colors duration-200`}
+          className={`${buttonBgColor} ${buttonTextColor} ${buttonHoverBgColor} ${buttonLeftBorderColor ? `border-l-4 ${buttonLeftBorderColor}` : ''} px-4 sm:px-6 py-3 sm:py-4 w-full text-left font-regular ${collapsibleTitleClassName} font-roboto-condensed flex justify-between transition-colors duration-200`}
         >
           <span dangerouslySetInnerHTML={{ __html: t(titleKey) }} />
           {/* Plus/Minus icon with circular background */}

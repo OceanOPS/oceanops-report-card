@@ -424,7 +424,7 @@ export default function MenuSidebar({
             {isPastReportsExpanded && (
               <div className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
                 <a
-                  href="https://www.ocean-ops.org/reportcard2025/"
+                  href="https://www.ocean-ops.org/goosreport/2025/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-base sm:text-lg hover:underline transition-all"

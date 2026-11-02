@@ -7,3 +7,7 @@ export const insituOrangeHeadingClass =
 
 export const insituProseParagraphClass =
   'text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2 last:mb-0'
+
+/** Body copy inside in situ “Learn more” accordions only (#145). */
+export const insituLearnMoreContentClass =
+  'text-[18px] leading-relaxed mb-1.5 sm:mb-2 last:mb-0'

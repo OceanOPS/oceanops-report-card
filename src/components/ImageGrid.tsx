@@ -33,6 +33,8 @@
 interface ImageGridImage {
   src: string
   alt: string
+  /** CSS object-position for crop framing (default: center). */
+  objectPosition?: string
 }
 
 interface ImageGridProps {

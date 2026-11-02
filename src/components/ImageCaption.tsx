@@ -44,6 +44,8 @@ interface ImageCaptionProps {
   aspectRatio?: 'video' | 'square' | 'portrait' | 'auto'
   objectFit?: 'cover' | 'contain' | 'fill'
   captionColor?: string
+  /** Placeholder behind the image (default gray-300). */
+  imageBackgroundClass?: string
   className?: string
 }
 

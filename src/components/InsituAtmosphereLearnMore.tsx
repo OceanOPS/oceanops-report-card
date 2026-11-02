@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import ContentBox from './ContentBox'
 import Spacer from './Spacer'
-import { insituProseParagraphClass } from './insituProseClasses'
+import { insituLearnMoreContentClass } from './insituProseClasses'
 
 /** Expandable “Did you know…” block after regional / FVON content (2026). */
 export default function InsituAtmosphereLearnMore() {
@@ -28,11 +28,14 @@ export default function InsituAtmosphereLearnMore() {
         buttonIconBorderColor="border-goos-white/40"
         padding="p-6"
       >
-        <p className={`${insituProseParagraphClass} font-semibold`}>
+        <p className={`${insituLearnMoreContentClass} font-semibold`}>
           {t(`${base}.lead`)}
         </p>
-        <p className={insituProseParagraphClass}>
+        <p className={insituLearnMoreContentClass}>
           {t(`${base}.paragraph1`)}
+        </p>
+        <p className={insituLearnMoreContentClass}>
+          {t(`${base}.paragraph2`)}
         </p>
       </ContentBox>
     </>

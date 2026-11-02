@@ -262,9 +262,10 @@ export default function NetworkComparisonMatrix({
       <div className="px-4 sm:px-8 md:px-12 lg:px-16 pt-8 pb-4">
         <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
           <div className="bg-goos-orange-500 h-2 w-20 sm:w-24 md:w-32" />
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight">
-            {t('networks.comparison.title')}
-          </h3>
+          <h3
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight"
+            dangerouslySetInnerHTML={{ __html: t('networks.comparison.title') }}
+          />
           <p
             className="text-white/80 text-sm sm:text-base max-w-4xl"
             dangerouslySetInnerHTML={{ __html: t('networks.comparison.description') }}

@@ -578,26 +578,22 @@ export default function InsightPanel({
     )
 
   return (
-    <section ref={sectionRef} className={`${backgroundColor} px-6 sm:px-10 md:px-14 lg:px-20 xl:px-24 py-0 ${className}`}>
-      <div className="mx-auto flex w-full max-w-[88rem] flex-col gap-5">
+    <section ref={sectionRef} className={`${backgroundColor} px-4 sm:px-8 md:px-12 lg:px-16 py-0 ${className}`}>
+      <div className="flex w-full flex-col gap-5">
         {/* Top spacer */}
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {useTextStatsGrid ? (
-          <div className="flex w-full flex-col gap-6 sm:gap-8">
-            {titleBlock}
-            <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-start lg:gap-x-12 xl:gap-x-16 2xl:gap-x-24">
+          <div className="flex flex-col gap-8 md:gap-10 lg:flex-row lg:items-start lg:gap-x-12 xl:gap-x-16">
+            <div className="lg:basis-1/2 flex min-w-0 flex-col gap-4 sm:gap-5">
+              {titleBlock}
               <div
                 className={`${textColor} font-roboto text-base sm:text-lg md:text-xl leading-relaxed space-y-2 text-left`}
               >
                 {leftContent}
               </div>
-              <div className="flex w-full min-w-0 justify-center lg:justify-end lg:self-start">
-                <div className="w-full max-w-[34rem] rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-8 py-6 sm:px-10 sm:py-8 lg:px-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-                  {statsGridContent}
-                </div>
-              </div>
             </div>
+            <div className="lg:basis-1/2 w-full min-w-0 text-left">{statsGridContent}</div>
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row lg:items-start gap-8 md:gap-10 lg:gap-8 xl:gap-10">

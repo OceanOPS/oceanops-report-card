@@ -118,6 +118,8 @@ interface ContentModuleProps {
   lineColor?: string
   children?: ReactNode
   rightColumn?: ReactNode  // Only for full-width layout
+  /** Split layout: trailing spacer below content (default true). */
+  includeBottomSpacer?: boolean
   className?: string
 }
 
@@ -138,6 +140,7 @@ export default function ContentModule({
   lineColor = 'bg-goos-orange-500',
   children,
   rightColumn,
+  includeBottomSpacer = true,
   className = '',
 }: ContentModuleProps) {
   const { t } = useTranslation()
@@ -364,10 +367,12 @@ export default function ContentModule({
   if (layout === 'split') {
     return (
       <section className={`relative z-10 ${backgroundColor} px-4 sm:px-8 md:px-12 lg:px-16 py-0 ${className}`}>
-        <div className="mx-auto flex gap-0 lg:gap-16 flex-col lg:flex-row">
+        <div className="mx-auto flex w-full gap-0 lg:gap-16 flex-col lg:flex-row lg:items-stretch">
           {/* Left Column - Title (sticky by default, can be disabled) */}
           {hasTitleContent && (
-            <div className={`lg:basis-1/2 flex flex-col gap-5 ${stickyTitle ? 'lg:sticky lg:top-16 lg:self-start' : ''} z-10`}>
+            <div
+              className={`lg:basis-1/2 flex flex-col gap-5 ${backgroundColor} ${stickyTitle ? 'lg:sticky lg:top-16 lg:self-start' : 'min-h-full'}`}
+            >
               {/* Top spacer */}
               <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
@@ -376,7 +381,10 @@ export default function ContentModule({
           )}
 
           {/* Right Column - Content */}
-          <div ref={contentRef} className={`${hasTitleContent ? 'lg:basis-1/2' : 'w-full'} flex flex-col gap-5`}>
+          <div
+            ref={contentRef}
+            className={`${hasTitleContent ? 'lg:basis-1/2 min-h-full' : 'w-full'} flex flex-col gap-5 ${backgroundColor}`}
+          >
             {/* Top spacer - hidden in mobile when title is present, visible in desktop */}
             <div className={`${hasTitleContent ? 'h-0 lg:h-8' : 'h-4 sm:h-6 md:h-8'} w-5 opacity-75`}></div>
 
@@ -384,7 +392,9 @@ export default function ContentModule({
             {children}
 
             {/* Bottom spacer */}
-            <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
+            {includeBottomSpacer ? (
+              <div className={`h-4 sm:h-6 md:h-8 w-full ${backgroundColor}`} aria-hidden />
+            ) : null}
           </div>
         </div>
       </section>

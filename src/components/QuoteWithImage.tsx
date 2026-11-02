@@ -129,7 +129,7 @@ export default function QuoteWithImage({
 
   // Image section - 50% width (only if imageSrc is provided)
   const imageSection = imageSrc ? (
-    <div className={`w-full flex flex-col ${imageColumnClass}`}>
+    <div className={`w-full h-full flex flex-col ${backgroundColor} ${imageColumnClass}`}>
       <div className="relative aspect-square max-h-[60vh] lg:max-h-none lg:flex-1 lg:min-h-[280px]">
         <img
           src={imageSrc}
@@ -148,7 +148,7 @@ export default function QuoteWithImage({
   // Quote content section - 50% width with image, full width without image
   const quoteSection = (
     <div
-      className={`w-full ${quoteColumnClass} ${backgroundColor} flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 ${height === 'fullscreen' && imageSrc ? 'lg:min-h-screen' : ''}`}
+      className={`w-full h-full ${quoteColumnClass} ${backgroundColor} flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 ${height === 'fullscreen' && imageSrc ? 'lg:min-h-screen' : ''}`}
     >
       <div className="flex flex-col gap-4 sm:gap-5 max-w-[830px]">
         {/* Quote Icon */}
@@ -188,9 +188,11 @@ export default function QuoteWithImage({
   )
 
   return (
-    <section className={`${backgroundColor} ${height === 'fullscreen' ? 'sm:min-h-screen' : ''} ${className}`}>
+    <section
+      className={`${backgroundColor} ${height === 'fullscreen' ? 'sm:min-h-screen' : ''} ${className}`}
+    >
       <div
-        className={`grid w-full grid-cols-1 lg:grid-cols-2 ${height === 'fullscreen' ? 'sm:min-h-screen lg:min-h-screen' : heightClass}`}
+        className={`grid w-full grid-cols-1 lg:grid-cols-2 items-stretch ${height === 'fullscreen' ? 'sm:min-h-screen lg:min-h-screen' : heightClass}`}
       >
         {imageSection}
         {quoteSection}
