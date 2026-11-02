@@ -350,7 +350,7 @@ function App() {
       />
 <Spacer size="md" backgroundColor="bg-goos-blue-900"/>
 
-      {/* Stats Grid — 4 metrics in 2×2 (observations/day kept in export pipeline only) */}
+      {/* Stats Grid — 4 key numbers (issue #156) */}
       <div id="stats-section">
         <InsightPanel
           title={t('content.section1.statsTitle')}

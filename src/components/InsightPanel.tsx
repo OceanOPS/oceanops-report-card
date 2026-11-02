@@ -548,7 +548,7 @@ export default function InsightPanel({
 
   const defaultStatsGrid =
     stats && !sideStats ? (
-      <div className="grid w-full grid-cols-1 sm:grid-cols-2 justify-items-start gap-x-10 gap-y-5 sm:gap-y-6 text-left">
+      <div className="grid w-full grid-cols-1 sm:grid-cols-2 justify-items-start gap-x-8 gap-y-5 sm:gap-x-10 sm:gap-y-6 text-left">
         {stats.slice(0, 4).map((stat, index) => (
           <div key={index} className="min-w-0 max-w-full pr-0.5">
           <StatBlock
@@ -593,7 +593,7 @@ export default function InsightPanel({
               {leftContent}
             </div>
             <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 flex w-full min-w-0 items-center justify-center px-0 lg:px-4">
-              <div className="w-full max-w-[34rem] rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-8 py-6 sm:px-10 sm:py-8 lg:px-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <div className="w-full max-w-[38rem] rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-8 py-6 sm:px-10 sm:py-8 lg:px-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                 {statsGridContent}
               </div>
             </div>

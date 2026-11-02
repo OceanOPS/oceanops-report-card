@@ -238,7 +238,7 @@
         "authorTitle": "Director de OceanOPS",
         "logoAlt": "Logo OceanOPS"
       },
-      "statsTitle": "Las redes en números",
+      "statsTitle": "Redes de observación <i>in situ</i> – cifras clave y mapa interactivo",
       "statsIntro": "Nuestra comunidad global de proveedores y operadores trabajan juntos para entregar información oceánica esencial todos los días.",
       "stats": {
         "evolutionDetail": {
@@ -268,13 +268,23 @@
           "description": "plataformas operacionales",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Plataformas operacionales",
-          "infoModalContent": "Redes globales y sistemas regionales que entregan datos en casi tiempo real."
+          "infoModalContent": "Plataformas de redes globales y sistemas regionales que entregan datos en casi tiempo real."
         },
         "stat4": {
           "description": "observatorios de referencia",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Observatorios de referencia",
           "infoModalContent": "Observaciones de referencia, multidisciplinarias y a largo plazo de la más alta calidad, en modo diferido, para calibrar y validar otros sistemas de observación y evaluar cambios a largo plazo."
+        },
+        "stat5": {
+          "description": "plataformas de redes globales",
+          "infoModalTitle": "Redes globales",
+          "infoModalContent": "Plataformas operativas en Argo, VOS, la red de boyas a la deriva (GDA) y boyas fondeadas tropicales (subcomponente MBN), con observaciones oceánico-atmosféricas a gran escala en tiempo casi real."
+        },
+        "stat6": {
+          "description": "plataformas de sistemas regionales",
+          "infoModalTitle": "Sistemas regionales y emergentes",
+          "infoModalContent": "Plataformas operativas en redes regionales y emergentes del mapa — gliders, boyas costeras, AniBOS, radares HF, boyas de tsunami, ASAP y FVON — para necesidades de observación costera y específicas."
         }
       },
       "table": {
@@ -746,7 +756,7 @@
     "year": "2025",
     "overview": "Resumen",
     "inSituStatus": "Estado y actualizaciones del sistema de observación in situ",
-    "networksByNumbers": "Redes en cifras",
+    "networksByNumbers": "Redes de observación <i>in situ</i> – cifras clave y mapa interactivo",
     "platformMap": "Mapa interactivo de plataformas",
     "glossary": "Glosario",
     "downloadPdf": "DESCARGAR PDF",

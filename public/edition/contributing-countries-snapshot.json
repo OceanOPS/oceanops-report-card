@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-29",
+  "exportedAt": "2026-11-02",
   "year": 2026,
   "isos": [
     "AE",
@@ -106,11 +106,11 @@
       },
       {
         "id": "fvon",
-        "count": 199
+        "count": 200
       },
       {
         "id": "sotVos",
-        "count": 31
+        "count": 32
       },
       {
         "id": "soconet",
@@ -138,7 +138,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 48
+        "count": 49
       },
       {
         "id": "tsunamiBuoys",
@@ -164,7 +164,7 @@
     "BG": [
       {
         "id": "argo",
-        "count": 7
+        "count": 8
       }
     ],
     "BM": [
@@ -210,7 +210,7 @@
     "BS": [
       {
         "id": "fvon",
-        "count": 9
+        "count": 8
       }
     ],
     "CA": [
@@ -220,7 +220,7 @@
       },
       {
         "id": "argo",
-        "count": 199
+        "count": 196
       },
       {
         "id": "oceanGliders",
@@ -282,11 +282,11 @@
       },
       {
         "id": "argo",
-        "count": 77
+        "count": 76
       },
       {
         "id": "sotVos",
-        "count": 64
+        "count": 63
       },
       {
         "id": "gloss",
@@ -320,7 +320,7 @@
       },
       {
         "id": "argo",
-        "count": 277
+        "count": 280
       },
       {
         "id": "oceanGliders",
@@ -328,7 +328,7 @@
       },
       {
         "id": "sotVos",
-        "count": 364
+        "count": 358
       },
       {
         "id": "sotAsap",
@@ -376,15 +376,15 @@
     "ES": [
       {
         "id": "argo",
-        "count": 36
+        "count": 37
       },
       {
         "id": "oceanGliders",
-        "count": 9
+        "count": 8
       },
       {
         "id": "sotVos",
-        "count": 2
+        "count": 3
       },
       {
         "id": "soconet",
@@ -410,7 +410,7 @@
     "EU": [
       {
         "id": "driftingBuoys",
-        "count": 146
+        "count": 139
       },
       {
         "id": "argo",
@@ -422,7 +422,7 @@
       },
       {
         "id": "sotAsap",
-        "count": 12
+        "count": 13
       }
     ],
     "FI": [
@@ -434,7 +434,7 @@
     "FJ": [
       {
         "id": "fvon",
-        "count": 34
+        "count": 35
       },
       {
         "id": "gloss",
@@ -460,7 +460,7 @@
       },
       {
         "id": "argo",
-        "count": 308
+        "count": 304
       },
       {
         "id": "oceanGliders",
@@ -472,7 +472,7 @@
       },
       {
         "id": "sotVos",
-        "count": 50
+        "count": 51
       },
       {
         "id": "soconet",
@@ -492,7 +492,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 34
+        "count": 35
       },
       {
         "id": "hfRadars",
@@ -502,15 +502,15 @@
     "GB": [
       {
         "id": "driftingBuoys",
-        "count": 8
+        "count": 7
       },
       {
         "id": "argo",
-        "count": 145
+        "count": 144
       },
       {
         "id": "oceanGliders",
-        "count": 16
+        "count": 14
       },
       {
         "id": "aniBOS",
@@ -522,7 +522,7 @@
       },
       {
         "id": "sotVos",
-        "count": 174
+        "count": 173
       },
       {
         "id": "soconet",
@@ -628,11 +628,11 @@
     "IN": [
       {
         "id": "driftingBuoys",
-        "count": 21
+        "count": 20
       },
       {
         "id": "argo",
-        "count": 135
+        "count": 133
       },
       {
         "id": "gloss",
@@ -676,7 +676,7 @@
       },
       {
         "id": "argo",
-        "count": 93
+        "count": 92
       },
       {
         "id": "oceanGliders",
@@ -708,15 +708,15 @@
     "JP": [
       {
         "id": "driftingBuoys",
-        "count": 23
+        "count": 21
       },
       {
         "id": "argo",
-        "count": 150
+        "count": 147
       },
       {
         "id": "sotVos",
-        "count": 138
+        "count": 142
       },
       {
         "id": "sotAsap",
@@ -760,7 +760,7 @@
       },
       {
         "id": "sotVos",
-        "count": 14
+        "count": 15
       },
       {
         "id": "gloss",
@@ -814,7 +814,7 @@
       },
       {
         "id": "sotVos",
-        "count": 12
+        "count": 13
       },
       {
         "id": "hfRadars",
@@ -1020,23 +1020,23 @@
     "US": [
       {
         "id": "driftingBuoys",
-        "count": 1051
+        "count": 1085
       },
       {
         "id": "argo",
-        "count": 2539
+        "count": 2533
       },
       {
         "id": "oceanGliders",
-        "count": 139
+        "count": 142
       },
       {
         "id": "fvon",
-        "count": 212
+        "count": 213
       },
       {
         "id": "sotVos",
-        "count": 576
+        "count": 585
       },
       {
         "id": "soconet",
@@ -1044,7 +1044,7 @@
       },
       {
         "id": "soconetMoorings",
-        "count": 41
+        "count": 39
       },
       {
         "id": "oceantrax",
@@ -1064,11 +1064,11 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 207
+        "count": 199
       },
       {
         "id": "tsunamiBuoys",
-        "count": 29
+        "count": 28
       },
       {
         "id": "hfRadars",

@@ -238,7 +238,7 @@
         "authorTitle": "Directeur d'OceanOPS",
         "logoAlt": "Logo OceanOPS"
       },
-      "statsTitle": "Les réseaux en chiffres",
+      "statsTitle": "Réseaux d'observation <i>in situ</i> – chiffres clés et carte interactive",
       "statsIntro": "Notre communauté mondiale de fournisseurs et d'opérateurs travaillent ensemble pour fournir des informations océaniques essentielles chaque jour.",
       "stats": {
         "evolutionDetail": {
@@ -268,13 +268,23 @@
           "description": "plateformes opérationnelles",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Plateformes opérationnelles",
-          "infoModalContent": "Réseaux mondiaux et systèmes régionaux diffusant des données en quasi temps réel."
+          "infoModalContent": "Plateformes des réseaux mondiaux et systèmes régionaux diffusant des données en quasi temps réel."
         },
         "stat4": {
           "description": "observatoires de référence",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Observatoires de référence",
           "infoModalContent": "Observations de référence, pluridisciplinaires et de long terme, de la plus haute qualité, en mode différé, pour étalonner et valider les autres systèmes d'observation et évaluer les changements à long terme."
+        },
+        "stat5": {
+          "description": "plateformes des réseaux globaux",
+          "infoModalTitle": "Réseaux globaux",
+          "infoModalContent": "Plateformes opérationnelles Argo, VOS, bouées dérivantes (GDA) et bouées mouillées tropicales (composante MBN), pour des observations océan-atmosphère à grande échelle en temps quasi réel."
+        },
+        "stat6": {
+          "description": "plateformes des systèmes régionaux",
+          "infoModalTitle": "Systèmes régionaux et émergents",
+          "infoModalContent": "Plateformes opérationnelles des réseaux régionaux et émergents sur la carte — planeurs, bouées côtières, AniBOS, radars HF, bouées tsunami, ASAP, FVON — pour des besoins d'observation côtiers et applicatifs."
         }
       },
       "table": {
@@ -735,7 +745,7 @@
     "year": "2025",
     "overview": "Aperçu",
     "inSituStatus": "État et mises à jour du système d'observation in situ",
-    "networksByNumbers": "Réseaux en chiffres",
+    "networksByNumbers": "Réseaux d'observation <i>in situ</i> – chiffres clés et carte interactive",
     "platformMap": "Carte interactive des plateformes",
     "glossary": "Glossaire",
     "downloadPdf": "TÉLÉCHARGER PDF",

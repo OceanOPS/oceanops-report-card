@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-29",
+  "exportedAt": "2026-11-02",
   "previousYear": "2025",
   "previousSource": "baseline",
   "baselineMissing": false,
@@ -13,7 +13,7 @@
       "networks": [
         {
           "id": "fvon",
-          "count": 34
+          "count": 35
         },
         {
           "id": "gloss",

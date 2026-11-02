@@ -2,10 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ContentBox from './ContentBox'
 import Spacer from './Spacer'
-import {
-  totalObservingPlatforms,
-  totalReferenceObservatories,
-} from '../utils/partnerCountryStats'
+import { goosTierCounts } from '../data/goosTierCounts'
 import { insituLearnMoreContentClass } from './insituProseClasses'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
@@ -108,7 +105,9 @@ export default function InsituNetworksLearnMore() {
           `${base}.globalArrays.network4`,
         ]}
         summaryKey={`${base}.globalArrays.summary`}
-        summaryVars={{ platformCount: fmt(totalObservingPlatforms) }}
+        summaryVars={{
+          platformCount: fmt(goosTierCounts.globalArraysPlatforms),
+        }}
       />
 
       <Spacer size="xs" />
@@ -128,7 +127,9 @@ export default function InsituNetworksLearnMore() {
           `${base}.referenceObservatories.network5`,
         ]}
         summaryKey={`${base}.referenceObservatories.summary`}
-        summaryVars={{ referenceCount: fmt(totalReferenceObservatories) }}
+        summaryVars={{
+          referenceCount: fmt(goosTierCounts.referenceObservatories),
+        }}
       />
 
       <Spacer size="xs" />
@@ -152,7 +153,9 @@ export default function InsituNetworksLearnMore() {
           `${base}.regionalSystems.network9`,
         ]}
         summaryKey={`${base}.regionalSystems.summary`}
-        summaryVars={{ platformCount: fmt(totalObservingPlatforms) }}
+        summaryVars={{
+          platformCount: fmt(goosTierCounts.regionalEmergingPlatforms),
+        }}
         maxExpandedHeight="max-h-[3000px]"
       />
     </ContentBox>

@@ -297,7 +297,7 @@
     "paragraph2": "The system operates across three interdependent levels: (i) national, where observing assets including networks are owned and operated; (ii) regional, where national efforts are connected to broader operational coordination; (iii) global, where coordination is provided through GOOS.",
     "celesteQuote": "Without ocean observations, we are flying blind. They underpin weather forecasts and our understanding of the climate system, and helped us predict the development and strength of this year’s extraordinary El Niño. Real-time ocean data also support early warnings of tropical cyclones, heavy rainfall and extreme heat. Ocean observations are a global public good, and our investment priorities should reflect that shared benefit.",
     "celesteQuoteAuthor": "Celeste Saulo",
-    "celesteQuotePosition": "Secretary General of the World Meteorological Organization",
+    "celesteQuotePosition": "WMO Secretary General",
     "quoteVidar": {
       "text": "Strengthening the Global Ocean Observing System is not just a scientific challenge, it is a governance challenge. We need an optimised system that countries can sustain over time, and this will only be possible with stronger investments and closer cooperation with governments.",
       "author": "Vidar Helgesen",
@@ -320,7 +320,7 @@
     "paragraph2": "Authors: GOOS Secretariat, OceanOPS, GOOS Observations Coordination Group<br/>GOOS Report no. 327. DOI: <a href=\"https://doi.org/10.71245/YFVA2935\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">10.71245/YFVA2935</a>",
     "paragraph3": "With special thanks to all contributing authors: Mathieu Belbéoch, Zulfikar Begg, Séverine Fournier, Nicolas Kolodziejczyk, Joanna Post, Bipendra Prakash, Emanuela Rusciano, Laura Stukonytė, Erica Towle, Esmee Van Wijk.",
     "paragraph4": "Cover video: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a>",
-    "paragraph5": "Lead editors: Laura Stukonytė & Emanuela Rusciano<br/>Mapping and Web development: Magali Krieger & Thomas Mignon"
+    "paragraph5": "Lead editors: Laura Stukonytė & Emanuela Rusciano<br/>Mapping and Web development: Magali Krieger, Thomas Mignon & Thomas Latter"
   },
   "content": {
     "section1": {
@@ -338,7 +338,7 @@
           "network1": "Profiling floats - Argo",
           "network2": "Ship based meteorological - VOS",
           "network3": "Drifting buoys - GDA",
-          "network4": "Tropical Moored Buoys - a subcomponent of the MBN",
+          "network4": "Tropical moored buoys - a subcomponent of the MBN",
           "summary": "Together, these networks operate approximately <strong>{{platformCount}} operational platforms</strong>, providing real-time broad-scale observations across the global ocean."
         },
         "referenceObservatories": {
@@ -395,7 +395,7 @@
       "atmosphereLearnMore": {
         "title": "Learn more: Did you know that GOOS networks observe more than the ocean?",
         "lead": "Above the waves, GOOS networks also monitor the atmosphere.",
-        "paragraph1": "The GOOS networks — Ship based meteorological (VOS) and aerological (ASAP) networks, Sea level gauges (GLOSS), Moored (MBN) and Drifting buoys (GDA), and Surface UNcrewed Fleet (SUN Fleet) — do not just collect essential ocean variables — they also collect atmospheric observations including air temperature, atmospheric pressure, humidity, wind and many other key variables.",
+        "paragraph1": "The GOOS networks — Ship based meteorological (VOS) and aerological (ASAP) networks, Sea level gauges (GLOSS), Moored (MBN) and Drifting buoys (GDA), and Surface UNcrewed Fleet (SUN Fleet) — do not just collect Essential Ocean Variables — they also collect atmospheric observations including air temperature, atmospheric pressure, humidity, wind and many other key variables.",
         "paragraph2": "These observations are part of the suite of data delivered by GOOS for a wider range of operational applications such as weather forecasts and early warning systems. The data also helps us understand the Earth system and to monitor interactions between the ocean and atmosphere."
       },
       "globalCoverageProse": {
@@ -428,14 +428,14 @@
       "paragraph10": "The Southern Ocean remains the most under-sampled region due to its remoteness and harsh conditions. Nevertheless, the Animal borne ocean sensors (AniBOS) network is contributing valuable data from this challenging region, helping to fill critical gaps.",
       "paragraph11": "The subcritical nature of GOOS also extends to the supply and production chain, including instrument manufacturers and service providers. Limited research and development capacity, coupled with economic and logistical pressures, poses additional challenges to long-term sustainability of instrument supply.",
       "quote": {
-        "text": "GOOS is rounding a cape, benefitting from an unprecedented international visibility and support. Meanwhile it needs to clarify its priorities, structure its components and improve its core services. This requires a cultural shift in our collective responsibility in sustaining an operational infrastructure, and advancing it through ambitious, iterative and transdisciplinary goals at the scale of our planet. One Ocean, One GOOS.",
+        "text": "GOOS is reaching a turning point, benefiting from unprecedented international visibility and support. We must now build on this momentum by clarifying our priorities and targets, strengthening coordination across GOOS components and enhancing the services we collectively deliver. One Ocean, One GOOS.",
         "authorName": "M. Belbéoch",
         "authorTitle": "OceanOPS Manager",
         "imageAlt": "Arctic sea ice",
         "imageCaption": "Arctic sea ice. Credit: Nicolas Kolodziejczyk, Laboratoire d’Océanographie Physique et Spatiale, CNRS",
         "logoAlt": "OceanOPS Logo"
       },
-      "statsTitle": "<i>In situ</i> observing networks by the numbers",
+      "statsTitle": "<i>In situ</i> observing networks – key numbers and interactive map",
       "statsIntro": "Our observing system continues to evolve, with providers and operators around the world working together to deliver essential ocean information every day.",
       "statsIntro2": "The numbers and map of this Report show operational platforms and reference observatories from 13 global observing networks, and 4 emerging, monitored in near real-time by OceanOPS.",
       "statsIntro3": "In 2026, two emerging networks, Surface Ocean CO₂ (SOCONET) and Fishing Vessels (FVON), have become increasingly operational and have been integrated into the OceanOPS monitoring system.",
@@ -468,13 +468,23 @@
           "description": "operational platforms",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Operational platforms",
-          "infoModalContent": "Global arrays and regional systems delivering data in near real-time."
+          "infoModalContent": "Platforms in global arrays and regional systems delivering data in near real-time."
         },
         "stat4": {
           "description": "reference observatories",
           "evolutionVsLastYear": "{{delta}} vs {{year}}",
           "infoModalTitle": "Reference observatories",
           "infoModalContent": "Delivering highest-quality reference, long-term and multidisciplinary observations in delayed mode to calibrate and validate other observing systems and assess long-term changes."
+        },
+        "stat5": {
+          "description": "global array platforms",
+          "infoModalTitle": "Global arrays",
+          "infoModalContent": "Operational platforms in Argo, VOS, the drifting buoy array (GDA), and tropical moored buoys (MBN subcomponent), providing real-time broad-scale ocean and atmosphere observations."
+        },
+        "stat6": {
+          "description": "regional system platforms",
+          "infoModalTitle": "Regional and emerging systems",
+          "infoModalContent": "Operational platforms in regional and emerging networks on the map—including gliders, coastal moored buoys, AniBOS, HF radars, tsunami buoys, ASAP, and FVON—supporting coastal and application-specific observing needs."
         }
       },
       "table": {
@@ -1303,7 +1313,7 @@
     "cover": "Cover",
     "overview": "Overview",
     "inSituStatus": "Monitoring the ocean observing system: status and updates by OceanOPS",
-    "networksByNumbers": "<i>In situ</i> observing networks by the numbers",
+    "networksByNumbers": "<i>In situ</i> observing networks – key numbers and interactive map",
     "matureEmergingNetworks": "<i>In situ</i> mature and emerging networks assessment",
     "satelliteObservationsMenu": "Satellite observations",
     "biologicalObservationsMenu": "Biological and ecosystem observations",
