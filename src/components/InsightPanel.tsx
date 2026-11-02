@@ -154,12 +154,13 @@ function StatEvolutionBadge({
         : 'text-goos-cyan-400 border-goos-cyan-400/35 bg-goos-cyan-500/10'
 
   if (evolutionLines) {
+    const line = evolutionLines.filter(Boolean).join(' ')
+    if (!line) return null
     return (
       <span
-        className={`inline-flex shrink-0 flex-col items-start gap-0 rounded-xl border px-2.5 py-1.5 text-[11px] sm:text-xs font-semibold leading-snug ${toneClass}`}
+        className={`inline-flex shrink-0 max-w-full items-center whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] sm:text-xs font-semibold tabular-nums ${toneClass}`}
       >
-        <span className="whitespace-nowrap">{evolutionLines[0]}</span>
-        <span className="whitespace-nowrap">{evolutionLines[1]}</span>
+        <span>{line}</span>
       </span>
     )
   }
@@ -168,7 +169,7 @@ function StatEvolutionBadge({
 
   return (
     <span
-      className={`inline-flex max-w-full items-center gap-1 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] sm:text-xs font-semibold tabular-nums ${toneClass}`}
+      className={`inline-flex max-w-full items-center gap-1 whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] sm:text-xs font-semibold tabular-nums ${toneClass}`}
     >
       {arrow && <span aria-hidden="true">{arrow}</span>}
       <span>{evolution}</span>
@@ -241,7 +242,7 @@ function StatBlock({
     >
       <p
         ref={numberRef}
-        className={`shrink-0 font-roboto font-bold oldstyle-nums leading-none tracking-normal ${stat.numberClassName ?? 'text-6xl sm:text-7xl md:text-[4.25rem]'} ${numberColor}`}
+        className={`shrink-0 font-roboto font-bold tabular-nums leading-none tracking-normal ${stat.numberClassName ?? 'text-5xl sm:text-6xl md:text-[3.75rem]'} ${numberColor}`}
       >
         {stat.number}
       </p>
@@ -547,7 +548,7 @@ export default function InsightPanel({
 
   const defaultStatsGrid =
     stats && !sideStats ? (
-      <div className="grid w-full grid-cols-1 sm:grid-cols-2 justify-items-stretch gap-x-10 gap-y-8 sm:gap-x-12 sm:gap-y-10 lg:gap-x-14 lg:gap-y-12 text-left">
+      <div className="grid w-full grid-cols-1 sm:grid-cols-2 justify-items-start gap-x-10 gap-y-5 sm:gap-y-6 text-left">
         {stats.slice(0, 4).map((stat, index) => (
           <div key={index} className="min-w-0 max-w-full pr-0.5">
           <StatBlock
@@ -584,16 +585,18 @@ export default function InsightPanel({
         <div className="h-4 sm:h-6 md:h-8 w-5 opacity-75"></div>
 
         {useTextStatsGrid ? (
-          <div className="flex flex-col gap-8 md:gap-10 lg:flex-row lg:items-start lg:gap-x-12 xl:gap-x-16">
-            <div className="lg:basis-1/2 flex min-w-0 flex-col gap-4 sm:gap-5">
-              {titleBlock}
-              <div
-                className={`${textColor} font-roboto text-base sm:text-lg md:text-xl leading-relaxed space-y-2 text-left`}
-              >
-                {leftContent}
+          <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-x-12 xl:gap-x-16 2xl:gap-x-20">
+            <div className="lg:col-start-1 lg:row-start-1">{titleBlock}</div>
+            <div
+              className={`${textColor} font-roboto text-base sm:text-lg md:text-xl leading-relaxed space-y-2 text-left lg:col-start-1 lg:row-start-2 lg:pr-4 xl:pr-6`}
+            >
+              {leftContent}
+            </div>
+            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 flex w-full min-w-0 items-center justify-center px-0 lg:px-4">
+              <div className="w-full max-w-[34rem] rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-8 py-6 sm:px-10 sm:py-8 lg:px-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                {statsGridContent}
               </div>
             </div>
-            <div className="lg:basis-1/2 w-full min-w-0 text-left">{statsGridContent}</div>
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row lg:items-start gap-8 md:gap-10 lg:gap-8 xl:gap-10">
