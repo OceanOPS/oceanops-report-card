@@ -295,7 +295,9 @@
     "title": "Call to action",
     "paragraph1": "Sustained and resilient ocean observation is critical for national security, global trade, ocean based energy supply, ocean industries, early warning systems, and marine protection. In short, ocean observation constitutes critical infrastructure for Member States worldwide.",
     "paragraph2": "The system operates across three interdependent levels: (i) national, where observing assets including networks are owned and operated; (ii) regional, where national efforts are connected to broader operational coordination; (iii) global, where coordination is provided through GOOS.",
-    "celesteQuote": "[Placeholder for Celeste Saulo's quote]",
+    "celesteQuote": "Without ocean observations, we are flying blind. They underpin weather forecasts and our understanding of the climate system, and helped us predict the development and strength of this year’s extraordinary El Niño. Real-time ocean data also support early warnings of tropical cyclones, heavy rainfall and extreme heat. Ocean observations are a global public good, and our investment priorities should reflect that shared benefit.",
+    "celesteQuoteAuthor": "Celeste Saulo",
+    "celesteQuotePosition": "Secretary General of the World Meteorological Organization",
     "quoteVidar": {
       "text": "Strengthening the Global Ocean Observing System is not just a scientific challenge, it is a governance challenge. We need an optimised system that countries can sustain over time, and this will only be possible with stronger investments and closer cooperation with governments.",
       "author": "Vidar Helgesen",

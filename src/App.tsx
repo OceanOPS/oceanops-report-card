@@ -1644,9 +1644,12 @@ function App() {
 
         <QuoteBlock
           quote={t('callToAction.celesteQuote')}
-          quoteColor="text-goos-gray-300"
-          iconColor="fill-goos-gray-500"
-          className="mb-4 sm:mb-6 italic"
+          authorName={t('callToAction.celesteQuoteAuthor')}
+          authorTitle={t('callToAction.celesteQuotePosition')}
+          quoteColor="text-goos-white"
+          authorColor="text-goos-orange-500"
+          iconColor="fill-goos-orange-500"
+          className="mb-4 sm:mb-6"
         />
 
         <QuoteBlock
