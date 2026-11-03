@@ -4,7 +4,6 @@ import NetworkCard from './NetworkCard'
 import NetworkDetailsPanel from './NetworkDetailsPanel'
 import { asset } from '../utils/assets'
 import type { InSituNetwork } from '../types/inSituNetworks'
-import { hasEmergingNetworkMedia } from '../data/emergingNetworkMedia'
 
 /** Stacked cards — common “flip card” affordance */
 export function FlipCardsIcon({ className = '' }: { className?: string }) {
@@ -50,7 +49,6 @@ interface FlipNetworkCardProps {
   tooltipBgColor?: string
   tooltipTextColor?: string
   className?: string
-  onOpenEmergingMedia?: (networkId: string) => void
 }
 
 export default function FlipNetworkCard({
@@ -61,7 +59,6 @@ export default function FlipNetworkCard({
   tooltipBgColor = 'bg-goos-blue-900',
   tooltipTextColor = 'text-goos-white',
   className = '',
-  onOpenEmergingMedia,
 }: FlipNetworkCardProps) {
   const { t } = useTranslation()
   const [isFlipped, setIsFlipped] = useState(false)
@@ -179,21 +176,6 @@ export default function FlipNetworkCard({
                 textColor={textColor}
                 accentColor={accentColor}
               />
-
-              {network.maturity === 'emerging' &&
-                hasEmergingNetworkMedia(network.id) &&
-                onOpenEmergingMedia && (
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      onOpenEmergingMedia(network.id)
-                    }}
-                    className="shrink-0 inline-flex items-center justify-center px-4 py-2 text-sm font-medium bg-goos-orange-500 text-white hover:bg-goos-orange-600 transition-colors mt-auto"
-                  >
-                    {t('emerging.viewMore')}
-                  </button>
-                )}
             </div>
           </div>
         </div>

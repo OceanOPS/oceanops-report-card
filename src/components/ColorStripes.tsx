@@ -4,32 +4,55 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { asset } from '../utils/assets'
 
-// Registrar el plugin de ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-interface DeliveryArea {
+/** Stable defaults — do not inline in props/deps or ScrollTrigger re-inits every render. */
+export const VALUE_SECTION_STRIPE_COLORS = [
+  'bg-goos-cyan-300',
+  'bg-goos-cyan-200',
+  'bg-goos-cyan-100',
+] as const;
+
+export const DEFAULT_DELIVERY_AREAS: DeliveryAreaConfig[] = [
+  {
+    iconSrc: asset('/icons/climate.png'),
+    iconAlt: 'Climate',
+    textKey: 'networks.deliveryAreas.climate',
+    sectionId: 'amoc-section',
+  },
+  {
+    iconSrc: asset('/icons/operational_services.png'),
+    iconAlt: 'Operational Services',
+    textKey: 'networks.deliveryAreas.operational',
+    sectionId: 'elnino-section',
+  },
+  {
+    iconSrc: asset('/icons/ocean_health.png'),
+    iconAlt: 'Ocean Health',
+    textKey: 'networks.deliveryAreas.oceanhealth',
+    sectionId: 'oceanhealth-section',
+  },
+];
+
+interface DeliveryAreaConfig {
   iconSrc: string;
   iconAlt: string;
   textKey: string;
-  sectionId?: string; // ID de la sección a la que navegar
+  sectionId?: string;
 }
 
 interface ColorStripesProps {
-  stripeColors: string[];
+  stripeColors?: readonly string[];
   className?: string;
-  deliveryAreas?: DeliveryArea[];
+  deliveryAreas?: DeliveryAreaConfig[];
   stripeHeight?: string;
 }
 
 export default function ColorStripes({
-  stripeColors,
+  stripeColors = VALUE_SECTION_STRIPE_COLORS,
   className = '',
-  deliveryAreas = [
-    { iconSrc: asset('/icons/climate.png'), iconAlt: 'Climate', textKey: 'networks.deliveryAreas.climate', sectionId: 'amoc-section' },
-    { iconSrc: asset('/icons/operational_services.png'), iconAlt: 'Operational Services', textKey: 'networks.deliveryAreas.operational', sectionId: 'elnino-section' },
-    { iconSrc: asset('/icons/ocean_health.png'), iconAlt: 'Ocean Health', textKey: 'networks.deliveryAreas.oceanhealth', sectionId: 'oceanhealth-section' },
-  ],
-  stripeHeight = ''
+  deliveryAreas = DEFAULT_DELIVERY_AREAS,
+  stripeHeight = '',
 }: ColorStripesProps) {
   const { t } = useTranslation();
 
@@ -66,90 +89,84 @@ export default function ColorStripes({
   };
 
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      stripesRef.current.forEach((stripe) => {
+        if (stripe) gsap.set(stripe, { clearProps: 'transform' });
+      });
+      deliveryAreasRef.current.forEach((area) => {
+        if (area) gsap.set(area, { opacity: 1, y: 0, scale: 0.6, clearProps: 'all' });
+      });
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      // ENTRADA ESCALONADA DRAMÁTICA - Cada tira entra con delay
       stripesRef.current.forEach((stripe, index) => {
         if (!stripe) return;
 
-        // ENTRADA ESCALONADA - Cada tira entra 15% después de la anterior
-        gsap.fromTo(stripe, 
-          {
-            y: '50vh',
-          },
+        gsap.fromTo(
+          stripe,
+          { y: '50vh' },
           {
             y: '0vh',
-            ease: "power2.out",
+            ease: 'power2.out',
             scrollTrigger: {
-              trigger: containerRef.current,
+              trigger: container,
               start: `top+=${index * 15}% bottom`,
-              end: `top+=${20 + index * 5}% top`, 
+              end: `top+=${20 + index * 5}% top`,
               scrub: 1,
-            }
+            },
           }
         );
 
-        // SALIDA SINCRONIZADA - Todas terminan al mismo tiempo
-        gsap.fromTo(stripe,
-          {
-            y: '0vh',
-          },
+        gsap.fromTo(
+          stripe,
+          { y: '0vh' },
           {
             y: '-100vh',
-            ease: "none",
+            ease: 'none',
             scrollTrigger: {
-              trigger: containerRef.current,
-              start: `top+=${80}% top`,
-              end: `top+=${180}% top`,
+              trigger: container,
+              start: 'top+=80% top',
+              end: 'top+=180% top',
               scrub: 1,
-            }
+            },
           }
         );
       });
 
-      // ANIMACIÓN DE DELIVERY AREAS
       deliveryAreasRef.current.forEach((area, index) => {
         if (!area) return;
 
-        // ENTRADA de delivery areas - usar bottom para que aparezcan antes en todos los tamaños
-        gsap.fromTo(area,
-          {
-            opacity: 0,
-            y: 20,
-            scale: 0.5
-          },
+        gsap.fromTo(
+          area,
+          { opacity: 0, y: 20, scale: 0.5 },
           {
             opacity: 1,
             y: 0,
             scale: 0.6,
-            ease: "back.out(1.7)",
+            ease: 'back.out(1.7)',
             scrollTrigger: {
-              trigger: containerRef.current,
+              trigger: container,
               start: `top+=${index * 8}% bottom`,
               end: `top+=${10 + index * 8}% center`,
               scrub: 1,
-            }
+            },
           }
         );
-
-        // SALIDA de delivery areas
-        gsap.to(area, {
-          opacity: 0,
-          y: -80,
-          scale: 0.7,
-          ease: "power2.in",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: `top+=${65}% top`,
-            end: `top+=${75}% top`,
-            scrub: 1,
-          }
-        });
       });
-
     }, containerRef);
 
+    ScrollTrigger.refresh();
+
     return () => ctx.revert();
-  }, [stripeColors, deliveryAreas]);
+  }, []);
 
   return (
     <div

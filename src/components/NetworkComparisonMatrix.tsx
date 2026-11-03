@@ -13,8 +13,6 @@ import {
   collectEssentialVariableOptions,
   essentialVariableLabelKey,
 } from '../utils/essentialVariables'
-import { hasEmergingNetworkMedia } from '../data/emergingNetworkMedia'
-
 const DELIVERY_AREAS_CONFIG = {
   climate: {
     icon: asset('/icons/climate.png'),
@@ -53,7 +51,6 @@ function forwardVerticalWheelOnHorizontalScroller(
 interface NetworkComparisonMatrixProps {
   networks: InSituNetwork[]
   className?: string
-  onOpenEmergingMedia?: (networkId: string) => void
 }
 
 function rowBackgroundClass(isExpanded: boolean): string {
@@ -75,7 +72,6 @@ function SectionHeaderRow({ label }: { label: string }) {
 export default function NetworkComparisonMatrix({
   networks,
   className = '',
-  onOpenEmergingMedia,
 }: NetworkComparisonMatrixProps) {
   const { t } = useTranslation()
   const [activeFilter, setActiveFilter] = useState<DeliveryAreaFilter>('all')
@@ -146,7 +142,6 @@ export default function NetworkComparisonMatrix({
   const renderNetworkRows = (sectionNetworks: InSituNetwork[]) =>
     sectionNetworks.map((network) => {
       const isExpanded = expandedNetworkId === network.id
-      const isEmerging = network.maturity === 'emerging'
 
       return (
         <Fragment key={network.id}>
@@ -234,22 +229,7 @@ export default function NetworkComparisonMatrix({
           {isExpanded && (
             <tr key={`${network.id}-details`} className="border-b border-white/10 bg-goos-blue-800">
               <td colSpan={COLUMN_COUNT} className="p-4 md:p-6">
-                <div className="flex flex-col gap-4">
-                  {isEmerging &&
-                    hasEmergingNetworkMedia(network.id) &&
-                    onOpenEmergingMedia && (
-                      <div>
-                        <button
-                          type="button"
-                          onClick={() => onOpenEmergingMedia(network.id)}
-                          className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-goos-orange-500 text-white hover:bg-goos-orange-600 transition-colors"
-                        >
-                          {t('emerging.viewMore')}
-                        </button>
-                      </div>
-                    )}
-                  <NetworkDetailsPanel network={network} layout="grid" />
-                </div>
+                <NetworkDetailsPanel network={network} layout="grid" />
               </td>
             </tr>
           )}

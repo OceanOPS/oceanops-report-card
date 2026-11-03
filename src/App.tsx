@@ -951,7 +951,7 @@ function App() {
       </div>
 
       {/* Color Stripes Module */}
-      <ColorStripes stripeColors={['bg-goos-cyan-300', 'bg-goos-cyan-200', 'bg-goos-cyan-100']} />
+      <ColorStripes />
 
       {/* AMOC Climate Story */}
       <div id="amoc-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
