@@ -1169,8 +1169,8 @@ function App() {
               [
                 { icon: asset('/icons/physics/Surface-height.png'), legend: 'Sea surface height', iconSize: 'w-16 h-16' },
                 { icon: asset('/icons/physics/Sea-state.png'), legend: 'Sea state (waves)', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Bottom-pressure.png'), legend: 'Atmospheric pressure', iconSize: 'w-16 h-16' },
-                { icon: asset('/icons/physics/Surface-stress.png'), legend: 'Wind', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Atmospheric-pressure.png'), legend: 'Atmospheric pressure', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Wind.png'), legend: 'Wind', iconSize: 'w-16 h-16' },
               ],
             ]}
             borderColor="border-goos-blue-700"
