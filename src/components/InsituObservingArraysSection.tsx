@@ -36,6 +36,7 @@ export default function InsituObservingArraysSection() {
       <p className={insituBodyClass}>{t(`${base}.paragraph3`)}</p>
       <p className={insituBodyClass}>{t(`${base}.paragraph4`)}</p>
       <p className={insituBodyClass}>{t(`${base}.paragraph5`)}</p>
+      <p className={insituBodyClass}>{t(`${base}.paragraph5b`)}</p>
       <p className={insituBodyClass}>{t(`${base}.paragraph6`)}</p>
       <p
         className={insituBodyClass}

@@ -984,7 +984,7 @@ function App() {
             headers={[t('amoc.eovTable.physicsTitle')]}
             rows={[
               [
-                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Sea-surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
                 { icon: asset('/icons/physics/Subsurface-temperature.png'), legend: 'Subsurface temperature', iconSize: 'w-16 h-16' },
                 { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
                 { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
@@ -1332,7 +1332,7 @@ function App() {
             headers={[t('oceanHealth.eovTable.physicsTitle')]}
             rows={[
               [
-                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Sea-surface-temperature.png'), legend: 'Sea surface temperature', iconSize: 'w-16 h-16' },
                 { icon: asset('/icons/physics/Surface-salinity.png'), legend: 'Sea surface salinity', iconSize: 'w-16 h-16' },
                 { icon: asset('/icons/physics/Bottom-pressure.png'), legend: 'Ocean bottom pressure', iconSize: 'w-16 h-16' },
               ],
