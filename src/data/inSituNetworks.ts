@@ -320,7 +320,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     titleKey: 'networks.soconet.title',
     networkUrl: 'https://www.ioccp.org/soconet',
     ratings: {
-      implementationStatus: 'noTarget',
+      implementationStatus: 1,
       realTime: 'notApplicable',
       archivedHighQuality: 3,
       metadata: 3,
