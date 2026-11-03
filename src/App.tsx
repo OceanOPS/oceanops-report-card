@@ -990,6 +990,11 @@ function App() {
                 { icon: asset('/icons/physics/Subsurface-salinity.png'), legend: 'Subsurface salinity', iconSize: 'w-16 h-16' },
                 { icon: asset('/icons/physics/Bottom-pressure.png'), legend: 'Ocean bottom pressure', iconSize: 'w-16 h-16' },
               ],
+              [
+                { icon: asset('/icons/physics/Wind.png'), legend: 'Wind', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Atmospheric-pressure.png'), legend: 'Atmospheric pressure', iconSize: 'w-16 h-16' },
+                { icon: asset('/icons/physics/Surface-temperature.png'), legend: 'Surface temperature', iconSize: 'w-16 h-16' },
+              ],
             ]}
             borderColor="border-goos-blue-700"
             headerBgColor="bg-goos-white"
