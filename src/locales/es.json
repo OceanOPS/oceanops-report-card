@@ -554,6 +554,8 @@
         "operational": "Servicios operacionales",
         "oceanhealth": "Salud del océano"
       },
+      "essentialVariablesFilterLabel": "Variables esenciales GOOS",
+      "essentialVariablesFilterUrl": "https://goosocean.org/document/39334",
       "legendLabel": "Leyenda",
       "sectionMature": "Redes maduras",
       "sectionEmerging": "Redes emergentes",

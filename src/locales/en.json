@@ -794,6 +794,8 @@
         "operational": "Forecasting and Early Warnings",
         "oceanhealth": "Ocean Health"
       },
+      "essentialVariablesFilterLabel": "GOOS essential variables",
+      "essentialVariablesFilterUrl": "https://goosocean.org/document/39334",
       "legendLabel": "Legend",
       "sectionMature": "Mature networks",
       "sectionEmerging": "Emerging networks",

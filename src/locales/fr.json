@@ -611,6 +611,8 @@
         "operational": "Services opérationnels",
         "oceanhealth": "Santé des océans"
       },
+      "essentialVariablesFilterLabel": "Variables essentielles GOOS",
+      "essentialVariablesFilterUrl": "https://goosocean.org/document/39334",
       "legendLabel": "Légende",
       "sectionMature": "Réseaux matures",
       "sectionEmerging": "Réseaux émergents",

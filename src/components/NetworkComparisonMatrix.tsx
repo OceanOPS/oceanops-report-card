@@ -281,7 +281,14 @@ export default function NetworkComparisonMatrix({
 
         <div className="flex flex-col gap-2">
           <p className="text-white/80 text-xs font-semibold uppercase tracking-wide">
-            {t('networks.essentialVariablesLabel')}
+            <a
+              href={t('networks.comparison.essentialVariablesFilterUrl')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-goos-orange-500 underline underline-offset-2 decoration-white/40 hover:decoration-goos-orange-500"
+            >
+              {t('networks.comparison.essentialVariablesFilterLabel')}
+            </a>
           </p>
           <div className="flex flex-wrap gap-2">
             <button
