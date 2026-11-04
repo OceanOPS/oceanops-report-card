@@ -1,11 +1,14 @@
 import {
   partnerCountries,
   CONTRIBUTING_COUNTRIES,
+  NETWORK_GLOBAL_TOTALS,
   type PartnerCountry,
 } from '../data/partnerCountries'
 
+type NetworkKey = keyof PartnerCountry['networks']
+
 /** Same reference networks as the map country modal (issue #109). */
-const REFERENCE_OBSERVATORY_NETWORK_KEYS: (keyof PartnerCountry['networks'])[] = [
+const REFERENCE_OBSERVATORY_NETWORK_KEYS: readonly NetworkKey[] = [
   'oceanSites',
   'gloss',
   'goShip',
@@ -18,31 +21,23 @@ function networkContribution(value: number): number {
   return value > 0 ? value : 0
 }
 
-function sumNetworkKeys(
-  networks: PartnerCountry['networks'],
-  keys: readonly (keyof PartnerCountry['networks'])[]
-): number {
-  return keys.reduce((sum, key) => sum + networkContribution(networks[key]), 0)
-}
-
-function platforms(networks: PartnerCountry['networks']): number {
-  return Object.values(networks).reduce(
-    (sum, n) => sum + networkContribution(n),
-    0
-  )
-}
-
-let totalPlatforms = 0
-let totalReferenceObservatories = 0
-let totalObservingPlatforms = 0
-
+const totalsByNetwork = {} as Record<NetworkKey, number>
 for (const { networks } of partnerCountries) {
-  const countryTotal = platforms(networks)
-  const countryRef = sumNetworkKeys(networks, REFERENCE_OBSERVATORY_NETWORK_KEYS)
-  totalPlatforms += countryTotal
-  totalReferenceObservatories += countryRef
-  totalObservingPlatforms += countryTotal - countryRef
+  for (const key of Object.keys(networks) as NetworkKey[]) {
+    totalsByNetwork[key] = (totalsByNetwork[key] ?? 0) + networkContribution(networks[key])
+  }
 }
+for (const [key, total] of Object.entries(NETWORK_GLOBAL_TOTALS) as [NetworkKey, number][]) {
+  totalsByNetwork[key] = total
+}
+
+function sumNetworks(keys: readonly NetworkKey[]): number {
+  return keys.reduce((sum, key) => sum + (totalsByNetwork[key] ?? 0), 0)
+}
+
+const totalPlatforms = sumNetworks(Object.keys(totalsByNetwork) as NetworkKey[])
+const totalReferenceObservatories = sumNetworks(REFERENCE_OBSERVATORY_NETWORK_KEYS)
+const totalObservingPlatforms = totalPlatforms - totalReferenceObservatories
 
 export const contributingCountries = CONTRIBUTING_COUNTRIES
 

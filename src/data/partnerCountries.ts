@@ -414,3 +414,9 @@ export const partnerCountries: PartnerCountry[] = [
 
 /** Globe/report filter countries (rollup + whitelist). Matches simple-map getFilterableCountryNames. */
 export const CONTRIBUTING_COUNTRIES = 67
+
+/**
+ * Global totals that replace the sum over countries (OceanTraX lines run by several countries
+ * appear once per country). Matches simple-map networkLegendTotals.
+ */
+export const NETWORK_GLOBAL_TOTALS: Partial<Record<keyof CountryNetworks, number>> = {"oceantrax":22}

@@ -15,7 +15,7 @@ export const goosTierCounts = {
   /** Profiling floats + VOS + GDA + tropical MBN */
   globalArraysPlatforms: 7389,
   /** OceanSITES + GLOSS + GO-SHIP + SOCONET + OceanTraX (partner-country totals; matches stats card) */
-  referenceObservatories: 898,
+  referenceObservatories: 890,
   /** Regional / emerging networks with map layers (excludes SUN Fleet & SMART cables until layers exist) */
   regionalEmergingPlatforms: 1832,
 } as const
