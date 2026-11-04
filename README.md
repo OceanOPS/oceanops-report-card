@@ -57,7 +57,17 @@ Both use the same code with `asset()` helper - only `vite.config.ts` differs.
 
 ### Local embedded map
 
-The Operational Platforms globe is an iframe to [oceanops-simple-map](https://github.com/OceanOPS/oceanops-simple-map). By default it loads the production URL. To test map changes locally, create a `.env.local` file (gitignored):
+The Operational Platforms globe is an iframe to [oceanops-simple-map](https://github.com/OceanOPS/oceanops-simple-map).
+
+**Important:** do not put `VITE_MAP_SRC` in `.env.local` — Vite loads that file for **both** `npm run dev` and `npm run build`, so Netlify builds can accidentally embed `localhost`.
+
+| File | Used when |
+|------|-----------|
+| `.env.production` (committed) | `npm run build` → production map on ocean-ops.org |
+| `.env.development.local` (gitignored) | `npm run dev` → local map |
+| `.env.production.local` (gitignored) | `npm run build` → Netlify preview map (optional) |
+
+Local map — copy from `.env.example` into `.env.development.local`:
 
 ```bash
 VITE_MAP_SRC=http://localhost:5174/demos/simple-arcgis-map/
@@ -73,7 +83,7 @@ cd ../oceanops-simple-map && npm run dev
 npm run dev
 ```
 
-Restart the report card dev server after creating or editing `.env.local`. Remove the file (or unset `VITE_MAP_SRC`) to use the production map again.
+Restart the dev server after editing `.env.development.local`. `npm run build` runs a check that fails if `localhost` is baked into `dist/`.
 
 ### Build for Production
 
