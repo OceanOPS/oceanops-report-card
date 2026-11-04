@@ -6,16 +6,16 @@
  *
  * Each subtotal sums the networks listed in the Report Card “Learn more” accordion for that tier.
  * Source: map GeoJSON feature counts + DB split for tropical/coastal MBN (see goos-tier-counts.config.mjs).
- * As of edition date: 2026-11-02
- * Generated at: 2026-11-02T13:18:00.810Z
+ * As of edition date: 2026-11-04
+ * Generated at: 2026-11-04T07:46:03.231Z
  */
 
 export const goosTierCounts = {
-  asOf: "2026-11-02",
+  asOf: "2026-11-04",
   /** Profiling floats + VOS + GDA + tropical MBN */
-  globalArraysPlatforms: 7388,
+  globalArraysPlatforms: 7389,
   /** OceanSITES + GLOSS + GO-SHIP + SOCONET + OceanTraX (partner-country totals; matches stats card) */
   referenceObservatories: 898,
   /** Regional / emerging networks with map layers (excludes SUN Fleet & SMART cables until layers exist) */
-  regionalEmergingPlatforms: 1835,
+  regionalEmergingPlatforms: 1832,
 } as const

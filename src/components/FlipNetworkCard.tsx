@@ -81,6 +81,8 @@ export default function FlipNetworkCard({
     const canScrollVertically = back.scrollHeight > back.clientHeight + 1
     if (!canScrollVertically) return
 
+    event.stopPropagation()
+
     const scrollingUp = event.deltaY < 0 && back.scrollTop <= 0
     const scrollingDown =
       event.deltaY > 0 &&
@@ -90,6 +92,19 @@ export default function FlipNetworkCard({
       event.preventDefault()
       window.scrollBy({ top: event.deltaY, behavior: 'auto' })
     }
+  }
+
+  const stopCardToggle = (event: { stopPropagation: () => void }) => {
+    event.stopPropagation()
+  }
+
+  const handleShellClick = () => {
+    if (!isFlipped) toggleFlip()
+  }
+
+  const handleShellKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (isFlipped) return
+    handleKeyDown(event)
   }
 
   return (
@@ -110,18 +125,24 @@ export default function FlipNetworkCard({
       <div
         role="button"
         tabIndex={0}
-        onClick={toggleFlip}
-        onKeyDown={handleKeyDown}
-        className="w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-goos-orange-500 rounded-sm cursor-pointer active:scale-[0.995] transition-transform"
+        onClick={handleShellClick}
+        onKeyDown={handleShellKeyDown}
+        className={`w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-goos-orange-500 rounded-sm transition-transform ${
+          isFlipped ? 'cursor-default' : 'cursor-pointer active:scale-[0.995]'
+        }`}
         aria-label={
           isFlipped
             ? t('networks.comparison.flipBack')
             : t('networks.comparison.flipToDetails')
         }
       >
-        <div className="relative w-full [perspective:1000px]">
+        <div
+          className={`relative w-full [perspective:1000px] ${
+            isFlipped ? 'min-h-[min(72dvh,640px)]' : ''
+          }`}
+        >
           <div
-            className={`relative w-full transition-transform duration-500 [transform-style:preserve-3d] ${
+            className={`relative w-full h-full min-h-[inherit] transition-transform duration-500 [transform-style:preserve-3d] ${
               isFlipped ? '[transform:rotateY(180deg)]' : ''
             }`}
           >
@@ -151,12 +172,14 @@ export default function FlipNetworkCard({
               />
             </div>
 
-            {/* Back — fills front height; scroll if details are longer */}
+            {/* Back — tall viewport on mobile; inner region scrolls (Embla-safe touch) */}
             <div
-              className={`absolute inset-0 overflow-y-auto overscroll-y-auto [backface-visibility:hidden] [transform:rotateY(180deg)] ${backgroundColor} p-6 flex flex-col gap-5 ${
+              className={`absolute inset-0 min-h-[inherit] [backface-visibility:hidden] [transform:rotateY(180deg)] ${backgroundColor} p-6 flex flex-col gap-4 min-h-0 ${
                 isFlipped ? 'pointer-events-auto' : 'pointer-events-none'
               }`}
-              onWheel={handleBackWheel}
+              onClick={stopCardToggle}
+              onTouchStart={stopCardToggle}
+              onTouchMove={stopCardToggle}
             >
               <div className="flex items-start gap-4 shrink-0">
                 <img
@@ -171,11 +194,30 @@ export default function FlipNetworkCard({
 
               <div className="h-[1px] bg-white opacity-20 shrink-0" />
 
-              <NetworkDetailsPanel
-                network={network}
-                textColor={textColor}
-                accentColor={accentColor}
-              />
+              <div
+                className="flex-1 min-h-0 overflow-y-auto overscroll-y-contain touch-pan-y [-webkit-overflow-scrolling:touch] pr-1"
+                onWheel={handleBackWheel}
+                onClick={stopCardToggle}
+                onTouchStart={stopCardToggle}
+                onTouchMove={stopCardToggle}
+              >
+                <NetworkDetailsPanel
+                  network={network}
+                  textColor={textColor}
+                  accentColor={accentColor}
+                />
+              </div>
+
+              <button
+                type="button"
+                className={`shrink-0 text-left text-sm font-semibold underline underline-offset-2 ${accentColor} hover:opacity-90`}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  toggleFlip()
+                }}
+              >
+                {t('networks.comparison.flipBack')}
+              </button>
             </div>
           </div>
         </div>

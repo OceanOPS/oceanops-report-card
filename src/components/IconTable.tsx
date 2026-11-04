@@ -69,23 +69,24 @@ export default function IconTable({
 }: IconTableProps) {
   const tableRef = useRef<HTMLDivElement>(null)
 
-  // Map columns to grid classes
-  const gridColsMap = {
+  /** Desktop column count; mobile uses fewer columns so legends do not overlap (#184). */
+  const gridColsMap: Record<IconTableProps['columns'], string> = {
     1: 'grid-cols-1',
     2: 'grid-cols-2',
-    3: 'grid-cols-3',
-    4: 'grid-cols-4',
-    5: 'grid-cols-5',
-    6: 'grid-cols-6',
-    7: 'grid-cols-7',
-    8: 'grid-cols-8',
-    9: 'grid-cols-9',
-    10: 'grid-cols-10',
-    11: 'grid-cols-11',
-    12: 'grid-cols-12',
+    3: 'grid-cols-2 sm:grid-cols-3',
+    4: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4',
+    5: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-5',
+    6: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-6',
+    7: 'grid-cols-2 sm:grid-cols-4 md:grid-cols-7',
+    8: 'grid-cols-2 sm:grid-cols-4 md:grid-cols-8',
+    9: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-9',
+    10: 'grid-cols-3 sm:grid-cols-5 md:grid-cols-10',
+    11: 'grid-cols-3 sm:grid-cols-5 md:grid-cols-11',
+    12: 'grid-cols-3 sm:grid-cols-6 md:grid-cols-12',
   }
 
   const gridCols = gridColsMap[columns]
+  const singleHeaderSpansAll = headers.length === 1 && columns > 1
 
   // Animate icons with pop-up effect on scroll
   useEffect(() => {
@@ -134,7 +135,9 @@ export default function IconTable({
         {headers.map((header, index) => (
           <div
             key={index}
-            className={`p-4 font-bold text-base ${headerTextColor}`}
+            className={`p-3 sm:p-4 font-bold text-sm sm:text-base ${headerTextColor} ${
+              singleHeaderSpansAll ? 'col-span-full' : ''
+            }`}
           >
             {header}
           </div>
@@ -150,20 +153,22 @@ export default function IconTable({
           {row.map((cell, cellIndex) => (
             <div
               key={cellIndex}
-              className={`icon-cell p-4 flex flex-col items-center gap-2`}
+              className="icon-cell p-2 sm:p-4 flex flex-col items-center justify-start gap-1.5 sm:gap-2 min-w-0"
             >
               {/* Icon/Image */}
               {cell.icon && (
                 <img
                   src={cell.icon}
                   alt={cell.legend || ''}
-                  className={`object-contain ${cell.iconSize || 'w-12 h-12'}`}
+                  className="object-contain shrink-0 w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16"
                 />
               )}
 
               {/* Legend/Text */}
               {cell.legend && (
-                <p className={`text-sm ${rowTextColor} text-center`}>
+                <p
+                  className={`text-[11px] leading-snug sm:text-sm sm:leading-normal ${rowTextColor} text-center w-full max-w-[9.5rem] sm:max-w-none break-words [overflow-wrap:anywhere]`}
+                >
                   {cell.legend}
                 </p>
               )}

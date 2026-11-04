@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-11-02",
+  "exportedAt": "2026-11-04",
   "year": 2026,
   "isos": [
     "AE",
@@ -94,7 +94,7 @@
       },
       {
         "id": "argo",
-        "count": 292
+        "count": 293
       },
       {
         "id": "oceanGliders",
@@ -110,7 +110,7 @@
       },
       {
         "id": "sotVos",
-        "count": 32
+        "count": 29
       },
       {
         "id": "soconet",
@@ -164,7 +164,7 @@
     "BG": [
       {
         "id": "argo",
-        "count": 8
+        "count": 9
       }
     ],
     "BM": [
@@ -220,7 +220,7 @@
       },
       {
         "id": "argo",
-        "count": 196
+        "count": 197
       },
       {
         "id": "oceanGliders",
@@ -286,7 +286,7 @@
       },
       {
         "id": "sotVos",
-        "count": 63
+        "count": 65
       },
       {
         "id": "gloss",
@@ -352,7 +352,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 6
+        "count": 5
       },
       {
         "id": "hfRadars",
@@ -410,7 +410,7 @@
     "EU": [
       {
         "id": "driftingBuoys",
-        "count": 139
+        "count": 138
       },
       {
         "id": "argo",
@@ -460,7 +460,7 @@
       },
       {
         "id": "argo",
-        "count": 304
+        "count": 303
       },
       {
         "id": "oceanGliders",
@@ -472,7 +472,7 @@
       },
       {
         "id": "sotVos",
-        "count": 51
+        "count": 50
       },
       {
         "id": "soconet",
@@ -506,7 +506,7 @@
       },
       {
         "id": "argo",
-        "count": 144
+        "count": 147
       },
       {
         "id": "oceanGliders",
@@ -632,7 +632,7 @@
       },
       {
         "id": "argo",
-        "count": 133
+        "count": 138
       },
       {
         "id": "gloss",
@@ -716,7 +716,7 @@
       },
       {
         "id": "sotVos",
-        "count": 142
+        "count": 140
       },
       {
         "id": "sotAsap",
@@ -760,7 +760,7 @@
       },
       {
         "id": "sotVos",
-        "count": 15
+        "count": 14
       },
       {
         "id": "gloss",
@@ -1020,11 +1020,11 @@
     "US": [
       {
         "id": "driftingBuoys",
-        "count": 1085
+        "count": 1083
       },
       {
         "id": "argo",
-        "count": 2533
+        "count": 2531
       },
       {
         "id": "oceanGliders",
@@ -1032,11 +1032,11 @@
       },
       {
         "id": "fvon",
-        "count": 213
+        "count": 212
       },
       {
         "id": "sotVos",
-        "count": 585
+        "count": 586
       },
       {
         "id": "soconet",
@@ -1064,7 +1064,7 @@
       },
       {
         "id": "mooredBuoys",
-        "count": 199
+        "count": 198
       },
       {
         "id": "tsunamiBuoys",
