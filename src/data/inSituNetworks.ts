@@ -261,7 +261,7 @@ export const inSituNetworks: InSituNetworkRecord[] = [
     iconPath: '/icons/network/asap.svg',
     iconAlt: 'networks.sotAsap.iconAlt',
     titleKey: 'networks.sotAsap.title',
-    networkUrl: 'https://www.ocean-ops.org/sot/programmes.html#ASAP',
+    networkUrl: 'https://sot.ocean-ops.org/asap.html',
     ratings: {
       implementationStatus: 'noTarget',
       realTime: 2.5,
