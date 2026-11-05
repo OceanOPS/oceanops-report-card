@@ -2,7 +2,7 @@
  * DeliveryAreasNav Component
  *
  * Fixed navigation bar that appears when viewing "Value of ocean observations" sections.
- * Shows three delivery areas (Climate/AMOC, Operational Services/El Niño, Ocean Health)
+ * Shows three delivery areas (Climate, Forecasting and Early Warnings, Ocean Health)
  * with icons and allows quick navigation between sections.
  *
  * Features:

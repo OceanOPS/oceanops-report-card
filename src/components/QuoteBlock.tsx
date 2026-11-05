@@ -87,7 +87,7 @@ export default function QuoteBlock({
       )}
 
       {/* Quote Text */}
-      <p className={`text-xl sm:text-2xl md:text-3xl font-semibold ${quoteColor} leading-[1.4] font-roboto-condensed`}>
+      <p className={`text-xl sm:text-2xl md:text-3xl font-semibold ${quoteColor} leading-[1.4] font-roboto-condensed whitespace-pre-line`}>
         {quote}
       </p>
 

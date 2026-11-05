@@ -299,6 +299,7 @@ export default function EmergingNetworkCard({
                     content={area.labelKey}
                     backgroundColor={tooltipBgColor}
                     textColor={tooltipTextColor}
+                    placement="left"
                   >
                     <div className="bg-goos-cyan-200 rounded-full p-1.5 sm:p-2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
                       <img
