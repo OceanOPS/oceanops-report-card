@@ -319,7 +319,7 @@
     "paragraph1": "General information: <a href=\"https://www.goosocean.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.goosocean.org</a><br/><i>In situ</i> networks status: <a href=\"https://www.ocean-ops.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">www.ocean-ops.org</a><br/>GOOS Status Report information: <a href=\"mailto:l.stukonyte@unesco.org\" class=\"text-goos-orange-500 underline hover:no-underline\">l.stukonyte@unesco.org</a> / <a href=\"mailto:erusciano@ocean-ops.org\" class=\"text-goos-orange-500 underline hover:no-underline\">erusciano@ocean-ops.org</a>",
     "paragraph2": "Authors: GOOS Secretariat, OceanOPS, GOOS Observations Coordination Group<br/>GOOS Report no. 327. DOI: <a href=\"https://doi.org/10.71245/YFVA2935\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">10.71245/YFVA2935</a>",
     "paragraph3": "With special thanks to all contributing authors: Mathieu Belbéoch, Zulfikar Begg, Abed El Rahman Hassoun, Séverine Fournier, Nicolas Kolodziejczyk, Joanna Post, Bipendra Prakash, Emanuela Rusciano, Laura Stukonytė, Erica Towle, Esmee Van Wijk.",
-    "paragraph4": "Cover video: Karim Ilya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a>",
+    "paragraph4": "Cover video: Karim Iliya / <a href=\"http://kogia.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-goos-orange-500 underline hover:no-underline\">Kogia</a>",
     "paragraph5": "Lead editors: Laura Stukonytė & Emanuela Rusciano<br/>Mapping and Web development: Magali Krieger, Thomas Mignon & Thomas Latter"
   },
   "content": {
@@ -815,13 +815,13 @@
       "maturity": "Maturity",
       "challenges": "Challenges",
       "opportunities": "Opportunities",
-      "tapForDetails": "Tap a card to flip it and explore network applications, coverage, essential variables measured, implementation status and much more.",
-      "tapForRatings": "Tap a card to flip it and explore network applications, coverage, essential variables measured, implementation status and much more.",
+      "tapForDetails": "Tap a card to flip it and explore network applications, coverage, implementation status and much more.",
+      "tapForRatings": "Tap a card to flip it and explore network applications, coverage, implementation status and much more.",
       "tapToReturn": "Tap to return",
       "flipToDetails": "Show network details",
       "flipBack": "Show network ratings",
       "mobileTitle": "<i>In situ</i> networks",
-      "mobileHint": "Tap a card to flip it and view applications, coverage, and targets.",
+      "mobileHint": "Tap a card to flip it and explore network applications, coverage, implementation status and much more.",
       "mobileDesktopHint": "Try the desktop web version for an alternate view of this section and more features.",
       "desktopExpandHint": "Click a row to expand applications, coverage, and targets.",
       "columns": {
