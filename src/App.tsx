@@ -1583,16 +1583,30 @@ function App() {
             </div>
 
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
-              {t('redwing.paragraph2')}
+              {t('redwing.paragraph1')}
             </p>
+            <p
+              className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2"
+              dangerouslySetInnerHTML={{ __html: t('redwing.paragraph2') }}
+            />
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
               {t('redwing.paragraph3')}
             </p>
+            <p
+              className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2"
+              dangerouslySetInnerHTML={{ __html: t('redwing.paragraph4') }}
+            />
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph5')}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
+              {t('redwing.paragraph6')}
+            </p>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
-              {t('redwing.paragraph4')}
+              {t('redwing.paragraph7')}
             </p>
 
-            <div className="-mx-4 sm:mx-0 mb-4 sm:mb-6">
+            <div className="-mx-4 sm:mx-0 mb-6 sm:mb-8 md:mb-10">
               <ImageCaption
                 src={asset('/images/report-2026/story_map_glider recovery_Joe Gradone_Rutgers University.png')}
                 alt={t('redwing.recoveryMapAlt')}
@@ -1602,17 +1616,6 @@ function App() {
                 imageBackgroundClass="bg-goos-green-100"
               />
             </div>
-
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
-              {t('redwing.paragraph5')}
-            </p>
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
-              {t('redwing.paragraph6')}
-            </p>
-            <p
-              className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 md:mb-10"
-              dangerouslySetInnerHTML={{ __html: t('redwing.readFullStory') }}
-            />
           </ContentModule>
         </div>
 

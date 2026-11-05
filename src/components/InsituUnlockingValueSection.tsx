@@ -19,6 +19,7 @@ export default function InsituUnlockingValueSection() {
         dangerouslySetInnerHTML={{ __html: t(`${base}.paragraph4`) }}
       />
       <p className={insituBodyClass}>{t(`${base}.paragraph5`)}</p>
+      <p className={insituBodyClass}>{t(`${base}.paragraph6`)}</p>
     </>
   )
 }

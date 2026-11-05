@@ -22,7 +22,7 @@ export const DEFAULT_DELIVERY_AREAS: DeliveryAreaConfig[] = [
   },
   {
     iconSrc: asset('/icons/operational_services.png'),
-    iconAlt: 'Operational Services',
+    iconAlt: 'Forecasting and Early Warnings',
     textKey: 'networks.deliveryAreas.operational',
     sectionId: 'elnino-section',
   },
@@ -202,7 +202,7 @@ export default function ColorStripes({
                 className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain pointer-events-none"
               />
               {/* Texto */}
-              <p className="text-goos-blue-700 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center uppercase tracking-wide font-roboto-condensed pointer-events-none"
+              <p className="text-goos-blue-700 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center uppercase tracking-wide font-roboto-condensed pointer-events-none max-w-[92%] sm:max-w-[85%] px-2 leading-snug sm:leading-tight"
               >
                 {t(deliveryAreas[index].textKey)}
               </p>
