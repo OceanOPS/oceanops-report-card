@@ -1157,7 +1157,7 @@ function App() {
 
         <div className="-mx-4 sm:mx-0">
           <ImageCaption
-            src={asset('/images/report-2026/image (3).jfif')}
+            src={asset('/images/report-2026/tideCalendarsKiribatiCaption.jpg')}
             alt={t('elNino.tideCalendarsKiribatiCaption')}
             caption={t('elNino.tideCalendarsKiribatiCaption')}
           />
