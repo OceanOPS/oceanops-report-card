@@ -656,6 +656,7 @@
     "indicatorsModal": {
       "title": "Network Performance Indicators",
       "intro": "Each network is evaluated by OceanOPS across five GOOS core attributes, rated on a scale from 0 to 3 stars. In some cases, a number of metrics are self-assessed by the networks when direct OceanOPS monitoring capacity is missing or information is not available (for example: missing metadata, unknown delayed mode data nodes, or absence of clear targets).",
+      "bestPracticesOverview": "Best Practices is one of the five core attributes. Its assessment is provided by the OCG Chair for Standards and Best Practices and is supported by a documented assessment framework, including evidence, justifications and ratings for each network. This approach helps ensure consistency and transparency across networks. The supporting assessment document is available upon request.",
       "moreButton": "More...",
       "implementationStatus": {
         "title": "Implementation Status",

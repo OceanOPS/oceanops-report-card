@@ -483,6 +483,9 @@ function App() {
               <p className="text-base sm:text-lg leading-relaxed text-white">
                 {t('networks.indicatorsModal.intro')}
               </p>
+              <p className="text-base sm:text-lg leading-relaxed text-white">
+                {t('networks.indicatorsModal.bestPracticesOverview')}
+              </p>
 
               {/* Implementation Status */}
               <div>
