@@ -1557,31 +1557,37 @@ function App() {
 
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
-      {/* Community collaboration — Redwing (2026) */}
-      <div id="community-section" className="bg-goos-green-100">
-        <div id="redwing-section">
-          <ContentModule
-            title={t('communityCollaboration.title')}
-            titleLevel="h2"
-            titleColor="text-goos-blue-700"
-            layout="split"
-            backgroundColor="bg-goos-green-100"
-            textColor="text-goos-gray-800"
-            lineColor="bg-goos-green-700"
-            stickyTitle={false}
-            includeBottomSpacer={false}
-          >
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6">
-              {t('communityCollaboration.leadParagraph')}
-            </p>
+      {/* Community collaboration */}
+      <div id="community-section">
+        <ContentModule
+          title={t('communityCollaboration.title')}
+          titleLevel="h2"
+          titleColor="text-goos-blue-700"
+          layout="split"
+          backgroundColor="bg-goos-green-100"
+          textColor="text-goos-gray-800"
+          lineColor="bg-goos-green-700"
+        >
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+            {t('communityCollaboration.leadParagraph')}
+          </p>
+        </ContentModule>
+      </div>
 
-            <div className="mb-3 sm:mb-4">
-              <div className="bg-goos-green-700 h-1 w-12 sm:w-16 mb-3 sm:mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold text-goos-blue-700">
-                {t('redwing.title')}
-              </h3>
-            </div>
+      <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
+      {/* Redwing */}
+      <div id="redwing-section" className="bg-goos-green-100">
+        <ContentModule
+          title={t('redwing.title')}
+          titleLevel="h3"
+          titleColor="text-goos-blue-700"
+          layout="split"
+          backgroundColor="bg-goos-green-100"
+          textColor="text-goos-gray-800"
+          lineColor="bg-goos-green-700"
+          includeBottomSpacer={false}
+        >
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-1.5 sm:mb-2">
               {t('redwing.paragraph1')}
             </p>
@@ -1628,8 +1634,7 @@ function App() {
               className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 md:mb-10"
               dangerouslySetInnerHTML={{ __html: t('redwing.readFullStory') }}
             />
-          </ContentModule>
-        </div>
+        </ContentModule>
 
         <QuoteWithImage
           quote={t('redwing.quote.text')}
