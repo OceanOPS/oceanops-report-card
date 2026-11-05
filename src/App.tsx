@@ -217,9 +217,9 @@ function App() {
             titleKey: 'valueOfObservations.title',
             accentColor: 'bg-goos-cyan-600',
             subItems: [
-              { id: 'amoc-section', titleKey: 'amoc.kicker', accentColor: 'bg-goos-cyan-600' },
-              { id: 'elnino-section', titleKey: 'elNino.kicker', accentColor: 'bg-goos-cyan-600' },
-              { id: 'oceanhealth-section', titleKey: 'oceanHealth.kicker', accentColor: 'bg-goos-cyan-600' },
+              { id: 'amoc-section', titleKey: 'amoc.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'elnino-section', titleKey: 'elNino.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'oceanhealth-section', titleKey: 'oceanHealth.title', accentColor: 'bg-goos-cyan-600' },
             ],
           },
           {
