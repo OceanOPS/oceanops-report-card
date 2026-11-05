@@ -212,6 +212,7 @@ export default function NetworkComparisonMatrix({
                       content={area.labelKey}
                       backgroundColor="bg-goos-blue-900"
                       textColor="text-goos-white"
+                      placement="left"
                     >
                       <div className="bg-goos-cyan-200 rounded-full p-1.5 w-9 h-9 flex items-center justify-center">
                         <img
