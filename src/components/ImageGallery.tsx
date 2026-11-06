@@ -185,11 +185,13 @@ export default function ImageGallery({
               {images.map((_, index) => (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => goToIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? `${activeDotColor} w-6` : dotColor
+                  className={`block shrink-0 appearance-none rounded-full border-0 p-0 transition-all duration-300 h-2 ${
+                    index === currentIndex ? `w-6 ${activeDotColor}` : `w-2 ${dotColor}`
                   }`}
                   aria-label={`Go to image ${index + 1}`}
+                  aria-current={index === currentIndex ? 'true' : undefined}
                 />
               ))}
             </div>

@@ -94,7 +94,7 @@ export default function FlipNetworkCard({
     }
   }
 
-  const stopCardToggle = (event: { stopPropagation: () => void }) => {
+  const stopCarouselTouch = (event: { stopPropagation: () => void }) => {
     event.stopPropagation()
   }
 
@@ -102,8 +102,12 @@ export default function FlipNetworkCard({
     if (!isFlipped) toggleFlip()
   }
 
+  const handleBackClick = (event: MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation()
+    setIsFlipped(false)
+  }
+
   const handleShellKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (isFlipped) return
     handleKeyDown(event)
   }
 
@@ -128,7 +132,7 @@ export default function FlipNetworkCard({
         onClick={handleShellClick}
         onKeyDown={handleShellKeyDown}
         className={`w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-goos-orange-500 rounded-sm transition-transform ${
-          isFlipped ? 'cursor-default' : 'cursor-pointer active:scale-[0.995]'
+          isFlipped ? '' : 'cursor-pointer active:scale-[0.995]'
         }`}
         aria-label={
           isFlipped
@@ -175,11 +179,11 @@ export default function FlipNetworkCard({
             {/* Back — tall viewport on mobile; inner region scrolls (Embla-safe touch) */}
             <div
               className={`absolute inset-0 min-h-[inherit] [backface-visibility:hidden] [transform:rotateY(180deg)] ${backgroundColor} p-6 flex flex-col gap-4 min-h-0 ${
-                isFlipped ? 'pointer-events-auto' : 'pointer-events-none'
+                isFlipped ? 'pointer-events-auto cursor-pointer' : 'pointer-events-none'
               }`}
-              onClick={stopCardToggle}
-              onTouchStart={stopCardToggle}
-              onTouchMove={stopCardToggle}
+              onClick={handleBackClick}
+              onTouchStart={stopCarouselTouch}
+              onTouchMove={stopCarouselTouch}
             >
               <div className="flex items-start gap-4 shrink-0">
                 <img
@@ -197,9 +201,8 @@ export default function FlipNetworkCard({
               <div
                 className="flex-1 min-h-0 overflow-y-auto overscroll-y-contain touch-pan-y [-webkit-overflow-scrolling:touch] pr-1"
                 onWheel={handleBackWheel}
-                onClick={stopCardToggle}
-                onTouchStart={stopCardToggle}
-                onTouchMove={stopCardToggle}
+                onTouchStart={stopCarouselTouch}
+                onTouchMove={stopCarouselTouch}
               >
                 <NetworkDetailsPanel
                   network={network}
@@ -208,16 +211,11 @@ export default function FlipNetworkCard({
                 />
               </div>
 
-              <button
-                type="button"
-                className={`shrink-0 text-left text-sm font-semibold underline underline-offset-2 ${accentColor} hover:opacity-90`}
-                onClick={(event) => {
-                  event.stopPropagation()
-                  toggleFlip()
-                }}
+              <p
+                className={`shrink-0 text-left text-sm font-semibold underline underline-offset-2 ${accentColor} pointer-events-none`}
               >
                 {t('networks.comparison.flipBack')}
-              </button>
+              </p>
             </div>
           </div>
         </div>

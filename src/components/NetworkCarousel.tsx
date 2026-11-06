@@ -265,17 +265,19 @@ export default function NetworkCarousel({
       {/* Navigation Controls: Dots (left) + Arrows (right) */}
       <div className="flex justify-between items-center px-4 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4">
         {/* Pagination Dots - Left aligned - One dot per snap point */}
-        <div className="flex gap-2">
+        <div className="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {scrollSnaps.map((_, index) => (
             <button
               key={index}
+              type="button"
               onClick={() => scrollTo(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
+              className={`block shrink-0 appearance-none rounded-full border-0 p-0 transition-all duration-200 h-2 ${
                 index === selectedIndex
-                  ? 'bg-white w-8'
-                  : 'bg-white opacity-30 hover:opacity-50'
+                  ? 'w-8 bg-white'
+                  : 'w-2 bg-white/30 hover:bg-white/50'
               }`}
               aria-label={`Go to slide ${index + 1}`}
+              aria-current={index === selectedIndex ? 'true' : undefined}
             />
           ))}
         </div>
