@@ -18,13 +18,13 @@ export const DEFAULT_DELIVERY_AREAS: DeliveryAreaConfig[] = [
     iconSrc: asset('/icons/climate.png'),
     iconAlt: 'Climate',
     textKey: 'networks.deliveryAreas.climate',
-    sectionId: 'amoc-section',
+    sectionId: 'climate-section',
   },
   {
     iconSrc: asset('/icons/operational_services.png'),
     iconAlt: 'Forecasting and Early Warnings',
     textKey: 'networks.deliveryAreas.operational',
-    sectionId: 'elnino-section',
+    sectionId: 'forecasting-section',
   },
   {
     iconSrc: asset('/icons/ocean_health.png'),

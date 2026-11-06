@@ -22,13 +22,13 @@ const DELIVERY_AREAS = [
     key: 'climate',
     icon: asset('/icons/climate.png'),
     labelKey: 'networks.deliveryAreas.climate',
-    sectionId: 'amoc-section',
+    sectionId: 'climate-section',
   },
   {
     key: 'operational',
     icon: asset('/icons/operational_services.png'),
     labelKey: 'networks.deliveryAreas.operational',
-    sectionId: 'elnino-section',
+    sectionId: 'forecasting-section',
   },
   {
     key: 'oceanhealth',

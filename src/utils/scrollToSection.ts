@@ -6,6 +6,17 @@ const SECTION_SCROLL_BLOCK: Record<string, SectionScrollBlock> = {
   'map-section': 'center',
 }
 
+/** 2025 anchor names still used in some comms links */
+export const LEGACY_SECTION_HASH: Record<string, string> = {
+  'amoc-section': 'climate-section',
+  'elnino-section': 'forecasting-section',
+  'southafrica-section': 'international-alliance-section',
+}
+
+export function resolveSectionHash(hash: string): string {
+  return LEGACY_SECTION_HASH[hash] ?? hash
+}
+
 export function getSectionScrollBlock(sectionId: string): SectionScrollBlock {
   return SECTION_SCROLL_BLOCK[sectionId] ?? 'start'
 }

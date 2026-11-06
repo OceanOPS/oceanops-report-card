@@ -33,7 +33,7 @@ const MAP_SRC =
 import DeliveryAreasNav from './components/DeliveryAreasNav'
 import ColorStripes from './components/ColorStripes'
 import { asset } from './utils/assets'
-import { navigateToSection } from './utils/scrollToSection'
+import { navigateToSection, resolveSectionHash } from './utils/scrollToSection'
 import {
   contributingCountries,
   countriesDeltaVsLastYear,
@@ -83,8 +83,13 @@ function App() {
   // Handle deep linking - scroll to section if hash is present in URL
   useEffect(() => {
     const scrollToHash = (behavior: ScrollBehavior = 'smooth') => {
-      const hash = window.location.hash.slice(1)
+      let hash = window.location.hash.slice(1)
       if (!hash) return
+      const resolved = resolveSectionHash(hash)
+      if (resolved !== hash) {
+        window.history.replaceState(null, '', `#${resolved}`)
+        hash = resolved
+      }
       ;(window as any).isScrollingProgrammatically = true
       void navigateToSection(hash, { behavior }).finally(() => {
         setTimeout(() => {
@@ -117,11 +122,11 @@ function App() {
       'satellite-section',
       'data-section',
       'value-section',
-      'amoc-section',
-      'elnino-section',
+      'climate-section',
+      'forecasting-section',
       'oceanhealth-section',
       'strengthening-section',
-      'southafrica-section',
+      'international-alliance-section',
       'community-section',
       'redwing-section',
       'calltoaction-section',
@@ -217,8 +222,8 @@ function App() {
             titleKey: 'valueOfObservations.title',
             accentColor: 'bg-goos-cyan-600',
             subItems: [
-              { id: 'amoc-section', titleKey: 'amoc.title', accentColor: 'bg-goos-cyan-600' },
-              { id: 'elnino-section', titleKey: 'elNino.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'climate-section', titleKey: 'amoc.title', accentColor: 'bg-goos-cyan-600' },
+              { id: 'forecasting-section', titleKey: 'elNino.title', accentColor: 'bg-goos-cyan-600' },
               { id: 'oceanhealth-section', titleKey: 'oceanHealth.title', accentColor: 'bg-goos-cyan-600' },
             ],
           },
@@ -227,7 +232,7 @@ function App() {
             titleKey: 'strengtheningSystem.title',
             accentColor: 'bg-goos-green-700',
             subItems: [
-              { id: 'southafrica-section', titleKey: 'menu.strengtheningCountriesUnite', accentColor: 'bg-goos-green-700' },
+              { id: 'international-alliance-section', titleKey: 'menu.strengtheningCountriesUnite', accentColor: 'bg-goos-green-700' },
             ],
           },
           {
@@ -957,7 +962,7 @@ function App() {
       <ColorStripes />
 
       {/* AMOC Climate Story */}
-      <div id="amoc-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
+      <div id="climate-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
       <ContentModule
         kicker={t('amoc.kicker')}
         title={t('amoc.title')}
@@ -1124,7 +1129,7 @@ function App() {
       </div>
 
       {/* El Niño Operational Services Story */}
-      <div id="elnino-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
+      <div id="forecasting-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
       <ContentModule
         kicker={t('elNino.kicker')}
         title={t('elNino.title')}
@@ -1481,7 +1486,7 @@ function App() {
         <Spacer size="md" backgroundColor="bg-goos-green-100"/>
 
       {/* South Africa - Agulhas Current Story */}
-      <div id="southafrica-section">
+      <div id="international-alliance-section">
       <ContentModule
         title={t('southAfrica.title')}
         titleLevel="h3"

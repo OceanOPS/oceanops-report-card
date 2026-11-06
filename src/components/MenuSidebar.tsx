@@ -87,7 +87,7 @@ export default function MenuSidebar({
   useEffect(() => {
     const handleScroll = () => {
       // Check if we're in any of the delivery area sections
-      const sections = ['amoc-section', 'elnino-section', 'oceanhealth-section']
+      const sections = ['climate-section', 'forecasting-section', 'oceanhealth-section']
       const scrollPosition = window.scrollY + 100
       let inSection = false
 
