@@ -37,13 +37,13 @@ const DeliveryAreasSection = () => {
             iconSrc: '/icons/climate.png',
             iconAlt: 'Climate',
             textKey: 'Climate & Ocean Circulation',
-            sectionId: 'amoc-section',
+            sectionId: 'climate-section',
           },
           {
             iconSrc: '/icons/operational_services.png',
             iconAlt: 'Operational Services',
             textKey: 'Operational Services',
-            sectionId: 'elnino-section',
+            sectionId: 'forecasting-section',
           },
           {
             iconSrc: '/icons/ocean_health.png',
@@ -59,7 +59,7 @@ const DeliveryAreasSection = () => {
       <DeliveryAreasNav />
 
       {/* Story 1: Climate - AMOC Section */}
-      <div id="amoc-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
+      <div id="climate-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
         <ContentModule
           kicker="Climate & Ocean Circulation"
           title="Atlantic Meridional Overturning Circulation (AMOC)"
@@ -104,7 +104,7 @@ const DeliveryAreasSection = () => {
       </div>
 
       {/* Story 2: Operational Services - El Niño Section */}
-      <div id="elnino-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
+      <div id="forecasting-section" className="pt-8 sm:pt-12 md:pt-16 bg-goos-white">
         <ContentModule
           kicker="Operational Services"
           title="El Niño Southern Oscillation (ENSO)"
@@ -224,8 +224,8 @@ type Story = StoryObj<typeof meta>;
  * 1. ContentModule h2 → "Value of Ocean Observations"
  * 2. ColorStripes → Visual transition with delivery area icons
  * 3. DeliveryAreasNav → Fixed nav (highlights active section on scroll)
- * 4. ContentModule h3 → AMOC story (#amoc-section)
- * 5. ContentModule h3 → El Niño story (#elnino-section)
+ * 4. ContentModule h3 → AMOC story (#climate-section)
+ * 5. ContentModule h3 → El Niño story (#forecasting-section)
  * 6. ContentModule h3 → Ocean Health story (#oceanhealth-section)
  *
  * Navigation:
