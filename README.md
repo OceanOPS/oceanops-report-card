@@ -88,17 +88,21 @@ Restart the dev server after editing `.env.development.local`. `npm run build` r
 ### Build for Production
 
 ```bash
-# Type-check and build
+# Site root /goosreport/ only → dist/
 npm run build
 
-# Preview production build
+# Root + edition (e.g. 2026) → dist/ and dist-edition/
+npm run build -- 2026
+
 npm run preview
 ```
+
+**Production deployment (SSH upload to ocean-ops.org):** see [PRODUCTION-DEPLOYMENT.md](./PRODUCTION-DEPLOYMENT.md).
 
 ## Available Scripts
 
 - `npm run dev` - Start development server with HMR
-- `npm run build` - Type-check with TypeScript and build for production
+- `npm run build` - Production build (`/goosreport/`); optional year: `npm run build -- 2026`
 - `npm run lint` - Run ESLint on all TypeScript files
 - `npm run preview` - Preview production build locally
 - `npm run export:partners` - Regenerate partner data via **[oceanops-data-exports](../oceanops-data-exports)** (`partnerCountries.ts` + simple-map JSON)
@@ -273,10 +277,11 @@ This approach allows seamless cherry-picking of commits between branches without
 - **URL**: Deployed to root path
 - **Purpose**: Testing and preview environment
 
-### Production
-- **Branch**: `main`
-- **URL**: Deployed to `/demos/report-card/` subdirectory
-- **Purpose**: Live production site
+### Production (ocean-ops.org)
+
+- **Root URL:** https://www.ocean-ops.org/goosreport/
+- **Edition URL:** https://www.ocean-ops.org/goosreport/2026/ (current year)
+- **Steps:** [PRODUCTION-DEPLOYMENT.md](./PRODUCTION-DEPLOYMENT.md)
 
 ## Key Components
 

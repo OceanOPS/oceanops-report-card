@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node scripts/assert-no-localhost-in-dist.mjs",
+    "build": "node scripts/build.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "export:partners": "npm run export:partners --prefix ../oceanops-data-exports",
